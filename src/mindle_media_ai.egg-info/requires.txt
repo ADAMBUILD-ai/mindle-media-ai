@@ -1,5 +1,0 @@
-Pillow>=10.0
-opencv-python-headless>=5.0
-
-[dev]
-pytest>=9.0
