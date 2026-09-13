@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED_SOURCE_ASSET_NOT_PRESENT",
+  "approved_ui_asset": null,
+  "asset_sha256": null,
+  "approved_at": null,
+  "ssot_document": "../docs/01_UI_SSOT_FINAL.md",
+  "required_location": "assets/ssot/",
+  "rule": "Do not infer pixel geometry, color values or panel proportions until the user-approved image or source is added to the required location."
+}
