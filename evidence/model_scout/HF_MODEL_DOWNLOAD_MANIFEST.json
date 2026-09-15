@@ -4,8 +4,8 @@
   "download_session": "BROWSER_SIGNED_IN_RUNTIME_BLOCKED_WINERROR_10013",
   "entries": [
     {"repo_id": "opencv/inpainting_lama", "revision": "aee6d22f0a13e5e35af1c9a1c3afd62841fc6f3f", "file": "inpainting_lama_2025jan.onnx", "local_path": "model_scout/artifacts/lama/inpainting_lama_2025jan.onnx", "size_bytes": 92591623, "sha256": "7df918ac3921d3daf0aae1d219776cf0dc4e4935f035af81841b40adcf74fdf2", "status": "LOCAL_FILE_PRESENT"},
-    {"repo_id": "facebook/sam2.1-hiera-base-plus", "revision": "b7320756a13354e7530a63935656d35b2f91a290", "file": "model.safetensors", "license": "apache-2.0", "status": "SAFE_FILE_SELECTED_BROWSER_DOWNLOAD_REQUESTED_LOCAL_ARRIVAL_UNVERIFIED"},
+    {"repo_id": "facebook/sam2.1-hiera-base-plus", "revision": "b7320756a13354e7530a63935656d35b2f91a290", "file": "model.safetensors", "license": "apache-2.0", "status": "SAFE_FILE_SELECTED_BROWSER_DOWNLOAD_BLOCKED_ERR_BLOCKED_BY_CLIENT"},
     {"repo_id": "openai/whisper-large-v3-turbo", "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9", "file": "model.safetensors", "license": "mit", "status": "SAFE_FILE_SELECTED_BROWSER_DOWNLOAD_BLOCKED_ERR_BLOCKED_BY_CLIENT"},
-    {"repo_id": "qualcomm/Real-ESRGAN-x4plus", "revision": "4022efb8b74eb88900724d9e05a468ac3673df4a", "license": "bsd-3-clause", "file": "real_esrgan_x4plus-onnx-float.zip", "source_url": "https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-models/models/real_esrgan_x4plus/releases/v0.62.2/real_esrgan_x4plus-onnx-float.zip", "status": "EXACT_RELEASE_ASSET_RESOLVED_RUNTIME_NETWORK_BLOCKED"}
+    {"repo_id": "qualcomm/Real-ESRGAN-x4plus", "revision": "4022efb8b74eb88900724d9e05a468ac3673df4a", "license": "bsd-3-clause", "file": "real_esrgan_x4plus-onnx-float.zip", "source_url": "https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-models/models/real_esrgan_x4plus/releases/v0.62.2/real_esrgan_x4plus-onnx-float.zip", "status": "EXACT_RELEASE_ASSET_BROWSER_DOWNLOAD_BLOCKED_ERR_BLOCKED_BY_CLIENT"}
   ]
 }
