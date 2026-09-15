@@ -24,3 +24,19 @@ def test_enter_submission_requires_a_nonempty_command():
     ui.photo_command.focus()
     with pytest.raises(ValueError):
         ui.photo_command.submit()
+
+
+def test_reference_limit_and_failed_command_preserve_the_draft():
+    ui = MediaUiContract()
+    ui.photo_command.text = "유리 반사를 줄여줘"
+    for index in range(5):
+        ui.photo_command.attach_reference(f"reference-{index}.png")
+
+    with pytest.raises(ValueError, match="maximum of 5"):
+        ui.photo_command.attach_reference("reference-5.png")
+
+    ui.photo_command.submit()
+    ui.photo_command.fail()
+    assert ui.photo_command.phase is CommandPhase.EXPANDED
+    assert ui.photo_command.text == "유리 반사를 줄여줘"
+    assert len(ui.photo_command.reference_files) == 5
