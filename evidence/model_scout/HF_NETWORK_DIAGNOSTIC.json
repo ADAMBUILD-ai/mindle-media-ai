@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "captured_at": "2026-09-15T00:00:00Z",
+  "targets": [
+    {
+      "target": "https://huggingface.co/",
+      "path": "in-app browser",
+      "result": "REACHABLE",
+      "authentication": "NOT_LOGGED_IN"
+    },
+    {
+      "target": "https://huggingface.co/api/models/opencv/inpainting_lama",
+      "path": "local hf CLI",
+      "result": "BLOCKED",
+      "error": "WinError 10013 access forbidden by permissions"
+    },
+    {
+      "target": "https://github.com/ADAMBUILD-ai/mindle-media-ai.git",
+      "path": "local git HTTPS",
+      "result": "BLOCKED",
+      "error": "connection to github.com:443 failed"
+    }
+  ],
+  "conclusion": "The blocked model acquisition is a local CLI HTTPS egress restriction, not evidence of a missing Hugging Face repository. Browser authentication is additionally required for gated candidates.",
+  "required_user_action": "Complete Hugging Face login in the open browser tab. Local CLI HTTPS egress must also be restored before exact-revision downloads can be performed and verified."
+}
