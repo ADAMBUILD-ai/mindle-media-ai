@@ -51,6 +51,9 @@ def main() -> None:
         raise SystemExit("HF download manifest must retain the local LaMa weight record")
     if runtime["local_lama_offline_smoke"]["status"] not in {"PENDING", "TECHNICAL_SMOKE_PASS"}:
         raise SystemExit("local LaMa smoke has an invalid state")
+    lama = next(item for item in inventory["candidates"] if item["repo_id"] == "opencv/inpainting_lama")
+    if runtime["local_lama_offline_smoke"]["status"] == "TECHNICAL_SMOKE_PASS" and lama["status"] != "LOCAL_OFFLINE_SMOKE_PASS":
+        raise SystemExit("LaMa inventory must match the local offline smoke result")
     print("evidence sync pass")
 
 if __name__ == "__main__": main()
