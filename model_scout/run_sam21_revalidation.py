@@ -31,8 +31,12 @@ def main() -> None:
     draw.rectangle((0, 0, 511, 511), outline=(100, 110, 115), width=6)
     draw.ellipse((145, 130, 365, 375), fill=(35, 105, 175), outline=(20, 50, 90), width=5)
     image.save(input_path)
-    processor = AutoProcessor.from_pretrained(REPO_ID, revision=REVISION)
-    model = AutoModelForMaskGeneration.from_pretrained(REPO_ID, revision=REVISION).eval()
+    required = ("config.json", "model.safetensors", "preprocessor_config.json", "processor_config.json")
+    missing = [name for name in required if not (ROOT / name).is_file()]
+    if missing:
+        raise SystemExit(f"pinned local SAM snapshot is missing: {', '.join(missing)}")
+    processor = AutoProcessor.from_pretrained(ROOT, local_files_only=True)
+    model = AutoModelForMaskGeneration.from_pretrained(ROOT, local_files_only=True, use_safetensors=True).eval()
     inputs = processor(images=image, input_points=[[[[256, 250]]]], return_tensors="pt")
     started = time.perf_counter()
     with torch.no_grad():
