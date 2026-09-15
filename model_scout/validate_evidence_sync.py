@@ -1,6 +1,7 @@
 """Fail closed when the evidence registry, artifacts, and matrix disagree."""
 import json
 from pathlib import Path
+from validate_intake_manifests import main as validate_intake_manifests
 
 ROOT = Path(__file__).parents[1]
 REGISTRY = ROOT / "evidence" / "model_scout" / "registry.json"
@@ -16,6 +17,7 @@ HF_NETWORK = ROOT / "evidence" / "model_scout" / "HF_NETWORK_DIAGNOSTIC.json"
 REVIEW_FIELDS = {"fixture_id", "status", "defect_type", "severity", "reviewer_note", "recommended_action"}
 
 def main() -> None:
+    validate_intake_manifests()
     registry = json.loads(REGISTRY.read_text(encoding="utf-8"))
     matrix = MATRIX.read_text(encoding="utf-8")
     if "evidence absent locally" in matrix:
