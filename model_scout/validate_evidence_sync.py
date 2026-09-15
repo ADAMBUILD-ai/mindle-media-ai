@@ -47,8 +47,10 @@ def main() -> None:
     downloads = json.loads(HF_DOWNLOADS.read_text(encoding="utf-8"))
     runtime = json.loads(HF_RUNTIME.read_text(encoding="utf-8"))
     network = json.loads(HF_NETWORK.read_text(encoding="utf-8"))
-    if inventory["hub_access"] != "BLOCKED_WINERROR_10013" or inventory["hub_authentication"] != "NOT_LOGGED_IN":
-        raise SystemExit("HF acquisition status must not claim unavailable access or authentication")
+    if inventory["hub_access"] not in {"BLOCKED_WINERROR_10013", "BROWSER_REACHABLE_RUNTIME_BLOCKED_WINERROR_10013"}:
+        raise SystemExit("HF acquisition status has an unknown access state")
+    if inventory["hub_authentication"] not in {"NOT_LOGGED_IN", "BROWSER_SIGNED_IN_RUNTIME_CREDENTIAL_NOT_PROVISIONED"}:
+        raise SystemExit("HF acquisition status has an unknown authentication state")
     if not any(item.get("status") == "LOCAL_FILE_PRESENT" for item in downloads["entries"]):
         raise SystemExit("HF download manifest must retain the local LaMa weight record")
     if runtime["local_lama_offline_smoke"]["status"] not in {"PENDING", "TECHNICAL_SMOKE_PASS"}:
@@ -56,7 +58,7 @@ def main() -> None:
     if network["targets"][0]["result"] != "REACHABLE" or network["targets"][1]["result"] != "BLOCKED":
         raise SystemExit("HF network diagnostic no longer describes the observed split")
     lama = next(item for item in inventory["candidates"] if item["repo_id"] == "opencv/inpainting_lama")
-    if runtime["local_lama_offline_smoke"]["status"] == "TECHNICAL_SMOKE_PASS" and lama["status"] != "LOCAL_OFFLINE_SMOKE_PASS":
+    if runtime["local_lama_offline_smoke"]["status"] == "TECHNICAL_SMOKE_PASS" and lama["status"] not in {"LOCAL_OFFLINE_SMOKE_PASS", "LOCAL_OFFLINE_INFERENCE_PASS"}:
         raise SystemExit("LaMa inventory must match the local offline smoke result")
     print("evidence sync pass")
 

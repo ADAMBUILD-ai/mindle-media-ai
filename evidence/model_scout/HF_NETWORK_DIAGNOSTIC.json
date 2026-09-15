@@ -6,7 +6,7 @@
       "target": "https://huggingface.co/",
       "path": "in-app browser",
       "result": "REACHABLE",
-      "authentication": "NOT_LOGGED_IN"
+      "authentication": "SIGNED_IN_BROWSER_SESSION"
     },
     {
       "target": "https://huggingface.co/api/models/opencv/inpainting_lama",
@@ -21,6 +21,6 @@
       "error": "connection to github.com:443 failed"
     }
   ],
-  "conclusion": "The blocked model acquisition is a local CLI HTTPS egress restriction, not evidence of a missing Hugging Face repository. Browser authentication is additionally required for gated candidates.",
-  "required_user_action": "Complete Hugging Face login in the open browser tab. Local CLI HTTPS egress must also be restored before exact-revision downloads can be performed and verified."
+  "conclusion": "The blocked model acquisition is a local CLI HTTPS egress restriction, not evidence of a missing Hugging Face repository or browser login. The signed-in browser can inspect exact revisions, but it does not provide the runtime a credential or restore its blocked outbound socket path.",
+  "required_user_action": "Restore local CLI HTTPS egress before exact-revision downloads can be performed and verified. Do not provide a Hugging Face token unless a gated repository later requires it."
 }
