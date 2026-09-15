@@ -8,6 +8,9 @@ MATRIX = ROOT / "docs" / "06_MODEL_SCOUT_VALIDATION_MATRIX.md"
 HUMAN_REVIEW = ROOT / "evidence" / "model_scout" / "HUMAN_QUALITY_REVIEW_RESULTS.json"
 WHISPER_KO = ROOT / "evidence" / "model_scout" / "WHISPER_KO_BENCHMARK_RESULTS.json"
 MATTING = ROOT / "evidence" / "model_scout" / "MATTING_SCOUT_RESULTS.json"
+HF_INVENTORY = ROOT / "evidence" / "model_scout" / "HF_MODEL_INVENTORY.json"
+HF_DOWNLOADS = ROOT / "evidence" / "model_scout" / "HF_MODEL_DOWNLOAD_MANIFEST.json"
+HF_RUNTIME = ROOT / "evidence" / "model_scout" / "HF_MODEL_RUNTIME_RESULTS.json"
 
 REVIEW_FIELDS = {"fixture_id", "status", "defect_type", "severity", "reviewer_note", "recommended_action"}
 
@@ -39,6 +42,15 @@ def main() -> None:
     matting = json.loads(MATTING.read_text(encoding="utf-8"))
     if matting["rejected_candidate"]["decision"] != "SOURCE_REVIEW_REJECT" or matting["candidates"]:
         raise SystemExit("Matting scout must remain fail-closed before safe-candidate review")
+    inventory = json.loads(HF_INVENTORY.read_text(encoding="utf-8"))
+    downloads = json.loads(HF_DOWNLOADS.read_text(encoding="utf-8"))
+    runtime = json.loads(HF_RUNTIME.read_text(encoding="utf-8"))
+    if inventory["hub_access"] != "BLOCKED_WINERROR_10013" or inventory["hub_authentication"] != "NOT_LOGGED_IN":
+        raise SystemExit("HF acquisition status must not claim unavailable access or authentication")
+    if not any(item.get("status") == "LOCAL_FILE_PRESENT" for item in downloads["entries"]):
+        raise SystemExit("HF download manifest must retain the local LaMa weight record")
+    if runtime["local_lama_offline_smoke"]["status"] not in {"PENDING", "TECHNICAL_SMOKE_PASS"}:
+        raise SystemExit("local LaMa smoke has an invalid state")
     print("evidence sync pass")
 
 if __name__ == "__main__": main()
