@@ -27,7 +27,8 @@ jobs:
               state: "open",
               per_page: 100,
             });
-            const routes = issues.filter((issue) => !issue.pull_request && (issue.body || "").includes(marker));
+            const routes = issues.filter((issue) => !issue.pull_request && ((issue.body || "").includes(marker) || (issue.title || "").startsWith("[MODEL SCOUT ROUTE]")));
+            core.notice("MODEL SCOUT route candidates: " + routes.map((issue) => issue.number).join(","));
             if (routes.length === 0) {
               core.notice("No pending MODEL SCOUT route issues found.");
               return;
