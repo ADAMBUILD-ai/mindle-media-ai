@@ -16,12 +16,16 @@ def runtime_environment() -> dict[str, str]:
 
 def blocked_evidence(job: MediaJob, status: str, reason: str) -> dict:
     return {
+        "job_id": job.id,
+        "evidence_id": job.evidence_id,
         "evidence_status": status,
         "runtime_status": status,
         "recorded_at": datetime.now(timezone.utc).isoformat(),
         "project_id": job.project_id,
         "requested_operation": job.requested_operation,
+        "source_provenance": dict(job.source_provenance or {}),
         "reference_files": list(job.reference_files),
+        "retry_provenance": {"job_id": job.id, "evidence_id": job.evidence_id, "attempt": job.attempts},
         "reason": reason,
         "runtime": runtime_environment(),
     }
@@ -39,6 +43,8 @@ def execution_evidence(
     detail: dict,
 ) -> dict:
     return {
+        "job_id": job.id,
+        "evidence_id": job.evidence_id,
         "evidence_status": "VERIFY_REQUIRED",
         "runtime_status": "LOCAL_EXECUTION",
         "started_at": started_at,
@@ -46,6 +52,7 @@ def execution_evidence(
         "duration_ms": duration_ms,
         "project_id": job.project_id,
         "requested_operation": boundary.operation,
+        "source_provenance": dict(job.source_provenance or {}),
         "adapter_id": boundary.adapter_id,
         "model_or_program_id": boundary.model_or_program_id,
         "revision": boundary.revision,
@@ -55,6 +62,7 @@ def execution_evidence(
         "source": str(source),
         "output": str(output),
         "reference_files": list(job.reference_files),
+        "retry_provenance": {"job_id": job.id, "evidence_id": job.evidence_id, "attempt": job.attempts},
         "runtime": runtime_environment(),
         **detail,
     }
