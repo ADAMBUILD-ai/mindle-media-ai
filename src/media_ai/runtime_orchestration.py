@@ -5,7 +5,7 @@ from enum import StrEnum
 from hashlib import sha256
 from pathlib import Path
 from subprocess import CalledProcessError, TimeoutExpired, run
-from typing import Iterable
+from typing import Callable, Iterable
 
 from PIL import Image
 
@@ -34,11 +34,15 @@ class AdapterSpec:
     runtime_backend: str
     device_requirement: str
     available: bool
+    adapter_version: str = "builtin"
+    artifact_sha256: str | None = None
+    artifact_size_bytes: int | None = None
 
 
 class AdapterRegistry:
     def __init__(self, adapters: dict[tuple[MediaType, str], AdapterSpec] | None = None) -> None:
         self._adapters = adapters or self._default_adapters()
+        self._readiness_checks: dict[tuple[MediaType, str], Callable[[], bool]] = {}
 
     @staticmethod
     def _default_adapters() -> dict[tuple[MediaType, str], AdapterSpec]:
@@ -61,6 +65,18 @@ class AdapterRegistry:
 
     def resolve(self, media_type: MediaType, operation: str) -> AdapterSpec | None:
         return self._adapters.get((media_type, operation))
+
+    def register(self, media_type: MediaType, operation: str, adapter: AdapterSpec, readiness_check: Callable[[], bool] | None = None) -> None:
+        if adapter.supported_media_type is not media_type:
+            raise ValueError("Adapter media type does not match its registration lane")
+        key = (media_type, operation)
+        self._adapters[key] = adapter
+        if readiness_check is not None:
+            self._readiness_checks[key] = readiness_check
+
+    def is_ready(self, media_type: MediaType, operation: str) -> bool:
+        check = self._readiness_checks.get((media_type, operation))
+        return check() if check else True
 
 
 @dataclass(frozen=True)
@@ -164,7 +180,7 @@ class RuntimeOrchestrator:
 
         operation = self._operation(job)
         adapter = self.registry.resolve(job.media_type, operation)
-        if adapter is None or not adapter.available:
+        if adapter is None or not adapter.available or not self.registry.is_ready(job.media_type, operation):
             return self._model_unavailable(job, adapter, input_sha256)
         job.transition(JobState.PREFLIGHT_READY)
         receipt = PreflightReceipt(PreflightStatus.PREFLIGHT_READY, job.media_type, (), input_sha256, adapter)
