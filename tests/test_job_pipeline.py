@@ -3,6 +3,7 @@ from pathlib import Path
 from PIL import Image
 
 from media_ai.contracts import JobState, MediaJob, MediaType
+from media_ai.evidence import missing_execution_evidence_fields
 from media_ai.job_pipeline import validate_job
 from media_ai.runtime import MediaRuntime
 from media_ai.ui_bridge import command_to_job
@@ -33,6 +34,8 @@ def test_photo_job_preserves_common_command_contract_and_evidence_hook(tmp_path:
     assert result.evidence["evidence_status"] == "VERIFY_REQUIRED"
     assert result.evidence["model_or_program_id"] == "Pillow OpenCV"
     assert result.evidence["input_sha256"] and result.evidence["output_sha256"]
+    assert result.evidence["output_artifact"]["status"] == "available"
+    assert not missing_execution_evidence_fields(result.evidence)
     assert "TESTED_PASS" not in result.evidence.values()
 
 

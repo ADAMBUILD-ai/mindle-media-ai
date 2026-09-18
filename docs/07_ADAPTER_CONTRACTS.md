@@ -52,6 +52,15 @@ provenance record. Empty sources and absent or mismatched provenance fail closed
 returns the existing result instead of creating duplicate execution or evidence.
 Retry attempts preserve both identifiers and record their attempt number in evidence.
 
+## Queue and output contract
+
+The common Job Queue deduplicates equivalent submissions by a stable idempotency
+key, permits cancellation only while a job is queued, and permits retry only after
+a failure. Photo and video lanes share this queue contract but retain independent
+adapter boundaries. Successful local execution records an output artifact path,
+type, size, hash, and availability status. The runtime rejects a successful result
+whose required provenance, adapter, hash, retry, or output evidence is incomplete.
+
 ## Track A feature-flag contracts
 
 All entries below are integration-ready only. `adapter_enabled` stays `false`

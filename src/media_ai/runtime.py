@@ -5,7 +5,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from .contracts import MediaJob, JobState
-from .evidence import blocked_evidence, execution_evidence
+from .evidence import blocked_evidence, execution_evidence, missing_execution_evidence_fields
 from .job_pipeline import BlockedInputError, BlockedModelError, validate_job
 from .photo import process_photo
 from .video import process_video
@@ -60,7 +60,11 @@ class MediaRuntime:
                 actual = Path(detail.pop("actual_output", target))
                 job.output_path = actual
                 job.transition(JobState.SUCCEEDED)
-                job.evidence = execution_evidence(job, boundary, preserved, actual, digest(preserved), digest(actual), started, round((time.perf_counter()-tick)*1000, 2), detail)
+                evidence = execution_evidence(job, boundary, preserved, actual, digest(preserved), digest(actual), started, round((time.perf_counter()-tick)*1000, 2), detail)
+                missing = missing_execution_evidence_fields(evidence)
+                if missing:
+                    raise RuntimeError(f"Execution evidence is incomplete: {', '.join(sorted(missing))}")
+                job.evidence = evidence
                 break
             except BlockedInputError as error:
                 job.error = str(error)
