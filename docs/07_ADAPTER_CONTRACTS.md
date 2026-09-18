@@ -25,6 +25,27 @@ and a filename may occur once only, case-insensitively. Invalid references fail
 before routing or adapter selection, while the command draft remains available
 for retry. This code-level contract does not change the approved UI SSOT.
 
+## Job execution boundary and evidence hook
+
+The bridge preserves the command text, routed media type, source asset, normalized
+reference filenames, requested operation, project identifier, and optional output
+target in one `MediaJob`. The runtime follows `QUEUED → VALIDATING → READY →
+RUNNING` before reaching `SUCCEEDED`, `FAILED`, `BLOCKED_INPUT`, or
+`BLOCKED_MODEL`. Failed and blocked jobs keep their original command and reference
+selection so a retry does not require rebuilding the UI state.
+
+Each operation resolves to a stable photo or video adapter boundary before execution.
+The boundary records the model or program identifier, pinned revision when applicable,
+and license/source status. A request that explicitly requires a verified model becomes
+`BLOCKED_MODEL` until a verified adapter is available; it never treats an unverified
+cache or fallback as model success. Missing source input becomes `BLOCKED_INPUT`.
+
+Execution evidence captures source and output hashes, adapter identity, revision,
+license/source, runtime environment, latency, project identifier, requested operation,
+and reference filenames. Local deterministic execution is marked `VERIFY_REQUIRED`;
+it does not claim `TESTED_PASS` or `DELIVERED` before real MEDIA input and Runtime
+E2E evidence are available.
+
 ## Track A feature-flag contracts
 
 All entries below are integration-ready only. `adapter_enabled` stays `false`
