@@ -8,6 +8,7 @@ from uuid import uuid4
 class MediaType(StrEnum):
     PHOTO = "photo"
     VIDEO = "video"
+    KOREAN_AUDIO = "korean_audio"
 
 class JobState(StrEnum):
     QUEUED = "queued"
@@ -19,6 +20,9 @@ class JobState(StrEnum):
     BLOCKED_INPUT = "blocked_input"
     BLOCKED_MODEL = "blocked_model"
     CANCELLED = "cancelled"
+    PREFLIGHT_READY = "preflight_ready"
+    DISPATCHED = "dispatched"
+    OUTPUT_VALIDATING = "output_validating"
 
 @dataclass
 class MediaJob:
@@ -67,9 +71,12 @@ class MediaJob:
     def transition(self, state: JobState) -> None:
         allowed = {
             JobState.QUEUED: {JobState.VALIDATING, JobState.CANCELLED},
-            JobState.VALIDATING: {JobState.READY, JobState.BLOCKED_INPUT, JobState.BLOCKED_MODEL, JobState.FAILED},
-            JobState.READY: {JobState.RUNNING},
-            JobState.RUNNING: {JobState.READY, JobState.SUCCEEDED, JobState.FAILED, JobState.BLOCKED_INPUT, JobState.BLOCKED_MODEL},
+            JobState.VALIDATING: {JobState.READY, JobState.PREFLIGHT_READY, JobState.BLOCKED_INPUT, JobState.BLOCKED_MODEL, JobState.FAILED, JobState.CANCELLED},
+            JobState.READY: {JobState.RUNNING, JobState.CANCELLED},
+            JobState.PREFLIGHT_READY: {JobState.DISPATCHED, JobState.CANCELLED},
+            JobState.DISPATCHED: {JobState.RUNNING, JobState.CANCELLED},
+            JobState.RUNNING: {JobState.READY, JobState.OUTPUT_VALIDATING, JobState.SUCCEEDED, JobState.FAILED, JobState.BLOCKED_INPUT, JobState.BLOCKED_MODEL, JobState.CANCELLED},
+            JobState.OUTPUT_VALIDATING: {JobState.SUCCEEDED, JobState.FAILED, JobState.CANCELLED},
             JobState.SUCCEEDED: set(),
             JobState.FAILED: {JobState.VALIDATING},
             JobState.BLOCKED_INPUT: {JobState.VALIDATING},
