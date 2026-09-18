@@ -20,6 +20,7 @@ def blocked_evidence(job: MediaJob, status: str, reason: str) -> dict:
         "evidence_id": job.evidence_id,
         "evidence_status": status,
         "runtime_status": status,
+        "terminal_state": job.state,
         "recorded_at": datetime.now(timezone.utc).isoformat(),
         "project_id": job.project_id,
         "requested_operation": job.requested_operation,
@@ -47,6 +48,7 @@ def execution_evidence(
         "evidence_id": job.evidence_id,
         "evidence_status": "VERIFY_REQUIRED",
         "runtime_status": "LOCAL_EXECUTION",
+        "terminal_state": job.state,
         "started_at": started_at,
         "finished_at": datetime.now(timezone.utc).isoformat(),
         "duration_ms": duration_ms,
@@ -59,6 +61,13 @@ def execution_evidence(
         "license_source": boundary.license_source,
         "input_sha256": input_sha256,
         "output_sha256": output_sha256,
+        "output_artifact": {
+            "path": str(output),
+            "type": output.suffix.lower(),
+            "sha256": output_sha256,
+            "size_bytes": output.stat().st_size,
+            "status": "available",
+        },
         "source": str(source),
         "output": str(output),
         "reference_files": list(job.reference_files),
@@ -66,3 +75,12 @@ def execution_evidence(
         "runtime": runtime_environment(),
         **detail,
     }
+
+
+def missing_execution_evidence_fields(evidence: dict) -> set[str]:
+    required = {
+        "job_id", "evidence_id", "evidence_status", "runtime_status", "terminal_state",
+        "source_provenance", "input_sha256", "output_sha256", "output_artifact",
+        "adapter_id", "model_or_program_id", "runtime", "retry_provenance",
+    }
+    return {field for field in required if not evidence.get(field)}
