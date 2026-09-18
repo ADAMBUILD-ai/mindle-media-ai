@@ -61,6 +61,28 @@ adapter boundaries. Successful local execution records an output artifact path,
 type, size, hash, and availability status. The runtime rejects a successful result
 whose required provenance, adapter, hash, retry, or output evidence is incomplete.
 
+## Runtime orchestration readiness
+
+Runtime orchestration is a separate, fail-closed path that preserves the approved
+UI contract. It validates source presence, extension, size, provenance, SHA-256,
+adapter identity, pinned revision, license source, backend, and device requirement
+before dispatch. `PHOTO`, `VIDEO`, and `KOREAN_AUDIO` lanes preflight independently:
+missing input in one lane records `BLOCKED_INPUT` and never holds another lane.
+
+The orchestration state sequence is `PREFLIGHT_READY → DISPATCHED → RUNNING →
+OUTPUT_VALIDATING → SUCCEEDED/FAILED/BLOCKED`. Dispatch builds an immutable context
+containing the job and evidence IDs, source hash, natural-language instruction,
+reference-image names, retry provenance, and adapter identity. A cancelled job cannot
+become successful; retries are limited to failed jobs. Output completion requires a
+nonempty artifact of the expected type, SHA-256, size, and a parseability check before
+success is recorded.
+
+The adapter registry explicitly records availability. An unavailable model or program
+returns `MODEL_UNAVAILABLE`/`BLOCKED_MODEL`; it does not substitute a mock result.
+Korean-audio Runtime remains unavailable until a verified adapter and real Korean audio
+are supplied. Model Scout callback receipts must match both job and evidence IDs and
+are evidence-only: callback status never promotes a job to a runtime success.
+
 ## Track A feature-flag contracts
 
 All entries below are integration-ready only. `adapter_enabled` stays `false`
