@@ -83,6 +83,22 @@ Korean-audio Runtime remains unavailable until a verified adapter and real Korea
 are supplied. Model Scout callback receipts must match both job and evidence IDs and
 are evidence-only: callback status never promotes a job to a runtime success.
 
+## Model Scout integration gate
+
+Model Scout handoffs require request and issue IDs, lane and operation, model/program
+source and exact revision, license evidence, artifact filename/size/SHA-256, backend,
+device requirement, adapter ID/version, verification status, and issue time. Only a
+locally materialized `VERIFIED` handoff with matching filename, size, and SHA-256 enters
+the adapter registry. Registry readiness rechecks the artifact before preflight.
+
+Input intake creates a per-lane manifest with provenance, size, and SHA-256; one ready
+lane is `PARTIAL_INPUT_READY` without waiting for other media types. A real runtime may
+start only when both the intake manifest and registered adapter are ready. A Model Scout
+`TESTED_PASS` callback must match request/issue/job/evidence IDs, lane, revision,
+artifact hash, adapter version, backend, device, input hash, output identity/hash, and
+elapsed time. On success it records `DELIVERED`; these contracts validate receipts only
+and do not execute or claim local model inference.
+
 ## Track A feature-flag contracts
 
 All entries below are integration-ready only. `adapter_enabled` stays `false`
