@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "captured_at": "2026-09-15T00:00:00Z",
+  "environment": {
+    "gpu": "NVIDIA GeForce MX330 2GB",
+    "torch": "2.14.0+cu126",
+    "cuda_available": true,
+    "onnxruntime": "1.29.0",
+    "providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ]
+  },
+  "hub_access": "BLOCKED_WINERROR_10013",
+  "local_lama_offline_smoke": {
+    "status": "TECHNICAL_SMOKE_PASS",
+    "repo_id": "opencv/inpainting_lama",
+    "revision": "aee6d22f0a13e5e35af1c9a1c3afd62841fc6f3f",
+    "weight_path": "model_scout/artifacts/lama/inpainting_lama_2025jan.onnx",
+    "weight_sha256": "7df918ac3921d3daf0aae1d219776cf0dc4e4935f035af81841b40adcf74fdf2",
+    "input_sha256": "1c5e1072e577ba378eeba18f4c2100f2d1ea8e0c53926ddb7611eceda8f31111",
+    "mask_sha256": "e3288255472179735786856db593e3241188ed648f7481bf34483c2127facc26",
+    "output_path": "evidence/model_scout/lama_local_offline_output.png",
+    "output_sha256": "3334371dbd4dca79eed36607636b3178ed2e9b2c83c5340edd8f27abb5433b0b",
+    "duration_ms": 29614.15,
+    "runtime": {
+      "onnxruntime": "1.29.0",
+      "provider": "CPUExecutionProvider"
+    },
+    "quality_gate": "VERIFY_REQUIRED: technical smoke does not replace real-photo review or remote provenance verification."
+  },
+  "unexecuted": [
+    {
+      "repo_id": "facebook/sam2.1-hiera-base-plus",
+      "reason": "weight absent and Hub network unavailable"
+    },
+    {
+      "repo_id": "openai/whisper-large-v3-turbo",
+      "reason": "weight absent and Hub network unavailable"
+    },
+    {
+      "repo_id": "qualcomm/Real-ESRGAN-x4plus",
+      "reason": "weight absent and Hub network unavailable"
+    },
+    {
+      "repo_id": "ZhengPeng7/BiRefNet",
+      "reason": "SOURCE_REVIEW_REJECT; execution prohibited"
+    }
+  ]
+}

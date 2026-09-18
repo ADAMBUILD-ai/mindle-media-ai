@@ -7,7 +7,7 @@ from media_ai.ui_bridge import command_to_job
 
 
 def test_photo_command_routes_without_exposing_model_name():
-    job = command_to_job("수직을 바로잡고 유리 반사를 줄여줘", Path("facade.jpg"), ["style.png"])
+    job = command_to_job("수직을 바로잡고 유리 반사를 줄여줘", Path("facade.jpg"), [r"C:\\uploads\\style.png"])
     assert job.media_type is MediaType.PHOTO
     assert job.options["reference_files"] == ["style.png"]
 
@@ -20,3 +20,9 @@ def test_video_command_routes_from_video_instruction_without_file_extension():
 def test_command_bridge_rejects_blank_command():
     with pytest.raises(ValueError):
         command_to_job("  ", Path("facade.jpg"))
+
+
+@pytest.mark.parametrize("references", [["animation.gif"], ["reference.png", "REFERENCE.PNG"], ["a.png"] * 6])
+def test_command_bridge_rejects_invalid_reference_payloads(references):
+    with pytest.raises(ValueError):
+        command_to_job("반사를 줄여줘", Path("facade.jpg"), references)

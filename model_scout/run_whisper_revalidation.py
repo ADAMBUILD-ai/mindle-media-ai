@@ -31,8 +31,12 @@ def main() -> None:
     audio = np.zeros(SAMPLE_RATE * 10, dtype=np.int16)
     with wave.open(str(audio_path), "wb") as out:
         out.setnchannels(1); out.setsampwidth(2); out.setframerate(SAMPLE_RATE); out.writeframes(audio.tobytes())
-    processor = AutoProcessor.from_pretrained(REPO_ID, revision=REVISION)
-    model = AutoModelForSpeechSeq2Seq.from_pretrained(REPO_ID, revision=REVISION).eval()
+    required = ("config.json", "generation_config.json", "model.safetensors", "preprocessor_config.json", "tokenizer.json", "tokenizer_config.json")
+    missing = [name for name in required if not (ROOT / name).is_file()]
+    if missing:
+        raise SystemExit(f"pinned local Whisper snapshot is missing: {', '.join(missing)}")
+    processor = AutoProcessor.from_pretrained(ROOT, local_files_only=True)
+    model = AutoModelForSpeechSeq2Seq.from_pretrained(ROOT, local_files_only=True, use_safetensors=True).eval()
     inputs = processor(audio.astype(np.float32) / 32768.0, sampling_rate=SAMPLE_RATE, return_tensors="pt")
     started = time.perf_counter()
     with torch.no_grad():

@@ -16,6 +16,15 @@ Every adapter accepts a typed request, records immutable model identity and retu
 
 No adapter may enable `trust_remote_code`, download unpinned weights, or silently substitute a provider.
 
+## Natural-language and reference-image ingress
+
+The fixed UI may submit at most five reference images with each natural-language
+command. The browser state and the Python bridge apply the same contract: only
+JPG, PNG, WEBP, and TIFF filenames are accepted; path components are removed;
+and a filename may occur once only, case-insensitively. Invalid references fail
+before routing or adapter selection, while the command draft remains available
+for retry. This code-level contract does not change the approved UI SSOT.
+
 ## Track A feature-flag contracts
 
 All entries below are integration-ready only. `adapter_enabled` stays `false`
