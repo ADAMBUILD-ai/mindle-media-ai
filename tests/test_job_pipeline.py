@@ -88,6 +88,7 @@ def test_retry_preserves_command_and_reference_selection(tmp_path: Path):
     source.write_bytes(b"deterministic-invalid-video-fixture")
     job = MediaJob("영상을 안정화해줘", source, MediaType.VIDEO, {"reference_files": ["style.png"]})
     runtime = MediaRuntime(tmp_path / "workspace")
+    evidence_id = job.evidence_id
 
     failed = runtime.submit(job, retries=0)
     retried = runtime.retry(job.id, retries=0)
@@ -97,3 +98,36 @@ def test_retry_preserves_command_and_reference_selection(tmp_path: Path):
     assert retried.request == "영상을 안정화해줘"
     assert retried.reference_files == ["style.png"]
     assert retried.attempts == 2
+    assert retried.evidence_id == evidence_id
+    assert retried.evidence["retry_provenance"] == {"job_id": job.id, "evidence_id": evidence_id, "attempt": 2}
+
+
+def test_duplicate_successful_submission_reuses_job_and_evidence(tmp_path: Path):
+    source = tmp_path / "facade.jpg"
+    Image.new("RGB", (16, 12), "gray").save(source)
+    job = command_to_job("사진을 밝게 보정해줘", source)
+    runtime = MediaRuntime(tmp_path / "workspace")
+
+    first = runtime.submit(job)
+    second = runtime.submit(job)
+
+    assert first is second
+    assert second.state is JobState.SUCCEEDED
+    assert second.attempts == 1
+    assert second.evidence["job_id"] == job.id
+    assert second.evidence["evidence_id"] == job.evidence_id
+
+
+def test_empty_source_or_missing_provenance_is_blocked(tmp_path: Path):
+    empty = tmp_path / "empty.jpg"
+    empty.write_bytes(b"")
+    empty_result = MediaRuntime(tmp_path / "empty-workspace").submit(MediaJob("밝게 보정해줘", empty, MediaType.PHOTO))
+    assert empty_result.state is JobState.BLOCKED_INPUT
+    assert "empty" in empty_result.error
+
+    source = tmp_path / "facade.jpg"
+    Image.new("RGB", (16, 12), "gray").save(source)
+    missing_provenance = MediaJob("밝게 보정해줘", source, MediaType.PHOTO, source_provenance={})
+    provenance_result = MediaRuntime(tmp_path / "provenance-workspace").submit(missing_provenance)
+    assert provenance_result.state is JobState.BLOCKED_INPUT
+    assert "provenance" in provenance_result.error
