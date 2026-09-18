@@ -40,3 +40,15 @@ def test_reference_limit_and_failed_command_preserve_the_draft():
     assert ui.photo_command.phase is CommandPhase.EXPANDED
     assert ui.photo_command.text == "유리 반사를 줄여줘"
     assert len(ui.photo_command.reference_files) == 5
+
+
+def test_reference_images_are_unique_supported_filenames_without_paths():
+    ui = MediaUiContract()
+    ui.photo_command.attach_reference(r"C:\\uploads\\Facade.PNG")
+
+    assert ui.photo_command.reference_files == ["Facade.PNG"]
+
+    with pytest.raises(ValueError, match="only once"):
+        ui.photo_command.attach_reference("facade.png")
+    with pytest.raises(ValueError, match="JPG, PNG, WEBP, or TIFF"):
+        ui.photo_command.attach_reference("animation.gif")

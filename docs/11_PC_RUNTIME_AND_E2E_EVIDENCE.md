@@ -7,10 +7,16 @@ On branch `work/pc-runtime-e2e-evidence-20260915`, based on recovery commit
 
 | Check | Result | Evidence command |
 |---|---|---|
-| Python regression | `11 passed` | `python -m pytest -q` |
+| Python regression | `18 passed` | `python -m pytest -q` |
 | Evidence sync | PASS | `python model_scout/validate_evidence_sync.py` |
 | UI structure and interaction | `2 passed` | `node --test ui/interaction.test.js ui/ssot_structure.test.js` |
 | Package completeness | PASS | `python model_scout/validate_package_manifest.py --source` |
+
+The natural-language/reference-image ingress contract is covered by the Python
+and browser interaction tests without requiring an owned photo, video, or Korean
+audio fixture. It enforces supported image formats, five-reference maximum,
+case-insensitive deduplication, and path removal; it does not change any
+`BLOCKED_INPUT` runtime status.
 
 `run_tests.sh` cannot be used by this Windows runtime because no compatible Bash
 service is available. The four explicit canonical commands above are the

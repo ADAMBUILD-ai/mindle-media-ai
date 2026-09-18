@@ -1,4 +1,9 @@
 const MAX_REFERENCES = 5;
+const REFERENCE_IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff"]);
+
+function normalizeReferenceName(name) {
+  return String(name || "").trim().replace(/^.*[\\/]/, "");
+}
 
 class CommandPanelState {
   constructor(kind, maxReferences = MAX_REFERENCES) {
@@ -11,8 +16,12 @@ class CommandPanelState {
     this.focus();
     if (!file || !file.name) { this.error = "파일을 읽을 수 없습니다."; return false; }
     if (!String(file.type || "").startsWith("image/")) { this.error = "이미지 파일만 첨부할 수 있습니다."; return false; }
+    const name = normalizeReferenceName(file.name);
+    const extension = name.slice(name.lastIndexOf(".")).toLowerCase();
+    if (!REFERENCE_IMAGE_EXTENSIONS.has(extension)) { this.error = "JPG, PNG, WEBP, TIFF 이미지만 첨부할 수 있습니다."; return false; }
     if (this.references.length >= this.maxReferences) { this.error = `참고 이미지는 최대 ${this.maxReferences}개까지 첨부할 수 있습니다.`; return false; }
-    this.references.push({ name: file.name, type: file.type, preview: file.preview || null }); this.error = null; return true;
+    if (this.references.some((reference) => reference.name.toLowerCase() === name.toLowerCase())) { this.error = "같은 참고 이미지는 한 번만 첨부할 수 있습니다."; return false; }
+    this.references.push({ name, type: file.type, preview: file.preview || null }); this.error = null; return true;
   }
   remove(index) { this.references.splice(index, 1); this.error = null; }
   submit() {
@@ -85,4 +94,4 @@ function bindEditor(kind) {
 }
 
 if (typeof document !== "undefined") ["video", "photo"].forEach(bindEditor);
-if (typeof module !== "undefined") module.exports = { CommandPanelState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, videoCommand, photoCommand };
+if (typeof module !== "undefined") module.exports = { CommandPanelState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand };

@@ -3,6 +3,7 @@ from pathlib import Path
 
 from .contracts import MediaJob
 from .router import route
+from .ui_contract import normalize_reference_files
 
 
 def command_to_job(command: str, input_path: Path, reference_files: list[str] | None = None) -> MediaJob:
@@ -14,5 +15,5 @@ def command_to_job(command: str, input_path: Path, reference_files: list[str] | 
         request=cleaned,
         input_path=input_path,
         media_type=route(cleaned, input_path),
-        options={"reference_files": list(reference_files or [])},
+        options={"reference_files": normalize_reference_files(reference_files)},
     )

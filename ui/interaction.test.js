@@ -23,6 +23,10 @@ assert.equal(photo.attach({ name: "b.jpg", type: "image/jpeg" }), true);
 assert.equal(photo.attach({ name: "c.jpg", type: "image/jpeg" }), false);
 assert.match(photo.error, /최대 2개/);
 photo.remove(0); assert.equal(photo.references.length, 1);
+assert.equal(photo.attach({ name: "B.JPG", type: "image/jpeg" }), false);
+assert.match(photo.error, /한 번만/);
+assert.equal(photo.attach({ name: "animation.gif", type: "image/gif" }), false);
+assert.match(photo.error, /JPG, PNG, WEBP, TIFF/);
 assert.equal(MAX_REFERENCES, 5);
 
 const actions = new EditorActionState("photo");
