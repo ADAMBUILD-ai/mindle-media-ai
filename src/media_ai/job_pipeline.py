@@ -66,6 +66,10 @@ def validate_job(job: MediaJob) -> ExecutionBoundary:
     job.requested_operation = operation
     if not job.input_path.is_file():
         raise BlockedInputError(f"Source asset is unavailable: {job.input_path}")
+    if job.input_path.stat().st_size == 0:
+        raise BlockedInputError(f"Source asset is empty: {job.input_path}")
+    if not job.source_provenance or job.source_provenance.get("source_path") != str(job.input_path):
+        raise BlockedInputError("Source provenance is required and must match the source asset")
 
     allowed_extensions = PHOTO_EXTENSIONS if job.media_type is MediaType.PHOTO else VIDEO_EXTENSIONS
     if job.input_path.suffix.lower() not in allowed_extensions:
