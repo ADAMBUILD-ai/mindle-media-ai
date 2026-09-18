@@ -84,3 +84,51 @@ def missing_execution_evidence_fields(evidence: dict) -> set[str]:
         "adapter_id", "model_or_program_id", "runtime", "retry_provenance",
     }
     return {field for field in required if not evidence.get(field)}
+
+
+def orchestration_evidence(
+    job: MediaJob,
+    status: str,
+    *,
+    adapter: object | None = None,
+    input_sha256: str | None = None,
+    execution_context: dict | None = None,
+    output_artifact: dict | None = None,
+    started_at: str | None = None,
+    reason: str | None = None,
+) -> dict:
+    """Record orchestration facts without asserting unverified model success."""
+    record = {
+        "job_id": job.id,
+        "evidence_id": job.evidence_id,
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": status,
+        "terminal_state": job.state,
+        "recorded_at": datetime.now(timezone.utc).isoformat(),
+        "started_at": started_at,
+        "finished_at": datetime.now(timezone.utc).isoformat() if job.state in {job.state.SUCCEEDED, job.state.FAILED, job.state.CANCELLED, job.state.BLOCKED_INPUT, job.state.BLOCKED_MODEL} else None,
+        "project_id": job.project_id,
+        "requested_operation": job.requested_operation,
+        "source_provenance": dict(job.source_provenance or {}),
+        "input_sha256": input_sha256,
+        "reference_files": list(job.reference_files),
+        "retry_provenance": {"job_id": job.id, "evidence_id": job.evidence_id, "attempt": job.attempts},
+        "state_history": [str(state) for state in job.state_history],
+        "runtime": runtime_environment(),
+    }
+    if adapter is not None:
+        record.update({
+            "adapter_id": adapter.adapter_id,
+            "model_or_program_id": adapter.model_or_program_id,
+            "revision": adapter.revision,
+            "license_source": adapter.license_source,
+            "runtime_backend": adapter.runtime_backend,
+            "device_requirement": adapter.device_requirement,
+        })
+    if execution_context is not None:
+        record["execution_context"] = execution_context
+    if output_artifact is not None:
+        record["output_artifact"] = output_artifact
+    if reason is not None:
+        record["reason"] = reason
+    return record
