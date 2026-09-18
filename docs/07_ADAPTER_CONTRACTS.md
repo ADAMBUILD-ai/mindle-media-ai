@@ -46,6 +46,12 @@ and reference filenames. Local deterministic execution is marked `VERIFY_REQUIRE
 it does not claim `TESTED_PASS` or `DELIVERED` before real MEDIA input and Runtime
 E2E evidence are available.
 
+Every job also carries a stable job identifier, evidence identifier, and source
+provenance record. Empty sources and absent or mismatched provenance fail closed as
+`BLOCKED_INPUT`. Re-submitting a completed or in-flight job with the same identifier
+returns the existing result instead of creating duplicate execution or evidence.
+Retry attempts preserve both identifiers and record their attempt number in evidence.
+
 ## Track A feature-flag contracts
 
 All entries below are integration-ready only. `adapter_enabled` stays `false`

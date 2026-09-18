@@ -37,4 +37,5 @@ def command_to_job(
         output_target=output_target,
         requested_operation=requested_operation,
         reference_files=references,
+        source_provenance={"source_path": str(source), "ingress": "ui_bridge"},
     )
