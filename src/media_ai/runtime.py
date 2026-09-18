@@ -22,6 +22,12 @@ class MediaRuntime:
         for name in ("originals", "outputs", "logs"): (root / name).mkdir(parents=True, exist_ok=True)
 
     def submit(self, job: MediaJob, retries: int = 1) -> MediaJob:
+        existing = self.jobs.get(job.id)
+        if existing is not None:
+            if existing is not job:
+                raise ValueError(f"A different job already uses id {job.id}")
+            if job.state in {JobState.VALIDATING, JobState.READY, JobState.RUNNING, JobState.SUCCEEDED}:
+                return job
         self.jobs[job.id] = job
         job.error = None
         job.transition(JobState.VALIDATING)
@@ -81,7 +87,10 @@ class MediaRuntime:
         return job
 
     def retry(self, job_id: str, retries: int = 1) -> MediaJob:
-        return self.submit(self.jobs[job_id], retries)
+        job = self.jobs[job_id]
+        if job.state is JobState.SUCCEEDED:
+            return job
+        return self.submit(job, retries)
 
     def _write_log(self, job: MediaJob) -> None:
         (self.root / "logs" / f"{job.id}.json").write_text(
