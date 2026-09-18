@@ -27,7 +27,9 @@ class MediaJob:
     output_target: Path | None = None
     requested_operation: str | None = None
     reference_files: list[str] = field(default_factory=list)
+    source_provenance: dict | None = None
     id: str = field(default_factory=lambda: str(uuid4()))
+    evidence_id: str = field(default_factory=lambda: str(uuid4()))
     state: JobState = JobState.QUEUED
     state_history: list[JobState] = field(default_factory=lambda: [JobState.QUEUED])
     output_path: Path | None = None
@@ -39,6 +41,10 @@ class MediaJob:
         self.input_path = Path(self.input_path)
         if self.output_target is not None:
             self.output_target = Path(self.output_target)
+        if self.source_provenance is None:
+            self.source_provenance = {"source_path": str(self.input_path)}
+        else:
+            self.source_provenance = dict(self.source_provenance)
         if not self.reference_files:
             self.reference_files = list(self.options.get("reference_files", []))
         self.options = {**self.options, "reference_files": list(self.reference_files)}
