@@ -1,0 +1,139 @@
+name: Official pinned model acquisition verification
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - ".github/workflows/official-model-acquisition.yml"
+      - "model_scout/stage_verified_model.py"
+      - "evidence/model_scout/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-verify-stage:
+    name: CPU pinned acquisition (15 minute cap)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      HF_HUB_ENABLE_HF_TRANSFER: "0"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install official Hub client
+        run: python -m pip install --disable-pip-version-check "huggingface_hub>=0.27,<1"
+
+      - name: Download, hash, and fail-closed stage official snapshots
+        shell: python
+        run: |
+          import hashlib
+          import json
+          import shutil
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from huggingface_hub import HfApi, snapshot_download
+
+          root = Path(".")
+          work = root / ".model-acquisition"
+          work.mkdir(exist_ok=True)
+          api = HfApi()
+
+          candidates = [
+              {
+                  "key": "sam21",
+                  "repo_id": "facebook/sam2.1-hiera-base-plus",
+                  "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+                  "license": "apache-2.0",
+                  "required": [
+                      "config.json",
+                      "model.safetensors",
+                      "preprocessor_config.json",
+                      "processor_config.json",
+                  ],
+              },
+              {
+                  "key": "whisper",
+                  "repo_id": "openai/whisper-large-v3-turbo",
+                  "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+                  "license": "mit",
+                  "required": [
+                      "config.json",
+                      "generation_config.json",
+                      "model.safetensors",
+                      "preprocessor_config.json",
+                      "tokenizer.json",
+                      "tokenizer_config.json",
+                  ],
+              },
+          ]
+
+          manifest = {
+              "schema_version": "1.0",
+              "captured_at": datetime.now(timezone.utc).isoformat(),
+              "execution": {
+                  "runner": "github-actions-ubuntu-latest",
+                  "hardware": "cpu",
+                  "workflow_timeout_minutes": 15,
+                  "persistent_status": "TEMPORARY_VERIFIED_CACHE_HF_TRANSFER_REQUIRED",
+              },
+              "models": [],
+          }
+
+          for model in candidates:
+              source = work / model["key"] / "source"
+              source.parent.mkdir(parents=True, exist_ok=True)
+              snapshot_download(
+                  repo_id=model["repo_id"],
+                  revision=model["revision"],
+                  local_dir=str(source),
+                  allow_patterns=model["required"],
+              )
+              files = []
+              for name in model["required"]:
+                  path = source / name
+                  if not path.is_file():
+                      raise RuntimeError(f"{model['key']}: required file missing after official download: {name}")
+                  data = path.read_bytes()
+                  files.append({
+                      "name": name,
+                      "bytes": len(data),
+                      "sha256": hashlib.sha256(data).hexdigest(),
+                  })
+              weight = next(item for item in files if item["name"] == "model.safetensors")
+              stage_cmd = (
+                  f'python model_scout/stage_verified_model.py {model["key"]} '
+                  f'--source "{source}" --expected-size {weight["bytes"]} '
+                  f'--expected-sha256 {weight["sha256"]}'
+              )
+              status = __import__("subprocess").run(stage_cmd, shell=True, text=True, capture_output=True)
+              if status.returncode != 0:
+                  raise RuntimeError(f"{model['key']}: fail-closed staging rejected snapshot\n{status.stdout}\n{status.stderr}")
+              manifest["models"].append({
+                  "model": model["key"],
+                  "repo_id": model["repo_id"],
+                  "revision": model["revision"],
+                  "declared_license": model["license"],
+                  "official_download": "COMPLETE",
+                  "files": files,
+                  "staging": "COMPLETE",
+                  "staging_stdout": status.stdout,
+              })
+
+          output = work / "OFFICIAL_PINNED_MODEL_ACQUISITION_MANIFEST.json"
+          output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+          print(output.read_text(encoding="utf-8"))
+
+      - name: Preserve temporary verified cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-official-model-cache
+          if-no-files-found: error
+          retention-days: 7
+          path: |
+            .model-acquisition/
+            model_scout/artifacts/sam21/
+            model_scout/artifacts/whisper_turbo/
+            evidence/model_scout/LOCAL_MODEL_STAGE_MANIFEST.json
