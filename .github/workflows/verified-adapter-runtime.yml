@@ -70,6 +70,23 @@ jobs:
             "soundfile==0.13.1" \
             "jiwer==4.0.0"
 
+      - name: Prepare durable failure evidence
+        shell: bash
+        run: |
+          mkdir -p runtime_evidence/logs
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path("runtime_evidence/logs/RUN_CONTEXT.json").write_text(json.dumps({
+              "repository": os.environ.get("GITHUB_REPOSITORY"),
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "source_commit": os.environ.get("GITHUB_SHA"),
+              "hardware": "CPU",
+              "gpu_used": False,
+              "paid_compute": False,
+          }, indent=2) + "\n", encoding="utf-8")
+          PY
+
       - name: Run concrete adapters and fail-closed artifact validation
         run: python model_scout/run_verified_adapter_runtime.py
 

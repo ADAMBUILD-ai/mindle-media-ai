@@ -90,10 +90,16 @@ def stage_realesrgan(source: Path, expected_size: int, expected_sha256: str) -> 
     target = SNAPSHOTS["realesrgan"]["target"]
     target.mkdir(parents=True, exist_ok=True)
     safe_extract(source, target)
-    missing = [name for name in SNAPSHOTS["realesrgan"]["required"] if not (target / name).is_file()]
-    if missing:
-        raise ValueError(f"release archive is incomplete: {', '.join(sorted(missing))}")
-    return {"status": "VERIFIED_MODEL_CACHE", "model": "realesrgan", "repo_id": SNAPSHOTS["realesrgan"]["repo_id"], "revision": SNAPSHOTS["realesrgan"]["revision"], "file_name": source.name, "source": str(source), "target": str(target), "size_bytes": actual_size, "release_sha256": actual_sha256, "model_sha256": sha256(target / "real_esrgan_x4plus.onnx")}
+    required = SNAPSHOTS["realesrgan"]["required"]
+    candidate_roots = [target, target / source.stem]
+    payload_root = next(
+        (root for root in candidate_roots if all((root / name).is_file() for name in required)),
+        None,
+    )
+    if payload_root is None:
+        discovered = sorted(str(path.relative_to(target)) for path in target.rglob("*") if path.is_file())
+        raise ValueError(f"release archive is incomplete or has an unexpected layout: {discovered}")
+    return {"status": "VERIFIED_MODEL_CACHE", "model": "realesrgan", "repo_id": SNAPSHOTS["realesrgan"]["repo_id"], "revision": SNAPSHOTS["realesrgan"]["revision"], "file_name": source.name, "source": str(source), "target": str(payload_root), "size_bytes": actual_size, "release_sha256": actual_sha256, "model_sha256": sha256(payload_root / "real_esrgan_x4plus.onnx")}
 
 
 def main() -> None:

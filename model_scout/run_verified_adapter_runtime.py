@@ -227,8 +227,9 @@ def acquire_realesrgan(api: HfApi, target_repo: str, token: str) -> dict:
     archive_bytes, archive_sha = archive.stat().st_size, sha256_file(archive)
     with zipfile.ZipFile(archive) as package:
         names = {item.filename for item in package.infolist() if not item.is_dir()}
+        basenames = {Path(name).name for name in names}
         required = {"real_esrgan_x4plus.onnx", "real_esrgan_x4plus.data"}
-        if not required.issubset(names):
+        if not required.issubset(basenames):
             raise RuntimeError(f"official RealESRGAN archive is incomplete: {sorted(names)}")
         for item in package.infolist():
             if Path(item.filename).is_absolute() or ".." in Path(item.filename).parts:
