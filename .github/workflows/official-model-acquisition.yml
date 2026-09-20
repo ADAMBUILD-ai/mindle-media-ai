@@ -12,8 +12,13 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: official-pinned-model-acquisition-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   acquire-verify-stage:
+    if: github.event_name == 'workflow_dispatch'
     name: CPU pinned acquisition and private HF persistence
     runs-on: ubuntu-latest
     timeout-minutes: 15
