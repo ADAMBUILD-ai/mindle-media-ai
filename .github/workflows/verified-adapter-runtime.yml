@@ -1,0 +1,108 @@
+name: Verified adapter runtime validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - ".github/workflows/verified-adapter-runtime.yml"
+      - "src/media_ai/verified_model_adapters.py"
+      - "model_scout/run_verified_adapter_runtime.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verified-adapter-runtime-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cpu-runtime-and-realesrgan:
+    name: CPU adapters, real inputs, and RealESRGAN cache
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HF_TOKEN: ${{ secrets.MINDLE_MEDIA_HF_WRITE_TOKEN }}
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      HF_HUB_DISABLE_XET: "1"
+      CUDA_VISIBLE_DEVICES: ""
+      PYTHONPATH: src
+      TOKENIZERS_PARALLELISM: "false"
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Enforce free CPU-only execution and secret availability
+        shell: bash
+        run: |
+          if [ "${{ github.event.repository.private }}" != "false" ]; then
+            echo "::error::This workflow is authorized only on a public repository's free standard runner"
+            exit 1
+          fi
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::MINDLE_MEDIA_HF_WRITE_TOKEN is not configured"
+            exit 1
+          fi
+          echo "::add-mask::$HF_TOKEN"
+          if command -v nvidia-smi >/dev/null 2>&1; then
+            echo "::error::GPU tooling is present; refusing CPU-only validation"
+            exit 1
+          fi
+
+      - name: Install pinned CPU runtime dependencies
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check \
+            "torch==2.8.0" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check \
+            "transformers==4.57.3" \
+            "huggingface_hub==0.36.0" \
+            "safetensors==0.6.2" \
+            "opencv-python-headless==4.12.0.88" \
+            "Pillow==11.3.0" \
+            "pyarrow==21.0.0" \
+            "soundfile==0.13.1" \
+            "jiwer==4.0.0"
+
+      - name: Run concrete adapters and fail-closed artifact validation
+        run: python model_scout/run_verified_adapter_runtime.py
+
+      - name: Validate promotion evidence
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          path = Path("runtime_evidence/RUNTIME_VALIDATION_EVIDENCE.json")
+          evidence = json.loads(path.read_text(encoding="utf-8"))
+          assert evidence["status"] == "TESTED_PASS"
+          assert evidence["promotion"] == {
+              "sam21": "TESTED_PASS",
+              "whisper": "TESTED_PASS",
+              "realesrgan": "VERIFIED_MODEL_CACHE",
+              "production_enabled": False,
+          }
+          for key in ("sam21_photo_segmentation", "sam21_video_tracking", "whisper_korean_stt"):
+              assert evidence["results"][key]["result"]["status"] == "TESTED_PASS"
+              assert evidence["results"][key]["integration_receipt"]["callback_status"] == "TESTED_PASS"
+
+      - name: Preserve inputs, outputs, logs, and Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-adapter-runtime-evidence
+          if-no-files-found: error
+          retention-days: 90
+          include-hidden-files: false
+          path: |
+            runtime_evidence/inputs/**
+            runtime_evidence/outputs/**
+            runtime_evidence/logs/**
+            runtime_evidence/RUNTIME_VALIDATION_EVIDENCE.json
+            evidence/model_scout/LOCAL_MODEL_STAGE_MANIFEST.json
