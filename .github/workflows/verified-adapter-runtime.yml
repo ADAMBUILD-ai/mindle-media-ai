@@ -18,6 +18,7 @@ concurrency:
 
 jobs:
   cpu-runtime-and-realesrgan:
+    if: github.event_name == 'workflow_dispatch'
     name: CPU adapters, real inputs, and RealESRGAN cache
     runs-on: ubuntu-latest
     timeout-minutes: 15
