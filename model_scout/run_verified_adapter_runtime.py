@@ -105,7 +105,14 @@ def card_license(info) -> str:
         return ""
     if hasattr(card, "to_dict"):
         card = card.to_dict()
-    return str(card.get("license", "")).strip().lower() if hasattr(card, "get") else ""
+    if not hasattr(card, "get"):
+        return ""
+    value = card.get("license", "")
+    if isinstance(value, (list, tuple)):
+        if len(value) != 1:
+            return ""
+        value = value[0]
+    return str(value).strip().lower()
 
 
 def remote_identity(sibling) -> tuple[int, str]:
