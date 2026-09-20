@@ -18,6 +18,7 @@ concurrency:
 
 jobs:
   cpu-runtime:
+    if: github.event_name == 'workflow_dispatch'
     name: RealESRGAN x4plus actual CPU inference
     runs-on: ubuntu-latest
     timeout-minutes: 15
