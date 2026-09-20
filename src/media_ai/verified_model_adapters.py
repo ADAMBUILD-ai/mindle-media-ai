@@ -87,15 +87,24 @@ class Sam21VerifiedAdapter:
         started = time.perf_counter()
         with self.torch.inference_mode():
             result = self.model(**inputs)
-        selected = int(result.iou_scores[0, 0].argmax().item())
-        raw = result.pred_masks[0, 0, selected][None, None]
-        mask = self.torch.nn.functional.interpolate(
-            raw,
-            size=(image.height, image.width),
-            mode="bilinear",
-            align_corners=False,
-        )[0, 0]
-        binary = (mask.detach().cpu().numpy() > 0).astype(np.uint8) * 255
+        scores = result.iou_scores[0, 0].detach().cpu()
+        ranked = scores.argsort(descending=True).tolist()
+        selected = int(ranked[0])
+        binary = None
+        for candidate in ranked:
+            raw = result.pred_masks[0, 0, int(candidate)][None, None]
+            mask = self.torch.nn.functional.interpolate(
+                raw,
+                size=(image.height, image.width),
+                mode="bilinear",
+                align_corners=False,
+            )[0, 0]
+            candidate_binary = (mask.detach().cpu().numpy() > 0).astype(np.uint8) * 255
+            fraction = float((candidate_binary > 0).mean())
+            binary = candidate_binary
+            selected = int(candidate)
+            if 0.001 < fraction < 0.999:
+                break
         return binary, selected, round((time.perf_counter() - started) * 1000, 2)
 
     @staticmethod
