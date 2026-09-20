@@ -1,0 +1,118 @@
+name: RealESRGAN final CPU runtime validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - ".github/workflows/realesrgan-final-runtime.yml"
+      - "src/media_ai/realesrgan_verified_adapter.py"
+      - "model_scout/run_realesrgan_verified_runtime.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: realesrgan-final-runtime-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cpu-runtime:
+    name: RealESRGAN x4plus actual CPU inference
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HF_TOKEN: ${{ secrets.MINDLE_MEDIA_HF_WRITE_TOKEN }}
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      HF_HUB_DISABLE_XET: "1"
+      CUDA_VISIBLE_DEVICES: ""
+      PYTHONPATH: src
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Enforce free CPU-only execution and secret availability
+        shell: bash
+        run: |
+          if [ "${{ github.event.repository.private }}" != "false" ]; then
+            echo "::error::Only the public repository free standard runner is authorized"
+            exit 1
+          fi
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::MINDLE_MEDIA_HF_WRITE_TOKEN is not configured"
+            exit 1
+          fi
+          echo "::add-mask::$HF_TOKEN"
+          if command -v nvidia-smi >/dev/null 2>&1; then
+            echo "::error::GPU tooling is present; refusing CPU-only validation"
+            exit 1
+          fi
+
+      - name: Install pinned CPU runtime
+        run: |
+          python -m pip install --disable-pip-version-check \
+            "huggingface_hub==0.36.0" \
+            "onnxruntime==1.30.0" \
+            "numpy==2.2.6" \
+            "Pillow==11.3.0"
+
+      - name: Preserve failure context
+        run: |
+          mkdir -p realesrgan_runtime_evidence/logs
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path("realesrgan_runtime_evidence/logs/RUN_CONTEXT.json").write_text(json.dumps({
+              "repository": os.environ.get("GITHUB_REPOSITORY"),
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "source_commit": os.environ.get("GITHUB_SHA"),
+              "hardware": "CPU",
+              "gpu_used": False,
+              "paid_compute": False,
+          }, indent=2) + "\n", encoding="utf-8")
+          PY
+
+      - name: Run verified RealESRGAN Adapter on actual photo
+        run: python model_scout/run_realesrgan_verified_runtime.py
+
+      - name: Validate fail-closed TESTED_PASS Evidence
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          path = Path("realesrgan_runtime_evidence/REALESRGAN_RUNTIME_EVIDENCE.json")
+          evidence = json.loads(path.read_text(encoding="utf-8"))
+          assert evidence["status"] == "TESTED_PASS"
+          assert evidence["promotion"] == {
+              "sam21": "TESTED_PASS",
+              "whisper": "TESTED_PASS",
+              "realesrgan": "TESTED_PASS",
+              "production_enabled": False,
+          }
+          result = evidence["runtime_result"]
+          assert result["status"] == "TESTED_PASS"
+          assert result["input"]["unchanged_after_inference"] is True
+          assert result["output"]["reopen_validated"] is True
+          assert result["output"]["width"] == result["input"]["width"] * 4
+          assert result["output"]["height"] == result["input"]["height"] * 4
+          assert evidence["integration_receipt"]["delivery_gate"] == "DELIVERED"
+
+      - name: Preserve actual input, output, logs, and Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: realesrgan-final-runtime-evidence
+          if-no-files-found: error
+          retention-days: 90
+          include-hidden-files: false
+          path: |
+            model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png
+            realesrgan_runtime_evidence/outputs/**
+            realesrgan_runtime_evidence/logs/**
+            realesrgan_runtime_evidence/REALESRGAN_RUNTIME_EVIDENCE.json
