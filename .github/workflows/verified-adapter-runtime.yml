@@ -118,7 +118,9 @@ jobs:
           retention-days: 90
           include-hidden-files: false
           path: |
-            runtime_evidence/inputs/**
+            runtime_evidence/inputs/*.wav
+            runtime_evidence/inputs/*.mp4
+            runtime_evidence/inputs/*.json
             runtime_evidence/outputs/**
             runtime_evidence/logs/**
             runtime_evidence/RUNTIME_VALIDATION_EVIDENCE.json

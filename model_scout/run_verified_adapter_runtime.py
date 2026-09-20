@@ -146,7 +146,7 @@ def fetch_verified_snapshot(
     expected: dict[str, tuple[int, str]],
     token: str,
 ) -> tuple[Path, list[dict]]:
-    destination = MODELS / cache_path
+    destination = MODELS / "VERIFIED_MODEL_CACHE" / cache_path
     rows = []
     for name, (expected_bytes, expected_sha) in expected.items():
         path = Path(
@@ -478,7 +478,13 @@ def upload_runtime_evidence(api: HfApi, target_repo: str, token: str, evidence: 
     evidence_path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     operations = []
     for path in sorted(WORK.rglob("*")):
-        if path.is_file() and "models" not in path.relative_to(WORK).parts and "realesrgan-source" not in path.relative_to(WORK).parts:
+        relative_parts = path.relative_to(WORK).parts
+        if (
+            path.is_file()
+            and "models" not in relative_parts
+            and "realesrgan-source" not in relative_parts
+            and relative_parts[:2] != ("inputs", "fleurs")
+        ):
             operations.append(
                 CommitOperationAdd(
                     path_in_repo=f"{prefix}/{path.relative_to(WORK).as_posix()}",
