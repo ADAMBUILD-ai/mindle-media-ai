@@ -77,7 +77,7 @@ def main() -> None:
         raise RuntimeError("Intel model license binding is absent")
     for name, (url, size, expected_sha384) in INTEL_FILES.items():
         target = intel_dir / name; http(url, target)
-        if target.stat().st_size != size or sha512(target) != expected_sha512:
+        if target.stat().st_size != size or sha384(target) != expected_sha384:
             raise RuntimeError(f"Intel exact artifact mismatch: {name}")
 
     manifest = {
