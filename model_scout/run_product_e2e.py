@@ -67,9 +67,13 @@ def inputs() -> dict:
     return {"photo": record(photo) | {"license": "CC BY-SA 4.0"}, "video": record(video) | {"source_revision": "9c5eefa1ef66cbeecc9a3d38e1c5308c22ebe830", "license": "CC BY 3.0"}, "audio": record(audio) | {"source_revision": FLEURS_REVISION, "license": "CC-BY-4.0", "reference": row["transcription"]}}
 
 
-def wait_preview(driver, editor, expected: str):
-    WebDriverWait(driver, 300).until(lambda _: editor.get_attribute("data-preview-status") == "actual-output")
-    element = editor.find_element(By.CSS_SELECTOR, "[data-preview] > *")
+def wait_preview(driver, editor, expected: str, previous_job_id: str | None = None):
+    host = editor.find_element(By.CSS_SELECTOR, "[data-preview]")
+    WebDriverWait(driver, 300).until(
+        lambda _: host.get_attribute("data-preview-status") == "actual-output"
+        and host.get_attribute("data-job-id") != previous_job_id
+    )
+    element = host.find_element(By.CSS_SELECTOR, ":scope > *")
     if element.tag_name != expected: raise RuntimeError(f"preview type mismatch: expected {expected}, got {element.tag_name}")
     return {"tag": element.tag_name, "job_id": element.get_attribute("data-job-id"), "output_sha256": element.get_attribute("data-output-sha256"), "text": element.text}
 
@@ -85,13 +89,13 @@ def browser_e2e(base_url: str, values: dict) -> dict:
         pc = photo.find_element(By.CSS_SELECTOR, '[data-command="photo"]'); pc.send_keys("중앙 객체를 실제로 분할해줘", Keys.ENTER)
         photo_segment = wait_preview(driver, photo, "img")
         pc.send_keys("사진을 실제 4배 업스케일해줘", Keys.ENTER)
-        photo_upscale = wait_preview(driver, photo, "img")
+        photo_upscale = wait_preview(driver, photo, "img", photo_segment["job_id"])
         video.find_element(By.CSS_SELECTOR, '[data-primary-input="video"]').send_keys(values["video"]["path"])
         vc = video.find_element(By.CSS_SELECTOR, '[data-command="video"]'); vc.send_keys("대상을 실제 추적해줘", Keys.ENTER)
         video_tracking = wait_preview(driver, video, "video")
         video.find_element(By.CSS_SELECTOR, '[data-primary-input="video"]').send_keys(values["audio"]["path"])
         vc.send_keys("한국어 음성을 실제 텍스트로 변환해줘", Keys.ENTER)
-        whisper = wait_preview(driver, video, "pre")
+        whisper = wait_preview(driver, video, "pre", video_tracking["job_id"])
         if not whisper["text"].strip(): raise RuntimeError("empty transcript displayed in UI")
         photo.find_element(By.CSS_SELECTOR, '[data-action="save"]').click(); WebDriverWait(driver, 30).until(lambda _: photo.get_attribute("data-project-status") == "saved")
         photo.find_element(By.CSS_SELECTOR, '[data-action="export"]').click(); WebDriverWait(driver, 30).until(lambda _: photo.get_attribute("data-export-status") == "exported")
