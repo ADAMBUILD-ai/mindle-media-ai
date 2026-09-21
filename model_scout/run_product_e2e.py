@@ -109,8 +109,11 @@ def preserve_private(token: str, evidence_path: Path) -> dict:
     api = HfApi(token=token); prefix = f"PRODUCT_E2E_EVIDENCE/{os.environ.get('GITHUB_RUN_ID', 'local')}"
     operations = []
     for path in sorted(WORK.rglob("*")):
-        if path.is_file() and "verified_model_cache" not in path.parts and "realesrgan-extracted" not in path.parts:
-            operations.append(CommitOperationAdd(path_in_repo=f"{prefix}/{path.relative_to(WORK).as_posix()}", path_or_fileobj=str(path)))
+        relative = path.relative_to(WORK)
+        if not path.is_file() or ".cache" in relative.parts or relative.parts[:2] == ("inputs", "fleurs"):
+            continue
+        if "verified_model_cache" not in path.parts and "realesrgan-extracted" not in path.parts:
+            operations.append(CommitOperationAdd(path_in_repo=f"{prefix}/{relative.as_posix()}", path_or_fileobj=str(path)))
     commit = api.create_commit(repo_id=PRIVATE_REPO, repo_type="model", operations=operations, commit_message=f"Preserve MINDLE MEDIA AI product E2E Evidence for run {os.environ.get('GITHUB_RUN_ID', 'local')}", token=token)
     return {"private_repo_id": PRIVATE_REPO, "path": prefix, "payload_revision": commit.oid}
 
