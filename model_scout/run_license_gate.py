@@ -96,7 +96,11 @@ def capture_model(api: HfApi, model: dict, token: str) -> dict:
 def preserve_private(api: HfApi, token: str) -> dict:
     run_id = os.environ.get("GITHUB_RUN_ID", "local")
     prefix = f"LICENSE_GATE_EVIDENCE/{run_id}"
-    ops = [CommitOperationAdd(path_in_repo=f"{prefix}/{path.relative_to(OUT).as_posix()}", path_or_fileobj=str(path)) for path in sorted(OUT.rglob("*")) if path.is_file()]
+    ops = [
+        CommitOperationAdd(path_in_repo=f"{prefix}/{path.relative_to(OUT).as_posix()}", path_or_fileobj=str(path))
+        for path in sorted(OUT.rglob("*"))
+        if path.is_file() and ".cache" not in path.relative_to(OUT).parts
+    ]
     commit = api.create_commit(repo_id=PRIVATE_REPO, repo_type="model", operations=ops, commit_message=f"Preserve MINDLE MEDIA AI license-gate Evidence for run {run_id}", token=token)
     return {"private_repo_id": PRIVATE_REPO, "path": prefix, "payload_revision": commit.oid}
 
