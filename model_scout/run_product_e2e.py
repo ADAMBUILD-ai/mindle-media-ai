@@ -57,7 +57,7 @@ def assert_baselines() -> dict:
 def inputs() -> dict:
     import pyarrow.parquet as pq
     INPUTS.mkdir(parents=True, exist_ok=True)
-    photo = ROOT / "model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png"
+    photo = INPUTS / "intel_sisr_1032_street_480x270.png"; photo.write_bytes(requests.get("https://raw.githubusercontent.com/openvinotoolkit/open_model_zoo/a6946b6d6ce42cbf4278df20275fab199655fc7d/models/intel/single-image-super-resolution-1032/assets/street_480x270.png", timeout=90).content)\n    if sha256_file(photo) != "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f": raise RuntimeError("pinned Intel product photo SHA-256 changed")
     video = INPUTS / "big_buck_bunny.mp4"; video.write_bytes(requests.get(VIDEO_URL, timeout=90).content)
     if sha256_file(video) != VIDEO_SHA: raise RuntimeError("pinned video SHA-256 changed")
     parquet = Path(hf_hub_download(repo_id=FLEURS_REPO, repo_type="dataset", filename=FLEURS_PARQUET, revision=FLEURS_REVISION, local_dir=str(INPUTS / "fleurs")))

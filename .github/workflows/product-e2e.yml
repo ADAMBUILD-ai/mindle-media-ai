@@ -9,7 +9,7 @@ on:
       - "src/media_ai/product_runtime.py"
       - "src/media_ai/product_server.py"
       - "src/media_ai/verified_model_adapters.py"
-      - "src/media_ai/realesrgan_verified_adapter.py"
+      - "src/media_ai/realesrgan_verified_adapter.py"\n      - "src/media_ai/intel_sisr_verified_adapter.py"\n      - "model_scout/stage_perpetual_use_alternatives.py"
       - "ui/**"
   workflow_dispatch:
 
@@ -70,7 +70,7 @@ jobs:
             "transformers==4.57.3" "huggingface_hub==0.36.0" "safetensors==0.6.2" \
             "opencv-python-headless==4.12.0.88" "onnxruntime==1.30.0" "numpy==2.2.6" \
             "Pillow==11.3.0" "pyarrow==21.0.0" "soundfile==0.13.1" "jiwer==4.0.0" \
-            "requests==2.32.5" "selenium==4.35.0"
+            "requests==2.32.5" "selenium==4.35.0" "openvino==2025.3.0"
 
       - name: Run approved UI real-model E2E
         run: python model_scout/run_product_e2e.py
