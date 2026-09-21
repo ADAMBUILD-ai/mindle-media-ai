@@ -32,8 +32,8 @@ def sha256(path: Path) -> str:
     with path.open("rb") as f:
         for b in iter(lambda: f.read(1024 * 1024), b""): h.update(b)
     return h.hexdigest()
-def sha512(path: Path) -> str:
-    h = hashlib.sha512()
+def sha384(path: Path) -> str:
+    h = hashlib.sha384()
     with path.open("rb") as f:
         for b in iter(lambda: f.read(1024 * 1024), b""): h.update(b)
     return h.hexdigest()
@@ -75,7 +75,7 @@ def main() -> None:
     http("https://www.apache.org/licenses/LICENSE-2.0.txt", license_copy)
     if "license: https://raw.githubusercontent.com/openvinotoolkit/open_model_zoo/master/LICENSE" not in yml.read_text(encoding="utf-8"):
         raise RuntimeError("Intel model license binding is absent")
-    for name, (url, size, expected_sha512) in INTEL_FILES.items():
+    for name, (url, size, expected_sha384) in INTEL_FILES.items():
         target = intel_dir / name; http(url, target)
         if target.stat().st_size != size or sha512(target) != expected_sha512:
             raise RuntimeError(f"Intel exact artifact mismatch: {name}")
@@ -85,7 +85,7 @@ def main() -> None:
         "resource_boundary": {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "timeout_minutes": 15, "automatic_repeat": False},
         "alternatives": {
             "korean_stt": {"status": "VERIFIED_MODEL_CACHE", "source": {"repo_id": WHISPER_REPO, "revision": WHISPER_REVISION, "official_revision_verified": True, "license": "Apache-2.0", "license_binding": "pinned official model-card declaration plus Apache-2.0 text"}, "artifacts": [rec(whisper_dir / n) for n in WHISPER_FILES], "model_weight_lfs_sha256": expected_lfs, "perpetual_use_gate": "PERPETUAL_USE_EVIDENCE_READY"},
-            "photo_upscale_4x": {"status": "VERIFIED_MODEL_CACHE", "source": {"repo_id": INTEL_REPO, "revision": INTEL_REVISION, "official_revision_verified": True, "license": "Apache-2.0", "license_binding": "pinned Intel model.yml explicitly binds Apache-2.0"}, "artifacts": [rec(intel_dir / n, url) | {"sha512": expected} for n, (url, _, expected) in INTEL_FILES.items()], "perpetual_use_gate": "PERPETUAL_USE_EVIDENCE_READY"},
+            "photo_upscale_4x": {"status": "VERIFIED_MODEL_CACHE", "source": {"repo_id": INTEL_REPO, "revision": INTEL_REVISION, "official_revision_verified": True, "license": "Apache-2.0", "license_binding": "pinned Intel model.yml explicitly binds Apache-2.0"}, "artifacts": [rec(intel_dir / n, url) | {"sha384": expected} for n, (url, _, expected) in INTEL_FILES.items()], "perpetual_use_gate": "PERPETUAL_USE_EVIDENCE_READY"},
         },
         "license_evidence": [rec(card), rec(yml), rec(license_copy, "https://www.apache.org/licenses/LICENSE-2.0.txt")],
         "gate_result": "PERPETUAL_USE_EVIDENCE_READY",
