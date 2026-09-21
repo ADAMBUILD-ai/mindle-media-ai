@@ -95,7 +95,7 @@ def main() -> None:
     (OUT / "ALTERNATIVE_MODEL_MANIFEST.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     ops = []
     for path in sorted(OUT.rglob("*")):
-        if not path.is_file(): continue
+        if not path.is_file() or ".cache" in path.relative_to(OUT).parts: continue
         if path.parent == whisper_dir: dest = f"VERIFIED_MODEL_CACHE/perpetual-use-alternatives/whisper-small/{path.name}"
         elif path.parent == intel_dir: dest = f"VERIFIED_MODEL_CACHE/perpetual-use-alternatives/intel-sisr-1032/{path.name}"
         else: dest = f"ALTERNATIVE_MODEL_EVIDENCE/{os.environ.get('GITHUB_RUN_ID','local')}/{path.relative_to(OUT).as_posix()}"
