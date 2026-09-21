@@ -127,7 +127,7 @@ def validate_output(path: Path, lane: MediaType) -> OutputReceipt:
     allowed_extensions = {
         MediaType.PHOTO: PHOTO_EXTENSIONS,
         MediaType.VIDEO: VIDEO_EXTENSIONS,
-        MediaType.KOREAN_AUDIO: AUDIO_EXTENSIONS,
+        MediaType.KOREAN_AUDIO: AUDIO_EXTENSIONS | {".json", ".txt"},
     }[lane]
     if path.suffix.lower() not in allowed_extensions:
         return OutputReceipt(False, {"path": str(path)}, f"Unexpected {lane.value} output type: {path.suffix}")
@@ -135,6 +135,9 @@ def validate_output(path: Path, lane: MediaType) -> OutputReceipt:
         if lane is MediaType.PHOTO:
             with Image.open(path) as image:
                 image.verify()
+        elif lane is MediaType.KOREAN_AUDIO and path.suffix.lower() in {".json", ".txt"}:
+            if not path.read_text(encoding="utf-8").strip():
+                raise OSError("transcript output is blank")
         else:
             run(["ffprobe", "-v", "error", "-show_format", "-show_streams", str(path)], check=True, capture_output=True, text=True, timeout=10)
     except (CalledProcessError, FileNotFoundError, TimeoutExpired, OSError) as error:

@@ -269,7 +269,7 @@ class WhisperKoreanVerifiedAdapter:
             use_safetensors=True,
         ).to("cpu").eval()
 
-    def transcribe(self, input_path: Path, output_dir: Path, reference: str) -> dict:
+    def transcribe(self, input_path: Path, output_dir: Path, reference: str | None = None) -> dict:
         import soundfile as sf
         from jiwer import wer
 
@@ -292,8 +292,8 @@ class WhisperKoreanVerifiedAdapter:
             )
         elapsed = round((time.perf_counter() - started) * 1000, 2)
         text = self.processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
-        error_rate = float(wer(reference, text))
-        if not text or re.search(r"[가-힣]", text) is None or error_rate > 0.75:
+        error_rate = float(wer(reference, text)) if reference else None
+        if not text or re.search(r"[가-힣]", text) is None or (error_rate is not None and error_rate > 0.75):
             raise RuntimeError(
                 f"Korean STT quality gate failed: nonempty={bool(text)}, hangul={bool(re.search(r'[가-힣]', text))}, wer={error_rate}"
             )

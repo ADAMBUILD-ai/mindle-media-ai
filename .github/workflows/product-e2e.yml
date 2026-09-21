@@ -1,0 +1,105 @@
+name: MINDLE MEDIA AI verified product E2E
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - ".github/workflows/product-e2e.yml"
+      - "model_scout/run_product_e2e.py"
+      - "src/media_ai/product_runtime.py"
+      - "src/media_ai/product_server.py"
+      - "src/media_ai/verified_model_adapters.py"
+      - "src/media_ai/realesrgan_verified_adapter.py"
+      - "ui/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mindle-media-product-e2e-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  approved-ui-real-model-e2e:
+    name: Approved UI to verified CPU models
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HF_TOKEN: ${{ secrets.MINDLE_MEDIA_HF_WRITE_TOKEN }}
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      HF_HUB_DISABLE_XET: "1"
+      CUDA_VISIBLE_DEVICES: ""
+      PYTHONPATH: src
+      TOKENIZERS_PARALLELISM: "false"
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Enforce no-cost CPU-only boundary
+        shell: bash
+        run: |
+          if [ "${{ github.event.repository.private }}" != "false" ]; then
+            echo "::error::Only a public repository free hosted runner is authorized"
+            exit 1
+          fi
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::MINDLE_MEDIA_HF_WRITE_TOKEN is unavailable"
+            exit 1
+          fi
+          echo "::add-mask::$HF_TOKEN"
+          if command -v nvidia-smi >/dev/null 2>&1; then
+            echo "::error::GPU tooling is present; refusing execution"
+            exit 1
+          fi
+
+      - name: Install pinned CPU runtime and browser driver
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check \
+            "torch==2.8.0" "torchvision==0.23.0" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check \
+            "transformers==4.57.3" "huggingface_hub==0.36.0" "safetensors==0.6.2" \
+            "opencv-python-headless==4.12.0.88" "onnxruntime==1.30.0" "numpy==2.2.6" \
+            "Pillow==11.3.0" "pyarrow==21.0.0" "soundfile==0.13.1" "jiwer==4.0.0" \
+            "requests==2.32.5" "selenium==4.35.0"
+
+      - name: Run approved UI real-model E2E
+        run: python model_scout/run_product_e2e.py
+
+      - name: Validate FINAL_PASS evidence
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          evidence = json.loads(Path("product_e2e_evidence/PRODUCT_E2E_EVIDENCE.json").read_text(encoding="utf-8"))
+          assert evidence["status"] == "FINAL_PASS"
+          assert evidence["UI_SSOT_CHANGED"] == "NO"
+          assert evidence["production_changed"] is False
+          assert evidence["execution_environment"]["gpu_used"] is False
+          assert evidence["execution_environment"]["paid_compute"] is False
+          assert evidence["save_export"]["project_status"] == "saved"
+          assert evidence["save_export"]["export_status"] == "exported"
+          assert {job["operation"] for job in evidence["backend_jobs"].values()} == {"segment", "tracking", "upscale", "transcribe"}
+          assert all(job["status"] == "TESTED_PASS" for job in evidence["backend_jobs"].values())
+
+      - name: Preserve actual inputs outputs logs screenshot and Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-approved-ui-product-e2e-evidence
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            product_e2e_evidence/inputs/**
+            product_e2e_evidence/product_data/inputs/**
+            product_e2e_evidence/product_data/jobs/**
+            product_e2e_evidence/product_data/projects/**
+            product_e2e_evidence/logs/**
+            product_e2e_evidence/PRODUCT_E2E_EVIDENCE.json

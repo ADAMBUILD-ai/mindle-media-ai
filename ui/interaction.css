@@ -5,4 +5,7 @@
 [data-command-panel][data-phase="expanded"] [data-command], [data-command-panel][data-phase="executing"] [data-command] { inline-size: 100%; }
 [data-command-panel][data-phase="executing"] [data-command] { opacity: .65; }
 [data-command-error]:not(:empty) { color: #b00020; }
+[data-command-error][data-result="ok"] { color: #0a6b36; }
+[data-preview] img, [data-preview] video { max-inline-size: 100%; max-block-size: 32rem; }
+[data-preview] pre { white-space: pre-wrap; }
 .reference-thumbnail { list-style: none; }
