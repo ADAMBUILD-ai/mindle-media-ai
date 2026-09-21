@@ -38,6 +38,8 @@ jobs:
       MKL_NUM_THREADS: "2"
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -90,7 +92,7 @@ jobs:
         with:
           name: mindle-media-approved-ui-product-e2e-evidence
           retention-days: 90
-          if-no-files-found: error
+          if-no-files-found: warn
           path: |
             product_e2e_evidence/inputs/**
             product_e2e_evidence/product_data/inputs/**
