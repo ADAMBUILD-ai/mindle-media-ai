@@ -62,6 +62,8 @@ jobs:
       - name: Install pinned CPU runtime and browser driver
         shell: bash
         run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg
           python -m pip install --disable-pip-version-check \
             "torch==2.8.0" "torchvision==0.23.0" --index-url https://download.pytorch.org/whl/cpu
           python -m pip install --disable-pip-version-check \
