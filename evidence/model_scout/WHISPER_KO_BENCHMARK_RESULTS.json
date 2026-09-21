@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED_MISSING_LICENSED_KOREAN_AUDIO",
+  "candidate": "Whisper Large v3 Turbo",
+  "decision": "VERIFY_REQUIRED",
+  "technical_smoke_evidence": "../../model_scout/artifacts/whisper_turbo/result.json",
+  "required_fixture_count": 3,
+  "fixtures": [],
+  "required_fields": ["fixture_id", "source_or_license", "reference_transcript", "duration_seconds", "output_text", "segments", "runtime_seconds", "resource", "wer_or_human_error_review", "command_recognition"],
+  "blocker": "No licensed Korean speech fixtures and reference transcripts have been supplied. The silent-input smoke result is not Korean speech-quality evidence."
+}
