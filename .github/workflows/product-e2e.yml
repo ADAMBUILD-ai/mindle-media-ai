@@ -6,10 +6,12 @@ on:
     paths:
       - ".github/workflows/product-e2e.yml"
       - "model_scout/run_product_e2e.py"
+      - "model_scout/stage_perpetual_use_alternatives.py"
       - "src/media_ai/product_runtime.py"
       - "src/media_ai/product_server.py"
       - "src/media_ai/verified_model_adapters.py"
-      - "src/media_ai/realesrgan_verified_adapter.py"\n      - "src/media_ai/intel_sisr_verified_adapter.py"\n      - "model_scout/stage_perpetual_use_alternatives.py"
+      - "src/media_ai/realesrgan_verified_adapter.py"
+      - "src/media_ai/intel_sisr_verified_adapter.py"
       - "ui/**"
   workflow_dispatch:
 
@@ -22,7 +24,7 @@ concurrency:
 
 jobs:
   approved-ui-real-model-e2e:
-    name: Approved UI to verified CPU models
+    name: Approved UI to perpetual-use CPU models
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -36,12 +38,10 @@ jobs:
       MKL_NUM_THREADS: "2"
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
-
       - name: Enforce no-cost CPU-only boundary
         shell: bash
         run: |
@@ -58,23 +58,17 @@ jobs:
             echo "::error::GPU tooling is present; refusing execution"
             exit 1
           fi
-
       - name: Install pinned CPU runtime and browser driver
         shell: bash
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends ffmpeg
-          python -m pip install --disable-pip-version-check \
-            "torch==2.8.0" "torchvision==0.23.0" --index-url https://download.pytorch.org/whl/cpu
-          python -m pip install --disable-pip-version-check \
-            "transformers==4.57.3" "huggingface_hub==0.36.0" "safetensors==0.6.2" \
-            "opencv-python-headless==4.12.0.88" "onnxruntime==1.30.0" "numpy==2.2.6" \
-            "Pillow==11.3.0" "pyarrow==21.0.0" "soundfile==0.13.1" "jiwer==4.0.0" \
-            "requests==2.32.5" "selenium==4.35.0" "openvino==2025.3.0"
-
+          python -m pip install --disable-pip-version-check "torch==2.8.0" "torchvision==0.23.0" --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install --disable-pip-version-check "transformers==4.57.3" "huggingface_hub==0.36.0" "safetensors==0.6.2" "opencv-python-headless==4.12.0.88" "onnxruntime==1.30.0" "numpy==2.2.6" "Pillow==11.3.0" "pyarrow==21.0.0" "soundfile==0.13.1" "jiwer==4.0.0" "requests==2.32.5" "selenium==4.35.0" "openvino==2025.3.0"
+      - name: Directly acquire and stage perpetual-use alternatives
+        run: python model_scout/stage_perpetual_use_alternatives.py
       - name: Run approved UI real-model E2E
         run: python model_scout/run_product_e2e.py
-
       - name: Validate FINAL_PASS evidence
         shell: python
         run: |
@@ -90,7 +84,6 @@ jobs:
           assert evidence["save_export"]["export_status"] == "exported"
           assert {job["operation"] for job in evidence["backend_jobs"].values()} == {"segment", "tracking", "upscale", "transcribe"}
           assert all(job["status"] == "TESTED_PASS" for job in evidence["backend_jobs"].values())
-
       - name: Preserve actual inputs outputs logs screenshot and Evidence
         if: always()
         uses: actions/upload-artifact@v4
