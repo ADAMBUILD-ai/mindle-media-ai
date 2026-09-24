@@ -150,13 +150,32 @@ jobs:
           PY
           python -m zipfile -c mindle-media-verified-runtime-package-v28_1.zip package
           sha256sum mindle-media-verified-runtime-package-v28_1.zip > mindle-media-verified-runtime-package-v28_1.zip.sha256
+          split -b 400m -d -a 2 mindle-media-verified-runtime-package-v28_1.zip mindle-media-verified-runtime-package-v28_1.zip.part-
+          sha256sum mindle-media-verified-runtime-package-v28_1.zip.part-* > mindle-media-verified-runtime-package-v28_1.parts.sha256
 
-      - name: Upload verified runtime package
+      - name: Upload package part 00
         uses: actions/upload-artifact@v4
         with:
-          name: mindle-media-verified-runtime-package-v28_1
+          name: mindle-media-verified-runtime-package-v28_1-part-00
           path: |
-            mindle-media-verified-runtime-package-v28_1.zip
+            mindle-media-verified-runtime-package-v28_1.zip.part-00
+            mindle-media-verified-runtime-package-v28_1.parts.sha256
             mindle-media-verified-runtime-package-v28_1.zip.sha256
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload package part 01
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-verified-runtime-package-v28_1-part-01
+          path: mindle-media-verified-runtime-package-v28_1.zip.part-01
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload package part 02
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-verified-runtime-package-v28_1-part-02
+          path: mindle-media-verified-runtime-package-v28_1.zip.part-02
           if-no-files-found: error
           retention-days: 14
