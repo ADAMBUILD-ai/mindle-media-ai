@@ -1,0 +1,53 @@
+{
+  "evidence_id": "MINDLE_MEDIA_AI_V29_PC_TRANSFER_ATTEMPT_20260924",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_REMOTE_PACKAGE_SUCCESS_TO_PC_QUALITY_E2E_DIRECTIVE_v29.0_20260924.md",
+  "base_commit": "5d871373fa2ba5ceb69e4abc7aca36d504f4f3f3",
+  "ui_ssot_changed": false,
+  "remote_baseline": {
+    "run_id": 35974551384,
+    "product_e2e_run": 35974551391,
+    "canonical_run": 35974551506,
+    "license_gate_run": 35974551394,
+    "status": "REMOTE_PACKAGE_PASS"
+  },
+  "required_artifacts": [
+    {"artifact_id": 10796639261, "part": "00", "bytes": 419251237, "digest": "sha256:b930e521bb627f02134984ded6e7eb8ace20e15c2e56d9b9632c4759aaa62224"},
+    {"artifact_id": 10797756522, "part": "01", "bytes": 418706393, "digest": "sha256:8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128"},
+    {"artifact_id": 10797646925, "part": "02", "bytes": 78665503, "digest": "sha256:c2ad3507f48c1b5ee54f1063af868ef85be3d2f19b689efdf3f2df6ec0272b4e"}
+  ],
+  "transfer_attempt": {
+    "staging_folder": "work/v29_0_transfer",
+    "direct_pc_download": "FAIL",
+    "cause": "Windows outbound socket access is blocked; Invoke-WebRequest returned access denied/WinError 10013",
+    "browser_handoff": {
+      "github_run_page_opened": true,
+      "part_00_download_control_clicked": true,
+      "part_02_download_control_clicked": true,
+      "blob_download_tab_opened": true,
+      "completed_files_in_C:\\Users\\PC\\Downloads": false,
+      "untrusted_partial_file": {"name": "미확인 833874.crdownload", "bytes": 15380, "accepted": false}
+    }
+  },
+  "local_execution": {
+    "part_hash_verification": "NOT_RUN_NO_COMPLETE_LOCAL_FILES",
+    "reassembly": "NOT_RUN",
+    "extraction_inventory": "NOT_RUN",
+    "openvino_install": "NOT_RUN",
+    "photo": "NOT_RUN",
+    "upscale": "NOT_RUN",
+    "video_tracking": "NOT_RUN",
+    "korean_stt": "NOT_RUN",
+    "preview_save_export": "NOT_RUN",
+    "verdict": "PC_LOCAL_FINAL_E2E_BLOCKED_AT_TRANSFER"
+  },
+  "protection": {
+    "prior_evidence_overwritten": false,
+    "ui_redesign": false,
+    "gpu": false,
+    "paid_compute": false,
+    "main_merge": false,
+    "production_deploy": false,
+    "force_push": false
+  },
+  "resume_condition": "A complete local copy of parts 00, 01, and 02 must be materialized in work/v29_0_transfer; then verify each digest before extraction."
+}
