@@ -1,0 +1,78 @@
+{
+  "evidence_id": "MINDLE_MEDIA_AI_V28_1_REMOTE_RUNTIME_PACKAGE_20260924",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_COMMANDER_BREAKTHROUGH_AUTHENTICATED_PACKAGING_DIRECT_SHOPPING_QUALITY_FIX_DIRECTIVE_v28.1_20260924.md",
+  "ui_ssot_changed": false,
+  "protected_baseline": {
+    "source_commit": "73c6701462ad9cb6bebe78fb5b371f00fa0e3a25",
+    "branch": "work/v28-1-remote-runtime-package-20260924",
+    "pr": "https://github.com/ADAMBUILD-ai/mindle-media-ai/pull/22"
+  },
+  "remote_packaging": {
+    "workflow": ".github/workflows/remote-verified-runtime-package.yml",
+    "workflow_commit": "3a80f1cba47f9f5c29b3f80a0cf88101760c6d7f",
+    "run_id": 35973861998,
+    "run_number": 4,
+    "conclusion": "success",
+    "runner": "ubuntu-latest CPU",
+    "gpu": false,
+    "paid_compute": false,
+    "artifact_parts": [
+      {
+        "artifact_id": 10797416396,
+        "name": "mindle-media-verified-runtime-package-v28_1-part-00",
+        "size_bytes": 419251246,
+        "digest": "sha256:afd2450856f8947cbe18026bbf009a90790740c823355d0bcbc1fc28bd90e867"
+      },
+      {
+        "artifact_id": 10797052588,
+        "name": "mindle-media-verified-runtime-package-v28_1-part-01",
+        "size_bytes": 418706313,
+        "digest": "sha256:5ee188c1e8965d38588474373dbf845a1a907c0ce792479150dae6e8c40d571"
+      },
+      {
+        "artifact_id": 10797406542,
+        "name": "mindle-media-verified-runtime-package-v28_1-part-02",
+        "size_bytes": 78665461,
+        "digest": "sha256:b038ae3b326a47b5af7e907131b2da1099c28fae14721ca33e3f12d78b501904"
+      }
+    ],
+    "unsplit_package_digest": "sha256:93da2189fc37bb42cc60e8335131d2e533440a96c7c6c7e2535dea90834c8a4c",
+    "expires_at": "2026-10-08T08:15:30Z"
+  },
+  "verified_payloads": {
+    "sam21": {
+      "repo": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+    },
+    "whisper_small": {
+      "repo": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+    },
+    "intel_sisr_1032": {
+      "repo": "openvinotoolkit/open_model_zoo",
+      "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+      "xml_sha384": "4f355965e070341e1f1df5b954213e0ecca5d43faf8a0c9770efdf04c7442c88fb0aaeb825fc8091b30f0a674c808446",
+      "bin_sha384": "ec5a759c2d43eebf679040638ad765bc6ce5c16253421ddeb8acafd1ab6c8cb406f9f85b274771d9f670efc3d824e926",
+      "precision": "FP32"
+    },
+    "runtime": {
+      "openvino": "2025.1.0",
+      "video_decode": "OpenCV primary path; ffmpeg not required"
+    }
+  },
+  "quality_status": {
+    "photo": "PC rerun pending package transfer; prior misaligned overlay remains rejected",
+    "upscale": "PC rerun pending package transfer; prior black output remains rejected",
+    "video_tracking": "recovered remote output exists; local rerun pending package transfer",
+    "korean_stt": "recovered remote transcript exists; local rerun pending package transfer",
+    "preview_save_export": "PC E2E pending package transfer"
+  },
+  "transfer_instructions": {
+    "parts_order": ["part-00", "part-01", "part-02"],
+    "reassemble": "concatenate the downloaded part payloads in order, verify sha256 93da2189fc37bb42cc60e8335131d2e533440a96c7c6c7e2535dea90834c8a4c, then extract the inner zip",
+    "artifact_downloads": "use the three GitHub Actions artifact links from run 35973861998; do not use the expired original artifact"
+  },
+  "conclusion": "REMOTE_PACKAGE_PASS_PC_E2E_NOT_YET_CLOSED"
+}
