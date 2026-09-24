@@ -1,0 +1,414 @@
+{
+  "schema_version": "1.0",
+  "captured_at": "2026-09-20T14:15:50.854566+00:00",
+  "status": "TESTED_PASS",
+  "scope": "TEST_ONLY_NO_PRODUCTION_ENABLEMENT",
+  "github": {
+    "repository": "ADAMBUILD-ai/mindle-media-ai",
+    "source_commit": "d7673bf5d9876b40e869be749f307efc27954f00",
+    "run_id": "35515768474",
+    "run_attempt": "1",
+    "pull_request": 10,
+    "head_commit": "288387919fadf318898b60b232d70d042b179912",
+    "workflow": {
+      "name": "Verified adapter runtime validation",
+      "run_number": 7,
+      "run_url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35515768474",
+      "conclusion": "success"
+    },
+    "actions_artifact": {
+      "id": 10607335311,
+      "name": "verified-adapter-runtime-evidence",
+      "size_in_bytes": 2282519,
+      "zip_sha256": "6e6a697697c651ca77722eaca49f5844cecd20a1009e12bf88b433091f59a36e",
+      "expires_at": "2026-12-19T14:12:26Z"
+    },
+    "pr_url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/pull/10"
+  },
+  "execution_environment": {
+    "provider": "GitHub Actions public standard hosted runner",
+    "hardware": "CPU",
+    "gpu_used": false,
+    "paid_compute": false,
+    "timeout_minutes": 15,
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "python": "3.11.16",
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.3",
+    "opencv": "4.12.0",
+    "pyarrow": "21.0.0"
+  },
+  "immutable_baseline": {
+    "private_repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+    "baseline_revision": "ad63c52a4b9a3db7eaec9c5058c94ee1422757dd",
+    "before": {
+      "revision": "ad63c52a4b9a3db7eaec9c5058c94ee1422757dd",
+      "private": true,
+      "weights": {
+        "sam21": {
+          "bytes": 323476296,
+          "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+        },
+        "whisper-large-v3-turbo": {
+          "bytes": 1617824864,
+          "sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"
+        }
+      }
+    },
+    "after_additions": {
+      "revision": "e6f4ad5194673f27f64b1dc9626f1b616fb05792",
+      "private": true,
+      "weights": {
+        "sam21": {
+          "bytes": 323476296,
+          "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+        },
+        "whisper-large-v3-turbo": {
+          "bytes": 1617824864,
+          "sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"
+        }
+      }
+    },
+    "sam21": {
+      "identity": {
+        "repo_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license": "apache-2.0",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 323476296,
+        "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+      },
+      "files": [
+        {
+          "name": "config.json",
+          "bytes": 5705,
+          "sha256": "8e24a93b6a40d4dad86eaec383ce7b4044f37ec6360136460f5ff2ce55f87390"
+        },
+        {
+          "name": "model.safetensors",
+          "bytes": 323476296,
+          "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+        },
+        {
+          "name": "preprocessor_config.json",
+          "bytes": 683,
+          "sha256": "6ebf229ee259368ce4a8d4f2fe893a72b053023710853e257253939e601f583d"
+        },
+        {
+          "name": "processor_config.json",
+          "bytes": 95,
+          "sha256": "f8a68e865cfad115c1c2763f3d93eca7b1c622da06da2a9273eb437fb2389b6d"
+        }
+      ]
+    },
+    "whisper": {
+      "identity": {
+        "repo_id": "openai/whisper-large-v3-turbo",
+        "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+        "license": "mit",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 1617824864,
+        "weight_sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"
+      },
+      "files": [
+        {
+          "name": "config.json",
+          "bytes": 1256,
+          "sha256": "c5b526b3e3cd64cd8940dabb45e8ba726629e22d8ed389c29b552f9140daf04a"
+        },
+        {
+          "name": "generation_config.json",
+          "bytes": 3772,
+          "sha256": "cce11bfe3aaa6ae9e072ea2637caaec8795e68d9b67e655a5af16ee509681a4c"
+        },
+        {
+          "name": "model.safetensors",
+          "bytes": 1617824864,
+          "sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"
+        },
+        {
+          "name": "preprocessor_config.json",
+          "bytes": 340,
+          "sha256": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711"
+        },
+        {
+          "name": "tokenizer.json",
+          "bytes": 2710337,
+          "sha256": "297b13372ac43916285644fb9687add3cc62ee2a1adb60da3dc25cc94c1871fd"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "bytes": 282843,
+          "sha256": "844b642c73a91359722f47b35705f7174686df33d252695d8572cf9ac03a6389"
+        }
+      ]
+    },
+    "mutation_policy": "SAM 2.1 and Whisper paths were read only; additions use separate paths and commits."
+  },
+  "inputs": {
+    "photo": {
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg",
+      "bytes": 8967798,
+      "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+      "source": "Wikimedia Commons licensed fixture manifest in repository",
+      "license": "CC BY-SA 4.0"
+    },
+    "video": {
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/inputs/big_buck_bunny.mp4",
+      "bytes": 315058,
+      "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+      "source_repo": "opencv/opencv_extra",
+      "source_revision": "9c5eefa1ef66cbeecc9a3d38e1c5308c22ebe830",
+      "source_path": "testdata/highgui/video/big_buck_bunny.mp4",
+      "license": "CC BY 3.0 (Big Buck Bunny)"
+    },
+    "audio": {
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/inputs/fleurs_ko_kr_test_row0.wav",
+      "bytes": 798778,
+      "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+      "source_repo": "google/fleurs",
+      "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "source_path": "parquet-data/ko_kr/test-00000-of-00001.parquet",
+      "row": 0,
+      "license": "cc-by-4.0",
+      "reference": "다리 밑 수직 간격은 15미터이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행금지는 2017년 3월까지이다",
+      "reference_file_sha256": "4df29b8f38d16f8fa75cd04eb8e3892aa05bd398a77611d5402172ee5bc3b55f"
+    }
+  },
+  "results": {
+    "sam21_photo_segmentation": {
+      "result": {
+        "status": "TESTED_PASS",
+        "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg",
+        "input_sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+        "prompt_point": [
+          320,
+          186
+        ],
+        "selected_mask_index": 2,
+        "foreground_fraction": 0.045840315013404825,
+        "elapsed_ms": 4621.87,
+        "outputs": [
+          {
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_photo/photo_mask.png",
+            "sha256": "310c0404558aac091eb9cd5cbf40e0a6089649f5de2e1f6ff36761a258317721",
+            "bytes": 1562
+          },
+          {
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_photo/photo_overlay.png",
+            "sha256": "6f01a9ac950eefd9c678415a946ef9438c40a2620f506c21428692e37b2e0654",
+            "bytes": 523285
+          }
+        ]
+      },
+      "integration_receipt": {
+        "readiness": "RUNTIME_READY",
+        "callback_status": "TESTED_PASS",
+        "delivery_gate": "DELIVERED",
+        "adapter_id": "mindle.sam21.verified.cpu",
+        "adapter_version": "1.0.0",
+        "job_id": "2b46d6df-a65c-4715-87da-fe5d39a07d90",
+        "evidence_id": "0c6baf8f-9649-486f-ba67-aa38b4706c58"
+      }
+    },
+    "sam21_video_tracking": {
+      "result": {
+        "status": "TESTED_PASS",
+        "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/inputs/big_buck_bunny.mp4",
+        "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+        "track_id": 1,
+        "sampled_frames": 4,
+        "samples": [
+          {
+            "track_id": 1,
+            "source_frame_index": 0,
+            "prompt_point": [
+              256,
+              146
+            ],
+            "centroid": [
+              253,
+              142
+            ],
+            "selected_mask_index": 0,
+            "foreground_fraction": 0.1444112627986348,
+            "iou_with_previous_sample": null,
+            "elapsed_ms": 4566.78,
+            "mask_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_frame_00_mask.png",
+            "mask_sha256": "f089e4041e23a692d75785f4e56974b73628cd152ed68f5ab99a4b13e8ee5715",
+            "overlay_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_frame_00_overlay.png",
+            "overlay_sha256": "15fd44088b8da7b193aeaaf18898da95ab903380f186e60008437e80988fe871"
+          },
+          {
+            "track_id": 1,
+            "source_frame_index": 41,
+            "prompt_point": [
+              253,
+              142
+            ],
+            "centroid": [
+              249,
+              137
+            ],
+            "selected_mask_index": 2,
+            "foreground_fraction": 0.003339643771331058,
+            "iou_with_previous_sample": 0.02312592319054653,
+            "elapsed_ms": 4571.01,
+            "mask_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_frame_01_mask.png",
+            "mask_sha256": "bc0152ef3a47226958c2ee35762e35de1dbe53a699bbff2ad593e4b1c0a15e8f",
+            "overlay_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_frame_01_overlay.png",
+            "overlay_sha256": "831eeab36dcdf158a86812c31470ba1bf85ad66d116c309459689aa08e74c18d"
+          },
+          {
+            "track_id": 1,
+            "source_frame_index": 83,
+            "prompt_point": [
+              249,
+              137
+            ],
+            "centroid": [
+              240,
+              182
+            ],
+            "selected_mask_index": 0,
+            "foreground_fraction": 0.13637878626279865,
+            "iou_with_previous_sample": 0.024488000391025954,
+            "elapsed_ms": 4553.17,
+            "mask_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_frame_02_mask.png",
+            "mask_sha256": "da616f9e93f730a8a153597a7d34a82411caafe91bb21c47b5ad1ceb98e1a876",
+            "overlay_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_frame_02_overlay.png",
+            "overlay_sha256": "776e2bd3fb8053c4c95f1b3b69a56a5ecc6c72078a999e1bdf6c340a037cde37"
+          },
+          {
+            "track_id": 1,
+            "source_frame_index": 124,
+            "prompt_point": [
+              240,
+              182
+            ],
+            "centroid": [
+              251,
+              178
+            ],
+            "selected_mask_index": 0,
+            "foreground_fraction": 0.12659982935153583,
+            "iou_with_previous_sample": 0.7164549251653324,
+            "elapsed_ms": 4573.99,
+            "mask_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_frame_03_mask.png",
+            "mask_sha256": "97acdff85378790fff5e157843a34e2eb21d819e609dca0ed7f8fff918e3d2a5",
+            "overlay_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_frame_03_overlay.png",
+            "overlay_sha256": "ba1875623ce135c5bde8a0653dcd2a2c04d9e615e69aa760b33d84117357af10"
+          }
+        ],
+        "outputs": [
+          {
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/track_1_overlays.mp4",
+            "sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69",
+            "bytes": 96034
+          },
+          {
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_video/tracking.json",
+            "sha256": "f651527c237418c4716fdfb7f7f282c0ddd3f6afba0a948ebb2c8f868cac65bf",
+            "bytes": 3208
+          }
+        ]
+      },
+      "integration_receipt": {
+        "readiness": "RUNTIME_READY",
+        "callback_status": "TESTED_PASS",
+        "delivery_gate": "DELIVERED",
+        "adapter_id": "mindle.sam21.verified.cpu",
+        "adapter_version": "1.0.0",
+        "job_id": "bcdcb796-bfa6-4c08-8a9d-5827de7f8858",
+        "evidence_id": "07285d51-f597-4c4f-8129-cf25e3fa6e59"
+      }
+    },
+    "whisper_korean_stt": {
+      "result": {
+        "status": "TESTED_PASS",
+        "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/inputs/fleurs_ko_kr_test_row0.wav",
+        "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+        "sample_rate": 16000,
+        "duration_seconds": 12.48,
+        "reference": "다리 밑 수직 간격은 15미터이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행금지는 2017년 3월까지이다",
+        "text": "다리 및 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행금지는 2017년 3월까지이다.",
+        "word_error_rate": 0.21428571428571427,
+        "elapsed_ms": 15041.63,
+        "outputs": [
+          {
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/whisper_ko/korean_transcript.json",
+            "sha256": "563a33388937ac17f13ddabf7e54dc42e1c9c53ee7cb28c8cc203403034acedb",
+            "bytes": 414
+          }
+        ]
+      },
+      "integration_receipt": {
+        "readiness": "RUNTIME_READY",
+        "callback_status": "TESTED_PASS",
+        "delivery_gate": "DELIVERED",
+        "adapter_id": "mindle.whisper.ko.verified.cpu",
+        "adapter_version": "1.0.0",
+        "job_id": "882db8c0-bd2b-4684-80db-97044f08945c",
+        "evidence_id": "98773c65-af6b-4481-9077-11d5eb5ca27d"
+      }
+    }
+  },
+  "realesrgan": {
+    "status": "VERIFIED_MODEL_CACHE",
+    "official_repo_id": "qualcomm/Real-ESRGAN-x4plus",
+    "official_revision": "4022efb8b74eb88900724d9e05a468ac3673df4a",
+    "verified_license": "bsd-3-clause",
+    "release_metadata_file": "release_assets.json",
+    "release_metadata_sha256": "cbf175e51739abafee2e0124660e2cbe93d908080d59c293ed94f7e52a4c00d5",
+    "asset_url": "https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-models/models/real_esrgan_x4plus/releases/v0.62.2/real_esrgan_x4plus-onnx-float.zip",
+    "archive": {
+      "name": "real_esrgan_x4plus-onnx-float.zip",
+      "bytes": 62174026,
+      "sha256": "e6cb215390f3800b56baa0e9140907d81f5143a4b96c184a635c79dfee2e28df"
+    },
+    "extracted": [
+      {
+        "name": "real_esrgan_x4plus.onnx",
+        "bytes": 3158313,
+        "sha256": "29ffd5bc0277b19536cd39b737627fb2d79df9999b8329741b558498dd5e31f7"
+      },
+      {
+        "name": "real_esrgan_x4plus.data",
+        "bytes": 66737664,
+        "sha256": "28fada125730d3c87d504d48dd8332837f65811ec431a570ea4919ba3eee3287"
+      }
+    ],
+    "staging": {
+      "status": "VERIFIED_MODEL_CACHE",
+      "model": "realesrgan",
+      "repo_id": "qualcomm/Real-ESRGAN-x4plus",
+      "revision": "4022efb8b74eb88900724d9e05a468ac3673df4a",
+      "file_name": "real_esrgan_x4plus-onnx-float.zip",
+      "source": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/realesrgan-source/real_esrgan_x4plus-onnx-float.zip",
+      "target": "/home/runner/work/mindle-media-ai/mindle-media-ai/model_scout/artifacts/realesrgan_qualcomm/real_esrgan_x4plus-onnx-float/real_esrgan_x4plus-onnx-float",
+      "size_bytes": 62174026,
+      "release_sha256": "e6cb215390f3800b56baa0e9140907d81f5143a4b96c184a635c79dfee2e28df",
+      "model_sha256": "29ffd5bc0277b19536cd39b737627fb2d79df9999b8329741b558498dd5e31f7"
+    },
+    "private_cache": {
+      "repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+      "private": true,
+      "path": "VERIFIED_MODEL_CACHE/realesrgan-x4plus-onnx/real_esrgan_x4plus-onnx-float.zip",
+      "revision": "e6f4ad5194673f27f64b1dc9626f1b616fb05792",
+      "persistence": "ALREADY_PRESENT_EXACT_MATCH"
+    }
+  },
+  "promotion": {
+    "sam21": "TESTED_PASS",
+    "whisper": "TESTED_PASS",
+    "realesrgan": "VERIFIED_MODEL_CACHE",
+    "production_enabled": false
+  },
+  "persistence": {
+    "private_repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+    "path": "TESTED_RUNTIME_EVIDENCE/35515768474",
+    "payload_revision": "4115aff301a9da9dba51d0c6d49f8b8511efae4d",
+    "manifest_revision": "d81285a1dfd932f0f16fb49895361ddc452ad330"
+  },
+  "verification_note": "Downloaded Actions artifact ZIP SHA-256 and every preserved input/output SHA-256 were independently recomputed and matched this evidence."
+}

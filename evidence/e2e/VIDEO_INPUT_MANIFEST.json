@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED_MISSING_OWNED_INPUTS",
+  "required_count": 5,
+  "evidence_root": "evidence/e2e/video",
+  "required_workflow": ["import", "timeline", "split_or_trim", "subtitle", "reframe", "audio", "project_save", "export", "natural_language", "reference_images"],
+  "fixtures": [
+    {"fixture_id": "V1", "scenario": "import_timeline_split_trim", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "V2", "scenario": "subtitle_korean", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "V3", "scenario": "reframe_and_keyframe", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "V4", "scenario": "audio_and_multitrack", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "V5", "scenario": "project_save_export_and_nl_reference", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"}
+  ]
+}

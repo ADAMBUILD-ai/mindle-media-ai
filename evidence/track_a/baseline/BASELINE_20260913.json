@@ -1,0 +1,13 @@
+{
+  "branch": "integration",
+  "head": "8088a0f5ed0cf10f5091d15f47b674cdaee99a44",
+  "canonical_test_command": "./run_tests.sh",
+  "result": {
+    "python": "11 passed",
+    "evidence_sync": "pass",
+    "node": "2 passed",
+    "source_tree_completeness": "pass"
+  },
+  "status": "WORKSPACE_BASELINE_VERIFIED",
+  "limitations": ["human quality review is pending", "licensed Korean speech benchmark is pending", "safe matting replacement is pending", "approved UI source asset is absent", "remote GitHub push/PR requires authenticated transport"]
+}
