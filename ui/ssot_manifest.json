@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "status": "BLOCKED_SOURCE_ASSET_NOT_PRESENT",
-  "approved_ui_asset": null,
-  "asset_sha256": null,
-  "approved_at": null,
+  "status": "APPROVED_PINNED",
+  "approved_ui_asset": "assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+  "asset_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "approved_at": "2026-09-13",
   "ssot_document": "../docs/01_UI_SSOT_FINAL.md",
   "required_location": "assets/ssot/",
-  "rule": "Do not infer pixel geometry, color values or panel proportions until the user-approved image or source is added to the required location."
+  "rule": "Do not infer pixel geometry, color values or panel proportions; product integration may add behavior only without redesigning the approved layout."
 }

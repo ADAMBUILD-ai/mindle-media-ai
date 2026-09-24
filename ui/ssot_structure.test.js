@@ -18,4 +18,6 @@ for (const required of [
 ]) assert.ok(html.includes(required), `missing SSOT structure: ${required}`);
 
 const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, "ssot_manifest.json"), "utf8"));
-assert.equal(manifest.status, "BLOCKED_SOURCE_ASSET_NOT_PRESENT");
+assert.equal(manifest.status, "APPROVED_PINNED");
+assert.equal(manifest.approved_ui_asset, "assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png");
+assert.match(manifest.asset_sha256, /^[a-f0-9]{64}$/);

@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0",
+  "captured_at": "2026-09-20T14:57:16.421603+00:00",
+  "status": "TESTED_PASS",
+  "scope": "REAL_ESRGAN_TEST_ONLY_NO_PRODUCTION_ENABLEMENT",
+  "github": {
+    "repository": "ADAMBUILD-ai/mindle-media-ai",
+    "source_commit": "e464da88f7aceda4d266796966ec0ca0ecd6ef23",
+    "run_id": "35518026499",
+    "run_attempt": "1",
+    "pull_request": 10,
+    "head_commit": "70cafb08d6a8e0dba2641fe86d5b0eb709b162fe",
+    "workflow": {
+      "name": "RealESRGAN final CPU runtime validation",
+      "run_number": 1,
+      "run_url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35518026499",
+      "conclusion": "success"
+    },
+    "actions_artifact": {
+      "id": 10607846062,
+      "name": "realesrgan-final-runtime-evidence",
+      "size_in_bytes": 516578,
+      "zip_sha256": "89e97161a79bf38e4b7ccb325a7c13aa5ea721707ec4cb3ab438e3cbcdcd11f8",
+      "expires_at": "2026-12-19T14:56:47Z"
+    },
+    "canonical": {
+      "run_number": 84,
+      "run_url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35518026467",
+      "conclusion": "success"
+    },
+    "pr_url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/pull/10"
+  },
+  "execution_environment": {
+    "provider": "GitHub Actions public standard hosted runner",
+    "hardware": "CPU",
+    "gpu_used": false,
+    "paid_compute": false,
+    "timeout_minutes": 15,
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "python": "3.11.16",
+    "onnxruntime": "1.30.0",
+    "onnxruntime_available_providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "onnxruntime_session_providers": [
+      "CPUExecutionProvider"
+    ],
+    "numpy": "2.2.6",
+    "pillow": "11.3.0"
+  },
+  "immutable_prior_evidence": {
+    "path": "evidence/model_scout/VERIFIED_ADAPTER_RUNTIME_20260920.json",
+    "bytes": 17375,
+    "sha256": "f75ed10af08456215c00d920e480e2bdbb096d0659c6d7bbabcf5529df7e7bf1",
+    "sam21": {
+      "repo_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license": "apache-2.0",
+      "weight_name": "model.safetensors",
+      "weight_size_bytes": 323476296,
+      "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+    },
+    "whisper": {
+      "repo_id": "openai/whisper-large-v3-turbo",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "license": "mit",
+      "weight_name": "model.safetensors",
+      "weight_size_bytes": 1617824864,
+      "weight_sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"
+    },
+    "sam_runtime_evidence": {
+      "result": {
+        "status": "TESTED_PASS",
+        "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg",
+        "input_sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+        "prompt_point": [
+          320,
+          186
+        ],
+        "selected_mask_index": 2,
+        "foreground_fraction": 0.045840315013404825,
+        "elapsed_ms": 4621.87,
+        "outputs": [
+          {
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_photo/photo_mask.png",
+            "sha256": "310c0404558aac091eb9cd5cbf40e0a6089649f5de2e1f6ff36761a258317721",
+            "bytes": 1562
+          },
+          {
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/sam_photo/photo_overlay.png",
+            "sha256": "6f01a9ac950eefd9c678415a946ef9438c40a2620f506c21428692e37b2e0654",
+            "bytes": 523285
+          }
+        ]
+      },
+      "integration_receipt": {
+        "readiness": "RUNTIME_READY",
+        "callback_status": "TESTED_PASS",
+        "delivery_gate": "DELIVERED",
+        "adapter_id": "mindle.sam21.verified.cpu",
+        "adapter_version": "1.0.0",
+        "job_id": "2b46d6df-a65c-4715-87da-fe5d39a07d90",
+        "evidence_id": "0c6baf8f-9649-486f-ba67-aa38b4706c58"
+      }
+    },
+    "whisper_runtime_evidence": {
+      "result": {
+        "status": "TESTED_PASS",
+        "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/inputs/fleurs_ko_kr_test_row0.wav",
+        "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+        "sample_rate": 16000,
+        "duration_seconds": 12.48,
+        "reference": "다리 밑 수직 간격은 15미터이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행금지는 2017년 3월까지이다",
+        "text": "다리 및 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행금지는 2017년 3월까지이다.",
+        "word_error_rate": 0.21428571428571427,
+        "elapsed_ms": 15041.63,
+        "outputs": [
+          {
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_evidence/outputs/whisper_ko/korean_transcript.json",
+            "sha256": "563a33388937ac17f13ddabf7e54dc42e1c9c53ee7cb28c8cc203403034acedb",
+            "bytes": 414
+          }
+        ]
+      },
+      "integration_receipt": {
+        "readiness": "RUNTIME_READY",
+        "callback_status": "TESTED_PASS",
+        "delivery_gate": "DELIVERED",
+        "adapter_id": "mindle.whisper.ko.verified.cpu",
+        "adapter_version": "1.0.0",
+        "job_id": "882db8c0-bd2b-4684-80db-97044f08945c",
+        "evidence_id": "98773c65-af6b-4481-9077-11d5eb5ca27d"
+      }
+    },
+    "unchanged": true
+  },
+  "model": {
+    "repo_id": "qualcomm/Real-ESRGAN-x4plus",
+    "revision": "4022efb8b74eb88900724d9e05a468ac3673df4a",
+    "license": "bsd-3-clause",
+    "archive_name": "real_esrgan_x4plus-onnx-float.zip",
+    "archive_size_bytes": 62174026,
+    "archive_sha256": "e6cb215390f3800b56baa0e9140907d81f5143a4b96c184a635c79dfee2e28df",
+    "onnx_name": "real_esrgan_x4plus.onnx",
+    "onnx_size_bytes": 3158313,
+    "onnx_sha256": "29ffd5bc0277b19536cd39b737627fb2d79df9999b8329741b558498dd5e31f7",
+    "data_name": "real_esrgan_x4plus.data",
+    "data_size_bytes": 66737664,
+    "data_sha256": "28fada125730d3c87d504d48dd8332837f65811ec431a570ea4919ba3eee3287",
+    "private_cache": {
+      "repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+      "private": true,
+      "cache_revision": "e6f4ad5194673f27f64b1dc9626f1b616fb05792",
+      "cache_path": "VERIFIED_MODEL_CACHE/realesrgan-x4plus-onnx/real_esrgan_x4plus-onnx-float.zip",
+      "round_trip_verified": true
+    },
+    "archive_local_sha256_verified": "e6cb215390f3800b56baa0e9140907d81f5143a4b96c184a635c79dfee2e28df",
+    "onnx_local_sha256_verified": "29ffd5bc0277b19536cd39b737627fb2d79df9999b8329741b558498dd5e31f7",
+    "data_local_sha256_verified": "28fada125730d3c87d504d48dd8332837f65811ec431a570ea4919ba3eee3287"
+  },
+  "input_provenance": {
+    "source": "existing repository RealESRGAN benchmark photo fixture",
+    "source_fixture": "01_42756291.jpg",
+    "source_title": "Baroque ceiling frescoes (Ljubljana Cathedral)",
+    "license": "CC BY-SA 4.0",
+    "repository_path": "model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png"
+  },
+  "runtime_result": {
+    "status": "TESTED_PASS",
+    "input": {
+      "file_name": "01_input_128.png",
+      "bytes": 38721,
+      "sha256": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 128,
+      "height": 128,
+      "unchanged_after_inference": true
+    },
+    "output": {
+      "file_name": "01_realesrgan_x4plus_4x.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/realesrgan_runtime_evidence/outputs/01_realesrgan_x4plus_4x.png",
+      "bytes": 473223,
+      "sha256": "213c3054af450526e113cc47f02ec538b8e4e9f305a5626f127b8f4f654f6689",
+      "format": "PNG",
+      "mode": "RGB",
+      "width": 512,
+      "height": 512,
+      "reopen_validated": true,
+      "pixel_min": 0,
+      "pixel_max": 255,
+      "pixel_stddev": 52.314619
+    },
+    "scale_factor": 4,
+    "elapsed_ms": 3536.1,
+    "runtime": {
+      "backend": "onnxruntime",
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "input_name": "image",
+      "output_name": "upscaled_image",
+      "declared_input_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "declared_output_shape": [
+        1,
+        3,
+        512,
+        512
+      ],
+      "actual_input_tensor_shape": [
+        1,
+        3,
+        128,
+        128
+      ],
+      "actual_output_tensor_shape": [
+        1,
+        3,
+        512,
+        512
+      ]
+    }
+  },
+  "integration_receipt": {
+    "readiness": "RUNTIME_READY",
+    "callback_status": "TESTED_PASS",
+    "delivery_gate": "DELIVERED",
+    "adapter_id": "mindle.realesrgan-x4plus.verified.onnx.cpu",
+    "adapter_version": "1.0.0",
+    "job_id": "5c03d8d2-6bdf-460a-a8aa-4c718b79b11b",
+    "evidence_id": "e3e87aed-523a-42e4-85ca-bddb37ed62f7"
+  },
+  "promotion": {
+    "sam21": "TESTED_PASS",
+    "whisper": "TESTED_PASS",
+    "realesrgan": "TESTED_PASS",
+    "production_enabled": false
+  },
+  "persistence": {
+    "private_repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+    "path": "TESTED_RUNTIME_EVIDENCE/35518026499/realesrgan-final",
+    "payload_revision": "63a513dee8ca7cd528d5525befd71d724d7ec6c8",
+    "manifest_revision": "eae619a94dae1379e608fc363dd5d70ddc1f2e73"
+  },
+  "independent_verification": {
+    "artifact_zip_sha256_recomputed": "89e97161a79bf38e4b7ccb325a7c13aa5ea721707ec4cb3ab438e3cbcdcd11f8",
+    "artifact_digest_matched": true,
+    "input_sha256_recomputed": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2",
+    "output_sha256_recomputed": "213c3054af450526e113cc47f02ec538b8e4e9f305a5626f127b8f4f654f6689",
+    "output_opened": true,
+    "output_visual_review": "Actual architecture-photo upscale content confirmed; not blank, mock, or metadata-only.",
+    "output_resolution_valid": "128x128 RGB PNG -> 512x512 RGB PNG",
+    "raw_secret_value_occurrences": 0
+  },
+  "final_model_state": {
+    "sam21": {
+      "status": "TESTED_PASS",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "model_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780",
+      "license": "apache-2.0",
+      "runtime": "actual photo segmentation and actual video tracking",
+      "repository_evidence": "evidence/model_scout/VERIFIED_ADAPTER_RUNTIME_20260920.json",
+      "actions_run": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35515768474",
+      "private_evidence": "TESTED_RUNTIME_EVIDENCE/35515768474"
+    },
+    "whisper": {
+      "status": "TESTED_PASS",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "model_sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1",
+      "license": "mit",
+      "runtime": "actual Korean speech-to-text",
+      "repository_evidence": "evidence/model_scout/VERIFIED_ADAPTER_RUNTIME_20260920.json",
+      "actions_run": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35515768474",
+      "private_evidence": "TESTED_RUNTIME_EVIDENCE/35515768474"
+    },
+    "realesrgan": {
+      "status": "TESTED_PASS",
+      "revision": "4022efb8b74eb88900724d9e05a468ac3673df4a",
+      "model_sha256": "29ffd5bc0277b19536cd39b737627fb2d79df9999b8329741b558498dd5e31f7",
+      "archive_sha256": "e6cb215390f3800b56baa0e9140907d81f5143a4b96c184a635c79dfee2e28df",
+      "license": "bsd-3-clause",
+      "runtime": "actual ONNX Runtime CPU 4x image upscale",
+      "actions_run": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35518026499",
+      "private_evidence": "TESTED_RUNTIME_EVIDENCE/35518026499/realesrgan-final"
+    },
+    "production_enabled": false
+  },
+  "verification_note": "SAM 2.1 and Whisper Evidence remained byte-for-byte unchanged. RealESRGAN used only the previously verified private cache and produced a real, reopenable 4x PNG on CPU."
+}
