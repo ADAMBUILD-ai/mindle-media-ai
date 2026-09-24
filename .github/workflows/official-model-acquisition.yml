@@ -1,0 +1,342 @@
+name: Official pinned model acquisition verification
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - ".github/workflows/official-model-acquisition.yml"
+      - "model_scout/stage_verified_model.py"
+      - "evidence/model_scout/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: official-pinned-model-acquisition-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  acquire-verify-stage:
+    if: github.event_name == 'workflow_dispatch'
+    name: CPU pinned acquisition and private HF persistence
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      HF_HUB_ENABLE_HF_TRANSFER: "0"
+      HF_TOKEN: ${{ secrets.MINDLE_MEDIA_HF_WRITE_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Require repository-scoped HF credential
+        shell: bash
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::MINDLE_MEDIA_HF_WRITE_TOKEN is not configured"
+            exit 1
+          fi
+          echo "::add-mask::$HF_TOKEN"
+
+      - name: Install pinned official Hub client
+        run: python -m pip install --disable-pip-version-check "huggingface_hub==0.36.0"
+
+      - name: Download, verify, fail-closed stage, and persist
+        shell: python
+        run: |
+          import hashlib
+          import json
+          import os
+          import subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          from huggingface_hub import CommitOperationAdd, HfApi, hf_hub_download, snapshot_download
+
+          root = Path(".")
+          work = root / ".model-acquisition"
+          work.mkdir(exist_ok=True)
+          token = os.environ.get("HF_TOKEN")
+          if not token:
+              raise RuntimeError("HF token is unavailable")
+
+          api = HfApi(token=token)
+          identity = api.whoami()
+          username = identity["name"]
+
+          visible_private = sorted(
+              model.id
+              for model in api.list_models(author=username, full=True, token=token)
+              if bool(getattr(model, "private", False))
+          )
+          if len(visible_private) != 1:
+              raise RuntimeError(
+                  "Fail-closed destination selection: expected exactly one private model repository "
+                  f"visible to the repository-scoped token, found {len(visible_private)}"
+              )
+          target_repo = visible_private[0]
+          target_info = api.model_info(target_repo, token=token, files_metadata=True)
+          if not bool(getattr(target_info, "private", False)):
+              raise RuntimeError("Destination repository is not private")
+
+          candidates = [
+              {
+                  "key": "sam21",
+                  "cache_path": "sam21",
+                  "repo_id": "facebook/sam2.1-hiera-base-plus",
+                  "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+                  "license": "apache-2.0",
+                  "files": {
+                      "config.json": {"bytes": 5705, "sha256": "8e24a93b6a40d4dad86eaec383ce7b4044f37ec6360136460f5ff2ce55f87390"},
+                      "model.safetensors": {"bytes": 323476296, "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"},
+                      "preprocessor_config.json": {"bytes": 683, "sha256": "6ebf229ee259368ce4a8d4f2fe893a72b053023710853e257253939e601f583d"},
+                      "processor_config.json": {"bytes": 95, "sha256": "f8a68e865cfad115c1c2763f3d93eca7b1c622da06da2a9273eb437fb2389b6d"},
+                  },
+              },
+              {
+                  "key": "whisper",
+                  "cache_path": "whisper-large-v3-turbo",
+                  "repo_id": "openai/whisper-large-v3-turbo",
+                  "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+                  "license": "mit",
+                  "files": {
+                      "config.json": {"bytes": 1256, "sha256": "c5b526b3e3cd64cd8940dabb45e8ba726629e22d8ed389c29b552f9140daf04a"},
+                      "generation_config.json": {"bytes": 3772, "sha256": "cce11bfe3aaa6ae9e072ea2637caaec8795e68d9b67e655a5af16ee509681a4c"},
+                      "model.safetensors": {"bytes": 1617824864, "sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"},
+                      "preprocessor_config.json": {"bytes": 340, "sha256": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711"},
+                      "tokenizer.json": {"bytes": 2710337, "sha256": "297b13372ac43916285644fb9687add3cc62ee2a1adb60da3dc25cc94c1871fd"},
+                      "tokenizer_config.json": {"bytes": 282843, "sha256": "844b642c73a91359722f47b35705f7174686df33d252695d8572cf9ac03a6389"},
+                  },
+              },
+          ]
+
+          def sha256(path: Path) -> str:
+              digest = hashlib.sha256()
+              with path.open("rb") as stream:
+                  for block in iter(lambda: stream.read(1024 * 1024), b""):
+                      digest.update(block)
+              return digest.hexdigest()
+
+          def card_license(info) -> str:
+              card = getattr(info, "card_data", None)
+              if card is None:
+                  return ""
+              if hasattr(card, "to_dict"):
+                  card = card.to_dict()
+              if hasattr(card, "get"):
+                  return str(card.get("license", "")).strip().lower()
+              return ""
+
+          manifest = {
+              "schema_version": "2.0",
+              "captured_at": datetime.now(timezone.utc).isoformat(),
+              "github": {
+                  "repository": os.environ.get("GITHUB_REPOSITORY"),
+                  "run_id": os.environ.get("GITHUB_RUN_ID"),
+                  "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+                  "source_commit": os.environ.get("GITHUB_SHA"),
+              },
+              "execution": {
+                  "runner": "github-actions-ubuntu-latest",
+                  "hardware": "cpu",
+                  "workflow_timeout_minutes": 15,
+                  "paid_compute": False,
+                  "gpu": False,
+              },
+              "destination": {
+                  "repo_id": target_repo,
+                  "private": True,
+                  "path": "VERIFIED_MODEL_CACHE/",
+              },
+              "models": [],
+              "persistent_status": "VERIFYING",
+          }
+
+          operations = []
+          for model in candidates:
+              source_info = HfApi().model_info(
+                  model["repo_id"],
+                  revision=model["revision"],
+                  files_metadata=True,
+              )
+              if source_info.sha != model["revision"]:
+                  raise RuntimeError(f"{model['key']}: source revision mismatch")
+              actual_license = card_license(source_info)
+              if actual_license != model["license"]:
+                  raise RuntimeError(
+                      f"{model['key']}: license mismatch: expected {model['license']}, got {actual_license!r}"
+                  )
+
+              source = work / model["key"] / "source"
+              source.parent.mkdir(parents=True, exist_ok=True)
+              snapshot_download(
+                  repo_id=model["repo_id"],
+                  revision=model["revision"],
+                  local_dir=str(source),
+                  allow_patterns=list(model["files"]),
+              )
+
+              checked_files = []
+              for name, expected in model["files"].items():
+                  path = source / name
+                  if not path.is_file():
+                      raise RuntimeError(f"{model['key']}: required file missing: {name}")
+                  actual_bytes = path.stat().st_size
+                  actual_sha = sha256(path)
+                  if actual_bytes != expected["bytes"] or actual_sha != expected["sha256"]:
+                      raise RuntimeError(
+                          f"{model['key']}/{name}: exact byte or SHA-256 mismatch"
+                      )
+                  checked_files.append({
+                      "name": name,
+                      "bytes": actual_bytes,
+                      "sha256": actual_sha,
+                  })
+
+              weight = model["files"]["model.safetensors"]
+              stage = subprocess.run(
+                  [
+                      "python",
+                      "model_scout/stage_verified_model.py",
+                      model["key"],
+                      "--source",
+                      str(source),
+                      "--expected-size",
+                      str(weight["bytes"]),
+                      "--expected-sha256",
+                      weight["sha256"],
+                  ],
+                  text=True,
+                  capture_output=True,
+                  check=False,
+              )
+              if stage.returncode != 0:
+                  raise RuntimeError(
+                      f"{model['key']}: fail-closed staging rejected verified snapshot\n"
+                      f"{stage.stdout}\n{stage.stderr}"
+                  )
+              stage_record = json.loads(stage.stdout)
+              if stage_record.get("status") != "VERIFIED_MODEL_CACHE":
+                  raise RuntimeError(f"{model['key']}: staging did not declare VERIFIED_MODEL_CACHE")
+
+              provenance = {
+                  "model": model["key"],
+                  "official_repo_id": model["repo_id"],
+                  "official_revision": model["revision"],
+                  "verified_license": actual_license,
+                  "files": checked_files,
+                  "staging": "VERIFIED_MODEL_CACHE",
+              }
+              provenance_path = work / model["key"] / "SOURCE_PROVENANCE.json"
+              provenance_path.write_text(json.dumps(provenance, indent=2) + "\n", encoding="utf-8")
+
+              prefix = f"VERIFIED_MODEL_CACHE/{model['cache_path']}"
+              for name in model["files"]:
+                  operations.append(
+                      CommitOperationAdd(
+                          path_in_repo=f"{prefix}/{name}",
+                          path_or_fileobj=str(source / name),
+                      )
+                  )
+              operations.append(
+                  CommitOperationAdd(
+                      path_in_repo=f"{prefix}/SOURCE_PROVENANCE.json",
+                      path_or_fileobj=str(provenance_path),
+                  )
+              )
+              manifest["models"].append(provenance)
+
+          payload_commit = api.create_commit(
+              repo_id=target_repo,
+              repo_type="model",
+              operations=operations,
+              commit_message="Store verified pinned SAM 2.1 and Whisper artifacts",
+              token=token,
+          )
+          payload_revision = payload_commit.oid
+          manifest["destination"]["payload_revision"] = payload_revision
+
+          remote_info = api.model_info(
+              target_repo,
+              revision=payload_revision,
+              token=token,
+              files_metadata=True,
+          )
+          if remote_info.sha != payload_revision or not bool(getattr(remote_info, "private", False)):
+              raise RuntimeError("Private destination revision or visibility verification failed")
+          siblings = {item.rfilename: item for item in remote_info.siblings}
+
+          for model in candidates:
+              prefix = f"VERIFIED_MODEL_CACHE/{model['cache_path']}"
+              weight_path = f"{prefix}/model.safetensors"
+              remote_weight = siblings.get(weight_path)
+              if remote_weight is None:
+                  raise RuntimeError(f"{model['key']}: remote weight missing")
+              lfs = getattr(remote_weight, "lfs", None) or {}
+              remote_sha = str(lfs.get("sha256") or lfs.get("oid") or "").removeprefix("sha256:")
+              remote_bytes = int(lfs.get("size") or getattr(remote_weight, "size", -1) or -1)
+              expected_weight = model["files"]["model.safetensors"]
+              if remote_sha != expected_weight["sha256"] or remote_bytes != expected_weight["bytes"]:
+                  raise RuntimeError(f"{model['key']}: remote LFS byte or SHA-256 mismatch")
+
+              for name, expected in model["files"].items():
+                  if name == "model.safetensors":
+                      continue
+                  downloaded = Path(
+                      hf_hub_download(
+                          repo_id=target_repo,
+                          filename=f"{prefix}/{name}",
+                          revision=payload_revision,
+                          token=token,
+                          local_dir=str(work / "roundtrip"),
+                          force_download=True,
+                      )
+                  )
+                  if downloaded.stat().st_size != expected["bytes"] or sha256(downloaded) != expected["sha256"]:
+                      raise RuntimeError(f"{model['key']}/{name}: private-cache round-trip mismatch")
+
+          manifest["persistent_status"] = "VERIFIED_MODEL_CACHE"
+          manifest["remote_roundtrip_verification"] = "PASS"
+          manifest_path = work / "OFFICIAL_PINNED_MODEL_ACQUISITION_MANIFEST.json"
+          manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+          manifest_commit = api.create_commit(
+              repo_id=target_repo,
+              repo_type="model",
+              operations=[
+                  CommitOperationAdd(
+                      path_in_repo="VERIFIED_MODEL_CACHE/OFFICIAL_PINNED_MODEL_ACQUISITION_MANIFEST.json",
+                      path_or_fileobj=str(manifest_path),
+                  ),
+                  CommitOperationAdd(
+                      path_in_repo="VERIFIED_MODEL_CACHE/LOCAL_MODEL_STAGE_MANIFEST.json",
+                      path_or_fileobj="evidence/model_scout/LOCAL_MODEL_STAGE_MANIFEST.json",
+                  ),
+              ],
+              commit_message="Record verified model cache evidence",
+              token=token,
+          )
+          final_info = api.model_info(
+              target_repo,
+              revision=manifest_commit.oid,
+              token=token,
+              files_metadata=True,
+          )
+          if final_info.sha != manifest_commit.oid or not bool(getattr(final_info, "private", False)):
+              raise RuntimeError("Final private-cache commit verification failed")
+
+          manifest["destination"]["manifest_commit"] = manifest_commit.oid
+          manifest["captured_at"] = datetime.now(timezone.utc).isoformat()
+          manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(manifest, indent=2))
+
+      - name: Preserve compact verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-hf-cache-evidence
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            .model-acquisition/OFFICIAL_PINNED_MODEL_ACQUISITION_MANIFEST.json
+            evidence/model_scout/LOCAL_MODEL_STAGE_MANIFEST.json
