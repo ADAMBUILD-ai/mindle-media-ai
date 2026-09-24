@@ -28,7 +28,7 @@ jobs:
       - name: Install packaging tools
         run: |
           python -m pip install --upgrade pip
-          python -m pip install huggingface_hub==0.36.0 requests pyyaml tqdm
+          python -m pip install huggingface_hub==0.36.0 requests pyyaml tqdm openvino-telemetry>=2023.2.1
           mkdir -p package/models/sam21 package/models/whisper-small package/omz package/runtime/wheels
 
       - name: Acquire exact SAM 2.1 and Whisper-small payloads
@@ -55,7 +55,7 @@ jobs:
         run: |
           git clone --filter=blob:none https://github.com/openvinotoolkit/open_model_zoo.git omz-source
           git -C omz-source checkout --detach a6946b6d6ce42cbf4278df20275fab199655fc7d
-          python omz-source/tools/downloader.py \
+          python omz-source/tools/model_tools/downloader.py \
             --name single-image-super-resolution-1032 \
             --output_dir package/omz \
             --num_attempts 5
