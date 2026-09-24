@@ -1,0 +1,86 @@
+{
+  "schema_version": "19.0",
+  "captured_at": "2026-09-24",
+  "directive": "MINDLE_MEDIA_AI_PC_SECURE_CREDENTIAL_INJECTION_AND_MANUAL_INPUT_EXECUTION_DIRECTIVE_v19.0_20260924.md",
+  "base_commit": "4608ffdb15eab902a8e7ce81c42d15a7a4d21940",
+  "verdict": "REWORK_TRUE_MANUAL_GATE",
+  "ui_ssot_changed": false,
+  "protected_constraints": {
+    "main_merge": false,
+    "production_deploy": false,
+    "force_push": false,
+    "gpu": false,
+    "paid_compute": false,
+    "secret_exposed": false
+  },
+  "preserved_pass": {
+    "v13_immutable_closeout": true,
+    "v14_ui_review": true,
+    "v15_python_regression": "46 passed",
+    "ui_structure": "PASS",
+    "ui_interaction": "PASS",
+    "product_server_health": "HTTP 200"
+  },
+  "secure_credential": {
+    "approved_local_credential_available": false,
+    "accessible_secure_windows_ui": false,
+    "secret_value_recorded": false,
+    "status": "MANUAL_GATE"
+  },
+  "dependencies": {
+    "sam21_cache_materialized": false,
+    "whisper_small_cache_materialized": false,
+    "intel_sisr_cache_materialized": false,
+    "openvino_cpu": false,
+    "ffmpeg": false,
+    "selenium": false,
+    "chrome_or_chromedriver": false,
+    "pyarrow": false
+  },
+  "searched_locations": [
+    "approved MEDIA project/work folders",
+    "model_scout/artifacts",
+    "evidence",
+    "tests",
+    "prior approved local artifacts"
+  ],
+  "inputs": {
+    "photo": {
+      "path": "model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg",
+      "bytes": 8967798,
+      "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+      "status": "AVAILABLE"
+    },
+    "upscale": {
+      "path": "model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png",
+      "bytes": 38721,
+      "sha256": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2",
+      "status": "AVAILABLE_INPUT_ONLY"
+    },
+    "video": {
+      "status": "MISSING_OWNED_INPUT"
+    },
+    "korean_audio": {
+      "status": "MISSING_APPROVED_SPOKEN_KOREAN_INPUT"
+    }
+  },
+  "lanes": {
+    "photo_segmentation": "PC_MANUAL_INPUT_REQUIRED",
+    "upscale_4x": "PC_MANUAL_INPUT_REQUIRED",
+    "video_tracking": "PC_MANUAL_INPUT_REQUIRED",
+    "korean_stt": "PC_MANUAL_INPUT_REQUIRED",
+    "preview_save_export": "REWORK"
+  },
+  "manual_actions_remaining": [
+    "Make the approved scoped HF credential available through the secure local UI",
+    "Select one owned/approved moving-subject video with the local file picker",
+    "Select or record one owned/approved spoken-Korean audio sample with the local file picker"
+  ],
+  "fabricated_outputs": false,
+  "prior_evidence_overwritten": false,
+  "changed_files": [
+    "docs/commander/MINDLE_MEDIA_AI_PC_LOCAL_FINAL_EXECUTION_REVIEW_v19.0_20260924.md",
+    "evidence/pc_remote/MINDLE_MEDIA_AI_PC_LOCAL_FINAL_EXECUTION_v19_20260924.json",
+    "docs/commander/MINDLE_MEDIA_AI_PC_NEXT_MANUAL_GATE_DIRECTIVE_v20.0_20260924.md"
+  ]
+}

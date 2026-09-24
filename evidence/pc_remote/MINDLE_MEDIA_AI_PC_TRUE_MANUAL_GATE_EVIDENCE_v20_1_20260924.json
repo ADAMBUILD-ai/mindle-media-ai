@@ -1,0 +1,81 @@
+{
+  "schema_version": "20.1",
+  "captured_at": "2026-09-24",
+  "directive": "MINDLE_MEDIA_AI_TRUE_MANUAL_GATE_EXECUTION_AND_PC_LOCAL_FINALIZATION_DIRECTIVE_v20.1_20260924.md",
+  "base_commit": "395605733b27653dec1d291765cd91858afc7a45",
+  "verdict": "REWORK_TRUE_MANUAL_GATE",
+  "auth_available": false,
+  "ui_ssot_changed": false,
+  "preserved_pass": {
+    "v13_final_closeout": true,
+    "v14_ui_review": true,
+    "v15_python_regression": "46 passed",
+    "ui_structure": "PASS",
+    "ui_interaction": "PASS",
+    "product_server_health": "HTTP 200"
+  },
+  "protected_constraints": {
+    "main_merge": false,
+    "production_deploy": false,
+    "force_push": false,
+    "gpu": false,
+    "paid_compute": false,
+    "legacy_fallback": false,
+    "secret_exposed": false
+  },
+  "environment_checks": {
+    "hf_token_process": false,
+    "hf_token_user": false,
+    "hf_token_machine": false,
+    "local_hf_cache_directory": true,
+    "adopted_cache_usable": false,
+    "ffmpeg": false,
+    "openvino": false,
+    "selenium": false
+  },
+  "inputs": {
+    "photo": {
+      "path": "model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg",
+      "bytes": 8967798,
+      "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+      "status": "AVAILABLE"
+    },
+    "upscale": {
+      "path": "model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png",
+      "bytes": 38721,
+      "sha256": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2",
+      "status": "AVAILABLE_INPUT_ONLY"
+    },
+    "video": {
+      "status": "MISSING_OWNED_INPUT"
+    },
+    "korean_audio": {
+      "status": "MISSING_APPROVED_SPOKEN_KOREAN_INPUT"
+    }
+  },
+  "lanes": {
+    "photo_segmentation": "PC_MANUAL_INPUT_REQUIRED",
+    "upscale_4x": "PC_MANUAL_INPUT_REQUIRED",
+    "video_tracking": "PC_MANUAL_INPUT_REQUIRED",
+    "korean_stt": "PC_MANUAL_INPUT_REQUIRED",
+    "preview_save_export": "REWORK"
+  },
+  "manual_gate": [
+    "Securely make the existing scoped HF credential available to the PC-local process",
+    "Select one owned/approved moving-subject video in the local file picker",
+    "Select or record one owned/approved spoken-Korean audio sample in the local file picker"
+  ],
+  "quality_notes": {
+    "photo": "NOT_RUN",
+    "video": "NOT_RUN",
+    "upscale": "NOT_RUN",
+    "stt": "NOT_RUN",
+    "preview_save_export": "NOT_RUN"
+  },
+  "fabricated_output": false,
+  "changed_files": [
+    "docs/commander/MINDLE_MEDIA_AI_PC_TRUE_MANUAL_GATE_FINAL_REVIEW_v20.1_20260924.md",
+    "evidence/pc_remote/MINDLE_MEDIA_AI_PC_TRUE_MANUAL_GATE_EVIDENCE_v20_1_20260924.json",
+    "docs/commander/MINDLE_MEDIA_AI_PC_NEXT_EXECUTION_DIRECTIVE_v21.0_20260924.md"
+  ]
+}
