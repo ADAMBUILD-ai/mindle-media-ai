@@ -1,0 +1,22 @@
+{
+  "status": "TECHNICAL_SMOKE_PASS",
+  "repo_id": "facebook/sam2.1-hiera-base-plus",
+  "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+  "runtime": {
+    "torch": "2.7.1+cpu",
+    "transformers": "4.57.6",
+    "provider": "CPU"
+  },
+  "duration_ms": 6554.53,
+  "input_sha256": "2149fef27b8017c798713d3bd8ac33e9eb445488968f37c9c36c008c0550a987",
+  "mask_sha256": "d547870e63189b6e66967b4aaf1db871ea2476767cb8c41447e7d69bfd909911",
+  "raw_mask_shape": [
+    1,
+    1,
+    3,
+    256,
+    256
+  ],
+  "selected_mask_index": 2,
+  "quality_gate": "VERIFY_REQUIRED: synthetic prompt mask only; real category benchmark and license review remain required."
+}
