@@ -1,0 +1,72 @@
+{
+  "schema_version": "v27.1",
+  "date": "2026-09-24",
+  "source_directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_COMMANDER_QUALITY_RECOVERY_DIRECT_ACQUISITION_FALLBACK_DIRECTIVE_v27.1_20260924.md",
+    "sha": "620cee069e25514b1461b2f43925b11381b6b131"
+  },
+  "base_head": "9683cbb9f68bec48b232d23393c1d6c5506969ab",
+  "ui_ssot_changed": "NO",
+  "prior_evidence_overwritten": false,
+  "artifact_recovery": {
+    "zip_path": "work/v23_1_transfer/mindle-media-approved-ui-product-e2e-evidence.zip",
+    "size_bytes": 228710107,
+    "sha256": "aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5",
+    "extracted_files": 30,
+    "status": "PASS"
+  },
+  "restore_attempts": {
+    "A_private_hf_frozen_cache": {
+      "status": "FAIL",
+      "details": "No HF_TOKEN/HUGGINGFACEHUB_API_TOKEN; hf auth whoami reported Not logged in; exact adopted payloads absent from local cache."
+    },
+    "B_authenticated_remote_package": {
+      "status": "PARTIAL_FAIL",
+      "details": "Latest approved product E2E artifact 10795914370 was inspected; it contains result evidence and inputs, not adopted model payloads or runtime package."
+    },
+    "C_official_direct_acquisition": {
+      "status": "FAIL",
+      "target": "facebook/sam2.1-hiera-base-plus/model.safetensors",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "details": "hf download attempted; HTTPS to huggingface.co blocked by Windows WinError 10013."
+    }
+  },
+  "runtime_attempts": {
+    "openvino": "not importable",
+    "ffmpeg": "not on PATH",
+    "ffprobe": "not on PATH",
+    "torch": "available",
+    "transformers": "available",
+    "opencv": "available; recovered video decodes locally"
+  },
+  "quality_recovery": {
+    "photo_overlay": {
+      "status": "REJECTED",
+      "reason": "recovered overlay region misses intended central subject",
+      "sha256": "2fea6b1fe29ecb8189f56c641a7adf2f2e693b54f4a1f6e918ab86c6db0e93a1"
+    },
+    "upscale_4x": {
+      "status": "REJECTED",
+      "reason": "recovered 1920x1080 output is visually black",
+      "sha256": "fa7f5ea9e7bae82bc092f8de5d2f7062c1e1fd68165668565c33515a13a08314"
+    },
+    "video": {
+      "input_decode": "PASS",
+      "local_sam_tracking": "NOT_RUN_MISSING_MODEL"
+    },
+    "korean_stt": {
+      "input_metadata": "PASS_16KHZ_12.48S",
+      "local_whisper": "NOT_RUN_MISSING_MODEL"
+    }
+  },
+  "preview_save_export": "NOT_PC_LOCAL_PROVEN",
+  "verdict": "REWORK_EXACT_RUNTIME_RESTORE_OR_QUALIFIED_REPLACEMENT_REQUIRED",
+  "protection": {
+    "no_main_merge": true,
+    "no_production_deploy": true,
+    "no_force_push": true,
+    "no_gpu_or_paid_compute": true,
+    "no_credentials_exposed": true,
+    "no_unverified_third_party_model": true
+  }
+}
