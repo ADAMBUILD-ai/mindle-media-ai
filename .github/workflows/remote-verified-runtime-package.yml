@@ -83,8 +83,8 @@ jobs:
           whisper = next(root.joinpath("models/whisper-small").rglob("model.safetensors"))
           xml_candidates = list(root.joinpath("omz").rglob("*.xml"))
           bin_candidates = list(root.joinpath("omz").rglob("*.bin"))
-          xml = next(p for p in xml_candidates if p.name == "single-image-super-resolution-1032.xml")
-          bin_file = next(p for p in bin_candidates if p.name == "single-image-super-resolution-1032.bin")
+          xml = next(p for p in xml_candidates if p.name == "single-image-super-resolution-1032.xml" and "FP32" in p.parts)
+          bin_file = next(p for p in bin_candidates if p.name == "single-image-super-resolution-1032.bin" and "FP32" in p.parts)
 
           expected = {
               "sam_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780",
