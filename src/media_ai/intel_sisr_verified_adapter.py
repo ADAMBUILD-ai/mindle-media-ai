@@ -21,7 +21,7 @@ class IntelSISR1032VerifiedAdapter:
     """Runs only the byte-pinned, Apache-2.0 Intel 4× SISR model on CPU."""
 
     adapter_id = "intel-open-model-zoo-sisr-1032"
-    adapter_version = "1.0.0"
+    adapter_version = "1.0.1"
     runtime_backend = "openvino-cpu"
     device_requirement = "CPU"
 
@@ -42,14 +42,18 @@ class IntelSISR1032VerifiedAdapter:
         low = image.transpose(2, 0, 1)[None].astype(np.float32)
         high = bicubic.transpose(2, 0, 1)[None].astype(np.float32)
         outputs = self._compiled([low, high])
-        result = next(iter(outputs.values()))[0].transpose(1, 2, 0)
-        result = np.clip(result, 0, 255).astype(np.uint8)
+        residual = next(iter(outputs.values()))[0].transpose(1, 2, 0)
+        # The Open Model Zoo network returns a residual, not a complete image.
+        # Compose it with the bicubic high-resolution input before encoding.
+        result = np.clip(bicubic.astype(np.float32) + residual, 0, 255).astype(np.uint8)
         destination.parent.mkdir(parents=True, exist_ok=True)
         if not cv2.imwrite(str(destination), result):
             raise RuntimeError("actual Intel SISR output could not be written")
         decoded = cv2.imread(str(destination), cv2.IMREAD_COLOR)
         if decoded is None or decoded.shape[:2] != (1080, 1920):
             raise RuntimeError("Intel SISR output dimensions are invalid")
+        if int(decoded.max()) == 0:
+            raise RuntimeError("actual Intel SISR output is black")
         return {"outputs": [{"path": str(destination), "bytes": destination.stat().st_size, "sha256": sha256_file(destination), "dimensions": [1920, 1080]}], "elapsed_ms": (time.monotonic() - started) * 1000.0}
 
     def close(self) -> None:
