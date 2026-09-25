@@ -1,0 +1,181 @@
+name: Remote verified runtime package v28.1
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - ".github/workflows/remote-verified-runtime-package.yml"
+      - "docs/commander/**"
+      - "evidence/model_scout/FINAL_ADOPTED_MODEL_MANIFEST_V13.json"
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout directive branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install packaging tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install huggingface_hub==0.36.0 requests pyyaml tqdm openvino-telemetry>=2023.2.1
+          mkdir -p package/models/sam21 package/models/whisper-small package/omz package/runtime/wheels
+
+      - name: Acquire exact SAM 2.1 and Whisper-small payloads
+        env:
+          HF_HUB_DISABLE_TELEMETRY: "1"
+        run: |
+          python - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download(
+              repo_id="facebook/sam2.1-hiera-base-plus",
+              revision="b7320756a13354e7530a63935656d35b2f91a290",
+              local_dir="package/models/sam21",
+              allow_patterns=["*.json", "*.txt", "*.safetensors", "*.model"],
+          )
+          snapshot_download(
+              repo_id="openai/whisper-small",
+              revision="973afd24965f72e36ca33b3055d56a652f456b4d",
+              local_dir="package/models/whisper-small",
+              allow_patterns=["*.json", "*.txt", "*.safetensors", "*.model", "*.vocab", "*.merges"],
+          )
+          PY
+
+      - name: Acquire exact Intel SISR 1032 from pinned Open Model Zoo
+        run: |
+          git clone --filter=blob:none https://github.com/openvinotoolkit/open_model_zoo.git omz-source
+          git -C omz-source checkout --detach a6946b6d6ce42cbf4278df20275fab199655fc7d
+          python omz-source/tools/model_tools/downloader.py \
+            --name single-image-super-resolution-1032 \
+            --output_dir package/omz \
+            --num_attempts 5
+
+      - name: Acquire free CPU OpenVINO runtime wheel
+        run: |
+          python -m pip download --only-binary=:all: --no-deps \
+            --dest package/runtime/wheels openvino==2025.1.0
+
+      - name: Verify payloads and create manifest
+        run: |
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+
+          def digest(path, algo):
+              h = hashlib.new(algo)
+              with open(path, "rb") as f:
+                  for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                      h.update(chunk)
+              return h.hexdigest()
+
+          root = Path("package")
+          sam = next(root.joinpath("models/sam21").rglob("model.safetensors"))
+          whisper = next(root.joinpath("models/whisper-small").rglob("model.safetensors"))
+          xml_candidates = list(root.joinpath("omz").rglob("*.xml"))
+          bin_candidates = list(root.joinpath("omz").rglob("*.bin"))
+          xml = next(p for p in xml_candidates if p.name == "single-image-super-resolution-1032.xml" and "FP32" in p.parts)
+          bin_file = next(p for p in bin_candidates if p.name == "single-image-super-resolution-1032.bin" and "FP32" in p.parts)
+
+          expected = {
+              "sam_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780",
+              "whisper_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b",
+              "sisr_xml_sha384": "4f355965e070341e1f1df5b954213e0ecca5d43faf8a0c9770efdf04c7442c88fb0aaeb825fc8091b30f0a674c808446",
+              "sisr_bin_sha384": "ec5a759c2d43eebf679040638ad765bc6ce5c16253421ddeb8acafd1ab6c8cb406f9f85b274771d9f670efc3d824e926",
+          }
+          actual = {
+              "sam_sha256": digest(sam, "sha256"),
+              "whisper_sha256": digest(whisper, "sha256"),
+              "sisr_xml_sha384": digest(xml, "sha384"),
+              "sisr_bin_sha384": digest(bin_file, "sha384"),
+          }
+          if actual != expected:
+              print(json.dumps({"expected": expected, "actual": actual}, indent=2))
+              raise SystemExit("exact payload verification failed")
+
+          files = []
+          for p in sorted(root.rglob("*")):
+              if p.is_file():
+                  files.append({
+                      "path": p.relative_to(root).as_posix(),
+                      "size": p.stat().st_size,
+                      "sha256": digest(p, "sha256"),
+                  })
+          manifest = {
+              "package": "MINDLE MEDIA AI verified runtime package v28.1",
+              "source": "GitHub Actions ubuntu-latest CPU runner",
+              "license_gate": "Apache-2.0 for adopted model/runtime payloads; source notices retained by upstream repositories",
+              "models": {
+                  "sam21": {
+                      "repo": "facebook/sam2.1-hiera-base-plus",
+                      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+                      "file": sam.relative_to(root).as_posix(),
+                      "sha256": actual["sam_sha256"],
+                  },
+                  "whisper_small": {
+                      "repo": "openai/whisper-small",
+                      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+                      "file": whisper.relative_to(root).as_posix(),
+                      "sha256": actual["whisper_sha256"],
+                  },
+                  "intel_sisr_1032": {
+                      "repo": "openvinotoolkit/open_model_zoo",
+                      "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+                      "xml": xml.relative_to(root).as_posix(),
+                      "xml_sha384": actual["sisr_xml_sha384"],
+                      "bin": bin_file.relative_to(root).as_posix(),
+                      "bin_sha384": actual["sisr_bin_sha384"],
+                  },
+              },
+              "runtime": {
+                  "openvino": "2025.1.0",
+                  "video": "OpenCV path is the primary local decode path; ffmpeg is not required by this package",
+                  "gpu": False,
+                  "paid_compute": False,
+              },
+              "files": files,
+          }
+          Path("package/MINDLE_MEDIA_AI_VERIFIED_RUNTIME_PACKAGE_MANIFEST_v28_1.json").write_text(
+              json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
+          )
+          PY
+          python -m zipfile -c mindle-media-verified-runtime-package-v28_1.zip package
+          sha256sum mindle-media-verified-runtime-package-v28_1.zip > mindle-media-verified-runtime-package-v28_1.zip.sha256
+          split -b 400m -d -a 2 mindle-media-verified-runtime-package-v28_1.zip mindle-media-verified-runtime-package-v28_1.zip.part-
+          sha256sum mindle-media-verified-runtime-package-v28_1.zip.part-* > mindle-media-verified-runtime-package-v28_1.parts.sha256
+
+      - name: Upload package part 00
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-verified-runtime-package-v28_1-part-00
+          path: |
+            mindle-media-verified-runtime-package-v28_1.zip.part-00
+            mindle-media-verified-runtime-package-v28_1.parts.sha256
+            mindle-media-verified-runtime-package-v28_1.zip.sha256
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload package part 01
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-verified-runtime-package-v28_1-part-01
+          path: mindle-media-verified-runtime-package-v28_1.zip.part-01
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload package part 02
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-verified-runtime-package-v28_1-part-02
+          path: mindle-media-verified-runtime-package-v28_1.zip.part-02
+          if-no-files-found: error
+          retention-days: 14

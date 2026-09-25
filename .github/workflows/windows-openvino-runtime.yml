@@ -1,0 +1,82 @@
+name: MINDLE MEDIA AI Windows OpenVINO runtime supplement
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - ".github/workflows/windows-openvino-runtime.yml"
+      - "docs/commander/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package-windows-cpu-runtime:
+    name: package Windows CPython 3.11 CPU runtime
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CUDA_VISIBLE_DEVICES: ""
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Enforce no-cost CPU-only boundary
+        shell: bash
+        run: |
+          if command -v nvidia-smi >/dev/null 2>&1; then
+            echo "::error::GPU tooling is present; refusing execution"
+            exit 1
+          fi
+          echo "CPU-only wheel acquisition; no model download and no paid compute."
+
+      - name: Download Windows-compatible OpenVINO wheel
+        run: |
+          mkdir -p windows-runtime
+          python -m pip download --disable-pip-version-check --only-binary=:all: --no-deps \
+            --platform win_amd64 --implementation cp --python-version 311 --abi cp311 \
+            --dest windows-runtime openvino==2025.1.0
+
+      - name: Verify platform and write manifest
+        shell: python
+        run: |
+          import hashlib
+          import json
+          from pathlib import Path
+
+          root = Path("windows-runtime")
+          wheels = sorted(root.glob("openvino-2025.1.0-*-cp311-cp311-win_amd64.whl"))
+          if len(wheels) != 1:
+              raise SystemExit(f"expected one Windows CPython 3.11 wheel, found: {wheels}")
+          wheel = wheels[0]
+          digest = hashlib.sha256(wheel.read_bytes()).hexdigest()
+          manifest = {
+              "package": "MINDLE MEDIA AI Windows OpenVINO runtime supplement",
+              "openvino": "2025.1.0",
+              "python": "cp311",
+              "platform": "win_amd64",
+              "hardware": "cpu",
+              "gpu": False,
+              "paid_compute": False,
+              "wheel": {
+                  "name": wheel.name,
+                  "bytes": wheel.stat().st_size,
+                  "sha256": digest,
+              },
+              "purpose": "Windows PC supplement for the verified model package; no model payload is reacquired.",
+          }
+          (root / "WINDOWS_OPENVINO_RUNTIME_MANIFEST.json").write_text(
+              json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
+          )
+
+      - name: Preserve Windows runtime supplement
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-openvino-2025_1_0-cp311-win_amd64
+          path: windows-runtime/**
+          if-no-files-found: error
+          retention-days: 14
