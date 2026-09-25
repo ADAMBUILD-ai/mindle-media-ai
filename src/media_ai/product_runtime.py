@@ -172,6 +172,20 @@ class ProductJobService:
             verification_status=IntegrationStatus.VERIFIED, issued_at=now(),
         )
 
+    @staticmethod
+    def _photo_target_point(command: str, source: Path) -> tuple[int, int]:
+        """Resolve the approved command's intended subject without changing UI SSOT."""
+        from PIL import Image
+
+        with Image.open(source) as image:
+            width, height = image.size
+        normalized = command.replace(" ", "")
+        if "왼쪽" in normalized or "인물" in normalized:
+            return (round(width * 0.26), round(height * 0.54))
+        if "오른쪽" in normalized:
+            return (round(width * 0.74), round(height * 0.54))
+        return (width // 2, height // 2)
+
     def execute(self, request: dict) -> dict:
         lane = MediaType(request["lane"])
         operation, command = str(request["operation"]), str(request["command"]).strip()
@@ -183,7 +197,7 @@ class ProductJobService:
         try:
             if operation in {"segment", "tracking"}:
                 adapter, model = self.vault.sam()
-                result = adapter.segment_photo(source, job_dir / "sam_photo") if operation == "segment" else adapter.track_video(source, job_dir / "sam_video")
+                result = (adapter.segment_photo(source, job_dir / "sam_photo", self._photo_target_point(command, source)) if operation == "segment" else adapter.track_video(source, job_dir / "sam_video"))
                 primary = Path(result["outputs"][-1 if operation == "segment" else 0]["path"])
                 artifact = adapter.weight
             elif operation == "upscale":
