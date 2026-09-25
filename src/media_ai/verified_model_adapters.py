@@ -48,7 +48,7 @@ class VerifiedModelIdentity:
 
 class Sam21VerifiedAdapter:
     adapter_id = "mindle.sam21.verified.cpu"
-    adapter_version = "1.0.0"
+    adapter_version = "1.0.1"
     runtime_backend = "transformers-pytorch"
     device_requirement = "cpu"
     required = {
@@ -117,15 +117,24 @@ class Sam21VerifiedAdapter:
         base[selected] = (0.55 * base[selected] + 0.45 * np.array([255, 32, 32])).astype(np.uint8)
         return Image.fromarray(base)
 
-    def segment_photo(self, input_path: Path, output_dir: Path) -> dict:
+    def segment_photo(self, input_path: Path, output_dir: Path, prompt_point: tuple[int, int] | None = None) -> dict:
         import numpy as np
         from PIL import Image
 
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
         image = Image.open(input_path).convert("RGB")
+        source_width, source_height = image.size
         image.thumbnail((640, 640))
-        point = (image.width // 2, image.height // 2)
+        if prompt_point is None:
+            point = (image.width // 2, image.height // 2)
+        else:
+            # The approved UI supplies the target in source-image coordinates.
+            # Scale it only after the bounded SAM preprocessing resize.
+            point = (
+                min(image.width - 1, max(0, round(int(prompt_point[0]) * image.width / source_width))),
+                min(image.height - 1, max(0, round(int(prompt_point[1]) * image.height / source_height))),
+            )
         mask, selected, elapsed = self._mask(image, point)
         fraction = float((mask > 0).mean())
         if not 0.001 < fraction < 0.999:
