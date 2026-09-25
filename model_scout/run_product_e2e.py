@@ -87,7 +87,7 @@ def browser_e2e(base_url: str, values: dict) -> dict:
         driver.set_window_size(1600, 1100); driver.get(base_url)
         photo = driver.find_element(By.CSS_SELECTOR, '[data-editor="photo"]'); video = driver.find_element(By.CSS_SELECTOR, '[data-editor="video"]')
         photo.find_element(By.CSS_SELECTOR, '[data-primary-input="photo"]').send_keys(values["photo"]["path"])
-        pc = photo.find_element(By.CSS_SELECTOR, '[data-command="photo"]'); pc.send_keys("중앙 객체를 실제로 분할해줘", Keys.ENTER)
+        pc = photo.find_element(By.CSS_SELECTOR, '[data-command="photo"]'); pc.send_keys("왼쪽 인물을 실제로 분할해줘", Keys.ENTER)
         photo_segment = wait_preview(driver, photo, "img")
         pc.send_keys("사진을 실제 4배 업스케일해줘", Keys.ENTER)
         photo_upscale = wait_preview(driver, photo, "img", photo_segment["job_id"])
