@@ -138,8 +138,21 @@ def validate_output(path: Path, lane: MediaType) -> OutputReceipt:
         elif lane is MediaType.KOREAN_AUDIO and path.suffix.lower() in {".json", ".txt"}:
             if not path.read_text(encoding="utf-8").strip():
                 raise OSError("transcript output is blank")
+        elif lane is MediaType.VIDEO:
+            # OpenCV is the primary local decode path; ffmpeg/ffprobe is optional.
+            import cv2
+
+            capture = cv2.VideoCapture(str(path))
+            if not capture.isOpened():
+                raise OSError("OpenCV could not open the video output")
+            frame_count = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
+            width = int(capture.get(cv2.CAP_PROP_FRAME_WIDTH))
+            height = int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            capture.release()
+            if frame_count <= 0 or width <= 0 or height <= 0:
+                raise OSError("OpenCV decoded no video frames")
         else:
-            run(["ffprobe", "-v", "error", "-show_format", "-show_streams", str(path)], check=True, capture_output=True, text=True, timeout=10)
+            raise OSError("unsupported output lane")
     except (CalledProcessError, FileNotFoundError, TimeoutExpired, OSError) as error:
         return OutputReceipt(False, {"path": str(path)}, f"Output artifact is not parseable: {error}")
     artifact = {
