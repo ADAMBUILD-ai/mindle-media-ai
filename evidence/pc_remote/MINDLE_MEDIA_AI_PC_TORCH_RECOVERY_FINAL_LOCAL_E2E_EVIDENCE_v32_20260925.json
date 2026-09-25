@@ -1,0 +1,47 @@
+{
+  "status": "PASS_WITH_SCOPED_REWORK",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "pr": 22,
+  "branch": "work/v28-1-remote-runtime-package-20260924",
+  "source_commit": "95be3ee184b0277d9e03f4a667515cb67a6a2d50",
+  "frozen_remote_runs": {
+    "canonical": {"run_id": 36093824185, "conclusion": "success"},
+    "license_gate": {"run_id": 36093824166, "conclusion": "success"},
+    "product_e2e": {"run_id": 36093824149, "conclusion": "success"},
+    "remote_package": {"run_id": 36093824228, "conclusion": "success"},
+    "windows_openvino": {"run_id": 36093824242, "conclusion": "success"}
+  },
+  "torch_recovery": {
+    "status": "PASS",
+    "evidence_path": "outputs/mindle-media-v30-runtime/torch-import-v32.json",
+    "python": "3.11.9",
+    "torch": "2.14.0+cu126",
+    "elapsed_seconds": 29.158997297286987,
+    "finding": "The earlier failure was a command-wrapper timeout, not a torch import crash."
+  },
+  "actual_inputs": {
+    "photo": {"sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"},
+    "video": {"sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"},
+    "audio": {"sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"}
+  },
+  "local_jobs": {
+    "photo_segment": {"job_id": "92d190cc-c747-4e3a-bf62-b57d1c85fbda", "evidence_id": "725260a0-f8b5-49b4-90a3-433433250c1c", "status": "TESTED_PASS", "prompt_point": [125, 146]},
+    "photo_upscale": {"job_id": "44b04f92-ac92-417a-b987-41fe457854f1", "evidence_id": "84be1dcd-d394-4b61-b58a-c303ba39223a", "status": "TESTED_PASS", "dimensions": [1920, 1080], "bytes": 1920451, "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f"},
+    "video_tracking": {"job_id": "bdeb31cd-f47d-453a-9e77-815bc3680704", "evidence_id": "62277a17-efe7-401d-9f48-c05ac23dcd1f", "status": "TESTED_PASS", "sampled_frames": 4, "output_sha256": "94fa81fb2b1b4eb872e5abc56aa58a04a9273f1d5ce04fbaf8beef7a8a64d30a"},
+    "korean_stt": {"job_id": "924746ee-4c03-48c3-9141-c7e09518698b", "evidence_id": "0e55ada2-77ae-42be-a382-a65d7291d21f", "status": "TESTED_PASS", "sample_rate": 16000, "duration_seconds": 12.48, "wer": 0.35714285714285715, "output_sha256": "08445bf2125b8a1d92d1f321956d50719d8e332d5d5ef3f119e230d311c6e0ec"}
+  },
+  "project_flow": {
+    "save_status": "SAVED",
+    "project_id": "f1434a9a-e76a-4ff6-8a35-0e57ec6eae03",
+    "project_sha256": "5643a63530fcfa73b89c4018e6ec373d829df09839822b60bfe72d7dfe3bf962",
+    "export_status": "EXPORTED",
+    "export_sha256": "cbda249c11c1a52e1c63277d1628fbae361e812dff9f23bdeedd15603a0947c3"
+  },
+  "scoped_rework": {
+    "status": "REWORK",
+    "item": "browser-native local UI file chooser replay",
+    "reason": "The automation surface cannot inject a local file into the native chooser. The product backend path, model quality, save, and export are independently evidenced PASS."
+  },
+  "constraints": {"gpu_used": false, "paid_compute": false, "ui_ssot_changed": false, "main_merged": false}
+}
+
