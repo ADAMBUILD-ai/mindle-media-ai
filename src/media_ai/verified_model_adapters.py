@@ -279,14 +279,28 @@ class WhisperKoreanVerifiedAdapter:
         ).to("cpu").eval()
 
     def transcribe(self, input_path: Path, output_dir: Path, reference: str | None = None) -> dict:
-        import soundfile as sf
-        from jiwer import wer
+        import struct
+        import numpy as np
 
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
-        audio, sample_rate = sf.read(str(input_path), dtype="float32")
-        if getattr(audio, "ndim", 1) == 2:
-            audio = audio.mean(axis=1)
+        payload = Path(input_path).read_bytes()
+        fmt_offset = payload.find(b"fmt ")
+        data_offset = payload.find(b"data")
+        if fmt_offset < 0 or data_offset < 0:
+            raise RuntimeError("WAV fmt/data chunks are unavailable")
+        audio_format, channels, sample_rate = struct.unpack_from("<HHI", payload, fmt_offset + 8)
+        bits_per_sample = struct.unpack_from("<H", payload, fmt_offset + 22)[0]
+        data_size = struct.unpack_from("<I", payload, data_offset + 4)[0]
+        raw_audio = payload[data_offset + 8:data_offset + 8 + data_size]
+        if audio_format == 3 and bits_per_sample == 32:
+            audio = np.frombuffer(raw_audio, dtype="<f4").astype(np.float32)
+        elif audio_format == 1 and bits_per_sample == 16:
+            audio = np.frombuffer(raw_audio, dtype="<i2").astype(np.float32) / 32768.0
+        else:
+            raise RuntimeError(f"unsupported WAV format={audio_format}, bits={bits_per_sample}")
+        if channels > 1:
+            audio = audio.reshape(-1, channels).mean(axis=1)
         if sample_rate != 16000:
             raise RuntimeError(f"expected 16 kHz Korean input, got {sample_rate}")
         inputs = self.processor(audio, sampling_rate=sample_rate, return_tensors="pt")
@@ -301,7 +315,19 @@ class WhisperKoreanVerifiedAdapter:
             )
         elapsed = round((time.perf_counter() - started) * 1000, 2)
         text = self.processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
-        error_rate = float(wer(reference, text)) if reference else None
+        error_rate = None
+        if reference:
+            reference_words = re.findall(r"[가-힣A-Za-z0-9]+", reference)
+            text_words = re.findall(r"[가-힣A-Za-z0-9]+", text)
+            matrix = [[0] * (len(text_words) + 1) for _ in range(len(reference_words) + 1)]
+            for i in range(len(reference_words) + 1):
+                matrix[i][0] = i
+            for j in range(len(text_words) + 1):
+                matrix[0][j] = j
+            for i in range(1, len(reference_words) + 1):
+                for j in range(1, len(text_words) + 1):
+                    matrix[i][j] = min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + (reference_words[i - 1] != text_words[j - 1]))
+            error_rate = float(matrix[-1][-1] / max(1, len(reference_words)))
         if not text or re.search(r"[가-힣]", text) is None or (error_rate is not None and error_rate > 0.75):
             raise RuntimeError(
                 f"Korean STT quality gate failed: nonempty={bool(text)}, hangul={bool(re.search(r'[가-힣]', text))}, wer={error_rate}"
