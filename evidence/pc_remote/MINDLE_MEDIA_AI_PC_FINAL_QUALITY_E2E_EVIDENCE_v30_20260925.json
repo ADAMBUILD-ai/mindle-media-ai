@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at": "2026-09-25",
+  "decision": "REWORK",
+  "source": {
+    "repository": "ADAMBUILD-ai/mindle-media-ai",
+    "branch": "work/v28-1-remote-runtime-package-20260924",
+    "head": "c5b559793ffaea5e5fc1fb8eaa4c63a7c123fbd2",
+    "ui_ssot_changed": false
+  },
+  "constraints": {
+    "main_merge": false,
+    "production": false,
+    "force_push": false,
+    "gpu": false,
+    "paid_compute": false
+  },
+  "remote_passes": {
+    "canonical_run": 36089930054,
+    "license_run": 36089930079,
+    "windows_openvino_run": 36089930047,
+    "runtime_package": {
+      "run": 36089930051,
+      "artifacts": [
+        {
+          "id": 10845890220,
+          "part": "00",
+          "bytes": 419251182,
+          "digest": "sha256:5d0fb6ba466b9ad77a6ebaac0e15eb730994f1968def25405f1a535643114ee4"
+        },
+        {
+          "id": 10845890248,
+          "part": "01",
+          "bytes": 418706315,
+          "digest": "sha256:14f282cef0360c8c13edb7416f4b1a78053a95408199771ddd20680d25fda8e1"
+        },
+        {
+          "id": 10845670524,
+          "part": "02",
+          "bytes": 78665464,
+          "digest": "sha256:6a89ff6e18268c7ca6fb96e3c6c7f61113ccd85e3b0176d3b84628ddeffb83c0"
+        }
+      ]
+    },
+    "approved_ui_e2e": {
+      "run": 36089930046,
+      "artifact_id": 10845352093,
+      "bytes": 232804309,
+      "digest": "sha256:070339b42d06b6ba0b9818e996e8976f3322b1199cf8f63c2990c927e18aae7f",
+      "result": "FINAL_PASS"
+    }
+  },
+  "pc_materialization": {
+    "prior_package_reassembled_sha256": "f80ca743a482f4ad3636f5ed73ba66a32d1d43e649a882154d980334b9965ea2",
+    "models": {
+      "sam21": "PASS",
+      "whisper_small": "PASS",
+      "intel_sisr_openvino": "PASS"
+    },
+    "windows_openvino_cpu": "PASS",
+    "photo_segmentation": {
+      "result": "PASS",
+      "subject_point": [
+        125,
+        145
+      ],
+      "visual_review": "person selected; wall/sign rejected"
+    },
+    "sisr": {
+      "result": "PASS",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "non_black": true,
+      "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f"
+    },
+    "video_tracking": "REWORK",
+    "korean_stt": "REWORK",
+    "local_ui_save_export": "REWORK",
+    "observed_blocker": "Fresh local Python processes terminate during import torch after numpy-loaded; do not substitute remote success for PC-local quality evidence."
+  }
+}
