@@ -1,6 +1,6 @@
 /* Behaviour layer for the approved layout.  It never selects or substitutes a model. */
 (() => {
-  const state = { video: null, photo: null, jobs: [], projectId: null };
+  const state = { video: null, photo: null, jobs: [], projectId: null, videoMode: "general", shortformContract: null };
   const readFile = (file) => new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onerror = () => reject(new Error("파일을 읽을 수 없습니다."));
@@ -27,7 +27,33 @@
     host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
     if (result.lane === "video") editor.querySelector("[data-timeline]").textContent = `SAM tracking · Job ${result.job_id} · ${result.runtime_result.sampled_frames} samples`;
   };
+  async function executeShortform(editor, detail) {
+    try {
+      message(editor, "Marketing AI에 광고 기획을 요청 중입니다.");
+      const response = await fetch("/api/integrations/marketing/shortform", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ command: detail.command, entrypoint: "media_ai", project_id: state.projectId })
+      });
+      const result = await response.json();
+      if (!response.ok || result.status !== "bridge_contract_ready") throw new Error(result.error || "광고 제작지시 수신 실패");
+      state.shortformContract = result.contract;
+      const timeline = editor.querySelector("[data-timeline]");
+      timeline.replaceChildren(...result.contract.scenes.map((scene) => {
+        const item = document.createElement("span");
+        item.dataset.sceneId = scene.id;
+        item.dataset.startSec = String(scene.start_sec);
+        item.dataset.endSec = String(scene.end_sec);
+        item.textContent = `${scene.start_sec}–${scene.end_sec}초 · ${scene.subtitle}`;
+        return item;
+      }));
+      editor.dataset.shortformStatus = "contract-ready";
+      editor.dataset.aspectRatio = result.contract.aspect_ratio;
+      message(editor, `광고 제작지시 준비 완료 · ${result.contract.duration}초 · Preview 전 검수 필요`);
+    } catch (error) { message(editor, error.message, true); }
+  }
   async function execute(editor, kind, detail) {
+    if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
     const file = state[kind];
     if (!file) { message(editor, "먼저 실제 원본 파일을 불러오세요.", true); return; }
     try {
@@ -63,6 +89,7 @@
     const input = editor.querySelector("[data-primary-input]");
     editor.querySelector("[data-action='load']").addEventListener("click", () => input.click());
     input.addEventListener("change", () => { state[kind] = input.files[0] || null; if (state[kind]) message(editor, `실제 입력 준비 · ${state[kind].name}`); });
+    editor.addEventListener("mindle:mode", (event) => { state.videoMode = event.detail.mode; message(editor, state.videoMode === "ad_shortform" ? "광고 숏폼 모드 · 자연어로 제품·대상·길이를 지시하세요." : "일반 영상 편집 모드"); });
     editor.addEventListener("mindle:command", (event) => execute(editor, kind, event.detail));
     editor.addEventListener("mindle:save", () => save(editor));
     editor.addEventListener("mindle:export", () => exportProject(editor));

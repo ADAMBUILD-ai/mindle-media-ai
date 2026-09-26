@@ -39,6 +39,12 @@ class EditorActionState {
   export() { this.exports += 1; return { action: "export", kind: this.kind, result: "result-file-requested", sequence: this.exports }; }
 }
 
+class ShortformModeState {
+  constructor() { this.mode = "general"; }
+  toggle() { this.mode = this.mode === "general" ? "ad_shortform" : "general"; return this.mode; }
+  isShortform() { return this.mode === "ad_shortform"; }
+}
+
 class AdapterFeatureState {
   constructor(capability, fallback) {
     this.capability = capability; this.fallback = fallback; this.adapterEnabled = false;
@@ -59,6 +65,7 @@ class AdapterFeatureState {
 
 const videoCommand = new CommandPanelState("video");
 const photoCommand = new CommandPanelState("photo");
+const shortformMode = new ShortformModeState();
 
 function renderPanel(root, state) {
   root.dataset.phase = state.phase;
@@ -77,6 +84,15 @@ function bindEditor(kind) {
   const state = kind === "video" ? videoCommand : photoCommand; const actions = new EditorActionState(kind);
   const command = editor.querySelector("[data-command]"); const fileInput = editor.querySelector("[data-reference-input]"); const panel = editor.querySelector("[data-command-panel]");
   const sync = () => renderPanel(panel, state);
+  if (kind === "video") {
+    const shortformButton = editor.querySelector("[data-action='shortform-mode']");
+    if (shortformButton) shortformButton.addEventListener("click", () => {
+      const mode = shortformMode.toggle();
+      shortformButton.setAttribute("aria-pressed", String(mode === "ad_shortform"));
+      editor.dataset.videoMode = mode;
+      editor.dispatchEvent(new CustomEvent("mindle:mode", { detail: { mode } }));
+    });
+  }
   command.addEventListener("focus", () => { state.focus(); sync(); });
   command.addEventListener("input", (event) => { state.setText(event.target.value); sync(); });
   command.addEventListener("keydown", (event) => {
@@ -94,4 +110,4 @@ function bindEditor(kind) {
 }
 
 if (typeof document !== "undefined") ["video", "photo"].forEach(bindEditor);
-if (typeof module !== "undefined") module.exports = { CommandPanelState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand };
+if (typeof module !== "undefined") module.exports = { CommandPanelState, ShortformModeState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand, shortformMode };
