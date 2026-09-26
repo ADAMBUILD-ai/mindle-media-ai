@@ -39,10 +39,8 @@ assert.equal(upscale.adapterEnabled, false);
 assert.deepEqual(upscale.fail("timeout", "timeout"), { capability: "high resolution", executed: false, error: "timeout", fallback_used: "OpenCV Lanczos4", status: "VERIFY_REQUIRED" });
 
 
-test("shortform mode is additive and toggles without changing editor state", () => {
-  const mode = new ShortformModeState();
-  assert.equal(mode.mode, "general");
-  assert.equal(mode.toggle(), "ad_shortform");
-  assert.equal(mode.isShortform(), true);
-  assert.equal(mode.toggle(), "general");
-});
+const shortform = new ShortformModeState();
+assert.equal(shortform.mode, "general");
+assert.equal(shortform.toggle(), "ad_shortform");
+assert.equal(shortform.isShortform(), true);
+assert.equal(shortform.toggle(), "general");
