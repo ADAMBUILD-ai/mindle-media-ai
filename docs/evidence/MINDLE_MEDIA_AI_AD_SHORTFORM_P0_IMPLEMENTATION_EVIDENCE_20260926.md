@@ -20,8 +20,14 @@ Base: work/v28-1-remote-runtime-package-20260924
 - 자동 게시/광고비 집행 없음
 
 ## 검증 상태
-- Contract Reader 단위테스트: PENDING_EXECUTION
-- UI mode state 테스트: PENDING_EXECUTION
-- 전체 Python 회귀: PENDING_EXECUTION
+- Contract Reader 단위테스트: PASS (5/5)
+- UI 기존 assertion harness + Shortform mode: PASS
+- 전체 Python 회귀: VERIFY_REQUIRED (전체 저장소 실행환경 미구성)
 - 실제 Marketing AI HTTP 연결: VERIFY_REQUIRED
 - 실제 AVORA Asset/Preview/MP4: VERIFY_REQUIRED
+
+
+## 실행 증거
+- `PYTHONPATH=src python -m pytest -q tests/test_shortform_bridge.py` → 5 passed
+- `node ui/interaction.test.js` → exit 0
+- 기존 UI 테스트 파일 전체 보존 후 Shortform assertion만 증분 추가
