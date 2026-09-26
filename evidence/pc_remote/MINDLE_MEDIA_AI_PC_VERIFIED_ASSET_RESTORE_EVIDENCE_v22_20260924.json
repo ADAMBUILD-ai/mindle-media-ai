@@ -1,0 +1,117 @@
+{
+  "schema_version": "22.0",
+  "captured_at": "2026-09-24",
+  "directive": "MINDLE_MEDIA_AI_VERIFIED_ASSET_RESTORE_REWORK_AND_PC_E2E_DIRECTIVE_v22.0_20260924.md",
+  "base_commit": "ea810d161cc74b9f2607919af0378e38e76d4dca",
+  "verdict": "REWORK_RESTORE_PATH_BLOCKED_BY_PC_ACCESS_AND_NETWORK",
+  "ui_ssot_changed": false,
+  "protected_constraints": {
+    "main_merge": false,
+    "production_deploy": false,
+    "force_push": false,
+    "gpu": false,
+    "paid_compute": false,
+    "legacy_fallback": false,
+    "secret_exposed": false,
+    "prior_evidence_overwritten": false
+  },
+  "preserved_pass_baselines": {
+    "v13_final_closeout": true,
+    "v14_ui_review": true,
+    "v15_python_regression": "46 passed",
+    "ui_structure": "PASS",
+    "ui_interaction": "PASS",
+    "product_server_health": "HTTP 200"
+  },
+  "adopted_remote_baseline": {
+    "private_hf_repository": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+    "frozen_revision": "9202e5744a191fa77562b0c0ffe6af8053f8e3d9",
+    "sam21": {
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "artifact": "model.safetensors",
+      "bytes": 323476296,
+      "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780",
+      "license": "Apache-2.0"
+    },
+    "whisper_small": {
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "artifact": "model.safetensors",
+      "bytes": 966995080,
+      "sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b",
+      "license": "Apache-2.0"
+    },
+    "intel_sisr_1032": {
+      "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+      "xml": {
+        "bytes": 78485,
+        "sha384": "4f355965e070341e1f1df5b954213e0ecca5d43faf8a0c9770efdf04c7442c88fb0aaeb825fc8091b30f0a674c808446"
+      },
+      "bin": {
+        "bytes": 119436,
+        "sha384": "ec5a759c2d43eebf679040638ad765bc6ce5c16253421ddeb8acafd1ab6c8cb406f9f85b274771d9f670efc3d824e926"
+      },
+      "license": "Apache-2.0"
+    }
+  },
+  "restore_attempts": [
+    {
+      "attempt": "environment credential discovery",
+      "result": "FAILED",
+      "detail": "No HF credential present in process/user/machine environment",
+      "secret_printed": false
+    },
+    {
+      "attempt": "local cache inspection",
+      "result": "FAILED",
+      "detail": "Cache directory exists but adopted files were not materialized"
+    },
+    {
+      "attempt": "prior approved E2E artifact retrieval",
+      "result": "DOWNLOAD_REFERENCE_OBTAINED_LOCAL_EXTRACTION_UNAVAILABLE",
+      "artifact_id": 10636679053,
+      "bytes": 228710107,
+      "sha256": "aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5"
+    },
+    {
+      "attempt": "openvino==2025.1.0 install",
+      "result": "FAILED",
+      "detail": "pip network denied, WinError 10013"
+    },
+    {
+      "attempt": "imageio-ffmpeg==0.6.0 install",
+      "result": "FAILED",
+      "detail": "pip network denied, WinError 10013"
+    }
+  ],
+  "dependencies": {
+    "openvino": "NOT_AVAILABLE",
+    "ffmpeg": "NOT_AVAILABLE",
+    "selenium": "NOT_AVAILABLE",
+    "pyarrow": "NOT_CHECKED_NOT_REQUIRED_YET"
+  },
+  "prior_approved_inputs": {
+    "photo": {
+      "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+      "status": "REMOTE_BASELINE_PRESERVED"
+    },
+    "korean_audio": {
+      "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+      "sample_rate": 16000,
+      "duration_seconds": 12.48,
+      "status": "REMOTE_BASELINE_PRESERVED_LOCAL_REUSE_FAILED"
+    }
+  },
+  "lanes": {
+    "photo_segmentation": "PC_LOCAL_NOT_RUN_RESTORE_REWORK",
+    "upscale_4x": "PC_LOCAL_NOT_RUN_RESTORE_REWORK",
+    "video_tracking": "PC_LOCAL_NOT_RUN_INPUT_EXTRACTION_REWORK",
+    "korean_stt": "PC_LOCAL_NOT_RUN_INPUT_EXTRACTION_REWORK",
+    "preview_save_export": "PC_LOCAL_NOT_RUN"
+  },
+  "next_required_action": "Provide the approved secure credential and a permitted PC-local extraction path for the preserved artifact, or use the local file picker for approved video and Korean audio after dependencies/cache are restored",
+  "changed_files": [
+    "docs/commander/MINDLE_MEDIA_AI_PC_VERIFIED_ASSET_RESTORE_PC_E2E_REVIEW_v22.0_20260924.md",
+    "evidence/pc_remote/MINDLE_MEDIA_AI_PC_VERIFIED_ASSET_RESTORE_EVIDENCE_v22_20260924.json",
+    "docs/commander/MINDLE_MEDIA_AI_PC_NEXT_RESTORE_RESUME_DIRECTIVE_v23.0_20260924.md"
+  ]
+}
