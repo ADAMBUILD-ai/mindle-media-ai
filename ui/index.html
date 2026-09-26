@@ -4,7 +4,7 @@
   <body data-ui-contract="01_UI_SSOT_FINAL.md">
     <main aria-label="MINDLE MEDIA AI editor">
       <section data-editor="video" aria-label="영상 편집">
-        <header><h1>영상 편집</h1><button type="button" data-action="load">영상 불러오기</button><input type="file" data-primary-input="video" accept="video/*,audio/wav,audio/mpeg,audio/flac,audio/ogg" hidden><button data-action="save">프로젝트 저장</button><button data-action="export">내보내기</button></header>
+        <header><h1>영상 편집</h1><button type="button" data-action="load">영상 불러오기</button><input type="file" data-primary-input="video" accept="video/*,audio/wav,audio/mpeg,audio/flac,audio/ogg" hidden><button type="button" data-action="shortform-mode" aria-pressed="false">광고 숏폼 <span aria-label="신규">NEW</span></button><button data-action="save">프로젝트 저장</button><button data-action="export">내보내기</button></header>
         <div data-layout="left-center-right">
           <aside data-panel="video-left" data-command-panel><label>영상 AI 지시 <input data-command="video" aria-label="영상 AI 지시" placeholder="영상 편집을 지시하세요"></label><button type="button" data-action="video-reference">+ 참고 이미지 추가</button><input type="file" data-reference-input="video" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list aria-label="영상 참고 이미지"></ul></aside>
           <section data-panel="video-center"><div data-preview="video" aria-label="영상 미리보기"></div><div data-timeline="video" data-tracks="multi" data-actions="clip-context split range-delete keyframe mask background" aria-label="영상 타임라인"></div></section>
