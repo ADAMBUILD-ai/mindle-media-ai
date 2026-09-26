@@ -1,0 +1,98 @@
+{
+  "schema_version": "13.0",
+  "captured_at": "2026-09-21T12:10:00Z",
+  "status": "MANUAL_UI_E2E_REQUIRED",
+  "final_closeout": "NOT_DECLARED",
+  "release_candidate_pass": false,
+  "COMMERCIAL_RELEASE_BLOCKED": true,
+  "UI_SSOT_CHANGED": "NO",
+  "production_changed": false,
+  "constraints": {
+    "gpu_used": false,
+    "paid_compute": false,
+    "main_merged": false,
+    "force_push": false
+  },
+  "immutable_baseline": {
+    "sam_2_1_hiera_base_plus": {
+      "status": "TESTED_PASS_IMMUTABLE",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "artifact": "model.safetensors",
+      "bytes": 323476296,
+      "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780",
+      "license": "Apache-2.0",
+      "gate": "PERPETUAL_USE_GATE_PASS"
+    },
+    "whisper_large_v3_turbo": {
+      "status": "LEGACY_UNADOPTED_IMMUTABLE",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "bytes": 1617824864,
+      "sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1",
+      "license": "MIT",
+      "gate": "LEGAL_REVIEW_REQUIRED"
+    },
+    "qualcomm_realesrgan_x4plus_onnx": {
+      "status": "LEGACY_UNADOPTED_IMMUTABLE",
+      "revision": "4022efb8b74eb88900724d9e05a468ac3673df4a",
+      "bytes": 3158313,
+      "sha256": "29ffd5bc0277b19536cd39b737627fb2d79df9999b8329741b558498dd5e31f7",
+      "license": "BSD-3-Clause",
+      "gate": "LEGAL_REVIEW_REQUIRED"
+    }
+  },
+  "adopted_models": {
+    "sam_2_1_hiera_base_plus": {
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "artifact_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780",
+      "license": "Apache-2.0",
+      "gate": "PERPETUAL_USE_GATE_PASS"
+    },
+    "whisper_small": {
+      "source": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "artifact": "model.safetensors",
+      "bytes": 966995080,
+      "sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b",
+      "license": "Apache-2.0 (official model card)",
+      "gate": "PERPETUAL_USE_GATE_PASS"
+    },
+    "intel_single_image_super_resolution_1032": {
+      "source": "openvinotoolkit/open_model_zoo",
+      "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+      "artifacts": [
+        {
+          "name": "single-image-super-resolution-1032.xml",
+          "bytes": 78485,
+          "sha384": "4f355965e070341e1f1df5b954213e0ecca5d43faf8a0c9770efdf04c7442c88fb0aaeb825fc8091b30f0a674c808446"
+        },
+        {
+          "name": "single-image-super-resolution-1032.bin",
+          "bytes": 119436,
+          "sha384": "ec5a759c2d43eebf679040638ad765bc6ce5c16253421ddeb8acafd1ab6c8cb406f9f85b274771d9f670efc3d824e926"
+        }
+      ],
+      "license": "Apache-2.0",
+      "gate": "PERPETUAL_USE_GATE_PASS"
+    }
+  },
+  "private_hf_freeze": {
+    "repository": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+    "revision": "9202e5744a191fa77562b0c0ffe6af8053f8e3d9",
+    "path": "VERIFIED_MODEL_CACHE/perpetual-use-alternatives/",
+    "status": "IMMUTABLE_REFERENCE_CONFIRMED"
+  },
+  "evidence": {
+    "product_e2e_run": "35596903385",
+    "product_e2e_artifact": "10636679053",
+    "product_e2e_artifact_sha256": "aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5",
+    "canonical_baseline_run": "35596903312",
+    "license_gate_baseline_run": "35596903455",
+    "pr": 10,
+    "source_commit": "c3c331824777282a6ec374a55a301b406e366f03"
+  },
+  "manual_ui_e2e": {
+    "required": true,
+    "checklist": "docs/MANUAL_UI_E2E_ACCEPTANCE_V13.md",
+    "status": "PENDING_HUMAN_APPROVAL"
+  }
+}

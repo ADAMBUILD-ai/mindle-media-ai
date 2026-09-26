@@ -1,0 +1,110 @@
+{
+  "schema_version": "v26.1",
+  "date": "2026-09-24",
+  "source_directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_COMMANDER_FINAL_PUSH_ARTIFACT_SAVE_TO_REAL_PC_E2E_DIRECTIVE_v26.1_20260924.md",
+    "sha": "326d16468e363493fb260acd43b3fd75e23a4bc9"
+  },
+  "base_head": "1b42c2df31f65a37caff9edefdac33bd0e17aa7f",
+  "ui_ssot_changed": "NO",
+  "prior_evidence_overwritten": false,
+  "artifact": {
+    "run_id": 35596903385,
+    "artifact_id": 10636679053,
+    "local_path": "work/v23_1_transfer/mindle-media-approved-ui-product-e2e-evidence.zip",
+    "size_bytes": 228710107,
+    "sha256": "aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5",
+    "digest_verification": "PASS",
+    "extract_path": "work/v26_1_artifact_extract_20260924",
+    "extracted_file_count": 30
+  },
+  "recovered_inputs": {
+    "photo": {
+      "path": "work/v26_1_artifact_extract_20260924/inputs/intel_sisr_1032_street_480x270.png",
+      "bytes": 189281,
+      "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+      "dimensions": [480, 270]
+    },
+    "video": {
+      "path": "work/v26_1_artifact_extract_20260924/inputs/big_buck_bunny.mp4",
+      "bytes": 315058,
+      "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+      "local_decode_check": "PASS",
+      "frames": 125,
+      "fps": 24,
+      "dimensions": [672, 384]
+    },
+    "korean_speech": {
+      "path": "work/v26_1_artifact_extract_20260924/inputs/fleurs_ko_kr_test_row0.wav",
+      "bytes": 798778,
+      "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+      "sample_rate": 16000,
+      "duration_seconds": 12.48
+    }
+  },
+  "recovered_remote_outputs": {
+    "photo_overlay": {
+      "path": "work/v26_1_artifact_extract_20260924/product_data/jobs/3043543a-4aef-4b35-be5f-0b20c72c82e1/sam_photo/photo_overlay.png",
+      "bytes": 173701,
+      "sha256": "2fea6b1fe29ecb8189f56c641a7adf2f2e693b54f4a1f6e918ab86c6db0e93a1",
+      "visual_quality": "FAIL_REWORK_BOUNDARY_NOT_ON_INTENDED_SUBJECT"
+    },
+    "upscaled_4x": {
+      "path": "work/v26_1_artifact_extract_20260924/product_data/jobs/ca73b3ba-47a2-493e-b295-b3b7b62ed7cb/intel_sisr_1032/upscaled_4x.png",
+      "bytes": 10193,
+      "sha256": "fa7f5ea9e7bae82bc092f8de5d2f7062c1e1fd68165668565c33515a13a08314",
+      "dimensions": [1920, 1080],
+      "visual_quality": "FAIL_BLACK_OUTPUT"
+    },
+    "video_tracking_output": {
+      "path": "work/v26_1_artifact_extract_20260924/product_data/jobs/0006a71e-14ee-42f8-b0a7-3b4a5415ae7a/sam_video/track_1_overlays.mp4",
+      "bytes": 96043,
+      "sha256": "53c81952dea1415492251dd49105d3616cc1d5c1ed3f59101e71c9780ea80d0b",
+      "remote_status": "TESTED_PASS",
+      "pc_local_model_execution": "NOT_RUN"
+    },
+    "korean_transcript": {
+      "path": "work/v26_1_artifact_extract_20260924/product_data/jobs/3c4bbea3-db78-4d7a-8f57-c2df7e585659/whisper/korean_transcript.json",
+      "bytes": 253,
+      "sha256": "76217bdfe7e5fb83fecc16326110e82fc0a773ae707128e86a42480192abcf86",
+      "remote_status": "TESTED_PASS",
+      "pc_local_model_execution": "NOT_RUN"
+    }
+  },
+  "adopted_models": {
+    "sam_2_1": "payload_not_in_local_cache",
+    "whisper_small": "payload_not_in_local_cache",
+    "intel_sisr_1032": "payload_not_in_local_cache",
+    "legacy_fallback": false
+  },
+  "dependencies": {
+    "torch": "available",
+    "transformers": "available",
+    "opencv": "available; local video decode passed",
+    "pillow": "available",
+    "numpy": "available",
+    "openvino": "not_importable",
+    "ffmpeg": "not_on_PATH",
+    "ffprobe": "not_on_PATH"
+  },
+  "lane_verdict": {
+    "artifact_digest_and_extract": "PASS",
+    "photo_pc_local_model_execution": "REWORK_MISSING_ADOPTED_MODEL",
+    "photo_quality_review": "FAIL_REWORK",
+    "upscale_pc_local_model_execution": "REWORK_MISSING_OPENVINO_AND_MODEL",
+    "upscale_quality_review": "FAIL_REWORK_BLACK_OUTPUT",
+    "video_input_decode": "PASS",
+    "video_pc_local_tracking": "REWORK_MISSING_ADOPTED_MODEL",
+    "korean_audio_inventory": "PASS",
+    "korean_pc_local_stt": "REWORK_MISSING_ADOPTED_MODEL",
+    "preview_save_export": "REMOTE_EVIDENCE_ONLY_NOT_PC_PASS"
+  },
+  "verdict": "REWORK_REQUIRED_MODEL_AND_RUNTIME_RESTORE_PLUS_QUALITY_RERUN",
+  "protection": {
+    "no_main_merge": true,
+    "no_production_deploy": true,
+    "no_force_push": true,
+    "no_gpu_or_paid_compute": true,
+    "no_credentials_exposed": true
+  }
+}
