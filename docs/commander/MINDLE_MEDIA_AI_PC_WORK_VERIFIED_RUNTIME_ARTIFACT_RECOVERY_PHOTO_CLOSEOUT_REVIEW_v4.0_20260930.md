@@ -56,4 +56,4 @@ Evidence paths:
 - `evidence/pc_remote/pc-work-verified-runtime-photo-v4-20260930/manifest.json`
 - Next directive: `docs/commander/MINDLE_MEDIA_AI_PC_WORK_VERIFIED_RUNTIME_ARTIFACT_RECOVERY_NEXT_DIRECTIVE_v4.1_20260930.md`
 
-Final commit SHA is recorded after commit and remote verification.
+Evidence/next-directive commit SHA: `b75be81fdbe32c4d335e27a8b1198ad5db288bb8`.

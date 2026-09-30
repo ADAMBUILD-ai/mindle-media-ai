@@ -62,5 +62,5 @@
     "cycle_manifest": "evidence/pc_remote/pc-work-verified-runtime-photo-v4-20260930/manifest.json",
     "next_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_VERIFIED_RUNTIME_ARTIFACT_RECOVERY_NEXT_DIRECTIVE_v4.1_20260930.md"
   },
-  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+  "final_commit_sha": "b75be81fdbe32c4d335e27a8b1198ad5db288bb8"
 }
