@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_head": "be27e8b5e8bf977a604618f734214280e68b74ce",
+  "directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LONG_RUN_FULL_BASE_PRODUCT_CLOSEOUT_DIRECTIVE_v10.0_20261001.md",
+    "commit": "be27e8b5e8bf977a604618f734214280e68b74ce"
+  },
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO",
+    "RUNTIME_GATE": "HUMAN_ACTION_REQUIRED"
+  },
+  "runtime_gate": {
+    "artifact_id": 10797756522,
+    "required_bytes": 418706393,
+    "required_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128",
+    "local_candidate_bytes": 418706255,
+    "local_candidate_sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3",
+    "status": "UNCHANGED_HUMAN_ACTION_REQUIRED",
+    "download_page": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35974551384"
+  },
+  "lanes": {
+    "runtime_reassembly": "HUMAN_ACTION_REQUIRED",
+    "photo_segmentation": "REWORK",
+    "photo_4x": "REWORK",
+    "video_tracking": "VERIFY_REQUIRED",
+    "korean_stt": "VERIFY_REQUIRED",
+    "preview": "VERIFY_REQUIRED",
+    "save": "VERIFY_REQUIRED",
+    "export": "VERIFY_REQUIRED",
+    "base_product_closeout": "REWORK",
+    "shortform": "VERIFY_REQUIRED"
+  },
+  "repeated_download_attempt": false,
+  "mixed_generation_reassembly": false,
+  "fabricated_assets_or_results": false,
+  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+}
