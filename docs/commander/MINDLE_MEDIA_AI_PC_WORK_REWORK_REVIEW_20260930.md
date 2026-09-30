@@ -48,8 +48,8 @@
 
 ## Commit / push result
 
-- Final commit SHA: populated after commit and remote verification in this cycle.
-- Remote branch verification: pending until push completes.
+- Implementation/evidence commit SHA: `2bd209e435106b0b40d71d2452a5d2c7818b5d21`
+- Remote branch verification: local HEAD and `origin/feature/ad-shortform-bridge-p0-20260926` matched at the SHA above.
 
 ## Next lane
 

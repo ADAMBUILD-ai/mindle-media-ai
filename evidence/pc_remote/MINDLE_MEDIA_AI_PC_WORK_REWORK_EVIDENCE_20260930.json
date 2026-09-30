@@ -45,5 +45,5 @@
     "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_REWORK_EVIDENCE_20260930.json",
     "cycle_manifest": "evidence/pc_remote/pc-work-rework-20260930/manifest.json"
   },
-  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+  "final_commit_sha": "2bd209e435106b0b40d71d2452a5d2c7818b5d21"
 }
