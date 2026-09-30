@@ -63,4 +63,4 @@
 - Cycle manifest: `evidence/pc_remote/pc-work-runtime-input-recovery-v3-20260930/manifest.json`
 - Next directive: `docs/commander/MINDLE_MEDIA_AI_PC_WORK_RUNTIME_INPUT_RECOVERY_NEXT_DIRECTIVE_v3.1_20260930.md`
 
-Final commit SHA is recorded after commit and remote verification.
+Evidence/next-directive commit SHA: `46fd8babec9d3deed3c38c514aa8c6db87a043c1`.

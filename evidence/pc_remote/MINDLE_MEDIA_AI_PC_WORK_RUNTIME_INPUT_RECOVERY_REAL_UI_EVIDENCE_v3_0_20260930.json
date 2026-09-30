@@ -81,5 +81,5 @@
     "cycle_manifest": "evidence/pc_remote/pc-work-runtime-input-recovery-v3-20260930/manifest.json",
     "next_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RUNTIME_INPUT_RECOVERY_NEXT_DIRECTIVE_v3.1_20260930.md"
   },
-  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+  "final_commit_sha": "46fd8babec9d3deed3c38c514aa8c6db87a043c1"
 }
