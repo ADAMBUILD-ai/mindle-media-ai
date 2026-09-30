@@ -1,0 +1,13 @@
+{
+  "cycle": "pc-work-v7-gate-auto-resume-v8-20261001",
+  "status": "HUMAN_ACTION_REQUIRED",
+  "artifact_id": 10797756522,
+  "download_page": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35974551384",
+  "expected_bytes": 418706393,
+  "expected_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128",
+  "current_candidate_bytes": 418706255,
+  "current_candidate_sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3",
+  "reassembly": "PENDING_EXACT_PART01",
+  "auto_resume": true,
+  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+}
