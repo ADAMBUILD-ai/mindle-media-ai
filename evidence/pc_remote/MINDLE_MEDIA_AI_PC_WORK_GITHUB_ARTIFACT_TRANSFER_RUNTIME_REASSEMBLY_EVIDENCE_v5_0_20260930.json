@@ -30,5 +30,5 @@
   "reassembly": {"attempted": false, "reason": "no complete matching generation", "target_sha256": "f80ca743a482f4ad3636f5ed73ba66a32d1d43e649a882154d980334b9965ea2"},
   "lanes": {"runtime_reassembly": "REWORK", "photo_segmentation": "REWORK", "photo_4x": "REWORK", "video_tracking": "VERIFY_REQUIRED", "korean_stt": "VERIFY_REQUIRED", "preview": "VERIFY_REQUIRED", "save": "VERIFY_REQUIRED", "export": "VERIFY_REQUIRED", "shortform": "VERIFY_REQUIRED"},
   "fabricated_assets_or_results": false,
-  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+  "final_commit_sha": "5b3251a927d10daa70d9c46845788a6c190283c9"
 }

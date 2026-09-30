@@ -50,4 +50,4 @@ Evidence paths:
 - `evidence/pc_remote/pc-work-artifact-transfer-runtime-v5-20260930/manifest.json`
 - Next directive: `docs/commander/MINDLE_MEDIA_AI_PC_WORK_GITHUB_ARTIFACT_TRANSFER_RUNTIME_REASSEMBLY_NEXT_DIRECTIVE_v5.1_20260930.md`
 
-Final commit SHA is recorded after commit and remote verification.
+Evidence/next-directive commit SHA: `5b3251a927d10daa70d9c46845788a6c190283c9`.
