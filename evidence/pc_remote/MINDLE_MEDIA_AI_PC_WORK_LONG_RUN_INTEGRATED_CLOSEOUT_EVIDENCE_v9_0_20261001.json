@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_head": "e7fdf601d9dbefeb093ddc099b44491ef05baec2",
+  "directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LONG_RUN_INTEGRATED_CLOSEOUT_DIRECTIVE_v9.0_20261001.md",
+    "commit": "e7fdf601d9dbefeb093ddc099b44491ef05baec2"
+  },
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO",
+    "PHASE_A_GATE": "HUMAN_ACTION_REQUIRED"
+  },
+  "phase_a": {
+    "artifact_id": 10797756522,
+    "required_part": "v29 part-01",
+    "expected_bytes": 418706393,
+    "expected_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128",
+    "download_page": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35974551384",
+    "candidate_bytes": 418706255,
+    "candidate_sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3",
+    "result": "HUMAN_ACTION_REQUIRED"
+  },
+  "phase_b_runtime_reassembly": "VERIFY_REQUIRED",
+  "phase_c_photo": {"segmentation": "REWORK", "upscale_4x": "REWORK", "preview": "VERIFY_REQUIRED", "save": "VERIFY_REQUIRED", "export": "VERIFY_REQUIRED"},
+  "phase_d_video_stt": {"video_tracking": "VERIFY_REQUIRED", "korean_stt": "VERIFY_REQUIRED"},
+  "phase_e_regression": "REWORK",
+  "phase_f_shortform": "VERIFY_REQUIRED",
+  "frozen_pass": ["approved UI shell", "UI hierarchy", "project-save fail-closed gate", "shortform fail-closed 503", "UI_SSOT_CHANGED:NO"],
+  "fabricated_assets_or_results": false,
+  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+}
