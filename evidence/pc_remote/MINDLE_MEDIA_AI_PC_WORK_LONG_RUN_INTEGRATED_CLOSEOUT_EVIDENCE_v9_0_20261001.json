@@ -30,5 +30,5 @@
   "phase_f_shortform": "VERIFY_REQUIRED",
   "frozen_pass": ["approved UI shell", "UI hierarchy", "project-save fail-closed gate", "shortform fail-closed 503", "UI_SSOT_CHANGED:NO"],
   "fabricated_assets_or_results": false,
-  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+  "final_commit_sha": "e2b6c2b2e2b1da0093d4ee741e9d2a45b4825002"
 }
