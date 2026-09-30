@@ -10,6 +10,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
+from .marketing_shortform_gateway import build_marketing_shortform_request
 from .product_runtime import ProductJobService
 
 
@@ -56,6 +57,16 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:
         try:
             route = unquote(urlparse(self.path).path); body = self._body()
+            if route == "/api/integrations/marketing/shortform":
+                request = build_marketing_shortform_request(
+                    str(body.get("command", "")),
+                    project_id=body.get("project_id"),
+                )
+                self._json(503, {
+                    "status": "VERIFY_REQUIRED",
+                    "error": "Marketing AI-approved SHORTFORM BRIDGE Contract v1 is unavailable",
+                    "request": request,
+                }); return
             if route == "/api/jobs":
                 result = self.server.service.execute(body)
                 primary = Path(result["primary_output"]["path"]).relative_to(self.server.data_dir)
