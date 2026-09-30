@@ -51,4 +51,4 @@ Evidence paths:
 - `evidence/pc_remote/pc-work-v29-part01-reassembly-v6-20261001/manifest.json`
 - Next directive: `docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_PART01_V29_REASSEMBLY_NEXT_DIRECTIVE_v6.1_20261001.md`
 
-Final commit SHA is recorded after commit and remote verification.
+Evidence/next-directive commit SHA: `5fe05edc6061cc900af5d42cd9710e0d51b66ea3`.
