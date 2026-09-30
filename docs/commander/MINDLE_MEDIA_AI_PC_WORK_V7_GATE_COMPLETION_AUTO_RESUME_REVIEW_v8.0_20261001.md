@@ -46,4 +46,4 @@ Evidence paths:
 - `evidence/pc_remote/pc-work-v7-gate-auto-resume-v8-20261001/manifest.json`
 - Next directive: `docs/commander/MINDLE_MEDIA_AI_PC_WORK_V7_GATE_COMPLETION_AUTO_RESUME_NEXT_DIRECTIVE_v8.1_20261001.md`
 
-Final commit SHA is recorded after commit and remote verification.
+Evidence/next-directive commit SHA: `83886938ec7bdcbcd70fc70259f36c65d5a5074a`.

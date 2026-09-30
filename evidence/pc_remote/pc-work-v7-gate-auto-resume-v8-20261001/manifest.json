@@ -9,5 +9,5 @@
   "current_candidate_sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3",
   "reassembly": "PENDING_EXACT_PART01",
   "auto_resume": true,
-  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+  "final_commit_sha": "83886938ec7bdcbcd70fc70259f36c65d5a5074a"
 }
