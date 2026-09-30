@@ -50,4 +50,4 @@ Evidence paths:
 - `evidence/pc_remote/pc-work-human-auth-transfer-v7-20261001/manifest.json`
 - Next directive: `docs/commander/MINDLE_MEDIA_AI_PC_WORK_HUMAN_AUTH_TRANSFER_GATE_RESUME_NEXT_DIRECTIVE_v7.1_20261001.md`
 
-Final commit SHA is recorded after commit and remote verification.
+Evidence/next-directive commit SHA: `1d00b40b76d38cfe955b787b3e630357f2caae7f`.
