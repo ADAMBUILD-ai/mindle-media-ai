@@ -1,0 +1,11 @@
+{
+  "cycle": "pc-work-artifact-transfer-runtime-v5-20260930",
+  "local_transfer_root": "C:\\Users\\PC\\Downloads",
+  "hash_manifest": "See MINDLE_MEDIA_AI_PC_WORK_GITHUB_ARTIFACT_TRANSFER_RUNTIME_REASSEMBLY_EVIDENCE_v5_0_20260930.json",
+  "matching_parts": {"v29_part00": true, "v29_part01": false, "v29_part02": true},
+  "reassembly": "NOT_RUN_MISSING_EXACT_PART_01",
+  "runtime_load": "NOT_RUN",
+  "photo_outputs": [],
+  "browser_partial_download": {"path": "C:\\Users\\PC\\Downloads\\미확인 306151.crdownload", "bytes": 15380},
+  "final_commit_sha": "POPULATED_AFTER_COMMIT_AND_REMOTE_VERIFICATION"
+}
