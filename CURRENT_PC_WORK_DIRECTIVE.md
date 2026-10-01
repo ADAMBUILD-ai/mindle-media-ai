@@ -13,13 +13,20 @@ Before doing ANY work:
 2. checkout feature/ad-shortform-bridge-p0-20260926
 3. pull/reconcile to the current remote branch HEAD
 4. verify this file exists from the updated working tree
-5. read the Rule Registry below
-6. confirm which rules are ACTIVE / REFERENCE_ONLY / HISTORY_ONLY
-7. read the ACTIVE directive
-8. read the machine-readable Evidence Path Contract
-9. execute only the ACTIVE cycle
-10. publish Evidence to the exact required paths
-11. commit, push, and remote-verify before stopping
+5. read and complete the ACTIVE branch-rebind preflight below
+6. read the Rule Registry below
+7. confirm which rules are ACTIVE / REFERENCE_ONLY / HISTORY_ONLY
+8. read the ACTIVE directive
+9. read the machine-readable Evidence Path Contract
+10. execute only the ACTIVE cycle
+11. publish Evidence to the exact required paths
+12. commit, push, and remote-verify before stopping
+
+## ACTIVE BRANCH-REBIND PREFLIGHT — MUST COMPLETE FIRST
+
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
+
+The PC worker must not continue from any already-open local branch without completing this preflight.
 
 ## RULE REGISTRY — MUST READ BEFORE ANY OLD DOCUMENT
 
