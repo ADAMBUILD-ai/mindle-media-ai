@@ -1,2 +1,7 @@
-STATUS: PENDING AFTER FINAL REGRESSION, COMMIT, PUSH, AND REMOTE READBACK
+STATUS: REMOTE_PUSH_VERIFIED
 Required remote readback: exact review path, exact machine Evidence path, exact 17 detail files.
+Implementation commit: c3d36c8
+Remote branch ref: feature/ad-shortform-bridge-p0-20260926
+Review path: PRESENT
+Machine Evidence path: PRESENT
+Detail files: 17/17 PRESENT

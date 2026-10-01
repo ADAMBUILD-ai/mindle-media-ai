@@ -36,4 +36,4 @@ No screenshot was used as a body background or overlay. Controls remain real DOM
 - Detail directory: `evidence/pc_remote/pc-work-approved-ui-final-v18_1-20261001/`
 - Required detail files: 17.
 
-REMOTE_PUSH_VERIFIED: PENDING
+REMOTE_PUSH_VERIFIED: YES — exact review path, machine Evidence path, and all 17 detail files were read back from the remote branch.
