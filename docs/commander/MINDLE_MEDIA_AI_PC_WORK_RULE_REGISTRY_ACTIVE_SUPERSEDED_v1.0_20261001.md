@@ -41,13 +41,13 @@ A lower item can never override a higher item.
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
 
 ### Active execution directive
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_ADJUDICATION_AND_RELEASE_CLOSEOUT_DIRECTIVE_v15.0_20261001.md
 
 ### Active technical scope
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
 
 ### Active Evidence path contract
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v14.0_20261001.json
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v15.0_20261001.json
 
 ### Active commander-worker circulation protocol
 - docs/commander/MINDLE_MEDIA_AI_COMMANDER_PC_WORKER_REPOSITORY_CIRCULATION_PROTOCOL_v1.0_20261001.md
@@ -175,3 +175,20 @@ They are now REFERENCE_ONLY for the v14 recovery lineage.
 
 Current ACTIVE product-recovery directive:
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md
+
+
+## 11. v14 cycle status update
+
+v14 is closed as:
+PARTIAL_PASS_UI_SSOT_BLOCKED
+
+Preserved PASS:
+- PHOTO segmentation
+- PHOTO 4x
+- VIDEO tracking
+- Korean STT
+- Project Save / Export / Reopen
+- exact adopted model/runtime identity
+- remote Evidence publication
+
+v14 is now REFERENCE_ONLY. Current ACTIVE work is UI SSOT provenance adjudication only.
