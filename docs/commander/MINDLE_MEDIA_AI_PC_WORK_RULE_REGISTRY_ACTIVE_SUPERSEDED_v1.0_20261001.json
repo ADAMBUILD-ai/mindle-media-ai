@@ -17,9 +17,9 @@
   "active": {
     "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
     "state": "CURRENT_PC_WORK_STATE.json",
-    "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_EVIDENCE_MATERIALIZATION_AND_SSOT_COMPLIANCE_DIAGNOSIS_DIRECTIVE_v16.0_20261001.md",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md",
     "technical_scope": null,
-    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v16.0_20261001.json",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.0_20261001.json",
     "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
   },
   "reference_only": [
@@ -31,7 +31,8 @@
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md",
-    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_ADJUDICATION_AND_RELEASE_CLOSEOUT_DIRECTIVE_v15.0_20261001.md"
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_ADJUDICATION_AND_RELEASE_CLOSEOUT_DIRECTIVE_v15.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_EVIDENCE_MATERIALIZATION_AND_SSOT_COMPLIANCE_DIAGNOSIS_DIRECTIVE_v16.0_20261001.md"
   ],
   "history_only_ranges": [
     "PC Work v1-v11 directives, next directives, reviews and their evidence unless explicitly referenced by ACTIVE directive"
@@ -46,10 +47,10 @@
   ],
   "branch_assertion_required_before_work": true,
   "previous_cycle": {
-    "version": "v15",
-    "result": "USER_VISUAL_CONFIRMATION_REQUIRED",
+    "version": "v16",
+    "result": "VISUAL_IMPLEMENTATION_GAP",
     "status": "REFERENCE_ONLY",
-    "note": "provenance established; actual visual evidence materialization incomplete"
+    "note": "canonical UI lacks approved visual stylesheet; 9AAF candidate non-decodable"
   },
-  "required_detail_file_count": 11
+  "required_detail_file_count": 15
 }
