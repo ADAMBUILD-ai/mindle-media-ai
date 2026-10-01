@@ -33,4 +33,4 @@ The existing canonical file was preserved as `LEGACY_INVALID_SSOT_9AAF.bin` with
 
 Place the exact commander-verified file at the specified handoff path. Then rerun v18.0: verify hash/dimensions, archive the invalid 9AAF bytes, install the exact F27E PNG, implement real DOM/CSS, run live visual verification, and publish the final PASS/FAIL Evidence.
 
-REMOTE_PUSH_VERIFIED: PENDING
+REMOTE_PUSH_VERIFIED: YES — exact review path, machine Evidence path, and all 16 detail files were read back from the remote branch.

@@ -1,3 +1,5 @@
-STATUS: PENDING BEFORE COMMIT/PUSH
+STATUS: REMOTE_PUSH_VERIFIED
 Required remote readback: exact review path, exact machine Evidence path, exact 16 detail files
-The cycle result is ASSET_HANDOFF_REQUIRED until the handoff file is physically present.
+Evidence commit: 49f9ccb
+Remote branch ref: feature/ad-shortform-bridge-p0-20260926
+The cycle result remains ASSET_HANDOFF_REQUIRED until the handoff file is physically present.
