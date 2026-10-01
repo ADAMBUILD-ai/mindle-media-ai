@@ -421,3 +421,28 @@ REMOTE_PUSH_VERIFIED: YES
 ## Final governing sentence
 
 DO NOT ASK THE REPRESENTATIVE FOR A TOKEN. CREATE A LOCAL EPHEMERAL E2E SECRET IN MEMORY, START BOTH VERIFIED LOCAL SERVICES WITH IT, RECOVER FFMPEG, RETRIEVE THE EXACT CONTRACT/ASSETS, AND PRODUCE THE REAL MP4. REPORT VOICEOVER AUDIO SEPARATELY AND TRUTHFULLY.
+
+
+## 18. Mandatory post-v20.1 representative UI gate
+
+Even if this cycle returns FULL_TESTED_PASS or LIVE_E2E_PASS_VOICE_AUDIO_DEPENDENCY, that result is a TECHNICAL PASS only.
+
+It is NOT authorization for final MEDIA AI product closeout.
+
+The next mandatory cycle is:
+
+docs/commander/MINDLE_MEDIA_AI_WINDOWS_ONSCREEN_UI_REPRESENTATIVE_VISUAL_FUNCTION_AUDIT_DIRECTIVE_v20.2_20261001.md
+
+The final product may not be declared closed until:
+
+- the actual live MEDIA AI is opened on the representative's Windows screen
+- the exact F27E approved source is shown beside it
+- VIDEO / PHOTO / Shortform / Save / Export controls are exercised visibly
+- the live app remains open for inspection
+- the representative explicitly decides APPROVED_AS_FIXED_UI or CORRECTION_REQUIRED
+
+If no representative visual decision exists:
+
+FINAL_CLOSEOUT = BLOCKED_BY_REPRESENTATIVE_UI_GATE
+
+Do not interpret automated UI tests, screenshots, or hash identity as representative visual approval.

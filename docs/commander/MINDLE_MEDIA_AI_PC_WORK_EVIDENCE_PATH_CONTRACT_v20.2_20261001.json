@@ -1,0 +1,69 @@
+{
+  "contract_version": "20.2",
+  "date": "2026-10-01",
+  "status": "NEXT_PENDING",
+  "planned_epoch": "MEDIA-AI-20261001-V20.2",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_ONSCREEN_UI_REPRESENTATIVE_VISUAL_FUNCTION_AUDIT_DIRECTIVE_v20.2_20261001.md",
+  "activate_after": "v20.1 commander review",
+  "approved_ui": {
+    "path": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541"
+  },
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_UI_REPRESENTATIVE_VISUAL_FUNCTION_REVIEW_v20.2_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_UI_REPRESENTATIVE_VISUAL_FUNCTION_EVIDENCE_v20_2_20261001.json",
+    "detail_directory": "evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CONTROL_PLANE_VALIDATION.txt",
+      "LIVE_SOURCE_IDENTITY.json",
+      "APPROVED_SSOT_IDENTITY.json",
+      "APPROVED_REFERENCE_VIEW.png",
+      "LIVE_UI_INITIAL_FULL.png",
+      "SIDE_BY_SIDE_REFERENCE_VS_LIVE.png",
+      "VISUAL_COMPLIANCE_MATRIX.json",
+      "VIDEO_FUNCTION_ACTIVATION.json",
+      "VIDEO_FUNCTION_SCREEN.png",
+      "PHOTO_FUNCTION_ACTIVATION.json",
+      "PHOTO_FUNCTION_SCREEN.png",
+      "SHORTFORM_FUNCTION_ACTIVATION.json",
+      "SHORTFORM_FUNCTION_SCREEN.png",
+      "SAVE_EXPORT_ACTIVATION.json",
+      "ONE_CHANGE_ISOLATION_AUDIT.json",
+      "UI_FUNCTION_DEFECT_LIST.json",
+      "REPRESENTATIVE_SCREEN_GATE.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 20,
+  "representative_decision_required": true,
+  "app_must_remain_open_on_windows": true,
+  "allowed_results": [
+    "REPRESENTATIVE_UI_APPROVED",
+    "REPRESENTATIVE_VISUAL_REVIEW_REQUIRED",
+    "UI_CORRECTION_REQUIRED",
+    "FAIL"
+  ],
+  "final_fixed_ui_authority": {
+    "base_visual_ssot": {
+      "path": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+      "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+      "role": "base visual/layout authority"
+    },
+    "additive_shortform_ssot": {
+      "path": "docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md",
+      "required_video_action_order": [
+        "영상 불러오기",
+        "AI 자동 편집",
+        "광고 숏폼",
+        "프로젝트 저장",
+        "내보내기"
+      ],
+      "role": "final additive UI authority"
+    },
+    "rule": "Final fixed UI = F27E base visual/layout + Shortform Addendum. F27E alone is incomplete."
+  }
+}
