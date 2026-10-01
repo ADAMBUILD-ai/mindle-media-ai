@@ -1,5 +1,6 @@
-STATUS: PENDING BEFORE COMMIT/PUSH
+STATUS: PUSHED; REMOTE READBACK IN PROGRESS
 Repository: ADAMBUILD-ai/mindle-media-ai
 Branch: feature/ad-shortform-bridge-p0-20260926
+Evidence commit: d4a779175219f1f477c3bbd079bfef2f3e1a48af
 Required remote readback: exact review path, exact machine Evidence path, exact 15 detail files
-Final values will be written after push and remote fetch/read verification.
+Remote ref after push: feature/ad-shortform-bridge-p0-20260926
