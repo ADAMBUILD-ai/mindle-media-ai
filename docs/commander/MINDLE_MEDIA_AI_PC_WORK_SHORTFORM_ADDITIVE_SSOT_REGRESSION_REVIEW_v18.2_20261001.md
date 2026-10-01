@@ -2,7 +2,7 @@
 
 - Result: **TESTED_PASS**
 - Repository branch: `feature/ad-shortform-bridge-p0-20260926`
-- Tested commit: `7f5a9d5032303f04ccf718f7ed14b48f0ca53cb5`
+- Tested commit: `175e509`
 - Directive: `docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md`
 - Machine evidence: `evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_SSOT_REGRESSION_EVIDENCE_v18_2_20261001.json`
 - Detail evidence: `evidence/pc_remote/pc-work-shortform-additive-v18_2-20261001/`
