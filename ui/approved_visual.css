@@ -93,6 +93,33 @@ main { width: auto; max-width: none; margin: 0; }
 [data-editor="photo"] [data-panel="photo-right"] .range-row:nth-of-type(3) input { accent-color: #11d589; }
 [data-editor="photo"] [data-panel="photo-right"] .range-row:nth-of-type(4) input { accent-color: #ffce24; }
 @media (max-width: 1320px) { .workspace-shell { grid-template-columns: 112px minmax(0, 1fr); }.app-sidebar button { padding-inline: 6px; font-size: 13px; }.editor-header > button { padding-inline: 11px; font-size: 12px; } }
+@media (max-width: 1400px) {
+  html, body { min-width: 0; overflow-x: hidden; }
+  .workspace-shell { grid-template-columns: 84px minmax(0, 1fr); }
+  .app-sidebar { padding: 14px 8px; gap: 10px; }
+  .app-sidebar button { justify-content: center; padding: 4px; font-size: 11px; }
+  .app-sidebar button span { display: none; }
+  .app-sidebar button:first-letter { font-size: 18px; }
+  .app-topbar { height: 50px; padding-inline: 14px; gap: 10px; }
+  .brand { font-size: 17px; }.brand-divider, .tagline { display: none; }.app-topbar nav { gap: 3px; }.app-topbar nav button { font-size: 11px; padding: 3px; }
+  [data-editor] { padding: 8px 8px 7px; }
+  [data-editor="video"], [data-editor="photo"] { min-height: 0; }
+  .editor-header { min-height: 48px; gap: 6px; }
+  .editor-title { gap: 8px; min-width: 125px; }.editor-title h1 { font-size: 21px; }.editor-title p { margin-top: 2px; font-size: 10px; white-space: nowrap; }
+  .editor-icon { width: 42px; height: 37px; border-radius: 7px; font-size: 16px; }.editor-header > button { min-height: 34px; padding: 5px 7px; font-size: 10px; }
+  .editor-header > button.primary-blue, .editor-header > button.primary-pink { min-width: 76px; }
+  [data-layout="left-center-right"] { grid-template-columns: minmax(185px, 28%) minmax(0, 1fr) minmax(180px, 25%); gap: 7px; min-height: 300px; }
+  [data-editor="photo"] [data-layout="left-center-right"] { min-height: 286px; }
+  [data-editor="photo"] [data-panel="photo-center"], [data-editor="photo"] [data-panel="photo-right"] { min-height: 286px; }
+  .panel-tabs { min-height: 29px; font-size: 10px; }.panel-tabs b { height: 29px; }
+  .asset-grid { gap: 5px; padding: 7px; font-size: 10px; }.asset-grid span { min-height: 55px; padding: 37px 4px 3px; }.photo-assets span { min-height: 48px; padding-top: 32px; }
+  .command-card, .photo-command { margin: 4px; min-height: 108px; padding: 7px; border-width: 1px; }.command-card label { font-size: 10px; line-height: 1.25; }.command-card input { min-height: 27px; margin-top: 3px; padding: 5px; font-size: 10px; }.command-card > button { width: 74%; min-height: 28px; margin-top: 4px; font-size: 10px; }.command-chips { gap: 3px; margin-top: 4px; }.command-chips button { min-height: 22px; padding: 2px 4px; font-size: 9px; }
+  [data-preview="video"] { min-height: 116px; }.preview-empty { font-size: 9px; }.transport { min-height: 28px; gap: 5px; padding: 4px; font-size: 9px; }.transport b, .transport em { font-size: 9px; }.transport progress { height: 4px; }
+  [data-timeline="video"] { min-height: 106px; padding: 4px; font-size: 8px; }.timeline-ruler { padding-bottom: 3px; font-size: 8px; }.track { height: 20px; margin-top: 2px; padding: 4px 6px; }
+  [data-panel$="-right"] { padding-bottom: 5px; }.panel-tabs + h3, [data-panel$="-right"] h3 { margin: 5px 7px; font-size: 10px; }.tool-grid { gap: 4px; padding: 0 7px 5px; }.tool-grid button { min-height: 35px; padding: 2px; font-size: 9px; }.range-row { grid-template-columns: 26px 1fr 13px; gap: 4px; padding: 2px 7px; font-size: 9px; min-height: 20px; }.toggle-row { padding: 3px 7px; font-size: 9px; }.toggle-row input { width: 26px; height: 14px; }
+  [data-preview="photo"] { min-height: 155px; }.photo-transport { min-height: 37px !important; gap: 4px; padding: 4px; font-size: 9px; }.photo-transport span { padding: 4px 6px; }.photo-transport button { padding: 4px 6px; }
+  [data-editor="photo"] .panel-actions { gap: 4px; padding: 5px 7px 0; }.panel-actions button { padding: 4px; font-size: 9px; }
+}
 @media (max-width: 1100px) {
   html, body { min-width: 0; overflow-x: hidden; }
   .workspace-shell { grid-template-columns: 76px minmax(0, 1fr); min-height: calc(100vh - 48px); }
