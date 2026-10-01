@@ -4,13 +4,13 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md",
   "technical_scope": null,
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.0_20261001.json",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.1_20261001.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_RECOVERY_PIXEL_REPAIR_REVIEW_v17.0_20261001.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_RECOVERY_PIXEL_REPAIR_EVIDENCE_v17_0_20261001.json",
-    "detail_dir": "evidence/pc_remote/pc-work-approved-ui-recovery-v17-20261001/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_F27E_VISUAL_CLOSEOUT_REVIEW_v17.1_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_F27E_VISUAL_CLOSEOUT_EVIDENCE_v17_1_20261001.json",
+    "detail_dir": "evidence/pc_remote/pc-work-approved-ui-recovery-v17_1-20261001/"
   },
   "forbidden_outputs": [
     "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
@@ -27,6 +27,12 @@
   "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
   "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
   "branch_assertion_required_before_work": true,
-  "previous_cycle_result": "v16 VISUAL_IMPLEMENTATION_GAP; canonical live UI lacks approved visual stylesheet and current 9AAF candidate is non-decodable",
-  "required_detail_file_count": 15
+  "previous_cycle_result": "v16 VISUAL_IMPLEMENTATION_GAP; exact approved f27e source independently recovered from ChatGPT Library",
+  "required_detail_file_count": 15,
+  "approved_ui_library_filename": "네온 다크 테마 AI 미디어 편집기.png",
+  "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "superseded_v17_directives": [
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_SOURCE_RECOVERY_AND_VISUAL_IMPLEMENTATION_CLOSEOUT_DIRECTIVE_v17.0_20261001.md"
+  ]
 }
