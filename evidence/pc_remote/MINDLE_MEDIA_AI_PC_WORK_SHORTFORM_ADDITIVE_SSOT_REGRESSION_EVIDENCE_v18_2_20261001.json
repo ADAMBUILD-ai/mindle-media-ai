@@ -1,0 +1,11 @@
+{
+  "status": "TESTED_PASS",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "commit_under_test": "7f5a9d5032303f04ccf718f7ed14b48f0ca53cb5",
+  "detail_dir": "evidence/pc_remote/pc-work-shortform-additive-v18_2-20261001/",
+  "detail_file_count": 12,
+  "tests": {"pytest": "51 passed", "node": "2 passed, 0 failed", "live_browser": "PASS"},
+  "ui_ssot_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "state_conflict_recorded": "CURRENT_PC_WORK_DIRECTIVE v18.2 takes precedence over conflicting state/registry v19 text"
+}
