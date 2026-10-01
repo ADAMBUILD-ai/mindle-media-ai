@@ -19,7 +19,8 @@
     "state": "CURRENT_PC_WORK_STATE.json",
     "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md",
     "technical_scope": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md",
-    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v1.0_20261001.json"
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v1.0_20261001.json",
+    "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
   },
   "reference_only": [
     "docs/commander/MINDLE_MEDIA_AI_NEW_PC_WORKER_BOOTSTRAP_ROUTE_CORRECTION_HANDOFF_v1.0_20261001.md",
@@ -34,5 +35,10 @@
   "default_for_unlisted_pc_work_docs": "HISTORY_ONLY",
   "stale_context_status": "STALE_CONTEXT_BLOCKED",
   "sync_required": true,
-  "worker_may_invent_evidence_names": false
+  "worker_may_invent_evidence_names": false,
+  "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "stale_local_branches": [
+    "work/ui-final-pc-work-20260924"
+  ],
+  "branch_assertion_required_before_work": true
 }
