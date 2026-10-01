@@ -1,95 +1,64 @@
 # MINDLE MEDIA AI — CURRENT PC WORK ACTIVE DIRECTIVE
 
 STATUS: ACTIVE
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261001-V20
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261001-V20.1
 DATE: 2026-10-01
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
 
-## THIS FILE IS THE ONLY HUMAN-READABLE STARTING POINT
-
-Before ANY work:
+## START ORDER
 
 1. git fetch origin
 2. checkout feature/ad-shortform-bridge-p0-20260926
-3. reconcile local HEAD to current remote HEAD
+3. reconcile to current remote HEAD
 4. read CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
-5. run: python scripts/validate_pc_work_control_plane.py
-6. read CURRENT_PC_WORK_STATE.json
-7. read Rule Registry MD + JSON
-8. validator MUST return CONTROL_PLANE_PASS
-9. only then execute v20
-10. publish Evidence to exact v20 paths
-11. commit, push, remote-readback before stopping
+5. run python scripts/validate_pc_work_control_plane.py
+6. require CONTROL_PLANE_PASS
+7. read CURRENT_PC_WORK_STATE.json
+8. read Rule Registry MD + JSON
+9. execute only v20.1
+10. publish exact v20.1 Evidence
+11. commit, push, remote-readback
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md
+docs/commander/MINDLE_MEDIA_AI_LOCAL_MARKETING_RUNTIME_BOOTSTRAP_AUTH_MP4_E2E_DIRECTIVE_v20.1_20261001.md
 
 ## ACTIVE EVIDENCE CONTRACT
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.0_20261001.json
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.1_20261001.json
 
-## VERIFIED MARKETING LIVE PROVIDER
+## PREVIOUS CYCLE
 
-Repository:
-ADAMBUILD-ai/mindle-marketing-department
+v20 = MARKETING_AUTH_ENV_REQUIRED
 
-PR:
-#4
+Accepted from v20:
+- fail-closed Marketing HTTP client implemented
+- request/contract adapter static PASS
+- Python 52 PASS
+- UI 2 PASS
+- base product frozen PASS
 
-Branch:
-feature/shortform-bridge-p0-20260926
+v20 is now REFERENCE_ONLY.
 
-Commit:
-3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a
-
-Workflow:
-36852551111 — SUCCESS
-
-Local Base URL:
-http://127.0.0.1:4318
-
-Secret ENV:
-MARKETING_SHORTFORM_BRIDGE_TOKEN
-
-Never print or persist the token.
-
-## PREVIOUS CYCLE — FROZEN
-
-v19:
-BASE_PRODUCT_TESTED_PASS_SHORTFORM_EXTERNAL_DEPENDENCY
-
-The external dependency is now supplied by Marketing AI, so v19 is REFERENCE_ONLY.
-Do not execute v19 again.
-
-Frozen base PASS remains:
-- v14 runtime
-- v18.1 F27E UI
-- v18.2 Shortform additive action identity/order
-- v19 integrated base-product closeout
-
-## EXACT REQUIRED v20 OUTPUTS
+## EXACT v20.1 OUTPUTS
 
 Review:
-docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_REVIEW_v20.0_20261001.md
+docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_MP4_E2E_REVIEW_v20.1_20261001.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_EVIDENCE_v20_0_20261001.json
+evidence/pc_remote/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_MP4_E2E_EVIDENCE_v20_1_20261001.json
 
-Detail directory:
-evidence/pc_remote/media-ai-marketing-live-shortform-v20-20261001/
+Detail:
+evidence/pc_remote/media-ai-marketing-live-shortform-v20_1-20261001/
 
 Required files:
-16
+18
 
-## HARD STOP
+## HARD RULE
 
-If Lock / Current / State / Registry MD / Registry JSON / validator disagree:
-CONTROL_PLANE_MISMATCH_BLOCKED
+Do not ask representative for token.
+Use ephemeral in-memory E2E token only.
+Do not execute v20 or any older cycle as current work.
 
-Do not select an older directive.
-Do not run v19 or v18.2 as current work.
-
-FINAL:
-SYNC → VALIDATE → EXECUTE v20 → REAL MARKETING HTTP → REAL MP4 → EXACT EVIDENCE → PUSH → REMOTE READBACK.
+SYNC → VALIDATE → RUN MARKETING → AUTHENTICATED CONTRACT/ASSETS → FFMPEG → REAL MP4 → EXACT EVIDENCE → PUSH → READBACK.
