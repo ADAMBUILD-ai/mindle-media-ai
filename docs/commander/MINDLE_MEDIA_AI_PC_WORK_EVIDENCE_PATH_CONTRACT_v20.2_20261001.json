@@ -1,7 +1,7 @@
 {
   "contract_version": "20.2",
   "date": "2026-10-01",
-  "status": "NEXT_PENDING",
+  "status": "ACTIVE",
   "planned_epoch": "MEDIA-AI-20261001-V20.2",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
@@ -35,7 +35,17 @@
       "UI_FUNCTION_DEFECT_LIST.json",
       "REPRESENTATIVE_SCREEN_GATE.json",
       "REGRESSION_TEST_RESULTS.txt",
-      "REMOTE_PUSH_VERIFY.txt"
+      "REMOTE_PUSH_VERIFY.txt",
+      "ICON_BRAND_SOURCE_AUDIT.json",
+      "ICON_CANDIDATE_A_1024.png",
+      "ICON_CANDIDATE_B_1024.png",
+      "ICON_CANDIDATE_C_1024.png",
+      "ICON_CANDIDATE_COMPARISON.png",
+      "ICON_REPRESENTATIVE_DECISION.json",
+      "ICON_FINAL_ASSET_VERIFY.json",
+      "ICON_FINAL_PREVIEW.png",
+      "ICON_WINDOWS_APPLICATION_SCREEN.png",
+      "ICON_LAUNCH_VERIFY.json"
     ]
   },
   "required_detail_file_count": 20,
@@ -45,6 +55,9 @@
     "REPRESENTATIVE_UI_APPROVED",
     "REPRESENTATIVE_VISUAL_REVIEW_REQUIRED",
     "UI_CORRECTION_REQUIRED",
+    "ICON_REPRESENTATIVE_REVIEW_REQUIRED",
+    "ICON_CORRECTION_REQUIRED",
+    "REPRESENTATIVE_UI_AND_ICON_APPROVED",
     "FAIL"
   ],
   "final_fixed_ui_authority": {
@@ -65,5 +78,42 @@
       "role": "final additive UI authority"
     },
     "rule": "Final fixed UI = F27E base visual/layout + Shortform Addendum. F27E alone is incomplete."
-  }
+  },
+  "icon_phase": {
+    "activate_only_after": "APPROVED_AS_FIXED_UI",
+    "production_icon_before_selection_forbidden": true,
+    "candidate_count": 3,
+    "candidate_paths": [
+      "evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/ICON_CANDIDATE_A_1024.png",
+      "evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/ICON_CANDIDATE_B_1024.png",
+      "evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/ICON_CANDIDATE_C_1024.png"
+    ],
+    "comparison_path": "evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/ICON_CANDIDATE_COMPARISON.png",
+    "representative_decisions": [
+      "ICON_A_APPROVED",
+      "ICON_B_APPROVED",
+      "ICON_C_APPROVED",
+      "ICON_CORRECTION_REQUIRED",
+      "PENDING"
+    ],
+    "final_product_assets": [
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_1024.png",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_512.png",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_256.png",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_128.png",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_64.png",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_48.png",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_32.png",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_16.png",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico"
+    ]
+  },
+  "required_detail_file_count_after_ui_approval": 30,
+  "required_detail_file_count_before_ui_decision": 20,
+  "representative_icon_decision_required": true,
+  "final_closeout_requires": [
+    "representative_ui_approval",
+    "representative_icon_approval",
+    "final_icon_application_verify"
+  ]
 }
