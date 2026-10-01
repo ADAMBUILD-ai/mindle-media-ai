@@ -1,7 +1,7 @@
 # MINDLE MEDIA AI — CURRENT PC WORK ACTIVE DIRECTIVE
 
 STATUS: ACTIVE
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261001-V19
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261001-V20
 DATE: 2026-10-01
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
@@ -16,82 +16,80 @@ Before ANY work:
 4. read CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
 5. run: python scripts/validate_pc_work_control_plane.py
 6. read CURRENT_PC_WORK_STATE.json
-7. read Rule Registry
-8. verify ALL THREE declare CONTROL_PLANE_EPOCH = MEDIA-AI-20261001-V19
-9. verify all three point to the SAME active directive and Evidence contract
-10. if validator or any manual check fails: STOP with CONTROL_PLANE_MISMATCH_BLOCKED
-11. only then read and execute the active directive
-12. publish Evidence to exact required paths
-13. commit, push, and remote-readback before stopping
-
-## AUTOMATIC CONTROL-PLANE VALIDATOR
-
-scripts/validate_pc_work_control_plane.py
-
-Required result before execution:
-CONTROL_PLANE_PASS
-
-## AUTHORITATIVE CONTROL-PLANE LOCK
-
-CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
-
-The lock is authoritative for active-cycle identity.
-This file, CURRENT_PC_WORK_STATE.json, and Rule Registry MUST agree with it.
+7. read Rule Registry MD + JSON
+8. validator MUST return CONTROL_PLANE_PASS
+9. only then execute v20
+10. publish Evidence to exact v20 paths
+11. commit, push, remote-readback before stopping
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
+docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md
 
 ## ACTIVE EVIDENCE CONTRACT
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.0_20261001.json
 
-## PREVIOUS CYCLE — FROZEN PASS
+## VERIFIED MARKETING LIVE PROVIDER
 
-v18.2 Shortform additive UI correction:
-- TESTED_PASS
-- code commit: 175e509da5cef1415d66fa527ce69711892819d7
-- evidence finalization: 10563ab3c2e3ef3bbec6d23708975b94896edacd
-- remote readback: 737cded9f09a568513a118abc0330e997a7865b3
+Repository:
+ADAMBUILD-ai/mindle-marketing-department
 
-Preserved:
-- AI 자동 편집 remains distinct
-- 광고 숏폼 is a separate control
-- 광고 숏폼 alone owns data-action="shortform-mode"
-- order: 영상 불러오기 → AI 자동 편집 → 광고 숏폼 → 프로젝트 저장 → 내보내기
-- F27E UI SSOT preserved
-- v18.1 PASS preserved
+PR:
+#4
 
-Do NOT execute v18.2 again.
+Branch:
+feature/shortform-bridge-p0-20260926
 
-## EXACT REQUIRED v19 OUTPUT PATHS
+Commit:
+3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a
 
-Human review:
-docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_REVIEW_v19.0_20261001.md
+Workflow:
+36852551111 — SUCCESS
+
+Local Base URL:
+http://127.0.0.1:4318
+
+Secret ENV:
+MARKETING_SHORTFORM_BRIDGE_TOKEN
+
+Never print or persist the token.
+
+## PREVIOUS CYCLE — FROZEN
+
+v19:
+BASE_PRODUCT_TESTED_PASS_SHORTFORM_EXTERNAL_DEPENDENCY
+
+The external dependency is now supplied by Marketing AI, so v19 is REFERENCE_ONLY.
+Do not execute v19 again.
+
+Frozen base PASS remains:
+- v14 runtime
+- v18.1 F27E UI
+- v18.2 Shortform additive action identity/order
+- v19 integrated base-product closeout
+
+## EXACT REQUIRED v20 OUTPUTS
+
+Review:
+docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_REVIEW_v20.0_20261001.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_EVIDENCE_v19_0_20261001.json
+evidence/pc_remote/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_EVIDENCE_v20_0_20261001.json
 
-Detailed Evidence:
-evidence/pc_remote/media-ai-final-integrated-closeout-v19-20261001/
+Detail directory:
+evidence/pc_remote/media-ai-marketing-live-shortform-v20-20261001/
 
-Required detail files: 11
+Required files:
+16
 
-## HARD STOP RULE
+## HARD STOP
 
-STOP if:
-- control-plane epoch differs anywhere
-- active directive differs anywhere
-- Evidence contract differs anywhere
-- local branch is not canonical
-- worker is using remembered/cached instructions
-- worker is about to execute v18.2 or any older directive as current work
+If Lock / Current / State / Registry MD / Registry JSON / validator disagree:
+CONTROL_PLANE_MISMATCH_BLOCKED
 
-On mismatch:
-STATUS = CONTROL_PLANE_MISMATCH_BLOCKED
+Do not select an older directive.
+Do not run v19 or v18.2 as current work.
 
-The representative is not responsible for reconciling versions.
-
-## FINAL RULE
-
-SYNC → LOCK → STATE → REGISTRY → ACTIVE v19 → EXACT EVIDENCE → PUSH → REMOTE READBACK.
+FINAL:
+SYNC → VALIDATE → EXECUTE v20 → REAL MARKETING HTTP → REAL MP4 → EXACT EVIDENCE → PUSH → REMOTE READBACK.
