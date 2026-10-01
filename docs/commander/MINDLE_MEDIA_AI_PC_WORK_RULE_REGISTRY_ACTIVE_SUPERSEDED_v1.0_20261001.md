@@ -41,13 +41,13 @@ A lower item can never override a higher item.
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
 
 ### Active execution directive
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_ADJUDICATION_AND_RELEASE_CLOSEOUT_DIRECTIVE_v15.0_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_EVIDENCE_MATERIALIZATION_AND_SSOT_COMPLIANCE_DIAGNOSIS_DIRECTIVE_v16.0_20261001.md
 
 ### Active technical scope
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
 
 ### Active Evidence path contract
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v15.0_20261001.json
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v16.0_20261001.json
 
 ### Active commander-worker circulation protocol
 - docs/commander/MINDLE_MEDIA_AI_COMMANDER_PC_WORKER_REPOSITORY_CIRCULATION_PROTOCOL_v1.0_20261001.md
@@ -192,3 +192,11 @@ Preserved PASS:
 - remote Evidence publication
 
 v14 is now REFERENCE_ONLY. Current ACTIVE work is UI SSOT provenance adjudication only.
+
+
+## 12. v15 cycle status update
+
+v15 is closed as:
+USER_VISUAL_CONFIRMATION_REQUIRED — provenance established, but visual confirmation package was not sufficient because the actual screenshot image was not published and the live UI was recorded without the approved dark-navy visual treatment.
+
+v15 is now REFERENCE_ONLY. Current ACTIVE cycle v16 materializes the actual visual evidence and diagnoses live UI compliance before asking the representative for confirmation.
