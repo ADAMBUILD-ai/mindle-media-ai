@@ -41,7 +41,7 @@ Any old PC Work directive/review/evidence NOT explicitly classified ACTIVE or RE
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_ADJUDICATION_AND_RELEASE_CLOSEOUT_DIRECTIVE_v15.0_20261001.md
 
 Previous accepted cycle:
 
@@ -49,18 +49,18 @@ docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_REV
 
 Machine-readable Evidence path contract remains governing for exact-path behavior:
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v14.0_20261001.json
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v15.0_20261001.json
 
 ## EXACT REQUIRED OUTPUT PATHS
 
 Human review:
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_REVIEW_v14.0_20261001.md
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_REVIEW_v15.0_20261001.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_EVIDENCE_v14_0_20261001.json
+evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_EVIDENCE_v15_0_20261001.json
 
 Detailed Evidence:
-evidence/pc_remote/pc-work-v32-asset-recovery-ui-ssot-v14-20261001/
+evidence/pc_remote/pc-work-ui-ssot-provenance-v15-20261001/
 
 ## HARD STOP RULE
 
@@ -98,7 +98,7 @@ The cycle is complete only when:
 - exact review path exists on remote
 - exact Evidence JSON path exists on remote
 - exact detail directory exists on remote
-- all required 14 detail files exist on remote
+- all required 12 detail files exist on remote
 - commit is pushed
 - remote readback is verified
 
