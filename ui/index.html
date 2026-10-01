@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MINDLE MEDIA AI</title><link rel="stylesheet" href="interaction.css"></head>
+  <body data-ui-contract="01_UI_SSOT_FINAL.md">
+    <main aria-label="MINDLE MEDIA AI editor">
+      <section data-editor="video" aria-label="영상 편집">
+        <header><h1>영상 편집</h1><button type="button" data-action="load">영상 불러오기</button><input type="file" data-primary-input="video" accept="video/*,audio/wav,audio/mpeg,audio/flac,audio/ogg" hidden><button data-action="save">프로젝트 저장</button><button data-action="export">내보내기</button></header>
+        <div data-layout="left-center-right">
+          <aside data-panel="video-left" data-command-panel><label>영상 AI 지시 <input data-command="video" aria-label="영상 AI 지시" placeholder="영상 편집을 지시하세요"></label><button type="button" data-action="video-reference">+ 참고 이미지 추가</button><input type="file" data-reference-input="video" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list aria-label="영상 참고 이미지"></ul></aside>
+          <section data-panel="video-center"><div data-preview="video" aria-label="영상 미리보기"></div><div data-timeline="video" data-tracks="multi" data-actions="clip-context split range-delete keyframe mask background" aria-label="영상 타임라인"></div></section>
+          <aside data-panel="video-right" aria-label="영상 편집 패널" data-tools="clip-context split range-delete multi-track keyframe mask background"></aside>
+        </div>
+      </section>
+      <section data-editor="photo" aria-label="사진 편집">
+        <header><h1>사진 편집</h1><button type="button" data-action="load">사진 불러오기</button><input type="file" data-primary-input="photo" accept="image/*" hidden><button data-action="save">프로젝트 저장</button><button data-action="export">내보내기</button></header>
+        <div data-layout="left-center-right">
+          <aside data-panel="photo-left" data-command-panel><label>사진 AI 지시 <input data-command="photo" aria-label="사진 AI 지시" placeholder="사진 편집을 지시하세요"></label><button type="button" data-action="photo-reference">+ 참고 이미지 추가</button><input type="file" data-reference-input="photo" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list aria-label="사진 참고 이미지"></ul></aside>
+          <section data-panel="photo-center" data-before-after="enabled" data-batch="enabled"><div data-preview="photo" aria-label="사진 미리보기"></div></section>
+          <aside data-panel="photo-right" aria-label="사진 편집 패널" data-tools="before-after batch correction"></aside>
+        </div>
+      </section>
+    </main>
+    <script src="interaction.js"></script>
+    <script src="product_integration.js"></script>
+  </body>
+</html>
