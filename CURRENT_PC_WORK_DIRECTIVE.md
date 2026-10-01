@@ -41,26 +41,26 @@ Any old PC Work directive/review/evidence NOT explicitly classified ACTIVE or RE
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md
 
-Technical execution scope inherited from:
+Previous accepted cycle:
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_REVIEW_v13.0_20261001.md
 
-Machine-readable Evidence path contract:
+Machine-readable Evidence path contract remains governing for exact-path behavior:
 
 docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v1.0_20261001.json
 
 ## EXACT REQUIRED OUTPUT PATHS
 
 Human review:
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_REVIEW_v13.0_20261001.md
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_REVIEW_v14.0_20261001.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_EVIDENCE_v13_0_20261001.json
+evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_EVIDENCE_v14_0_20261001.json
 
 Detailed Evidence:
-evidence/pc_remote/pc-work-current-pc-four-lane-v13-20261001/
+evidence/pc_remote/pc-work-v32-asset-recovery-ui-ssot-v14-20261001/
 
 ## HARD STOP RULE
 
@@ -77,7 +77,7 @@ Invalid examples:
 - any other invented Evidence filename
 - local-only Evidence
 - chat-only Evidence
-- old v1-v11 PC Work directives as current execution instructions
+- old v1-v13 PC Work directives as current execution instructions unless explicitly referenced by v14
 
 These do not advance the cycle.
 
