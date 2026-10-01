@@ -415,3 +415,190 @@ Representative visual inspection on the real Windows screen is mandatory.
 ## Final governing sentence
 
 BEFORE FINAL CLOSEOUT, PUT THE REAL MEDIA AI UI ON THE REPRESENTATIVE'S WINDOWS SCREEN, SHOW THE EXACT F27E APPROVED REFERENCE BESIDE IT, EXERCISE THE REAL CONTROLS ON SCREEN, LEAVE THE APP OPEN, AND WAIT FOR THE REPRESENTATIVE'S VISUAL DECISION. AUTOMATED PASS IS NOT A SUBSTITUTE FOR THAT HUMAN VISUAL GATE.
+
+
+## 17. Conditional app icon phase — execute ONLY after UI OK
+
+This icon phase is conditional.
+
+It MUST NOT begin until the representative explicitly gives:
+
+APPROVED_AS_FIXED_UI
+
+If the representative says CORRECTION_REQUIRED:
+- stop icon work
+- keep UI open
+- record the UI correction request
+- do not spend time producing production icon assets for an unapproved UI
+
+Once UI is approved, continue in the same v20.2 cycle.
+
+## 18. Icon design authority
+
+There is currently no separately approved MEDIA AI application icon asset in the repository.
+
+Therefore the worker MUST NOT arbitrarily declare a self-created icon final.
+
+Use only the approved MEDIA AI visual language already visible in the approved UI:
+
+- dark navy / near-black base
+- electric blue / cyan accents
+- violet / magenta accents
+- clean professional B2B editing-product identity
+- MINDLE MEDIA AI identity
+- no unrelated cartoon mascot
+- no stock icon
+- no copied third-party logo
+- no generic Windows application symbol
+- no visual style that conflicts with the approved UI
+
+The icon should communicate MEDIA / PHOTO / VIDEO / AI in a compact professional mark.
+
+Do not alter the approved UI itself while designing the icon.
+
+## 19. Required icon candidate workflow
+
+After UI approval:
+
+1. create exactly THREE icon candidates
+2. each candidate must be original to MINDLE MEDIA AI
+3. keep the same approved color/world identity
+4. render each at 1024×1024
+5. create one comparison sheet showing all three candidates
+6. show the comparison sheet on the Windows screen
+7. leave it visible for representative selection
+
+Candidate Evidence paths:
+
+evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/ICON_CANDIDATE_A_1024.png
+evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/ICON_CANDIDATE_B_1024.png
+evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/ICON_CANDIDATE_C_1024.png
+evidence/pc_remote/media-ai-windows-ui-representative-v20_2-20261001/ICON_CANDIDATE_COMPARISON.png
+
+Do not choose the winner on behalf of the representative.
+
+Required visible question:
+
+"신작가님, UI는 승인된 상태입니다. 지금 보이는 MEDIA AI 아이콘 3안 중 최종 사용할 아이콘을 선택해 주세요."
+
+Allowed icon decision:
+
+ICON_A_APPROVED
+ICON_B_APPROVED
+ICON_C_APPROVED
+ICON_CORRECTION_REQUIRED
+PENDING
+
+If no icon decision is available:
+RESULT = ICON_REPRESENTATIVE_REVIEW_REQUIRED
+
+## 20. Final icon production after representative selection
+
+Only after one candidate is explicitly selected:
+
+Create final production assets:
+
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_1024.png
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_512.png
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_256.png
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_128.png
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_64.png
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_48.png
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_32.png
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_16.png
+ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico
+
+ICO must contain the normal Windows icon size set, including:
+16 / 32 / 48 / 64 / 128 / 256 where supported.
+
+Also apply the approved icon to:
+- the browser favicon / local product tab if the current architecture supports it
+- the Windows desktop shortcut ONLY if an approved MEDIA AI launcher/shortcut path exists or can be created without inventing a fake executable
+
+Do NOT create a fake EXE merely to display an icon.
+
+If the product remains a local web app:
+- use the real local launch command
+- create a Windows shortcut only to that real launcher/start path
+- assign the final .ico
+- prove that clicking the shortcut opens the canonical MEDIA AI UI
+
+## 21. Icon application verification
+
+The Windows worker must visibly show:
+
+1. final icon PNG
+2. final ICO
+3. icon as favicon/tab icon where applicable
+4. Windows shortcut icon where applicable
+5. clicking/opening from the shortcut or normal launcher reaches the canonical live MEDIA AI UI
+
+Capture:
+
+ICON_FINAL_ASSET_VERIFY.json
+ICON_FINAL_PREVIEW.png
+ICON_WINDOWS_APPLICATION_SCREEN.png
+ICON_LAUNCH_VERIFY.json
+
+Do not claim icon application PASS from files alone.
+
+## 22. Expanded v20.2 Evidence after UI approval
+
+The original 20 UI files remain required.
+
+After UI approval, add these 10 icon files:
+
+21. ICON_BRAND_SOURCE_AUDIT.json
+22. ICON_CANDIDATE_A_1024.png
+23. ICON_CANDIDATE_B_1024.png
+24. ICON_CANDIDATE_C_1024.png
+25. ICON_CANDIDATE_COMPARISON.png
+26. ICON_REPRESENTATIVE_DECISION.json
+27. ICON_FINAL_ASSET_VERIFY.json
+28. ICON_FINAL_PREVIEW.png
+29. ICON_WINDOWS_APPLICATION_SCREEN.png
+30. ICON_LAUNCH_VERIFY.json
+
+Final icon production assets under ui/assets/brand/ are product outputs and must also be committed after representative selection.
+
+No production icon asset may be committed before representative selection.
+
+## 23. Final result vocabulary — revised
+
+### REPRESENTATIVE_VISUAL_REVIEW_REQUIRED
+UI/function audit complete, UI remains open, representative UI decision pending.
+
+### UI_CORRECTION_REQUIRED
+Representative rejects the live UI or a blocking UI/function defect exists.
+Do not begin icon phase.
+
+### ICON_REPRESENTATIVE_REVIEW_REQUIRED
+Representative approved the UI.
+Three icon candidates are displayed.
+Final icon selection is pending.
+
+### ICON_CORRECTION_REQUIRED
+Representative rejects all icon candidates or requests revision.
+
+### REPRESENTATIVE_UI_AND_ICON_APPROVED
+Only if:
+- representative approved the live UI
+- representative selected an icon
+- final icon assets were generated from the selected candidate
+- icon was applied to actual product surfaces where applicable
+- launch/icon verification passed
+- UI and app remain consistent with the approved MEDIA AI visual identity
+- all required Evidence and product icon assets are remotely readable
+
+## 24. Final closeout prohibition — revised
+
+MEDIA AI final closeout is forbidden until BOTH are complete:
+
+1. REPRESENTATIVE UI APPROVAL
+2. REPRESENTATIVE ICON APPROVAL + APPLICATION
+
+Final closeout must not occur after UI approval alone.
+
+## Final governing sentence — revised
+
+SHOW THE REAL UI FIRST. ONLY AFTER THE REPRESENTATIVE SAYS THE UI IS OK, CREATE THREE MEDIA AI ICON CANDIDATES, SHOW THEM ON THE WINDOWS SCREEN, LET THE REPRESENTATIVE SELECT ONE, PACKAGE THAT SELECTED ICON FOR THE REAL PRODUCT, VERIFY IT OPENS/APPEARS CORRECTLY, AND ONLY THEN ALLOW FINAL CLOSEOUT.
