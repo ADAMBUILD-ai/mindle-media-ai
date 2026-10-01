@@ -8,9 +8,9 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-EXPECTED_EPOCH = "MEDIA-AI-20261001-V20"
-EXPECTED_DIRECTIVE = "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md"
-EXPECTED_CONTRACT = "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.0_20261001.json"
+EXPECTED_EPOCH = "MEDIA-AI-20261001-V20.1"
+EXPECTED_DIRECTIVE = "docs/commander/MINDLE_MEDIA_AI_LOCAL_MARKETING_RUNTIME_BOOTSTRAP_AUTH_MP4_E2E_DIRECTIVE_v20.1_20261001.md"
+EXPECTED_CONTRACT = "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.1_20261001.json"
 
 LOCK = ROOT / "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json"
 CURRENT = ROOT / "CURRENT_PC_WORK_DIRECTIVE.md"
@@ -18,15 +18,12 @@ STATE = ROOT / "CURRENT_PC_WORK_STATE.json"
 REG_MD = ROOT / "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md"
 REG_JSON = ROOT / "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json"
 
-
 def load_json(path: pathlib.Path):
     return json.loads(path.read_text(encoding="utf-8"))
-
 
 def fail(message: str) -> None:
     print(f"CONTROL_PLANE_MISMATCH_BLOCKED: {message}", file=sys.stderr)
     raise SystemExit(2)
-
 
 for path in (LOCK, CURRENT, STATE, REG_MD, REG_JSON):
     if not path.exists():
@@ -61,9 +58,9 @@ for token in (EXPECTED_EPOCH, EXPECTED_DIRECTIVE, EXPECTED_CONTRACT):
 if EXPECTED_EPOCH not in registry_text:
     fail("Rule Registry MD missing current epoch")
 if EXPECTED_DIRECTIVE not in registry_text:
-    fail("Rule Registry MD missing v20 directive")
+    fail("Rule Registry MD missing current directive")
 if EXPECTED_CONTRACT not in registry_text:
-    fail("Rule Registry MD missing v20 contract")
+    fail("Rule Registry MD missing current contract")
 
 active_start = registry_text.find("## 2. ACTIVE")
 active_end = registry_text.find("## 3.", active_start)
@@ -71,12 +68,12 @@ if active_start < 0 or active_end < 0:
     fail("Rule Registry MD ACTIVE section not found")
 active_section = registry_text[active_start:active_end]
 
-for stale in ("v19.0_20261001.md", "v19.0_20261001.json", "v18.2_20261001.md", "v18.2_20261001.json"):
+for stale in ("v20.0_20261001.md", "v20.0_20261001.json", "v19.0_20261001.md", "v18.2_20261001.md"):
     if stale in active_section:
         fail(f"stale cycle appears in ACTIVE section: {stale}")
 
 if EXPECTED_DIRECTIVE not in active_section or EXPECTED_CONTRACT not in active_section:
-    fail("ACTIVE section does not contain only the expected v20 execution pair")
+    fail("ACTIVE section does not contain the expected v20.1 execution pair")
 
 print("CONTROL_PLANE_PASS")
 print(f"EPOCH={EXPECTED_EPOCH}")
