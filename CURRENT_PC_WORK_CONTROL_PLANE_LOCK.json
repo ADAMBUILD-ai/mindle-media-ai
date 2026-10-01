@@ -1,22 +1,22 @@
 {
   "schema_version": "1.0",
-  "epoch": "MEDIA-AI-20261001-V20",
+  "epoch": "MEDIA-AI-20261001-V20.1",
   "date": "2026-10-01",
   "status": "ACTIVE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.0_20261001.json",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_LOCAL_MARKETING_RUNTIME_BOOTSTRAP_AUTH_MP4_E2E_DIRECTIVE_v20.1_20261001.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.1_20261001.json",
   "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_REVIEW_v20.0_20261001.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_EVIDENCE_v20_0_20261001.json",
-    "detail_dir": "evidence/pc_remote/media-ai-marketing-live-shortform-v20-20261001/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_MP4_E2E_REVIEW_v20.1_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_MP4_E2E_EVIDENCE_v20_1_20261001.json",
+    "detail_dir": "evidence/pc_remote/media-ai-marketing-live-shortform-v20_1-20261001/"
   },
-  "required_detail_file_count": 16,
+  "required_detail_file_count": 18,
   "previous_cycle": {
-    "version": "v19",
-    "result": "BASE_PRODUCT_TESTED_PASS_SHORTFORM_EXTERNAL_DEPENDENCY",
-    "remote_readback_commit": "4fc8fc4d0734f1a6e725854d7ae18020524dae4e"
+    "version": "v20",
+    "result": "MARKETING_AUTH_ENV_REQUIRED",
+    "remote_readback_commit": "a629fa2acd47a9d88c5cf3e221a4fe2bd6144521"
   },
   "frozen_pass": [
     "v14 base product runtime",
@@ -25,9 +25,9 @@
     "v19 integrated base-product closeout"
   ],
   "invariants": {
-    "current_directive_epoch_must_equal": "MEDIA-AI-20261001-V20",
-    "current_state_epoch_must_equal": "MEDIA-AI-20261001-V20",
-    "registry_epoch_must_equal": "MEDIA-AI-20261001-V20",
+    "current_directive_epoch_must_equal": "MEDIA-AI-20261001-V20.1",
+    "current_state_epoch_must_equal": "MEDIA-AI-20261001-V20.1",
+    "registry_epoch_must_equal": "MEDIA-AI-20261001-V20.1",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_not_execute_on_mismatch": true
   },
