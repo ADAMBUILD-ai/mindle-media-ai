@@ -1,8 +1,10 @@
+CONTROL_PLANE_PASS
+EPOCH=MEDIA-AI-20261002-V20.2.1
+
 node --test ui/ssot_structure.test.js ui/interaction.test.js
 PASS: 2 tests
 
 pytest -q tests/test_ui_contract.py tests/test_ui_bridge.py tests/test_shortform_bridge.py
-PASS: 16 tests
+PASS: 17 tests
 
-Browser: http://127.0.0.1:8768/ loaded after restart.
-
+Browser: http://127.0.0.1:8768/ loaded and visually rechecked.
