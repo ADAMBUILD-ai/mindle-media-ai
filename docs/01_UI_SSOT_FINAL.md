@@ -6,9 +6,9 @@ The screen stays dark navy and has two vertically stacked work areas: `영상 �
 
 Both areas use `프로젝트 저장` and `내보내기`. No layout, color, panel placement, or proportion may be inferred or redesigned from this specification.
 
-## Source asset gate
+## Source asset
 
-The current source-asset manifest is `../ui/ssot_manifest.json`. It is intentionally `BLOCKED_SOURCE_ASSET_NOT_PRESENT` because neither the official remote nor the supplied package contains the user-approved UI image or source. Pixel-level implementation and screenshot regression start only after the asset is placed in `../ui/assets/ssot/` and its SHA-256 and approval date are recorded.
+The current source-asset manifest is `../ui/ssot_manifest.json`. The exact approved PNG is present at `../ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png`, verified as 1536 × 1024 with SHA-256 `f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541`, approved 2026-09-13. It is the visual authority for the live DOM/CSS implementation; it must never be used as a page background or UI overlay.
 
 ## Component and state contract
 

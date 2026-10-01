@@ -1,0 +1,20 @@
+{
+  "overall": "MATCH",
+  "dark_navy_theme": "MATCH",
+  "top_identity": "MATCH",
+  "video_upper_photo_lower": "MATCH",
+  "left_center_right_geometry": "ACCEPTABLE_IMPLEMENTATION_VARIANCE",
+  "video_preview": "MATCH",
+  "video_timeline": "MATCH",
+  "video_right_controls": "MATCH",
+  "video_natural_language": "MATCH",
+  "photo_preview": "MATCH",
+  "photo_right_controls": "MATCH",
+  "photo_natural_language": "MATCH",
+  "reference_upload": "MATCH",
+  "save_export": "MATCH",
+  "shortform_additive": "MATCH",
+  "neon_accent_hierarchy": "MATCH",
+  "panel_treatment": "MATCH",
+  "typography": "ACCEPTABLE_IMPLEMENTATION_VARIANCE"
+}
