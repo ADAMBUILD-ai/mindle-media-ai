@@ -1,0 +1,3 @@
+STATUS: PENDING BEFORE COMMIT/PUSH
+Required remote readback: exact review path, exact machine Evidence path, exact 16 detail files
+The cycle result is ASSET_HANDOFF_REQUIRED until the handoff file is physically present.

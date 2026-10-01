@@ -1,0 +1,9 @@
+{
+  "server": "http://127.0.0.1:8765/",
+  "live_source": "canonical worktree UI",
+  "screenshot_sha256": "44034d86208eda7dab773f1cba4237d104d87329ebd94e1cba0fc30bbf30cfca",
+  "screenshot_dimensions": [1280, 720],
+  "visual_state": "white/basic HTML styling",
+  "structural_controls_present": true,
+  "capture_role": "pre-implementation diagnostic preserved because handoff gate blocked implementation"
+}
