@@ -16,5 +16,11 @@
     "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
     "MINDLE_MEDIA_AI_PC_RUNTIME_RESTORE_v16_20261001.json"
   ],
-  "completion_requires_remote_readback": true
+  "completion_requires_remote_readback": true,
+  "rule_registry_md": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md",
+  "rule_registry_json": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json",
+  "default_unlisted_pc_work_doc_status": "HISTORY_ONLY",
+  "stale_context_status": "STALE_CONTEXT_BLOCKED",
+  "must_sync_remote_head_before_work": true,
+  "must_read_rule_registry_before_old_docs": true
 }
