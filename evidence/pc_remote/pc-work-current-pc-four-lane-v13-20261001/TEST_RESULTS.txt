@@ -1,0 +1,9 @@
+Branch rebind: PASS; local HEAD equals origin canonical HEAD 7ef266e2750b8803b22949229734e5ee28331cb7.
+Stale branch preserved: backup/media-ai-stale-pc-work-20261001 at f10875b441335c07816c48cc62b696effa9e0634.
+Python regression: 51 passed in 3.80s.
+Evidence sync: pass.
+Source package completeness: pass.
+Intake manifests: pass.
+UI interaction/structure: 2 passed, 0 failed.
+Runtime inventory: Python 3.11.9, OpenCV 5.0.0, Torch 2.14.0+cu126 with CUDA available, ONNX Runtime 1.29.0, ffmpeg absent.
+Lane execution: blocked before real product execution by missing approved model caches and approved inputs; no TESTED_PASS was claimed.

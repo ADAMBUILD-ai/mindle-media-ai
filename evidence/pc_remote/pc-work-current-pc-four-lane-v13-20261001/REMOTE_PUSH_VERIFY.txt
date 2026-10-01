@@ -1,0 +1,7 @@
+STATUS=NOT_YET_PUSHED
+BRANCH=feature/ad-shortform-bridge-p0-20260926
+LOCAL_HEAD=7ef266e2750b8803b22949229734e5ee28331cb7
+REMOTE_HEAD_BEFORE_EVIDENCE=7ef266e2750b8803b22949229734e5ee28331cb7
+BRANCH_REBIND=PASS
+REMOTE_PUSH_VERIFIED=NO
+This file must be updated after commit, push, fetch, remote readback, and index update.
