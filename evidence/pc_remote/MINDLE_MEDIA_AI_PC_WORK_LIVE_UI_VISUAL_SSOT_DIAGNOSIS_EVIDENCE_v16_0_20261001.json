@@ -11,5 +11,6 @@
   "candidate_png_decodable": false,
   "v14_product_pass_preserved": true,
   "detail_directory": "evidence/pc_remote/pc-work-live-ui-visual-v16-20261001/",
-  "remote_push_verified": false
+  "remote_push_verified": true,
+  "evidence_commit": "a6e9205"
 }
