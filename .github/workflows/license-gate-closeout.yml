@@ -1,0 +1,75 @@
+name: MINDLE MEDIA AI closeout license gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - ".github/workflows/license-gate-closeout.yml"
+      - "model_scout/run_license_gate.py"
+      - "docs/MINDLE_MODEL_LICENSE_GATE_STANDARD.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mindle-media-license-gate-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify-immutable-license-evidence:
+    name: CPU-only exact-revision license evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HF_TOKEN: ${{ secrets.MINDLE_MEDIA_HF_WRITE_TOKEN }}
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      HF_HUB_DISABLE_XET: "1"
+      CUDA_VISIBLE_DEVICES: ""
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Enforce approved no-cost CPU boundary
+        shell: bash
+        run: |
+          if [ "${{ github.event.repository.private }}" != "false" ]; then
+            echo "::error::Only a public-repository standard hosted runner is authorized"
+            exit 1
+          fi
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::MINDLE_MEDIA_HF_WRITE_TOKEN is unavailable"
+            exit 1
+          fi
+          echo "::add-mask::$HF_TOKEN"
+          if command -v nvidia-smi >/dev/null 2>&1; then
+            echo "::error::GPU tooling is present; refusing execution"
+            exit 1
+          fi
+          echo "CPU-only closeout verification; no model-weight download, no GPU, no paid compute."
+      - name: Install pinned evidence client
+        run: python -m pip install --disable-pip-version-check "huggingface_hub==0.36.0"
+      - name: Capture exact revision license evidence and reverify private cache
+        run: python model_scout/run_license_gate.py
+      - name: Validate fail-closed result
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          evidence = json.loads(Path("license_gate_evidence/FINAL_LICENSE_GATE_MANIFEST.json").read_text(encoding="utf-8"))
+          assert evidence["immutable_baseline"]["runtime_product_e2e_status"] == "FINAL_PASS_FROZEN"
+          assert evidence["immutable_baseline"]["ui_ssot_changed"] == "NO"
+          assert evidence["immutable_baseline"]["gpu_used"] is False
+          assert evidence["immutable_baseline"]["paid_compute"] is False
+          assert all(item["official_model_info_revision_verified"] for item in evidence["models"])
+          assert all(item["private_cache_reverification"]["verified"] for item in evidence["models"])
+          assert evidence["commercial_release_status"] in {"RELEASE_CANDIDATE_READY", "COMMERCIAL_RELEASE_BLOCKED"}
+      - name: Preserve license-gate evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-closeout-license-gate-evidence
+          retention-days: 90
+          if-no-files-found: error
+          path: license_gate_evidence/**

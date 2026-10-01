@@ -1,0 +1,97 @@
+{
+  "schema_version": "17.0",
+  "captured_at": "2026-09-24",
+  "directive": "MINDLE_MEDIA_AI_PC_AUTH_CACHE_DEPENDENCY_AND_REAL_INPUT_COMPLETION_DIRECTIVE_v17.0_20260924.md",
+  "base_commit": "1ff84f86087c58020be728632a9ecec87963f34c",
+  "verdict": "REWORK_PC_AUTH_CACHE_DEPENDENCY_AND_REAL_INPUT_REQUIRED",
+  "ui_ssot_changed": false,
+  "protected_constraints": {
+    "main_merge": false,
+    "production_deploy": false,
+    "force_push": false,
+    "gpu": false,
+    "paid_compute": false,
+    "secret_exposed": false
+  },
+  "preserved_regressions": {
+    "python": "46 passed",
+    "ui_structure": "PASS",
+    "ui_interaction": "PASS",
+    "product_server_health": "PASS_HTTP_200"
+  },
+  "ui_review": {
+    "layout_changed": false,
+    "must_add": [
+      "execution state",
+      "Preview",
+      "project save/export feedback",
+      "undo/redo",
+      "original/result transition"
+    ],
+    "optional": [
+      "richer progress detail",
+      "additional comparison controls"
+    ],
+    "remove_or_hide": []
+  },
+  "credential_and_dependencies": {
+    "hf_token_available_to_local_process": false,
+    "sam21_cache_verified": false,
+    "whisper_small_cache_verified": false,
+    "intel_sisr_cache_verified": false,
+    "openvino": false,
+    "ffmpeg": false,
+    "selenium": false,
+    "chrome_or_chromedriver": false,
+    "pyarrow": false,
+    "secret_value_recorded": false
+  },
+  "searched_input_locations": [
+    "MEDIA project/work folders",
+    "repository model_scout/artifacts",
+    "repository evidence",
+    "repository tests",
+    "prior approved local project artifacts"
+  ],
+  "inputs": {
+    "photo": {
+      "path": "model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg",
+      "bytes": 8967798,
+      "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+      "status": "AVAILABLE"
+    },
+    "upscale": {
+      "path": "model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png",
+      "bytes": 38721,
+      "sha256": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2",
+      "status": "AVAILABLE_INPUT_ONLY"
+    },
+    "video": {
+      "status": "MISSING_OWNED_INPUT"
+    },
+    "korean_audio": {
+      "status": "MISSING_APPROVED_SPOKEN_KOREAN_INPUT"
+    }
+  },
+  "lanes": {
+    "photo_segmentation": "PC_MANUAL_INPUT_REQUIRED",
+    "upscale_4x": "PC_MANUAL_INPUT_REQUIRED",
+    "video_tracking": "PC_MANUAL_INPUT_REQUIRED",
+    "korean_stt": "PC_MANUAL_INPUT_REQUIRED",
+    "preview_save_export": "REWORK"
+  },
+  "evidence_policy": {
+    "fabricated_outputs": false,
+    "v13_v15_evidence_overwritten": false
+  },
+  "required_user_action": [
+    "Inject the already-approved scoped Hugging Face credential through the secure local path without exposing its value",
+    "Provide one owned moving-subject video",
+    "Provide one owned spoken-Korean audio recording"
+  ],
+  "changed_files": [
+    "docs/commander/MINDLE_MEDIA_AI_PC_LOCAL_REAL_E2E_FINAL_REVIEW_v17.0_20260924.md",
+    "evidence/pc_remote/MINDLE_MEDIA_AI_PC_LOCAL_REAL_E2E_v17_20260924.json",
+    "docs/commander/MINDLE_MEDIA_AI_PC_AUTH_CACHE_NEXT_DIRECTIVE_v18.0_20260924.md"
+  ]
+}

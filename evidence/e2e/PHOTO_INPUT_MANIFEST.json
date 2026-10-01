@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED_MISSING_OWNED_INPUTS",
+  "required_count": 6,
+  "evidence_root": "evidence/e2e/photo",
+  "fixtures": [
+    {"fixture_id": "F1", "scenario": "perspective_and_vertical", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "F2", "scenario": "denoise_and_detail", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "F3", "scenario": "object_remove_and_inpaint", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "F4", "scenario": "background_remove_or_replace", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "F5", "scenario": "super_resolution", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"},
+    {"fixture_id": "F6", "scenario": "batch_correction_and_export", "source_or_license": null, "ownership": null, "input_path": null, "input_sha256": null, "status": "BLOCKED_MISSING_OWNED_INPUT"}
+  ]
+}
