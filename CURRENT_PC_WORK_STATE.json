@@ -4,13 +4,13 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md",
   "technical_scope": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md",
   "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v1.0_20261001.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_REVIEW_v13.0_20261001.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_EVIDENCE_v13_0_20261001.json",
-    "detail_dir": "evidence/pc_remote/pc-work-current-pc-four-lane-v13-20261001/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_REVIEW_v14.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_EVIDENCE_v14_0_20261001.json",
+    "detail_dir": "evidence/pc_remote/pc-work-v32-asset-recovery-ui-ssot-v14-20261001/"
   },
   "forbidden_outputs": [
     "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
@@ -26,5 +26,6 @@
   "active_preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md",
   "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
   "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
-  "branch_assertion_required_before_work": true
+  "branch_assertion_required_before_work": true,
+  "previous_cycle_result": "v13 PARTIAL_PASS accepted for branch/evidence recovery only"
 }
