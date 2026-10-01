@@ -66,5 +66,7 @@
   "control_plane_epoch": "MEDIA-AI-20261001-V19",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
-  "worker_must_validate_epoch_before_work": true
+  "worker_must_validate_epoch_before_work": true,
+  "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
+  "control_plane_validator_required_result": "CONTROL_PLANE_PASS"
 }
