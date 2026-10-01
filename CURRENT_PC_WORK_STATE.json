@@ -22,5 +22,9 @@
   "default_unlisted_pc_work_doc_status": "HISTORY_ONLY",
   "stale_context_status": "STALE_CONTEXT_BLOCKED",
   "must_sync_remote_head_before_work": true,
-  "must_read_rule_registry_before_old_docs": true
+  "must_read_rule_registry_before_old_docs": true,
+  "active_preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md",
+  "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
+  "branch_assertion_required_before_work": true
 }
