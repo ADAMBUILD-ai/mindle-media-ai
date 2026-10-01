@@ -82,5 +82,11 @@
     "base_url": "http://127.0.0.1:4318",
     "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
   },
-  "active_cycle_version": "v20.1"
+  "active_cycle_version": "v20.1",
+  "next_pending_directive": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_ONSCREEN_UI_REPRESENTATIVE_VISUAL_FUNCTION_AUDIT_DIRECTIVE_v20.2_20261001.md",
+  "next_pending_evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2_20261001.json",
+  "next_pending_epoch": "MEDIA-AI-20261001-V20.2",
+  "final_closeout_blocked_until_representative_ui_gate": true,
+  "representative_ui_gate_status": "PENDING",
+  "representative_ui_gate_rule": "After v20.1 commander review, activate v20.2. Final closeout is forbidden until the actual Windows UI is shown beside the exact F27E reference, live controls are exercised, and the representative gives a visual decision."
 }
