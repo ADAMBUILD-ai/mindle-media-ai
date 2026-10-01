@@ -1,6 +1,6 @@
 {
-  "version": "1.3",
-  "date": "2026-10-01",
+  "version": "1.4",
+  "date": "2026-10-02",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "precedence": [
@@ -19,9 +19,9 @@
   "active": {
     "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
     "state": "CURRENT_PC_WORK_STATE.json",
-    "directive": "docs/commander/MINDLE_MEDIA_AI_LOCAL_MARKETING_RUNTIME_BOOTSTRAP_AUTH_MP4_E2E_DIRECTIVE_v20.1_20261001.md",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_ONSCREEN_UI_REPRESENTATIVE_VISUAL_FUNCTION_AUDIT_DIRECTIVE_v20.2_20261001.md",
     "technical_scope": null,
-    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.1_20261001.json",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2_20261001.json",
     "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
   },
   "reference_only": [
@@ -42,7 +42,8 @@
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
-    "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md"
+    "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_LOCAL_MARKETING_RUNTIME_BOOTSTRAP_AUTH_MP4_E2E_DIRECTIVE_v20.1_20261001.md"
   ],
   "history_only_ranges": [
     "PC Work v1-v11 directives, next directives, reviews and their evidence unless explicitly referenced by ACTIVE directive"
@@ -57,12 +58,12 @@
   ],
   "branch_assertion_required_before_work": true,
   "previous_cycle": {
-    "version": "v20",
-    "result": "MARKETING_AUTH_ENV_REQUIRED",
+    "version": "v20.1",
+    "result": "LIVE_E2E_PASS_VOICE_AUDIO_DEPENDENCY",
     "status": "REFERENCE_ONLY",
-    "remote_readback_commit": "a629fa2acd47a9d88c5cf3e221a4fe2bd6144521"
+    "remote_readback_commit": "3ebeb7ca0c676f268c9fbd5ff49f53220d58f3f1"
   },
-  "required_detail_file_count": 18,
+  "required_detail_file_count": 20,
   "approved_ui_source": {
     "provider": "Google Drive",
     "path": "/Google Drive/MINDLE_MEDIA_AI_HANDOFF/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
@@ -89,18 +90,18 @@
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   },
-  "control_plane_epoch": "MEDIA-AI-20261001-V20.1",
+  "control_plane_epoch": "MEDIA-AI-20261001-V20.2",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_invariant": {
-    "epoch_must_match": "MEDIA-AI-20261001-V20.1",
-    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_LOCAL_MARKETING_RUNTIME_BOOTSTRAP_AUTH_MP4_E2E_DIRECTIVE_v20.1_20261001.md",
-    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.1_20261001.json",
+    "epoch_must_match": "MEDIA-AI-20261001-V20.2",
+    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_ONSCREEN_UI_REPRESENTATIVE_VISUAL_FUNCTION_AUDIT_DIRECTIVE_v20.2_20261001.md",
+    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2_20261001.json",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_stop_on_mismatch": true
   },
   "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
   "control_plane_validator_required_result": "CONTROL_PLANE_PASS",
-  "active_cycle_version": "v20.1",
+  "active_cycle_version": "v20.2",
   "marketing_live_provider": {
     "repository": "ADAMBUILD-ai/mindle-marketing-department",
     "pr": 4,
@@ -110,5 +111,17 @@
     "workflow_result": "SUCCESS",
     "base_url": "http://127.0.0.1:4318",
     "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
+  },
+  "final_fixed_ui_definition": {
+    "base": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+    "base_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "additive": "docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md",
+    "video_action_order": [
+      "영상 불러오기",
+      "AI 자동 편집",
+      "광고 숏폼",
+      "프로젝트 저장",
+      "내보내기"
+    ]
   }
 }
