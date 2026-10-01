@@ -4,13 +4,13 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
   "technical_scope": null,
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v18.2_20261001.json",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_SSOT_REGRESSION_REVIEW_v18.2_20261001.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_SSOT_REGRESSION_EVIDENCE_v18_2_20261001.json",
-    "detail_dir": "evidence/pc_remote/pc-work-shortform-additive-v18_2-20261001/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_REVIEW_v19.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_EVIDENCE_v19_0_20261001.json",
+    "detail_dir": "evidence/pc_remote/media-ai-final-integrated-closeout-v19-20261001/"
   },
   "forbidden_outputs": [
     "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
@@ -27,8 +27,8 @@
   "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
   "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
   "branch_assertion_required_before_work": true,
-  "previous_cycle_result": "v18.1 TESTED_PASS with commander-found additive shortform UI SSOT regression",
-  "required_detail_file_count": 12,
+  "previous_cycle_result": "v18.1 TESTED_PASS accepted; base product + final approved UI frozen",
+  "required_detail_file_count": 11,
   "approved_ui_library_filename": "네온 다크 테마 AI 미디어 편집기.png",
   "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
   "superseded_v17_directives": [
@@ -54,5 +54,12 @@
     "type": "SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION",
     "approved_rule": "AI 자동 편집 retained + separate 광고 숏폼 added between AI 자동 편집 and 프로젝트 저장",
     "current_violation": "single AI 자동 편집 button owns data-action=shortform-mode; separate 광고 숏폼 entry absent"
+  },
+  "frozen_pass": {
+    "base_product": true,
+    "final_ui": true,
+    "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
+    "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   }
 }
