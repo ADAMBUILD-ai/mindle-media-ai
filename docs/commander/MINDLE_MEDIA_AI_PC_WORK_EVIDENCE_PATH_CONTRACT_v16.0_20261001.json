@@ -1,0 +1,30 @@
+{
+  "contract_version": "16.0",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_EVIDENCE_MATERIALIZATION_AND_SSOT_COMPLIANCE_DIAGNOSIS_DIRECTIVE_v16.0_20261001.md",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_SSOT_DIAGNOSIS_REVIEW_v16.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_SSOT_DIAGNOSIS_EVIDENCE_v16_0_20261001.json",
+    "detail_directory": "evidence/pc_remote/pc-work-live-ui-visual-v16-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "LIVE_UI_FULLPAGE.png",
+      "SSOT_CANDIDATE_9AAF.png",
+      "LIVE_VS_SSOT_COMPARISON.png",
+      "VISUAL_COMPLIANCE_MATRIX.json",
+      "CSS_SOURCE_DIAGNOSIS.json",
+      "LIVE_SOURCE_IDENTITY.json",
+      "V15_PROVENANCE_PRESERVATION.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "png_artifacts_required": 3,
+  "representative_confirmation_forbidden_before_commander_visual_review": true,
+  "remote_readback_required": true,
+  "alternate_filenames_forbidden": true
+}
