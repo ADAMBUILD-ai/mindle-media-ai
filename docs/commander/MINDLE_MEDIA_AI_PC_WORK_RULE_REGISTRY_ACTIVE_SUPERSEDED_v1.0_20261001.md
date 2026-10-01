@@ -41,13 +41,13 @@ A lower item can never override a higher item.
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
 
 ### Active execution directive
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_APPROVED_UI_ASSET_HANDOFF_AND_PIXEL_IMPLEMENTATION_FINAL_CLOSEOUT_DIRECTIVE_v18.0_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md
 
 ### Active technical scope
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
 
 ### Active Evidence path contract
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v18.0_20261001.json
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v18.1_20261001.json
 
 ### Active commander-worker circulation protocol
 - docs/commander/MINDLE_MEDIA_AI_COMMANDER_PC_WORKER_REPOSITORY_CIRCULATION_PROTOCOL_v1.0_20261001.md
@@ -243,3 +243,26 @@ Current ACTIVE:
 
 Commander handoff manifest:
 - docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_ASSET_HANDOFF_MANIFEST_v1.0_20261001.json
+
+
+## 14. v18 cycle status update
+
+v18 is closed as:
+ASSET_HANDOFF_REQUIRED
+
+Commander has now resolved the blocker by uploading the exact approved F27E source to Google Drive.
+
+Exact handoff:
+- path: /Google Drive/MINDLE_MEDIA_AI_HANDOFF/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png
+- Drive file ID: 1hyZJpzsDecHgUFwYq463K30JlEJ4jgHA
+- bytes: 1,737,365
+- dimensions: 1536 × 1024
+- SHA-256: f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541
+
+v18 is now REFERENCE_ONLY.
+
+Current ACTIVE:
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md
+
+Google Drive handoff receipt:
+- docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json
