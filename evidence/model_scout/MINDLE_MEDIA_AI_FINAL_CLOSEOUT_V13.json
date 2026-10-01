@@ -1,0 +1,62 @@
+{
+  "schema_version": "13.0",
+  "captured_at": "2026-09-21T13:15:00Z",
+  "MINDLE_MEDIA_AI_FINAL_CLOSEOUT": "PASS",
+  "RELEASE_CANDIDATE_PASS": true,
+  "COMMERCIAL_RELEASE_BLOCKED": false,
+  "UI_SSOT_CHANGED": "NO",
+  "production_changed": false,
+  "manual_ui_e2e": {
+    "approver": "product owner",
+    "approval": "PHOTO segmentation / VIDEO tracking / 4× upscale / Korean STT actual results, Preview, project save, and export directly confirmed PASS",
+    "status": "PASS"
+  },
+  "adopted_models": [
+    {
+      "id": "sam_2_1_hiera_base_plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780",
+      "license": "Apache-2.0",
+      "perpetual_use_gate": "PASS"
+    },
+    {
+      "id": "openai_whisper_small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b",
+      "license": "Apache-2.0 (official model card)",
+      "perpetual_use_gate": "PASS"
+    },
+    {
+      "id": "intel_single_image_super_resolution_1032",
+      "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+      "license": "Apache-2.0",
+      "perpetual_use_gate": "PASS"
+    }
+  ],
+  "immutable_legacy": {
+    "whisper_large_v3_turbo": "LEGACY_UNADOPTED_IMMUTABLE",
+    "qualcomm_realesrgan_x4plus_onnx": "LEGACY_UNADOPTED_IMMUTABLE"
+  },
+  "private_hf": {
+    "repository": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+    "frozen_revision": "9202e5744a191fa77562b0c0ffe6af8053f8e3d9",
+    "status": "PRESERVED"
+  },
+  "evidence": {
+    "manifest": "evidence/model_scout/FINAL_ADOPTED_MODEL_MANIFEST_V13.json",
+    "automated_product_e2e_run": "35596903385",
+    "automated_product_e2e_artifact": "10636679053",
+    "automated_product_e2e_artifact_sha256": "aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5",
+    "canonical_precloseout_run": "35603494494",
+    "license_gate_run": "35603494641",
+    "pr": 10
+  },
+  "safeguards": {
+    "gpu_used": false,
+    "paid_compute": false,
+    "main_merged": false,
+    "production_deployed": false,
+    "force_push": false,
+    "secrets_exposed": false
+  }
+}
