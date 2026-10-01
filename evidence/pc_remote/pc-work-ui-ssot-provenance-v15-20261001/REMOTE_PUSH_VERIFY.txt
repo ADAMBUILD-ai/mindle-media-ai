@@ -1,1 +1,1 @@
-PENDING: update after v15 commit push and remote readback.
+PASS: v15 commit e635919 was pushed to origin/feature/ad-shortform-bridge-p0-20260926; exact review, machine Evidence JSON, and all 12 detail paths were read back from FETCH_HEAD.

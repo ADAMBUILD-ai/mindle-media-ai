@@ -12,5 +12,6 @@
   "representative_confirmation_required": true,
   "review_path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_REVIEW_v15.0_20261001.md",
   "detail_directory": "evidence/pc_remote/pc-work-ui-ssot-provenance-v15-20261001/",
-  "remote_push_verified": false
+  "remote_push_verified": true,
+  "evidence_commit": "e635919"
 }
