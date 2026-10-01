@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "captured_at": "2026-09-15T00:00:00Z",
+  "targets": [
+    {
+      "target": "https://huggingface.co/",
+      "path": "in-app browser",
+      "result": "REACHABLE",
+      "authentication": "SIGNED_IN_BROWSER_SESSION"
+    },
+    {
+      "target": "https://huggingface.co/api/models/opencv/inpainting_lama",
+      "path": "local hf CLI",
+      "result": "BLOCKED",
+      "error": "WinError 10013 access forbidden by permissions"
+    },
+    {
+      "target": "https://huggingface.co/openai/whisper-large-v3-turbo/resolve/41f01f3fe87f28c78e2fbf8b568835947dd65ed9/model.safetensors?download=true",
+      "path": "signed-in in-app browser direct download",
+      "result": "BLOCKED",
+      "error": "ERR_BLOCKED_BY_CLIENT"
+    },
+    {
+      "target": "https://github.com/ADAMBUILD-ai/mindle-media-ai.git",
+      "path": "local git HTTPS",
+      "result": "BLOCKED",
+      "error": "connection to github.com:443 failed"
+    }
+  ],
+  "diagnostic_components": {
+    "dns": {
+      "result": "PASS",
+      "evidence": "huggingface.co, github.com, pypi.org, and Qualcomm's S3 release host all resolved."
+    },
+    "proxy": {
+      "result": "NOT_CONFIGURED",
+      "evidence": "No proxy environment variables, WinHTTP direct access, and user proxy disabled."
+    },
+    "https_transport": {
+      "result": "BLOCKED_BEFORE_TLS",
+      "evidence": "Test-NetConnection and curl both failed TCP 443 to Hugging Face; curl --noproxy produced the same failure."
+    },
+    "cli_execution_path": {
+      "result": "NOT_CAUSAL",
+      "evidence": "hf.exe uses the Python 3.11 Scripts path, but the system curl executable fails at the same TCP connection stage."
+    },
+    "windows_firewall": {
+      "result": "BASE_PROFILE_ALLOWS_OUTBOUND_POLICY_MANAGED",
+      "evidence": "Private/Public profiles report BlockInbound,AllowOutbound and GPO-store-only rules. Detailed firewall PowerShell inspection is denied by policy."
+    },
+    "security_services": {
+      "result": "RUNNING_UNATTRIBUTED",
+      "evidence": "Windows Firewall and Defender services are running; no rule-level attribution is available from this session."
+    }
+  },
+  "conclusion": "The blocked model acquisition is a local CLI HTTPS egress restriction plus an in-app browser direct-download block, not evidence of a missing Hugging Face repository or browser login. The signed-in browser can inspect exact revisions, but it does not provide the runtime a credential, restore its blocked outbound socket path, or bypass ERR_BLOCKED_BY_CLIENT.",
+  "required_user_action": "Restore local CLI HTTPS egress and permit direct model downloads before exact-revision downloads can be performed and verified. If that cannot be changed, provide complete fixed-revision safe snapshots through an approved local transfer path, then use the offline staging command. Do not provide a Hugging Face token unless a gated repository later requires it."
+}

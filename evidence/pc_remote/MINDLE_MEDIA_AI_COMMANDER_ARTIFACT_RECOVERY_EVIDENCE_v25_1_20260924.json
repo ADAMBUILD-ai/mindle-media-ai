@@ -1,0 +1,55 @@
+{
+  "schema_version": "v25.1",
+  "date": "2026-09-24",
+  "source_directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_COMMANDER_MANDATORY_ARTIFACT_RECOVERY_AND_EXECUTION_DIRECTIVE_v25.1_20260924.md",
+    "sha": "a47e6c9d1752df1e57bb7a05538261187cade150"
+  },
+  "base_head": "f1e2f434a451128560c5c19738577411189b6b8d",
+  "ui_ssot_changed": "NO",
+  "prior_evidence_overwritten": false,
+  "artifact": {
+    "run_id": 35596903385,
+    "artifact_id": 10636679053,
+    "name": "mindle-media-approved-ui-product-e2e-evidence",
+    "expected_size_bytes": 228710107,
+    "expected_sha256": "aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5",
+    "github_download_ui": "OPENED_AND_VERIFIED",
+    "ui_digest_visible": "sha256:aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5",
+    "download_click": "ATTEMPTED",
+    "local_transfer_folder": "work/v23_1_transfer",
+    "local_file_present": false,
+    "local_digest_verified": false,
+    "extraction": "NOT_RUN"
+  },
+  "handoff": {
+    "state": "USER_SAVE_ACTION_PENDING",
+    "exact_action": "Use the already-open GitHub artifact Download control and save the ZIP into work/v23_1_transfer; no credentials required.",
+    "direct_save_event": "not observed in current browser session"
+  },
+  "offline_runtime": {
+    "python": "available",
+    "ffmpeg": "not on PATH",
+    "ffprobe": "not on PATH",
+    "openvino": "not importable",
+    "adopted_sam_2_1": "not in local cache",
+    "adopted_whisper_small": "not in local cache",
+    "adopted_intel_sisr_1032": "not in local cache",
+    "legacy_fallback": false
+  },
+  "lanes": {
+    "photo_segmentation": "REWORK_WAITING_FOR_LOCAL_ARTIFACT",
+    "upscale_4x": "REWORK_WAITING_FOR_LOCAL_ARTIFACT",
+    "video_tracking": "REWORK_WAITING_FOR_LOCAL_ARTIFACT",
+    "korean_stt": "REWORK_WAITING_FOR_LOCAL_ARTIFACT",
+    "preview_save_export": "REWORK_WAITING_FOR_LOCAL_ARTIFACT"
+  },
+  "verdict": "REWORK_USER_SAVE_PENDING",
+  "protections": {
+    "no_main_merge": true,
+    "no_production_deploy": true,
+    "no_force_push": true,
+    "no_gpu_or_paid_compute": true,
+    "no_credentials_exposed": true
+  }
+}

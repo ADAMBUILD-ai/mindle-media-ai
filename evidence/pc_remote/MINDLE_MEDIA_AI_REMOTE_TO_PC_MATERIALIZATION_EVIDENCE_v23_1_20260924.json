@@ -1,0 +1,65 @@
+{
+  "schema_version": "v23.1",
+  "date": "2026-09-24",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "source_directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_COMMANDER_REWORK_REMOTE_TO_PC_MATERIALIZATION_AND_OFFLINE_RUNTIME_DIRECTIVE_v23.1_20260924.md",
+    "sha": "ef1cebcf19cf1e50e9759fc6fb7d0bf869ac5c5f"
+  },
+  "base_head": "2e870d38d20733b0506a8a61643b48662cb527b7",
+  "ui_ssot_changed": "NO",
+  "prior_evidence_overwritten": false,
+  "artifact_transfer": {
+    "artifact_id": 10636679053,
+    "run_id": 35596903385,
+    "name": "mindle-media-approved-ui-product-e2e-evidence",
+    "size_bytes": 228710107,
+    "expected_sha256": "aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5",
+    "connector_download": "PASS",
+    "local_materialization": "BLOCKED_BY_ENVIRONMENT",
+    "attempts": [
+      "Downloaded through authenticated GitHub connector; file reference returned.",
+      "PowerShell direct save to permitted work/v23_1_transfer failed with Windows socket access policy.",
+      "Codex in-app browser opening signed artifact failed with ERR_BLOCKED_BY_CLIENT."
+    ],
+    "digest_verified_locally": false,
+    "extraction_performed": false
+  },
+  "recovered_inputs": {
+    "photo": {"status": "NOT_MATERIALIZED", "sha256": null},
+    "video": {"status": "NOT_MATERIALIZED", "sha256": null},
+    "korean_speech_16khz": {"status": "NOT_MATERIALIZED", "sha256": null},
+    "remote_prior_evidence": "preserved; v13/v22 references remain authoritative"
+  },
+  "offline_dependency_search": {
+    "ffmpeg": "NOT_FOUND_ON_PATH",
+    "ffprobe": "NOT_FOUND_ON_PATH",
+    "openvino_python": "NOT_IMPORTABLE",
+    "pip_network_install": "FAILED_WINERROR_10013",
+    "pip_cache": "PRESENT_BUT_NO_REQUIRED_RUNTIME_IDENTIFIED",
+    "hf_cache": "PRESENT_BUT_NO_ADOPTED_SAM_WHISPER_SISR_MATCH",
+    "selenium": "NOT_IMPORTABLE"
+  },
+  "model_cache_verification": {
+    "sam_2_1": "NOT_FOUND",
+    "whisper_small": "NOT_FOUND",
+    "intel_sisr_1032": "NOT_FOUND",
+    "legacy_fallback_used": false
+  },
+  "lanes": {
+    "photo_segmentation": "NOT_RUN_PC_LOCAL",
+    "video_tracking": "NOT_RUN_PC_LOCAL",
+    "upscale_4x": "NOT_RUN_PC_LOCAL",
+    "korean_stt": "NOT_RUN_PC_LOCAL",
+    "preview_save_export": "NOT_RUN_PC_LOCAL"
+  },
+  "verdict": "PARTIAL_PASS_REWORK_REQUIRED",
+  "single_human_action_required": "In GitHub Actions run 35596903385, use the approved artifact Download action to save artifact 10636679053 as a ZIP into the project work/v23_1_transfer directory, then provide the resulting local file path; do not upload credentials or change UI.",
+  "protection": {
+    "no_main_merge": true,
+    "no_production_deploy": true,
+    "no_force_push": true,
+    "no_gpu_or_paid_compute": true,
+    "no_credentials_exposed": true
+  }
+}

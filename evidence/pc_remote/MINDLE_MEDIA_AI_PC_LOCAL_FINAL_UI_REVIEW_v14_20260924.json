@@ -1,0 +1,69 @@
+{
+  "schema_version": "14.0",
+  "captured_at": "2026-09-24",
+  "directive": "MINDLE_MEDIA_AI_PC_LOCAL_FINAL_UI_ACTIVATION_AND_REAL_INPUT_E2E_DIRECTIVE_v14.0_20260924.md",
+  "remote_baseline": {
+    "pull_request": 10,
+    "head": "fda02e399e591d8b305ad8cce8eee7e5fdf874b8",
+    "state": "OPEN_DRAFT",
+    "closeout_evidence_preserved": true
+  },
+  "decision": "PC_MANUAL_GATE",
+  "ui_ssot_changed": false,
+  "protected_constraints": {
+    "main_merge": false,
+    "production_deploy": false,
+    "force_push": false,
+    "gpu": false,
+    "paid_compute": false
+  },
+  "local_checkout": {
+    "branch": "work/ui-final-pc-work-20260924",
+    "commit": "c09f88778a39191fa7370dae1ba5f87e9c2cf479",
+    "python_tests": "46 passed",
+    "ui_structure": "PASS",
+    "ui_interaction": "PASS"
+  },
+  "local_inputs": {
+    "photo": {
+      "path": "model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg",
+      "bytes": 8967798,
+      "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+      "status": "AVAILABLE"
+    },
+    "upscale": {
+      "path": "model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png",
+      "bytes": 38721,
+      "sha256": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2",
+      "status": "AVAILABLE_INPUT_ONLY"
+    },
+    "video": {"status": "BLOCKED_INPUT"},
+    "korean_audio": {
+      "path": "model_scout/artifacts/whisper_turbo/silent_10s_16khz.wav",
+      "bytes": 320044,
+      "sha256": "ee7bea4232762775f8fce9b3e27e4d3948c8ac6a45a87ca769f703d6eed0b448",
+      "status": "REJECTED_SILENT_NOT_SPOKEN_KOREAN"
+    }
+  },
+  "runtime_gates": {
+    "photo_segmentation": "PC_MANUAL_GATE",
+    "video_tracking": "BLOCKED_INPUT",
+    "upscale_4x": "PC_MANUAL_GATE",
+    "korean_stt": "BLOCKED_INPUT",
+    "preview_save_export": "NOT_PROMOTED_TO_LOCAL_PASS"
+  },
+  "local_environment": {
+    "ffmpeg": "MISSING",
+    "adopted_runtime_weights": "MISSING",
+    "product_server": "MISSING_FROM_LOCAL_CHECKOUT"
+  },
+  "actions_observed": {
+    "closeout_license_gate": "SUCCESS",
+    "canonical_baseline": "SUCCESS",
+    "product_e2e_on_pr10_head": "SUCCESS",
+    "acquisition_on_current_head": "SKIPPED",
+    "verified_adapter_runtime_on_current_head": "SKIPPED",
+    "realesrgan_on_current_head": "SKIPPED"
+  }
+}
+
