@@ -1,0 +1,8 @@
+{
+  "status": "NOT_RUN_PROVIDER_UNAVAILABLE",
+  "required_asset_count": 6,
+  "retrieved_asset_count": 0,
+  "hashes_recorded": false,
+  "replacement_assets_used": false,
+  "reason": "Marketing HTTP provider at 127.0.0.1:4318 was unreachable"
+}

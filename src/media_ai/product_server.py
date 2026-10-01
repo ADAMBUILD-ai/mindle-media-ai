@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlparse
 
 from .marketing_shortform_gateway import build_marketing_shortform_request
+from .marketing_shortform_client import MarketingAuthRequired, MarketingShortformClient, MarketingShortformClientError
 from .product_runtime import ProductJobService
 
 
@@ -58,15 +59,21 @@ class Handler(BaseHTTPRequestHandler):
         try:
             route = unquote(urlparse(self.path).path); body = self._body()
             if route == "/api/integrations/marketing/shortform":
+                client = MarketingShortformClient.from_env()
                 request = build_marketing_shortform_request(
                     str(body.get("command", "")),
                     project_id=body.get("project_id"),
+                    context=body.get("context") if isinstance(body.get("context"), dict) else None,
                 )
-                self._json(503, {
-                    "status": "VERIFY_REQUIRED",
-                    "error": "Marketing AI-approved SHORTFORM BRIDGE Contract v1 is unavailable",
-                    "request": request,
-                }); return
+                if any(request[field] is None for field in ("product_or_project", "target", "campaign_goal", "duration", "platform")):
+                    self._json(422, {"status": "CONTEXT_REQUIRED", "error": "product/target/campaign context is required", "request": request}); return
+                try:
+                    result = client.create_contract(request)
+                except MarketingAuthRequired as error:
+                    self._json(503, {"status": "MARKETING_AUTH_ENV_REQUIRED", "error": str(error), "request": request}); return
+                except MarketingShortformClientError as error:
+                    self._json(502, {"status": "MARKETING_PROVIDER_UNAVAILABLE", "error": str(error), "request": request}); return
+                self._json(200, {"status": "bridge_contract_ready", "contract": result, "request": request}); return
             if route == "/api/jobs":
                 result = self.server.service.execute(body)
                 primary = Path(result["primary_output"]["path"]).relative_to(self.server.data_dir)

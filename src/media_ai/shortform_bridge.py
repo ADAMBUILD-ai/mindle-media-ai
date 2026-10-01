@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-PRODUCTS = {"ADAM", "AVORA", "AURA", "ARCOS", "AXIOM", "ADRAW", "ASPEC"}
+PRODUCTS = {"ADAM", "AVORA", "AURA", "ARCOS", "AXIOM", "ADRAW", "ASPEC", "MARKETING_EXTERNAL"}
 DURATIONS = {15, 30, 60}
 PLATFORMS = {"youtube_shorts", "instagram_reels", "tiktok", "other"}
 APPROVAL_STATES = {"draft", "preview_ready", "representative_approved", "exported"}
@@ -38,6 +38,29 @@ class ShortformProductionPlan:
 
 class ShortformContractError(ValueError):
     pass
+
+
+def normalize_marketing_contract(payload: dict[str, Any]) -> dict[str, Any]:
+    """Map the Marketing handoff shape without mutating or relabeling its raw identity."""
+    _require(isinstance(payload, dict), "Marketing contract must be an object")
+    resolved_assets = payload.get("resolved_assets", [])
+    scenes = payload.get("scenes", [])
+    normalized = dict(payload)
+    normalized["product"] = "MARKETING_EXTERNAL"
+    normalized["media_assets"] = [
+        {"asset_id": item.get("asset_id", item.get("id")), "approval_state": "approved"}
+        for item in resolved_assets
+    ]
+    normalized["scenes"] = [
+        {**scene, "id": scene.get("scene_id", scene.get("id")), "media_asset_id": scene.get("media_asset_id", scene.get("asset_id"))}
+        for scene in scenes
+    ]
+    normalized["platform"] = "other" if payload.get("platform") == "generic" else payload.get("platform")
+    if payload.get("approval_state") == "handoff_ready" and payload.get("representative_approval", {}).get("decision") == "approve":
+        normalized["approval_state"] = "representative_approved"
+    normalized["contract_version"] = "1.0"
+    normalized["aspect_ratio"] = payload.get("aspect_ratio", "9:16")
+    return normalized
 
 def _require(condition: bool, message: str) -> None:
     if not condition:
