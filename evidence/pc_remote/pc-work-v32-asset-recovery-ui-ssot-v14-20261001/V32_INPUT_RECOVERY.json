@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "inputs": [
+    {
+      "kind": "photo",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\product-e2e-evidence\\inputs\\photo.png",
+      "bytes": 189281,
+      "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+    },
+    {
+      "kind": "video",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\product-e2e-evidence\\inputs\\big_buck_bunny.mp4",
+      "bytes": 315058,
+      "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+    },
+    {
+      "kind": "korean_audio",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\product-e2e-evidence\\inputs\\fleurs_ko_kr_test_row0.wav",
+      "bytes": 798778,
+      "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+    }
+  ]
+}

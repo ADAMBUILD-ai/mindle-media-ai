@@ -1,0 +1,4 @@
+Canonical branch was rebound to origin/feature/ad-shortform-bridge-p0-20260926 at b5da52a1053bb650fa6d1eaedf05b0689ccdcbc3.
+Stale local branch preserved as backup/media-ai-stale-pc-work-20261001 at f10875b441335c07816c48cc62b696effa9e0634.
+Targeted local filesystem and Git object searches under Documents/Codex found the current UI asset hash 9AAF05BE17A3B851717A8BCDBEAF9C589812CB02F4807E3E2C9D10E75709AD3D, but no approved f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541 binary.
+The exact v30 runtime package was recovered from the local outputs package and used read-only.

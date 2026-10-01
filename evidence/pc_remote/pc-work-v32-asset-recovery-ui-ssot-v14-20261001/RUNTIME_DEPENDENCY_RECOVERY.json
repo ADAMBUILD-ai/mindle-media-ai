@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "python": "3.11.9",
+  "openvino": "2025.1.0 Windows wheel/site-packages recovered locally",
+  "backend_paths": {
+    "openvino_site_packages": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\windows-openvino\\site-packages",
+    "model_package": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package"
+  },
+  "network_or_auth_required_for_runs": false,
+  "paid_compute": false
+}
