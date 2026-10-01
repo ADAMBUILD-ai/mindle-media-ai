@@ -67,8 +67,8 @@ main { width: auto; max-width: none; margin: 0; }
 .command-card > button { min-height: 40px; width: 70%; }
 .command-chips button { min-height: 32px; padding: .35rem .65rem; border-color: #1a527d; background: #09233b; }
 .command-chips .send-button { min-width: 46px; }
-[data-preview="video"] { min-height: 170px; background: url("assets/demo/video-interior.png") center / cover, linear-gradient(135deg, #173954, #0b1c2d 45%, #22425d); box-shadow: inset 0 0 0 999px #06182a45; }
-[data-preview="photo"] { min-height: 270px; background: url("assets/demo/photo-house.png") center / cover, linear-gradient(135deg, #124c7c, #1c466a 45%, #071a29); box-shadow: inset 0 0 0 999px #06182a22; }
+[data-preview="video"] { min-height: 170px; background: url("assets/demo/video-preview.png") center / cover, linear-gradient(135deg, #173954, #0b1c2d 45%, #22425d); box-shadow: inset 0 0 0 999px #06182a45; }
+[data-preview="photo"] { min-height: 270px; background: url("assets/demo/photo-preview.png") center / cover, linear-gradient(135deg, #124c7c, #1c466a 45%, #071a29); box-shadow: inset 0 0 0 999px #06182a22; }
 [data-preview] .preview-empty { min-height: 100%; color: #d4e5f5; text-shadow: 0 1px 4px #001; }
 .transport { min-height: 43px; gap: 13px; }
 .transport progress { height: 6px; }
