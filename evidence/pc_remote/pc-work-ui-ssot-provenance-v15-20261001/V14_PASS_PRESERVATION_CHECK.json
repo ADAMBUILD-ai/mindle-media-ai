@@ -1,0 +1,8 @@
+{
+  "status": "PASS_PRESERVED",
+  "v14_evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_EVIDENCE_v14_0_20261001.json",
+  "four_lanes": "PASS",
+  "save_export_reopen": "PASS",
+  "model_identities_unchanged": true,
+  "runtime_rework": false
+}

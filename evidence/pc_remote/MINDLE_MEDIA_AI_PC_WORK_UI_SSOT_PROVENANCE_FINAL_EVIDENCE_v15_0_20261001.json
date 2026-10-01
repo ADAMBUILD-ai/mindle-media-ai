@@ -1,0 +1,16 @@
+{
+  "status": "USER_VISUAL_CONFIRMATION_REQUIRED",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "first_pin_commit": "39b313bd9bfc60194609910c25a639c325a9b2ca",
+  "original_pin_blob_sha": "293cc4d1a218b62442189e3c6f88ec81bb6ff38c",
+  "current_blob_sha": "293cc4d1a218b62442189e3c6f88ec81bb6ff38c",
+  "expected_manifest_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "current_png_sha256": "9aaf05be17a3b851717a8bcdbeaf9c589812cb02f4807e3e2c9d10e75709ad3d",
+  "exact_f27e_asset_recovered": false,
+  "current_ui_screenshot_prepared": true,
+  "v14_pass_preserved": true,
+  "representative_confirmation_required": true,
+  "review_path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_REVIEW_v15.0_20261001.md",
+  "detail_directory": "evidence/pc_remote/pc-work-ui-ssot-provenance-v15-20261001/",
+  "remote_push_verified": false
+}

@@ -1,0 +1,8 @@
+{
+  "expected_manifest_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "current_png_sha256": "9aaf05be17a3b851717a8bcdbeaf9c589812cb02f4807e3e2c9d10e75709ad3d",
+  "current_png_bytes": 1737390,
+  "current_git_blob_sha": "293cc4d1a218b62442189e3c6f88ec81bb6ff38c",
+  "exact_expected_recovered": false,
+  "status": "USER_VISUAL_CONFIRMATION_REQUIRED"
+}
