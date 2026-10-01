@@ -280,3 +280,26 @@ v18.1 is now REFERENCE_ONLY for the next narrow correction.
 
 Current ACTIVE:
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md
+
+
+## 15. v18.1 cycle status update
+
+v18.1 is closed as:
+TESTED_PASS
+
+Frozen PASS:
+- exact approved UI F27E installed
+- canonical SSOT/manifest/docs synchronized
+- real DOM/CSS visual implementation complete
+- dark navy final UI PASS
+- screenshot-cheat gate PASS
+- Python 51 PASS
+- UI 2 PASS
+- v14 runtime/product PASS preserved
+
+v18.1 is now REFERENCE_ONLY.
+
+Current ACTIVE:
+- docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
+
+v19 is a closeout/integrity cycle only. It must not reopen frozen PASS work without regression evidence.
