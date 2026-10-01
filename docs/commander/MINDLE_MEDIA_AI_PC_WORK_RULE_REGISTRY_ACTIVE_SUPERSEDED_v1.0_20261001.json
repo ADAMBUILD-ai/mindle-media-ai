@@ -1,15 +1,17 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "date": "2026-10-01",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "precedence": [
+    "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+    "scripts/validate_pc_work_control_plane.py",
     "CURRENT_PC_WORK_DIRECTIVE.md",
     "CURRENT_PC_WORK_STATE.json",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md",
     "active_directive",
     "active_evidence_contract",
-    "active_technical_scope",
     "MASTER/SSOT",
     "REFERENCE_ONLY",
     "HISTORY_ONLY"
@@ -95,5 +97,8 @@
     "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_stop_on_mismatch": true
-  }
+  },
+  "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
+  "control_plane_validator_required_result": "CONTROL_PLANE_PASS",
+  "active_cycle_version": "v19.0"
 }
