@@ -81,9 +81,9 @@
   "next_pending_directive": null,
   "next_pending_evidence_contract": null,
   "next_pending_epoch": null,
-  "final_closeout_blocked_until_representative_ui_gate": true,
+  "final_closeout_blocked_until_representative_ui_gate": false,
   "representative_ui_gate_status": "ACTIVE",
-  "representative_ui_gate_rule": "After v20.1 commander review, activate v20.2. Final fixed UI authority is F27E base visual/layout PLUS the approved Shortform Addendum. A UI matching F27E but missing 광고 숏폼 is not final compliant.",
+  "representative_ui_gate_rule": "Show actual Windows MEDIA AI beside the final fixed UI authority (F27E base + Shortform Addendum). If UI is approved, continue immediately to the icon phase; create exactly three candidates, show them on Windows, wait for selection, package only the selected icon, verify favicon/shortcut application, and only then allow closeout.",
   "final_fixed_ui_definition": {
     "base": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
     "base_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
@@ -95,5 +95,13 @@
       "프로젝트 저장",
       "내보내기"
     ]
-  }
+  },
+  "final_closeout_blocked_until_representative_ui_and_icon_gate": true,
+  "representative_icon_gate_status": "PENDING_UI_APPROVAL",
+  "required_detail_file_count_after_ui_approval": 30,
+  "final_closeout_requires": [
+    "representative_ui_approval",
+    "representative_icon_selection",
+    "final_icon_application_verify"
+  ]
 }
