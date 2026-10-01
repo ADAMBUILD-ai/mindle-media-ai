@@ -37,7 +37,8 @@
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_SOURCE_RECOVERY_AND_VISUAL_IMPLEMENTATION_CLOSEOUT_DIRECTIVE_v17.0_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_APPROVED_UI_ASSET_HANDOFF_AND_PIXEL_IMPLEMENTATION_FINAL_CLOSEOUT_DIRECTIVE_v18.0_20261001.md",
-    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md"
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md"
   ],
   "history_only_ranges": [
     "PC Work v1-v11 directives, next directives, reviews and their evidence unless explicitly referenced by ACTIVE directive"
@@ -52,16 +53,12 @@
   ],
   "branch_assertion_required_before_work": true,
   "previous_cycle": {
-    "version": "v18.1",
+    "version": "v18.2",
     "result": "TESTED_PASS",
     "status": "REFERENCE_ONLY",
-    "frozen_pass": [
-      "base product",
-      "final approved UI",
-      "SSOT F27E",
-      "v14 runtime",
-      "regression tests"
-    ]
+    "code_commit": "175e509da5cef1415d66fa527ce69711892819d7",
+    "evidence_finalization_commit": "10563ab3c2e3ef3bbec6d23708975b94896edacd",
+    "remote_readback_commit": "737cded9f09a568513a118abc0330e997a7865b3"
   },
   "required_detail_file_count": 11,
   "approved_ui_source": {
@@ -88,5 +85,14 @@
     "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
+  },
+  "control_plane_epoch": "MEDIA-AI-20261001-V19",
+  "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+  "control_plane_invariant": {
+    "epoch_must_match": "MEDIA-AI-20261001-V19",
+    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
+    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json",
+    "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
+    "worker_must_stop_on_mismatch": true
   }
 }
