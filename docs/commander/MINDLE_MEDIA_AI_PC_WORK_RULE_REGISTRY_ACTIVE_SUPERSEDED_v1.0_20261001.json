@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "date": "2026-10-01",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
@@ -19,9 +19,9 @@
   "active": {
     "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
     "state": "CURRENT_PC_WORK_STATE.json",
-    "directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md",
     "technical_scope": null,
-    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.0_20261001.json",
     "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
   },
   "reference_only": [
@@ -40,7 +40,8 @@
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_APPROVED_UI_ASSET_HANDOFF_AND_PIXEL_IMPLEMENTATION_FINAL_CLOSEOUT_DIRECTIVE_v18.0_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md",
-    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md"
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md"
   ],
   "history_only_ranges": [
     "PC Work v1-v11 directives, next directives, reviews and their evidence unless explicitly referenced by ACTIVE directive"
@@ -55,14 +56,12 @@
   ],
   "branch_assertion_required_before_work": true,
   "previous_cycle": {
-    "version": "v18.2",
-    "result": "TESTED_PASS",
+    "version": "v19",
+    "result": "BASE_PRODUCT_TESTED_PASS_SHORTFORM_EXTERNAL_DEPENDENCY",
     "status": "REFERENCE_ONLY",
-    "code_commit": "175e509da5cef1415d66fa527ce69711892819d7",
-    "evidence_finalization_commit": "10563ab3c2e3ef3bbec6d23708975b94896edacd",
-    "remote_readback_commit": "737cded9f09a568513a118abc0330e997a7865b3"
+    "remote_readback_commit": "4fc8fc4d0734f1a6e725854d7ae18020524dae4e"
   },
-  "required_detail_file_count": 11,
+  "required_detail_file_count": 16,
   "approved_ui_source": {
     "provider": "Google Drive",
     "path": "/Google Drive/MINDLE_MEDIA_AI_HANDOFF/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
@@ -89,16 +88,26 @@
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   },
-  "control_plane_epoch": "MEDIA-AI-20261001-V19",
+  "control_plane_epoch": "MEDIA-AI-20261001-V20",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_invariant": {
-    "epoch_must_match": "MEDIA-AI-20261001-V19",
-    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
-    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json",
+    "epoch_must_match": "MEDIA-AI-20261001-V20",
+    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md",
+    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.0_20261001.json",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_stop_on_mismatch": true
   },
   "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
   "control_plane_validator_required_result": "CONTROL_PLANE_PASS",
-  "active_cycle_version": "v19.0"
+  "active_cycle_version": "v20.0",
+  "marketing_live_provider": {
+    "repository": "ADAMBUILD-ai/mindle-marketing-department",
+    "pr": 4,
+    "branch": "feature/shortform-bridge-p0-20260926",
+    "commit": "3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a",
+    "workflow_run": 36852551111,
+    "workflow_result": "SUCCESS",
+    "base_url": "http://127.0.0.1:4318",
+    "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
+  }
 }
