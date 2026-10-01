@@ -19,7 +19,7 @@
     "state": "CURRENT_PC_WORK_STATE.json",
     "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md",
     "technical_scope": null,
-    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v1.0_20261001.json",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v14.0_20261001.json",
     "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
   },
   "reference_only": [
@@ -48,5 +48,6 @@
     "result": "PARTIAL_PASS",
     "scope": "branch/evidence recovery only",
     "status": "REFERENCE_ONLY"
-  }
+  },
+  "required_detail_file_count": 14
 }
