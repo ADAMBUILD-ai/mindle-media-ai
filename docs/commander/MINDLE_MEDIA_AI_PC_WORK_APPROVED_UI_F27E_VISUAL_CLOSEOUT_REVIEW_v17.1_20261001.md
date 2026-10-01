@@ -34,4 +34,4 @@ That exact Library file is not accessible in this PC Work environment. Repositor
 
 Materialize the exact ChatGPT Library file in PC Work, verify decode, dimensions, and SHA-256, then rerun only the v17.1 cycle from the canonical branch. Until then, the correct result is `ASSET_HANDOFF_REQUIRED`, not UI PASS.
 
-REMOTE_PUSH_VERIFIED: PENDING
+REMOTE_PUSH_VERIFIED: YES — branch ref `671953e787e8643b2b68837e5c0c83444872d8f6`; review path, machine Evidence path, and all 15 detail files read back from the remote tree.
