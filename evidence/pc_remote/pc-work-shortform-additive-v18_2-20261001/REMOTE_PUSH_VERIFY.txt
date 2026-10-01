@@ -1,5 +1,6 @@
 PASS
 remote: origin/feature/ad-shortform-bridge-p0-20260926
-remote HEAD: 175e509
-local HEAD: 175e509
+remote HEAD: 10563ab3c2e3ef3bbec6d23708975b94896edacd
+local code HEAD: 175e509
+evidence finalization HEAD: 10563ab3c2e3ef3bbec6d23708975b94896edacd
 remote evidence readback: review, machine evidence, and all 12 detail files present
