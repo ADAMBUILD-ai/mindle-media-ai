@@ -1,0 +1,6 @@
+capability,candidate,repo_id,revision,license_or_provenance,status,commercial_use_decision
+inpaint,LaMa ONNX,opencv/inpainting_lama,aee6d22f0a13e5e35af1c9a1c3afd62841fc6f3f,Local LICENSE file present; remote metadata unavailable,REVIEW_REQUIRED,DO_NOT_ENABLE
+mask_and_tracking,SAM 2.1 Hiera Base Plus,facebook/sam2.1-hiera-base-plus,b7320756a13354e7530a63935656d35b2f91a290,Remote license and provenance not rechecked,REVIEW_REQUIRED,DO_NOT_ENABLE
+korean_subtitles,Whisper Large v3 Turbo,openai/whisper-large-v3-turbo,41f01f3fe87f28c78e2fbf8b568835947dd65ed9,Remote license and provenance not rechecked,REVIEW_REQUIRED,DO_NOT_ENABLE
+super_resolution,Qualcomm Real-ESRGAN x4plus ONNX,qualcomm/Real-ESRGAN-x4plus,4022efb8b74eb88900724d9e05a468ac3673df4a,Historical benchmark declares BSD-3-Clause; remote metadata not rechecked,REVIEW_REQUIRED,DO_NOT_ENABLE
+matting,BiRefNet,ZhengPeng7/BiRefNet,e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4,Prior source review rejected unsafe loader path,REJECT,DO_NOT_ENABLE

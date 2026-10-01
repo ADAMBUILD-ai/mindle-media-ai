@@ -1,0 +1,16 @@
+{
+  "status": "TECHNICAL_SMOKE_PASS",
+  "repo_id": "openai/whisper-large-v3-turbo",
+  "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+  "runtime": {
+    "torch": "2.7.1+cpu",
+    "transformers": "4.57.6",
+    "provider": "CPU"
+  },
+  "duration_ms": 5977.87,
+  "audio_sha256": "ee7bea4232762775f8fce9b3e27e4d3948c8ac6a45a87ca769f703d6eed0b448",
+  "transcript_sha256": "6511d7c4b553519b6ea4fbd4bf6c14d0b84b02f7ac024c1812670438848ada23",
+  "language_request": "ko",
+  "fixture": "10-second silent WAV for model-load and generation only",
+  "quality_gate": "VERIFY_REQUIRED: no Korean speech content, accuracy or timestamps are assessed by this smoke."
+}

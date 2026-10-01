@@ -1,0 +1,39 @@
+{
+  "schema_version": "15.0",
+  "captured_at": "2026-09-24",
+  "directive": "MINDLE_MEDIA_AI_PC_RUNTIME_RESTORE_AND_REAL_LOCAL_E2E_CLOSEOUT_DIRECTIVE_v15.0_20260924.md",
+  "remote_source_baseline": {
+    "pull_request": 10,
+    "head": "fda02e399e591d8b305ad8cce8eee7e5fdf874b8",
+    "runtime_source_restored": true
+  },
+  "verdict": "REWORK_PC_MANUAL_INPUT_REQUIRED",
+  "ui_ssot_changed": false,
+  "protected_constraints": {"main_merge": false, "production_deploy": false, "force_push": false, "gpu": false, "paid_compute": false},
+  "verification": {"python_regression": "46 passed", "ui_structure": "PASS", "ui_interaction": "PASS", "product_server_health": "PASS_HTTP_200"},
+  "restored_runtime_files": {
+    "src/media_ai/product_runtime.py": {"bytes": 17238, "sha256": "d6fe34a560a233ebc7a9d96f69b53657b0c42e6491ccac53a0ba02c5a364fead"},
+    "src/media_ai/product_server.py": {"bytes": 4627, "sha256": "d82bf2beeaf3256d852695222b164702012812bea891d8082d84de8612885fa"},
+    "src/media_ai/verified_model_adapters.py": {"bytes": 13563, "sha256": "e952544c4f09b983f8179729fcaa16139762468a048995ec55ea5b5549c85769"},
+    "src/media_ai/intel_sisr_verified_adapter.py": {"bytes": 2483, "sha256": "4fca0d8e59a65d6041df53df104adc87dc2ea5795de09a1ddf8f16b402d4e5d8"},
+    "src/media_ai/realesrgan_verified_adapter.py": {"bytes": 7225, "sha256": "a420bf04e57d6c44ee86c8a2bbd77d231c66c86c3472cbb6076d4beffc1a8c01"},
+    "ui/product_integration.js": {"bytes": 5202, "sha256": "cac864d904c9bc90bc4d4a59fe125a48509b106e298391af9c3c69fd80c14830"},
+    "model_scout/run_product_e2e.py": {"bytes": 11444, "sha256": "2461630532a4ec49cbc1871767c949de1b3d117f54e57862c25ecba0f0ea11f9"}
+  },
+  "runtime_gates": {
+    "photo_segmentation": "PC_MANUAL_INPUT_REQUIRED",
+    "video_tracking": "PC_MANUAL_INPUT_REQUIRED",
+    "upscale_4x": "PC_MANUAL_INPUT_REQUIRED",
+    "korean_stt": "PC_MANUAL_INPUT_REQUIRED",
+    "preview_save_export": "REWORK"
+  },
+  "inputs": {
+    "photo": {"path": "model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg", "bytes": 8967798, "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75", "status": "AVAILABLE"},
+    "upscale": {"path": "model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png", "bytes": 38721, "sha256": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2", "status": "AVAILABLE_INPUT_ONLY"},
+    "video": {"status": "MISSING_OWNED_INPUT"},
+    "korean_audio": {"status": "MISSING_APPROVED_SPOKEN_KOREAN_INPUT"}
+  },
+  "dependencies": {"hf_token": false, "ffmpeg": false, "openvino": false, "selenium": false, "pyarrow": false, "chrome_or_chromedriver": false},
+  "next_action": "PC_MANUAL_INPUT_AND_RUNTIME_CACHE_REQUIRED"
+}
+

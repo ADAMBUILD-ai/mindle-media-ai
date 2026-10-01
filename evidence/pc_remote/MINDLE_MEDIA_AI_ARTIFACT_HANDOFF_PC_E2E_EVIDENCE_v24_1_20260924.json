@@ -1,0 +1,66 @@
+{
+  "schema_version": "v24.1",
+  "date": "2026-09-24",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "source_directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_ARTIFACT_HANDOFF_COMPLETION_AND_PC_E2E_EXECUTION_DIRECTIVE_v24.1_20260924.md",
+    "sha": "1ecbd388b856efb09e86ea6bdd4f65828efce1a2"
+  },
+  "base_head": "3071272109517283fb09fc2e8f05b88328f60545",
+  "ui_ssot_changed": "NO",
+  "prior_evidence_overwritten": false,
+  "artifact": {
+    "run_id": 35596903385,
+    "artifact_id": 10636679053,
+    "expected_size_bytes": 228710107,
+    "expected_sha256": "aac9492699c28ca9c6e640994cc99d25e5fe5e3e13c42a8326ef48d9cded1fe5",
+    "connector_reference": "available",
+    "local_transfer_folder": "work/v23_1_transfer",
+    "local_file_present": false,
+    "local_digest_verified": false,
+    "extracted": false
+  },
+  "handoff_attempt": {
+    "approved_download_control_surface": "not available in current in-app browser",
+    "direct_save": "blocked by Windows socket access policy",
+    "browser_open": "ERR_BLOCKED_BY_CLIENT",
+    "repeat_network_attempt": false
+  },
+  "inventory": {
+    "photo": "not recovered",
+    "video": "not recovered",
+    "korean_speech_16khz": "not recovered",
+    "prior_output_evidence": "preserved remotely",
+    "model_payloads": "not recovered"
+  },
+  "adopted_models": {
+    "sam_2_1": "not present in local cache",
+    "whisper_small": "not present in local cache",
+    "intel_sisr_1032": "not present in local cache",
+    "legacy_fallback": false
+  },
+  "dependencies": {
+    "python": "available",
+    "ffmpeg": "not on PATH",
+    "ffprobe": "not on PATH",
+    "openvino": "not importable",
+    "pip_network_install": "previously failed WinError 10013",
+    "offline_package_search": "no required runtime identified"
+  },
+  "lanes": {
+    "photo_segmentation": "NOT_RUN_PC_LOCAL",
+    "video_tracking": "NOT_RUN_PC_LOCAL",
+    "upscale_4x": "NOT_RUN_PC_LOCAL",
+    "korean_stt": "NOT_RUN_PC_LOCAL",
+    "preview_save_export": "NOT_RUN_PC_LOCAL"
+  },
+  "verdict": "REWORK_REQUIRED_PC_MANUAL_TRANSFER",
+  "single_human_action_required": "Save approved GitHub Actions artifact 10636679053 from run 35596903385 into work/v23_1_transfer and provide/select the resulting ZIP path. No credentials required.",
+  "protections": {
+    "no_main_merge": true,
+    "no_production_deploy": true,
+    "no_force_push": true,
+    "no_gpu_or_paid_compute": true,
+    "no_credentials_exposed": true
+  }
+}
