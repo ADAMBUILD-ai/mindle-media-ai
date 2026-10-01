@@ -1,0 +1,12 @@
+{
+  "evidence_version": "v11.0",
+  "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_HUMAN_GATE_RESUME_FULL_CLOSEOUT_REVIEW_v11.0_20261001.md",
+  "evidence": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_HUMAN_GATE_RESUME_FULL_CLOSEOUT_EVIDENCE_v11_0_20261001.json",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_HUMAN_GATE_RESUME_FULL_CLOSEOUT_DIRECTIVE_v11.0_20261001.md",
+  "next_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_HUMAN_GATE_RESUME_FULL_CLOSEOUT_NEXT_DIRECTIVE_v11.1_20261001.md",
+  "gate": {
+    "artifact_id": 10797756522,
+    "status": "HUMAN_ACTION_REQUIRED"
+  },
+  "final_commit_sha": "PENDING"
+}
