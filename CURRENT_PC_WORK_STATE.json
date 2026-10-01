@@ -4,13 +4,13 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_ADJUDICATION_AND_RELEASE_CLOSEOUT_DIRECTIVE_v15.0_20261001.md",
   "technical_scope": null,
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v14.0_20261001.json",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v15.0_20261001.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_REVIEW_v14.0_20261001.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_EVIDENCE_v14_0_20261001.json",
-    "detail_dir": "evidence/pc_remote/pc-work-v32-asset-recovery-ui-ssot-v14-20261001/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_REVIEW_v15.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_EVIDENCE_v15_0_20261001.json",
+    "detail_dir": "evidence/pc_remote/pc-work-ui-ssot-provenance-v15-20261001/"
   },
   "forbidden_outputs": [
     "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
@@ -27,6 +27,6 @@
   "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
   "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
   "branch_assertion_required_before_work": true,
-  "previous_cycle_result": "v13 PARTIAL_PASS accepted for branch/evidence recovery only",
-  "required_detail_file_count": 14
+  "previous_cycle_result": "v14 PARTIAL_PASS_UI_SSOT_BLOCKED; all product lanes + Save/Export PASS preserved",
+  "required_detail_file_count": 12
 }
