@@ -49,4 +49,4 @@ No legacy model substitution, UI redesign, auth loop, artifact reassembly, secre
 - Machine Evidence: `evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_EVIDENCE_v13_0_20261001.json`
 - Detail directory: `evidence/pc_remote/pc-work-current-pc-four-lane-v13-20261001/`
 
-Remote publication remains pending until the Evidence commit is pushed and read back from the canonical branch.
+Remote publication was verified after push. Evidence commit: `e720937ba6e39f6fe3e94d3fa42ceb92424e4102`.
