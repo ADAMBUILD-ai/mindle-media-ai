@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "precedence": [
+    "CURRENT_PC_WORK_DIRECTIVE.md",
+    "CURRENT_PC_WORK_STATE.json",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md",
+    "active_directive",
+    "active_evidence_contract",
+    "active_technical_scope",
+    "MASTER/SSOT",
+    "REFERENCE_ONLY",
+    "HISTORY_ONLY"
+  ],
+  "active": {
+    "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
+    "state": "CURRENT_PC_WORK_STATE.json",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md",
+    "technical_scope": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v1.0_20261001.json"
+  },
+  "reference_only": [
+    "docs/commander/MINDLE_MEDIA_AI_NEW_PC_WORKER_BOOTSTRAP_ROUTE_CORRECTION_HANDOFF_v1.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_ROUTE_CORRECTION_NO_GITHUB_LOGIN_LOOP_DIRECTIVE_v12.1_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FIRST_PRODUCT_RECOVERY_DIRECTIVE_v12.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_LOCATION_COMMIT_PUSH_OPERATING_RULE_v2.0_20260930.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_MANDATORY_EVIDENCE_SAVE_CONTINUATION_RULE_v1.0_20260930.md"
+  ],
+  "history_only_ranges": [
+    "PC Work v1-v11 directives, next directives, reviews and their evidence unless explicitly referenced by ACTIVE directive"
+  ],
+  "default_for_unlisted_pc_work_docs": "HISTORY_ONLY",
+  "stale_context_status": "STALE_CONTEXT_BLOCKED",
+  "sync_required": true,
+  "worker_may_invent_evidence_names": false
+}
