@@ -75,9 +75,10 @@
     "handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json"
   },
   "current_known_issue": {
-    "type": "SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION",
-    "approved": "AI 자동 편집 + separate 광고 숏폼 + 프로젝트 저장",
-    "current": "AI 자동 편집 alone owns shortform-mode"
+    "type": "NONE",
+    "previous_issue": "SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION",
+    "resolution": "TESTED_PASS at 175e509da5cef1415d66fa527ce69711892819d7",
+    "remote_readback": "737cded9f09a568513a118abc0330e997a7865b3"
   },
   "final_closeout": {
     "frozen_base_runtime": "v14",
