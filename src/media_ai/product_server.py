@@ -73,7 +73,8 @@ class Handler(BaseHTTPRequestHandler):
                     self._json(503, {"status": "MARKETING_AUTH_ENV_REQUIRED", "error": str(error), "request": request}); return
                 except MarketingShortformClientError as error:
                     self._json(502, {"status": "MARKETING_PROVIDER_UNAVAILABLE", "error": str(error), "request": request}); return
-                self._json(200, {"status": "bridge_contract_ready", "contract": result, "request": request}); return
+                contract = result.get("contract", result) if isinstance(result, dict) else result
+                self._json(200, {"status": "bridge_contract_ready", "contract": contract, "provider_response": result, "request": request}); return
             if route == "/api/jobs":
                 result = self.server.service.execute(body)
                 primary = Path(result["primary_output"]["path"]).relative_to(self.server.data_dir)

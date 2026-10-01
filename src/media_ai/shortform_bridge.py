@@ -43,10 +43,23 @@ class ShortformContractError(ValueError):
 def normalize_marketing_contract(payload: dict[str, Any]) -> dict[str, Any]:
     """Map the Marketing handoff shape without mutating or relabeling its raw identity."""
     _require(isinstance(payload, dict), "Marketing contract must be an object")
+    mission = payload.get("mission", {})
+    brief = payload.get("brief", {})
     resolved_assets = payload.get("resolved_assets", [])
     scenes = payload.get("scenes", [])
     normalized = dict(payload)
     normalized["product"] = "MARKETING_EXTERNAL"
+    normalized["project_id"] = payload.get("project_id", mission.get("project_id"))
+    normalized["campaign_id"] = payload.get("campaign_id", brief.get("campaign_id", normalized["project_id"]))
+    normalized["target"] = payload.get("target", mission.get("target", brief.get("target")))
+    normalized["campaign_goal"] = payload.get("campaign_goal", mission.get("campaign_goal", brief.get("objective")))
+    normalized["duration"] = payload.get("duration", mission.get("duration", brief.get("duration")))
+    normalized["hook"] = payload.get("hook", brief.get("hook", ""))
+    normalized["cta"] = payload.get("cta", brief.get("cta", ""))
+    normalized["evidence_refs"] = payload.get("evidence_refs", mission.get("evidence", []))
+    normalized["assumptions"] = payload.get("assumptions", mission.get("assumptions", []))
+    normalized["traceability"] = payload.get("traceability", {"generator": "marketing-shortform"})
+    normalized["brand_outro"] = payload.get("brand_outro", {})
     normalized["media_assets"] = [
         {"asset_id": item.get("asset_id", item.get("id")), "approval_state": "approved"}
         for item in resolved_assets
