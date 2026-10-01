@@ -41,13 +41,13 @@ A lower item can never override a higher item.
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
 
 ### Active execution directive
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md
 
 ### Active technical scope
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
 
 ### Active Evidence path contract
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.0_20261001.json
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.1_20261001.json
 
 ### Active commander-worker circulation protocol
 - docs/commander/MINDLE_MEDIA_AI_COMMANDER_PC_WORKER_REPOSITORY_CIRCULATION_PROTOCOL_v1.0_20261001.md
@@ -205,3 +205,21 @@ v15 is now REFERENCE_ONLY. Current ACTIVE cycle v16 materializes the actual visu
 ## 13. v16 cycle status update
 
 v16 is closed as VISUAL_IMPLEMENTATION_GAP. Canonical live UI structure exists, but approved dark-navy visual styling is absent and the current 9AAF candidate is non-decodable. v16 is REFERENCE_ONLY. v17 is the only ACTIVE visual recovery/repair cycle.
+
+
+## 13. v17.1 canonicalization
+
+Only v17.1 is ACTIVE.
+
+Exact approved UI source recovered by commander:
+- Library filename: 네온 다크 테마 AI 미디어 편집기.png
+- PNG 1536 x 1024
+- SHA-256: f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541
+
+The following v17.0 directives are REFERENCE_ONLY / SUPERSEDED:
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_SOURCE_RECOVERY_AND_VISUAL_IMPLEMENTATION_CLOSEOUT_DIRECTIVE_v17.0_20261001.md
+
+Current ACTIVE:
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.1_20261001.json
