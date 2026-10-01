@@ -88,5 +88,17 @@
   "next_pending_epoch": "MEDIA-AI-20261001-V20.2",
   "final_closeout_blocked_until_representative_ui_gate": true,
   "representative_ui_gate_status": "PENDING",
-  "representative_ui_gate_rule": "After v20.1 commander review, activate v20.2. Final closeout is forbidden until the actual Windows UI is shown beside the exact F27E reference, live controls are exercised, and the representative gives a visual decision."
+  "representative_ui_gate_rule": "After v20.1 commander review, activate v20.2. Final fixed UI authority is F27E base visual/layout PLUS the approved Shortform Addendum. A UI matching F27E but missing 광고 숏폼 is not final compliant.",
+  "final_fixed_ui_definition": {
+    "base": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+    "base_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "additive": "docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md",
+    "video_action_order": [
+      "영상 불러오기",
+      "AI 자동 편집",
+      "광고 숏폼",
+      "프로젝트 저장",
+      "내보내기"
+    ]
+  }
 }
