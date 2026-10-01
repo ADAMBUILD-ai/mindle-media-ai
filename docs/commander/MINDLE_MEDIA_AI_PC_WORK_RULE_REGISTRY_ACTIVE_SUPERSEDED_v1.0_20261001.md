@@ -41,13 +41,13 @@ A lower item can never override a higher item.
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
 
 ### Active execution directive
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_EVIDENCE_MATERIALIZATION_AND_SSOT_COMPLIANCE_DIAGNOSIS_DIRECTIVE_v16.0_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md
 
 ### Active technical scope
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
 
 ### Active Evidence path contract
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v16.0_20261001.json
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.0_20261001.json
 
 ### Active commander-worker circulation protocol
 - docs/commander/MINDLE_MEDIA_AI_COMMANDER_PC_WORKER_REPOSITORY_CIRCULATION_PROTOCOL_v1.0_20261001.md
@@ -200,3 +200,8 @@ v15 is closed as:
 USER_VISUAL_CONFIRMATION_REQUIRED — provenance established, but visual confirmation package was not sufficient because the actual screenshot image was not published and the live UI was recorded without the approved dark-navy visual treatment.
 
 v15 is now REFERENCE_ONLY. Current ACTIVE cycle v16 materializes the actual visual evidence and diagnoses live UI compliance before asking the representative for confirmation.
+
+
+## 13. v16 cycle status update
+
+v16 is closed as VISUAL_IMPLEMENTATION_GAP. Canonical live UI structure exists, but approved dark-navy visual styling is absent and the current 9AAF candidate is non-decodable. v16 is REFERENCE_ONLY. v17 is the only ACTIVE visual recovery/repair cycle.
