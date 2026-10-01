@@ -1,324 +1,98 @@
-# MINDLE MEDIA AI — PC WORK RULE REGISTRY / ACTIVE vs SUPERSEDED v1.0
+# MINDLE MEDIA AI — PC WORK RULE REGISTRY v1.1
 
 Date: 2026-10-01
 Repository: ADAMBUILD-ai/mindle-media-ai
 Branch: feature/ad-shortform-bridge-p0-20260926
-Status: GOVERNING RULE REGISTRY
+Status: GOVERNING
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261001-V19
 
-## 0. Purpose
+## 0. Governing rule
 
-This registry prevents a PC worker from accidentally executing an old directive, old evidence rule, old auth loop, or historical recovery cycle.
+There is exactly ONE current executable cycle.
 
-The repository intentionally retains historical documents for audit/evidence. Their physical presence does NOT make them executable.
+Authoritative lock:
+- CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
 
-## 1. Precedence — mandatory
+Current executable cycle:
+- docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
 
-When documents conflict, use this order:
+Current Evidence contract:
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json
 
-1. CURRENT_PC_WORK_DIRECTIVE.md
-2. CURRENT_PC_WORK_STATE.json
-3. this Rule Registry
-4. current ACTIVE directive
-5. current machine-readable Evidence Path Contract
-6. current technical-scope directive
-7. MASTER handover / immutable SSOT / adopted model manifest
-8. REFERENCE_ONLY documents
-9. HISTORY_ONLY / SUPERSEDED documents
+If Lock / Current Directive / Current State / Registry JSON / this Registry disagree:
+- STATUS = CONTROL_PLANE_MISMATCH_BLOCKED
+- NO work may execute
+- NO older directive may be selected by precedence or memory
 
-A lower item can never override a higher item.
-
-## 2. ACTIVE — worker MUST read/use
-
-### Single worker entrypoint
-- CURRENT_PC_WORK_DIRECTIVE.md
-- CURRENT_PC_WORK_STATE.json
-
-### Governing registry
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json
-
-### Active branch-rebind preflight
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
-
-### Active execution directive
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md
-
-### Active technical scope
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
-
-### Active Evidence path contract
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v18.2_20261001.json
-
-### Active commander-worker circulation protocol
-- docs/commander/MINDLE_MEDIA_AI_COMMANDER_PC_WORKER_REPOSITORY_CIRCULATION_PROTOCOL_v1.0_20261001.md
-
-### MASTER / SSOT
-- docs/commander/MINDLE_MEDIA_AI_MASTER_HANDOVER_SSOT_DEVELOPMENT_HISTORY_v1.0_20261001.md
-- docs/01_UI_SSOT_FINAL.md
-- ui/ssot_manifest.json
-- evidence/model_scout/FINAL_ADOPTED_MODEL_MANIFEST_V13.json
-- evidence/model_scout/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_V13.json
-- docs/commander/MINDLE_MEDIA_AI_PC_TORCH_RECOVERY_FINAL_LOCAL_E2E_REVIEW_v32.0_20260925.md
-- evidence/pc_remote/MINDLE_MEDIA_AI_PC_TORCH_RECOVERY_FINAL_LOCAL_E2E_EVIDENCE_v32_20260925.json
-
-## 3. REFERENCE_ONLY — may be read for context, MUST NOT be executed as current work
-
-- docs/commander/MINDLE_MEDIA_AI_NEW_PC_WORKER_BOOTSTRAP_ROUTE_CORRECTION_HANDOFF_v1.0_20261001.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_ROUTE_CORRECTION_NO_GITHUB_LOGIN_LOOP_DIRECTIVE_v12.1_20261001.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FIRST_PRODUCT_RECOVERY_DIRECTIVE_v12.0_20261001.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_LOCATION_COMMIT_PUSH_OPERATING_RULE_v2.0_20260930.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_MANDATORY_EVIDENCE_SAVE_CONTINUATION_RULE_v1.0_20260930.md
-
-These can explain why the current rules exist, but they are not independent executable cycles.
-
-## 4. SUPERSEDED / HISTORY_ONLY — NEVER execute as current work
-
-The following PC Work chains are closed historical records. They remain for audit only.
-
-### Old UI/service/runtime recovery
-- MINDLE_MEDIA_AI_PC_WORK_FINAL_UI_ACTIVATION_SHORTFORM_E2E_DIRECTIVE_v1.0_20260930.md
-- MINDLE_MEDIA_AI_PC_WORK_LOCAL_SERVICE_RECOVERY_REAL_UI_EXECUTION_DIRECTIVE_v2.0_20260930.md
-- MINDLE_MEDIA_AI_PC_WORK_RUNTIME_INPUT_RECOVERY_REAL_UI_EXECUTION_DIRECTIVE_v3.0_20260930.md
-- MINDLE_MEDIA_AI_PC_WORK_RUNTIME_INPUT_RECOVERY_NEXT_DIRECTIVE_v3.1_20260930.md
-- MINDLE_MEDIA_AI_PC_WORK_VERIFIED_RUNTIME_ARTIFACT_RECOVERY_PHOTO_CLOSEOUT_DIRECTIVE_v4.0_20260930.md
-- MINDLE_MEDIA_AI_PC_WORK_VERIFIED_RUNTIME_ARTIFACT_RECOVERY_NEXT_DIRECTIVE_v4.1_20260930.md
-
-### Old artifact transfer / reassembly path
-- MINDLE_MEDIA_AI_PC_WORK_GITHUB_ARTIFACT_TRANSFER_RECOVERY_RUNTIME_REASSEMBLY_DIRECTIVE_v5.0_20260930.md
-- MINDLE_MEDIA_AI_PC_WORK_GITHUB_ARTIFACT_TRANSFER_RUNTIME_REASSEMBLY_NEXT_DIRECTIVE_v5.1_20260930.md
-- MINDLE_MEDIA_AI_PC_WORK_EXACT_PART01_V29_REASSEMBLY_PHOTO_CLOSEOUT_DIRECTIVE_v6.0_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_EXACT_PART01_V29_REASSEMBLY_NEXT_DIRECTIVE_v6.1_20261001.md
-
-### Old human-auth/gate chain
-- MINDLE_MEDIA_AI_PC_WORK_HUMAN_AUTH_TRANSFER_GATE_RESUME_DIRECTIVE_v7.0_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_HUMAN_AUTH_TRANSFER_GATE_RESUME_NEXT_DIRECTIVE_v7.1_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_V7_GATE_COMPLETION_AUTO_RESUME_DIRECTIVE_v8.0_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_V7_GATE_COMPLETION_AUTO_RESUME_NEXT_DIRECTIVE_v8.1_20261001.md
-
-### Old long-run closeout chain
-- MINDLE_MEDIA_AI_PC_WORK_LONG_RUN_INTEGRATED_CLOSEOUT_DIRECTIVE_v9.0_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_LONG_RUN_INTEGRATED_CLOSEOUT_NEXT_DIRECTIVE_v9.1_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_LONG_RUN_FULL_BASE_PRODUCT_CLOSEOUT_DIRECTIVE_v10.0_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_LONG_RUN_FULL_BASE_PRODUCT_CLOSEOUT_NEXT_DIRECTIVE_v10.1_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_HUMAN_GATE_RESUME_FULL_CLOSEOUT_DIRECTIVE_v11.0_20261001.md
-- MINDLE_MEDIA_AI_PC_WORK_HUMAN_GATE_RESUME_FULL_CLOSEOUT_NEXT_DIRECTIVE_v11.1_20261001.md
-
-### Historical reviews/evidence associated with old cycles
-Every REVIEW/EVIDENCE file tied to v1-v11 above is HISTORY_ONLY unless explicitly referenced by the current ACTIVE directive for comparison.
-
-## 5. Default rule for unlisted old documents
-
-Any PC Work directive/review/evidence document NOT explicitly listed as ACTIVE or REFERENCE_ONLY above is automatically:
-
-HISTORY_ONLY
-
-The worker must not execute it unless a new ACTIVE directive explicitly references it by exact path.
-
-## 6. Anti-stale-worker bootstrap
-
-Before every work cycle, the worker MUST:
+## 1. Mandatory start order
 
 1. git fetch origin
 2. checkout feature/ad-shortform-bridge-p0-20260926
-3. reconcile/pull to current remote HEAD
-4. open CURRENT_PC_WORK_DIRECTIVE.md from the updated working tree
-5. open this Rule Registry
-6. confirm the active directive path and Evidence paths
-7. only then execute
+3. reconcile to current remote HEAD
+4. read CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
+5. run: python scripts/validate_pc_work_control_plane.py
+6. read CURRENT_PC_WORK_DIRECTIVE.md
+7. read CURRENT_PC_WORK_STATE.json
+8. read this Registry and its JSON twin
+9. execute only the v19 directive
+10. publish only to the v19 exact Evidence paths
+11. commit / push / remote-readback
 
-If the worker cannot prove it read the current remote HEAD, the cycle status is:
-STALE_CONTEXT_BLOCKED
+## 2. ACTIVE — the only executable set
 
-It must not continue using remembered or cached directive names.
+### Control plane
+- CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
+- CURRENT_PC_WORK_DIRECTIVE.md
+- CURRENT_PC_WORK_STATE.json
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json
+- scripts/validate_pc_work_control_plane.py
 
-## 7. Evidence naming rule
+### Execution
+- docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json
 
-The worker must never invent an Evidence filename.
+### Branch preflight
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
 
-Only the exact paths from the ACTIVE directive/contract are permitted.
+### Immutable/reference SSOT used by v19
+- docs/commander/MINDLE_MEDIA_AI_MASTER_HANDOVER_SSOT_DEVELOPMENT_HISTORY_v1.0_20261001.md
+- docs/01_UI_SSOT_FINAL.md
+- ui/ssot_manifest.json
+- docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md
+- evidence/model_scout/FINAL_ADOPTED_MODEL_MANIFEST_V13.json
+- evidence/model_scout/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_V13.json
 
-If the worker creates:
-- MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md
-- MINDLE_MEDIA_AI_PC_RUNTIME_RESTORE_v16_20261001.json
-- or any other unlisted Evidence file
+## 3. FROZEN PASS — read-only evidence, not executable work
 
-that file is NONCOMPLIANT and does not advance the cycle.
-
-## 8. Commander responsibility
-
-Before issuing work, the commander must:
-- update CURRENT_PC_WORK_DIRECTIVE.md
-- update CURRENT_PC_WORK_STATE.json
-- update this registry if rule status changed
-- name exact Evidence output paths
-- verify the worker is on current remote HEAD
-
-The representative is not responsible for reconciling rules, versions, or Evidence paths.
-
-## 9. Final governing rule
-
-HISTORICAL DOCUMENTS STAY FOR AUDIT, BUT ONLY ACTIVE DOCUMENTS CAN DRIVE WORK.
-
-SYNC FIRST → READ CURRENT ENTRYPOINT → CHECK RULE REGISTRY → EXECUTE ONLY ACTIVE DIRECTIVE → SAVE TO EXACT ACTIVE PATHS → PUSH → REMOTE VERIFY.
-
-
-## 10. v13 cycle status update
-
-The v13 cycle is now closed as:
-PARTIAL_PASS — repository/branch/evidence recovery only.
-
-The following are no longer active execution directives:
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
-
-They are now REFERENCE_ONLY for the v14 recovery lineage.
-
-Current ACTIVE product-recovery directive:
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md
-
-
-## 11. v14 cycle status update
-
-v14 is closed as:
-PARTIAL_PASS_UI_SSOT_BLOCKED
-
-Preserved PASS:
+### v14 base product runtime
+Preserved TESTED_PASS:
 - PHOTO segmentation
 - PHOTO 4x
 - VIDEO tracking
 - Korean STT
 - Project Save / Export / Reopen
-- exact adopted model/runtime identity
-- remote Evidence publication
+- adopted model identity
 
-v14 is now REFERENCE_ONLY. Current ACTIVE work is UI SSOT provenance adjudication only.
-
-
-## 12. v15 cycle status update
-
-v15 is closed as:
-USER_VISUAL_CONFIRMATION_REQUIRED — provenance established, but visual confirmation package was not sufficient because the actual screenshot image was not published and the live UI was recorded without the approved dark-navy visual treatment.
-
-v15 is now REFERENCE_ONLY. Current ACTIVE cycle v16 materializes the actual visual evidence and diagnoses live UI compliance before asking the representative for confirmation.
-
-
-## 13. v16 cycle status update
-
-v16 is closed as VISUAL_IMPLEMENTATION_GAP. Canonical live UI structure exists, but approved dark-navy visual styling is absent and the current 9AAF candidate is non-decodable. v16 is REFERENCE_ONLY. v17 is the only ACTIVE visual recovery/repair cycle.
-
-
-## 13. v17.1 canonicalization
-
-Only v17.1 is ACTIVE.
-
-Exact approved UI source recovered by commander:
-- Library filename: 네온 다크 테마 AI 미디어 편집기.png
-- PNG 1536 x 1024
-- SHA-256: f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541
-
-The following v17.0 directives are REFERENCE_ONLY / SUPERSEDED:
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_SOURCE_RECOVERY_AND_VISUAL_IMPLEMENTATION_CLOSEOUT_DIRECTIVE_v17.0_20261001.md
-
-Current ACTIVE:
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.1_20261001.json
-
-
-## 13. v17.1 cycle status update
-
-v17.1 is closed as:
-ASSET_HANDOFF_REQUIRED
-
-Commander independently recovered and verified the exact approved UI source from ChatGPT Library:
-- filename: 네온 다크 테마 AI 미디어 편집기.png
-- dimensions: 1536 × 1024
-- bytes: 1,737,365
-- SHA-256: f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541
-
-v17.1 is now REFERENCE_ONLY.
-
-Current ACTIVE:
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_APPROVED_UI_ASSET_HANDOFF_AND_PIXEL_IMPLEMENTATION_FINAL_CLOSEOUT_DIRECTIVE_v18.0_20261001.md
-
-Commander handoff manifest:
-- docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_ASSET_HANDOFF_MANIFEST_v1.0_20261001.json
-
-
-## 14. v18 cycle status update
-
-v18 is closed as:
-ASSET_HANDOFF_REQUIRED
-
-Commander has now resolved the blocker by uploading the exact approved F27E source to Google Drive.
-
-Exact handoff:
-- path: /Google Drive/MINDLE_MEDIA_AI_HANDOFF/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png
-- Drive file ID: 1hyZJpzsDecHgUFwYq463K30JlEJ4jgHA
-- bytes: 1,737,365
-- dimensions: 1536 × 1024
-- SHA-256: f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541
-
-v18 is now REFERENCE_ONLY.
-
-Current ACTIVE:
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md
-
-Google Drive handoff receipt:
-- docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json
-
-
-## 15. v18.1 cycle status update
-
-v18.1 is accepted for F27E handoff, canonical SSOT recovery, approved dark visual implementation, regression tests, and remote Evidence publication.
-
-However final closeout is withheld because commander source review found a Shortform UI SSOT additive regression:
-- approved: retain AI 자동 편집 AND add a separate 광고 숏폼 between AI 자동 편집 and 프로젝트 저장
-- current source: only one visible AI 자동 편집 button exists and it owns data-action="shortform-mode"
-
-v18.1 is now REFERENCE_ONLY for the next narrow correction.
-
-Current ACTIVE:
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md
-
-
-## 15. v18.1 cycle status update
-
-v18.1 is closed as:
-TESTED_PASS
-
-Frozen PASS:
-- exact approved UI F27E installed
-- canonical SSOT/manifest/docs synchronized
-- real DOM/CSS visual implementation complete
-- dark navy final UI PASS
+### v18.1 approved final UI
+Preserved TESTED_PASS:
+- exact F27E UI asset
+- dark navy real DOM/CSS implementation
 - screenshot-cheat gate PASS
 - Python 51 PASS
 - UI 2 PASS
-- v14 runtime/product PASS preserved
 
-v18.1 is now REFERENCE_ONLY.
+Approved UI SHA-256:
+f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541
 
-Current ACTIVE:
-- docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
-
-v19 is a closeout/integrity cycle only. It must not reopen frozen PASS work without regression evidence.
-
-
-## 16. v18.2 cycle status update
-
-v18.2 is closed as:
-TESTED_PASS
-
-Frozen PASS:
-- AI 자동 편집 distinct control
-- 광고 숏폼 distinct control
-- 광고 숏폼 alone owns shortform-mode
-- required action order PASS
-- F27E UI SSOT preserved
-- Python 51 PASS
-- UI tests 2 PASS
-- v18.1 PASS preserved
+### v18.2 additive Shortform UI correction
+Preserved TESTED_PASS:
+- AI 자동 편집 remains a distinct control
+- 광고 숏폼 is a separate control
+- 광고 숏폼 alone owns data-action="shortform-mode"
+- order is 영상 불러오기 → AI 자동 편집 → 광고 숏폼 → 프로젝트 저장 → 내보내기
+- no independent shortform editor
+- F27E UI preserved
 
 Code commit:
 175e509da5cef1415d66fa527ce69711892819d7
@@ -329,25 +103,79 @@ Evidence finalization:
 Remote readback:
 737cded9f09a568513a118abc0330e997a7865b3
 
-v18.2 is now REFERENCE_ONLY.
+## 4. REFERENCE_ONLY — never execute as current work
 
-## 17. Control-plane lock
+All prior recovery/correction directives through v18.2 are historical reference only, including:
+- v12 / v12.1 route correction
+- v13 / v13.1 Evidence-path recovery
+- v14 asset/runtime recovery
+- v15 UI provenance adjudication
+- v16 visual diagnosis
+- v17.0 / v17.1 UI source recovery
+- v18.0 / v18.1 UI handoff and implementation
+- v18.2 Shortform additive correction
 
-CONTROL_PLANE_EPOCH:
-MEDIA-AI-20261001-V19
+Specific v18.2 directive:
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md
 
-Authoritative lock:
-CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
+It is CLOSED / REFERENCE_ONLY.
+It must not be executed again.
 
-Current ACTIVE directive:
-docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
+## 5. HISTORY_ONLY
 
-Current ACTIVE Evidence contract:
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json
+PC Work v1-v11 chains and any unlisted old PC Work directive/review/evidence are HISTORY_ONLY unless the v19 directive explicitly references an exact file for evidence comparison.
 
-CURRENT_PC_WORK_DIRECTIVE.md, CURRENT_PC_WORK_STATE.json, this registry, and the machine registry MUST all declare the same epoch and active cycle.
+Physical presence in the repository does not make a document executable.
 
-Any mismatch:
+## 6. Evidence path rule
+
+Only the current v19 paths are valid completion outputs:
+
+Review:
+docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_REVIEW_v19.0_20261001.md
+
+Machine Evidence:
+evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_EVIDENCE_v19_0_20261001.json
+
+Detailed directory:
+evidence/pc_remote/media-ai-final-integrated-closeout-v19-20261001/
+
+Required detail file count:
+11
+
+Any alternate current-cycle path is NONCOMPLIANT.
+
+## 7. Control-plane invariant
+
+All of the following MUST identify MEDIA-AI-20261001-V19 and the same v19 directive/contract:
+- CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
+- CURRENT_PC_WORK_DIRECTIVE.md
+- CURRENT_PC_WORK_STATE.json
+- this Registry
+- machine Registry JSON
+
+The validator must PASS before worker execution:
+python scripts/validate_pc_work_control_plane.py
+
+If it fails:
 CONTROL_PLANE_MISMATCH_BLOCKED
 
-No worker may choose one conflicting document by precedence and continue. Mismatch must stop execution until the commander reconciles the control plane.
+Do not choose one conflicting source and continue.
+
+## 8. Commander responsibility
+
+Before every new cycle the commander must update, as one coherent control plane:
+1. Lock
+2. Current Directive
+3. Current State
+4. Registry MD
+5. Registry JSON
+6. Evidence Contract/path references
+
+The representative is never responsible for reconciling these.
+
+## Final rule
+
+ONE EPOCH. ONE ACTIVE DIRECTIVE. ONE EVIDENCE CONTRACT. ALL PRIOR CYCLES ARE READ-ONLY.
+
+SYNC → VALIDATE CONTROL PLANE → EXECUTE v19 → EXACT EVIDENCE → PUSH → REMOTE READBACK.
