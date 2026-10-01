@@ -1,108 +1,89 @@
 # MINDLE MEDIA AI — CURRENT PC WORK ACTIVE DIRECTIVE
 
 STATUS: ACTIVE
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261001-V19
 DATE: 2026-10-01
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
 
-## THIS FILE IS THE ONLY STARTING POINT FOR THE PC WORKER
+## THIS FILE IS THE ONLY HUMAN-READABLE STARTING POINT
 
-Before doing ANY work:
+Before ANY work:
 
 1. git fetch origin
 2. checkout feature/ad-shortform-bridge-p0-20260926
-3. pull/reconcile to the current remote branch HEAD
-4. verify this file exists from the updated working tree
-5. read and complete the ACTIVE branch-rebind preflight below
-6. read the Rule Registry below
-7. confirm which rules are ACTIVE / REFERENCE_ONLY / HISTORY_ONLY
-8. read the ACTIVE directive
-9. read the machine-readable Evidence Path Contract
-10. execute only the ACTIVE cycle
-11. publish Evidence to the exact required paths
-12. commit, push, and remote-verify before stopping
+3. reconcile local HEAD to current remote HEAD
+4. read CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
+5. read CURRENT_PC_WORK_STATE.json
+6. read Rule Registry
+7. verify ALL THREE declare CONTROL_PLANE_EPOCH = MEDIA-AI-20261001-V19
+8. verify all three point to the SAME active directive and Evidence contract
+9. if any mismatch: STOP with CONTROL_PLANE_MISMATCH_BLOCKED
+10. only then read and execute the active directive
+11. publish Evidence to exact required paths
+12. commit, push, and remote-readback before stopping
 
-## ACTIVE BRANCH-REBIND PREFLIGHT — MUST COMPLETE FIRST
+## AUTHORITATIVE CONTROL-PLANE LOCK
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
+CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
 
-The PC worker must not continue from any already-open local branch without completing this preflight.
-
-## RULE REGISTRY — MUST READ BEFORE ANY OLD DOCUMENT
-
-Human-readable:
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md
-
-Machine-readable:
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json
-
-DEFAULT RULE:
-Any old PC Work directive/review/evidence NOT explicitly classified ACTIVE or REFERENCE_ONLY by the Rule Registry is HISTORY_ONLY and MUST NOT be executed.
+The lock is authoritative for active-cycle identity.
+This file, CURRENT_PC_WORK_STATE.json, and Rule Registry MUST agree with it.
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md
+docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
 
-Previous accepted cycle:
+## ACTIVE EVIDENCE CONTRACT
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_REVIEW_v13.0_20261001.md
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json
 
-Machine-readable Evidence path contract remains governing for exact-path behavior:
+## PREVIOUS CYCLE — FROZEN PASS
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v18.2_20261001.json
+v18.2 Shortform additive UI correction:
+- TESTED_PASS
+- code commit: 175e509da5cef1415d66fa527ce69711892819d7
+- evidence finalization: 10563ab3c2e3ef3bbec6d23708975b94896edacd
+- remote readback: 737cded9f09a568513a118abc0330e997a7865b3
 
-## EXACT REQUIRED OUTPUT PATHS
+Preserved:
+- AI 자동 편집 remains distinct
+- 광고 숏폼 is a separate control
+- 광고 숏폼 alone owns data-action="shortform-mode"
+- order: 영상 불러오기 → AI 자동 편집 → 광고 숏폼 → 프로젝트 저장 → 내보내기
+- F27E UI SSOT preserved
+- v18.1 PASS preserved
+
+Do NOT execute v18.2 again.
+
+## EXACT REQUIRED v19 OUTPUT PATHS
 
 Human review:
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_SSOT_REGRESSION_REVIEW_v18.2_20261001.md
+docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_REVIEW_v19.0_20261001.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_SSOT_REGRESSION_EVIDENCE_v18_2_20261001.json
+evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_EVIDENCE_v19_0_20261001.json
 
 Detailed Evidence:
-evidence/pc_remote/pc-work-shortform-additive-v18_2-20261001/
+evidence/pc_remote/media-ai-final-integrated-closeout-v19-20261001/
+
+Required detail files: 11
 
 ## HARD STOP RULE
 
-If the worker is about to:
-- execute an old directive not marked ACTIVE
-- create a file name not listed in the ACTIVE directive or Evidence Path Contract
-- continue from remembered/cached instructions before syncing remote HEAD
+STOP if:
+- control-plane epoch differs anywhere
+- active directive differs anywhere
+- Evidence contract differs anywhere
+- local branch is not canonical
+- worker is using remembered/cached instructions
+- worker is about to execute v18.2 or any older directive as current work
 
-STOP THAT ACTION.
+On mismatch:
+STATUS = CONTROL_PLANE_MISMATCH_BLOCKED
 
-Invalid examples:
-- MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md
-- MINDLE_MEDIA_AI_PC_RUNTIME_RESTORE_v16_20261001.json
-- any other invented Evidence filename
-- local-only Evidence
-- chat-only Evidence
-- old v1-v13 PC Work directives as current execution instructions unless explicitly referenced by v14
+The representative is not responsible for reconciling versions.
 
-These do not advance the cycle.
+## FINAL RULE
 
-## STALE CONTEXT GATE
-
-If current remote HEAD was not synced and the Rule Registry was not read:
-
-STATUS = STALE_CONTEXT_BLOCKED
-
-The worker must not continue using remembered or cached rules.
-
-## COMPLETION CONDITION
-
-The cycle is complete only when:
-- current remote HEAD was synced first
-- Rule Registry was read
-- only ACTIVE directives were executed
-- exact review path exists on remote
-- exact Evidence JSON path exists on remote
-- exact detail directory exists on remote
-- all required 12 detail files exist on remote
-- commit is pushed
-- remote readback is verified
-
-The representative is not responsible for reconciling rule versions or Evidence paths.
-
-FINAL RULE:
-SYNC FIRST → READ CURRENT ENTRYPOINT → READ RULE REGISTRY → EXECUTE ONLY ACTIVE DIRECTIVE → SAVE ONLY TO EXACT PATHS → PUSH → REMOTE VERIFY.
+SYNC → LOCK → STATE → REGISTRY → ACTIVE v19 → EXACT EVIDENCE → PUSH → REMOTE READBACK.
