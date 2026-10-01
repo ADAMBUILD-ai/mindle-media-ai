@@ -17,9 +17,9 @@
   "active": {
     "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
     "state": "CURRENT_PC_WORK_STATE.json",
-    "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md",
     "technical_scope": null,
-    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.0_20261001.json",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.1_20261001.json",
     "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
   },
   "reference_only": [
@@ -32,7 +32,9 @@
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md",
     "docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_ADJUDICATION_AND_RELEASE_CLOSEOUT_DIRECTIVE_v15.0_20261001.md",
-    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_EVIDENCE_MATERIALIZATION_AND_SSOT_COMPLIANCE_DIAGNOSIS_DIRECTIVE_v16.0_20261001.md"
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_EVIDENCE_MATERIALIZATION_AND_SSOT_COMPLIANCE_DIAGNOSIS_DIRECTIVE_v16.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_SOURCE_RECOVERY_AND_VISUAL_IMPLEMENTATION_CLOSEOUT_DIRECTIVE_v17.0_20261001.md"
   ],
   "history_only_ranges": [
     "PC Work v1-v11 directives, next directives, reviews and their evidence unless explicitly referenced by ACTIVE directive"
@@ -50,7 +52,15 @@
     "version": "v16",
     "result": "VISUAL_IMPLEMENTATION_GAP",
     "status": "REFERENCE_ONLY",
-    "note": "canonical UI lacks approved visual stylesheet; 9AAF candidate non-decodable"
+    "note": "exact approved f27e source later recovered from ChatGPT Library"
   },
-  "required_detail_file_count": 15
+  "required_detail_file_count": 15,
+  "approved_ui_source": {
+    "library_filename": "네온 다크 테마 AI 미디어 편집기.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541"
+  }
 }
