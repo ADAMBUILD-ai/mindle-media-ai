@@ -49,4 +49,4 @@ Evidence paths:
 - `evidence/pc_remote/pc-work-long-run-full-closeout-v10-20261001/manifest.json`
 - Next directive: `docs/commander/MINDLE_MEDIA_AI_PC_WORK_LONG_RUN_FULL_BASE_PRODUCT_CLOSEOUT_NEXT_DIRECTIVE_v10.1_20261001.md`
 
-Final commit SHA is recorded after commit and remote verification.
+Evidence/next-directive commit SHA: `501d5edc60a3954ac0055949e869297df074b3f0`.
