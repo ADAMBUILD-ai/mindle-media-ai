@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "epoch": "MEDIA-AI-20261001-V19",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json",
+  "exact_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_REVIEW_v19.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_EVIDENCE_v19_0_20261001.json",
+    "detail_dir": "evidence/pc_remote/media-ai-final-integrated-closeout-v19-20261001/"
+  },
+  "required_detail_file_count": 11,
+  "previous_cycle": {
+    "version": "v18.2",
+    "result": "TESTED_PASS",
+    "code_commit": "175e509da5cef1415d66fa527ce69711892819d7",
+    "evidence_finalization_commit": "10563ab3c2e3ef3bbec6d23708975b94896edacd",
+    "remote_readback_commit": "737cded9f09a568513a118abc0330e997a7865b3"
+  },
+  "frozen_pass": [
+    "v14 base product runtime",
+    "v18.1 approved F27E visual UI",
+    "v18.2 additive shortform action identity/order"
+  ],
+  "invariants": {
+    "current_directive_epoch_must_equal": "MEDIA-AI-20261001-V19",
+    "current_state_epoch_must_equal": "MEDIA-AI-20261001-V19",
+    "registry_epoch_must_equal": "MEDIA-AI-20261001-V19",
+    "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
+    "worker_must_not_execute_on_mismatch": true
+  }
+}
