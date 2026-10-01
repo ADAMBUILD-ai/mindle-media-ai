@@ -1,22 +1,22 @@
 {
   "schema_version": "1.0",
-  "epoch": "MEDIA-AI-20261002-V20.2.1",
+  "epoch": "MEDIA-AI-20261002-V20.2.2",
   "date": "2026-10-01",
   "status": "ACTIVE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_SPACEFILL_COLOR_CORRECTION_DIRECTIVE_v20.2.1_20261002.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.1_20261002.json",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_CORRECTION_DIRECTIVE_v20.2.2_20261002.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.2_20261002.json",
   "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_COLOR_CORRECTION_REVIEW_v20.2.1_20261002.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_COLOR_CORRECTION_EVIDENCE_v20_2_1_20261002.json",
-    "detail_dir": "evidence/pc_remote/media-ai-ui-geometry-color-v20_2_1-20261002/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_REVIEW_v20.2.2_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_EVIDENCE_v20_2_2_20261002.json",
+    "detail_dir": "evidence/pc_remote/media-ai-left-panel-v20_2_2-20261002/"
   },
-  "required_detail_file_count": 22,
+  "required_detail_file_count": 20,
   "previous_cycle": {
-    "version": "v20.2",
-    "result": "UI_CORRECTION_REQUIRED",
-    "source": "representative Windows photos"
+    "version": "v20.2.1",
+    "result": "UI_CORRECTION_READY_FOR_REPRESENTATIVE",
+    "note": "center/right baseline accepted; left panel correction remains"
   },
   "frozen_pass": [
     "v14 base product runtime",
@@ -25,9 +25,9 @@
     "v19 integrated base-product closeout"
   ],
   "invariants": {
-    "current_directive_epoch_must_equal": "MEDIA-AI-20261002-V20.2.1",
-    "current_state_epoch_must_equal": "MEDIA-AI-20261002-V20.2.1",
-    "registry_epoch_must_equal": "MEDIA-AI-20261002-V20.2.1",
+    "current_directive_epoch_must_equal": "MEDIA-AI-20261002-V20.2.2",
+    "current_state_epoch_must_equal": "MEDIA-AI-20261002-V20.2.2",
+    "registry_epoch_must_equal": "MEDIA-AI-20261002-V20.2.2",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_not_execute_on_mismatch": true
   },
