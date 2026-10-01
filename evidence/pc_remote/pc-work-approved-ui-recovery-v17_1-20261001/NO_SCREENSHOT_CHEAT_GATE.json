@@ -1,0 +1,10 @@
+{
+  "status": "PASS_FOR_NON_IMPLEMENTATION",
+  "approved_png_used_as_body_background": false,
+  "approved_png_used_as_overlay": false,
+  "controls_remain_dom_controls": true,
+  "inputs_remain_html_controls": true,
+  "timeline_not_flattened": true,
+  "save_export_integration_removed": false,
+  "note": "No visual implementation was attempted because the exact source was unavailable; the gate is not a visual conformance PASS."
+}
