@@ -1,0 +1,8 @@
+node --test ui/ssot_structure.test.js ui/interaction.test.js
+PASS: 2 tests
+
+pytest -q tests/test_ui_contract.py tests/test_ui_bridge.py tests/test_shortform_bridge.py
+PASS: 16 tests
+
+Browser: http://127.0.0.1:8768/ loaded after restart.
+
