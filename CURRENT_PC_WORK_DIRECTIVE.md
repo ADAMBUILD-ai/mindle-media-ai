@@ -41,7 +41,7 @@ Any old PC Work directive/review/evidence NOT explicitly classified ACTIVE or RE
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_APPROVED_UI_ASSET_HANDOFF_AND_PIXEL_IMPLEMENTATION_FINAL_CLOSEOUT_DIRECTIVE_v18.0_20261001.md
 
 Previous accepted cycle:
 
@@ -49,18 +49,18 @@ docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_REV
 
 Machine-readable Evidence path contract remains governing for exact-path behavior:
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v17.1_20261001.json
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v18.0_20261001.json
 
 ## EXACT REQUIRED OUTPUT PATHS
 
 Human review:
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_F27E_VISUAL_CLOSEOUT_REVIEW_v17.1_20261001.md
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_FINAL_IMPLEMENTATION_REVIEW_v18.0_20261001.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_F27E_VISUAL_CLOSEOUT_EVIDENCE_v17_1_20261001.json
+evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_FINAL_IMPLEMENTATION_EVIDENCE_v18_0_20261001.json
 
 Detailed Evidence:
-evidence/pc_remote/pc-work-approved-ui-recovery-v17_1-20261001/
+evidence/pc_remote/pc-work-approved-ui-final-v18-20261001/
 
 ## HARD STOP RULE
 
@@ -98,7 +98,7 @@ The cycle is complete only when:
 - exact review path exists on remote
 - exact Evidence JSON path exists on remote
 - exact detail directory exists on remote
-- all required 15 detail files exist on remote
+- all required 16 detail files exist on remote
 - commit is pushed
 - remote readback is verified
 
