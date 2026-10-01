@@ -1,1 +1,1 @@
-PENDING: written before commit; updated after push and remote fetch/read verification.
+PASS: commit 40622883b91d6a3ba65adf3e9b547604aa5d5073 was pushed to origin/feature/ad-shortform-bridge-p0-20260926. git ls-remote matched the remote branch SHA. FETCH_HEAD contained the exact v14 evidence JSON, MANIFEST.json, and REMOTE_PUSH_VERIFY.txt paths.

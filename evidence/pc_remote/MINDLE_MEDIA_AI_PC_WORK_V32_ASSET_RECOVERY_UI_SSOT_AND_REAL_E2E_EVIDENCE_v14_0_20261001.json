@@ -1,7 +1,7 @@
 {
   "status": "PARTIAL_PASS_UI_SSOT_BLOCKED",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "commit": "b5da52a1053bb650fa6d1eaedf05b0689ccdcbc3",
+  "commit": "40622883b91d6a3ba65adf3e9b547604aa5d5073",
   "detail_directory": "evidence/pc_remote/pc-work-v32-asset-recovery-ui-ssot-v14-20261001/",
   "hard_gate": {
     "model_assets_recovered": true,
@@ -12,6 +12,6 @@
     "korean_stt": true,
     "project_save_export_reopen": true,
     "ui_ssot_exact_hash": false,
-    "remote_push_verified": false
+    "remote_push_verified": true
   }
 }
