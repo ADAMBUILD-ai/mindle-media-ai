@@ -1,0 +1,54 @@
+{
+  "contract_version": "20.2.1",
+  "date": "2026-10-02",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261002-V20.2.1",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_SPACEFILL_COLOR_CORRECTION_DIRECTIVE_v20.2.1_20261002.md",
+  "parent_cycle": "v20.2 representative UI gate",
+  "representative_ruling": "UI_CORRECTION_REQUIRED",
+  "icon_phase_status": "BLOCKED_PENDING_UI_APPROVAL",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_COLOR_CORRECTION_REVIEW_v20.2.1_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_COLOR_CORRECTION_EVIDENCE_v20_2_1_20261002.json",
+    "detail_directory": "evidence/pc_remote/media-ai-ui-geometry-color-v20_2_1-20261002/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CONTROL_PLANE_VALIDATION.txt",
+      "CSS_ROOT_CAUSE_ANALYSIS.json",
+      "APPROVED_REFERENCE_IDENTITY.json",
+      "BEFORE_MAXIMIZED.png",
+      "BEFORE_SPLIT.png",
+      "AFTER_MAXIMIZED.png",
+      "AFTER_SPLIT.png",
+      "SIDE_BY_SIDE_AFTER.png",
+      "PANEL_GEOMETRY_MATRIX.json",
+      "COLOR_TOKEN_COMPARISON.json",
+      "VIDEO_CENTER_FILL_AUDIT.json",
+      "VIDEO_RIGHT_FILL_AUDIT.json",
+      "PHOTO_CENTER_FILL_AUDIT.json",
+      "PHOTO_RIGHT_FILL_AUDIT.json",
+      "SHORTFORM_HEADER_AUDIT.json",
+      "FUNCTION_ACTIVATION_AUDIT.json",
+      "ONE_CHANGE_ISOLATION_AUDIT.json",
+      "REPRESENTATIVE_SCREEN_GATE.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 22,
+  "final_fixed_ui_authority": {
+    "base": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+    "base_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "additive": "docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md"
+  },
+  "allowed_results": [
+    "UI_CORRECTION_READY_FOR_REPRESENTATIVE",
+    "UI_CORRECTION_REQUIRED",
+    "REPRESENTATIVE_UI_APPROVED",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}
