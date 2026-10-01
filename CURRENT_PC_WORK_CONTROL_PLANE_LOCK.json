@@ -32,5 +32,13 @@
     "worker_must_not_execute_on_mismatch": true
   },
   "validator": "scripts/validate_pc_work_control_plane.py",
-  "validator_required_result": "CONTROL_PLANE_PASS"
+  "validator_required_result": "CONTROL_PLANE_PASS",
+  "required_detail_file_count_before_ui_decision": 20,
+  "required_detail_file_count_after_ui_approval": 30,
+  "final_closeout_requires": [
+    "representative_ui_approval",
+    "representative_icon_selection",
+    "final_icon_application_verify"
+  ],
+  "representative_icon_phase": "conditional_after_ui_approval"
 }
