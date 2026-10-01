@@ -34,24 +34,54 @@ Activate v20.2 only after:
 
 When activated, the control-plane validator must be updated to v20.2 before execution.
 
-## 2. Frozen visual authority
+## 2. Final fixed UI authority — BASE + ADDITIVE SHORTFORM
 
-Approved UI source:
+IMPORTANT CORRECTION:
 
+The F27E PNG alone is NOT the complete final fixed UI because it predates the approved 광고 숏폼 additive change.
+
+The final fixed UI is defined by TWO authoritative layers together:
+
+### A. Base visual/layout authority
 ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png
 
 Expected SHA-256:
-
 f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541
 
-This exact file is the visual reference.
+This fixes:
+- overall dark navy visual identity
+- upper VIDEO / lower PHOTO structure
+- left / center / right panel geometry
+- Preview / Timeline / editing panel placement
+- typography / spacing / accent hierarchy
+- natural-language command panel placement
+- Save / Export visual family
+
+### B. Final additive Shortform authority
+docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md
+
+This later approved addendum modifies the VIDEO action row ONLY by adding:
+광고 숏폼
+
+Required final VIDEO action order:
+영상 불러오기
+→ AI 자동 편집
+→ 광고 숏폼
+→ 프로젝트 저장
+→ 내보내기
+
+Therefore:
+- the uploaded/F27E baseline without 광고 숏폼 is NOT the final complete UI
+- final comparison must evaluate the F27E visual/layout baseline PLUS the Shortform Addendum
+- a live UI identical to F27E but missing 광고 숏폼 is NONCOMPLIANT
 
 Do NOT:
-- redesign it
-- replace it
+- redesign the base F27E structure
+- omit 광고 숏폼
+- replace AI 자동 편집 with 광고 숏폼
+- merge the two controls
 - generate a lookalike
-- use a newer worker interpretation as authority
-- treat test PASS as representative visual approval
+- treat automated PASS as representative visual approval
 
 ## 3. Representative on-screen visual gate — MANDATORY
 
@@ -118,7 +148,7 @@ Required visible order in VIDEO header:
 → 프로젝트 저장
 → 내보내기
 
-## 5. Fixed UI comparison checklist
+## 5. Final fixed UI comparison checklist — F27E BASE + SHORTFORM ADDENDUM
 
 Compare the live UI against the exact F27E reference for:
 
@@ -139,6 +169,10 @@ Compare the live UI against the exact F27E reference for:
 - neon accent hierarchy
 - borders / cards / separators
 - Shortform additive button placement
+- AI 자동 편집 remains present as a separate control
+- 광고 숏폼 is present as a separate control
+- 광고 숏폼 appears between AI 자동 편집 and 프로젝트 저장
+- exactly one 광고 숏폼 entry exists
 
 Classify each:
 
@@ -155,7 +189,7 @@ The worker may perform automated comparison and functional checks, but ONLY the 
 
 Required final human-facing question shown while UI is still open:
 
-"신작가님, 지금 오른쪽의 실제 실행 UI가 왼쪽의 최종 승인 UI와 동일한 기준으로 구현된 것이 맞습니까?"
+"신작가님, 지금 오른쪽 실제 실행 UI가 왼쪽의 F27E 기본 UI 구조를 유지하면서, 최종 승인된 광고 숏폼 버튼까지 포함한 최종 고정 UI가 맞습니까?"
 
 Allowed representative responses:
 - APPROVED_AS_FIXED_UI
@@ -346,7 +380,8 @@ Preserve:
 ### REPRESENTATIVE_UI_APPROVED
 Only if:
 - actual Windows UI was displayed
-- exact F27E reference displayed
+- exact F27E base reference displayed
+- Shortform Addendum requirement displayed and verified
 - side-by-side comparison completed
 - functional activation audit completed
 - no blocking UI function defects
