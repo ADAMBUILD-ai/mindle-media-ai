@@ -1,0 +1,11 @@
+{
+  "status": "TESTED_PASS",
+  "approved_asset": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+  "approved_asset_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "manifest_status": "APPROVED_PINNED",
+  "live_url": "http://127.0.0.1:8765/",
+  "live_visual": "dark navy F27E implementation rendered; no white fallback",
+  "video_action_order": ["영상 불러오기", "AI 자동 편집", "광고 숏폼", "프로젝트 저장", "내보내기"],
+  "photo_area_preserved": true,
+  "independent_shortform_page": false
+}
