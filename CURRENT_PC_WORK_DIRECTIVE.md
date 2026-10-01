@@ -49,7 +49,7 @@ docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_REV
 
 Machine-readable Evidence path contract remains governing for exact-path behavior:
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v1.0_20261001.json
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v14.0_20261001.json
 
 ## EXACT REQUIRED OUTPUT PATHS
 
@@ -98,7 +98,7 @@ The cycle is complete only when:
 - exact review path exists on remote
 - exact Evidence JSON path exists on remote
 - exact detail directory exists on remote
-- all required 12 detail files exist on remote
+- all required 14 detail files exist on remote
 - commit is pushed
 - remote readback is verified
 
