@@ -31,5 +31,7 @@
     "registry_epoch_must_equal": "MEDIA-AI-20261001-V19",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_not_execute_on_mismatch": true
-  }
+  },
+  "validator": "scripts/validate_pc_work_control_plane.py",
+  "validator_required_result": "CONTROL_PLANE_PASS"
 }
