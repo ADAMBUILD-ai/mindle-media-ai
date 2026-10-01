@@ -37,5 +37,5 @@
   "repeated_download_attempt": false,
   "mixed_generation_reassembly": false,
   "fabricated_assets_or_results": false,
-  "final_commit_sha": "PENDING"
+  "evidence_commit_sha": "2fe6696"
 }

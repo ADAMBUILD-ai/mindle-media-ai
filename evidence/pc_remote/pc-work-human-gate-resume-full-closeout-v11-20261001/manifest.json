@@ -8,5 +8,5 @@
     "artifact_id": 10797756522,
     "status": "HUMAN_ACTION_REQUIRED"
   },
-  "final_commit_sha": "PENDING"
+  "evidence_commit_sha": "2fe6696"
 }
