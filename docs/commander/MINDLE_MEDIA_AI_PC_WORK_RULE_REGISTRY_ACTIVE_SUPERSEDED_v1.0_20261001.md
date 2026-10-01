@@ -41,7 +41,7 @@ A lower item can never override a higher item.
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md
 
 ### Active execution directive
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md
 
 ### Active technical scope
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
@@ -160,3 +160,18 @@ The representative is not responsible for reconciling rules, versions, or Eviden
 HISTORICAL DOCUMENTS STAY FOR AUDIT, BUT ONLY ACTIVE DOCUMENTS CAN DRIVE WORK.
 
 SYNC FIRST → READ CURRENT ENTRYPOINT → CHECK RULE REGISTRY → EXECUTE ONLY ACTIVE DIRECTIVE → SAVE TO EXACT ACTIVE PATHS → PUSH → REMOTE VERIFY.
+
+
+## 10. v13 cycle status update
+
+The v13 cycle is now closed as:
+PARTIAL_PASS — repository/branch/evidence recovery only.
+
+The following are no longer active execution directives:
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md
+
+They are now REFERENCE_ONLY for the v14 recovery lineage.
+
+Current ACTIVE product-recovery directive:
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md
