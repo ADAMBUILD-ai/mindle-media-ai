@@ -4,13 +4,13 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md",
   "technical_scope": null,
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.0_20261001.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_REVIEW_v19.0_20261001.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_EVIDENCE_v19_0_20261001.json",
-    "detail_dir": "evidence/pc_remote/media-ai-final-integrated-closeout-v19-20261001/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_REVIEW_v20.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_EVIDENCE_v20_0_20261001.json",
+    "detail_dir": "evidence/pc_remote/media-ai-marketing-live-shortform-v20-20261001/"
   },
   "forbidden_outputs": [
     "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
@@ -27,8 +27,8 @@
   "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
   "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
   "branch_assertion_required_before_work": true,
-  "previous_cycle_result": "v18.2 TESTED_PASS accepted; additive shortform UI correction frozen",
-  "required_detail_file_count": 11,
+  "previous_cycle_result": "v19 BASE_PRODUCT_TESTED_PASS_SHORTFORM_EXTERNAL_DEPENDENCY; Marketing live dependency now supplied",
+  "required_detail_file_count": 16,
   "approved_ui_library_filename": "네온 다크 테마 AI 미디어 편집기.png",
   "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
   "superseded_v17_directives": [
@@ -51,10 +51,8 @@
   },
   "google_drive_handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json",
   "current_known_issue": {
-    "type": "NONE",
-    "previous_issue": "SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION",
-    "resolution": "TESTED_PASS at code commit 175e509da5cef1415d66fa527ce69711892819d7",
-    "remote_readback": "737cded9f09a568513a118abc0330e997a7865b3"
+    "type": "MARKETING_LIVE_E2E_COMPLETION",
+    "note": "Replace MEDIA 503 stub with real Marketing connection and complete real MP4 E2E"
   },
   "frozen_pass": {
     "base_product": true,
@@ -63,10 +61,21 @@
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   },
-  "control_plane_epoch": "MEDIA-AI-20261001-V19",
+  "control_plane_epoch": "MEDIA-AI-20261001-V20",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
   "worker_must_validate_epoch_before_work": true,
   "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
-  "control_plane_validator_required_result": "CONTROL_PLANE_PASS"
+  "control_plane_validator_required_result": "CONTROL_PLANE_PASS",
+  "marketing_live_provider": {
+    "repository": "ADAMBUILD-ai/mindle-marketing-department",
+    "pr": 4,
+    "branch": "feature/shortform-bridge-p0-20260926",
+    "commit": "3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a",
+    "workflow_run": 36852551111,
+    "workflow_result": "SUCCESS",
+    "base_url": "http://127.0.0.1:4318",
+    "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
+  },
+  "active_cycle_version": "v20.0"
 }
