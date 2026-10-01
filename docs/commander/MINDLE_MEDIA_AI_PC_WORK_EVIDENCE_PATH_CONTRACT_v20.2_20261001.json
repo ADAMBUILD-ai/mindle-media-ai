@@ -46,5 +46,24 @@
     "REPRESENTATIVE_VISUAL_REVIEW_REQUIRED",
     "UI_CORRECTION_REQUIRED",
     "FAIL"
-  ]
+  ],
+  "final_fixed_ui_authority": {
+    "base_visual_ssot": {
+      "path": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+      "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+      "role": "base visual/layout authority"
+    },
+    "additive_shortform_ssot": {
+      "path": "docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md",
+      "required_video_action_order": [
+        "영상 불러오기",
+        "AI 자동 편집",
+        "광고 숏폼",
+        "프로젝트 저장",
+        "내보내기"
+      ],
+      "role": "final additive UI authority"
+    },
+    "rule": "Final fixed UI = F27E base visual/layout + Shortform Addendum. F27E alone is incomplete."
+  }
 }
