@@ -14,14 +14,22 @@ Before ANY work:
 2. checkout feature/ad-shortform-bridge-p0-20260926
 3. reconcile local HEAD to current remote HEAD
 4. read CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
-5. read CURRENT_PC_WORK_STATE.json
-6. read Rule Registry
-7. verify ALL THREE declare CONTROL_PLANE_EPOCH = MEDIA-AI-20261001-V19
-8. verify all three point to the SAME active directive and Evidence contract
-9. if any mismatch: STOP with CONTROL_PLANE_MISMATCH_BLOCKED
-10. only then read and execute the active directive
-11. publish Evidence to exact required paths
-12. commit, push, and remote-readback before stopping
+5. run: python scripts/validate_pc_work_control_plane.py
+6. read CURRENT_PC_WORK_STATE.json
+7. read Rule Registry
+8. verify ALL THREE declare CONTROL_PLANE_EPOCH = MEDIA-AI-20261001-V19
+9. verify all three point to the SAME active directive and Evidence contract
+10. if validator or any manual check fails: STOP with CONTROL_PLANE_MISMATCH_BLOCKED
+11. only then read and execute the active directive
+12. publish Evidence to exact required paths
+13. commit, push, and remote-readback before stopping
+
+## AUTOMATIC CONTROL-PLANE VALIDATOR
+
+scripts/validate_pc_work_control_plane.py
+
+Required result before execution:
+CONTROL_PLANE_PASS
 
 ## AUTHORITATIVE CONTROL-PLANE LOCK
 
