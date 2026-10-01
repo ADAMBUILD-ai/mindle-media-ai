@@ -303,3 +303,51 @@ Current ACTIVE:
 - docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
 
 v19 is a closeout/integrity cycle only. It must not reopen frozen PASS work without regression evidence.
+
+
+## 16. v18.2 cycle status update
+
+v18.2 is closed as:
+TESTED_PASS
+
+Frozen PASS:
+- AI 자동 편집 distinct control
+- 광고 숏폼 distinct control
+- 광고 숏폼 alone owns shortform-mode
+- required action order PASS
+- F27E UI SSOT preserved
+- Python 51 PASS
+- UI tests 2 PASS
+- v18.1 PASS preserved
+
+Code commit:
+175e509da5cef1415d66fa527ce69711892819d7
+
+Evidence finalization:
+10563ab3c2e3ef3bbec6d23708975b94896edacd
+
+Remote readback:
+737cded9f09a568513a118abc0330e997a7865b3
+
+v18.2 is now REFERENCE_ONLY.
+
+## 17. Control-plane lock
+
+CONTROL_PLANE_EPOCH:
+MEDIA-AI-20261001-V19
+
+Authoritative lock:
+CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
+
+Current ACTIVE directive:
+docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md
+
+Current ACTIVE Evidence contract:
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v19.0_20261001.json
+
+CURRENT_PC_WORK_DIRECTIVE.md, CURRENT_PC_WORK_STATE.json, this registry, and the machine registry MUST all declare the same epoch and active cycle.
+
+Any mismatch:
+CONTROL_PLANE_MISMATCH_BLOCKED
+
+No worker may choose one conflicting document by precedence and continue. Mismatch must stop execution until the commander reconciles the control plane.
