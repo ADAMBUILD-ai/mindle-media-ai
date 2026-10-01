@@ -123,3 +123,24 @@ Final closeout is forbidden before this gate.
 ## FINAL RULE
 
 SYNC → VALIDATE → SHOW REAL WINDOWS UI → COMPARE F27E + SHORTFORM ADDENDUM → EXERCISE LIVE CONTROLS → LEAVE UI OPEN → REPRESENTATIVE DECISION → EVIDENCE → PUSH → READBACK.
+
+
+## CONDITIONAL ICON PHASE
+
+After the representative says the live UI is OK:
+
+1. do NOT close the MEDIA AI app
+2. create exactly three MEDIA AI icon candidates from the approved visual identity
+3. show all three candidates on the Windows screen
+4. wait for representative icon selection
+5. only the selected icon may become the production icon
+6. generate PNG size set + Windows ICO
+7. apply favicon / Windows shortcut icon where applicable
+8. verify the real launcher/shortcut opens the canonical MEDIA AI UI
+9. leave the final icon/application visible for representative confirmation
+
+Final closeout requires BOTH:
+- representative UI approval
+- representative icon approval/application verification
+
+UI approval alone is not final closeout.
