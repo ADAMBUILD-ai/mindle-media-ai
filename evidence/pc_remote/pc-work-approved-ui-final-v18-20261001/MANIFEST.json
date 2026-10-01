@@ -1,0 +1,11 @@
+{
+  "result": "ASSET_HANDOFF_REQUIRED",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_APPROVED_UI_ASSET_HANDOFF_AND_PIXEL_IMPLEMENTATION_FINAL_CLOSEOUT_DIRECTIVE_v18.0_20261001.md",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "handoff_path": "incoming/commander/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+  "handoff_present": false,
+  "implementation_started": false,
+  "substitute_used": false,
+  "reason": "The exact commander handoff file is absent at the only permitted PC path."
+}

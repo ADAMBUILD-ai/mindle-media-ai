@@ -1,0 +1,133 @@
+{
+  "version": "1.5",
+  "date": "2026-10-02",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "precedence": [
+    "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+    "scripts/validate_pc_work_control_plane.py",
+    "CURRENT_PC_WORK_DIRECTIVE.md",
+    "CURRENT_PC_WORK_STATE.json",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md",
+    "active_directive",
+    "active_evidence_contract",
+    "MASTER/SSOT",
+    "REFERENCE_ONLY",
+    "HISTORY_ONLY"
+  ],
+  "active": {
+    "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
+    "state": "CURRENT_PC_WORK_STATE.json",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_SPACEFILL_COLOR_CORRECTION_DIRECTIVE_v20.2.1_20261002.md",
+    "technical_scope": null,
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.1_20261002.json",
+    "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
+  },
+  "reference_only": [
+    "docs/commander/MINDLE_MEDIA_AI_NEW_PC_WORKER_BOOTSTRAP_ROUTE_CORRECTION_HANDOFF_v1.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_ROUTE_CORRECTION_NO_GITHUB_LOGIN_LOOP_DIRECTIVE_v12.1_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FIRST_PRODUCT_RECOVERY_DIRECTIVE_v12.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_LOCATION_COMMIT_PUSH_OPERATING_RULE_v2.0_20260930.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_MANDATORY_EVIDENCE_SAVE_CONTINUATION_RULE_v1.0_20260930.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_UI_SSOT_PROVENANCE_FINAL_ADJUDICATION_AND_RELEASE_CLOSEOUT_DIRECTIVE_v15.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_LIVE_UI_VISUAL_EVIDENCE_MATERIALIZATION_AND_SSOT_COMPLIANCE_DIAGNOSIS_DIRECTIVE_v16.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_SOURCE_RECOVERY_AND_VISUAL_IMPLEMENTATION_CLOSEOUT_DIRECTIVE_v17.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_APPROVED_UI_ASSET_HANDOFF_AND_PIXEL_IMPLEMENTATION_FINAL_CLOSEOUT_DIRECTIVE_v18.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_E2E_FINAL_COMPLETION_DIRECTIVE_v20.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_LOCAL_MARKETING_RUNTIME_BOOTSTRAP_AUTH_MP4_E2E_DIRECTIVE_v20.1_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_WINDOWS_ONSCREEN_UI_REPRESENTATIVE_VISUAL_FUNCTION_AUDIT_DIRECTIVE_v20.2_20261001.md"
+  ],
+  "history_only_ranges": [
+    "PC Work v1-v11 directives, next directives, reviews and their evidence unless explicitly referenced by ACTIVE directive"
+  ],
+  "default_for_unlisted_pc_work_docs": "HISTORY_ONLY",
+  "stale_context_status": "STALE_CONTEXT_BLOCKED",
+  "sync_required": true,
+  "worker_may_invent_evidence_names": false,
+  "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "stale_local_branches": [
+    "work/ui-final-pc-work-20260924"
+  ],
+  "branch_assertion_required_before_work": true,
+  "previous_cycle": {
+    "version": "v20.2",
+    "result": "UI_CORRECTION_REQUIRED",
+    "status": "REFERENCE_ONLY",
+    "source": "representative Windows photos"
+  },
+  "required_detail_file_count": 22,
+  "approved_ui_source": {
+    "provider": "Google Drive",
+    "path": "/Google Drive/MINDLE_MEDIA_AI_HANDOFF/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+    "drive_file_id": "1hyZJpzsDecHgUFwYq463K30JlEJ4jgHA",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "size_bytes": 1737365,
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "commander_verified": true,
+    "handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json"
+  },
+  "current_known_issue": {
+    "type": "FINAL_UI_GEOMETRY_COLOR_DENSITY_MISMATCH",
+    "details": [
+      "VIDEO center/right dead space",
+      "PHOTO center/right dead space",
+      "responsive compression",
+      "F27E density/proportion mismatch",
+      "color hierarchy mismatch"
+    ]
+  },
+  "final_closeout": {
+    "frozen_base_runtime": "v14",
+    "frozen_final_ui": "v18.1",
+    "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
+    "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
+  },
+  "control_plane_epoch": "MEDIA-AI-20261002-V20.2.1",
+  "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+  "control_plane_invariant": {
+    "epoch_must_match": "MEDIA-AI-20261002-V20.2.1",
+    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_SPACEFILL_COLOR_CORRECTION_DIRECTIVE_v20.2.1_20261002.md",
+    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.1_20261002.json",
+    "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
+    "worker_must_stop_on_mismatch": true
+  },
+  "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
+  "control_plane_validator_required_result": "CONTROL_PLANE_PASS",
+  "active_cycle_version": "v20.2.1",
+  "marketing_live_provider": {
+    "repository": "ADAMBUILD-ai/mindle-marketing-department",
+    "pr": 4,
+    "branch": "feature/shortform-bridge-p0-20260926",
+    "commit": "3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a",
+    "workflow_run": 36852551111,
+    "workflow_result": "SUCCESS",
+    "base_url": "http://127.0.0.1:4318",
+    "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
+  },
+  "final_fixed_ui_definition": {
+    "base": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+    "base_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "additive": "docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md",
+    "video_action_order": [
+      "영상 불러오기",
+      "AI 자동 편집",
+      "광고 숏폼",
+      "프로젝트 저장",
+      "내보내기"
+    ]
+  },
+  "representative_icon_phase": "BLOCKED_PENDING_UI_APPROVAL"
+}

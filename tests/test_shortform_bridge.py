@@ -2,7 +2,7 @@ from dataclasses import replace
 import pytest
 
 from media_ai.marketing_shortform_gateway import build_marketing_shortform_request
-from media_ai.shortform_bridge import ShortformContractError, authorize_export, read_shortform_contract
+from media_ai.shortform_bridge import ShortformContractError, authorize_export, normalize_marketing_contract, read_shortform_contract
 
 def contract():
     assets = [
@@ -57,3 +57,20 @@ def test_media_entry_builds_fail_closed_marketing_request():
     assert request["requested_output"] == "shortform_bridge_contract"
     assert request["allow_publish"] is False
     assert request["allow_ad_spend"] is False
+
+
+def test_marketing_contract_adapter_preserves_external_identity_and_maps_handoff_state():
+    raw = {
+        "contract_version": "1.0", "product_or_project": "MINDLE ADA",
+        "platform": "generic", "approval_state": "handoff_ready",
+        "representative_approval": {"decision": "approve"},
+        "resolved_assets": [{"asset_id": "e2e-source-image"}],
+        "scenes": [{"scene_id": "scene_01", "start_sec": 0, "end_sec": 15, "asset_id": "e2e-source-image"}],
+        "duration": 15, "aspect_ratio": "9:16",
+    }
+    normalized = normalize_marketing_contract(raw)
+    assert raw["product_or_project"] == "MINDLE ADA"
+    assert normalized["product"] == "MARKETING_EXTERNAL"
+    assert normalized["platform"] == "other"
+    assert normalized["approval_state"] == "representative_approved"
+    assert normalized["scenes"][0]["id"] == "scene_01"

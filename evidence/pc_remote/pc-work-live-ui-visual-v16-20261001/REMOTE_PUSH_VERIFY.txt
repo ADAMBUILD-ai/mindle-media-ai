@@ -1,0 +1,1 @@
+PASS: v16 commit a6e9205 was pushed to origin/feature/ad-shortform-bridge-p0-20260926. Exact review, machine Evidence JSON, and all 11 detail paths were read back from FETCH_HEAD.

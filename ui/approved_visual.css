@@ -155,8 +155,6 @@ main { width: auto; max-width: none; margin: 0; }
 [data-editor="video"] [data-timeline="video"] { flex: 1 1 52%; min-height: 165px; display: flex; flex-direction: column; justify-content: space-evenly; }
 [data-editor="video"] [data-timeline="video"] .track { flex: 1 1 0; min-height: 30px; }
 [data-editor="video"] [data-panel="video-right"] { display: flex; flex-direction: column; justify-content: space-between; min-height: 0; }
-[data-editor="video"] [data-panel="video-right"] .tool-grid { flex: 0 0 auto; }
-[data-editor="video"] [data-panel="video-right"] .range-row, [data-editor="video"] [data-panel="video-right"] .toggle-row { flex: 0 0 auto; }
 [data-editor="photo"] [data-layout="left-center-right"] { min-height: 348px; }
 [data-editor="photo"] [data-panel="photo-center"] { display: flex; flex-direction: column; justify-content: flex-start; min-height: 0; }
 [data-editor="photo"] [data-panel="photo-center"] [data-preview="photo"] { flex: 1 1 auto; min-height: 260px; }

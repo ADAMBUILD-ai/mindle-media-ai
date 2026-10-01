@@ -1,0 +1,44 @@
+{
+  "contract_version": "20.1",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261001-V20.1",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_LOCAL_MARKETING_RUNTIME_BOOTSTRAP_AUTH_MP4_E2E_DIRECTIVE_v20.1_20261001.md",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_MP4_E2E_REVIEW_v20.1_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_MP4_E2E_EVIDENCE_v20_1_20261001.json",
+    "detail_directory": "evidence/pc_remote/media-ai-marketing-live-shortform-v20_1-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CONTROL_PLANE_VALIDATION.txt",
+      "MARKETING_LOCAL_CHECKOUT.json",
+      "EPHEMERAL_TOKEN_BOOTSTRAP.json",
+      "MARKETING_RUNTIME_HEALTH.json",
+      "AUTHENTICATED_CONTRACT_GET.json",
+      "APPROVED_CONTRACT_RAW.json",
+      "ASSET_HTTP_HASH_VERIFY.json",
+      "FFMPEG_RUNTIME_RECOVERY.json",
+      "MEDIA_GATEWAY_LIVE_RESULT.json",
+      "SHORTFORM_RENDER_RESULT.json",
+      "VOICEOVER_DEPENDENCY_AUDIT.json",
+      "PREVIEW_VERIFY.json",
+      "MP4_EXPORT_VERIFY.json",
+      "SHORTFORM_FINAL_15S_9X16.mp4",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 18,
+  "secret_policy": "ephemeral in-memory only; never persist or print",
+  "allowed_results": [
+    "FULL_TESTED_PASS",
+    "LIVE_E2E_PASS_VOICE_AUDIO_DEPENDENCY",
+    "MARKETING_SOURCE_CHECKOUT_BLOCKED",
+    "FFMPEG_RUNTIME_BLOCKED",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}

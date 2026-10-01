@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RUN_PROVIDER_CONTRACT_UNAVAILABLE",
+  "mp4_created": false,
+  "reason": "approved contract and six approved assets were not retrievable",
+  "fake_or_unrelated_assets_used": false,
+  "ffmpeg_available": false
+}

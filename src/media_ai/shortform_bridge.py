@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-PRODUCTS = {"ADAM", "AVORA", "AURA", "ARCOS", "AXIOM", "ADRAW", "ASPEC"}
+PRODUCTS = {"ADAM", "AVORA", "AURA", "ARCOS", "AXIOM", "ADRAW", "ASPEC", "MARKETING_EXTERNAL"}
 DURATIONS = {15, 30, 60}
 PLATFORMS = {"youtube_shorts", "instagram_reels", "tiktok", "other"}
 APPROVAL_STATES = {"draft", "preview_ready", "representative_approved", "exported"}
@@ -38,6 +38,42 @@ class ShortformProductionPlan:
 
 class ShortformContractError(ValueError):
     pass
+
+
+def normalize_marketing_contract(payload: dict[str, Any]) -> dict[str, Any]:
+    """Map the Marketing handoff shape without mutating or relabeling its raw identity."""
+    _require(isinstance(payload, dict), "Marketing contract must be an object")
+    mission = payload.get("mission", {})
+    brief = payload.get("brief", {})
+    resolved_assets = payload.get("resolved_assets", [])
+    scenes = payload.get("scenes", [])
+    normalized = dict(payload)
+    normalized["product"] = "MARKETING_EXTERNAL"
+    normalized["project_id"] = payload.get("project_id", mission.get("project_id"))
+    normalized["campaign_id"] = payload.get("campaign_id", brief.get("campaign_id", normalized["project_id"]))
+    normalized["target"] = payload.get("target", mission.get("target", brief.get("target")))
+    normalized["campaign_goal"] = payload.get("campaign_goal", mission.get("campaign_goal", brief.get("objective")))
+    normalized["duration"] = payload.get("duration", mission.get("duration", brief.get("duration")))
+    normalized["hook"] = payload.get("hook", brief.get("hook", ""))
+    normalized["cta"] = payload.get("cta", brief.get("cta", ""))
+    normalized["evidence_refs"] = payload.get("evidence_refs", mission.get("evidence", []))
+    normalized["assumptions"] = payload.get("assumptions", mission.get("assumptions", []))
+    normalized["traceability"] = payload.get("traceability", {"generator": "marketing-shortform"})
+    normalized["brand_outro"] = payload.get("brand_outro", {})
+    normalized["media_assets"] = [
+        {"asset_id": item.get("asset_id", item.get("id")), "approval_state": "approved"}
+        for item in resolved_assets
+    ]
+    normalized["scenes"] = [
+        {**scene, "id": scene.get("scene_id", scene.get("id")), "media_asset_id": scene.get("media_asset_id", scene.get("asset_id"))}
+        for scene in scenes
+    ]
+    normalized["platform"] = "other" if payload.get("platform") == "generic" else payload.get("platform")
+    if payload.get("approval_state") == "handoff_ready" and payload.get("representative_approval", {}).get("decision") == "approve":
+        normalized["approval_state"] = "representative_approved"
+    normalized["contract_version"] = "1.0"
+    normalized["aspect_ratio"] = payload.get("aspect_ratio", "9:16")
+    return normalized
 
 def _require(condition: bool, message: str) -> None:
     if not condition:

@@ -1,0 +1,23 @@
+{
+  "overall": "VISUAL_IMPLEMENTATION_GAP",
+  "checks": {
+    "dark_navy_overall_theme": "STRUCTURAL_MATCH_VISUAL_MISMATCH",
+    "upper_video_lower_photo": "MATCH",
+    "left_media_input_zone": "STRUCTURAL_MATCH_VISUAL_MISMATCH",
+    "center_preview_work_area": "MATCH",
+    "right_editing_panel": "MATCH",
+    "video_timeline": "MATCH",
+    "independent_video_photo_fields": "MATCH",
+    "reference_upload": "MATCH",
+    "project_save": "MATCH",
+    "export": "MATCH",
+    "additive_ad_shortform_placement": "MATCH",
+    "panel_proportions": "NOT_COMPARABLE",
+    "spacing_alignment_hierarchy": "STRUCTURAL_MATCH_VISUAL_MISMATCH",
+    "visible_typography_hierarchy": "STRUCTURAL_MATCH_VISUAL_MISMATCH",
+    "visual_density": "STRUCTURAL_MATCH_VISUAL_MISMATCH",
+    "borders_panels_backgrounds": "STRUCTURAL_MATCH_VISUAL_MISMATCH",
+    "major_visual_treatment": "MISSING"
+  },
+  "basis": "Live DOM matched structural controls, but live screenshot rendered default white/basic browser styling and the candidate file could not be decoded as PNG."
+}

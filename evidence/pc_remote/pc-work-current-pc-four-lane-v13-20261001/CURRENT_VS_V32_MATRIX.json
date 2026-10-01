@@ -1,0 +1,11 @@
+{
+  "v32_baseline": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_TORCH_RECOVERY_FINAL_LOCAL_E2E_EVIDENCE_v32_20260925.json",
+  "rows": [
+    {"lane":"PHOTO segmentation","v32_status":"TESTED_PASS","current_asset":"NO","current_runnable":"NO","blocker":"SAM 2.1 adopted private cache is not present on this PC","recovery":"materialize approved frozen cache and rerun real PHOTO lane","rerun":"NOT_RUN"},
+    {"lane":"PHOTO 4x","v32_status":"TESTED_PASS","current_asset":"NO","current_runnable":"NO","blocker":"Intel SISR 1032 XML/BIN and OpenVINO are not present","recovery":"materialize approved XML/BIN and expose OpenVINO CPU runtime","rerun":"NOT_RUN"},
+    {"lane":"VIDEO tracking","v32_status":"TESTED_PASS","current_asset":"NO","current_runnable":"NO","blocker":"approved moving-subject MP4 is absent; ffmpeg is not on PATH","recovery":"provide approved owned MP4 and runtime dependency","rerun":"NOT_RUN"},
+    {"lane":"Korean STT","v32_status":"TESTED_PASS","current_asset":"NO","current_runnable":"NO","blocker":"Whisper-small cache and approved spoken-Korean WAV are absent","recovery":"materialize approved cache and provide approved Korean recording","rerun":"NOT_RUN"},
+    {"lane":"Project Save","v32_status":"PASS","current_asset":"N/A","current_runnable":"NO","blocker":"runtime requires a real TESTED_PASS job before save","recovery":"rerun after at least one real lane succeeds","rerun":"NOT_RUN"},
+    {"lane":"Export","v32_status":"PASS","current_asset":"N/A","current_runnable":"NO","blocker":"no saved real TESTED_PASS project is available","recovery":"rerun after real project save","rerun":"NOT_RUN"}
+  ]
+}

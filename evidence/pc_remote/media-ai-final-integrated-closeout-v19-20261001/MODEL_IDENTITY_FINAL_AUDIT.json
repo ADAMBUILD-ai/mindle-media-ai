@@ -1,0 +1,10 @@
+{
+  "status": "TESTED_PASS_PRESERVED",
+  "manifest": "evidence/model_scout/FINAL_ADOPTED_MODEL_MANIFEST_V13.json",
+  "adopted_models": {
+    "SAM_2_1_Hiera_Base_Plus": {"revision": "b7320756a13354e7530a63935656d35b2f91a290", "license": "Apache-2.0"},
+    "Whisper_small": {"source": "openai/whisper-small", "revision": "973afd24965f72e36ca33b3055d56a652f456b4d", "license": "Apache-2.0"},
+    "Intel_SISR_1032": {"source": "openvinotoolkit/open_model_zoo", "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d", "license": "Apache-2.0"}
+  },
+  "model_changes_in_v19": false
+}
