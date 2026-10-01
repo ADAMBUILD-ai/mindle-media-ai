@@ -7,9 +7,9 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-EXPECTED_EPOCH = "MEDIA-AI-20261001-V20.2"
-EXPECTED_DIRECTIVE = "docs/commander/MINDLE_MEDIA_AI_WINDOWS_ONSCREEN_UI_REPRESENTATIVE_VISUAL_FUNCTION_AUDIT_DIRECTIVE_v20.2_20261001.md"
-EXPECTED_CONTRACT = "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2_20261001.json"
+EXPECTED_EPOCH = "MEDIA-AI-20261002-V20.2.1"
+EXPECTED_DIRECTIVE = "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_SPACEFILL_COLOR_CORRECTION_DIRECTIVE_v20.2.1_20261002.md"
+EXPECTED_CONTRACT = "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.1_20261002.json"
 
 LOCK = ROOT / "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json"
 CURRENT = ROOT / "CURRENT_PC_WORK_DIRECTIVE.md"
@@ -45,7 +45,6 @@ checks = [
     ("state contract", state.get("evidence_contract"), EXPECTED_CONTRACT),
     ("registry contract", registry.get("active", {}).get("evidence_contract"), EXPECTED_CONTRACT),
 ]
-
 for label, actual, expected in checks:
     if actual != expected:
         fail(f"{label}: expected {expected!r}, got {actual!r}")
@@ -67,12 +66,12 @@ if active_start < 0 or active_end < 0:
     fail("Rule Registry MD ACTIVE section not found")
 active_section = registry_text[active_start:active_end]
 
-for stale in ("v20.1_20261001.md", "v20.1_20261001.json", "v20.0_20261001.md", "v19.0_20261001.md"):
+for stale in ("v20.2_20261001.md", "v20.1_20261001.md", "v20.0_20261001.md", "v19.0_20261001.md"):
     if stale in active_section:
         fail(f"stale cycle appears in ACTIVE section: {stale}")
 
 if EXPECTED_DIRECTIVE not in active_section or EXPECTED_CONTRACT not in active_section:
-    fail("ACTIVE section does not contain the expected v20.2 execution pair")
+    fail("ACTIVE section does not contain the expected v20.2.1 execution pair")
 
 print("CONTROL_PLANE_PASS")
 print(f"EPOCH={EXPECTED_EPOCH}")
