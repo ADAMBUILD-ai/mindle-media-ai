@@ -1,0 +1,94 @@
+{
+  "status": "LIVE_FUNCTIONAL_BENCHMARK_COMPLETE",
+  "repo_id": "opencv/inpainting_lama",
+  "revision": "aee6d22f0a13e5e35af1c9a1c3afd62841fc6f3f",
+  "model_sha256": "7df918ac3921d3daf0aae1d219776cf0dc4e4935f035af81841b40adcf74fdf2",
+  "runtime": {
+    "onnxruntime": "1.30.0",
+    "provider": "CPUExecutionProvider"
+  },
+  "fixture_manifest": "../public_architecture_fixtures/manifest.json",
+  "runs": [
+    {
+      "fixture": {
+        "file": "01_42756291.jpg",
+        "title": "File:Baroque ceiling frescoes (Ljubljana Cathedral).jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Baroque_ceiling_frescoes_(Ljubljana_Cathedral).jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "<a href=\"//commons.wikimedia.org/wiki/User:PetarM\" title=\"User:PetarM\">Petar Milo\u0161evi\u0107</a>"
+      },
+      "input_sha256": "e4022ae8096badd54da000911bb0aa833c6a6ed3965b0b0870715205be021d2d",
+      "mask_sha256": "33ff0e374dc21b5d856a68245a987e38deb9a59f32fec9da70b7410ac388a7de",
+      "lama_output_sha256": "aba65cf3a9728ba6cd4a7b4f207969882b0953e21011ffa7da8612ffb93d0cd4",
+      "telea_output_sha256": "ec9dcd0fd12f9e96e9bcffb1c4a8b9f44781b3d054abd0446c065a097b420506",
+      "lama_ms": 3356.41,
+      "telea_ms": 12.82,
+      "note": "Fixed central rectangle mask; human review of architectural lines, texture and artifacts is still required."
+    },
+    {
+      "fixture": {
+        "file": "02_39871464.jpg",
+        "title": "File:Basilica of San Vitale - triumphal arch mosaics.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Basilica_of_San_Vitale_-_triumphal_arch_mosaics.jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "<a href=\"//commons.wikimedia.org/wiki/User:PetarM\" title=\"User:PetarM\">Petar Milo\u0161evi\u0107</a>"
+      },
+      "input_sha256": "ccf67e414adfb73201e2385473301319994018d87aba0d707201dddb8d72ceee",
+      "mask_sha256": "e1dc6fb6c9221aea3ec03e512a4244232758f7f5fad3aec19c09f82972989e5b",
+      "lama_output_sha256": "c0d88619e5e1b45c441b7b1642e8d5e6f24ecb698d7b183b6e55cee23789c613",
+      "telea_output_sha256": "6b18bae4d3dc574dcf58bfea0929e78282f86b93e3a134563c77c7a3b204c85e",
+      "lama_ms": 3431.73,
+      "telea_ms": 20.46,
+      "note": "Fixed central rectangle mask; human review of architectural lines, texture and artifacts is still required."
+    },
+    {
+      "fixture": {
+        "file": "03_33975416.jpg",
+        "title": "File:Bathwick Hill, Bath, Somerset, UK - Diliff.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bathwick_Hill,_Bath,_Somerset,_UK_-_Diliff.jpg",
+        "license": "CC BY-SA 3.0",
+        "attribution": "<a href=\"//commons.wikimedia.org/wiki/User:Diliff\" title=\"User:Diliff\">Diliff</a>"
+      },
+      "input_sha256": "8975a0b40a55b65f5faa1e09b68cc1d66d955df139bb3da5f66cd7bedb0edf24",
+      "mask_sha256": "33ff0e374dc21b5d856a68245a987e38deb9a59f32fec9da70b7410ac388a7de",
+      "lama_output_sha256": "5f1c7f31445d64b533cb642436a3d4288dae3c0e5bdf1566b119be50a5406cf2",
+      "telea_output_sha256": "3cddadcb3b2bc0e22dfd63193394ce66cd2509a7c0e5e1777bd572c749ed1117",
+      "lama_ms": 3406.58,
+      "telea_ms": 8.59,
+      "note": "Fixed central rectangle mask; human review of architectural lines, texture and artifacts is still required."
+    },
+    {
+      "fixture": {
+        "file": "04_44272315.jpg",
+        "title": "File:Ceiling and cupola of Kunsthistorisches Museum Vienna.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ceiling_and_cupola_of_Kunsthistorisches_Museum_Vienna.jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "<a href=\"//commons.wikimedia.org/wiki/User:PetarM\" title=\"User:PetarM\">Petar Milo\u0161evi\u0107</a>"
+      },
+      "input_sha256": "e1766c3cf435bf8a51a860fae9376de74e198cd2680a50b30eb6465144445cf2",
+      "mask_sha256": "e1dc6fb6c9221aea3ec03e512a4244232758f7f5fad3aec19c09f82972989e5b",
+      "lama_output_sha256": "ae974a998135079e599f9a948d41ac1e9cbffbcb69fb0acd41226afeb20a84c1",
+      "telea_output_sha256": "e0a383c27d1d506a267513c0cbc3059c6fef3101a706d53f82ead89052646654",
+      "lama_ms": 3216.76,
+      "telea_ms": 8.45,
+      "note": "Fixed central rectangle mask; human review of architectural lines, texture and artifacts is still required."
+    },
+    {
+      "fixture": {
+        "file": "05_46280980.jpg",
+        "title": "File:Erechtheum Acropolis Athens evening moon.jpg",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Erechtheum_Acropolis_Athens_evening_moon.jpg",
+        "license": "CC0",
+        "attribution": "<a href=\"//commons.wikimedia.org/wiki/User:Jebulon\" title=\"User:Jebulon\">Jebulon</a>"
+      },
+      "input_sha256": "346e3fa7a41893dc7048ca0a69a18dcdc343decb1bd624ccbdd0acb1c0b5b64f",
+      "mask_sha256": "33ff0e374dc21b5d856a68245a987e38deb9a59f32fec9da70b7410ac388a7de",
+      "lama_output_sha256": "a537e87511e4859e59adc5d66f803ec944b30dc87a4d163893016e6269d399fc",
+      "telea_output_sha256": "8110339c95e9377128cb8b80c90ace617d533be5c602313fe00a6a4346f5b1da",
+      "lama_ms": 2981.29,
+      "telea_ms": 8.53,
+      "note": "Fixed central rectangle mask; human review of architectural lines, texture and artifacts is still required."
+    }
+  ],
+  "quality_gate": "VERIFY_REQUIRED: 5 real-image A/B outputs and runtimes are recorded; no human architecture-quality approval has been given."
+}

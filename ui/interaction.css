@@ -1,0 +1,11 @@
+/* Behaviour-only styles. Pixel geometry remains governed by the pinned SSOT asset. */
+[data-command-panel] [data-reference-list], [data-command-panel] [data-command-error] { display: none; }
+[data-command-panel][data-phase="expanded"] [data-reference-list], [data-command-panel][data-phase="expanded"] [data-command-error], [data-command-panel][data-phase="executing"] [data-reference-list] { display: block; }
+[data-command-panel][data-phase="collapsed"] [data-command] { max-inline-size: 18rem; }
+[data-command-panel][data-phase="expanded"] [data-command], [data-command-panel][data-phase="executing"] [data-command] { inline-size: 100%; }
+[data-command-panel][data-phase="executing"] [data-command] { opacity: .65; }
+[data-command-error]:not(:empty) { color: #b00020; }
+[data-command-error][data-result="ok"] { color: #0a6b36; }
+[data-preview] img, [data-preview] video { max-inline-size: 100%; max-block-size: 32rem; }
+[data-preview] pre { white-space: pre-wrap; }
+.reference-thumbnail { list-style: none; }
