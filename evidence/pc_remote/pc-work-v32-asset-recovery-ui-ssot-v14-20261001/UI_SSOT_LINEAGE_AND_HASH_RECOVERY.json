@@ -1,0 +1,12 @@
+{
+  "status": "BLOCKED",
+  "expected_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "observed_current_sha256": "9aaf05be17a3b851717a8bcdbeaf9c589812cb02f4807e3e2c9d10e75709ad3d",
+  "observed_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\ui\\assets\\ssot\\MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+  "approved_binary_recovered": false,
+  "action": "Preserved current UI; no silent replacement or redesign.",
+  "backup_branch_contains_exact_asset": false,
+  "known_codex_worktree_exact_asset": false,
+  "manifest_and_master_hash": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "docs_source_asset_state": "BLOCKED_SOURCE_ASSET_NOT_PRESENT"
+}

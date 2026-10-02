@@ -1,0 +1,9 @@
+{
+  "result": "BASE_PRODUCT_TESTED_PASS_SHORTFORM_EXTERNAL_DEPENDENCY",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "head_under_test": "e1c8b91f647c2fe47cb3dfbf435175addfe3d370",
+  "required_detail_files": 11,
+  "external_blocker": "Marketing AI-approved SHORTFORM BRIDGE Contract v1 endpoint unavailable; live shortform E2E remains VERIFY_REQUIRED"
+}

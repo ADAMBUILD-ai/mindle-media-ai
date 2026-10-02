@@ -1,0 +1,14 @@
+{
+  "status": "FAILED",
+  "job_id": "82b259a5-21a6-479c-8e99-4f60d283fca8",
+  "lane": "video",
+  "operation": "tracking",
+  "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\PC\\\\Documents\\\\Codex\\\\2026-09-15\\\\referenced-chatgpt-conversation-this-is-an\\\\work\\\\mindle-media-ai\\\\evidence\\\\pc_remote\\\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\\\runtime-data\\\\jobs\\\\a1ede985-fbfa-43bb-b22d-2d4f00e1dd28\\\\sam_video\\\\track_1_frame_00_mask.png'",
+  "input": {
+    "file_name": "00835401-5edc-43f5-9348-8314e136e6c0_big_buck_bunny.mp4",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\00835401-5edc-43f5-9348-8314e136e6c0_big_buck_bunny.mp4",
+    "bytes": 315058,
+    "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+  },
+  "state": "queued"
+}

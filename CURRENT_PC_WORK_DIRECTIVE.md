@@ -1,0 +1,33 @@
+# MINDLE MEDIA AI — CURRENT PC WORK ACTIVE DIRECTIVE
+
+STATUS: ACTIVE
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261003-V21.0
+DATE: 2026-10-03
+REPOSITORY: ADAMBUILD-ai/mindle-media-ai
+BRANCH: feature/ad-shortform-bridge-p0-20260926
+
+## ACTIVE DIRECTIVE
+docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md
+
+## ACTIVE EVIDENCE CONTRACT
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json
+
+## PURPOSE
+Full real-use re-audit and improvement.
+
+## RULES
+- Real Windows execution overrides metadata-only PASS.
+- One workspace / one runtime / one desktop launch path.
+- Re-test desktop shortcut 2/2.
+- Re-test VIDEO, PHOTO, Shortform, Save/Reopen, Export.
+- Detect stale/duplicate servers and UI sources.
+- Keep MEDIA AI user guide:
+  docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md
+
+## EXACT OUTPUTS
+Review: docs/commander/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_REVIEW_v21.0_20261003.md
+Evidence: evidence/pc_remote/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_EVIDENCE_v21_0_20261003.json
+Detail: evidence/pc_remote/media-ai-full-reaudit-v21_0-20261003/
+
+## FINAL RULE
+NO PASS WITHOUT REAL RUNTIME EVIDENCE.

@@ -1,0 +1,10 @@
+{
+  "receipt_source": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json",
+  "provider": "Google Drive",
+  "file_id": "1hyZJpzsDecHgUFwYq463K30JlEJ4jgHA",
+  "file_name": "MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+  "bytes": 1737365,
+  "dimensions": [1536, 1024],
+  "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "retrieved_to": "incoming/commander/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png"
+}

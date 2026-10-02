@@ -1,0 +1,12 @@
+{
+  "cycle": "pc-work-human-auth-transfer-v7-20261001",
+  "required_action": "Download GitHub Actions artifact ID 10797756522 v29 part-01",
+  "download_page": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35974551384",
+  "expected_bytes": 418706393,
+  "expected_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128",
+  "status": "HUMAN_ACTION_REQUIRED",
+  "auto_resume": true,
+  "reassembly": "PENDING_GATE",
+  "photo_outputs": [],
+  "final_commit_sha": "1d00b40b76d38cfe955b787b3e630357f2caae7f"
+}

@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_head": "4806aed5cf78acc5c019bb9d249cb32623489d1f",
+  "directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_GITHUB_ARTIFACT_TRANSFER_RECOVERY_RUNTIME_REASSEMBLY_DIRECTIVE_v5.0_20260930.md",
+    "commit": "4806aed5cf78acc5c019bb9d249cb32623489d1f"
+  },
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO",
+    "RUNTIME_PACKAGE_REASSEMBLY": "BLOCKED_MISSING_EXACT_PART_01"
+  },
+  "local_parts": [
+    {"generation": "v29", "part": "00", "path": "C:\\Users\\PC\\Downloads\\mindle-media-verified-runtime-package-v28_1-part-00.zip", "bytes": 419251237, "sha256": "b930e521bb627f02134984ded6e7eb8ace20e15c2e56d9b9632c4759aaa62224", "expected": "PASS"},
+    {"generation": "v29", "part": "01", "path": "C:\\Users\\PC\\Downloads\\mindle-media-verified-runtime-package-v28_1-part-01.zip", "bytes": 418706255, "sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3", "expected_bytes": 418706393, "expected_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128", "result": "FAIL"},
+    {"generation": "v29", "part": "02", "path": "C:\\Users\\PC\\Downloads\\mindle-media-verified-runtime-package-v28_1-part-02.zip", "bytes": 78665503, "sha256": "c2ad3507f48c1b5ee54f1063af868ef85be3d2f19b689efdf3f2df6ec0272b4e", "expected": "PASS"},
+    {"generation": "v30", "part": "00", "path": "C:\\Users\\PC\\Downloads\\mindle-media-verified-runtime-package-v28_1-part-00 (2).zip", "bytes": 419251182, "sha256": "5d0fb6ba466b9ad77a6ebaac0e15eb730994f1968def25405f1a535643114ee4", "expected": "PASS"},
+    {"generation": "v30", "part": "01", "path": "C:\\Users\\PC\\Downloads\\mindle-media-verified-runtime-package-v28_1-part-01.zip", "bytes": 418706255, "sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3", "expected_bytes": 418706315, "expected_sha256": "14f282cef0360c8c13edb7416f4b1a78053a95408199771ddd20680d25fda8e1", "result": "FAIL"},
+    {"generation": "v30", "part": "02", "path": "C:\\Users\\PC\\Downloads\\mindle-media-verified-runtime-package-v28_1-part-02 (1).zip", "bytes": 78665475, "sha256": "782ed7b5654f6c4e710d49a502a941b21f4668e3fad6445b04e4a8e36630b6fa", "expected_bytes": 78665464, "expected_sha256": "6a89ff6e18268c7ca6fb96e3c6c7f61113ccd85e3b0176d3b84628ddeffb83c0", "result": "FAIL"}
+  ],
+  "transfer_routes": {
+    "gh_cli": "UNAVAILABLE_NOT_INSTALLED",
+    "existing_script": "NOT_FOUND",
+    "browser": "PARTIAL_CRDOWNLOAD_ONLY",
+    "direct_huggingface": "NOT_ATTEMPTED"
+  },
+  "reassembly": {"attempted": false, "reason": "no complete matching generation", "target_sha256": "f80ca743a482f4ad3636f5ed73ba66a32d1d43e649a882154d980334b9965ea2"},
+  "lanes": {"runtime_reassembly": "REWORK", "photo_segmentation": "REWORK", "photo_4x": "REWORK", "video_tracking": "VERIFY_REQUIRED", "korean_stt": "VERIFY_REQUIRED", "preview": "VERIFY_REQUIRED", "save": "VERIFY_REQUIRED", "export": "VERIFY_REQUIRED", "shortform": "VERIFY_REQUIRED"},
+  "fabricated_assets_or_results": false,
+  "final_commit_sha": "5b3251a927d10daa70d9c46845788a6c190283c9"
+}

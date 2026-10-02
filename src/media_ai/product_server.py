@@ -2,14 +2,18 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import mimetypes
 import os
+import subprocess
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
+from .marketing_shortform_gateway import build_marketing_shortform_request
+from .marketing_shortform_client import MarketingAuthRequired, MarketingShortformClient, MarketingShortformClientError
 from .product_runtime import ProductJobService
 
 
@@ -19,6 +23,21 @@ class ProductHttpServer(ThreadingHTTPServer):
         self.root, self.data_dir = Path(root), Path(data_dir)
         self.service = ProductJobService(self.data_dir, token)
         self.requests: list[dict] = []
+
+    def runtime_identity(self) -> dict:
+        files = [
+            "ui/index.html",
+            "ui/approved_visual.css",
+            "ui/interaction.css",
+            "ui/interaction.js",
+            "ui/product_integration.js",
+            "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+        ]
+        hashes = {relative: hashlib.sha256((self.root / relative).read_bytes()).hexdigest() for relative in files}
+        fingerprint = hashlib.sha256("\n".join(f"{key}:{hashes[key]}" for key in files).encode("utf-8")).hexdigest()
+        branch = subprocess.check_output(["git", "-C", str(self.root), "branch", "--show-current"], text=True).strip()
+        head = subprocess.check_output(["git", "-C", str(self.root), "rev-parse", "HEAD"], text=True).strip()
+        return {"repo_root": str(self.root), "branch": branch, "head": head, "workspace_ui_fingerprint": fingerprint, "file_hashes": hashes}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -39,10 +58,17 @@ class Handler(BaseHTTPRequestHandler):
         if not path.is_file() or self.server.data_dir not in path.resolve().parents:
             self.send_error(HTTPStatus.NOT_FOUND); return
         content = path.read_bytes()
-        self.send_response(HTTPStatus.OK); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "application/octet-stream"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
+        self.send_response(HTTPStatus.OK); self._no_cache_headers(); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "application/octet-stream"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
+
+    def _no_cache_headers(self) -> None:
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
 
     def do_GET(self) -> None:
         route = unquote(urlparse(self.path).path)
+        if route == "/api/runtime-identity":
+            self._json(200, self.server.runtime_identity()); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
         if route.startswith("/files/"):
@@ -51,11 +77,28 @@ class Handler(BaseHTTPRequestHandler):
         path = (self.server.root / "ui" / relative).resolve()
         if self.server.root / "ui" not in path.parents or not path.is_file(): self.send_error(HTTPStatus.NOT_FOUND); return
         content = path.read_bytes()
-        self.send_response(200); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "text/plain"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
+        self.send_response(200); self._no_cache_headers(); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "text/plain"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
 
     def do_POST(self) -> None:
         try:
             route = unquote(urlparse(self.path).path); body = self._body()
+            if route == "/api/integrations/marketing/shortform":
+                client = MarketingShortformClient.from_env()
+                request = build_marketing_shortform_request(
+                    str(body.get("command", "")),
+                    project_id=body.get("project_id"),
+                    context=body.get("context") if isinstance(body.get("context"), dict) else None,
+                )
+                if any(request[field] is None for field in ("product_or_project", "target", "campaign_goal", "duration", "platform")):
+                    self._json(422, {"status": "CONTEXT_REQUIRED", "error": "product/target/campaign context is required", "request": request}); return
+                try:
+                    result = client.create_contract(request)
+                except MarketingAuthRequired as error:
+                    self._json(503, {"status": "MARKETING_AUTH_ENV_REQUIRED", "error": str(error), "request": request}); return
+                except MarketingShortformClientError as error:
+                    self._json(502, {"status": "MARKETING_PROVIDER_UNAVAILABLE", "error": str(error), "request": request}); return
+                contract = result.get("contract", result) if isinstance(result, dict) else result
+                self._json(200, {"status": "bridge_contract_ready", "contract": contract, "provider_response": result, "request": request}); return
             if route == "/api/jobs":
                 result = self.server.service.execute(body)
                 primary = Path(result["primary_output"]["path"]).relative_to(self.server.data_dir)

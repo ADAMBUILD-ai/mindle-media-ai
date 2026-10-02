@@ -1,0 +1,13 @@
+{
+  "reference_roles": {
+    "navy_background": "#020d18",
+    "blue": "#138dff",
+    "cyan": "#29c8ff",
+    "purple": "#9347ff",
+    "photo_pink": "#f20ca7",
+    "text": "#f5f8ff"
+  },
+  "current_source": "ui/approved_visual.css",
+  "result": "preserved_and_revalidated"
+}
+

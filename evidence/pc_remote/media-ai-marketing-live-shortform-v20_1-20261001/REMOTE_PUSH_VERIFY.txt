@@ -1,0 +1,5 @@
+PUSH_PASS
+branch=feature/ad-shortform-bridge-p0-20260926
+remote_commit=abfd5da
+remote_readback=verified after fetch/ls-remote
+evidence_detail_files=18 required files present

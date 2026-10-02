@@ -1,0 +1,453 @@
+﻿{
+    "contract_version":  "1.0",
+    "mission":  {
+                    "request_text":  "MINDLE ADA 광고 숏폼 Live E2E용 15초 세로 영상 제작",
+                    "product_or_project":  "MINDLE ADA",
+                    "target":  "architects",
+                    "campaign_goal":  "brand_awareness",
+                    "duration":  15,
+                    "platform":  "generic",
+                    "available_assets":  [
+                                             {
+                                                 "project_id":  "mindle-shortform-live-e2e",
+                                                 "asset_id":  "e2e-source-image",
+                                                 "source_app":  "MINDLE_MARKETING_AI",
+                                                 "asset_type":  "source_image",
+                                                 "source_version":  "e2e-fixture-v1",
+                                                 "approval_state":  "approved",
+                                                 "approval_scope":  "E2E_TEST_ONLY",
+                                                 "media_type":  "image/svg+xml",
+                                                 "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-source-image"
+                                             },
+                                             {
+                                                 "project_id":  "mindle-shortform-live-e2e",
+                                                 "asset_id":  "e2e-before",
+                                                 "source_app":  "MINDLE_MARKETING_AI",
+                                                 "asset_type":  "before",
+                                                 "source_version":  "e2e-fixture-v1",
+                                                 "approval_state":  "approved",
+                                                 "approval_scope":  "E2E_TEST_ONLY",
+                                                 "media_type":  "image/svg+xml",
+                                                 "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-before"
+                                             },
+                                             {
+                                                 "project_id":  "mindle-shortform-live-e2e",
+                                                 "asset_id":  "e2e-process",
+                                                 "source_app":  "MINDLE_MARKETING_AI",
+                                                 "asset_type":  "process",
+                                                 "source_version":  "e2e-fixture-v1",
+                                                 "approval_state":  "approved",
+                                                 "approval_scope":  "E2E_TEST_ONLY",
+                                                 "media_type":  "image/svg+xml",
+                                                 "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-process"
+                                             },
+                                             {
+                                                 "project_id":  "mindle-shortform-live-e2e",
+                                                 "asset_id":  "e2e-completed-result",
+                                                 "source_app":  "MINDLE_MARKETING_AI",
+                                                 "asset_type":  "completed_result",
+                                                 "source_version":  "e2e-fixture-v1",
+                                                 "approval_state":  "approved",
+                                                 "approval_scope":  "E2E_TEST_ONLY",
+                                                 "media_type":  "image/svg+xml",
+                                                 "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-completed-result"
+                                             },
+                                             {
+                                                 "project_id":  "mindle-shortform-live-e2e",
+                                                 "asset_id":  "e2e-brand-outro",
+                                                 "source_app":  "MINDLE_MARKETING_AI",
+                                                 "asset_type":  "brand_outro",
+                                                 "source_version":  "e2e-fixture-v1",
+                                                 "approval_state":  "approved",
+                                                 "approval_scope":  "E2E_TEST_ONLY",
+                                                 "media_type":  "image/svg+xml",
+                                                 "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-brand-outro"
+                                             },
+                                             {
+                                                 "project_id":  "mindle-shortform-live-e2e",
+                                                 "asset_id":  "e2e-bgm",
+                                                 "source_app":  "MINDLE_MARKETING_AI",
+                                                 "asset_type":  "bgm",
+                                                 "source_version":  "e2e-fixture-v1",
+                                                 "approval_state":  "approved",
+                                                 "approval_scope":  "E2E_TEST_ONLY",
+                                                 "media_type":  "audio/wav",
+                                                 "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-bgm"
+                                             }
+                                         ],
+                    "brand_context":  {
+
+                                      },
+                    "evidence":  [
+
+                                 ],
+                    "assumptions":  [
+
+                                    ]
+                },
+    "brief":  {
+                  "campaign_id":  "mindle-shortform-live-e2e-15",
+                  "objective":  "brand_awareness",
+                  "target":  "architects",
+                  "audience_problem":  "도면과 데이터만으로는 핵심 가치를 빠르게 전달하기 어렵습니다.",
+                  "value_proposition":  "MINDLE ADA는 건축 정보를 이해하기 쉬운 흐름으로 정리합니다.",
+                  "core_message":  "건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                  "tone":  "clear_professional",
+                  "platform":  "generic",
+                  "duration":  15,
+                  "aspect_ratio":  "9:16",
+                  "cta":  "MINDLE ADA와 다음 프로젝트를 시작하세요.",
+                  "approval_required":  true
+              },
+    "project_id":  "mindle-shortform-live-e2e",
+    "campaign_id":  "mindle-shortform-live-e2e-15",
+    "product_or_project":  "MINDLE ADA",
+    "target":  "architects",
+    "campaign_goal":  "brand_awareness",
+    "duration":  15,
+    "platform":  "generic",
+    "aspect_ratio":  "9:16",
+    "hook":  "복잡한 건축 정보를, 15초 안에 명확한 이야기로.",
+    "script":  {
+                   "hook":  "복잡한 건축 정보를, 15초 안에 명확한 이야기로.",
+                   "problem":  "도면과 데이터만으로는 핵심 가치를 빠르게 전달하기 어렵습니다.",
+                   "solution":  "MINDLE ADA는 건축 정보를 이해하기 쉬운 흐름으로 정리합니다.",
+                   "proof":  "승인된 결과 자료로 핵심 변화를 확인하세요.",
+                   "cta":  "MINDLE ADA와 다음 프로젝트를 시작하세요."
+               },
+    "scenes":  [
+                   {
+                       "scene_id":  "scene_01",
+                       "beat":  "hook",
+                       "start_sec":  0,
+                       "end_sec":  3,
+                       "duration_sec":  3,
+                       "visual_intent":  "Show hook clearly in vertical format",
+                       "required_asset_type":  "source_image",
+                       "asset_query":  "hook visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                       "asset_requirement":  "Approved source_image media required",
+                       "media_asset_id":  "e2e-source-image",
+                       "subtitle":  "복잡한 건축 정보를, 15초 안에 명확한 이야기로.",
+                       "voiceover":  "복잡한 건축 정보를, 15초 안에 명확한 이야기로.",
+                       "on_screen_text":  "복잡한 건축 정보를, 15초 안에 명확한 이야기로.",
+                       "transition":  "cut",
+                       "evidence_refs":  [
+
+                                         ],
+                       "claim_state":  "ASSUMPTION"
+                   },
+                   {
+                       "scene_id":  "scene_02",
+                       "beat":  "problem",
+                       "start_sec":  3,
+                       "end_sec":  6,
+                       "duration_sec":  3,
+                       "visual_intent":  "Show problem clearly in vertical format",
+                       "required_asset_type":  "before",
+                       "asset_query":  "problem visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                       "asset_requirement":  "Approved before media required",
+                       "media_asset_id":  "e2e-before",
+                       "subtitle":  "도면과 데이터만으로는 핵심 가치를 빠르게 전달하기 어렵습니다.",
+                       "voiceover":  "도면과 데이터만으로는 핵심 가치를 빠르게 전달하기 어렵습니다.",
+                       "on_screen_text":  "도면과 데이터만으로는 핵심 가치를 빠르게 전달하기 어렵습니다.",
+                       "transition":  "soft_cut",
+                       "evidence_refs":  [
+
+                                         ],
+                       "claim_state":  "ASSUMPTION"
+                   },
+                   {
+                       "scene_id":  "scene_03",
+                       "beat":  "solution",
+                       "start_sec":  6,
+                       "end_sec":  11,
+                       "duration_sec":  5,
+                       "visual_intent":  "Show solution clearly in vertical format",
+                       "required_asset_type":  "process",
+                       "asset_query":  "solution visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                       "asset_requirement":  "Approved process media required",
+                       "media_asset_id":  "e2e-process",
+                       "subtitle":  "MINDLE ADA는 건축 정보를 이해하기 쉬운 흐름으로 정리합니다.",
+                       "voiceover":  "MINDLE ADA는 건축 정보를 이해하기 쉬운 흐름으로 정리합니다.",
+                       "on_screen_text":  "MINDLE ADA는 건축 정보를 이해하기 쉬운 흐름으로 정리합니다.",
+                       "transition":  "soft_cut",
+                       "evidence_refs":  [
+
+                                         ],
+                       "claim_state":  "ASSUMPTION"
+                   },
+                   {
+                       "scene_id":  "scene_04",
+                       "beat":  "proof",
+                       "start_sec":  11,
+                       "end_sec":  13,
+                       "duration_sec":  2,
+                       "visual_intent":  "Show proof clearly in vertical format",
+                       "required_asset_type":  "completed_result",
+                       "asset_query":  "proof visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                       "asset_requirement":  "Approved completed_result media required",
+                       "media_asset_id":  "e2e-completed-result",
+                       "subtitle":  "승인된 결과 자료로 핵심 변화를 확인하세요.",
+                       "voiceover":  "승인된 결과 자료로 핵심 변화를 확인하세요.",
+                       "on_screen_text":  "승인된 결과 자료로 핵심 변화를 확인하세요.",
+                       "transition":  "soft_cut",
+                       "evidence_refs":  [
+
+                                         ],
+                       "claim_state":  "ASSUMPTION"
+                   },
+                   {
+                       "scene_id":  "scene_05",
+                       "beat":  "cta",
+                       "start_sec":  13,
+                       "end_sec":  15,
+                       "duration_sec":  2,
+                       "visual_intent":  "Show cta clearly in vertical format",
+                       "required_asset_type":  "brand_outro",
+                       "asset_query":  "cta visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                       "asset_requirement":  "Approved brand_outro media required",
+                       "media_asset_id":  "e2e-brand-outro",
+                       "subtitle":  "MINDLE ADA와 다음 프로젝트를 시작하세요.",
+                       "voiceover":  "MINDLE ADA와 다음 프로젝트를 시작하세요.",
+                       "on_screen_text":  "MINDLE ADA와 다음 프로젝트를 시작하세요.",
+                       "transition":  "soft_cut",
+                       "evidence_refs":  [
+
+                                         ],
+                       "claim_state":  "ASSUMPTION"
+                   }
+               ],
+    "asset_requirements":  [
+                               {
+                                   "requirement_id":  "asset_scene_01",
+                                   "asset_type":  "source_image",
+                                   "required":  true,
+                                   "preferred_duration_sec":  3,
+                                   "preferred_crop":  "9:16",
+                                   "visual_purpose":  "Show hook clearly in vertical format",
+                                   "approval_required":  true,
+                                   "source_hint":  "hook visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                                   "resolved_asset_id":  "e2e-source-image"
+                               },
+                               {
+                                   "requirement_id":  "asset_scene_02",
+                                   "asset_type":  "before",
+                                   "required":  true,
+                                   "preferred_duration_sec":  3,
+                                   "preferred_crop":  "9:16",
+                                   "visual_purpose":  "Show problem clearly in vertical format",
+                                   "approval_required":  true,
+                                   "source_hint":  "problem visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                                   "resolved_asset_id":  "e2e-before"
+                               },
+                               {
+                                   "requirement_id":  "asset_scene_03",
+                                   "asset_type":  "process",
+                                   "required":  true,
+                                   "preferred_duration_sec":  5,
+                                   "preferred_crop":  "9:16",
+                                   "visual_purpose":  "Show solution clearly in vertical format",
+                                   "approval_required":  true,
+                                   "source_hint":  "solution visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                                   "resolved_asset_id":  "e2e-process"
+                               },
+                               {
+                                   "requirement_id":  "asset_scene_04",
+                                   "asset_type":  "completed_result",
+                                   "required":  true,
+                                   "preferred_duration_sec":  2,
+                                   "preferred_crop":  "9:16",
+                                   "visual_purpose":  "Show proof clearly in vertical format",
+                                   "approval_required":  true,
+                                   "source_hint":  "proof visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                                   "resolved_asset_id":  "e2e-completed-result"
+                               },
+                               {
+                                   "requirement_id":  "asset_scene_05",
+                                   "asset_type":  "brand_outro",
+                                   "required":  true,
+                                   "preferred_duration_sec":  2,
+                                   "preferred_crop":  "9:16",
+                                   "visual_purpose":  "Show cta clearly in vertical format",
+                                   "approval_required":  true,
+                                   "source_hint":  "cta visual for 건축의 복잡함을 명확한 의사결정으로 연결합니다.",
+                                   "resolved_asset_id":  "e2e-brand-outro"
+                               }
+                           ],
+    "resolved_assets":  [
+                            {
+                                "project_id":  "mindle-shortform-live-e2e",
+                                "asset_id":  "e2e-source-image",
+                                "source_app":  "MINDLE_MARKETING_AI",
+                                "asset_type":  "source_image",
+                                "source_version":  "e2e-fixture-v1",
+                                "approval_state":  "approved",
+                                "approval_scope":  "E2E_TEST_ONLY",
+                                "media_type":  "image/svg+xml",
+                                "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-source-image"
+                            },
+                            {
+                                "project_id":  "mindle-shortform-live-e2e",
+                                "asset_id":  "e2e-before",
+                                "source_app":  "MINDLE_MARKETING_AI",
+                                "asset_type":  "before",
+                                "source_version":  "e2e-fixture-v1",
+                                "approval_state":  "approved",
+                                "approval_scope":  "E2E_TEST_ONLY",
+                                "media_type":  "image/svg+xml",
+                                "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-before"
+                            },
+                            {
+                                "project_id":  "mindle-shortform-live-e2e",
+                                "asset_id":  "e2e-process",
+                                "source_app":  "MINDLE_MARKETING_AI",
+                                "asset_type":  "process",
+                                "source_version":  "e2e-fixture-v1",
+                                "approval_state":  "approved",
+                                "approval_scope":  "E2E_TEST_ONLY",
+                                "media_type":  "image/svg+xml",
+                                "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-process"
+                            },
+                            {
+                                "project_id":  "mindle-shortform-live-e2e",
+                                "asset_id":  "e2e-completed-result",
+                                "source_app":  "MINDLE_MARKETING_AI",
+                                "asset_type":  "completed_result",
+                                "source_version":  "e2e-fixture-v1",
+                                "approval_state":  "approved",
+                                "approval_scope":  "E2E_TEST_ONLY",
+                                "media_type":  "image/svg+xml",
+                                "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-completed-result"
+                            },
+                            {
+                                "project_id":  "mindle-shortform-live-e2e",
+                                "asset_id":  "e2e-brand-outro",
+                                "source_app":  "MINDLE_MARKETING_AI",
+                                "asset_type":  "brand_outro",
+                                "source_version":  "e2e-fixture-v1",
+                                "approval_state":  "approved",
+                                "approval_scope":  "E2E_TEST_ONLY",
+                                "media_type":  "image/svg+xml",
+                                "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-brand-outro"
+                            },
+                            {
+                                "project_id":  "mindle-shortform-live-e2e",
+                                "asset_id":  "e2e-bgm",
+                                "source_app":  "MINDLE_MARKETING_AI",
+                                "asset_type":  "bgm",
+                                "source_version":  "e2e-fixture-v1",
+                                "approval_state":  "approved",
+                                "approval_scope":  "E2E_TEST_ONLY",
+                                "media_type":  "audio/wav",
+                                "uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-bgm"
+                            }
+                        ],
+    "subtitles":  [
+                      {
+                          "scene_id":  "scene_01",
+                          "text":  "복잡한 건축 정보를, 15초 안에 명확한 이야기로."
+                      },
+                      {
+                          "scene_id":  "scene_02",
+                          "text":  "도면과 데이터만으로는 핵심 가치를 빠르게 전달하기 어렵습니다."
+                      },
+                      {
+                          "scene_id":  "scene_03",
+                          "text":  "MINDLE ADA는 건축 정보를 이해하기 쉬운 흐름으로 정리합니다."
+                      },
+                      {
+                          "scene_id":  "scene_04",
+                          "text":  "승인된 결과 자료로 핵심 변화를 확인하세요."
+                      },
+                      {
+                          "scene_id":  "scene_05",
+                          "text":  "MINDLE ADA와 다음 프로젝트를 시작하세요."
+                      }
+                  ],
+    "voiceover":  [
+                      {
+                          "scene_id":  "scene_01",
+                          "text":  "복잡한 건축 정보를, 15초 안에 명확한 이야기로."
+                      },
+                      {
+                          "scene_id":  "scene_02",
+                          "text":  "도면과 데이터만으로는 핵심 가치를 빠르게 전달하기 어렵습니다."
+                      },
+                      {
+                          "scene_id":  "scene_03",
+                          "text":  "MINDLE ADA는 건축 정보를 이해하기 쉬운 흐름으로 정리합니다."
+                      },
+                      {
+                          "scene_id":  "scene_04",
+                          "text":  "승인된 결과 자료로 핵심 변화를 확인하세요."
+                      },
+                      {
+                          "scene_id":  "scene_05",
+                          "text":  "MINDLE ADA와 다음 프로젝트를 시작하세요."
+                      }
+                  ],
+    "audio_direction":  {
+                            "bgm_mood":  "modern_architectural_confident",
+                            "duck_under_voiceover":  true,
+                            "bgm_asset_id":  "e2e-bgm",
+                            "bgm_uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-bgm"
+                        },
+    "transitions":  [
+                        {
+                            "scene_id":  "scene_01",
+                            "instruction":  "cut"
+                        },
+                        {
+                            "scene_id":  "scene_02",
+                            "instruction":  "soft_cut"
+                        },
+                        {
+                            "scene_id":  "scene_03",
+                            "instruction":  "soft_cut"
+                        },
+                        {
+                            "scene_id":  "scene_04",
+                            "instruction":  "soft_cut"
+                        },
+                        {
+                            "scene_id":  "scene_05",
+                            "instruction":  "soft_cut"
+                        }
+                    ],
+    "cta":  "MINDLE ADA와 다음 프로젝트를 시작하세요.",
+    "brand_outro":  {
+                        "required":  true,
+                        "duration_sec":  2,
+                        "instruction":  "Show approved brand logo and CTA",
+                        "asset_id":  "e2e-brand-outro",
+                        "asset_uri":  "http://127.0.0.1:4318/v1/shortform/assets/e2e-brand-outro"
+                    },
+    "evidence_refs":  [
+
+                      ],
+    "assumptions":  [
+
+                    ],
+    "claim_states":  [
+
+                     ],
+    "approval_state":  "handoff_ready",
+    "traceability":  {
+                         "generator":  "mindle-marketing-shortform-core",
+                         "generated_at":  "2026-10-01T10:55:00Z",
+                         "fixture":  "E2E_TEST_ONLY",
+                         "asset_set":  "e2e-fixture-v1"
+                     },
+    "platform_direction":  {
+                               "hook_intensity":  "high",
+                               "subtitle_density":  "medium",
+                               "cta_placement":  "final",
+                               "pacing":  "adaptive",
+                               "safe_text_area":  "keep key text inside central 80%"
+                           },
+    "representative_approval":  {
+                                    "actor":  "representative",
+                                    "decision":  "approve",
+                                    "approved_at":  "2026-10-01T10:55:00Z"
+                                }
+}

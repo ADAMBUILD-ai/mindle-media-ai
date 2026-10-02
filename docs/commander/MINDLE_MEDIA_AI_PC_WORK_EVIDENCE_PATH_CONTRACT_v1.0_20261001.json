@@ -1,0 +1,42 @@
+{
+  "contract_version": "1.0",
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_REVIEW_v13.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_EVIDENCE_v13_0_20261001.json",
+    "detail_directory": "evidence/pc_remote/pc-work-current-pc-four-lane-v13-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CURRENT_PC_INVENTORY.txt",
+      "CURRENT_VS_V32_MATRIX.json",
+      "PHOTO_SEGMENTATION_RUN.json",
+      "PHOTO_4X_RUN.json",
+      "VIDEO_TRACKING_RUN.json",
+      "KOREAN_STT_RUN.json",
+      "PROJECT_SAVE_EXPORT_RUN.json",
+      "UI_SSOT_REGRESSION_CHECK.json",
+      "TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "forbidden_completion_patterns": [
+    "arbitrary evidence filename",
+    "local-only evidence",
+    "chat-only evidence",
+    "user-selected save path",
+    "unspecified evidence folder"
+  ],
+  "hard_gate": {
+    "review_exact_path_exists_remote": true,
+    "evidence_json_exact_path_exists_remote": true,
+    "detail_directory_exact_path_exists_remote": true,
+    "all_12_detail_files_exist_remote": true,
+    "remote_push_verified": true
+  },
+  "mismatch_result": "FAIL",
+  "completion_allowed_only_when_all_hard_gate_fields_true": true
+}

@@ -1,0 +1,12 @@
+{
+  "status": "STATIC_TESTED_PASS_EXTERNAL_LIVE_VERIFY_REQUIRED",
+  "architecture": "Marketing AI -> SHORTFORM BRIDGE -> MINDLE MEDIA AI",
+  "request_builder": "src/media_ai/marketing_shortform_gateway.py",
+  "contract_reader": "src/media_ai/shortform_bridge.py",
+  "validation": ["9:16 aspect ratio", "continuous scenes", "approved assets", "representative approval before export"],
+  "product_agnostic": true,
+  "publish_allowed": false,
+  "ad_spend_allowed": false,
+  "failure_isolated_from_base_product": true,
+  "static_tests": "PASS"
+}

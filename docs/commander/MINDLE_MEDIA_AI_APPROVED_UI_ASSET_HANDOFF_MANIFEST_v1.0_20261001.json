@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-01",
+  "status": "COMMANDER_RECOVERED_WAITING_PC_HANDOFF",
+  "source_system": "ChatGPT Library",
+  "source_filename": "네온 다크 테마 AI 미디어 편집기.png",
+  "source_mime_type": "image/png",
+  "source_dimensions": [
+    1536,
+    1024
+  ],
+  "source_size_bytes": 1737365,
+  "source_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "commander_verification": {
+    "decoded_png": true,
+    "dimensions_verified": true,
+    "sha256_verified": true,
+    "visually_inspected": true
+  },
+  "forbidden_substitutes": [
+    "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png when SHA-256=9aaf05be17a3b851717a8bcdbeaf9c589812cb02f4807e3e2c9d10e75709ad3d",
+    "generated lookalike UI",
+    "memory-based reconstruction",
+    "v16 invalid candidate"
+  ],
+  "pc_handoff_target": "incoming/commander/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+  "canonical_target": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+  "rule": "Do not implement or update manifest until the exact handoff file exists on PC and its SHA-256 equals f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541."
+}
