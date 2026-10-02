@@ -1,22 +1,22 @@
 {
   "schema_version": "1.0",
-  "epoch": "MEDIA-AI-20261002-V20.2.4",
+  "epoch": "MEDIA-AI-20261002-V20.2.5",
   "date": "2026-10-01",
   "status": "ACTIVE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_DIRECTIVE_v20.2.4_20261002.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.4_20261002.json",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_FINAL_CORRECTION_DIRECTIVE_v20.2.5_20261002.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.5_20261002.json",
   "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_REVIEW_v20.2.4_20261002.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_EVIDENCE_v20_2_4_20261002.json",
-    "detail_dir": "evidence/pc_remote/media-ai-final-launcher-icon-v20_2_4-20261002/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_REVIEW_v20.2.5_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_EVIDENCE_v20_2_5_20261002.json",
+    "detail_dir": "evidence/pc_remote/media-ai-row-height-v20_2_5-20261002/"
   },
-  "required_detail_file_count": 26,
+  "required_detail_file_count": 20,
   "previous_cycle": {
-    "version": "v20.2.3",
-    "result": "SUPERSEDED_BEFORE_EXECUTION",
-    "note": "combined into v20.2.4 final launcher + branded icon closeout"
+    "version": "v20.2.4",
+    "result": "IMPLEMENTED_REPRESENTATIVE_RECHECK_FOUND_GEOMETRY_DEFECT",
+    "note": "launcher/icon frozen; row-height correction only"
   },
   "frozen_pass": [
     "v14 base product runtime",
@@ -25,9 +25,9 @@
     "v19 integrated base-product closeout"
   ],
   "invariants": {
-    "current_directive_epoch_must_equal": "MEDIA-AI-20261002-V20.2.4",
-    "current_state_epoch_must_equal": "MEDIA-AI-20261002-V20.2.4",
-    "registry_epoch_must_equal": "MEDIA-AI-20261002-V20.2.4",
+    "current_directive_epoch_must_equal": "MEDIA-AI-20261002-V20.2.5",
+    "current_state_epoch_must_equal": "MEDIA-AI-20261002-V20.2.5",
+    "registry_epoch_must_equal": "MEDIA-AI-20261002-V20.2.5",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_not_execute_on_mismatch": true
   },
@@ -41,5 +41,11 @@
     "double_click_launch_pass",
     "remote_evidence_pass"
   ],
-  "representative_icon_phase": "BLOCKED_PENDING_UI_AND_LAUNCHER_APPROVAL"
+  "representative_icon_phase": "BLOCKED_PENDING_UI_AND_LAUNCHER_APPROVAL",
+  "geometry_reference": {
+    "video": "video-right",
+    "photo": "photo-center",
+    "tolerance_px": 2
+  },
+  "launcher_icon_frozen": true
 }
