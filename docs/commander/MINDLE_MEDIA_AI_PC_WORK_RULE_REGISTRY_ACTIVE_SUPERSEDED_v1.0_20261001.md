@@ -1,91 +1,75 @@
-# MINDLE MEDIA AI — PC WORK RULE REGISTRY v1.7
+# MINDLE MEDIA AI — PC WORK RULE REGISTRY v1.8
 
 Date: 2026-10-02
 Repository: ADAMBUILD-ai/mindle-media-ai
 Branch: feature/ad-shortform-bridge-p0-20260926
 Status: GOVERNING
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.3
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.4
 
-## 0. Governing rule
+## ACTIVE
 
-Exactly ONE cycle is executable:
-
-- docs/commander/MINDLE_MEDIA_AI_WINDOWS_DESKTOP_LAUNCHER_CACHE_VIEWPORT_PARITY_CORRECTION_DIRECTIVE_v20.2.3_20261002.md
+Exactly one executable cycle:
+- docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_DIRECTIVE_v20.2.4_20261002.md
 
 Evidence contract:
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.4_20261002.json
 
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.3_20261002.json
-
-Any mismatch:
-CONTROL_PLANE_MISMATCH_BLOCKED
-
-## 1. ACTIVE — the only executable set
-
-### Control plane
+Control-plane files:
 - CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
 - CURRENT_PC_WORK_DIRECTIVE.md
 - CURRENT_PC_WORK_STATE.json
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md
 - docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json
 - scripts/validate_pc_work_control_plane.py
 
-### Execution
-- docs/commander/MINDLE_MEDIA_AI_WINDOWS_DESKTOP_LAUNCHER_CACHE_VIEWPORT_PARITY_CORRECTION_DIRECTIVE_v20.2.3_20261002.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.3_20261002.json
+## FROZEN PRODUCT BASELINE
 
-## 2. Frozen UI baseline
+Preserve:
+- current v20.2.2 good UI geometry
+- F27E + Shortform Addendum visual identity
+- v20.1 live MP4 E2E
+- all runtime/model/Marketing PASS
 
-v20.2.2 current worker-opened UI is frozen.
+No UI redesign in this cycle.
 
-Do NOT redesign any UI region in v20.2.3.
+## FINAL TASK
 
-The only task is to make the desktop icon launch exactly the same current UI.
+1. repair Windows desktop launcher parity
+2. remove stale URL/cache/window-state behavior
+3. create repository-owned canonical launcher
+4. replace plain white/default file icon
+5. create branded MEDIA AI icon
+6. apply to desktop shortcut and favicon
+7. double-click launch twice
+8. verify same current UI opens maximized without clipping
+9. publish 26 exact Evidence files
+10. mark FINAL_CLOSEOUT_READY_FOR_COMMANDER only if all pass
 
-## 3. Current defect
+## FINAL ICON
 
-WINDOWS_DESKTOP_LAUNCHER_PARITY_DEFECT
+Dark navy + blue/cyan + violet
+MEDIA/photo/video/AI symbol
+No default white file icon
+No generic browser icon
+No copied third-party logo
 
-Verify:
-- shortcut target/arguments/working directory
-- URL/query
-- server root/HEAD/process
-- CSS/JS cache identity
-- browser window/viewport/zoom state
+## REFERENCE_ONLY
 
-## 4. Required repair
+All prior cycles through v20.2.3 are reference only.
+v20.2.3 is superseded before execution.
 
-Create/verify one repository-owned canonical Windows launcher.
-Desktop shortcut must point to that launcher, not an old localhost URL.
-
-Desktop icon launch and worker launch must resolve to:
-- same repository
-- same branch
-- same HEAD
-- same port/server identity
-- same current UI assets
-- fresh cache state
-- equivalent maximized viewport
-
-## 5. Icon design phase
-
-BLOCKED_PENDING_UI_AND_LAUNCHER_APPROVAL
-
-Existing desktop icon is only the launcher test.
-
-## 6. Exact Evidence
+## EVIDENCE
 
 Review:
-docs/commander/MINDLE_MEDIA_AI_WINDOWS_LAUNCHER_PARITY_REVIEW_v20.2.3_20261002.md
+docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_REVIEW_v20.2.4_20261002.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_LAUNCHER_PARITY_EVIDENCE_v20_2_3_20261002.json
+evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_EVIDENCE_v20_2_4_20261002.json
 
 Detail:
-evidence/pc_remote/media-ai-launcher-parity-v20_2_3-20261002/
+evidence/pc_remote/media-ai-final-launcher-icon-v20_2_4-20261002/
 
-Required files:
-20
+Required files: 26
 
-## Final rule
+## FINAL RULE
 
-SYNC → VALIDATE → LAUNCHER FORENSICS → CACHE/VIEWPORT PARITY FIX → DESKTOP ICON REOPEN → REPRESENTATIVE CONFIRMATION.
+ONE EPOCH. ONE ACTIVE DIRECTIVE. PRESERVE THE GOOD UI. FIX LAUNCHER + BRAND ICON. DOUBLE-CLICK VERIFY. THEN CLOSEOUT READY.
