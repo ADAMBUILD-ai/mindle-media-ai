@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import mimetypes
 import os
+import subprocess
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -21,6 +23,21 @@ class ProductHttpServer(ThreadingHTTPServer):
         self.root, self.data_dir = Path(root), Path(data_dir)
         self.service = ProductJobService(self.data_dir, token)
         self.requests: list[dict] = []
+
+    def runtime_identity(self) -> dict:
+        files = [
+            "ui/index.html",
+            "ui/approved_visual.css",
+            "ui/interaction.css",
+            "ui/interaction.js",
+            "ui/product_integration.js",
+            "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+        ]
+        hashes = {relative: hashlib.sha256((self.root / relative).read_bytes()).hexdigest() for relative in files}
+        fingerprint = hashlib.sha256("\n".join(f"{key}:{hashes[key]}" for key in files).encode("utf-8")).hexdigest()
+        branch = subprocess.check_output(["git", "-C", str(self.root), "branch", "--show-current"], text=True).strip()
+        head = subprocess.check_output(["git", "-C", str(self.root), "rev-parse", "HEAD"], text=True).strip()
+        return {"repo_root": str(self.root), "branch": branch, "head": head, "workspace_ui_fingerprint": fingerprint, "file_hashes": hashes}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -50,6 +67,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         route = unquote(urlparse(self.path).path)
+        if route == "/api/runtime-identity":
+            self._json(200, self.server.runtime_identity()); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
         if route.startswith("/files/"):
