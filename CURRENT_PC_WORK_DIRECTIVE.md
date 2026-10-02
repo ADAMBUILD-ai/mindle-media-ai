@@ -1,7 +1,7 @@
 # MINDLE MEDIA AI — CURRENT PC WORK ACTIVE DIRECTIVE
 
 STATUS: ACTIVE
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.4
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.5
 DATE: 2026-10-02
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
@@ -10,61 +10,64 @@ BRANCH: feature/ad-shortform-bridge-p0-20260926
 
 1. git fetch origin
 2. checkout feature/ad-shortform-bridge-p0-20260926
-3. reconcile local HEAD to current remote HEAD
+3. reconcile to current remote HEAD
 4. read CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
 5. run python scripts/validate_pc_work_control_plane.py
 6. require CONTROL_PLANE_PASS
 7. read CURRENT_PC_WORK_STATE.json and Rule Registry
-8. execute only v20.2.4
-9. preserve current good UI
-10. fix desktop launcher parity
-11. replace plain white/default icon with branded MEDIA AI icon
-12. apply icon to desktop shortcut + favicon
-13. double-click test twice
-14. publish exact Evidence
-15. push and remote-readback
+8. execute only v20.2.5
+9. DO NOT change launcher/icon
+10. consolidate conflicting row-height CSS
+11. VIDEO: use right panel as height reference
+12. PHOTO: use center panel as height reference
+13. prove top/bottom/height delta <= 2px
+14. prove full PHOTO row visible at document bottom
+15. leave corrected icon-launched UI open
+16. publish exact Evidence
+17. push and remote-readback
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_DIRECTIVE_v20.2.4_20261002.md
+docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_FINAL_CORRECTION_DIRECTIVE_v20.2.5_20261002.md
 
 ## ACTIVE EVIDENCE CONTRACT
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.4_20261002.json
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.5_20261002.json
 
-## FINAL SCOPE
+## REPRESENTATIVE RULING
 
-- launcher parity
-- final branded icon
-- final product closeout
+Launcher and branded icon are now frozen.
 
-DO NOT redesign the current UI.
+Remaining UI problem:
+- VIDEO right is correct; left + center must match its exact row height
+- PHOTO center is correct; left + right must match its exact row height
+- at full page scroll bottom, all PHOTO lower controls must be completely visible
 
-## FINAL ICON DIRECTION
+## HARD FREEZE
 
-Dark navy rounded-square base
-+ blue/cyan media image-frame mark
-+ violet/blue play symbol
-+ small AI sparkle
-+ optional restrained magenta accent
-
-No plain white file icon.
-No stock/generic browser icon.
+DO NOT CHANGE:
+- desktop shortcut
+- branded icon
+- favicon
+- launcher
+- color hierarchy
+- Shortform header/order
+- runtime/model/Marketing functionality
 
 ## EXACT OUTPUTS
 
 Review:
-docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_REVIEW_v20.2.4_20261002.md
+docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_REVIEW_v20.2.5_20261002.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_EVIDENCE_v20_2_4_20261002.json
+evidence/pc_remote/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_EVIDENCE_v20_2_5_20261002.json
 
 Detail:
-evidence/pc_remote/media-ai-final-launcher-icon-v20_2_4-20261002/
+evidence/pc_remote/media-ai-row-height-v20_2_5-20261002/
 
 Required files:
-26
+20
 
 ## FINAL RULE
 
-SYNC → VALIDATE → REPAIR LAUNCHER → APPLY BRANDED ICON → DOUBLE-CLICK TEST TWICE → VERIFY CURRENT UI → EVIDENCE → PUSH → READBACK → CLOSEOUT READY.
+SYNC → VALIDATE → CONSOLIDATE HEIGHT RULES → VIDEO RIGHT REFERENCE → PHOTO CENTER REFERENCE → DOM GEOMETRY <=2PX → PAGE BOTTOM FULLY VISIBLE → REPRESENTATIVE CHECK.
