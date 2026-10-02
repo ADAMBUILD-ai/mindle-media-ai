@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "canonical_query": "7b2640d",
+  "ui_baseline": "v20.2.2 accepted geometry preserved",
+  "right_panel_url": "http://127.0.0.1:8768/?ui_build=7b2640d"
+}

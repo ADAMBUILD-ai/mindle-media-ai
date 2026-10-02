@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "launcher": "scripts/launch_media_ai_windows.ps1",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "head": "7b2640d",
+  "port": 8768,
+  "url": "http://127.0.0.1:8768/?ui_build=7b2640d"
+}

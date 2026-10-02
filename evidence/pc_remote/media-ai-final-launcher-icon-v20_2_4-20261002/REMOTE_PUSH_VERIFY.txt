@@ -1,0 +1,3 @@
+branch=feature/ad-shortform-bridge-p0-20260926
+head=7b2640d
+remote=origin/feature/ad-shortform-bridge-p0-20260926

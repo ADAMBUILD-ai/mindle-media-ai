@@ -1,0 +1,54 @@
+{
+  "head": "7b2640d",
+  "assets": [
+    {
+      "file": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_16.png",
+      "size": 16,
+      "bytes": 313,
+      "sha256": "2913d72860ff15c925fd2b1fb63c903e8c48243b692ec5f19d63813da52d4074"
+    },
+    {
+      "file": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_32.png",
+      "size": 32,
+      "bytes": 468,
+      "sha256": "70393d95e50d002fc78f090fcc7abc3943334fde5979ea23f82834bfa2bf9bf7"
+    },
+    {
+      "file": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_48.png",
+      "size": 48,
+      "bytes": 626,
+      "sha256": "5babea5f6f0b3b88a23b055f0548cb07d7874337268a03ce6dc77b675325dbc1"
+    },
+    {
+      "file": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_64.png",
+      "size": 64,
+      "bytes": 769,
+      "sha256": "610e16da93eab2bbd80d180840447785a40e6f3a2b2da2cc934b6ce1bf0631ef"
+    },
+    {
+      "file": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_128.png",
+      "size": 128,
+      "bytes": 1340,
+      "sha256": "ebea95ee7f81ca66358e2de8ab970eb9636804662e33c31b4dca606a4daf2dce"
+    },
+    {
+      "file": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_256.png",
+      "size": 256,
+      "bytes": 2512,
+      "sha256": "049a6134050ee56eed86b4c2bf66a2352485f7b0ed3e06c5f6f7d6d9c047398f"
+    },
+    {
+      "file": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_512.png",
+      "size": 512,
+      "bytes": 4963,
+      "sha256": "e9f8cc89b3c0d295224c23a7605eac2db97f63a32b9652058a0d834a79e23a8a"
+    },
+    {
+      "file": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_1024.png",
+      "size": 1024,
+      "bytes": 11814,
+      "sha256": "5ebfd01d2aad36f78d5d3349f73877aa060ded9e661e6abedccd9cbcf0db0a9a"
+    }
+  ],
+  "ico_bytes": 37642
+}
