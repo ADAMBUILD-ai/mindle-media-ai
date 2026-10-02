@@ -1,28 +1,31 @@
-# MINDLE MEDIA AI — PC WORK RULE REGISTRY v2.1
+# MINDLE MEDIA AI — PC WORK RULE REGISTRY v3.0
 
-Date: 2026-10-02
-Repository: ADAMBUILD-ai/mindle-media-ai
-Branch: feature/ad-shortform-bridge-p0-20260926
+Date: 2026-10-03
 Status: GOVERNING
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.7
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261003-V21.0
 
 ## ACTIVE
-- docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_ONLY_DIRECTIVE_v20.2.7_20261002.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.7_20261002.json
+- docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json
 
-## ONLY TASK
-Recreate/reactivate the Windows desktop shortcut and prove double-click launch.
+## REQUIRED
+Full real-use re-audit.
+Real Windows behavior overrides prior metadata-only PASS.
 
-## UI FREEZE
-Do not modify:
-- ui/index.html
-- ui/approved_visual.css
-- VIDEO/PHOTO layout
-- colors
-- brand icon design
+Re-test:
+- desktop shortcut twice
+- duplicate/stale runtime sources
+- workspace vs desktop identity
+- VIDEO functions
+- PHOTO functions
+- Shortform
+- Save/Reopen
+- Export
+- icon/favicon
+- error recovery
 
-## PASS
-Desktop shortcut opens current workspace MEDIA AI through scripts/launch_media_ai_windows.ps1.
+## USER GUIDE
+docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md
 
-## REFERENCE_ONLY
-All prior cycles through v20.2.6 are reference only.
+## FINAL RULE
+NO FINAL CLOSEOUT UNTIL REPRESENTATIVE REAL-USE CONFIRMATION.
