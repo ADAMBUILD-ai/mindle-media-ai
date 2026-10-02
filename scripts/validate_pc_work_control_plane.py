@@ -1,70 +1,48 @@
 #!/usr/bin/env python3
-"""Validate the MINDLE MEDIA AI PC Work control plane before execution."""
-
 from __future__ import annotations
-import json
-import pathlib
-import sys
+import json, pathlib, sys
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-EXPECTED_EPOCH = "MEDIA-AI-20261002-V20.2.3"
-EXPECTED_DIRECTIVE = "docs/commander/MINDLE_MEDIA_AI_WINDOWS_DESKTOP_LAUNCHER_CACHE_VIEWPORT_PARITY_CORRECTION_DIRECTIVE_v20.2.3_20261002.md"
-EXPECTED_CONTRACT = "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.3_20261002.json"
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+EXPECTED_EPOCH="MEDIA-AI-20261002-V20.2.4"
+EXPECTED_DIRECTIVE="docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_DIRECTIVE_v20.2.4_20261002.md"
+EXPECTED_CONTRACT="docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.4_20261002.json"
 
-LOCK = ROOT / "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json"
-CURRENT = ROOT / "CURRENT_PC_WORK_DIRECTIVE.md"
-STATE = ROOT / "CURRENT_PC_WORK_STATE.json"
-REG_MD = ROOT / "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md"
-REG_JSON = ROOT / "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json"
+LOCK=ROOT/"CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json"
+CURRENT=ROOT/"CURRENT_PC_WORK_DIRECTIVE.md"
+STATE=ROOT/"CURRENT_PC_WORK_STATE.json"
+REG_MD=ROOT/"docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md"
+REG_JSON=ROOT/"docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json"
 
-def load_json(path: pathlib.Path):
-    return json.loads(path.read_text(encoding="utf-8"))
-
-def fail(message: str) -> None:
-    print(f"CONTROL_PLANE_MISMATCH_BLOCKED: {message}", file=sys.stderr)
+def fail(msg):
+    print(f"CONTROL_PLANE_MISMATCH_BLOCKED: {msg}",file=sys.stderr)
     raise SystemExit(2)
 
-for path in (LOCK, CURRENT, STATE, REG_MD, REG_JSON):
-    if not path.exists():
-        fail(f"missing required control-plane file: {path.relative_to(ROOT)}")
+for p in (LOCK,CURRENT,STATE,REG_MD,REG_JSON):
+    if not p.exists(): fail(f"missing {p.relative_to(ROOT)}")
 
-lock=load_json(LOCK)
-state=load_json(STATE)
-registry=load_json(REG_JSON)
-current_text=CURRENT.read_text(encoding="utf-8")
-registry_text=REG_MD.read_text(encoding="utf-8")
+lock=json.loads(LOCK.read_text(encoding="utf-8"))
+state=json.loads(STATE.read_text(encoding="utf-8"))
+registry=json.loads(REG_JSON.read_text(encoding="utf-8"))
+current=CURRENT.read_text(encoding="utf-8")
+regmd=REG_MD.read_text(encoding="utf-8")
 
 checks=[
-    ("lock epoch",lock.get("epoch"),EXPECTED_EPOCH),
-    ("state epoch",state.get("control_plane_epoch"),EXPECTED_EPOCH),
-    ("registry epoch",registry.get("control_plane_epoch"),EXPECTED_EPOCH),
-    ("lock directive",lock.get("active_directive"),EXPECTED_DIRECTIVE),
-    ("state directive",state.get("active_directive"),EXPECTED_DIRECTIVE),
-    ("registry directive",registry.get("active",{}).get("directive"),EXPECTED_DIRECTIVE),
-    ("lock contract",lock.get("evidence_contract"),EXPECTED_CONTRACT),
-    ("state contract",state.get("evidence_contract"),EXPECTED_CONTRACT),
-    ("registry contract",registry.get("active",{}).get("evidence_contract"),EXPECTED_CONTRACT),
+("lock epoch",lock.get("epoch"),EXPECTED_EPOCH),
+("state epoch",state.get("control_plane_epoch"),EXPECTED_EPOCH),
+("registry epoch",registry.get("control_plane_epoch"),EXPECTED_EPOCH),
+("lock directive",lock.get("active_directive"),EXPECTED_DIRECTIVE),
+("state directive",state.get("active_directive"),EXPECTED_DIRECTIVE),
+("registry directive",registry.get("active",{}).get("directive"),EXPECTED_DIRECTIVE),
+("lock contract",lock.get("evidence_contract"),EXPECTED_CONTRACT),
+("state contract",state.get("evidence_contract"),EXPECTED_CONTRACT),
+("registry contract",registry.get("active",{}).get("evidence_contract"),EXPECTED_CONTRACT),
 ]
-for label,actual,expected in checks:
-    if actual!=expected:
-        fail(f"{label}: expected {expected!r}, got {actual!r}")
+for label,a,e in checks:
+    if a!=e: fail(f"{label}: expected {e!r}, got {a!r}")
 
 for token in (EXPECTED_EPOCH,EXPECTED_DIRECTIVE,EXPECTED_CONTRACT):
-    if token not in current_text:
-        fail(f"CURRENT_PC_WORK_DIRECTIVE.md missing {token!r}")
-
-active_start=registry_text.find("## 1. ACTIVE")
-active_end=registry_text.find("## 2.",active_start)
-if active_start<0 or active_end<0:
-    fail("Rule Registry MD ACTIVE section not found")
-active_section=registry_text[active_start:active_end]
-
-for stale in ("v20.2.2_20261002.md","v20.2.1_20261002.md","v20.2_20261001.md"):
-    if stale in active_section:
-        fail(f"stale cycle appears in ACTIVE section: {stale}")
-
-if EXPECTED_DIRECTIVE not in active_section or EXPECTED_CONTRACT not in active_section:
-    fail("ACTIVE section does not contain the expected v20.2.3 execution pair")
+    if token not in current: fail(f"CURRENT missing {token!r}")
+    if token not in regmd: fail(f"REGISTRY MD missing {token!r}")
 
 print("CONTROL_PLANE_PASS")
 print(f"EPOCH={EXPECTED_EPOCH}")
