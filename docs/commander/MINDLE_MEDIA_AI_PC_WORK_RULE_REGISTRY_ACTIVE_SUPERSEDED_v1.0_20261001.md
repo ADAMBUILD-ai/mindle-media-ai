@@ -1,75 +1,67 @@
-# MINDLE MEDIA AI — PC WORK RULE REGISTRY v1.8
+# MINDLE MEDIA AI — PC WORK RULE REGISTRY v1.9
 
 Date: 2026-10-02
 Repository: ADAMBUILD-ai/mindle-media-ai
 Branch: feature/ad-shortform-bridge-p0-20260926
 Status: GOVERNING
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.4
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.5
 
 ## ACTIVE
 
 Exactly one executable cycle:
-- docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_DIRECTIVE_v20.2.4_20261002.md
+- docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_FINAL_CORRECTION_DIRECTIVE_v20.2.5_20261002.md
 
 Evidence contract:
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.4_20261002.json
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.5_20261002.json
 
-Control-plane files:
-- CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
-- CURRENT_PC_WORK_DIRECTIVE.md
-- CURRENT_PC_WORK_STATE.json
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json
-- scripts/validate_pc_work_control_plane.py
+## FROZEN
 
-## FROZEN PRODUCT BASELINE
+Do not change:
+- Windows launcher
+- desktop shortcut
+- branded app icon
+- favicon
+- current colors
+- Shortform action row
+- runtime/model/Marketing integration
 
-Preserve:
-- current v20.2.2 good UI geometry
-- F27E + Shortform Addendum visual identity
-- v20.1 live MP4 E2E
-- all runtime/model/Marketing PASS
+## CURRENT UI DEFECT
 
-No UI redesign in this cycle.
+VIDEO:
+- video-right is correct reference
+- video-left and video-center must match its top/bottom/height
 
-## FINAL TASK
+PHOTO:
+- photo-center is correct reference
+- photo-left and photo-right must match its top/bottom/height
 
-1. repair Windows desktop launcher parity
-2. remove stale URL/cache/window-state behavior
-3. create repository-owned canonical launcher
-4. replace plain white/default file icon
-5. create branded MEDIA AI icon
-6. apply to desktop shortcut and favicon
-7. double-click launch twice
-8. verify same current UI opens maximized without clipping
-9. publish 26 exact Evidence files
-10. mark FINAL_CLOSEOUT_READY_FOR_COMMANDER only if all pass
+Page bottom:
+- full PHOTO row must be visible when scrolled to the document bottom
 
-## FINAL ICON
+## HARD NUMERIC GATE
 
-Dark navy + blue/cyan + violet
-MEDIA/photo/video/AI symbol
-No default white file icon
-No generic browser icon
-No copied third-party logo
-
-## REFERENCE_ONLY
-
-All prior cycles through v20.2.3 are reference only.
-v20.2.3 is superseded before execution.
+All VIDEO top/bottom/height max deltas <= 2px.
+All PHOTO top/bottom/height max deltas <= 2px.
+No required panel scrollHeight may exceed clientHeight by more than 2px if overflow would hide controls.
+page_bottom_visible = true.
 
 ## EVIDENCE
 
 Review:
-docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_REVIEW_v20.2.4_20261002.md
+docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_REVIEW_v20.2.5_20261002.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_EVIDENCE_v20_2_4_20261002.json
+evidence/pc_remote/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_EVIDENCE_v20_2_5_20261002.json
 
 Detail:
-evidence/pc_remote/media-ai-final-launcher-icon-v20_2_4-20261002/
+evidence/pc_remote/media-ai-row-height-v20_2_5-20261002/
 
-Required files: 26
+Required files: 20
+
+## REFERENCE_ONLY
+
+All prior directives through v20.2.4 are reference only.
 
 ## FINAL RULE
 
-ONE EPOCH. ONE ACTIVE DIRECTIVE. PRESERVE THE GOOD UI. FIX LAUNCHER + BRAND ICON. DOUBLE-CLICK VERIFY. THEN CLOSEOUT READY.
+CONSOLIDATE HEIGHT CSS → MATCH REFERENCE PANELS → PROVE DOM GEOMETRY → PROVE BOTTOM VISIBILITY → REPRESENTATIVE CHECK.
