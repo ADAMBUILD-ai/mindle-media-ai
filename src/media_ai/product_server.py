@@ -41,7 +41,12 @@ class Handler(BaseHTTPRequestHandler):
         if not path.is_file() or self.server.data_dir not in path.resolve().parents:
             self.send_error(HTTPStatus.NOT_FOUND); return
         content = path.read_bytes()
-        self.send_response(HTTPStatus.OK); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "application/octet-stream"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
+        self.send_response(HTTPStatus.OK); self._no_cache_headers(); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "application/octet-stream"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
+
+    def _no_cache_headers(self) -> None:
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
 
     def do_GET(self) -> None:
         route = unquote(urlparse(self.path).path)
@@ -53,7 +58,7 @@ class Handler(BaseHTTPRequestHandler):
         path = (self.server.root / "ui" / relative).resolve()
         if self.server.root / "ui" not in path.parents or not path.is_file(): self.send_error(HTTPStatus.NOT_FOUND); return
         content = path.read_bytes()
-        self.send_response(200); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "text/plain"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
+        self.send_response(200); self._no_cache_headers(); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "text/plain"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
 
     def do_POST(self) -> None:
         try:
