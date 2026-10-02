@@ -4,13 +4,12 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_EXACT_MIRROR_FINAL_DIRECTIVE_v20.2.6_20261002.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_ONLY_DIRECTIVE_v20.2.7_20261002.md",
   "technical_scope": null,
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.6_20261002.json",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.7_20261002.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_MIRROR_FINAL_REVIEW_v20.2.6_20261002.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_MIRROR_FINAL_EVIDENCE_v20_2_6_20261002.json",
-    "detail_dir": "evidence/pc_remote/media-ai-workspace-mirror-v20_2_6-20261002/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_REVIEW_v20.2.7_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_EVIDENCE_v20_2_7_20261002.json"
   },
   "forbidden_outputs": [
     "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
@@ -27,8 +26,8 @@
   "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
   "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
   "branch_assertion_required_before_work": true,
-  "previous_cycle_result": "v20.2.5 rejected by representative because forced height/overflow clipping cut UI content",
-  "required_detail_file_count": 26,
+  "previous_cycle_result": "v20.2.6 workspace UI corrected; desktop shortcut currently inactive",
+  "required_detail_file_count": 0,
   "approved_ui_library_filename": "네온 다크 테마 AI 미디어 편집기.png",
   "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
   "superseded_v17_directives": [
@@ -51,12 +50,10 @@
   },
   "google_drive_handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json",
   "current_known_issue": {
-    "type": "WORKSPACE_GOLDEN_RESTORE_AND_DESKTOP_MIRROR",
+    "type": "DESKTOP_SHORTCUT_INACTIVE",
     "details": [
-      "restore workspace geometry from known-good commit 97900cc6c784e74b4224333fa2cc84d29c611f87",
-      "remove rejected v20.2.5 clipping geometry",
-      "restore PHOTO center previous accepted state",
-      "desktop must execute exact same workspace source"
+      "workspace UI is frozen",
+      "shortcut must be recreated to current launcher"
     ]
   },
   "frozen_pass": {
@@ -66,7 +63,7 @@
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   },
-  "control_plane_epoch": "MEDIA-AI-20261002-V20.2.6",
+  "control_plane_epoch": "MEDIA-AI-20261002-V20.2.7",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
   "worker_must_validate_epoch_before_work": true,
@@ -82,12 +79,12 @@
     "base_url": "http://127.0.0.1:4318",
     "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
   },
-  "active_cycle_version": "v20.2.6",
+  "active_cycle_version": "v20.2.7",
   "next_pending_directive": null,
   "next_pending_evidence_contract": null,
   "next_pending_epoch": null,
   "final_closeout_blocked_until_representative_ui_gate": false,
-  "representative_ui_gate_status": "WORKSPACE_RESTORE_REQUIRED",
+  "representative_ui_gate_status": "WORKSPACE_UI_FROZEN",
   "representative_ui_gate_rule": "Show actual Windows MEDIA AI beside the final fixed UI authority (F27E base + Shortform Addendum). If UI is approved, continue immediately to the icon phase; create exactly three candidates, show them on Windows, wait for selection, package only the selected icon, verify favicon/shortcut application, and only then allow closeout.",
   "final_fixed_ui_definition": {
     "base": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
@@ -105,10 +102,9 @@
   "representative_icon_gate_status": "BRANDED_ICON_PRESERVE",
   "required_detail_file_count_after_ui_approval": 30,
   "final_closeout_requires": [
-    "workspace_golden_restore_pass",
-    "desktop_exact_mirror_pass",
-    "representative_confirmation",
-    "remote_evidence_pass"
+    "desktop_shortcut_reactivated",
+    "double_click_launch_pass",
+    "representative_confirmation"
   ],
   "frozen_ui_regions": [
     "launcher",
