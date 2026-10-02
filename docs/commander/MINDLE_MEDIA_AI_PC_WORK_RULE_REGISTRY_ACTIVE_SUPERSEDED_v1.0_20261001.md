@@ -1,20 +1,20 @@
-# MINDLE MEDIA AI — PC WORK RULE REGISTRY v1.6
+# MINDLE MEDIA AI — PC WORK RULE REGISTRY v1.7
 
 Date: 2026-10-02
 Repository: ADAMBUILD-ai/mindle-media-ai
 Branch: feature/ad-shortform-bridge-p0-20260926
 Status: GOVERNING
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.2
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.3
 
 ## 0. Governing rule
 
 Exactly ONE cycle is executable:
 
-- docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_CORRECTION_DIRECTIVE_v20.2.2_20261002.md
+- docs/commander/MINDLE_MEDIA_AI_WINDOWS_DESKTOP_LAUNCHER_CACHE_VIEWPORT_PARITY_CORRECTION_DIRECTIVE_v20.2.3_20261002.md
 
 Evidence contract:
 
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.2_20261002.json
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.3_20261002.json
 
 Any mismatch:
 CONTROL_PLANE_MISMATCH_BLOCKED
@@ -30,51 +30,62 @@ CONTROL_PLANE_MISMATCH_BLOCKED
 - scripts/validate_pc_work_control_plane.py
 
 ### Execution
-- docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_CORRECTION_DIRECTIVE_v20.2.2_20261002.md
-- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.2_20261002.json
+- docs/commander/MINDLE_MEDIA_AI_WINDOWS_DESKTOP_LAUNCHER_CACHE_VIEWPORT_PARITY_CORRECTION_DIRECTIVE_v20.2.3_20261002.md
+- docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.3_20261002.json
 
-### Final UI authority
-- ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png
-- docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md
+## 2. Frozen UI baseline
 
-## 2. Frozen baseline
+v20.2.2 current worker-opened UI is frozen.
 
-v20.2.1 center/right correction is preserved.
+Do NOT redesign any UI region in v20.2.3.
 
-DO NOT CHANGE:
-- VIDEO center/right
-- PHOTO center/right
-- color hierarchy
-- Shortform order
-- runtime/Marketing/model functionality
+The only task is to make the desktop icon launch exactly the same current UI.
 
-Only VIDEO/PHOTO LEFT panels may be corrected.
+## 3. Current defect
 
-## 3. Remaining defect
+WINDOWS_DESKTOP_LAUNCHER_PARITY_DEFECT
 
-- left panels are visually top-heavy
-- natural-language/reference/chip workflow does not consume remaining vertical space
-- left internal content should extend downward
-- left/center bottom alignment must visually match
+Verify:
+- shortcut target/arguments/working directory
+- URL/query
+- server root/HEAD/process
+- CSS/JS cache identity
+- browser window/viewport/zoom state
 
-## 4. Icon phase
+## 4. Required repair
 
-BLOCKED_PENDING_UI_APPROVAL
+Create/verify one repository-owned canonical Windows launcher.
+Desktop shortcut must point to that launcher, not an old localhost URL.
 
-## 5. Exact Evidence
+Desktop icon launch and worker launch must resolve to:
+- same repository
+- same branch
+- same HEAD
+- same port/server identity
+- same current UI assets
+- fresh cache state
+- equivalent maximized viewport
+
+## 5. Icon design phase
+
+BLOCKED_PENDING_UI_AND_LAUNCHER_APPROVAL
+
+Existing desktop icon is only the launcher test.
+
+## 6. Exact Evidence
 
 Review:
-docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_REVIEW_v20.2.2_20261002.md
+docs/commander/MINDLE_MEDIA_AI_WINDOWS_LAUNCHER_PARITY_REVIEW_v20.2.3_20261002.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_EVIDENCE_v20_2_2_20261002.json
+evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_LAUNCHER_PARITY_EVIDENCE_v20_2_3_20261002.json
 
 Detail:
-evidence/pc_remote/media-ai-left-panel-v20_2_2-20261002/
+evidence/pc_remote/media-ai-launcher-parity-v20_2_3-20261002/
 
 Required files:
 20
 
 ## Final rule
 
-SYNC → VALIDATE → LEFT PANEL ONLY → PRESERVE CENTER/RIGHT → SHOW WINDOWS UI → REPRESENTATIVE DECISION → ONLY THEN ICON PHASE.
+SYNC → VALIDATE → LAUNCHER FORENSICS → CACHE/VIEWPORT PARITY FIX → DESKTOP ICON REOPEN → REPRESENTATIVE CONFIRMATION.
