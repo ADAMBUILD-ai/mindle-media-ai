@@ -7,9 +7,9 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-EXPECTED_EPOCH = "MEDIA-AI-20261002-V20.2.2"
-EXPECTED_DIRECTIVE = "docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_CORRECTION_DIRECTIVE_v20.2.2_20261002.md"
-EXPECTED_CONTRACT = "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.2_20261002.json"
+EXPECTED_EPOCH = "MEDIA-AI-20261002-V20.2.3"
+EXPECTED_DIRECTIVE = "docs/commander/MINDLE_MEDIA_AI_WINDOWS_DESKTOP_LAUNCHER_CACHE_VIEWPORT_PARITY_CORRECTION_DIRECTIVE_v20.2.3_20261002.md"
+EXPECTED_CONTRACT = "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.3_20261002.json"
 
 LOCK = ROOT / "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json"
 CURRENT = ROOT / "CURRENT_PC_WORK_DIRECTIVE.md"
@@ -59,12 +59,12 @@ if active_start<0 or active_end<0:
     fail("Rule Registry MD ACTIVE section not found")
 active_section=registry_text[active_start:active_end]
 
-for stale in ("v20.2.1_20261002.md","v20.2_20261001.md","v20.1_20261001.md"):
+for stale in ("v20.2.2_20261002.md","v20.2.1_20261002.md","v20.2_20261001.md"):
     if stale in active_section:
         fail(f"stale cycle appears in ACTIVE section: {stale}")
 
 if EXPECTED_DIRECTIVE not in active_section or EXPECTED_CONTRACT not in active_section:
-    fail("ACTIVE section does not contain the expected v20.2.2 execution pair")
+    fail("ACTIVE section does not contain the expected v20.2.3 execution pair")
 
 print("CONTROL_PLANE_PASS")
 print(f"EPOCH={EXPECTED_EPOCH}")
