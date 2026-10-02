@@ -1,6 +1,6 @@
 {
-  "version": "2.1",
-  "date": "2026-10-02",
+  "version": "3.0",
+  "date": "2026-10-03",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "precedence": [
@@ -19,9 +19,9 @@
   "active": {
     "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
     "state": "CURRENT_PC_WORK_STATE.json",
-    "directive": "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_ONLY_DIRECTIVE_v20.2.7_20261002.md",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
     "technical_scope": null,
-    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.7_20261002.json",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json",
     "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
   },
   "reference_only": [
@@ -64,8 +64,8 @@
   ],
   "branch_assertion_required_before_work": true,
   "previous_cycle": {
-    "version": "v20.2.6",
-    "result": "WORKSPACE_UI_CORRECT_DESKTOP_SHORTCUT_INACTIVE",
+    "version": "v20.2.7",
+    "result": "REOPENED_DUE_TO_REPRESENTATIVE_REAL_USE_ISSUES",
     "status": "REFERENCE_ONLY"
   },
   "required_detail_file_count": 0,
@@ -83,7 +83,7 @@
     "handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json"
   },
   "current_known_issue": {
-    "type": "DESKTOP_SHORTCUT_INACTIVE"
+    "type": "FULL_REAL_USE_REAUDIT_REQUIRED"
   },
   "final_closeout": {
     "frozen_base_runtime": "v14",
@@ -92,18 +92,18 @@
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   },
-  "control_plane_epoch": "MEDIA-AI-20261002-V20.2.7",
+  "control_plane_epoch": "MEDIA-AI-20261003-V21.0",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_invariant": {
-    "epoch_must_match": "MEDIA-AI-20261002-V20.2.7",
-    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_ONLY_DIRECTIVE_v20.2.7_20261002.md",
-    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.7_20261002.json",
+    "epoch_must_match": "MEDIA-AI-20261003-V21.0",
+    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
+    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_stop_on_mismatch": true
   },
   "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
   "control_plane_validator_required_result": "CONTROL_PLANE_PASS",
-  "active_cycle_version": "v20.2.7",
+  "active_cycle_version": "v21.0",
   "marketing_live_provider": {
     "repository": "ADAMBUILD-ai/mindle-marketing-department",
     "pr": 4,
@@ -146,5 +146,7 @@
   "launcher_icon_frozen": true,
   "workspace_ui_only_source": true,
   "desktop_independent_ui_forbidden": true,
-  "ui_changes_forbidden": true
+  "ui_changes_forbidden": true,
+  "metadata_only_pass_forbidden": true,
+  "user_guide": "docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md"
 }
