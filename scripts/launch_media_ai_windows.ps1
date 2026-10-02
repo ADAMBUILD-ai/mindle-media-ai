@@ -47,5 +47,5 @@ $browserCandidates = @(
   (Join-Path ${env:ProgramFiles(x86)} 'Google\Chrome\Application\chrome.exe')
 )
 $browser = $browserCandidates | Where-Object { $_ -and (Test-Path -LiteralPath $_) } | Select-Object -First 1
-if ($browser) { Start-Process -FilePath $browser -ArgumentList "--start-maximized", $url }
+if ($browser) { Start-Process -FilePath $browser -ArgumentList "--new-window", "--start-maximized", $url }
 else { Start-Process $url }
