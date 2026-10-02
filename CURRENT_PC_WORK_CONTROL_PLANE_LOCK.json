@@ -1,20 +1,21 @@
 {
   "schema_version": "1.0",
-  "epoch": "MEDIA-AI-20261002-V20.2.7",
+  "epoch": "MEDIA-AI-20261003-V21.0",
   "date": "2026-10-01",
   "status": "ACTIVE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_ONLY_DIRECTIVE_v20.2.7_20261002.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.7_20261002.json",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json",
   "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_REVIEW_v20.2.7_20261002.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_EVIDENCE_v20_2_7_20261002.json"
+    "review": "docs/commander/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_REVIEW_v21.0_20261003.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_EVIDENCE_v21_0_20261003.json",
+    "detail_dir": "evidence/pc_remote/media-ai-full-reaudit-v21_0-20261003/"
   },
   "required_detail_file_count": 0,
   "previous_cycle": {
-    "version": "v20.2.6",
-    "result": "WORKSPACE_UI_CORRECT_DESKTOP_SHORTCUT_INACTIVE"
+    "version": "v20.2.7",
+    "result": "REOPENED_DUE_TO_REPRESENTATIVE_REAL_USE_ISSUES"
   },
   "frozen_pass": [
     "v14 base product runtime",
@@ -23,9 +24,9 @@
     "v19 integrated base-product closeout"
   ],
   "invariants": {
-    "current_directive_epoch_must_equal": "MEDIA-AI-20261002-V20.2.7",
-    "current_state_epoch_must_equal": "MEDIA-AI-20261002-V20.2.7",
-    "registry_epoch_must_equal": "MEDIA-AI-20261002-V20.2.7",
+    "current_directive_epoch_must_equal": "MEDIA-AI-20261003-V21.0",
+    "current_state_epoch_must_equal": "MEDIA-AI-20261003-V21.0",
+    "registry_epoch_must_equal": "MEDIA-AI-20261003-V21.0",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_not_execute_on_mismatch": true
   },
@@ -49,5 +50,6 @@
   "workspace_ui_only_source": true,
   "workspace_golden_geometry_commit": "97900cc6c784e74b4224333fa2cc84d29c611f87",
   "desktop_independent_ui_forbidden": true,
-  "ui_changes_forbidden": true
+  "ui_changes_forbidden": true,
+  "metadata_only_pass_forbidden": true
 }
