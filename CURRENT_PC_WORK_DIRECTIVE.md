@@ -1,7 +1,7 @@
 # MINDLE MEDIA AI — CURRENT PC WORK ACTIVE DIRECTIVE
 
 STATUS: ACTIVE
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.5
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.6
 DATE: 2026-10-02
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
@@ -15,59 +15,61 @@ BRANCH: feature/ad-shortform-bridge-p0-20260926
 5. run python scripts/validate_pc_work_control_plane.py
 6. require CONTROL_PLANE_PASS
 7. read CURRENT_PC_WORK_STATE.json and Rule Registry
-8. execute only v20.2.5
-9. DO NOT change launcher/icon
-10. consolidate conflicting row-height CSS
-11. VIDEO: use right panel as height reference
-12. PHOTO: use center panel as height reference
-13. prove top/bottom/height delta <= 2px
-14. prove full PHOTO row visible at document bottom
-15. leave corrected icon-launched UI open
-16. publish exact Evidence
-17. push and remote-readback
+8. execute ONLY v20.2.6
+9. restore WORKSPACE ui/approved_visual.css exactly from golden commit 97900cc6c784e74b4224333fa2cc84d29c611f87
+10. verify PHOTO CENTER returns to the previous accepted workspace appearance
+11. verify VIDEO stays in the previous accepted workspace appearance
+12. preserve later icon/favicon/no-cache/launcher improvements
+13. lock the corrected WORKSPACE UI
+14. desktop shortcut must launch ONLY that same workspace
+15. no copied desktop UI, no desktop-only CSS, no old worktree
+16. compare workspace direct launch vs desktop launch at same viewport/zoom
+17. publish exact v20.2.6 Evidence
+18. push and remote-readback
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_FINAL_CORRECTION_DIRECTIVE_v20.2.5_20261002.md
+docs/commander/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_EXACT_MIRROR_FINAL_DIRECTIVE_v20.2.6_20261002.md
 
 ## ACTIVE EVIDENCE CONTRACT
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.5_20261002.json
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.6_20261002.json
 
-## REPRESENTATIVE RULING
+## SINGLE SOURCE OF TRUTH
 
-Launcher and branded icon are now frozen.
+WORKSPACE UI ONLY.
 
-Remaining UI problem:
-- VIDEO right is correct; left + center must match its exact row height
-- PHOTO center is correct; left + right must match its exact row height
-- at full page scroll bottom, all PHOTO lower controls must be completely visible
+Golden geometry commit:
+97900cc6c784e74b4224333fa2cc84d29c611f87
 
-## HARD FREEZE
+Rejected clipping commit:
+2ab174e03dc786c53f38ba956dea95f8e1ccd5a7
 
-DO NOT CHANGE:
-- desktop shortcut
-- branded icon
-- favicon
-- launcher
-- color hierarchy
-- Shortform header/order
-- runtime/model/Marketing functionality
+## HARD RULE
+
+The desktop is NOT a second UI build.
+
+Desktop shortcut:
+→ repository-owned launcher
+→ current repository root
+→ same ui/ files
+
+No desktop-specific UI modifications are allowed.
 
 ## EXACT OUTPUTS
 
 Review:
-docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_REVIEW_v20.2.5_20261002.md
+docs/commander/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_MIRROR_FINAL_REVIEW_v20.2.6_20261002.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_EVIDENCE_v20_2_5_20261002.json
+evidence/pc_remote/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_MIRROR_FINAL_EVIDENCE_v20_2_6_20261002.json
 
 Detail:
-evidence/pc_remote/media-ai-row-height-v20_2_5-20261002/
+evidence/pc_remote/media-ai-workspace-mirror-v20_2_6-20261002/
 
 Required files:
-20
+26
 
 ## FINAL RULE
 
-SYNC → VALIDATE → CONSOLIDATE HEIGHT RULES → VIDEO RIGHT REFERENCE → PHOTO CENTER REFERENCE → DOM GEOMETRY <=2PX → PAGE BOTTOM FULLY VISIBLE → REPRESENTATIVE CHECK.
+RESTORE WORKSPACE GOLDEN UI → LOCK WORKSPACE → DESKTOP LAUNCHES SAME WORKSPACE → COMPARE → PASS ONLY IF IDENTICAL.
