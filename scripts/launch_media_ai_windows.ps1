@@ -28,8 +28,12 @@ if (-not $healthy) {
   } while (-not $healthy -and (Get-Date) -lt $deadline)
   if (-not $healthy) { throw 'MEDIA AI server did not become healthy on port 8768' }
 }
-$edge = Get-Command msedge.exe -ErrorAction SilentlyContinue
-$chrome = Get-Command chrome.exe -ErrorAction SilentlyContinue
-if ($edge) { Start-Process $edge.Source -ArgumentList "--start-maximized", $url }
-elseif ($chrome) { Start-Process $chrome.Source -ArgumentList "--start-maximized", $url }
+$browserCandidates = @(
+  (Join-Path $env:ProgramFiles 'Microsoft\Edge\Application\msedge.exe'),
+  (Join-Path ${env:ProgramFiles(x86)} 'Microsoft\Edge\Application\msedge.exe'),
+  (Join-Path $env:ProgramFiles 'Google\Chrome\Application\chrome.exe'),
+  (Join-Path ${env:ProgramFiles(x86)} 'Google\Chrome\Application\chrome.exe')
+)
+$browser = $browserCandidates | Where-Object { $_ -and (Test-Path -LiteralPath $_) } | Select-Object -First 1
+if ($browser) { Start-Process -FilePath $browser -ArgumentList "--start-maximized", $url }
 else { Start-Process $url }
