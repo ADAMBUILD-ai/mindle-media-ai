@@ -1,7 +1,7 @@
 # MINDLE MEDIA AI — CURRENT PC WORK ACTIVE DIRECTIVE
 
 STATUS: ACTIVE
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.2
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261002-V20.2.3
 DATE: 2026-10-02
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
@@ -16,66 +16,75 @@ BRANCH: feature/ad-shortform-bridge-p0-20260926
 6. require CONTROL_PLANE_PASS
 7. read CURRENT_PC_WORK_STATE.json
 8. read Rule Registry MD + JSON
-9. execute only v20.2.2
-10. modify LEFT PANELS ONLY
-11. preserve v20.2.1 center/right/color baseline
-12. capture before/after VIDEO + PHOTO left panels
-13. leave corrected UI open on Windows
-14. wait for representative UI decision
-15. do NOT enter icon phase unless representative says UI OK
-16. publish exact v20.2.2 Evidence
-17. commit, push, remote-readback
+9. execute only v20.2.3
+10. DO NOT redesign the current good UI
+11. inspect the actual Windows desktop MEDIA AI shortcut
+12. compare desktop-icon launch with worker-opened good launch
+13. repair launcher/cache/window parity
+14. replace/update desktop shortcut to canonical launcher
+15. close/reopen using ONLY the desktop icon
+16. prove the same current UI opens without bottom clipping
+17. leave desktop icon and reopened UI available for representative click test
+18. publish exact v20.2.3 Evidence
+19. commit, push, remote-readback
 
 ## ACTIVE DIRECTIVE
 
-docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_CORRECTION_DIRECTIVE_v20.2.2_20261002.md
+docs/commander/MINDLE_MEDIA_AI_WINDOWS_DESKTOP_LAUNCHER_CACHE_VIEWPORT_PARITY_CORRECTION_DIRECTIVE_v20.2.3_20261002.md
 
 ## ACTIVE EVIDENCE CONTRACT
 
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.2_20261002.json
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v20.2.3_20261002.json
 
-## REPRESENTATIVE RULING
+## REPRESENTATIVE OBSERVATION
 
-v20.2.1 center/right correction is accepted as baseline.
+Current worker-opened v20.2.2 UI:
+GOOD / visually acceptable for the present correction stage.
 
-Remaining correction:
-- VIDEO left panel content is top-heavy
-- PHOTO left panel content is top-heavy
-- natural-language/reference/chip areas should extend downward
-- left panel bottom/content should visually align with center bottom
+Existing desktop-icon launch:
+DIFFERENT / lower UI clipping or stale geometry appears.
+
+This cycle diagnoses launch-path parity only.
+
+## LIKELY CAUSES TO VERIFY
+
+- desktop shortcut still points to old URL/query
+- desktop shortcut points to stale worktree/server process
+- browser cache serves old approved_visual.css
+- product server does not send no-store for UI static assets
+- desktop shortcut opens a restored/smaller browser window instead of maximized current view
+
+Do not assume; verify actual Windows shortcut Target/Arguments/WorkingDirectory first.
 
 ## HARD FREEZE
 
 DO NOT CHANGE:
-- VIDEO center
-- VIDEO right
-- PHOTO center
-- PHOTO right
-- F27E color hierarchy
-- Shortform header/order
-- Marketing/MP4/runtime/model code
+- VIDEO/PHOTO UI geometry from current v20.2.2
+- color hierarchy
+- Shortform button/order
+- runtime/model/Marketing behavior
 
-Required VIDEO action order:
-영상 불러오기 → AI 자동 편집 → 광고 숏폼 → 프로젝트 저장 → 내보내기
+## ICON DESIGN PHASE
 
-## ICON PHASE
+BLOCKED_PENDING_UI_AND_LAUNCHER_APPROVAL
 
-BLOCKED_PENDING_UI_APPROVAL
+The existing desktop icon is only the launcher under test.
+It is NOT yet the final approved icon design.
 
 ## EXACT OUTPUTS
 
 Review:
-docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_REVIEW_v20.2.2_20261002.md
+docs/commander/MINDLE_MEDIA_AI_WINDOWS_LAUNCHER_PARITY_REVIEW_v20.2.3_20261002.md
 
 Machine Evidence:
-evidence/pc_remote/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_EVIDENCE_v20_2_2_20261002.json
+evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_LAUNCHER_PARITY_EVIDENCE_v20_2_3_20261002.json
 
 Detail:
-evidence/pc_remote/media-ai-left-panel-v20_2_2-20261002/
+evidence/pc_remote/media-ai-launcher-parity-v20_2_3-20261002/
 
 Required files:
 20
 
 ## FINAL RULE
 
-SYNC → VALIDATE → FIX LEFT PANEL VERTICAL FILL ONLY → PRESERVE CENTER/RIGHT → SHOW WINDOWS UI → REPRESENTATIVE DECISION → ONLY THEN ICON PHASE.
+SYNC → VALIDATE → FORENSIC DESKTOP SHORTCUT → SAME CURRENT SERVER/HEAD/CSS → FRESH CACHE → MAXIMIZED VIEWPORT → DESKTOP ICON REOPEN TEST → REPRESENTATIVE CONFIRMATION.
