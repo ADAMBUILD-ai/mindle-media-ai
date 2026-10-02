@@ -11,8 +11,9 @@ Recreated `C:\Users\PC\OneDrive\Desktop\MINDLE MEDIA AI - 최종 UI.lnk` from th
 - Old `.url` shortcut removed
 - No UI/CSS/layout/icon design files changed
 - Actual shortcut launch verified through the runtime identity endpoint
+- Launcher opens a new maximized browser window (`--new-window --start-maximized`) so an existing Edge session cannot hide the result
 - Runtime branch: `feature/ad-shortform-bridge-p0-20260926`
-- Runtime HEAD: `56719038c190cdfa52d83e794c06beb7f7b754ba`
+- Runtime HEAD: `213080d7a5672dcc9a56101ce85b47348c355139`
 
 ## Evidence limitation
 

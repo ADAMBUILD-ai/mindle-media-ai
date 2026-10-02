@@ -8,7 +8,8 @@
   "old_url_removed": true,
   "runtime_identity": {
     "branch": "feature/ad-shortform-bridge-p0-20260926",
-    "head": "56719038c190cdfa52d83e794c06beb7f7b754ba"
+    "head": "213080d7a5672dcc9a56101ce85b47348c355139",
+    "browser_launch": "--new-window --start-maximized"
   },
   "ui_modified": false,
   "native_screenshot": "NOT_CAPTURED"
