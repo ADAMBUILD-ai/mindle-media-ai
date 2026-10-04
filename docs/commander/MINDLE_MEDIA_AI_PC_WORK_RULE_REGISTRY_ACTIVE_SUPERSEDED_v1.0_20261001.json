@@ -148,5 +148,24 @@
   "desktop_independent_ui_forbidden": true,
   "ui_changes_forbidden": true,
   "metadata_only_pass_forbidden": true,
-  "user_guide": "docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md"
+  "user_guide": "docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md",
+  "current_master": "docs/commander/MINDLE_MEDIA_AI_MASTER_HANDOVER_SSOT_v2.0_20261005.md",
+  "repository_consolidation_ssot": "docs/commander/MINDLE_MEDIA_AI_REPOSITORY_CONSOLIDATION_SSOT_v1.0_20261005.md",
+  "two_worker_protocol": "docs/commander/MINDLE_MEDIA_AI_TWO_WORKER_COORDINATION_PROTOCOL_v1.0_20261005.md",
+  "worker_coordination_lock": "CURRENT_WORKER_COORDINATION_LOCK.json",
+  "two_worker_lane_lock_required": true,
+  "branch_classification": {
+    "ACTIVE": [
+      "feature/ad-shortform-bridge-p0-20260926"
+    ],
+    "REFERENCE_ONLY": [
+      "main",
+      "integration"
+    ],
+    "ARCHIVE_CANDIDATE": [
+      "work/*",
+      "automation/model-scout-route-media-50"
+    ]
+  },
+  "pr_23_policy": "HOLD_DO_NOT_MERGE_STALE_BASE"
 }
