@@ -19,6 +19,12 @@ MEDIA-AI-20261003-V21.0
 Current product directive:
 docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md
 
+Immediate PC Work repair addendum:
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md
+
+Execution order:
+v21.0A launcher/runtime identity repair → UI overlap reproduction/minimal repair → resume remaining v21.0 function audit.
+
 Current Evidence contract:
 docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json
 
