@@ -123,5 +123,27 @@
   "workspace_golden_geometry_commit": "97900cc6c784e74b4224333fa2cc84d29c611f87",
   "rejected_geometry_commit": "2ab174e03dc786c53f38ba956dea95f8e1ccd5a7",
   "desktop_independent_ui_forbidden": true,
-  "user_guide": "docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md"
+  "user_guide": "docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md",
+  "current_master": "docs/commander/MINDLE_MEDIA_AI_MASTER_HANDOVER_SSOT_v2.0_20261005.md",
+  "repository_consolidation_ssot": "docs/commander/MINDLE_MEDIA_AI_REPOSITORY_CONSOLIDATION_SSOT_v1.0_20261005.md",
+  "two_worker_protocol": "docs/commander/MINDLE_MEDIA_AI_TWO_WORKER_COORDINATION_PROTOCOL_v1.0_20261005.md",
+  "worker_coordination_lock": "CURRENT_WORKER_COORDINATION_LOCK.json",
+  "repository_branch_policy": {
+    "active": [
+      "feature/ad-shortform-bridge-p0-20260926"
+    ],
+    "reference_only": [
+      "main",
+      "integration"
+    ],
+    "archive_candidate_patterns": [
+      "work/*",
+      "automation/model-scout-route-media-50"
+    ],
+    "destructive_cleanup_authorized": false
+  },
+  "pr_policy": {
+    "pr_23": "HOLD_DO_NOT_MERGE_STALE_BASE",
+    "historical_open_prs": "REFERENCE_ONLY_ARCHIVE_CANDIDATE"
+  }
 }
