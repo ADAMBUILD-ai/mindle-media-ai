@@ -31,3 +31,20 @@ Detail: evidence/pc_remote/media-ai-full-reaudit-v21_0-20261003/
 
 ## FINAL RULE
 NO PASS WITHOUT REAL RUNTIME EVIDENCE.
+
+
+## TWO-WORKER COORDINATION — MANDATORY
+
+Before any write:
+1. read CURRENT_WORKER_COORDINATION_LOCK.json
+2. confirm your assigned lane
+3. if another lane owns the target file, STOP with LANE_OWNERSHIP_CONFLICT
+4. Worker A owns product/runtime files for active v21.0
+5. Worker B owns Master/repository governance only
+6. no simultaneous product-file writes by two workers
+
+Current Master:
+docs/commander/MINDLE_MEDIA_AI_MASTER_HANDOVER_SSOT_v2.0_20261005.md
+
+Repository map:
+docs/commander/MINDLE_MEDIA_AI_REPOSITORY_CONSOLIDATION_SSOT_v1.0_20261005.md
