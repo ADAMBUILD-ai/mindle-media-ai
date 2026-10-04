@@ -1,16 +1,77 @@
 # MINDLE MEDIA AI
 
-## Two Track Work Package
+## CURRENT STATUS — READ THIS FIRST
 
-The non-destructive Work Track A handoff is in `docs/00_README_FIRST.md` through `docs/09_PC_REMOTE_FINAL_CHECKLIST.md`. The approved visual UI is intentionally not redrawn in this repository because its source and approved screenshot are absent; only the state contract is implemented in `src/media_ai/ui_contract.py`.
+Canonical product branch:
 
-Model Scout를 제외한 P0 실행 코어입니다. 자연어 요청을 PHOTO 또는 VIDEO로 라우팅하고, 비동기 Job으로 처리하며, 원본과 결과 및 실행 로그를 분리 보관합니다.
+`feature/ad-shortform-bridge-p0-20260926`
 
-## 실행
+Current active cycle:
 
-```bash
-python -m pytest
-python -m media_ai.cli photo --input sample.jpg --output out.jpg --brightness 1.05
-```
+`MEDIA-AI-20261003-V21.0`
 
-VIDEO 명령은 시스템의 `ffmpeg`를 사용하여 지정 구간 자르기와 16:9, 9:16, 1:1 리프레임의 첫 E2E를 제공합니다.
+Current directive:
+
+`docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md`
+
+Current Master:
+
+`docs/commander/MINDLE_MEDIA_AI_MASTER_HANDOVER_SSOT_v2.0_20261005.md`
+
+Repository map:
+
+`docs/commander/MINDLE_MEDIA_AI_REPOSITORY_CONSOLIDATION_SSOT_v1.0_20261005.md`
+
+Two-worker protocol:
+
+`docs/commander/MINDLE_MEDIA_AI_TWO_WORKER_COORDINATION_PROTOCOL_v1.0_20261005.md`
+
+Worker lane lock:
+
+`CURRENT_WORKER_COORDINATION_LOCK.json`
+
+User guide:
+
+`docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md`
+
+## Important
+
+`main` is NOT the current product branch.
+
+At the 2026-10-05 consolidation point, the active product branch is 452 commits ahead of `main`, 1 commit behind it, and diverged.
+
+Do not:
+- treat main as latest product
+- merge main blindly
+- execute historical work/* branches
+- merge historical PRs as current product
+- run two workers as simultaneous product writers
+
+PR #23 is HOLD / DO NOT MERGE because its base is historical `work/v28-1-remote-runtime-package-20260924`.
+
+## Worker start order
+
+1. `CURRENT_WORKER_COORDINATION_LOCK.json`
+2. `CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json`
+3. `CURRENT_PC_WORK_DIRECTIVE.md`
+4. `CURRENT_PC_WORK_STATE.json`
+5. Control-plane validator
+6. Current Master v2
+7. Active directive
+
+## Product
+
+MINDLE MEDIA AI provides VIDEO and PHOTO editing with:
+- natural-language editing
+- reference images
+- Preview
+- VIDEO Timeline
+- Save / Export
+- PHOTO segmentation / upscale
+- VIDEO tracking / Korean STT
+- Marketing AI linked Shortform workflow
+
+Current closeout standard is real Windows use, not metadata-only PASS.
+
+See:
+`docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md`
