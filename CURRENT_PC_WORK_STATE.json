@@ -4,7 +4,7 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_EXECUTION_ENFORCEMENT_DIRECTIVE_v21.0A-R1_20261005.md",
   "technical_scope": null,
   "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json",
   "required_outputs": {
@@ -27,7 +27,7 @@
   "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
   "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
   "branch_assertion_required_before_work": true,
-  "previous_cycle_result": "v20.2.7 metadata/runtime verification insufficient; representative real-use issues remain",
+  "previous_cycle_result": "v21.0A NOT_STARTED_REJECT",
   "required_detail_file_count": 0,
   "approved_ui_library_filename": "네온 다크 테마 AI 미디어 편집기.png",
   "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
@@ -51,13 +51,13 @@
   },
   "google_drive_handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json",
   "current_known_issue": {
-    "type": "SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR",
+    "type": "EXECUTION_NOT_STARTED",
     "details": [
-      "direct .url shortcut may bypass canonical launcher identity checks",
-      "desktop must use one canonical .lnk",
-      "port 8768 and product_server uniqueness must be proven",
-      "accumulated responsive/fixed-height CSS may cause overlap or clipping",
-      "real function audit resumes only after identity/UI repair"
+      "no worker commit after v21.0A activation",
+      "no Review",
+      "no machine Evidence",
+      "no detail Evidence",
+      "actual Windows execution is mandatory before PASS"
     ]
   },
   "frozen_pass": {
@@ -67,7 +67,7 @@
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   },
-  "control_plane_epoch": "MEDIA-AI-20261005-V21.0A",
+  "control_plane_epoch": "MEDIA-AI-20261005-V21.0A-R1",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
   "worker_must_validate_epoch_before_work": true,
@@ -83,7 +83,7 @@
     "base_url": "http://127.0.0.1:4318",
     "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
   },
-  "active_cycle_version": "v21.0A",
+  "active_cycle_version": "v21.0A-R1",
   "next_pending_directive": null,
   "next_pending_evidence_contract": null,
   "next_pending_epoch": null,
@@ -106,12 +106,15 @@
   "representative_icon_gate_status": "BRANDED_ICON_PRESERVE",
   "required_detail_file_count_after_ui_approval": 30,
   "final_closeout_requires": [
+    "actual_windows_execution",
     "canonical_lnk_only",
+    "single_product_server",
     "desktop_2_of_2",
     "workspace_desktop_identity",
-    "ui_overlap_repaired",
+    "ui_overlap_repaired_or_not_reproduced",
     "real_function_pass",
     "save_reopen_pass",
+    "remote_evidence_pass",
     "representative_confirmation"
   ],
   "frozen_ui_regions": [
@@ -150,10 +153,16 @@
   },
   "parent_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
   "immediate_execution_order": [
-    "single runtime and launcher identity",
-    "desktop lnk 2-of-2",
-    "workspace-desktop source parity",
-    "UI overlap reproduction and minimal repair",
-    "resume v21.0 real function audit"
-  ]
+    "actual Windows launcher/runtime inventory",
+    "canonical lnk only and direct-url removal",
+    "single product_server enforcement",
+    "workspace-desktop identity gate",
+    "desktop double-click 2-of-2",
+    "UI overlap reproduction/minimal repair",
+    "real functional re-audit",
+    "save/reopen",
+    "remote evidence publication"
+  ],
+  "technical_base_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md",
+  "commander_review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_NOT_STARTED_REVIEW_20261005.md"
 }
