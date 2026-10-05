@@ -3,7 +3,7 @@
   "date": "2026-10-05",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261003-V21.0",
+  "active_control_plane_epoch": "MEDIA-AI-20261005-V21.0A",
   "status": "ACTIVE",
   "worker_lanes": {
     "worker_a_product_runtime": {
@@ -22,7 +22,8 @@
         "Master SSOT authority",
         "main/default branch",
         "historical branch deletion"
-      ]
+      ],
+      "current_assignment": "Execute v21.0A immediate repair, then resume parent v21.0"
     },
     "worker_b_master_repository": {
       "role": "Master/repository governance auditor",
@@ -39,12 +40,15 @@
         "scripts/launch_media_ai_windows.ps1",
         "active product behavior",
         "active Evidence produced by Worker A"
-      ]
+      ],
+      "current_assignment": "Governance/read-only for product files while Worker A executes v21.0A"
     }
   },
   "collision_status": "LANE_OWNERSHIP_CONFLICT",
   "stale_head_rule": "fetch remote HEAD before every write; reconcile if moved",
   "force_push_forbidden": true,
   "merge_main_forbidden": true,
-  "archive_branches_read_only": true
+  "archive_branches_read_only": true,
+  "active_product_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md",
+  "parent_product_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md"
 }
