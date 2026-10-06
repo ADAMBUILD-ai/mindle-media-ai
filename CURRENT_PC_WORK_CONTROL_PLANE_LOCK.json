@@ -1,16 +1,16 @@
 {
-  "schema_version": "RECOVERY-1.1",
-  "status": "ACTIVE_WINDOWS_SANDBOX_ACL_RECOVERY_ONLY",
+  "schema_version": "RECOVERY-1.2",
+  "status": "ACTIVE_CANONICAL_LOCAL_REBIND_ONLY",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "epoch": "MEDIA-AI-20261006-WINDOWS-SANDBOX-ACL-RECOVERY-V1.1",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_WINDOWS_SANDBOX_ACL_STATE_RECOVERY_DIRECTIVE_v1.1_20261006.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_WINDOWS_SANDBOX_ACL_STATE_RECOVERY_EVIDENCE_CONTRACT_v1.1_20261006.json",
+  "epoch": "MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_AND_RECOVERY_DIRECTIVE_v1.2_20261006.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_CONTRACT_v1.2_20261006.json",
   "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_REVIEW_v1.1_20261006.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_EVIDENCE_v1_1_20261006.json",
-    "detail_dir": "evidence/pc_remote/media-ai-windows-sandbox-acl-recovery-v1_1-20261006/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_REVIEW_v1.2_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_v1_2_20261006.json",
+    "detail_dir": "evidence/pc_remote/media-ai-canonical-local-rebind-v1_2-20261006/"
   },
   "invariants": {
     "one_active_epoch": true,
@@ -18,9 +18,11 @@
     "one_active_contract": true,
     "product_write_forbidden": true,
     "package_build_forbidden": true,
-    "branch_mutation_forbidden": true,
-    "blind_session_restart_loop_forbidden": true,
-    "repository_acl_reset_forbidden": true
+    "force_push_forbidden": true,
+    "git_clean_forbidden": true,
+    "new_repo_or_worktree_forbidden": true,
+    "external_backup_before_reset_required": true,
+    "preserve_work_data": true
   },
   "validator": "scripts/validate_pc_work_control_plane.py",
   "validator_required_result": "CONTROL_PLANE_PASS_AFTER_HOST_RECOVERY",
