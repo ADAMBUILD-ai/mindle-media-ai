@@ -1,8 +1,8 @@
 {
   "contract_version": "1.0",
   "date": "2026-10-06",
-  "status": "SUSPENDED_REFERENCE_ONLY",
-  "control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
+  "status": "ACTIVE",
+  "control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.1",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
@@ -47,6 +47,5 @@
     "split_transfer_package_pass",
     "remote_readback_pass"
   ],
-  "reactivation_requires": "RECOVERY_PASS_AND_COMMANDER_REACTIVATION",
   "current_execution_authority": "CURRENT_PC_WORK_DIRECTIVE.md"
 }
