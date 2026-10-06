@@ -1,0 +1,10 @@
+{
+  "status": "BLOCKED",
+  "development_checkout_used_for_component_tests": true,
+  "employee_test_environment_established": false,
+  "requested_install_root_write_permission_granted": false,
+  "start_menu_shortcut_write_permission_granted": false,
+  "desktop_shortcut_write_permission_granted": true,
+  "system_python_used_for_build_preflight": true,
+  "employee_e2e_run": false
+}

@@ -89,9 +89,24 @@ class ProductModelVault:
         self.root, self.token = Path(root), token
         self.downloads = self.root / "verified_model_cache"
         self.downloads.mkdir(parents=True, exist_ok=True)
-        self.api = HfApi(token=token)
         configured = os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip()
         self.local_root = Path(configured) if configured else None
+        self.api = None if self.local_root else HfApi(token=token)
+
+    def verify_local_models(self) -> None:
+        """Verify every adopted model before accepting any employee request."""
+        if self.local_root is None:
+            raise RuntimeError("local package root is required")
+        self._local_snapshot("sam21", SAM_FILES)
+        self._local_snapshot("whisper-small", WHISPER_FILES)
+        directory = self.local_root / "omz/intel/single-image-super-resolution-1032/FP32"
+        for name, digest in {
+            "single-image-super-resolution-1032.xml": "4f355965e070341e1f1df5b954213e0ecca5d43faf8a0c9770efdf04c7442c88fb0aaeb825fc8091b30f0a674c808446",
+            "single-image-super-resolution-1032.bin": "ec5a759c2d43eebf679040638ad765bc6ce5c16253421ddeb8acafd1ab6c8cb406f9f85b274771d9f670efc3d824e926",
+        }.items():
+            path = directory / name
+            if not path.is_file() or hashlib.sha384(path.read_bytes()).hexdigest() != digest:
+                raise RuntimeError(f"local Intel SISR SHA-384 mismatch: {name}")
 
     def _local_snapshot(self, cache_name: str, expected: dict[str, tuple[int, str]]) -> Path | None:
         """Use only an explicitly supplied, byte-pinned recovered package."""
@@ -107,6 +122,8 @@ class ProductModelVault:
         return snapshot
 
     def _download_files(self, cache_name: str, expected: dict[str, tuple[int, str]]) -> Path:
+        if self.local_root is not None:
+            raise RuntimeError("network acquisition is disabled in local package mode")
         info = self.api.model_info(PRIVATE_REPO, revision=BASELINE_REVISION, token=self.token, files_metadata=True)
         if info.sha != BASELINE_REVISION or not bool(getattr(info, "private", False)):
             raise RuntimeError("immutable private SAM/Whisper cache revision or visibility mismatch")
@@ -126,6 +143,8 @@ class ProductModelVault:
         return adapter, {"identity": asdict(SAM), "private_cache": {"repo_id": PRIVATE_REPO, "revision": BASELINE_REVISION, "path": "VERIFIED_MODEL_CACHE/sam21", "read_only": True}}
 
     def _alternatives(self) -> tuple[str, dict]:
+        if self.local_root is not None:
+            raise RuntimeError("network acquisition is disabled in local package mode")
         revision = os.environ.get("MINDLE_ALTERNATIVE_CACHE_REVISION", "").strip()
         if not re.fullmatch(r"[0-9a-f]{40}", revision): raise RuntimeError("perpetual-use alternative cache revision is required")
         info = self.api.model_info(PRIVATE_REPO, revision=revision, token=self.token, files_metadata=True)
@@ -137,6 +156,8 @@ class ProductModelVault:
         return revision, manifest
 
     def _alternative_files(self, revision: str, folder: str, artifacts: list[dict]) -> Path:
+        if self.local_root is not None:
+            raise RuntimeError("network acquisition is disabled in local package mode")
         destination = self.downloads / ALT_CACHE_PREFIX / folder
         for item in artifacts:
             name = Path(item["file"]).name
@@ -186,7 +207,23 @@ class ProductJobService:
         self.inputs, self.jobs, self.projects = self.root / "inputs", self.root / "jobs", self.root / "projects"
         for path in (self.inputs, self.jobs, self.projects): path.mkdir(parents=True, exist_ok=True)
         self.vault = ProductModelVault(self.root, token)
+        if self.vault.local_root is not None:
+            self.vault.verify_local_models()
         self.records: dict[str, dict] = {}
+        for saved in self.projects.glob('*.json'):
+            try:
+                record = json.loads(saved.read_text(encoding='utf-8'))
+                for job in record.get('jobs', []):
+                    if job.get('status') == 'TESTED_PASS':
+                        self.records[job['job_id']] = job
+            except (OSError, ValueError, KeyError, TypeError):
+                continue
+
+    def latest_project(self) -> dict | None:
+        saved = sorted(self.projects.glob('*.json'), key=lambda p: p.stat().st_mtime, reverse=True)
+        if not saved:
+            return None
+        return json.loads(saved[0].read_text(encoding='utf-8'))
 
     def _store_input(self, filename: str, content_b64: str) -> Path:
         safe = Path(filename).name

@@ -25,6 +25,16 @@ class ProductHttpServer(ThreadingHTTPServer):
         self.requests: list[dict] = []
 
     def runtime_identity(self) -> dict:
+        package_root = os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip()
+        if package_root and (Path(package_root) / "PACKAGE_MANIFEST.json").is_file():
+            manifest_path = Path(package_root) / "PACKAGE_MANIFEST.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            return {"product": "MINDLE MEDIA AI", "distribution": "EMPLOYEE_WIN_X64",
+                    "package_version": manifest["package_version"], "build_commit": manifest["build_commit"],
+                    "package_manifest_sha256": hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+                    "ui_fingerprint": manifest["ui_fingerprint"], "model_manifest_hash": manifest["model_manifest_hash"],
+                    "install_root": str(Path(package_root).resolve()), "data_root": str(self.data_dir.resolve()),
+                    "runtime_mode": "LOCAL_OFFLINE_PACKAGE"}
         files = [
             "ui/index.html",
             "ui/approved_visual.css",
@@ -71,6 +81,16 @@ class Handler(BaseHTTPRequestHandler):
             self._json(200, self.server.runtime_identity()); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
+        if route == '/api/projects/latest':
+            try:
+                project = self.server.service.latest_project() if os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT') else None
+                if project:
+                    for job in project['jobs']:
+                        primary = Path(job['primary_output']['path']).resolve()
+                        job['preview_url'] = '/files/' + primary.relative_to(self.server.data_dir.resolve()).as_posix()
+                self._json(200, {'project': project}); return
+            except (OSError, ValueError, KeyError, TypeError) as error:
+                self._json(422, {'error': '저장된 프로젝트를 불러올 수 없습니다.', 'status': 'PROJECT_REOPEN_FAILED'}); return
         if route.startswith("/files/"):
             self._file(self.server.data_dir / route.removeprefix("/files/")); return
         relative = "index.html" if route in {"/", ""} else route.lstrip("/")
@@ -83,6 +103,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             route = unquote(urlparse(self.path).path); body = self._body()
             if route == "/api/integrations/marketing/shortform":
+                if os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT"):
+                    self._json(503, {"status": "MARKETING_PROVIDER_UNAVAILABLE", "error": "마케팅 AI 연결이 필요합니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다."}); return
                 client = MarketingShortformClient.from_env()
                 request = build_marketing_shortform_request(
                     str(body.get("command", "")),
@@ -121,7 +143,8 @@ def create_server(root: Path, data_dir: Path, token: str, port: int = 0) -> Prod
 def main() -> None:
     parser = argparse.ArgumentParser(); parser.add_argument("--root", type=Path, default=Path.cwd()); parser.add_argument("--data-dir", type=Path, required=True); parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args(); token = os.environ.get("HF_TOKEN")
-    if not token: raise RuntimeError("HF_TOKEN is required for the read-only private model cache")
+    if not token and not os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip():
+        raise RuntimeError("HF_TOKEN is required for the read-only private model cache")
     server = create_server(args.root, args.data_dir, token, args.port)
     print(f"http://127.0.0.1:{server.server_port}", flush=True); server.serve_forever()
 

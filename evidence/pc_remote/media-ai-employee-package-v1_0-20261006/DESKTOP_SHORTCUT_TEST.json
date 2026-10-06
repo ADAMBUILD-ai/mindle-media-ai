@@ -1,0 +1,6 @@
+{
+  "status": "NOT_RUN",
+  "scope": "Installed employee package",
+  "reason": "Build prerequisites failed and installation path write permission was not granted.",
+  "result_must_not_be_counted_as_pass": true
+}

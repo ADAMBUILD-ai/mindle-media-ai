@@ -1,0 +1,8 @@
+{
+  "status": "BLOCKED",
+  "base_commit": "b39ca305839f7d9f2fe1cb8ae25c8212159b91be",
+  "portable_package_built": false,
+  "zip_built": false,
+  "split_employee_package_built": false,
+  "preflight_file": "BUILD_PREFLIGHT.json"
+}

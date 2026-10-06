@@ -1,0 +1,16 @@
+{
+  "status": "BLOCKED",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "torch": "2.14.0+cu126",
+  "cuda": "12.6",
+  "errors": [
+    "CPU-only PyTorch required; observed 2.14.0+cu126",
+    "required pinned dependency missing: openvino",
+    "openvino import failed: No module named 'openvino'",
+    "FFmpeg file absent: ffmpeg.exe",
+    "FFmpeg file absent: ffprobe.exe",
+    "FFmpeg redistribution notices/source offer required",
+    "upstream redistribution license absent: sam21",
+    "upstream redistribution license absent: whisper-small"
+  ]
+}

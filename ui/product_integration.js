@@ -94,4 +94,27 @@
     editor.addEventListener("mindle:save", () => save(editor));
     editor.addEventListener("mindle:export", () => exportProject(editor));
   });
+  async function restoreSavedProject() {
+    try {
+      const response = await fetch('/api/projects/latest');
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || '저장된 프로젝트를 불러올 수 없습니다.');
+      if (!result.project) return;
+      state.projectId = result.project.project_id;
+      state.jobs = result.project.job_ids;
+      for (const job of result.project.jobs) {
+        const kind = job.lane === 'photo' ? 'photo' : 'video';
+        const editor = document.querySelector(`[data-editor="${kind}"]`);
+        if (editor) {
+          preview(editor, job);
+          editor.dataset.projectStatus = 'reopened';
+          message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);
+        }
+      }
+    } catch (error) {
+      const editor = document.querySelector('[data-editor="video"]');
+      if (editor) message(editor, error.message, true);
+    }
+  }
+  restoreSavedProject();
 })();

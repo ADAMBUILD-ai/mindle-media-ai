@@ -1,0 +1,32 @@
+{
+  "status": "BLOCKED",
+  "final_result": "BLOCKED",
+  "required_result": "EMPLOYEE_PACKAGE_CLEAN_WINDOWS_E2E_PASS",
+  "recorded_at": "2026-10-06T12:12:09.386772+00:00",
+  "control_plane_result": "CONTROL_PLANE_PASS",
+  "package_built": false,
+  "employee_e2e_pass": false,
+  "source_model_identities_verified": true,
+  "offline_mode_regression_tests": 4,
+  "automated_tests_passed": 56,
+  "cpu_wheel_staged_and_official_sha256_verified": true,
+  "ffmpeg_ffprobe_staged": true,
+  "model_licenses_staged": true,
+  "blockers": [
+    "Actual per-user installation/data/Start Menu write permissions were not granted.",
+    "Current NumPy 2.4.6 conflicts with OpenVINO 2025.1.0 required NumPy<2.3.0. Runtime version adjustment question is pending.",
+    "An isolated CPU runtime candidate is being prepared; full runtime imports/inference and dependency closure are not yet verified.",
+    "Local .git/index.lock creation is denied even after .git write permission was granted; local commit/push cannot run."
+  ],
+  "remaining_work": [
+    "Resolve the explicit NumPy compatibility/version choice.",
+    "Finish and prove the package-local CPU runtime.",
+    "Verify complete redistribution notices.",
+    "Build complete archive and actual transfer parts.",
+    "Test installed package without development repository access.",
+    "Complete all 24 installed product/desktop/uninstall/reinstall checks."
+  ],
+  "detail_directory": "evidence/pc_remote/media-ai-employee-package-v1_0-20261006/",
+  "remote_status": "PUBLICATION_IN_PROGRESS_VIA_GITHUB_CONNECTOR",
+  "isolated_runtime_candidate_copied": true
+}
