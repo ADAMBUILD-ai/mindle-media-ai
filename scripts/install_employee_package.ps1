@@ -1,4 +1,4 @@
-param([string]$PackageRoot = $PSScriptRoot,[string]$ShortcutRoot)
+﻿param([string]$PackageRoot = $PSScriptRoot,[string]$ShortcutRoot)
 $ErrorActionPreference = 'Stop'
 try {
   $PackageRoot = (Resolve-Path -LiteralPath $PackageRoot).Path

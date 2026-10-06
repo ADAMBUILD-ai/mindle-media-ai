@@ -1,4 +1,4 @@
-param([switch]$DeleteUserData,[string]$ShortcutRoot)
+﻿param([switch]$DeleteUserData,[string]$ShortcutRoot)
 $ErrorActionPreference = 'Stop'
 $Base = [IO.Path]::GetFullPath((Join-Path $env:LOCALAPPDATA 'MINDLE'))
 $InstallRoot = [IO.Path]::GetFullPath((Join-Path $Base 'MEDIA_AI'))
