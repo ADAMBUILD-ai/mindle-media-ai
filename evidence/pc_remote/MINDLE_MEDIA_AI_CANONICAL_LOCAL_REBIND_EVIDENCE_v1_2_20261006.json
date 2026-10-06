@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.2",
+  "date": "2026-10-06",
+  "status": "RECOVERY_PASS",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "sandbox_acl_recovery": {
+    "corrupt_state_path": "C:\\Users\\PC\\.codex\\.sandbox\\deny_read_acl_state.json",
+    "corrupt_state_length_bytes": 22,
+    "all_null": true,
+    "neutral_probe": "MINDLE_PC_WORK_ACL_PROBE_PASS",
+    "result": "HOST_SANDBOX_ACL_RECOVERY_PASS"
+  },
+  "canonical_local_rebind": {
+    "repo_root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai",
+    "remote": "https://github.com/ADAMBUILD-ai/mindle-media-ai.git",
+    "branch": "feature/ad-shortform-bridge-p0-20260926",
+    "local_head_before": "093d15f33b99e04794532367046219367e811441",
+    "external_backup_bundle": "C:\\MINDLE_RECOVERY_BACKUP\\media-ai-20261006-193149\\mindle-media-ai-local.bundle",
+    "bundle_verify": "PASS",
+    "tracked_dirty_files_backed_up": [
+      "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_REVIEW_v20.2.7_20261002.md",
+      "evidence/pc_remote/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_EVIDENCE_v20_2_7_20261002.json"
+    ],
+    "dirty_patch_bytes": 3492,
+    "work_data_preserved": true,
+    "post_reset_status": [
+      "?? work-data/"
+    ],
+    "result": "LOCAL_CANONICAL_REBIND_PASS"
+  },
+  "validator": {
+    "result": "CONTROL_PLANE_PASS",
+    "epoch": "MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_AND_RECOVERY_DIRECTIVE_v1.2_20261006.md",
+    "contract": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_CONTRACT_v1.2_20261006.json"
+  },
+  "final_result": "RECOVERY_PASS",
+  "product_files_modified_by_recovery": false,
+  "employee_package_build_started": false
+}
