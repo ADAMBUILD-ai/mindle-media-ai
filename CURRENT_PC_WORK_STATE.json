@@ -1,16 +1,16 @@
 {
   "status": "ACTIVE",
-  "date": "2026-10-05",
+  "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_EXECUTION_ENFORCEMENT_DIRECTIVE_v21.0A-R1_20261005.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
   "technical_scope": null,
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_REVIEW_v21.0_20261003.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_EVIDENCE_v21_0_20261003.json",
-    "detail_dir": "evidence/pc_remote/media-ai-full-reaudit-v21_0-20261003/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_REVIEW_v1.0_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_EVIDENCE_v1_0_20261006.json",
+    "detail_dir": "evidence/pc_remote/media-ai-employee-package-v1_0-20261006/"
   },
   "forbidden_outputs": [
     "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
@@ -27,7 +27,7 @@
   "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
   "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
   "branch_assertion_required_before_work": true,
-  "previous_cycle_result": "v21.0A NOT_STARTED_REJECT",
+  "previous_cycle_result": "v21.0A-R1 preserved as historical/diagnostic; distribution packaging now active",
   "required_detail_file_count": 0,
   "approved_ui_library_filename": "네온 다크 테마 AI 미디어 편집기.png",
   "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
@@ -51,13 +51,13 @@
   },
   "google_drive_handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json",
   "current_known_issue": {
-    "type": "EXECUTION_NOT_STARTED",
+    "type": "EMPLOYEE_DISTRIBUTION_PACKAGE_REQUIRED",
     "details": [
-      "no worker commit after v21.0A activation",
-      "no Review",
-      "no machine Evidence",
-      "no detail Evidence",
-      "actual Windows execution is mandatory before PASS"
+      "current notebook uses development launcher/shortcut",
+      "employee PC needs self-contained package",
+      "package must include verified local models and runtime",
+      "package must not require GitHub/Python/HF token",
+      "transfer-friendly split package required"
     ]
   },
   "frozen_pass": {
@@ -67,7 +67,7 @@
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   },
-  "control_plane_epoch": "MEDIA-AI-20261005-V21.0A-R1",
+  "control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
   "worker_must_validate_epoch_before_work": true,
@@ -83,7 +83,7 @@
     "base_url": "http://127.0.0.1:4318",
     "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
   },
-  "active_cycle_version": "v21.0A-R1",
+  "active_cycle_version": "employee-package-v1.0",
   "next_pending_directive": null,
   "next_pending_evidence_contract": null,
   "next_pending_epoch": null,
@@ -106,16 +106,15 @@
   "representative_icon_gate_status": "BRANDED_ICON_PRESERVE",
   "required_detail_file_count_after_ui_approval": 30,
   "final_closeout_requires": [
-    "actual_windows_execution",
-    "canonical_lnk_only",
-    "single_product_server",
-    "desktop_2_of_2",
-    "workspace_desktop_identity",
-    "ui_overlap_repaired_or_not_reproduced",
-    "real_function_pass",
-    "save_reopen_pass",
-    "remote_evidence_pass",
-    "representative_confirmation"
+    "package_build_pass",
+    "model_hash_pass",
+    "self_containment_pass",
+    "clean_package_install_pass",
+    "desktop_launch_pass",
+    "real_function_e2e_pass",
+    "save_reopen_export_pass",
+    "split_transfer_pass",
+    "remote_evidence_pass"
   ],
   "frozen_ui_regions": [
     "launcher",
@@ -164,5 +163,13 @@
     "remote evidence publication"
   ],
   "technical_base_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md",
-  "commander_review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_NOT_STARTED_REVIEW_20261005.md"
+  "commander_review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_NOT_STARTED_REVIEW_20261005.md",
+  "employee_distribution": {
+    "full_zip": "dist/MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip",
+    "split_dir": "dist/transfer_parts/",
+    "install_root": "%LOCALAPPDATA%\\MINDLE\\MEDIA_AI\\",
+    "data_root": "%LOCALAPPDATA%\\MINDLE\\MEDIA_AI_DATA\\",
+    "no_admin_preferred": true,
+    "offline_base_product_required": true
+  }
 }
