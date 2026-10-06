@@ -9,67 +9,53 @@ CONTROL_PLANE_EPOCH: MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0
 ## 0. Purpose
 
 Recover one unambiguous PC Work authority chain and diagnose the repeated Windows Work execution failure:
-
 `helper_unknown_error: apply deny-read ACLs`
 
-This cycle is NOT product development.
-This cycle is NOT employee package construction.
-This cycle is NOT UI repair.
-
-No product file may be modified until this recovery cycle passes.
+This cycle is NOT product development, package construction, UI repair, branch repair, or historical directive replay.
 
 ## 1. Single authority chain
 
 Read ONLY in this order:
 
-1. CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
-2. CURRENT_PC_WORK_DIRECTIVE.md
+1. CURRENT_PC_WORK_DIRECTIVE.md
+2. CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
 3. CURRENT_PC_WORK_STATE.json
-4. docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json
+4. CURRENT_WORKER_COORDINATION_LOCK.json
 5. scripts/validate_pc_work_control_plane.py
 6. this directive
-7. active recovery evidence contract
+7. docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261006.json
 
-Do NOT execute any historical/preflight/parent/technical-base directive unless this recovery directive explicitly names it.
+Do not use the old Rule Registry, README, Master, preflight, parent directive, or technical-base directive as execution authority during this recovery cycle.
 
 ## 2. Historical directive rule
 
-All prior product directives, including v13, v21.0, v21.0A, v21.0A-R1 and employee-package v1.0, are REFERENCE_ONLY during this recovery cycle.
-
-Specifically DO NOT execute:
-- branch-rebind v1.0 from 2026-10-01
+All prior product directives are REFERENCE_ONLY during recovery, including:
+- branch-rebind v1.0
 - v13 evidence cycle
 - v21.0 full real-use audit
-- v21.0A launcher/UI repair
-- employee distribution package build
+- v21.0A / v21.0A-R1
+- employee distribution package v1.0
 
-The employee distribution package directive remains preserved and becomes executable only after RECOVERY_PASS and a new explicit activation.
+Do not execute any of them automatically.
 
 ## 3. Phase A — environment-neutral exec probe
 
-Before touching Git or the repository, test the Work execution environment itself.
-
-Use neutral folder:
+Before touching Git or the repository, use only:
 `C:\MINDLE_WORK_TEST`
 
 Attempt:
-1. determine whether the folder exists
+1. check whether the folder exists
 2. create it if allowed
-3. create `acl_probe.txt` with exact content:
-   `MINDLE_PC_WORK_ACL_PROBE_PASS`
+3. create `acl_probe.txt` with exact content `MINDLE_PC_WORK_ACL_PROBE_PASS`
 4. read it back
-5. record elapsed time and exact result
+5. record exact result
 
-If ANY command fails before process creation with:
-`apply deny-read ACLs`
-
-then:
-- status = `WORK_ENVIRONMENT_ACL_HELPER_BLOCKED`
+If process creation fails with the known ACL helper error:
+- result = `WORK_ENVIRONMENT_ACL_HELPER_BLOCKED`
 - STOP
 - do not touch repository
 - do not change Windows ACL manually
 - do not create another repo/worktree
-- report exact error text
 
 ## 4. Phase B — read-only canonical repository probe
 
@@ -81,19 +67,18 @@ Read-only checks:
 - remote URL
 - current HEAD
 - origin canonical branch HEAD
-- existence/readability of CURRENT authority files
+- readability of the CURRENT authority files
 
-Do not switch/reset/rebase/stash/checkout during recovery.
+Do not switch/reset/rebase/stash/checkout.
 
 Required:
 - repo = ADAMBUILD-ai/mindle-media-ai
 - branch = feature/ad-shortform-bridge-p0-20260926
 
-If current local checkout differs:
-report `LOCAL_BINDING_MISMATCH` and STOP.
-Do not run the old branch-rebind directive.
+If local binding differs:
+`LOCAL_BINDING_MISMATCH` and STOP.
 
-## 5. Phase C — authority consistency validator
+## 5. Phase C — current authority validator
 
 Run:
 `python scripts/validate_pc_work_control_plane.py`
@@ -101,26 +86,16 @@ Run:
 Required:
 `CONTROL_PLANE_PASS`
 
-Then verify semantically:
-- one epoch only
-- one active directive only
-- one active evidence contract only
-- no ACTIVE v13/v21/package directive elsewhere in CURRENT/README/Master/Registry
-- no lane collision
-- no stale preflight required
+The recovery validator intentionally checks only CURRENT/LOCK/STATE/WORKER-LOCK.
+Historical registry content is not execution authority during recovery.
 
 ## 6. Forbidden actions
 
-During this cycle:
-- no ui/** changes
-- no src/** changes
-- no tests/** product changes
-- no launcher changes
+- no ui/src/tests product changes
 - no package build
 - no model copying
-- no branch switching
-- no reset/rebase/stash
-- no Windows ACL mutation
+- no branch switching/reset/rebase/stash
+- no manual Windows ACL mutation
 - no admin permission changes
 - no new worktree/repository copy
 
@@ -135,14 +110,7 @@ Machine Evidence:
 Detail:
 `evidence/pc_remote/media-ai-control-plane-recovery-v1_0-20261006/`
 
-Minimum detail:
-- ENV_NEUTRAL_EXEC_PROBE.txt
-- CANONICAL_REPO_READONLY_PROBE.txt
-- CONTROL_PLANE_VALIDATOR.txt
-- AUTHORITY_CONSISTENCY_AUDIT.json
-- EXACT_FAILURE.txt (only if blocked)
-
-## 8. Result vocabulary
+## 8. Results
 
 PASS only:
 `RECOVERY_PASS`
@@ -157,11 +125,8 @@ Other:
 
 ## 9. Next cycle
 
-Only after RECOVERY_PASS may the commander explicitly reactivate:
-`MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md`
-
-No automatic continuation.
+Only after RECOVERY_PASS may the commander explicitly reactivate employee package construction.
 
 ## Final rule
 
-ONE ACTIVE EPOCH. ONE ACTIVE DIRECTIVE. ONE ACTIVE CONTRACT. NO HISTORICAL PREFLIGHT EXECUTION. DIAGNOSE THE EXEC ENVIRONMENT BEFORE PRODUCT WORK.
+ONE ACTIVE EPOCH. ONE ACTIVE DIRECTIVE. ONE ACTIVE CONTRACT. NO HISTORICAL EXECUTION CHAIN.
