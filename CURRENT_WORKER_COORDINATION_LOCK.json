@@ -1,55 +1,43 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "RECOVERY-1.0",
+  "status": "ACTIVE",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
-  "status": "ACTIVE",
+  "active_control_plane_epoch": "MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0",
+  "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
-    "worker_a_product_runtime": {
-      "role": "Windows real-use product executor",
+    "worker_a_pc_recovery": {
+      "role": "Windows PC Work recovery diagnostician",
+      "current_assignment": "Environment-neutral exec probe, then read-only canonical repo probe, then control-plane consistency validation",
       "may_write": [
-        "ui/**",
-        "src/**",
-        "scripts/**",
-        "tests/**",
-        "docs/commander/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_REVIEW_v21.0_20261003.md",
-        "evidence/pc_remote/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_EVIDENCE_v21_0_20261003.json",
-        "evidence/pc_remote/media-ai-full-reaudit-v21_0-20261003/**"
+        "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_REVIEW_v1.0_20261006.md",
+        "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_v1_0_20261006.json",
+        "evidence/pc_remote/media-ai-control-plane-recovery-v1_0-20261006/**"
       ],
       "may_not_change": [
-        "repository branch classification",
-        "Master SSOT authority",
-        "main/default branch",
-        "historical branch deletion"
-      ],
-      "current_assignment": "Build and test the complete employee Windows distribution package v1.0"
+        "ui/**",
+        "src/**",
+        "tests/**",
+        "product launcher",
+        "employee package outputs",
+        "branch binding",
+        "Windows ACL",
+        "Master SSOT",
+        "main/default branch"
+      ]
     },
     "worker_b_master_repository": {
-      "role": "Master/repository governance auditor",
-      "may_write": [
-        "docs/commander/MINDLE_MEDIA_AI_MASTER_HANDOVER_SSOT_v2.0_20261005.md",
-        "docs/commander/MINDLE_MEDIA_AI_REPOSITORY_CONSOLIDATION_SSOT_v1.0_20261005.md",
-        "docs/commander/MINDLE_MEDIA_AI_TWO_WORKER_COORDINATION_PROTOCOL_v1.0_20261005.md",
-        "README.md"
-      ],
+      "role": "Repository governance observer",
+      "current_assignment": "STOPPED / READ-ONLY until recovery result",
+      "may_write": [],
       "may_not_change": [
-        "ui/**",
-        "src/**",
-        "tests/**",
-        "scripts/launch_media_ai_windows.ps1",
-        "active product behavior",
-        "active Evidence produced by Worker A"
-      ],
-      "current_assignment": "Read-only for product/package files until Worker A publishes package Evidence"
+        "all repository content during active recovery"
+      ]
     }
   },
-  "collision_status": "LANE_OWNERSHIP_CONFLICT",
-  "stale_head_rule": "fetch remote HEAD before every write; reconcile if moved",
   "force_push_forbidden": true,
   "merge_main_forbidden": true,
-  "archive_branches_read_only": true,
-  "active_product_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
-  "parent_product_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
-  "technical_base_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md"
+  "new_repo_or_worktree_forbidden": true,
+  "stale_head_rule": "read-only during recovery except exact recovery Evidence outputs"
 }
