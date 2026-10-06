@@ -1,10 +1,22 @@
 # MINDLE MEDIA AI — EMPLOYEE DISTRIBUTION FULL WINDOWS PACKAGE DIRECTIVE v1.0
 
 Date: 2026-10-06
-Status: ACTIVE — BUILD AND TEST ACTUAL DISTRIBUTION PACKAGE
+Status: SUSPENDED — REFERENCE_ONLY UNTIL RECOVERY_PASS
 Repository: ADAMBUILD-ai/mindle-media-ai
 Branch: feature/ad-shortform-bridge-p0-20260926
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0 (SUSPENDED)
+
+## CURRENT EXECUTION STATUS
+
+This document is NOT active execution authority while the recovery control plane is active.
+
+Current authority:
+`CURRENT_PC_WORK_DIRECTIVE.md`
+
+Reactivation condition:
+`RECOVERY_PASS`
+
+Do not execute this package directive until the commander explicitly reactivates it.
 
 ## 0. Owner intent
 
