@@ -1,27 +1,27 @@
 {
-  "schema_version": "RECOVERY-1.1",
-  "status": "ACTIVE_WINDOWS_SANDBOX_ACL_RECOVERY_ONLY",
+  "schema_version": "RECOVERY-1.2",
+  "status": "ACTIVE_CANONICAL_LOCAL_REBIND_ONLY",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "control_plane_epoch": "MEDIA-AI-20261006-WINDOWS-SANDBOX-ACL-RECOVERY-V1.1",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_WINDOWS_SANDBOX_ACL_STATE_RECOVERY_DIRECTIVE_v1.1_20261006.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_WINDOWS_SANDBOX_ACL_STATE_RECOVERY_EVIDENCE_CONTRACT_v1.1_20261006.json",
+  "control_plane_epoch": "MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_AND_RECOVERY_DIRECTIVE_v1.2_20261006.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_CONTRACT_v1.2_20261006.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_REVIEW_v1.1_20261006.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_EVIDENCE_v1_1_20261006.json",
-    "detail_dir": "evidence/pc_remote/media-ai-windows-sandbox-acl-recovery-v1_1-20261006/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_REVIEW_v1.2_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_v1_2_20261006.json",
+    "detail_dir": "evidence/pc_remote/media-ai-canonical-local-rebind-v1_2-20261006/"
   },
-  "execution_scope": "Persisted Windows sandbox ACL-state diagnosis and controlled recovery only",
+  "execution_scope": "Preserve local-only history/evidence and safely rebind canonical local branch to origin",
   "product_changes_allowed": false,
   "package_build_allowed": false,
   "ui_changes_allowed": false,
-  "branch_mutation_allowed": false,
+  "branch_mutation_allowed": true,
   "historical_preflight_required": false,
   "active_preflight": null,
   "parent_directive": null,
   "technical_base_directive": null,
-  "pass_result": "RECOVERY_PASS",
+  "pass_result": "LOCAL_CANONICAL_REBIND_PASS",
   "blocked_result": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED",
   "next_cycle_after_pass": "Explicit commander reactivation of employee distribution package only",
   "known_external_match": {
@@ -33,5 +33,20 @@
     ],
     "exact_error": "helper_unknown_error: apply deny-read ACLs",
     "recurrent_signature": "deny_read_acl_state.json = 22 bytes all NUL, invalid JSON"
+  },
+  "allowed_branch_mutation": "git reset --hard origin canonical branch only after external backup/bundle PASS",
+  "final_recovery_result": "RECOVERY_PASS",
+  "current_local_observation": {
+    "repo_root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai",
+    "remote": "https://github.com/ADAMBUILD-ai/mindle-media-ai.git",
+    "branch": "feature/ad-shortform-bridge-p0-20260926",
+    "local_head": "093d15f33b99e04794532367046219367e811441",
+    "dirty_tracked": [
+      "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_REVIEW_v20.2.7_20261002.md",
+      "evidence/pc_remote/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_EVIDENCE_v20_2_7_20261002.json"
+    ],
+    "untracked": [
+      "work-data/"
+    ]
   }
 }
