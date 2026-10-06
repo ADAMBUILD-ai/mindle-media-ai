@@ -15,6 +15,7 @@
   const message = (editor, text, error = false) => {
     const node = editor.querySelector("[data-command-error]");
     node.textContent = text; node.dataset.result = error ? "error" : "ok";
+    node.style.display = text ? "block" : "none";
   };
   const preview = (editor, result) => {
     const host = editor.querySelector("[data-preview]"); host.replaceChildren();

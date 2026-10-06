@@ -95,16 +95,24 @@ function bindEditor(kind) {
   }
   command.addEventListener("focus", () => { state.focus(); sync(); });
   command.addEventListener("input", (event) => { state.setText(event.target.value); sync(); });
+  const submit = () => {
+    try {
+      const detail = state.submit();
+      state.complete(); sync();
+      editor.dispatchEvent(new CustomEvent("mindle:command", { detail }));
+    } catch (_) { sync(); }
+  };
   command.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" || event.shiftKey) return; event.preventDefault();
-    try { editor.dispatchEvent(new CustomEvent("mindle:command", { detail: state.submit() })); state.complete(); } catch (_) {} sync();
+    submit();
   });
+  panel.querySelector(".send-button").addEventListener("click", submit);
   editor.querySelector("[data-action$='reference']").addEventListener("click", () => fileInput.click());
   fileInput.addEventListener("change", (event) => {
     [...event.target.files].forEach((file) => state.attach({ name: file.name, type: file.type, preview: URL.createObjectURL(file) })); fileInput.value = ""; sync();
   });
   panel.addEventListener("click", (event) => { const index = event.target.dataset.referenceRemove; if (index !== undefined) { state.remove(Number(index)); sync(); } });
-  editor.querySelector("[data-action='save']").addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:save", { detail: actions.save() })));
+  editor.querySelectorAll("[data-action='save']").forEach((button) => button.addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:save", { detail: actions.save() }))));
   editor.querySelector("[data-action='export']").addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:export", { detail: actions.export() })));
   sync();
 }
