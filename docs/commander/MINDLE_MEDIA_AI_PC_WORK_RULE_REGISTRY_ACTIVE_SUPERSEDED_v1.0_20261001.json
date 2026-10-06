@@ -1,6 +1,6 @@
 {
-  "version": "3.2",
-  "date": "2026-10-05",
+  "version": "4.0",
+  "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "precedence": [
@@ -19,9 +19,9 @@
   "active": {
     "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
     "state": "CURRENT_PC_WORK_STATE.json",
-    "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_EXECUTION_ENFORCEMENT_DIRECTIVE_v21.0A-R1_20261005.md",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
     "technical_scope": null,
-    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json",
     "preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md",
     "parent_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
     "technical_base_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md"
@@ -66,9 +66,9 @@
   ],
   "branch_assertion_required_before_work": true,
   "previous_cycle": {
-    "version": "v21.0A",
-    "result": "NOT_STARTED_REJECT",
-    "status": "REJECTED_NOT_EXECUTED"
+    "version": "v21.0A-R1",
+    "result": "SUPERSEDED_BY_EMPLOYEE_PACKAGE_BUILD",
+    "status": "REFERENCE_ONLY"
   },
   "required_detail_file_count": 0,
   "approved_ui_source": {
@@ -85,7 +85,7 @@
     "handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json"
   },
   "current_known_issue": {
-    "type": "EXECUTION_NOT_STARTED"
+    "type": "EMPLOYEE_DISTRIBUTION_PACKAGE_REQUIRED"
   },
   "final_closeout": {
     "frozen_base_runtime": "v14",
@@ -94,18 +94,18 @@
     "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
     "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
   },
-  "control_plane_epoch": "MEDIA-AI-20261005-V21.0A-R1",
+  "control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
   "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
   "control_plane_invariant": {
-    "epoch_must_match": "MEDIA-AI-20261005-V21.0A-R1",
-    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_EXECUTION_ENFORCEMENT_DIRECTIVE_v21.0A-R1_20261005.md",
-    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v21.0_20261003.json",
+    "epoch_must_match": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
+    "directive_must_match": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
+    "contract_must_match": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json",
     "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
     "worker_must_stop_on_mismatch": true
   },
   "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
   "control_plane_validator_required_result": "CONTROL_PLANE_PASS",
-  "active_cycle_version": "v21.0A-R1",
+  "active_cycle_version": "employee-package-v1.0",
   "marketing_live_provider": {
     "repository": "ADAMBUILD-ai/mindle-marketing-department",
     "pr": 4,
@@ -177,5 +177,6 @@
     "UI overlap minimal repair",
     "resume parent v21.0 full real-use audit"
   ],
-  "actual_windows_execution_required": true
+  "actual_windows_execution_required": true,
+  "package_self_containment_required": true
 }
