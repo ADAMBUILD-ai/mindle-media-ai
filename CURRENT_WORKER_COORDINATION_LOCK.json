@@ -1,30 +1,28 @@
 {
-  "schema_version": "RECOVERY-1.1",
+  "schema_version": "RECOVERY-1.2",
   "status": "ACTIVE",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261006-WINDOWS-SANDBOX-ACL-RECOVERY-V1.1",
+  "active_control_plane_epoch": "MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2",
   "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
     "worker_a_pc_recovery": {
       "role": "Windows PC Work recovery diagnostician",
-      "current_assignment": "Host Windows sandbox persisted ACL-state classification, exact-signature recovery only, neutral exec probe, then canonical repo read-only validation",
+      "current_assignment": "External backup/bundle of local-only state, fetch/classify, canonical local rebind, validator, evidence publication",
       "may_write": [
-        "docs/commander/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_REVIEW_v1.1_20261006.md",
-        "evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_EVIDENCE_v1_1_20261006.json",
-        "evidence/pc_remote/media-ai-windows-sandbox-acl-recovery-v1_1-20261006/**"
+        "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_REVIEW_v1.2_20261006.md",
+        "evidence/pc_remote/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_v1_2_20261006.json",
+        "evidence/pc_remote/media-ai-canonical-local-rebind-v1_2-20261006/**"
       ],
       "may_not_change": [
-        "ui/**",
-        "src/**",
-        "tests/**",
-        "scripts/** product behavior",
+        "ui/** product behavior",
+        "src/** product behavior",
+        "tests/** product behavior",
         "employee package outputs",
-        "repository ACLs",
-        "branch binding",
         "main/default branch",
-        "Master SSOT"
+        "Master SSOT",
+        "work-data/** deletion"
       ]
     },
     "worker_b_master_repository": {
