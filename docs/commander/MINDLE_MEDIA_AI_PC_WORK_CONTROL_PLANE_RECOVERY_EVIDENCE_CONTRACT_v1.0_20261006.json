@@ -1,0 +1,23 @@
+{
+  "contract_version": "1.0",
+  "date": "2026-10-06",
+  "status": "ACTIVE",
+  "control_plane_epoch": "MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_AND_ENVIRONMENT_DIAGNOSTIC_DIRECTIVE_v1.0_20261006.md",
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_REVIEW_v1.0_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_v1_0_20261006.json",
+    "detail_directory": "evidence/pc_remote/media-ai-control-plane-recovery-v1_0-20261006/"
+  },
+  "required_detail": [
+    "ENV_NEUTRAL_EXEC_PROBE.txt",
+    "CANONICAL_REPO_READONLY_PROBE.txt",
+    "CONTROL_PLANE_VALIDATOR.txt",
+    "AUTHORITY_CONSISTENCY_AUDIT.json"
+  ],
+  "blocked_detail": "EXACT_FAILURE.txt",
+  "pass_result": "RECOVERY_PASS",
+  "blocked_result": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED"
+}
