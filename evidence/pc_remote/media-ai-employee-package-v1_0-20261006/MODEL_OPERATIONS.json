@@ -1,0 +1,355 @@
+{
+  "status": "COMPONENT_TEST_ONLY",
+  "executable": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\python.exe",
+  "records": [
+    {
+      "operation": "upscale",
+      "seconds": 6.091677665710449,
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "d3f9de08-c3b8-49dd-9176-4b961d2dc581",
+        "evidence_id": "36efb4ff-784f-402e-9810-811961810d01",
+        "lane": "photo",
+        "operation": "upscale",
+        "command": "사진을 4배 확대해 주세요",
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "model": {
+          "identity": {
+            "repo_id": "openvinotoolkit/open_model_zoo",
+            "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+            "license": "apache-2.0",
+            "weight_name": "single-image-super-resolution-1032.bin",
+            "weight_size_bytes": 119436,
+            "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+          },
+          "local_recovered_package": {
+            "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+            "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+            "read_only": true,
+            "sha384_verified": true
+          }
+        },
+        "adapter": {
+          "id": "intel-open-model-zoo-sisr-1032",
+          "version": "1.0.1",
+          "runtime_backend": "openvino-cpu",
+          "device_requirement": "CPU"
+        },
+        "input": {
+          "file_name": "4b96697d-12be-4334-8182-658db0758dd6_sisr_photo_480x270.png",
+          "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\inputs\\4b96697d-12be-4334-8182-658db0758dd6_sisr_photo_480x270.png",
+          "bytes": 268454,
+          "sha256": "852a7c74e8dae7e5a06f72e1f47abd1dbce9124b3d099dd6bf71992da1318ccf"
+        },
+        "runtime_result": {
+          "outputs": [
+            {
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\a889e829-5052-4777-826a-54f322deb426\\intel_sisr_1032\\upscaled_4x.png",
+              "bytes": 1920451,
+              "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f",
+              "dimensions": [
+                1920,
+                1080
+              ]
+            }
+          ],
+          "elapsed_ms": 2734.0000000003783
+        },
+        "primary_output": {
+          "file_name": "upscaled_4x.png",
+          "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\a889e829-5052-4777-826a-54f322deb426\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 1920451,
+          "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f"
+        },
+        "outputs": [
+          {
+            "file_name": "upscaled_4x.png",
+            "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\a889e829-5052-4777-826a-54f322deb426\\intel_sisr_1032\\upscaled_4x.png",
+            "bytes": 1920451,
+            "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f"
+          }
+        ],
+        "backend": {
+          "api_status": 201,
+          "delivery_gate": "DELIVERED",
+          "job_evidence": {
+            "job_id": "d3f9de08-c3b8-49dd-9176-4b961d2dc581",
+            "evidence_id": "36efb4ff-784f-402e-9810-811961810d01",
+            "evidence_status": "VERIFY_REQUIRED",
+            "runtime_status": "OUTPUT_VALIDATED",
+            "terminal_state": "succeeded",
+            "recorded_at": "2026-10-06T14:41:28.063963+00:00",
+            "started_at": "2026-10-06T14:41:27.518974+00:00",
+            "finished_at": "2026-10-06T14:41:28.063963+00:00",
+            "project_id": null,
+            "requested_operation": "upscale",
+            "source_provenance": {
+              "source_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\inputs\\4b96697d-12be-4334-8182-658db0758dd6_sisr_photo_480x270.png",
+              "sha256": "852a7c74e8dae7e5a06f72e1f47abd1dbce9124b3d099dd6bf71992da1318ccf",
+              "ingress": "approved-ui"
+            },
+            "input_sha256": "852a7c74e8dae7e5a06f72e1f47abd1dbce9124b3d099dd6bf71992da1318ccf",
+            "reference_files": [],
+            "retry_provenance": {
+              "job_id": "d3f9de08-c3b8-49dd-9176-4b961d2dc581",
+              "evidence_id": "36efb4ff-784f-402e-9810-811961810d01",
+              "attempt": 1
+            },
+            "state_history": [
+              "queued",
+              "validating",
+              "preflight_ready",
+              "dispatched",
+              "running",
+              "output_validating",
+              "succeeded"
+            ],
+            "runtime": {
+              "platform": "Windows-10-10.0.19045-SP0",
+              "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+            },
+            "adapter_id": "intel-open-model-zoo-sisr-1032",
+            "model_or_program_id": "openvinotoolkit/open_model_zoo",
+            "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+            "license_source": "apache-2.0",
+            "runtime_backend": "openvino-cpu",
+            "device_requirement": "CPU",
+            "execution_context": {
+              "job_id": "d3f9de08-c3b8-49dd-9176-4b961d2dc581",
+              "evidence_id": "36efb4ff-784f-402e-9810-811961810d01",
+              "lane": "photo",
+              "source_hashes": {
+                "source": "852a7c74e8dae7e5a06f72e1f47abd1dbce9124b3d099dd6bf71992da1318ccf"
+              },
+              "nl_instruction": "사진을 4배 확대해 주세요",
+              "reference_images": [],
+              "retry_provenance": {
+                "job_id": "d3f9de08-c3b8-49dd-9176-4b961d2dc581",
+                "evidence_id": "36efb4ff-784f-402e-9810-811961810d01",
+                "attempt": 0
+              },
+              "adapter_identity": {
+                "adapter_id": "intel-open-model-zoo-sisr-1032",
+                "model_or_program_id": "openvinotoolkit/open_model_zoo",
+                "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+              }
+            },
+            "output_artifact": {
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\a889e829-5052-4777-826a-54f322deb426\\intel_sisr_1032\\upscaled_4x.png",
+              "type": ".png",
+              "size_bytes": 1920451,
+              "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f",
+              "status": "validated"
+            },
+            "model_scout_delivery": {
+              "status": "DELIVERED",
+              "callback_id": "callback-e4f8958d-6504-4870-9901-44fb89477023",
+              "input_sha256": "852a7c74e8dae7e5a06f72e1f47abd1dbce9124b3d099dd6bf71992da1318ccf",
+              "output_sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f",
+              "output_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\a889e829-5052-4777-826a-54f322deb426\\intel_sisr_1032\\upscaled_4x.png",
+              "elapsed_ms": 2734.0000000003783
+            }
+          }
+        },
+        "execution_environment": {
+          "hardware": "CPU",
+          "gpu_used": false,
+          "paid_compute": false,
+          "platform": "Windows-10-10.0.19045-SP0",
+          "python": "3.11.9",
+          "process": "3.11.9"
+        }
+      }
+    },
+    {
+      "operation": "transcribe",
+      "seconds": 170.53169798851013,
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "2dcc5be2-08ba-44a6-a750-321ccfc5a28a",
+        "evidence_id": "dc0d7124-a27c-40bc-b01b-0ef7ee0e4756",
+        "lane": "korean_audio",
+        "operation": "transcribe",
+        "command": "한국어 음성을 자막으로 변환해 주세요",
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "model": {
+          "identity": {
+            "repo_id": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "license": "mit",
+            "weight_name": "model.safetensors",
+            "weight_size_bytes": 966995080,
+            "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+          },
+          "local_recovered_package": {
+            "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+            "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\models\\whisper-small",
+            "read_only": true
+          }
+        },
+        "adapter": {
+          "id": "mindle.whisper.ko.verified.cpu",
+          "version": "1.0.0",
+          "runtime_backend": "transformers-pytorch",
+          "device_requirement": "cpu"
+        },
+        "input": {
+          "file_name": "a2f5214a-7de7-4b3c-a5ca-882407d88924_38c46b9d-dd4e-4f87-aa96-bde1f88ad1d1_fleurs_ko_kr_test_row0.wav",
+          "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\inputs\\a2f5214a-7de7-4b3c-a5ca-882407d88924_38c46b9d-dd4e-4f87-aa96-bde1f88ad1d1_fleurs_ko_kr_test_row0.wav",
+          "bytes": 798778,
+          "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+        },
+        "runtime_result": {
+          "status": "TESTED_PASS",
+          "input_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\inputs\\a2f5214a-7de7-4b3c-a5ca-882407d88924_38c46b9d-dd4e-4f87-aa96-bde1f88ad1d1_fleurs_ko_kr_test_row0.wav",
+          "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+          "sample_rate": 16000,
+          "duration_seconds": 12.48,
+          "reference": null,
+          "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+          "word_error_rate": null,
+          "elapsed_ms": 48693.97,
+          "outputs": [
+            {
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\1d61e133-aab9-48b6-b93d-4624d7428c55\\whisper\\korean_transcript.json",
+              "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+              "bytes": 260
+            }
+          ]
+        },
+        "primary_output": {
+          "file_name": "korean_transcript.json",
+          "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\1d61e133-aab9-48b6-b93d-4624d7428c55\\whisper\\korean_transcript.json",
+          "bytes": 260,
+          "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+        },
+        "outputs": [
+          {
+            "file_name": "korean_transcript.json",
+            "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\1d61e133-aab9-48b6-b93d-4624d7428c55\\whisper\\korean_transcript.json",
+            "bytes": 260,
+            "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+          }
+        ],
+        "backend": {
+          "api_status": 201,
+          "delivery_gate": "DELIVERED",
+          "job_evidence": {
+            "job_id": "2dcc5be2-08ba-44a6-a750-321ccfc5a28a",
+            "evidence_id": "dc0d7124-a27c-40bc-b01b-0ef7ee0e4756",
+            "evidence_status": "VERIFY_REQUIRED",
+            "runtime_status": "OUTPUT_VALIDATED",
+            "terminal_state": "succeeded",
+            "recorded_at": "2026-10-06T14:44:18.206670+00:00",
+            "started_at": "2026-10-06T14:44:18.200669+00:00",
+            "finished_at": "2026-10-06T14:44:18.206670+00:00",
+            "project_id": null,
+            "requested_operation": "transcribe",
+            "source_provenance": {
+              "source_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\inputs\\a2f5214a-7de7-4b3c-a5ca-882407d88924_38c46b9d-dd4e-4f87-aa96-bde1f88ad1d1_fleurs_ko_kr_test_row0.wav",
+              "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+              "ingress": "approved-ui"
+            },
+            "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+            "reference_files": [],
+            "retry_provenance": {
+              "job_id": "2dcc5be2-08ba-44a6-a750-321ccfc5a28a",
+              "evidence_id": "dc0d7124-a27c-40bc-b01b-0ef7ee0e4756",
+              "attempt": 1
+            },
+            "state_history": [
+              "queued",
+              "validating",
+              "preflight_ready",
+              "dispatched",
+              "running",
+              "output_validating",
+              "succeeded"
+            ],
+            "runtime": {
+              "platform": "Windows-10-10.0.19045-SP0",
+              "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+            },
+            "adapter_id": "mindle.whisper.ko.verified.cpu",
+            "model_or_program_id": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "license_source": "mit",
+            "runtime_backend": "transformers-pytorch",
+            "device_requirement": "cpu",
+            "execution_context": {
+              "job_id": "2dcc5be2-08ba-44a6-a750-321ccfc5a28a",
+              "evidence_id": "dc0d7124-a27c-40bc-b01b-0ef7ee0e4756",
+              "lane": "korean_audio",
+              "source_hashes": {
+                "source": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+              },
+              "nl_instruction": "한국어 음성을 자막으로 변환해 주세요",
+              "reference_images": [],
+              "retry_provenance": {
+                "job_id": "2dcc5be2-08ba-44a6-a750-321ccfc5a28a",
+                "evidence_id": "dc0d7124-a27c-40bc-b01b-0ef7ee0e4756",
+                "attempt": 0
+              },
+              "adapter_identity": {
+                "adapter_id": "mindle.whisper.ko.verified.cpu",
+                "model_or_program_id": "openai/whisper-small",
+                "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+              }
+            },
+            "output_artifact": {
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\1d61e133-aab9-48b6-b93d-4624d7428c55\\whisper\\korean_transcript.json",
+              "type": ".json",
+              "size_bytes": 260,
+              "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+              "status": "validated"
+            },
+            "model_scout_delivery": {
+              "status": "DELIVERED",
+              "callback_id": "callback-c3f49705-bad6-42c0-8a2f-5a7f4ba00f05",
+              "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+              "output_sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+              "output_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\1d61e133-aab9-48b6-b93d-4624d7428c55\\whisper\\korean_transcript.json",
+              "elapsed_ms": 48693.97
+            }
+          }
+        },
+        "execution_environment": {
+          "hardware": "CPU",
+          "gpu_used": false,
+          "paid_compute": false,
+          "platform": "Windows-10-10.0.19045-SP0",
+          "python": "3.11.9",
+          "process": "3.11.9"
+        }
+      }
+    },
+    {
+      "operation": "segment",
+      "seconds": 6.79235577583313,
+      "status": "FAILED",
+      "error": "ImportError('\\nSam2ImageProcessorFast requires the Torchvision library but it was not found in your environment. Check out the instructions on the\\ninstallation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.\\nPlease note that you may need to restart your runtime after installation.\\n')"
+    },
+    {
+      "operation": "tracking",
+      "seconds": 7.515613317489624,
+      "status": "FAILED",
+      "error": "ImportError('\\nSam2ImageProcessorFast requires the Torchvision library but it was not found in your environment. Check out the instructions on the\\ninstallation page: https://pytorch.org/get-started/locally/ and follow the ones that match your environment.\\nPlease note that you may need to restart your runtime after installation.\\n')"
+    }
+  ]
+}

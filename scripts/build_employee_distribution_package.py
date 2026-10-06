@@ -18,7 +18,7 @@ import zipfile
 
 NAME = 'MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0'
 MANDATORY = {'torch', 'transformers', 'safetensors', 'huggingface-hub', 'numpy', 'pillow',
-             'opencv-python-headless', 'openvino', 'tokenizers'}
+             'opencv-python-headless', 'openvino', 'tokenizers', 'torchvision'}
 
 
 def digest(path, algorithm='sha256'):
