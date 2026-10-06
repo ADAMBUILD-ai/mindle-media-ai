@@ -9,7 +9,7 @@
   "worker_lanes": {
     "worker_a_pc_recovery": {
       "role": "Windows PC Work recovery diagnostician",
-      "current_assignment": "Environment-neutral exec probe, then read-only canonical repo probe, then control-plane consistency validation",
+      "current_assignment": "Environment-neutral exec probe, read-only canonical repo probe, then authority consistency validation",
       "may_write": [
         "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_REVIEW_v1.0_20261006.md",
         "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_v1_0_20261006.json",
@@ -19,12 +19,11 @@
         "ui/**",
         "src/**",
         "tests/**",
-        "product launcher",
+        "scripts/** product behavior",
         "employee package outputs",
         "branch binding",
-        "Windows ACL",
-        "Master SSOT",
-        "main/default branch"
+        "main/default branch",
+        "Master SSOT"
       ]
     },
     "worker_b_master_repository": {
@@ -38,6 +37,5 @@
   },
   "force_push_forbidden": true,
   "merge_main_forbidden": true,
-  "new_repo_or_worktree_forbidden": true,
-  "stale_head_rule": "read-only during recovery except exact recovery Evidence outputs"
+  "new_repo_or_worktree_forbidden": true
 }
