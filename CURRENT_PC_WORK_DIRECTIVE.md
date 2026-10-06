@@ -1,26 +1,32 @@
 # MINDLE MEDIA AI — CURRENT PC WORK DIRECTIVE
 
-STATUS: ACTIVE — EMPLOYEE DISTRIBUTION PACKAGE
-DATE: 2026-10-06
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.1
+STATUS: ACTIVE — EMPLOYEE PACKAGE FINAL CLOSEOUT R2
+DATE: 2026-10-07
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
 
-## RECOVERY RESULT
+## PREVIOUS RESULT
 RECOVERY_PASS
+EMPLOYEE PACKAGE: IN_PROGRESS
+CURRENT BLOCKER: RUNTIME_DEPENDENCY_LEAK
 
 ## SINGLE ACTIVE DIRECTIVE
-docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md
+docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_DIRECTIVE_v1.0_20261007.md
 
 ## SINGLE ACTIVE EVIDENCE CONTRACT
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json
+docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_CONTRACT_v1.0_20261007.json
 
-## REQUIRED WORK
-Build and test the complete employee-transferable Windows x64 package.
+## EXECUTION RULE
+Do not restart completed work.
+Close only the remaining distribution gates:
+- Visual C++ runtime entitlement/deployment
+- default Windows profile host gate
+- installed-package STT/SAM/tracking/upscale/save/reopen/export
+- self-containment audit
+- redistribution notices
+- final ZIP/split hashes
+- remote readback
 
-Required final result:
+## FINAL PASS
 EMPLOYEE_PACKAGE_CLEAN_WINDOWS_E2E_PASS
-
-Do not replay historical recovery directives.
-Do not merge main.
-Do not force-push.
