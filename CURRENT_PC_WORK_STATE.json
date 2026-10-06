@@ -17,21 +17,11 @@
   "package_build_allowed": false,
   "ui_changes_allowed": false,
   "branch_mutation_allowed": false,
-  "windows_acl_mutation_allowed": false,
-  "neutral_probe_root": "C:\\MINDLE_WORK_TEST",
-  "blocked_error_signature": "helper_unknown_error: apply deny-read ACLs",
-  "blocked_result": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED",
-  "pass_result": "RECOVERY_PASS",
   "historical_preflight_required": false,
   "active_preflight": null,
   "parent_directive": null,
   "technical_base_directive": null,
-  "next_cycle_after_pass": "Explicit commander reactivation of employee distribution package only",
-  "preserved_reference_only": [
-    "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
-    "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
-    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md",
-    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
-  ],
-  "authority_rule": "ONE_ACTIVE_EPOCH_ONE_ACTIVE_DIRECTIVE_ONE_ACTIVE_CONTRACT"
+  "pass_result": "RECOVERY_PASS",
+  "blocked_result": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED",
+  "next_cycle_after_pass": "Explicit commander reactivation of employee distribution package only"
 }
