@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0",
+  "kind": "NEW_CHAT_HANDOFF_POINTER",
+  "date": "2026-10-07",
+  "timezone": "Asia/Seoul",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "snapshot_commit": "c2e53a35f8534840952de1925a64f14f251a343e",
+  "active_epoch": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "handoff_is_not_new_directive": true,
+  "product_final_result": "RUNTIME_DEPENDENCY_LEAK",
+  "employee_package_final_pass": false,
+  "master": "docs/commander/MINDLE_MEDIA_AI_NEW_CHAT_MASTER_20261007.md",
+  "bootstrap": "docs/commander/MINDLE_MEDIA_AI_NEW_CHAT_BOOTSTRAP_20261007.md",
+  "pointer": "docs/commander/MINDLE_MEDIA_AI_NEW_CHAT_POINTER_20261007.json",
+  "local_deliverables_root": "C:\\Users\\PC\\Documents\\Codex\\2026-10-07\\referenced-chatgpt-conversation-this-is-an\\outputs",
+  "canonical_local_repo": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai",
+  "observed_local_head": "b39ca305839f7d9f2fe1cb8ae25c8212159b91be",
+  "observed_remote_ahead_by": 15,
+  "observed_local_dirty": true,
+  "backup_before_sync_required": true,
+  "external_recovery_backup": "C:\\MINDLE_RECOVERY_BACKUP\\media-ai-20261006-193149",
+  "recovery_checkpoint": "RECOVERY_PASS",
+  "recovery_is_not_current_checkout_clean_claim": true,
+  "authority_start_order": [
+    "CURRENT_PC_WORK_DIRECTIVE.md",
+    "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+    "CURRENT_PC_WORK_STATE.json",
+    "CURRENT_WORKER_COORDINATION_LOCK.json",
+    "scripts/validate_pc_work_control_plane.py"
+  ],
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_DIRECTIVE_v1.0_20261007.md",
+  "active_contract": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_CONTRACT_v1.0_20261007.json",
+  "prior_review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_REVIEW_v1.0_20261006.md",
+  "prior_evidence": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_EVIDENCE_v1_0_20261006.json",
+  "final_review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_REVIEW_v1.0_20261007.md",
+  "final_evidence": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_v1_0_20261007.json",
+  "final_detail": "evidence/pc_remote/media-ai-employee-package-final-closeout-r2-v1_0-20261007/",
+  "r2_review_and_evidence_present_at_snapshot": false,
+  "required_final_result": "EMPLOYEE_PACKAGE_CLEAN_WINDOWS_E2E_PASS",
+  "blockers": [
+    "Missing package-local msvcp140.dll/msvcp140_atomic_wait.dll/vcruntime140_threads.dll",
+    "VC redistribution entitlement/deployment",
+    "Default Windows profile host gate / desktop cold launch 2/2",
+    "Installed-package final function retest including Korean STT and PHOTO SAM",
+    "Self-containment and license/notices audit",
+    "Stale Evidence and final ZIP/split hashes/readback"
+  ],
+  "candidate_reference": {
+    "bytes": 1388859811,
+    "sha256": "d9afe1d284f5d8fb295955442f70b6c96f5a20a138575b21dfb13af92c5cafc8",
+    "approved_for_employee_distribution": false,
+    "hash_reuse_after_changes_forbidden": true
+  },
+  "known_stale_files": [
+    "README.md",
+    "CURRENT_PC_WORK_STATE.json:current_local_observation",
+    "prior Evidence FINAL_PACKAGE_ARCHIVE/split_manifest",
+    "prior detail PACKAGE_BUILD_MANIFEST/SELF_CONTAINMENT/DESKTOP/INSTALLER/SAVE_REOPEN/EXPORT/SHORTFORM/SPLIT/HASH/REMOTE_PUSH_VERIFY"
+  ],
+  "ui_request": {
+    "status": "MINIMAL_CHANGE_REVIEW_PENDING_NOT_IMPLEMENTED",
+    "target": "First VIDEO center Preview below-space reuse",
+    "candidate": "Compact existing right basic editing four-button group below Preview; measure first",
+    "active_r2_ui_changes_allowed": false,
+    "approved_asset_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "preserve": [
+      "Media aspect ratio",
+      "Existing approved UI/brand/action order",
+      "Timeline/transport",
+      "PHOTO/Shortform",
+      "Controls/events/state"
+    ],
+    "screenshots_retrieved_this_turn": false
+  },
+  "workers": {
+    "worker_a": "Sole Windows package final-closeout executor",
+    "worker_b": "Read-only governance observer until R2 Evidence publication"
+  },
+  "forbidden": [
+    "main merge",
+    "force push",
+    "new repo/branch/worktree",
+    "Production deploy",
+    "unapproved UI redesign",
+    "historical Evidence/data deletion",
+    "dirty reset/clean without verified external backup",
+    "credential exposure",
+    "component-only clean-E2E PASS claim",
+    "stale hash final reuse"
+  ],
+  "next_chat_start": [
+    "Read Pointer/Bootstrap/Master and latest remote HEAD",
+    "Check Worker lanes",
+    "Inspect local branch/origin/HEAD/status; backup and compare dirty files",
+    "Sync without losing work; CURRENT/validator/R2 CONTROL_PLANE_PASS",
+    "Reuse PASS; close distribution gates",
+    "Write exact R2 Evidence, commit/readback",
+    "Review UI minimally under separately defined authority"
+  ],
+  "publication_receipt": "Final publication commit is reported after all three files are remotely read back. Resolve the canonical branch head containing this set; snapshot_commit is the audited product baseline, not the handoff publication commit.",
+  "handoff_master_commit": "e18d56cb0d0c89c56d131f6aed62f53688f94033",
+  "handoff_bootstrap_commit": "d4f0d3319197d41e5bef7998527806413ab5a662",
+  "this_turn_checks": {
+    "remote_snapshot_validator": "CONTROL_PLANE_PASS",
+    "validator_scope": "Pinned remote CURRENT files and validator saved in isolated work/remote-snapshot; not canonical checkout synchronization",
+    "local_candidate_zip_sha256": "D9AFE1D284F5D8FB295955442F70B6C96F5A20A138575B21DFB13AF92C5CAFC8",
+    "zip_bytes": 1388859811,
+    "zip_matches_latest_review": true,
+    "new_product_e2e_performed": false
+  }
+}
