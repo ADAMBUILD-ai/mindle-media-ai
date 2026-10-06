@@ -1,18 +1,18 @@
 {
-  "schema_version": "EMPLOYEE-PACKAGE-1.1",
-  "status": "ACTIVE_EMPLOYEE_PACKAGE",
-  "date": "2026-10-06",
+  "schema_version": "EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "status": "ACTIVE_FINAL_CLOSEOUT_R2",
+  "date": "2026-10-07",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.1",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json",
+  "control_plane_epoch": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_DIRECTIVE_v1.0_20261007.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_CONTRACT_v1.0_20261007.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_REVIEW_v1.2_20261006.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_v1_2_20261006.json",
-    "detail_dir": "evidence/pc_remote/media-ai-canonical-local-rebind-v1_2-20261006/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_REVIEW_v1.0_20261007.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_v1_0_20261007.json",
+    "detail_dir": "evidence/pc_remote/media-ai-employee-package-final-closeout-r2-v1_0-20261007/"
   },
-  "execution_scope": "Complete employee-transferable Windows x64 distribution package build and Clean Windows E2E",
+  "execution_scope": "Employee package remaining distribution gates only",
   "product_changes_allowed": true,
   "package_build_allowed": true,
   "ui_changes_allowed": false,
@@ -49,5 +49,12 @@
       "work-data/"
     ]
   },
-  "previous_cycle_result": "RECOVERY_PASS"
+  "previous_cycle_result": "IN_PROGRESS_RUNTIME_DEPENDENCY_LEAK",
+  "current_blockers": [
+    "Visual C++ runtime redistribution/deployment gate",
+    "default Windows profile host gate",
+    "installed-package final function retest",
+    "final self-containment and notices audit",
+    "final ZIP/split hashes and remote readback"
+  ]
 }
