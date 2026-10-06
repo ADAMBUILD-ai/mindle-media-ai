@@ -1,1 +1,30 @@
-PENDING: will be replaced after actual commit, push and remote branch readback.
+{
+  "commit": "ac0e6909f55aaf73ebcf8dcf736c37ebfda74824",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "head_readback_verified": true,
+  "files": [
+    {
+      "path": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_EVIDENCE_v1_0_20261006.json",
+      "sha": "819637057f97af2ffa327c2051afa150ff2a1398",
+      "content_identical": true
+    },
+    {
+      "path": "src/media_ai/product_server.py",
+      "sha": "64eeac079d721aba02f1432982d22145a1e969bc",
+      "content_identical": true
+    },
+    {
+      "path": "scripts/build_employee_distribution_package.py",
+      "sha": "a17e439b9f4a521d76709c0c8579721c86634a1c",
+      "content_identical": true
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_REVIEW_v1.0_20261006.md",
+      "sha": "8bfc600b6b958403136f9c23d933d5e84b03a549",
+      "content_identical": true
+    }
+  ],
+  "publication_method": "GitHub connector create tree/commit and fast-forward expected-head ref update; no force; local Git HEAD not updated"
+}
+
+Implementation publication/readback only; employee package build/E2E remains BLOCKED. This proof refers to ac0e6909, before its own evidence follow-up commit.

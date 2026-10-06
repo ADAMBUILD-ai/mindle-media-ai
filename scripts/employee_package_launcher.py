@@ -46,13 +46,14 @@ def main():
     parser.add_argument('--verify-only', action='store_true')
     parser.add_argument('--server', action='store_true')
     parser.add_argument('--port', type=int)
+    parser.add_argument('--data-root', type=Path)
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
     manifest = verify(root)
     if args.verify_only:
         print('PACKAGE_HASH_VERIFICATION_PASS')
         return
-    data = Path(os.environ['LOCALAPPDATA']) / 'MINDLE/MEDIA_AI_DATA'
+    data = args.data_root or (Path(os.environ['LOCALAPPDATA']) / 'MINDLE/MEDIA_AI_DATA')
     data.mkdir(parents=True, exist_ok=True)
     (data / 'logs').mkdir(exist_ok=True)
     for key in list(os.environ):
@@ -91,8 +92,11 @@ def main():
                     with socket.socket() as probe:
                         probe.bind(('127.0.0.1', candidate))
                     log = open(data / 'logs/server.log', 'ab')
-                    process = subprocess.Popen([sys.executable, str(Path(__file__)), '--server', '--port', str(candidate)],
-                                               cwd=root, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW)
+                    server_env = dict(os.environ)
+                    server_env.update(LOCALAPPDATA=str(data), APPDATA=str(data / 'appdata'),
+                                      HF_HUB_DISABLE_TELEMETRY='1')
+                    process = subprocess.Popen([sys.executable, str(Path(__file__)), '--server', '--port', str(candidate), '--data-root', str(data)],
+                                               cwd=root, env=server_env, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW)
                     log.close()
                     until = time.monotonic() + 90
                     while time.monotonic() < until:

@@ -2,5 +2,9 @@
   "status": "NOT_RUN",
   "reason": "No complete package was emitted; development runtime must not be presented as an employee test.",
   "required_offline_code_component_tests": 3,
-  "complete_package_runtime_audit": false
+  "complete_package_runtime_audit": false,
+  "candidate_runtime_imports_verified": true,
+  "candidate_python_sys_path_package_local": true,
+  "employee_package_audit_complete": false,
+  "remediation": "Removed import site from python311._pth to prevent user-site injection. Launcher server child redirects LOCALAPPDATA/APPDATA into product data root; this child environment is not yet E2E-tested."
 }

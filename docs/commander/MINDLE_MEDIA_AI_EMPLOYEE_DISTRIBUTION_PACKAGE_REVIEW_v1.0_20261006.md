@@ -30,3 +30,11 @@ Whisper-small 소스 모델 카드의 라이선스는 MIT이며 현재 모델 SS
 ## 게시 방식과 로컬 제약
 
 .git 쓰기 권한을 부여받은 뒤에도 .git/index.lock 생성이 Windows에서 거부되어 로컬 commit/push는 수행할 수 없었다. 연결된 GitHub API에서 기존 canonical parent의 후속 커밋을 만들고 동일 브랜치를 fast-forward하는 방식으로 게시를 시도한다. 새 저장소/브랜치/worktree를 만들지 않으며 force 옵션도 사용하지 않는다. 로컬 HEAD는 이 방식으로 갱신되지 않는다. 후보 런타임 복사는 완료됐고, NumPy/OpenVINO 요구 버전 충돌을 그대로 기록했다.
+
+## 실제 원격 확인 및 후보 런타임 검사
+
+원격 구현 커밋 ac0e6909f55aaf73ebcf8dcf736c37ebfda74824를 동일 브랜치에 fast-forward 게시했다. ls-remote로 HEAD를 확인했고 Evidence, product_server.py, 빌더, Review의 원격 내용이 게시 입력과 동일함을 검증했다. 로컬 HEAD는 기존 b39ca305 상태로 남는다.
+
+후보 Python 3.11.9가 CPU PyTorch 2.14.0+cpu(CUDA 없음), Transformers, OpenVINO 2025.1.0, NumPy 2.4.6, OpenCV를 package-local 경로에서 import하는 것을 실제 확인했다. import site가 사용자 site-packages를 추가한 문제가 발견되어 ._pth에서 제거했고 재검사에서 모든 sys.path가 후보 런타임 내부임을 확인했다. 원래 NumPy/OpenVINO 메타데이터 요구조건 충돌은 여전히 남아 있으며 조정 질문은 대기 중이다.
+
+검사 중 OpenVINO telemetry가 사용자 Intel 폴더에 쓰기를 시도한 경고도 기록했다. 제품 서버 자식의 LOCALAPPDATA/APPDATA를 제품 데이터 폴더로 지정하도록 실행기를 수정했으나 실제 설치된 서버 검증은 아직 없다. 전체 자동검사 56개는 다시 통과했다. 이 검사들은 완성 직원 ZIP의 Clean Windows E2E PASS를 뜻하지 않는다.

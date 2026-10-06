@@ -94,7 +94,9 @@ def main():
     if errors:
         print(json.dumps({'status': 'BLOCKED', 'errors': errors}, ensure_ascii=False, indent=2))
         return 2
-    root = repo / 'dist' / NAME
+    # Wheel paths exceed MAX_PATH in deeply nested build checkouts.
+    # The archive still uses ordinary relative paths and installs per-user.
+    root = Path('\\\\?\\' + str((repo / 'dist' / NAME).resolve()))
     if root.exists(): raise RuntimeError('build output already exists; use a fresh reviewed output directory')
     root.mkdir(parents=True)
     copy_ignore = shutil.ignore_patterns('__pycache__', '*.pyc', '.cache', '.git', '*.pth')
@@ -122,7 +124,7 @@ def main():
             if 'license' in source.name.lower() or 'notice' in source.name.lower() or 'licenses' in relative.parts:
                 license_path = notices / name / str(relative)
                 license_path.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(source, license_path)
-    (py / 'python311._pth').write_text('Lib\nDLLs\n.\n../site-packages\n../../app/src\nimport site\n', encoding='ascii')
+    (py / 'python311._pth').write_text('Lib\nDLLs\n.\n../site-packages\n../../app/src\n', encoding='ascii')
     for folder in ('models/sam21', 'models/whisper-small', 'omz/intel/single-image-super-resolution-1032/FP32'):
         shutil.copytree(args.model_root / folder, root / folder, ignore=copy_ignore)
     shutil.copytree(args.ffmpeg_root, root / 'tools/ffmpeg', ignore=copy_ignore)
