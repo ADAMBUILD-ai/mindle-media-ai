@@ -1,26 +1,28 @@
 {
-  "schema_version": "EMPLOYEE-PACKAGE-1.1",
-  "status": "ACTIVE_EMPLOYEE_PACKAGE",
-  "date": "2026-10-06",
+  "schema_version": "EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "status": "ACTIVE_FINAL_CLOSEOUT_R2",
+  "date": "2026-10-07",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.1",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json",
+  "epoch": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_DIRECTIVE_v1.0_20261007.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_CONTRACT_v1.0_20261007.json",
   "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_REVIEW_v1.2_20261006.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_v1_2_20261006.json",
-    "detail_dir": "evidence/pc_remote/media-ai-canonical-local-rebind-v1_2-20261006/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_REVIEW_v1.0_20261007.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_v1_0_20261007.json",
+    "detail_dir": "evidence/pc_remote/media-ai-employee-package-final-closeout-r2-v1_0-20261007/"
   },
   "invariants": {
     "one_active_epoch": true,
     "one_active_directive": true,
     "one_active_contract": true,
+    "no_restart_from_scratch": true,
     "main_merge_forbidden": true,
     "force_push_forbidden": true,
     "new_repo_or_worktree_forbidden": true,
-    "clean_windows_e2e_required": true,
-    "evidence_required": true
+    "owner_license_gate_required": true,
+    "default_profile_host_gate_required": true,
+    "installed_package_e2e_required": true
   },
   "validator": "scripts/validate_pc_work_control_plane.py",
   "validator_required_result": "CONTROL_PLANE_PASS",
