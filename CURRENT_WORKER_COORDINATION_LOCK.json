@@ -1,19 +1,19 @@
 {
-  "schema_version": "RECOVERY-1.0",
+  "schema_version": "RECOVERY-1.1",
   "status": "ACTIVE",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0",
+  "active_control_plane_epoch": "MEDIA-AI-20261006-WINDOWS-SANDBOX-ACL-RECOVERY-V1.1",
   "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
     "worker_a_pc_recovery": {
       "role": "Windows PC Work recovery diagnostician",
-      "current_assignment": "Environment-neutral exec probe, read-only canonical repo probe, then authority consistency validation",
+      "current_assignment": "Host Windows sandbox persisted ACL-state classification, exact-signature recovery only, neutral exec probe, then canonical repo read-only validation",
       "may_write": [
-        "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_REVIEW_v1.0_20261006.md",
-        "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_v1_0_20261006.json",
-        "evidence/pc_remote/media-ai-control-plane-recovery-v1_0-20261006/**"
+        "docs/commander/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_REVIEW_v1.1_20261006.md",
+        "evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_EVIDENCE_v1_1_20261006.json",
+        "evidence/pc_remote/media-ai-windows-sandbox-acl-recovery-v1_1-20261006/**"
       ],
       "may_not_change": [
         "ui/**",
@@ -21,6 +21,7 @@
         "tests/**",
         "scripts/** product behavior",
         "employee package outputs",
+        "repository ACLs",
         "branch binding",
         "main/default branch",
         "Master SSOT"
@@ -28,7 +29,7 @@
     },
     "worker_b_master_repository": {
       "role": "Repository governance observer",
-      "current_assignment": "STOPPED / READ-ONLY until recovery result",
+      "current_assignment": "STOPPED / READ-ONLY until RECOVERY_PASS",
       "may_write": [],
       "may_not_change": [
         "all repository content during active recovery"
