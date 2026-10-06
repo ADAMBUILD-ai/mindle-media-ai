@@ -1,18 +1,18 @@
 {
-  "schema_version": "RECOVERY-1.0",
-  "status": "ACTIVE_RECOVERY_ONLY",
+  "schema_version": "RECOVERY-1.1",
+  "status": "ACTIVE_WINDOWS_SANDBOX_ACL_RECOVERY_ONLY",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "control_plane_epoch": "MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_AND_ENVIRONMENT_DIAGNOSTIC_DIRECTIVE_v1.0_20261006.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261006.json",
+  "control_plane_epoch": "MEDIA-AI-20261006-WINDOWS-SANDBOX-ACL-RECOVERY-V1.1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_WINDOWS_SANDBOX_ACL_STATE_RECOVERY_DIRECTIVE_v1.1_20261006.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_WINDOWS_SANDBOX_ACL_STATE_RECOVERY_EVIDENCE_CONTRACT_v1.1_20261006.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_REVIEW_v1.0_20261006.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_v1_0_20261006.json",
-    "detail_dir": "evidence/pc_remote/media-ai-control-plane-recovery-v1_0-20261006/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_REVIEW_v1.1_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_EVIDENCE_v1_1_20261006.json",
+    "detail_dir": "evidence/pc_remote/media-ai-windows-sandbox-acl-recovery-v1_1-20261006/"
   },
-  "execution_scope": "PC Work control-plane recovery and environment diagnosis only",
+  "execution_scope": "Persisted Windows sandbox ACL-state diagnosis and controlled recovery only",
   "product_changes_allowed": false,
   "package_build_allowed": false,
   "ui_changes_allowed": false,
@@ -23,5 +23,15 @@
   "technical_base_directive": null,
   "pass_result": "RECOVERY_PASS",
   "blocked_result": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED",
-  "next_cycle_after_pass": "Explicit commander reactivation of employee distribution package only"
+  "next_cycle_after_pass": "Explicit commander reactivation of employee distribution package only",
+  "known_external_match": {
+    "project": "openai/codex",
+    "issues": [
+      "#42958",
+      "#28248",
+      "#47950"
+    ],
+    "exact_error": "helper_unknown_error: apply deny-read ACLs",
+    "recurrent_signature": "deny_read_acl_state.json = 22 bytes all NUL, invalid JSON"
+  }
 }
