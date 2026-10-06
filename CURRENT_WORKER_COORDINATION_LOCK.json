@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "date": "2026-10-05",
+  "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261005-V21.0A-R1",
+  "active_control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
   "status": "ACTIVE",
   "worker_lanes": {
     "worker_a_product_runtime": {
@@ -23,7 +23,7 @@
         "main/default branch",
         "historical branch deletion"
       ],
-      "current_assignment": "Execute v21.0A-R1 actual Windows work now; no plan-only completion"
+      "current_assignment": "Build and test the complete employee Windows distribution package v1.0"
     },
     "worker_b_master_repository": {
       "role": "Master/repository governance auditor",
@@ -41,7 +41,7 @@
         "active product behavior",
         "active Evidence produced by Worker A"
       ],
-      "current_assignment": "Read-only for product files; inspect only until Worker A publishes evidence"
+      "current_assignment": "Read-only for product/package files until Worker A publishes package Evidence"
     }
   },
   "collision_status": "LANE_OWNERSHIP_CONFLICT",
@@ -49,7 +49,7 @@
   "force_push_forbidden": true,
   "merge_main_forbidden": true,
   "archive_branches_read_only": true,
-  "active_product_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_EXECUTION_ENFORCEMENT_DIRECTIVE_v21.0A-R1_20261005.md",
+  "active_product_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
   "parent_product_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
   "technical_base_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md"
 }
