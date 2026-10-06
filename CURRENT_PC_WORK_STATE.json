@@ -1,175 +1,37 @@
 {
-  "status": "ACTIVE",
+  "schema_version": "RECOVERY-1.0",
+  "status": "ACTIVE_RECOVERY_ONLY",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "sync_required_before_work": true,
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
-  "technical_scope": null,
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json",
+  "control_plane_epoch": "MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_AND_ENVIRONMENT_DIAGNOSTIC_DIRECTIVE_v1.0_20261006.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261006.json",
   "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_REVIEW_v1.0_20261006.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_EVIDENCE_v1_0_20261006.json",
-    "detail_dir": "evidence/pc_remote/media-ai-employee-package-v1_0-20261006/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_REVIEW_v1.0_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_v1_0_20261006.json",
+    "detail_dir": "evidence/pc_remote/media-ai-control-plane-recovery-v1_0-20261006/"
   },
-  "forbidden_outputs": [
-    "MINDLE_MEDIA_AI_EVIDENCE_CYCLE_01_20261001.md",
-    "MINDLE_MEDIA_AI_PC_RUNTIME_RESTORE_v16_20261001.json"
+  "execution_scope": "PC Work control-plane recovery and environment diagnosis only",
+  "product_changes_allowed": false,
+  "package_build_allowed": false,
+  "ui_changes_allowed": false,
+  "branch_mutation_allowed": false,
+  "windows_acl_mutation_allowed": false,
+  "neutral_probe_root": "C:\\MINDLE_WORK_TEST",
+  "blocked_error_signature": "helper_unknown_error: apply deny-read ACLs",
+  "blocked_result": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED",
+  "pass_result": "RECOVERY_PASS",
+  "historical_preflight_required": false,
+  "active_preflight": null,
+  "parent_directive": null,
+  "technical_base_directive": null,
+  "next_cycle_after_pass": "Explicit commander reactivation of employee distribution package only",
+  "preserved_reference_only": [
+    "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
+    "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md"
   ],
-  "completion_requires_remote_readback": true,
-  "rule_registry_md": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.md",
-  "rule_registry_json": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RULE_REGISTRY_ACTIVE_SUPERSEDED_v1.0_20261001.json",
-  "default_unlisted_pc_work_doc_status": "HISTORY_ONLY",
-  "stale_context_status": "STALE_CONTEXT_BLOCKED",
-  "must_sync_remote_head_before_work": true,
-  "must_read_rule_registry_before_old_docs": true,
-  "active_preflight": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md",
-  "canonical_pc_work_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "forbidden_stale_local_branch": "work/ui-final-pc-work-20260924",
-  "branch_assertion_required_before_work": true,
-  "previous_cycle_result": "v21.0A-R1 preserved as historical/diagnostic; distribution packaging now active",
-  "required_detail_file_count": 0,
-  "approved_ui_library_filename": "네온 다크 테마 AI 미디어 편집기.png",
-  "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
-  "superseded_v17_directives": [
-    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md",
-    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_SOURCE_RECOVERY_AND_VISUAL_IMPLEMENTATION_CLOSEOUT_DIRECTIVE_v17.0_20261001.md"
-  ],
-  "commander_handoff_manifest": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_ASSET_HANDOFF_MANIFEST_v1.0_20261001.json",
-  "commander_approved_ui_handoff": {
-    "provider": "Google Drive",
-    "path": "/Google Drive/MINDLE_MEDIA_AI_HANDOFF/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
-    "drive_file_id": "1hyZJpzsDecHgUFwYq463K30JlEJ4jgHA",
-    "source_filename": "MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
-    "dimensions": [
-      1536,
-      1024
-    ],
-    "size_bytes": 1737365,
-    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
-    "status": "DELIVERED_TO_GOOGLE_DRIVE"
-  },
-  "google_drive_handoff_receipt": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_GOOGLE_DRIVE_HANDOFF_RECEIPT_v1.0_20261001.json",
-  "current_known_issue": {
-    "type": "EMPLOYEE_DISTRIBUTION_PACKAGE_REQUIRED",
-    "details": [
-      "current notebook uses development launcher/shortcut",
-      "employee PC needs self-contained package",
-      "package must include verified local models and runtime",
-      "package must not require GitHub/Python/HF token",
-      "transfer-friendly split package required"
-    ]
-  },
-  "frozen_pass": {
-    "base_product": true,
-    "final_ui": true,
-    "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
-    "implementation_commit": "c3d36c8cfffc56e8b087475e56c9263d056b5410",
-    "remote_verification_commit": "f8c509175395caec50c623a41506fcd280cd919b"
-  },
-  "control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
-  "control_plane_lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
-  "control_plane_mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
-  "worker_must_validate_epoch_before_work": true,
-  "control_plane_validator": "scripts/validate_pc_work_control_plane.py",
-  "control_plane_validator_required_result": "CONTROL_PLANE_PASS",
-  "marketing_live_provider": {
-    "repository": "ADAMBUILD-ai/mindle-marketing-department",
-    "pr": 4,
-    "branch": "feature/shortform-bridge-p0-20260926",
-    "commit": "3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a",
-    "workflow_run": 36852551111,
-    "workflow_result": "SUCCESS",
-    "base_url": "http://127.0.0.1:4318",
-    "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN"
-  },
-  "active_cycle_version": "employee-package-v1.0",
-  "next_pending_directive": null,
-  "next_pending_evidence_contract": null,
-  "next_pending_epoch": null,
-  "final_closeout_blocked_until_representative_ui_gate": false,
-  "representative_ui_gate_status": "REOPENED_FOR_REAL_USE_REAUDIT",
-  "representative_ui_gate_rule": "Show actual Windows MEDIA AI beside the final fixed UI authority (F27E base + Shortform Addendum). If UI is approved, continue immediately to the icon phase; create exactly three candidates, show them on Windows, wait for selection, package only the selected icon, verify favicon/shortcut application, and only then allow closeout.",
-  "final_fixed_ui_definition": {
-    "base": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
-    "base_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
-    "additive": "docs/ssot/MINDLE_MEDIA_AI_SHORTFORM_UI_SSOT_ADDENDUM_v1.0_20260926.md",
-    "video_action_order": [
-      "영상 불러오기",
-      "AI 자동 편집",
-      "광고 숏폼",
-      "프로젝트 저장",
-      "내보내기"
-    ]
-  },
-  "final_closeout_blocked_until_representative_ui_and_icon_gate": true,
-  "representative_icon_gate_status": "BRANDED_ICON_PRESERVE",
-  "required_detail_file_count_after_ui_approval": 30,
-  "final_closeout_requires": [
-    "package_build_pass",
-    "model_hash_pass",
-    "self_containment_pass",
-    "clean_package_install_pass",
-    "desktop_launch_pass",
-    "real_function_e2e_pass",
-    "save_reopen_export_pass",
-    "split_transfer_pass",
-    "remote_evidence_pass"
-  ],
-  "frozen_ui_regions": [
-    "launcher",
-    "desktop_icon",
-    "favicon",
-    "color_hierarchy",
-    "shortform_header"
-  ],
-  "workspace_ui_only_source": true,
-  "workspace_golden_geometry_commit": "97900cc6c784e74b4224333fa2cc84d29c611f87",
-  "rejected_geometry_commit": "2ab174e03dc786c53f38ba956dea95f8e1ccd5a7",
-  "desktop_independent_ui_forbidden": true,
-  "user_guide": "docs/manual/MINDLE_MEDIA_AI_USER_GUIDE_v1.0_20261003.md",
-  "current_master": "docs/commander/MINDLE_MEDIA_AI_MASTER_HANDOVER_SSOT_v2.0_20261005.md",
-  "repository_consolidation_ssot": "docs/commander/MINDLE_MEDIA_AI_REPOSITORY_CONSOLIDATION_SSOT_v1.0_20261005.md",
-  "two_worker_protocol": "docs/commander/MINDLE_MEDIA_AI_TWO_WORKER_COORDINATION_PROTOCOL_v1.0_20261005.md",
-  "worker_coordination_lock": "CURRENT_WORKER_COORDINATION_LOCK.json",
-  "repository_branch_policy": {
-    "active": [
-      "feature/ad-shortform-bridge-p0-20260926"
-    ],
-    "reference_only": [
-      "main",
-      "integration"
-    ],
-    "archive_candidate_patterns": [
-      "work/*",
-      "automation/model-scout-route-media-50"
-    ],
-    "destructive_cleanup_authorized": false
-  },
-  "pr_policy": {
-    "pr_23": "HOLD_DO_NOT_MERGE_STALE_BASE",
-    "historical_open_prs": "REFERENCE_ONLY_ARCHIVE_CANDIDATE"
-  },
-  "parent_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
-  "immediate_execution_order": [
-    "actual Windows launcher/runtime inventory",
-    "canonical lnk only and direct-url removal",
-    "single product_server enforcement",
-    "workspace-desktop identity gate",
-    "desktop double-click 2-of-2",
-    "UI overlap reproduction/minimal repair",
-    "real functional re-audit",
-    "save/reopen",
-    "remote evidence publication"
-  ],
-  "technical_base_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md",
-  "commander_review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V21_0A_NOT_STARTED_REVIEW_20261005.md",
-  "employee_distribution": {
-    "full_zip": "dist/MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip",
-    "split_dir": "dist/transfer_parts/",
-    "install_root": "%LOCALAPPDATA%\\MINDLE\\MEDIA_AI\\",
-    "data_root": "%LOCALAPPDATA%\\MINDLE\\MEDIA_AI_DATA\\",
-    "no_admin_preferred": true,
-    "offline_base_product_required": true
-  }
+  "authority_rule": "ONE_ACTIVE_EPOCH_ONE_ACTIVE_DIRECTIVE_ONE_ACTIVE_CONTRACT"
 }
