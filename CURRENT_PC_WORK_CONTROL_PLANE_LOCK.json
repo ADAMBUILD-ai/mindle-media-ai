@@ -1,68 +1,32 @@
 {
-  "schema_version": "1.0",
-  "epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
+  "schema_version": "RECOVERY-1.0",
+  "status": "ACTIVE_RECOVERY_ONLY",
   "date": "2026-10-06",
-  "status": "ACTIVE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json",
+  "epoch": "MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_AND_ENVIRONMENT_DIAGNOSTIC_DIRECTIVE_v1.0_20261006.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261006.json",
   "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_REVIEW_v1.0_20261006.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_EVIDENCE_v1_0_20261006.json",
-    "detail_dir": "evidence/pc_remote/media-ai-employee-package-v1_0-20261006/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_REVIEW_v1.0_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_v1_0_20261006.json",
+    "detail_dir": "evidence/pc_remote/media-ai-control-plane-recovery-v1_0-20261006/"
   },
-  "required_detail_file_count": 0,
-  "previous_cycle": {
-    "version": "v21.0A-R1",
-    "result": "SUPERSEDED_BY_EMPLOYEE_PACKAGE_BUILD"
-  },
-  "frozen_pass": [
-    "v14 base product runtime",
-    "v18.1 approved F27E visual UI",
-    "v18.2 additive shortform action identity/order",
-    "v19 integrated base-product closeout"
-  ],
   "invariants": {
-    "current_directive_epoch_must_equal": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
-    "current_state_epoch_must_equal": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
-    "registry_epoch_must_equal": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
-    "worker_coordination_epoch_must_equal": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.0",
-    "mismatch_status": "CONTROL_PLANE_MISMATCH_BLOCKED",
-    "worker_must_not_execute_on_mismatch": true
+    "one_active_epoch": true,
+    "one_active_directive": true,
+    "one_active_contract": true,
+    "historical_preflight_forbidden": true,
+    "product_write_forbidden": true,
+    "package_build_forbidden": true,
+    "ui_write_forbidden": true,
+    "branch_switch_reset_rebase_stash_forbidden": true,
+    "windows_acl_manual_mutation_forbidden": true
   },
   "validator": "scripts/validate_pc_work_control_plane.py",
   "validator_required_result": "CONTROL_PLANE_PASS",
-  "required_detail_file_count_before_ui_decision": 20,
-  "required_detail_file_count_after_ui_approval": 30,
-  "final_closeout_requires": [
-    "launcher_parity_pass",
-    "branded_icon_applied",
-    "double_click_launch_pass",
-    "remote_evidence_pass"
-  ],
-  "representative_icon_phase": "BLOCKED_PENDING_UI_AND_LAUNCHER_APPROVAL",
-  "geometry_reference": {
-    "video": "video-right",
-    "photo": "photo-center",
-    "tolerance_px": 2
-  },
-  "launcher_icon_frozen": true,
-  "workspace_ui_only_source": true,
-  "workspace_golden_geometry_commit": "97900cc6c784e74b4224333fa2cc84d29c611f87",
-  "desktop_independent_ui_forbidden": true,
-  "ui_changes_forbidden": true,
-  "metadata_only_pass_forbidden": true,
-  "parent_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
-  "desktop_direct_url_forbidden": true,
-  "single_product_server_required": true,
-  "identity_gate_before_ui_edit": true,
-  "technical_base_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md",
-  "actual_windows_execution_required": true,
-  "evidence_required_before_pass": true,
-  "employee_package_no_secrets": true,
-  "employee_package_no_git_dependency": true,
-  "employee_package_no_system_python_dependency": true,
-  "employee_package_no_hf_token_dependency": true,
-  "clean_package_e2e_required": true
+  "environment_probe_first": true,
+  "environment_probe_root": "C:\\MINDLE_WORK_TEST",
+  "acl_error_status": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED",
+  "recovery_pass_status": "RECOVERY_PASS"
 }
