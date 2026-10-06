@@ -15,7 +15,8 @@ try {
   try { foreach ($Path in $Verified) { $Stream = [IO.File]::OpenRead($Path); try { $Stream.CopyTo($OutputStream) } finally { $Stream.Dispose() } } } finally { $OutputStream.Dispose() }
   if ((Get-Item -LiteralPath $ZipPath).Length -ne $Manifest.zip_bytes -or (Get-FileHash -LiteralPath $ZipPath).Hash.ToLower() -ne $Manifest.zip_sha256) { throw 'ZIP SHA-256 검증 실패' }
   if (-not $VerifyOnly) {
-    $Extract = Join-Path $PSScriptRoot ('installed-source-' + [guid]::NewGuid().ToString('N'))
+    # Keep extracted dependency paths below legacy Windows path limits.
+    $Extract = Join-Path ([IO.Path]::GetTempPath()) ('MindlePkg_' + [guid]::NewGuid().ToString('N').Substring(0,8))
     Expand-Archive -LiteralPath $ZipPath -DestinationPath $Extract
     $Installers = @(Get-ChildItem -LiteralPath $Extract -Filter INSTALL_MINDLE_MEDIA_AI.cmd -Recurse)
     if ($Installers.Count -ne 1) { throw '설치 파일을 확인할 수 없습니다.' }
