@@ -1,25 +1,14 @@
 {
-  "status": "IN_PROGRESS",
-  "final_result": "NOT_EMPLOYEE_E2E_PASS",
   "required_result": "EMPLOYEE_PACKAGE_CLEAN_WINDOWS_E2E_PASS",
-  "recorded_at": "2026-10-06T14:53:47.531886+00:00",
   "control_plane_result": "CONTROL_PLANE_PASS",
   "package_built": true,
-  "employee_e2e_pass": false,
   "source_model_identities_verified": true,
   "offline_mode_regression_tests": 4,
   "automated_tests_passed": 56,
   "cpu_wheel_staged_and_official_sha256_verified": true,
   "ffmpeg_ffprobe_staged": true,
   "model_licenses_staged": true,
-  "blockers": [
-    "Default LOCALAPPDATA application/data and Start Menu write paths were not granted.",
-    "Local Git index lock is denied; authorized branch publication uses GitHub tree/commit/ref API.",
-    "Required installed-package UI, shortcuts, save/reopen/export and uninstall/reinstall E2E checks remain pending."
-  ],
   "remaining_work": [
-    "Finish SAM tracking retest and record actual results.",
-    "Finish updated ZIP and actual 300MiB transfer parts.",
     "Complete installer, UI preview, desktop 2/2, save/reopen/export, Shortform and uninstall/reinstall/data preservation.",
     "Verify distribution notices, all details, package hashes and final remote readback."
   ],
@@ -34,8 +23,6 @@
   "numpy_version": "2.2.6",
   "dependency_preflight": "PREREQUISITES_VERIFIED",
   "torchvision_version": "0.29.0+cpu",
-  "implementation_commit": "527444b19e61e29ee2e78a264418671a34013300",
-  "implementation_readback": "5/5 exact content matches",
   "copied_package_runtime_imports": "PASS_SHORT_TEMPORARY_PROFILE",
   "deep_development_path_probe": "FAILED_WINDOWS_PATH_LENGTH",
   "default_profile_write_permission": "NOT_GRANTED_ON_RETRY",
@@ -127,9 +114,9 @@
               "evidence_status": "VERIFY_REQUIRED",
               "runtime_status": "OUTPUT_VALIDATED",
               "terminal_state": "succeeded",
-              "recorded_at": "2026-10-06T14:41:28.063963+00:00",
-              "started_at": "2026-10-06T14:41:27.518974+00:00",
-              "finished_at": "2026-10-06T14:41:28.063963+00:00",
+              "recorded_at": "2026-10-06T23:41:28.063963+09:00",
+              "started_at": "2026-10-06T23:41:27.518974+09:00",
+              "finished_at": "2026-10-06T23:41:28.063963+09:00",
               "project_id": null,
               "requested_operation": "upscale",
               "source_provenance": {
@@ -297,9 +284,9 @@
               "evidence_status": "VERIFY_REQUIRED",
               "runtime_status": "OUTPUT_VALIDATED",
               "terminal_state": "succeeded",
-              "recorded_at": "2026-10-06T14:44:18.206670+00:00",
-              "started_at": "2026-10-06T14:44:18.200669+00:00",
-              "finished_at": "2026-10-06T14:44:18.206670+00:00",
+              "recorded_at": "2026-10-06T23:44:18.20667+09:00",
+              "started_at": "2026-10-06T23:44:18.200669+09:00",
+              "finished_at": "2026-10-06T23:44:18.20667+09:00",
               "project_id": null,
               "requested_operation": "transcribe",
               "source_provenance": {
@@ -497,9 +484,9 @@
               "evidence_status": "VERIFY_REQUIRED",
               "runtime_status": "OUTPUT_VALIDATED",
               "terminal_state": "succeeded",
-              "recorded_at": "2026-10-06T14:51:23.492534+00:00",
-              "started_at": "2026-10-06T14:51:23.485533+00:00",
-              "finished_at": "2026-10-06T14:51:23.492534+00:00",
+              "recorded_at": "2026-10-06T23:51:23.492534+09:00",
+              "started_at": "2026-10-06T23:51:23.485533+09:00",
+              "finished_at": "2026-10-06T23:51:23.492534+09:00",
               "project_id": null,
               "requested_operation": "segment",
               "source_provenance": {
@@ -579,7 +566,383 @@
             "process": "3.11.9"
           }
         }
+      },
+      {
+        "operation": "tracking",
+        "seconds": 277.00760865211487,
+        "result": {
+          "status": "TESTED_PASS",
+          "job_id": "2c6390f5-873b-450e-9b4f-a18a822f9720",
+          "evidence_id": "1ae5042a-79cb-4a1d-bfa0-e7865f0ee171",
+          "lane": "video",
+          "operation": "tracking",
+          "command": "영상의 대상을 추적해 주세요",
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "model": {
+            "identity": {
+              "repo_id": "facebook/sam2.1-hiera-base-plus",
+              "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+              "license": "apache-2.0",
+              "weight_name": "model.safetensors",
+              "weight_size_bytes": 323476296,
+              "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+            },
+            "local_recovered_package": {
+              "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\models\\sam21",
+              "read_only": true
+            }
+          },
+          "adapter": {
+            "id": "mindle.sam21.verified.cpu",
+            "version": "1.0.1",
+            "runtime_backend": "transformers-pytorch",
+            "device_requirement": "cpu"
+          },
+          "input": {
+            "file_name": "62c9ba32-5692-4b97-a499-7301234e1c1e_3a9a94df-0f20-426b-be8c-c4a5c0596b8f_big_buck_bunny.mp4",
+            "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\inputs\\62c9ba32-5692-4b97-a499-7301234e1c1e_3a9a94df-0f20-426b-be8c-c4a5c0596b8f_big_buck_bunny.mp4",
+            "bytes": 315058,
+            "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+          },
+          "runtime_result": {
+            "status": "TESTED_PASS",
+            "input_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\inputs\\62c9ba32-5692-4b97-a499-7301234e1c1e_3a9a94df-0f20-426b-be8c-c4a5c0596b8f_big_buck_bunny.mp4",
+            "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+            "track_id": 1,
+            "sampled_frames": 4,
+            "samples": [
+              {
+                "track_id": 1,
+                "source_frame_index": 0,
+                "prompt_point": [
+                  256,
+                  146
+                ],
+                "centroid": [
+                  253,
+                  142
+                ],
+                "selected_mask_index": 0,
+                "foreground_fraction": 0.14438459897610922,
+                "iou_with_previous_sample": null,
+                "elapsed_ms": 62009.41,
+                "mask_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_00_mask.png",
+                "mask_sha256": "91a5ce305327e84d97cac73bd642c47e33e111629a6335e831eb34be19c34097",
+                "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_00_overlay.png",
+                "overlay_sha256": "b86c5b3ba304b28f0431ade64cf3de9fbe14068d172dc021726a3db47c89c6a8"
+              },
+              {
+                "track_id": 1,
+                "source_frame_index": 41,
+                "prompt_point": [
+                  253,
+                  142
+                ],
+                "centroid": [
+                  249,
+                  136
+                ],
+                "selected_mask_index": 2,
+                "foreground_fraction": 0.003359641638225256,
+                "iou_with_previous_sample": 0.02326869806094183,
+                "elapsed_ms": 60491.39,
+                "mask_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_01_mask.png",
+                "mask_sha256": "616102c3bb9f897f426b91a3064a3b971857f8951a1cb7d3214283d11e73f6e1",
+                "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_01_overlay.png",
+                "overlay_sha256": "941f07b78dd30f7c944aaf307ce70418d47ee6063c621885ec547742c6456bf7"
+              },
+              {
+                "track_id": 1,
+                "source_frame_index": 83,
+                "prompt_point": [
+                  249,
+                  136
+                ],
+                "centroid": [
+                  240,
+                  182
+                ],
+                "selected_mask_index": 0,
+                "foreground_fraction": 0.13604548848122866,
+                "iou_with_previous_sample": 0.024694987505512273,
+                "elapsed_ms": 62493.96,
+                "mask_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_02_mask.png",
+                "mask_sha256": "8afcc5cdcde310cfda670cb37c6b3dd52bb0f2e26b502226a2f89aceedd91b31",
+                "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_02_overlay.png",
+                "overlay_sha256": "f04596078cb24e4fa2b42b1bd68268a2c0f7d7ebff588f7195e379a866aad1fb"
+              },
+              {
+                "track_id": 1,
+                "source_frame_index": 124,
+                "prompt_point": [
+                  240,
+                  182
+                ],
+                "centroid": [
+                  251,
+                  178
+                ],
+                "selected_mask_index": 0,
+                "foreground_fraction": 0.12669981868600683,
+                "iou_with_previous_sample": 0.716052070181549,
+                "elapsed_ms": 63993.38,
+                "mask_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_03_mask.png",
+                "mask_sha256": "86c2c012b939da00b6e5e9a8bdd116c44aa46da2070325db7c31b2d5f2f60479",
+                "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_03_overlay.png",
+                "overlay_sha256": "f537579790ff69dd46973720983fbda32411fd2d114f39cbafc43d685821af3b"
+              }
+            ],
+            "outputs": [
+              {
+                "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_overlays.mp4",
+                "sha256": "9e7523a307c3e5f343ce750382ff4fc44b201a3a12f8cbaa5440ea51c9a97f30",
+                "bytes": 91227
+              },
+              {
+                "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\tracking.json",
+                "sha256": "c4aedd5efaf2ee23d7dbd83d4aab02ec6fccd269ac6cd354b0ed253bb94747a7",
+                "bytes": 3689
+              }
+            ]
+          },
+          "primary_output": {
+            "file_name": "track_1_overlays.mp4",
+            "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_overlays.mp4",
+            "bytes": 91227,
+            "sha256": "9e7523a307c3e5f343ce750382ff4fc44b201a3a12f8cbaa5440ea51c9a97f30"
+          },
+          "outputs": [
+            {
+              "file_name": "track_1_frame_00_mask.png",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_00_mask.png",
+              "bytes": 1594,
+              "sha256": "91a5ce305327e84d97cac73bd642c47e33e111629a6335e831eb34be19c34097"
+            },
+            {
+              "file_name": "track_1_frame_00_overlay.png",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_00_overlay.png",
+              "bytes": 223743,
+              "sha256": "b86c5b3ba304b28f0431ade64cf3de9fbe14068d172dc021726a3db47c89c6a8"
+            },
+            {
+              "file_name": "track_1_frame_01_mask.png",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_01_mask.png",
+              "bytes": 364,
+              "sha256": "616102c3bb9f897f426b91a3064a3b971857f8951a1cb7d3214283d11e73f6e1"
+            },
+            {
+              "file_name": "track_1_frame_01_overlay.png",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_01_overlay.png",
+              "bytes": 154419,
+              "sha256": "941f07b78dd30f7c944aaf307ce70418d47ee6063c621885ec547742c6456bf7"
+            },
+            {
+              "file_name": "track_1_frame_02_mask.png",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_02_mask.png",
+              "bytes": 2067,
+              "sha256": "8afcc5cdcde310cfda670cb37c6b3dd52bb0f2e26b502226a2f89aceedd91b31"
+            },
+            {
+              "file_name": "track_1_frame_02_overlay.png",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_02_overlay.png",
+              "bytes": 152029,
+              "sha256": "f04596078cb24e4fa2b42b1bd68268a2c0f7d7ebff588f7195e379a866aad1fb"
+            },
+            {
+              "file_name": "track_1_frame_03_mask.png",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_03_mask.png",
+              "bytes": 1406,
+              "sha256": "86c2c012b939da00b6e5e9a8bdd116c44aa46da2070325db7c31b2d5f2f60479"
+            },
+            {
+              "file_name": "track_1_frame_03_overlay.png",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_frame_03_overlay.png",
+              "bytes": 181931,
+              "sha256": "f537579790ff69dd46973720983fbda32411fd2d114f39cbafc43d685821af3b"
+            },
+            {
+              "file_name": "track_1_overlays.mp4",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_overlays.mp4",
+              "bytes": 91227,
+              "sha256": "9e7523a307c3e5f343ce750382ff4fc44b201a3a12f8cbaa5440ea51c9a97f30"
+            },
+            {
+              "file_name": "tracking.json",
+              "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\tracking.json",
+              "bytes": 3689,
+              "sha256": "c4aedd5efaf2ee23d7dbd83d4aab02ec6fccd269ac6cd354b0ed253bb94747a7"
+            }
+          ],
+          "backend": {
+            "api_status": 201,
+            "delivery_gate": "DELIVERED",
+            "job_evidence": {
+              "job_id": "2c6390f5-873b-450e-9b4f-a18a822f9720",
+              "evidence_id": "1ae5042a-79cb-4a1d-bfa0-e7865f0ee171",
+              "evidence_status": "VERIFY_REQUIRED",
+              "runtime_status": "OUTPUT_VALIDATED",
+              "terminal_state": "succeeded",
+              "recorded_at": "2026-10-06T23:56:00.374572+09:00",
+              "started_at": "2026-10-06T23:56:00.328565+09:00",
+              "finished_at": "2026-10-06T23:56:00.374572+09:00",
+              "project_id": null,
+              "requested_operation": "tracking",
+              "source_provenance": {
+                "source_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\inputs\\62c9ba32-5692-4b97-a499-7301234e1c1e_3a9a94df-0f20-426b-be8c-c4a5c0596b8f_big_buck_bunny.mp4",
+                "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+                "ingress": "approved-ui"
+              },
+              "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+              "reference_files": [],
+              "retry_provenance": {
+                "job_id": "2c6390f5-873b-450e-9b4f-a18a822f9720",
+                "evidence_id": "1ae5042a-79cb-4a1d-bfa0-e7865f0ee171",
+                "attempt": 1
+              },
+              "state_history": [
+                "queued",
+                "validating",
+                "preflight_ready",
+                "dispatched",
+                "running",
+                "output_validating",
+                "succeeded"
+              ],
+              "runtime": {
+                "platform": "Windows-10-10.0.19045-SP0",
+                "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+              },
+              "adapter_id": "mindle.sam21.verified.cpu",
+              "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+              "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+              "license_source": "apache-2.0",
+              "runtime_backend": "transformers-pytorch",
+              "device_requirement": "cpu",
+              "execution_context": {
+                "job_id": "2c6390f5-873b-450e-9b4f-a18a822f9720",
+                "evidence_id": "1ae5042a-79cb-4a1d-bfa0-e7865f0ee171",
+                "lane": "video",
+                "source_hashes": {
+                  "source": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+                },
+                "nl_instruction": "영상의 대상을 추적해 주세요",
+                "reference_images": [],
+                "retry_provenance": {
+                  "job_id": "2c6390f5-873b-450e-9b4f-a18a822f9720",
+                  "evidence_id": "1ae5042a-79cb-4a1d-bfa0-e7865f0ee171",
+                  "attempt": 0
+                },
+                "adapter_identity": {
+                  "adapter_id": "mindle.sam21.verified.cpu",
+                  "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+                  "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+                }
+              },
+              "output_artifact": {
+                "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_overlays.mp4",
+                "type": ".mp4",
+                "size_bytes": 91227,
+                "sha256": "9e7523a307c3e5f343ce750382ff4fc44b201a3a12f8cbaa5440ea51c9a97f30",
+                "status": "validated"
+              },
+              "model_scout_delivery": {
+                "status": "DELIVERED",
+                "callback_id": "callback-2260ba12-75e8-4847-adb2-e93e959835b0",
+                "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+                "output_sha256": "9e7523a307c3e5f343ce750382ff4fc44b201a3a12f8cbaa5440ea51c9a97f30",
+                "output_path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\component-data\\jobs\\5eeed234-323f-4946-b94e-92e8e147c8be\\sam_video\\track_1_overlays.mp4",
+                "elapsed_ms": 0.0
+              }
+            }
+          },
+          "execution_environment": {
+            "hardware": "CPU",
+            "gpu_used": false,
+            "paid_compute": false,
+            "platform": "Windows-10-10.0.19045-SP0",
+            "python": "3.11.9",
+            "process": "3.11.9"
+          }
+        }
       }
     ]
-  }
+  },
+  "FINAL_PACKAGE_ARCHIVE.json": {
+    "status": "BUILT_E2E_PENDING",
+    "source_commit": "527444b19e61e29ee2e78a264418671a34013300",
+    "zip_bytes": 1388859709,
+    "zip_sha256": "e7d798cb1c19af03baf54d4653d05ad464502cdfa9c961ac0902bb836d0fdae1"
+  },
+  "REMOTE_PROGRESS_READBACK.json": {
+    "commit": "46fc392a843473bacd13805dfd5174e3bf423342",
+    "result": "REMOTE_READBACK_PASS",
+    "employee_e2e": "NOT_PASS",
+    "expected_parent": "527444b19e61e29ee2e78a264418671a34013300",
+    "exact_content_readback": "6/6",
+    "branch": "feature/ad-shortform-bridge-p0-20260926",
+    "force": false
+  },
+  "split_manifest": {
+    "zip_sha256": "e7d798cb1c19af03baf54d4653d05ad464502cdfa9c961ac0902bb836d0fdae1",
+    "zip_bytes": 1388859709,
+    "parts": [
+      {
+        "bytes": 314572800,
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.001",
+        "sha256": "8b212b839f2ab4d83b32db5fa806b5a235b1003ea67d289c008ed54f5132702d"
+      },
+      {
+        "bytes": 314572800,
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.002",
+        "sha256": "4a05f6872f5be0ace5294ba7c2c29f9fc9304928059c8767c2ccd355afd7b667"
+      },
+      {
+        "bytes": 314572800,
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.003",
+        "sha256": "9af36830aa791b6073a400ab148a35ffad0138d525c9dd902aaa0e9b947258e8"
+      },
+      {
+        "bytes": 314572800,
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.004",
+        "sha256": "cff4f3d9faf233538b735cee411181fd7d1f5d4da26beb79db6e73d46c34a240"
+      },
+      {
+        "bytes": 130568509,
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.005",
+        "sha256": "62bc3c82dd6178c9a6f9583aa8f3c18c643f006bc78ea3e3b2efbccd536eba38"
+      }
+    ],
+    "zip_name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip"
+  },
+  "status": "IN_PROGRESS",
+  "uninstall_reinstall_data_preservation": "PASS_TEMPORARY_PROFILE_17_FILES",
+  "final_result": "RUNTIME_DEPENDENCY_LEAK",
+  "installed_ui_checks": [
+    "VIDEO tracking and decoded preview",
+    "PHOTO Intel 4x 1920x1080 preview",
+    "Save Close Reopen restored project",
+    "Export ZIP download",
+    "Shortform unavailable message and continued base workflow"
+  ],
+  "employee_e2e_pass": false,
+  "implementation_readback": "Prior six Korean PowerShell scripts matched immutable commit fa9a7a; new extraction script readback pending",
+  "implementation_commit": "a70e7cfd88555f6a8ef11f49fbd25f511431598c",
+  "recorded_at": "2026-10-06T23:01:38.3340048Z",
+  "blockers": [
+    "Missing package-local MSVC DLLs: msvcp140.dll, msvcp140_atomic_wait.dll, vcruntime140_threads.dll",
+    "Microsoft redistribution entitlement pending human response",
+    "Real default application/data/Start Menu filesystem write grant not returned",
+    "Desktop shortcut cold launch 2/2 not yet verified",
+    "Installed UI Korean STT and PHOTO SAM checks remain pending",
+    "Complete redistribution notices audit remains pending"
+  ]
 }

@@ -1,6 +1,16 @@
 {
-  "status": "NOT_RUN",
-  "scope": "Installed employee package",
-  "reason": "Build prerequisites failed and installation path write permission was not granted.",
-  "result_must_not_be_counted_as_pass": true
+  "status": "PASS_TEMPORARY_PROFILE",
+  "default_windows_profile_verified": false,
+  "uninstall": {
+    "install_removed": true,
+    "data_preserved": true,
+    "desktop_shortcut_removed": true
+  },
+  "reinstall": {
+    "status": "PASS_TEMPORARY_PROFILE",
+    "files_checked": 17,
+    "mismatches": [],
+    "desktop_shortcut_exists": true,
+    "scope": "Allowed workspace profile; default Windows profile not verified"
+  }
 }
