@@ -225,6 +225,18 @@ class Sam21VerifiedAdapter:
         writer.release()
         if not video_path.is_file() or video_path.stat().st_size == 0:
             raise RuntimeError("SAM tracking output video is empty")
+        # Browser preview needs H.264 rather than OpenCV's MPEG-4 Part 2 output.
+        import os
+        import subprocess
+        package_root = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', '').strip()
+        if package_root and (Path(package_root) / 'PACKAGE_MANIFEST.json').is_file():
+            ffmpeg = Path(package_root) / 'tools/ffmpeg/ffmpeg.exe'
+            intermediate = output_dir / 'tracking_encode_input.mp4'
+            video_path.rename(intermediate)
+            subprocess.run([str(ffmpeg), '-nostdin', '-y', '-loglevel', 'error', '-i', str(intermediate),
+                            '-c:v', 'libx264', '-preset', 'fast', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', str(video_path)],
+                           check=True, capture_output=True)
+            intermediate.unlink()
         manifest_path = output_dir / "tracking.json"
         manifest_path.write_text(json.dumps({"track_id": 1, "samples": rows}, indent=2) + "\n", encoding="utf-8")
         return {

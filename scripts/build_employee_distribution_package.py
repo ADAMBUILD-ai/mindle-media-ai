@@ -36,6 +36,7 @@ def main():
     parser = argparse.ArgumentParser()
     for name in ('repo', 'python-root', 'model-root', 'ffmpeg-root', 'runtime-lock'):
         parser.add_argument('--' + name, type=Path, required=True)
+    parser.add_argument('--build-commit', help='Immutable published source commit for this package')
     args = parser.parse_args()
     repo = args.repo.resolve()
     errors = []
@@ -157,7 +158,9 @@ def main():
     files = [{'path': p.relative_to(root).as_posix(), 'bytes': p.stat().st_size, 'sha256': digest(p)} for p in sorted(root.rglob('*')) if p.is_file()]
     ui_names = ['index.html', 'approved_visual.css', 'interaction.css', 'interaction.js', 'product_integration.js', 'assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico']
     ui_hash = hashlib.sha256('\n'.join('ui/' + n + ':' + digest(root / 'app/ui' / n) for n in ui_names).encode()).hexdigest()
-    commit = subprocess.check_output(['git', '-c', 'safe.directory=' + repo.as_posix(), '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
+    commit = args.build_commit or subprocess.check_output(['git', '-c', 'safe.directory=' + repo.as_posix(), '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
+    if len(commit) != 40 or any(c not in '0123456789abcdef' for c in commit):
+        raise RuntimeError('build commit must be a full immutable Git SHA')
     manifest = {'distribution': 'EMPLOYEE_WIN_X64', 'package_version': '1.0', 'build_commit': commit, 'ui_fingerprint': ui_hash,
                 'model_manifest_hash': digest(root / 'MODEL_MANIFEST.json'), 'files': files, 'release_gate': 'CLEAN_WINDOWS_TEST_REQUIRED'}
     write_json(root / 'PACKAGE_MANIFEST.json', manifest)

@@ -21,6 +21,8 @@ def sha256(path):
 
 
 def verify(root):
+    if os.name == 'nt' and not str(root).startswith('\\\\?\\'):
+        root = Path('\\\\?\\' + str(root.resolve()))
     manifest = json.loads((root / 'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'))
     if manifest.get('distribution') != 'EMPLOYEE_WIN_X64':
         raise RuntimeError('직원용 패키지 정보가 올바르지 않습니다.')
@@ -47,8 +49,32 @@ def main():
     parser.add_argument('--server', action='store_true')
     parser.add_argument('--port', type=int)
     parser.add_argument('--data-root', type=Path)
+    parser.add_argument('--deny-path', action='append', default=[])
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
+    blocked = json.loads(os.environ.get('MINDLE_TEST_BLOCKED_PATHS', '[]'))
+    blocked.extend(args.deny_path)
+    if blocked:
+        os.environ['MINDLE_TEST_BLOCKED_PATHS'] = json.dumps(blocked)
+    if blocked:
+        def audit(event, values):
+            if event in {'open', 'os.listdir', 'os.scandir', 'os.chdir'} and values and isinstance(values[0], (str, bytes, os.PathLike)):
+                path = os.path.normcase(os.path.abspath(os.fsdecode(values[0]))).removeprefix('\\\\?\\')
+                for forbidden in blocked:
+                    prefix = os.path.normcase(os.path.abspath(forbidden)).removeprefix('\\\\?\\')
+                    if path == prefix or path.startswith(prefix + os.sep):
+                        raise PermissionError('E2E process is denied access to the development repository/cache')
+            if event == 'socket.connect' and len(values) > 1 and isinstance(values[1], tuple):
+                if values[1][0] not in {'127.0.0.1', '::1', 'localhost'}:
+                    raise PermissionError('E2E process forbids non-loopback network connections')
+        sys.addaudithook(audit)
+        for forbidden in blocked:
+            try:
+                with open(Path(forbidden) / 'README.md', 'rb'):
+                    pass
+            except PermissionError:
+                continue
+            raise RuntimeError('E2E development repository access denial was not enforced')
     manifest = verify(root)
     if args.verify_only:
         print('PACKAGE_HASH_VERIFICATION_PASS')

@@ -1,4 +1,4 @@
-﻿param([string]$PackageRoot = $PSScriptRoot)
+param([string]$PackageRoot = $PSScriptRoot,[string]$ShortcutRoot)
 $ErrorActionPreference = 'Stop'
 try {
   $PackageRoot = (Resolve-Path -LiteralPath $PackageRoot).Path
@@ -15,12 +15,18 @@ try {
   & (Join-Path $InstallRoot 'runtime\python\python.exe') (Join-Path $InstallRoot 'app\launcher\employee_package_launcher.py') --verify-only
   if ($LASTEXITCODE -ne 0) { throw '설치된 파일 검증 실패' }
   $Shell = New-Object -ComObject WScript.Shell
+  $Desktop = [Environment]::GetFolderPath('Desktop')
   $Menu = Join-Path ([Environment]::GetFolderPath('StartMenu')) 'Programs\MINDLE'
+  if ($ShortcutRoot) {
+    $Desktop = Join-Path $ShortcutRoot 'Desktop'
+    $Menu = Join-Path $ShortcutRoot 'StartMenu\Programs\MINDLE'
+    New-Item -ItemType Directory -Force -Path $Desktop | Out-Null
+  }
   New-Item -ItemType Directory -Force -Path $Menu | Out-Null
-  foreach ($Link in @((Join-Path ([Environment]::GetFolderPath('Desktop')) 'MINDLE MEDIA AI.lnk'),(Join-Path $Menu 'MINDLE MEDIA AI.lnk'))) {
+  foreach ($Link in @((Join-Path $Desktop 'MINDLE MEDIA AI.lnk'),(Join-Path $Menu 'MINDLE MEDIA AI.lnk'))) {
     $Shortcut = $Shell.CreateShortcut($Link)
     $Shortcut.TargetPath = Join-Path $InstallRoot 'runtime\python\pythonw.exe'
-    $Shortcut.Arguments = '"' + (Join-Path $InstallRoot 'app\launcher\employee_package_launcher.py') + '"'
+    $Shortcut.Arguments = '"' + (Join-Path $InstallRoot 'app\launcher\employee_package_launcher.py') + '" --data-root "' + $DataRoot + '"'
     $Shortcut.WorkingDirectory = $InstallRoot
     $Shortcut.IconLocation = (Join-Path $InstallRoot 'assets\brand\MINDLE_MEDIA_AI_APP_ICON.ico') + ',0'
     $Shortcut.Save()
