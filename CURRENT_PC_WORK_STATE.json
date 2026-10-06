@@ -1,27 +1,27 @@
 {
-  "schema_version": "RECOVERY-1.2",
-  "status": "ACTIVE_CANONICAL_LOCAL_REBIND_ONLY",
+  "schema_version": "EMPLOYEE-PACKAGE-1.1",
+  "status": "ACTIVE_EMPLOYEE_PACKAGE",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "control_plane_epoch": "MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_AND_RECOVERY_DIRECTIVE_v1.2_20261006.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_CONTRACT_v1.2_20261006.json",
+  "control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json",
   "required_outputs": {
     "review": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_REVIEW_v1.2_20261006.md",
     "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_v1_2_20261006.json",
     "detail_dir": "evidence/pc_remote/media-ai-canonical-local-rebind-v1_2-20261006/"
   },
-  "execution_scope": "Preserve local-only history/evidence and safely rebind canonical local branch to origin",
-  "product_changes_allowed": false,
-  "package_build_allowed": false,
+  "execution_scope": "Complete employee-transferable Windows x64 distribution package build and Clean Windows E2E",
+  "product_changes_allowed": true,
+  "package_build_allowed": true,
   "ui_changes_allowed": false,
-  "branch_mutation_allowed": true,
+  "branch_mutation_allowed": false,
   "historical_preflight_required": false,
   "active_preflight": null,
   "parent_directive": null,
   "technical_base_directive": null,
-  "pass_result": "LOCAL_CANONICAL_REBIND_PASS",
+  "pass_result": "EMPLOYEE_PACKAGE_CLEAN_WINDOWS_E2E_PASS",
   "blocked_result": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED",
   "next_cycle_after_pass": "Explicit commander reactivation of employee distribution package only",
   "known_external_match": {
@@ -48,5 +48,6 @@
     "untracked": [
       "work-data/"
     ]
-  }
+  },
+  "previous_cycle_result": "RECOVERY_PASS"
 }
