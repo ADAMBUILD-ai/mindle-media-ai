@@ -1,33 +1,33 @@
 {
-  "schema_version": "RECOVERY-1.2",
+  "schema_version": "EMPLOYEE-PACKAGE-1.1",
   "status": "ACTIVE",
   "date": "2026-10-06",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2",
+  "active_control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.1",
   "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
     "worker_a_pc_recovery": {
-      "role": "Windows PC Work recovery diagnostician",
-      "current_assignment": "External backup/bundle of local-only state, fetch/classify, canonical local rebind, validator, evidence publication",
+      "role": "Windows package builder and E2E validator",
+      "current_assignment": "Build complete employee Windows package and execute Clean Windows E2E per active directive",
       "may_write": [
-        "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_REVIEW_v1.2_20261006.md",
-        "evidence/pc_remote/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_v1_2_20261006.json",
-        "evidence/pc_remote/media-ai-canonical-local-rebind-v1_2-20261006/**"
+        "scripts/**",
+        "src/**",
+        "tests/**",
+        "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_REVIEW_v1.0_20261006.md",
+        "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_EVIDENCE_v1_0_20261006.json",
+        "evidence/pc_remote/media-ai-employee-package-v1_0-20261006/**",
+        "dist/**"
       ],
       "may_not_change": [
-        "ui/** product behavior",
-        "src/** product behavior",
-        "tests/** product behavior",
-        "employee package outputs",
         "main/default branch",
         "Master SSOT",
-        "work-data/** deletion"
+        "historical evidence deletion"
       ]
     },
     "worker_b_master_repository": {
       "role": "Repository governance observer",
-      "current_assignment": "STOPPED / READ-ONLY until RECOVERY_PASS",
+      "current_assignment": "READ-ONLY until employee package Evidence is published",
       "may_write": [],
       "may_not_change": [
         "all repository content during active recovery"
