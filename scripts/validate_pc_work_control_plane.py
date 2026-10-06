@@ -3,26 +3,18 @@ from __future__ import annotations
 import json, pathlib, sys
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-EPOCH="MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2"
-DIRECTIVE="docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_AND_RECOVERY_DIRECTIVE_v1.2_20261006.md"
-CONTRACT="docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_CONTRACT_v1.2_20261006.json"
+EPOCH="MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.1"
+DIRECTIVE="docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md"
+CONTRACT="docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_EMPLOYEE_PACKAGE_v1.0_20261006.json"
 
-CURRENT=ROOT/"CURRENT_PC_WORK_DIRECTIVE.md"
-LOCK=ROOT/"CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json"
-STATE=ROOT/"CURRENT_PC_WORK_STATE.json"
-WORKER=ROOT/"CURRENT_WORKER_COORDINATION_LOCK.json"
+current=(ROOT/"CURRENT_PC_WORK_DIRECTIVE.md").read_text(encoding="utf-8")
+lock=json.loads((ROOT/"CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json").read_text(encoding="utf-8"))
+state=json.loads((ROOT/"CURRENT_PC_WORK_STATE.json").read_text(encoding="utf-8"))
+worker=json.loads((ROOT/"CURRENT_WORKER_COORDINATION_LOCK.json").read_text(encoding="utf-8"))
 
 def fail(msg):
     print("CONTROL_PLANE_MISMATCH_BLOCKED: "+msg, file=sys.stderr)
     raise SystemExit(2)
-
-for p in (CURRENT,LOCK,STATE,WORKER):
-    if not p.exists(): fail(f"missing {p.relative_to(ROOT)}")
-
-current=CURRENT.read_text(encoding="utf-8")
-lock=json.loads(LOCK.read_text(encoding="utf-8"))
-state=json.loads(STATE.read_text(encoding="utf-8"))
-worker=json.loads(WORKER.read_text(encoding="utf-8"))
 
 checks=[
  ("lock epoch",lock.get("epoch"),EPOCH),
@@ -34,13 +26,15 @@ checks=[
  ("state contract",state.get("evidence_contract"),CONTRACT),
 ]
 for label,actual,expected in checks:
-    if actual != expected: fail(f"{label}: expected {expected!r}, got {actual!r}")
+    if actual != expected:
+        fail(f"{label}: expected {expected!r}, got {actual!r}")
 
 for token in (EPOCH,DIRECTIVE,CONTRACT):
-    if token not in current: fail(f"CURRENT missing {token!r}")
+    if token not in current:
+        fail(f"CURRENT missing {token!r}")
 
-if state.get("product_changes_allowed") is not False: fail("product_changes_allowed must be false")
-if state.get("package_build_allowed") is not False: fail("package_build_allowed must be false")
+if state.get("package_build_allowed") is not True:
+    fail("package_build_allowed must be true")
 
 print("CONTROL_PLANE_PASS")
 print(f"EPOCH={EPOCH}")
