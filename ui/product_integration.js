@@ -104,6 +104,8 @@
       state.projectId = result.project.project_id;
       state.jobs = result.project.job_ids;
       for (const job of result.project.jobs) {
+        // A saved transcript must not replace an available VIDEO result preview.
+        if (job.lane === 'korean_audio' && result.project.jobs.some((item) => item.lane === 'video')) continue;
         const kind = job.lane === 'photo' ? 'photo' : 'video';
         const editor = document.querySelector(`[data-editor="${kind}"]`);
         if (editor) {
@@ -111,6 +113,11 @@
           editor.dataset.projectStatus = 'reopened';
           message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);
         }
+      }
+      const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio');
+      if (transcript) {
+        const editor = document.querySelector('[data-editor="video"]');
+        if (editor) message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId} · 한국어 자막: ${transcript.runtime_result.text}`);
       }
     } catch (error) {
       const editor = document.querySelector('[data-editor="video"]');

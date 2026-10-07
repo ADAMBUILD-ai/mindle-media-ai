@@ -124,7 +124,9 @@ def main():
                     process = subprocess.Popen([sys.executable, str(Path(__file__)), '--server', '--port', str(candidate), '--data-root', str(data)],
                                                cwd=root, env=server_env, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW)
                     log.close()
-                    until = time.monotonic() + 90
+                    # Full model/runtime integrity checks can exceed 90s on a cold disk.
+                    # Keep the verification intact and allow it to finish on employee PCs.
+                    until = time.monotonic() + 900
                     while time.monotonic() < until:
                         current = identity(candidate)
                         if current and current.get('package_manifest_sha256') == expected and current.get('install_root') == str(root):

@@ -1,0 +1,1384 @@
+{
+  "status": "AUDITED_WITH_UNRESOLVED_REDISTRIBUTION_GATES",
+  "offline_distribution_approved": false,
+  "components": [
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "origin": "https://pypi.org/project/certifi/",
+      "license_expression": "MPL-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/certifi/certifi-2026.7.22.dist-info/licenses/LICENSE",
+          "bytes": 989,
+          "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.1",
+      "origin": "https://pypi.org/project/charset-normalizer/",
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/charset-normalizer/charset_normalizer-3.5.1.dist-info/licenses/LICENSE",
+          "bytes": 1092,
+          "sha256": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "origin": "https://pypi.org/project/colorama/",
+      "license_expression": "",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/colorama/colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+          "bytes": 1491,
+          "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "filelock",
+      "version": "3.32.3",
+      "origin": "https://pypi.org/project/filelock/",
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/filelock/filelock-3.32.3.dist-info/licenses/LICENSE",
+          "bytes": 1088,
+          "sha256": "608c89d5060ae9921adccf3236695bc654a9946e12323ef6c021dfa04e294d48"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.7.0",
+      "origin": "https://pypi.org/project/fsspec/",
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/fsspec/fsspec-2026.7.0.dist-info/licenses/LICENSE",
+          "bytes": 1513,
+          "sha256": "2dc35496ce53a7307915c008a844aad53e772b49b34cdd00445067691407ec94"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "0.34.4",
+      "origin": "https://pypi.org/project/huggingface-hub/",
+      "license_expression": "Apache",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/huggingface-hub/huggingface_hub-0.34.4.dist-info/LICENSE",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "idna",
+      "version": "3.19",
+      "origin": "https://pypi.org/project/idna/",
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/idna/idna-3.19.dist-info/licenses/LICENSE.md",
+          "bytes": 1541,
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "origin": "https://pypi.org/project/Jinja2/",
+      "license_expression": "",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/jinja2/jinja2-3.1.6.dist-info/licenses/LICENSE.txt",
+          "bytes": 1475,
+          "sha256": "3b49dcee4105eb37bac10faf1be260408fe85d252b8e9df2e0979fc1e094437b"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3",
+      "origin": "https://pypi.org/project/MarkupSafe/",
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/markupsafe/markupsafe-3.0.3.dist-info/licenses/LICENSE.txt",
+          "bytes": 1503,
+          "sha256": "4631ec0db5fd90a547e336817264c6798214338146f8ac94b4a57f96ee8c9ec4"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "origin": "https://pypi.org/project/mpmath/",
+      "license_expression": "BSD",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/mpmath/mpmath-1.3.0.dist-info/LICENSE",
+          "bytes": 1537,
+          "sha256": "c26cae81da4508e5e249985777a33821f183223ebb74d7f8cfbf90fe7eef2fb7"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "networkx",
+      "version": "3.6.1",
+      "origin": "https://pypi.org/project/networkx/",
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/networkx/networkx-3.6.1.dist-info/licenses/LICENSE.txt",
+          "bytes": 1763,
+          "sha256": "3cf7c3a179d817b23b8b8568211769fefdf93797d207d984b8b2fa24d0220b33"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.6",
+      "origin": "https://pypi.org/project/numpy/",
+      "license_expression": "Copyright (c) 2005-2024, NumPy Developers.\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are\n met:\n\n     * Redistributions of source code must retain the above copyright\n        notice, this list of conditions and the following disclaimer.\n\n     * Redistributions in binary form must reproduce the above\n        copyright notice, this list of conditions and the following\n        disclai",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/numpy/numpy-2.2.6.dist-info/LICENSE.txt",
+          "bytes": 47709,
+          "sha256": "14256cc3a2c9d32ac284da96b937feb44f72dd90bee2317ac3020166846ad99d"
+        },
+        {
+          "path": "LICENSES/numpy/numpy/_core/include/numpy/random/LICENSE.txt",
+          "bytes": 1039,
+          "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150"
+        },
+        {
+          "path": "LICENSES/numpy/numpy/ma/LICENSE",
+          "bytes": 1616,
+          "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7"
+        }
+      ],
+      "notice_file_count": 4,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "opencv-python-headless",
+      "version": "5.0.0.93",
+      "origin": "https://pypi.org/project/opencv-python-headless/",
+      "license_expression": "Apache 2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/opencv-python-headless/cv2/LICENSE-3RD-PARTY.txt",
+          "bytes": 183251,
+          "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb"
+        },
+        {
+          "path": "LICENSES/opencv-python-headless/cv2/LICENSE.txt",
+          "bytes": 1090,
+          "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107"
+        },
+        {
+          "path": "LICENSES/opencv-python-headless/opencv_python_headless-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt",
+          "bytes": 183251,
+          "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb"
+        }
+      ],
+      "notice_file_count": 4,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "openvino",
+      "version": "2025.1.0",
+      "origin": "https://pypi.org/project/openvino/",
+      "license_expression": "OSI Approved :: Apache Software License",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/openvino/openvino-2025.1.0.dist-info/LICENSE",
+          "bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "openvino-telemetry",
+      "version": "2023.2.1",
+      "origin": "https://pypi.org/project/openvino-telemetry/",
+      "license_expression": "OSI Approved :: Apache Software License",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/openvino-telemetry/openvino_telemetry-2023.2.1.dist-info/LICENSE",
+          "bytes": 11558,
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "origin": "https://pypi.org/project/packaging/",
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/packaging/packaging-26.3.dist-info/licenses/LICENSE",
+          "bytes": 197,
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "LICENSES/packaging/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "bytes": 10174,
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "LICENSES/packaging/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "bytes": 1344,
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        }
+      ],
+      "notice_file_count": 5,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0",
+      "origin": "https://pypi.org/project/pillow/",
+      "license_expression": "MIT-CMU",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/pillow/pillow-12.3.0.dist-info/licenses/LICENSE",
+          "bytes": 78016,
+          "sha256": "4f7866a74802c6326f81faff59a56546b6aec2b10b91973e0e9308de95e79857"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "origin": "https://pypi.org/project/PyYAML/",
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/pyyaml/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+          "bytes": 1101,
+          "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.10",
+      "origin": "https://pypi.org/project/regex/",
+      "license_expression": "Apache-2.0 AND CNRI-Python",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/regex/regex-2026.9.10.dist-info/licenses/LICENSE.txt",
+          "bytes": 11792,
+          "sha256": "3d220c06594b826bbabf110312f60f385f99e57e529fa4b9e536f79091f8b4c7"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "origin": "https://pypi.org/project/requests/",
+      "license_expression": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/requests/requests-2.34.2.dist-info/licenses/LICENSE",
+          "bytes": 10142,
+          "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b"
+        },
+        {
+          "path": "LICENSES/requests/requests-2.34.2.dist-info/licenses/NOTICE",
+          "bytes": 38,
+          "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc"
+        }
+      ],
+      "notice_file_count": 2,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "origin": "https://pypi.org/project/safetensors/",
+      "license_expression": "",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/safetensors/safetensors-0.8.0.dist-info/licenses/LICENSE",
+          "bytes": 11558,
+          "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "setuptools",
+      "version": "78.1.0",
+      "origin": "https://pypi.org/project/setuptools/",
+      "license_expression": "",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/setuptools/setuptools-78.1.0.dist-info/licenses/LICENSE",
+          "bytes": 1023,
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "LICENSES/setuptools/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+          "bytes": 7634,
+          "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d"
+        },
+        {
+          "path": "LICENSES/setuptools/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+          "bytes": 1023,
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        }
+      ],
+      "notice_file_count": 26,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "origin": "https://pypi.org/project/sympy/",
+      "license_expression": "BSD",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/sympy/sympy-1.14.0.dist-info/licenses/AUTHORS",
+          "bytes": 55779,
+          "sha256": "82b1038521b0696c63c90b31ed4a0a2c9c4c16871c648b157b07ca44b6f18f8d"
+        },
+        {
+          "path": "LICENSES/sympy/sympy-1.14.0.dist-info/licenses/LICENSE",
+          "bytes": 7885,
+          "sha256": "07a5e9819f727b4986ad2829c7a29a6320d42575f720eb24d71b7fef573a0286"
+        },
+        {
+          "path": "LICENSES/sympy/sympy/parsing/latex/LICENSE.txt",
+          "bytes": 1075,
+          "sha256": "007bc30a58fa40a996e772047120de4eaf31f5110e4f9c3b5f93fcdfbe2eaca1"
+        }
+      ],
+      "notice_file_count": 3,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "origin": "https://pypi.org/project/tokenizers/",
+      "license_expression": "",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": []
+    },
+    {
+      "name": "torch",
+      "version": "2.14.0+cpu",
+      "origin": "https://pypi.org/project/torch/",
+      "license_expression": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/torch/torch-2.14.0+cpu.dist-info/licenses/LICENSE",
+          "bytes": 3548,
+          "sha256": "0fc92425d130d9c87a5eb7427082e3afdbff6ef169bc678e15abba4c2d37c934"
+        },
+        {
+          "path": "LICENSES/torch/torch-2.14.0+cpu.dist-info/licenses/third_party/FP16/LICENSE",
+          "bytes": 1168,
+          "sha256": "68349589306bdfa3631ac7f84633956bf21b6a448ed5e43383ea75a8a5f54e4c"
+        },
+        {
+          "path": "LICENSES/torch/torch-2.14.0+cpu.dist-info/licenses/third_party/FXdiv/LICENSE",
+          "bytes": 1127,
+          "sha256": "9e7b48284b1aef91999d1967d093711bab8f3bbbaf31e0670ab7a3af077c0a2b"
+        }
+      ],
+      "notice_file_count": 99,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.29.0+cpu",
+      "origin": "https://pypi.org/project/torchvision/",
+      "license_expression": "BSD",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "runtime/site-packages/torchvision-0.29.0+cpu.dist-info/LICENSE",
+          "bytes": 1546,
+          "sha256": "c06363f9d33627dc5173b13522444cc85fbb4739f63e16d4587d5c0a165b5b1e"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.0",
+      "origin": "https://pypi.org/project/tqdm/",
+      "license_expression": "MPL-2.0 AND MIT",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/tqdm/tqdm-4.70.0.dist-info/licenses/LICENCE",
+          "bytes": 1985,
+          "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "transformers",
+      "version": "4.56.2",
+      "origin": "https://pypi.org/project/transformers/",
+      "license_expression": "Apache 2.0 License",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/transformers/transformers-4.56.2.dist-info/LICENSE",
+          "bytes": 11418,
+          "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "origin": "https://pypi.org/project/typing_extensions/",
+      "license_expression": "PSF-2.0",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/typing-extensions/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+          "bytes": 13936,
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.7.0",
+      "origin": "https://pypi.org/project/urllib3/",
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "bundled": true,
+      "redistribution_basis": "Retained upstream wheel license/notice texts; see unresolved subcomponent gates",
+      "notice_files": [
+        {
+          "path": "LICENSES/urllib3/urllib3-2.7.0.dist-info/licenses/LICENSE.txt",
+          "bytes": 1093,
+          "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686"
+        }
+      ],
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "Python",
+      "version": "3.11.9",
+      "origin": "https://www.python.org/downloads/release/python-3119/",
+      "bundled": true,
+      "license": "PSF License and included notices",
+      "notice_files": [
+        {
+          "path": "LICENSES/PYTHON_LICENSE.txt",
+          "bytes": 36874,
+          "sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419"
+        }
+      ],
+      "redistribution_basis": "Retained CPython license; included Microsoft DLLs require separate entitlement review",
+      "notice_file_count": 1,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "FFmpeg/ffprobe",
+      "version": "6.1.1-essentials_build-www.gyan.dev",
+      "origin": "https://github.com/GyanD/codexffmpeg/releases/tag/6.1.1",
+      "bundled": true,
+      "license": "GPL-3.0",
+      "redistribution_basis": "GPL license retained; full corresponding source for static dependencies not yet verified",
+      "source_reference": "https://github.com/FFmpeg/FFmpeg/commit/e38092ef93",
+      "notice_files": [
+        {
+          "path": "tools/ffmpeg/LICENSE",
+          "bytes": 35147,
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        },
+        {
+          "path": "tools/ffmpeg/README.txt",
+          "bytes": 39494,
+          "sha256": "a636a7183c58006351acbaf35303c0ed85c6e1320fd4e80de453ba6157de6311"
+        }
+      ],
+      "notice_file_count": 2,
+      "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+    },
+    {
+      "name": "Visual C++ runtime",
+      "version": "Official v14 x64 prerequisite",
+      "origin": "https://aka.ms/vc14/vc_redist.x64.exe",
+      "bundled_official_installer": false,
+      "owner_entitlement": "USER_CONFIRMED_NOT_YET_VERIFIED",
+      "handling": "Separate consent-gated online bootstrap; not an offline full package",
+      "existing_upstream_embedded_dlls": [
+        {
+          "path": "runtime/python/vcruntime140.dll",
+          "bytes": 119192,
+          "sha256": "4d292623516f65c80482081e62d5dadb759dc16e851de5db24c3cbb57b87db83"
+        },
+        {
+          "path": "runtime/python/vcruntime140_1.dll",
+          "bytes": 49528,
+          "sha256": "a113f192195f245f17389e6ecbed8005990bcb2476ddad33f7c4c6c86327afe5"
+        },
+        {
+          "path": "runtime/site-packages/numpy.libs/msvcp140-263139962577ecda4cd9469ca360a746.dll",
+          "bytes": 575056,
+          "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+        }
+      ],
+      "redistribution_basis": "UNKNOWN; these existing Python/NumPy embedded DLLs keep the candidate on hold",
+      "license_reference": "https://learn.microsoft.com/en-us/cpp/windows/redistributing-visual-cpp-files"
+    }
+  ],
+  "native_binaries": [
+    {
+      "path": "runtime/python/DLLs/_asyncio.pyd",
+      "bytes": 65304,
+      "sha256": "746bc8fa88282afe19dc60e426cc0a75bea3bd137cca06a0b57a30bd31459403"
+    },
+    {
+      "path": "runtime/python/DLLs/_bz2.pyd",
+      "bytes": 84760,
+      "sha256": "00b8ca9a338d2b47285c9e56d6d893db2a999b47216756f18439997fb80a56e3"
+    },
+    {
+      "path": "runtime/python/DLLs/_ctypes.pyd",
+      "bytes": 124696,
+      "sha256": "c148292328f0aab7863af82f54f613961e7cb95b7215f7a81cafaf45bd4c42b7"
+    },
+    {
+      "path": "runtime/python/DLLs/_ctypes_test.pyd",
+      "bytes": 37144,
+      "sha256": "19db8a96c732cce30252f15145c4438e76e49dc13153d1c0ae6303eaeff007f9"
+    },
+    {
+      "path": "runtime/python/DLLs/_decimal.pyd",
+      "bytes": 255768,
+      "sha256": "980a63f2b39cf16910f44384398e25f24482346a482addb00de42555b17d4278"
+    },
+    {
+      "path": "runtime/python/DLLs/_elementtree.pyd",
+      "bytes": 128792,
+      "sha256": "02e30b6a2bee5be5336e40a9c89575603051bde86f9c9cdc78b7fa7d9b7bd1f0"
+    },
+    {
+      "path": "runtime/python/DLLs/_hashlib.pyd",
+      "bytes": 65304,
+      "sha256": "87dd0c858620287454fd6d31d52b6a48eddbb2a08e09e8b2d9fdb0b92200d766"
+    },
+    {
+      "path": "runtime/python/DLLs/_lzma.pyd",
+      "bytes": 159512,
+      "sha256": "f5e01b516c2c23035f7703e23569dec26c5616c05a929b2580ae474a5c6722c5"
+    },
+    {
+      "path": "runtime/python/DLLs/_msi.pyd",
+      "bytes": 44824,
+      "sha256": "0f876c25188d1dde26eb852251439a6ec8edc1bc921be026f819eeb8686db2af"
+    },
+    {
+      "path": "runtime/python/DLLs/_multiprocessing.pyd",
+      "bytes": 34584,
+      "sha256": "975c1947798e3c39898c86675ca1eb68249f77361f41f172f9800275227213b9"
+    },
+    {
+      "path": "runtime/python/DLLs/_overlapped.pyd",
+      "bytes": 51480,
+      "sha256": "ca106e4dfdeafeabf9e98956d3d8d0cb73e109f1a96f1a7e35bc47dbd7c7e164"
+    },
+    {
+      "path": "runtime/python/DLLs/_queue.pyd",
+      "bytes": 32024,
+      "sha256": "3f8e7e6aa13b417acc78b63434fb1144e6319a010a9fc376c54d6e69b638fe4c"
+    },
+    {
+      "path": "runtime/python/DLLs/_socket.pyd",
+      "bytes": 79640,
+      "sha256": "a19e3c7c03ef1b5625790b1c9c42594909311ab6df540fbf43c6aa93300ab166"
+    },
+    {
+      "path": "runtime/python/DLLs/_sqlite3.pyd",
+      "bytes": 120600,
+      "sha256": "ff6a2a2f38b21b7784f97d604c99961d8c07ef455f7908110a4e893835d42b76"
+    },
+    {
+      "path": "runtime/python/DLLs/_ssl.pyd",
+      "bytes": 178456,
+      "sha256": "ba5388d6a6557d431e086734a3323621dc447f63ba299b0a815e5837cf869678"
+    },
+    {
+      "path": "runtime/python/DLLs/_testbuffer.pyd",
+      "bytes": 55576,
+      "sha256": "a83ee6a87c40a78790cb604fdcc630b5af5473c8ac31e8853ff329395289d3ff"
+    },
+    {
+      "path": "runtime/python/DLLs/_testcapi.pyd",
+      "bytes": 146712,
+      "sha256": "38a693ada9c95d17ed5094aa7d0ced9f648efab3a1bf4ec749688b16a656670c"
+    },
+    {
+      "path": "runtime/python/DLLs/_testconsole.pyd",
+      "bytes": 26904,
+      "sha256": "4018091725ae37b775c3ee476a1580a8c99c84afdf92f1b058e73de765537c48"
+    },
+    {
+      "path": "runtime/python/DLLs/_testimportmultiple.pyd",
+      "bytes": 25368,
+      "sha256": "f6cb713ebe75305bf9c1b75407b9865e08e6f62e80c7f37cde6ac23ad31f7755"
+    },
+    {
+      "path": "runtime/python/DLLs/_testinternalcapi.pyd",
+      "bytes": 39704,
+      "sha256": "6898ea4173c038d65e6c98f3aec28f404173c05c554bb81b3c7aa265785528c4"
+    },
+    {
+      "path": "runtime/python/DLLs/_testmultiphase.pyd",
+      "bytes": 38168,
+      "sha256": "969b8aeb2d9527d63a8783ac13fd6902ef154419162f692bacc94dc6f4da38ad"
+    },
+    {
+      "path": "runtime/python/DLLs/_tkinter.pyd",
+      "bytes": 64280,
+      "sha256": "6f7bdc2f60a1795b58ec7015ec262d6b234aa8d0f022185de0f52bac4adab449"
+    },
+    {
+      "path": "runtime/python/DLLs/_uuid.pyd",
+      "bytes": 25368,
+      "sha256": "e6aa7f1637e211251c9d6f467203b2b6d85e5bc2d901699f2a55af637fa89250"
+    },
+    {
+      "path": "runtime/python/DLLs/_zoneinfo.pyd",
+      "bytes": 45848,
+      "sha256": "7e7b4157e401f8281fd85b68f2e21c828bf739c91416b2824dd22cb385eef819"
+    },
+    {
+      "path": "runtime/python/DLLs/libcrypto-3.dll",
+      "bytes": 5191960,
+      "sha256": "05fe080eab7fc535c51e10c1bd76a2f3e6217f9c91a25034774588881c3f99de"
+    },
+    {
+      "path": "runtime/python/DLLs/libffi-8.dll",
+      "bytes": 39696,
+      "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+    },
+    {
+      "path": "runtime/python/DLLs/libssl-3.dll",
+      "bytes": 787224,
+      "sha256": "2e9fbcd8f7fdc13a5179533239811456554f2b3aa2fb10e1b17be0df81c79006"
+    },
+    {
+      "path": "runtime/python/DLLs/pyexpat.pyd",
+      "bytes": 199448,
+      "sha256": "c7c7564f7f874fb660a46384980a2cf28bc3e245ca83628a197ccf861eab5560"
+    },
+    {
+      "path": "runtime/python/DLLs/select.pyd",
+      "bytes": 30488,
+      "sha256": "bae0974390945520eb99ab32486c6a964691f8f4a028ac408d98fa8fb0db7d90"
+    },
+    {
+      "path": "runtime/python/DLLs/sqlite3.dll",
+      "bytes": 1540888,
+      "sha256": "314bba62f4a1628b986afc94c09dc29cdaf08210eae469440fbf46bcdb86d3fd"
+    },
+    {
+      "path": "runtime/python/DLLs/tcl86t.dll",
+      "bytes": 1871128,
+      "sha256": "4e699ff2d6d147d0586c8c77be5a18f20ca0758f432d7b0f489223f2fa4dd221"
+    },
+    {
+      "path": "runtime/python/DLLs/tk86t.dll",
+      "bytes": 1546520,
+      "sha256": "b6af038120f2b8644c7ce1e11917f410009848287622135d7e386f90d28a831c"
+    },
+    {
+      "path": "runtime/python/DLLs/unicodedata.pyd",
+      "bytes": 1140504,
+      "sha256": "37c68617fa02a2cadced17ef724e2d450ef12a8a37215da789a4679fde1c5c02"
+    },
+    {
+      "path": "runtime/python/DLLs/winsound.pyd",
+      "bytes": 31512,
+      "sha256": "b79c9bd9114b7f243f5a80ffd2de5c5942fc64ceec4a52a048bb4a07848b9239"
+    },
+    {
+      "path": "runtime/python/Lib/venv/scripts/nt/python.exe",
+      "bytes": 274712,
+      "sha256": "21bb438c0d4a6f1f164b9a646f6ee000340185e5871180aec06db8d3f07c0082"
+    },
+    {
+      "path": "runtime/python/Lib/venv/scripts/nt/pythonw.exe",
+      "bytes": 263448,
+      "sha256": "e07f37e7dc34d8bd0208ecda202d6c75b3a12ab3f376fdc7ee50214c8c0fd50b"
+    },
+    {
+      "path": "runtime/python/python.exe",
+      "bytes": 103192,
+      "sha256": "5f7b89a612c9b8af1d6456cdfcd1dbe5ca630849e79aebced9bee9a6694952ec"
+    },
+    {
+      "path": "runtime/python/python3.dll",
+      "bytes": 67352,
+      "sha256": "db84bc052cfb121fe4db36242ba5f1d2c031b600ef5d8d752cf25b7c02b6bac6"
+    },
+    {
+      "path": "runtime/python/python311.dll",
+      "bytes": 5800216,
+      "sha256": "0817a2a657a24c0d5fbb60df56960f42fc66b3039d522ec952dab83e2d869364"
+    },
+    {
+      "path": "runtime/python/pythonw.exe",
+      "bytes": 101656,
+      "sha256": "d5355e1de2a5195dccb1ba524b146aa7705be71af18d876819756838251b37b3"
+    },
+    {
+      "path": "runtime/python/vcruntime140.dll",
+      "bytes": 119192,
+      "sha256": "4d292623516f65c80482081e62d5dadb759dc16e851de5db24c3cbb57b87db83"
+    },
+    {
+      "path": "runtime/python/vcruntime140_1.dll",
+      "bytes": 49528,
+      "sha256": "a113f192195f245f17389e6ecbed8005990bcb2476ddad33f7c4c6c86327afe5"
+    },
+    {
+      "path": "runtime/site-packages/PIL/_avif.cp311-win_amd64.pyd",
+      "bytes": 7888896,
+      "sha256": "84528ec60c7a6df7117c6e35257d6b9d369c739444e9a593b68c60b17b6bdd13"
+    },
+    {
+      "path": "runtime/site-packages/PIL/_imaging.cp311-win_amd64.pyd",
+      "bytes": 2632704,
+      "sha256": "16452bdc0cd84bbc8e034319e67f776ddc9d23767e6c589d89a5c973738d5fb4"
+    },
+    {
+      "path": "runtime/site-packages/PIL/_imagingcms.cp311-win_amd64.pyd",
+      "bytes": 273408,
+      "sha256": "dcfcef40237bbef115c4c5dbcb18d1fa3ea8f810f8e6a684cad05d25150e704a"
+    },
+    {
+      "path": "runtime/site-packages/PIL/_imagingft.cp311-win_amd64.pyd",
+      "bytes": 2174464,
+      "sha256": "64c12405543e6e531af2e63773b42ee3a1265b5c1a071d6c45d95ab4af931867"
+    },
+    {
+      "path": "runtime/site-packages/PIL/_imagingmath.cp311-win_amd64.pyd",
+      "bytes": 21504,
+      "sha256": "ae7a41f2f9dfcefaaa8334a83b2fe6e1a3658a7fd1e3cba3326d33804666495a"
+    },
+    {
+      "path": "runtime/site-packages/PIL/_imagingmorph.cp311-win_amd64.pyd",
+      "bytes": 12288,
+      "sha256": "4c9dc99a0df8db1007292180f19a59083919ee7b86998742335eab2a17eef126"
+    },
+    {
+      "path": "runtime/site-packages/PIL/_imagingtk.cp311-win_amd64.pyd",
+      "bytes": 14848,
+      "sha256": "c0796f7768c0fa7bd20df9919b7c39dff544f1a2485f2b79b939142fe9df6596"
+    },
+    {
+      "path": "runtime/site-packages/PIL/_webp.cp311-win_amd64.pyd",
+      "bytes": 416256,
+      "sha256": "ab2b193c50448e200b9d9455fef8a1374aac8822b4b8edd6f9f16162f991d3ba"
+    },
+    {
+      "path": "runtime/site-packages/charset_normalizer/cd.cp311-win_amd64.pyd",
+      "bytes": 115712,
+      "sha256": "ac9465bbf4a1698015cf306bed26a101677010d89acdd10f7f63dedbaf271798"
+    },
+    {
+      "path": "runtime/site-packages/charset_normalizer/md.cp311-win_amd64.pyd",
+      "bytes": 200192,
+      "sha256": "f398758fbce16b001e0799c1698d2a623751b8dd4e9ff0d6f4845ea6270f672f"
+    },
+    {
+      "path": "runtime/site-packages/cv2/cv2.pyd",
+      "bytes": 85848064,
+      "sha256": "eefedf6ee006a84bbc7d3df5ec66046429b8c95dbfd5f8f8f98c5772b91d6d48"
+    },
+    {
+      "path": "runtime/site-packages/cv2/opencv_videoio_ffmpeg500_64.dll",
+      "bytes": 30876160,
+      "sha256": "7aabff029d1fa47cf56ede4dbbe05dc62da3208f07cd16471d4c966a33f9aa31"
+    },
+    {
+      "path": "runtime/site-packages/markupsafe/_speedups.cp311-win_amd64.pyd",
+      "bytes": 13312,
+      "sha256": "755b26c10a4ece4acfb14a30201b5a5ff97b930784a0800b1bbc9bd93407a9fd"
+    },
+    {
+      "path": "runtime/site-packages/numpy.libs/libscipy_openblas64_-13e2df515630b4a41f92893938845698.dll",
+      "bytes": 20390912,
+      "sha256": "6547e9fb966e9773caee2755e91a8bf4d6f3a2f0eebf9646b0158f8675ea4ab5"
+    },
+    {
+      "path": "runtime/site-packages/numpy.libs/msvcp140-263139962577ecda4cd9469ca360a746.dll",
+      "bytes": 575056,
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+    },
+    {
+      "path": "runtime/site-packages/numpy/_core/_multiarray_tests.cp311-win_amd64.pyd",
+      "bytes": 62976,
+      "sha256": "7f6d1a9a82807710b1d151ee6abc1f76d38c120a196932548ff6725a818ab734"
+    },
+    {
+      "path": "runtime/site-packages/numpy/_core/_multiarray_umath.cp311-win_amd64.pyd",
+      "bytes": 4169728,
+      "sha256": "391aa9fb0850a4dc4fa094b0853766de8009c1ed33f4c80e2f7f11c24eeeaea4"
+    },
+    {
+      "path": "runtime/site-packages/numpy/_core/_operand_flag_tests.cp311-win_amd64.pyd",
+      "bytes": 11776,
+      "sha256": "20f7ce8f6d3dbcd018f8dac9de4da744246f8f6f223ab819a91228edc0eb44bf"
+    },
+    {
+      "path": "runtime/site-packages/numpy/_core/_rational_tests.cp311-win_amd64.pyd",
+      "bytes": 40448,
+      "sha256": "65f4269986696fa82405b89bc73714dbe13fd33508ec4f88d96c19cf05a730c1"
+    },
+    {
+      "path": "runtime/site-packages/numpy/_core/_simd.cp311-win_amd64.pyd",
+      "bytes": 2238464,
+      "sha256": "34deea7adafcd0f165170b1f4a62fad4295c382abd5570e243a4be7302bac5e8"
+    },
+    {
+      "path": "runtime/site-packages/numpy/_core/_struct_ufunc_tests.cp311-win_amd64.pyd",
+      "bytes": 13824,
+      "sha256": "c96e4c0b5b450fb44275583b924ae31bb4132ec9e7b7f12957c27d5c94a00a2f"
+    },
+    {
+      "path": "runtime/site-packages/numpy/_core/_umath_tests.cp311-win_amd64.pyd",
+      "bytes": 33792,
+      "sha256": "7666da0d876581ef9138540275a506e622f3a41f0680dfeef6dc215f418713ef"
+    },
+    {
+      "path": "runtime/site-packages/numpy/fft/_pocketfft_umath.cp311-win_amd64.pyd",
+      "bytes": 279040,
+      "sha256": "4f2959e29a7e72236dc8cfafa78785c5d04e22dda216d302217afa1c7ab36cc2"
+    },
+    {
+      "path": "runtime/site-packages/numpy/linalg/_umath_linalg.cp311-win_amd64.pyd",
+      "bytes": 108032,
+      "sha256": "43f3b2d38c83e351276701621f6335fa98a339a27ca66217d81a7d4b8b6a7d5d"
+    },
+    {
+      "path": "runtime/site-packages/numpy/linalg/lapack_lite.cp311-win_amd64.pyd",
+      "bytes": 17920,
+      "sha256": "eda2b05058c80e4ccff777c4c88d6b738f40be4f69173a1064b2f06bb9f68fe0"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/_bounded_integers.cp311-win_amd64.pyd",
+      "bytes": 230400,
+      "sha256": "aa07c78a3f703f38e9a6c26432d4cccfea4b5d1a467053795717c99816399554"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/_common.cp311-win_amd64.pyd",
+      "bytes": 157184,
+      "sha256": "3a83bdc879ee925e3aeff45e40b266ddab942e4c677599e22562f96a91042174"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/_generator.cp311-win_amd64.pyd",
+      "bytes": 714752,
+      "sha256": "3040240f7f9fbcdd7885155085165c0593fbde9c4a6543f5a407d33f44efab1f"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/_mt19937.cp311-win_amd64.pyd",
+      "bytes": 83456,
+      "sha256": "8b1dc88fe99f0eebc8405f4c1d61d876cfd79eead5ba432a7cffc4ac68f9d8e2"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/_pcg64.cp311-win_amd64.pyd",
+      "bytes": 93696,
+      "sha256": "23c4fbf16652ffb0feb8b5b194b3bf01cdf73abe3d09cbc5ea11b10b3edc1675"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/_philox.cp311-win_amd64.pyd",
+      "bytes": 77824,
+      "sha256": "37058ddc3783b61293665cd5ac0dd4f0a65875123993659873ba9451ffeae183"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/_sfc64.cp311-win_amd64.pyd",
+      "bytes": 59392,
+      "sha256": "406b514903a3e8af413d2df9b83c94bd54d3a81ca5e8b2ccd31d29b38786e20f"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/bit_generator.cp311-win_amd64.pyd",
+      "bytes": 163840,
+      "sha256": "cff503b82472a261442d19c5c562133962e03fb9b34f7cf5c8fae4d4a66944b6"
+    },
+    {
+      "path": "runtime/site-packages/numpy/random/mtrand.cp311-win_amd64.pyd",
+      "bytes": 608768,
+      "sha256": "83ed8d97b89bb8ac048d6718d854a2a9092ca5fb9a43a21a42257da0ca354e90"
+    },
+    {
+      "path": "runtime/site-packages/openvino/_pyopenvino.cp311-win_amd64.pyd",
+      "bytes": 3486560,
+      "sha256": "6cdadddc747d5cfa964e74467fd6f5a59894d42c2ba8b9541728102f24a89806"
+    },
+    {
+      "path": "runtime/site-packages/openvino/frontend/jax/py_jax_frontend.cp311-win_amd64.pyd",
+      "bytes": 172384,
+      "sha256": "02c74a3a4e7740c25e5359673fb326f3dfe9709e663c9a11a0aa728f90f8a9e2"
+    },
+    {
+      "path": "runtime/site-packages/openvino/frontend/onnx/py_onnx_frontend.cp311-win_amd64.pyd",
+      "bytes": 357216,
+      "sha256": "6db686a0895621a7a3ddd20f8de3d06733288fb5475ef3572d61590c5d3b76a7"
+    },
+    {
+      "path": "runtime/site-packages/openvino/frontend/paddle/py_paddle_frontend.cp311-win_amd64.pyd",
+      "bytes": 354656,
+      "sha256": "eb2d9f2873135941dd0cd9be8ed5c7c21f4d26704280709d76010ed8640fd8ed"
+    },
+    {
+      "path": "runtime/site-packages/openvino/frontend/pytorch/py_pytorch_frontend.cp311-win_amd64.pyd",
+      "bytes": 397664,
+      "sha256": "21d4fc02e703613141e8307c6d859dfaf97a4fad92b35597c8b2c08d868a420f"
+    },
+    {
+      "path": "runtime/site-packages/openvino/frontend/tensorflow/py_tensorflow_frontend.cp311-win_amd64.pyd",
+      "bytes": 374112,
+      "sha256": "1d65a4e9a9845ddaa68d940429e9d53f7fe33ea65cdcb3772d8e5f9ea77706dc"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino.dll",
+      "bytes": 14303072,
+      "sha256": "6a8336c47344b099a5650a0062a53bd64c8b40e9b1b79cb7fbe5ba53a54ec81d"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_auto_batch_plugin.dll",
+      "bytes": 209248,
+      "sha256": "e71ab74d771459e63ddc66e7c2756c28b6d9a8df95d1881f6b5e23cff874c03e"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_auto_plugin.dll",
+      "bytes": 490848,
+      "sha256": "5f74ee425c2f49678a348f3b961de220b05d1083f8baf112cd658ca96c05fe8d"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_c.dll",
+      "bytes": 218976,
+      "sha256": "a2712b42248ab82ea206e7800ece9a9b86f4cda8d55bdd9e71cb4f1f934638b3"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_hetero_plugin.dll",
+      "bytes": 433504,
+      "sha256": "afc86e3f84b8a737df6e3399ac418802c88e968a5398cad2f536c286c9518419"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_intel_cpu_plugin.dll",
+      "bytes": 37784416,
+      "sha256": "eeac1d6093a9e78de600b1e64c9742232af340984e57a58c2a5f140e7e7f025a"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_intel_gpu_plugin.dll",
+      "bytes": 29171552,
+      "sha256": "848cb17b0608bb8d8b0cba76a41f8dd4dc5352a75e46b382b293a0b21e5c7aaa"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_intel_npu_plugin.dll",
+      "bytes": 2827104,
+      "sha256": "e4d2de18f40766aa656c3429db99d15bee4cf2ac69545d50c3be9a76404e25d7"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_ir_frontend.dll",
+      "bytes": 436576,
+      "sha256": "bd9b1df2e8c4fa45100a0f88b2522c2e17a04632228f0c526375e07a1e426fb8"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_jax_frontend.dll",
+      "bytes": 487776,
+      "sha256": "698586e561f30c6f5284881c77a22393b020b814fe2d9af6490fe7075e5740e9"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_onnx_frontend.dll",
+      "bytes": 3938144,
+      "sha256": "6a49a6580c3c4221f607d651aaf46fba42e54795b73ec8dd4e944f71e84d4c12"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_paddle_frontend.dll",
+      "bytes": 1508192,
+      "sha256": "c41794e61e7338a93dde832abf2fca57f892fb972ee55d6545ab79cc0f9651f6"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_pytorch_frontend.dll",
+      "bytes": 2517344,
+      "sha256": "9e86d45144fca1be67594757c0f54b41bc687f5342bcf9f733c1d3d88b4555f7"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_tensorflow_frontend.dll",
+      "bytes": 4110176,
+      "sha256": "49a89c829d074147f64f72ddc1c01182bfa5bd6d9533eccfa7c23a8bf5edd022"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/openvino_tensorflow_lite_frontend.dll",
+      "bytes": 1192288,
+      "sha256": "3f8e55f5eed8fa1a71e755377e8de946348be1bc193b0eb5667084c9799fb746"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/tbb12.dll",
+      "bytes": 192864,
+      "sha256": "fdd51d6876377665132f343acc3bcbcc5b159b8b318eacd214b98e543c254e1c"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/tbbbind_2_5.dll",
+      "bytes": 203104,
+      "sha256": "81511c25e6be14097f35583d8673109de75c4b1f4a37c4b6cc6010c686988c07"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/tbbmalloc.dll",
+      "bytes": 110944,
+      "sha256": "fdc4481e6ebf3b7d89381fe3c36492603b405a1f92cafff06899eec0dace5da7"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/tbbmalloc_proxy.dll",
+      "bytes": 44384,
+      "sha256": "1b00f0b5ec73d7d900f4b8e00b626dce50c6194f368af28a3e975ef9347d9e52"
+    },
+    {
+      "path": "runtime/site-packages/regex/_regex.cp311-win_amd64.pyd",
+      "bytes": 725504,
+      "sha256": "c4d48a34897061d3652c85ac0647771e2d22cd47686e19b42a106daaf63b9dd7"
+    },
+    {
+      "path": "runtime/site-packages/safetensors/_safetensors_rust.pyd",
+      "bytes": 734720,
+      "sha256": "80a2b3f7658854ade855c5fb6192ee38fe2c7fbfd38d1c7c1f4d2c44f67125e4"
+    },
+    {
+      "path": "runtime/site-packages/setuptools/cli-32.exe",
+      "bytes": 11776,
+      "sha256": "32acc1bc543116cbe2cff10cb867772df2f254ff2634c870aef0b46c4b696fdb"
+    },
+    {
+      "path": "runtime/site-packages/setuptools/cli-64.exe",
+      "bytes": 14336,
+      "sha256": "bbb3de5707629e6a60a0c238cd477b28f07f0066982fda953fa6fcec39073a4a"
+    },
+    {
+      "path": "runtime/site-packages/setuptools/cli-arm64.exe",
+      "bytes": 13824,
+      "sha256": "b9a7d08da880dfac8bcf548eba4b06fb59b6f09b17d33148a0f6618328926c61"
+    },
+    {
+      "path": "runtime/site-packages/setuptools/cli.exe",
+      "bytes": 11776,
+      "sha256": "32acc1bc543116cbe2cff10cb867772df2f254ff2634c870aef0b46c4b696fdb"
+    },
+    {
+      "path": "runtime/site-packages/setuptools/gui-32.exe",
+      "bytes": 11776,
+      "sha256": "85dae1e95d77845f2cb59bcac3d4afe74bbe4c91a9bcc5bf4a71cd43104dbe7c"
+    },
+    {
+      "path": "runtime/site-packages/setuptools/gui-64.exe",
+      "bytes": 14336,
+      "sha256": "3471b6140eadc6412277dbbefe3fef8c345a0f1a59776086b80a3618c3a83e3b"
+    },
+    {
+      "path": "runtime/site-packages/setuptools/gui-arm64.exe",
+      "bytes": 13824,
+      "sha256": "e694f4743405c8b5926ff457db6fe7f1a12dec7c16a9c3864784d3f4e07ae097"
+    },
+    {
+      "path": "runtime/site-packages/setuptools/gui.exe",
+      "bytes": 11776,
+      "sha256": "85dae1e95d77845f2cb59bcac3d4afe74bbe4c91a9bcc5bf4a71cd43104dbe7c"
+    },
+    {
+      "path": "runtime/site-packages/tokenizers/tokenizers.pyd",
+      "bytes": 7395328,
+      "sha256": "7acb83f5b89136597e0d14b788d82917bf2870df94575bf77e12731c4e49c4df"
+    },
+    {
+      "path": "runtime/site-packages/torch/_C.cp311-win_amd64.pyd",
+      "bytes": 9728,
+      "sha256": "28d713e587ece654aadc944e264daf98a0dbcd953e8b3e87e59b8e3b8b20e2ff"
+    },
+    {
+      "path": "runtime/site-packages/torch/bin/protoc.exe",
+      "bytes": 2809856,
+      "sha256": "6c035fe683cdcb5c3ab22fb6a4414ce77ccb9864d90a509b32e08b0c4ce584f2"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/c10.dll",
+      "bytes": 1113600,
+      "sha256": "fcbe02bdaf29efbd95a3c56859a9adcffce3e6d458f60623d38b5a215d7e3521"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/libiomp5md.dll",
+      "bytes": 1617536,
+      "sha256": "de6d18b2dec5811f7932950282a4c8218c5f287db04ff320dcbaa74733d6fcce"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/libiompstubs5md.dll",
+      "bytes": 44160,
+      "sha256": "c477314c1b489c75455b9738452760cd275a254822762079e001e27f79eb25cb"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/shm.dll",
+      "bytes": 15360,
+      "sha256": "f5350b8fd8114f690d7c7d2da0d066ff985f8b04ffab2d15b13e4288c6ff7746"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/torch.dll",
+      "bytes": 9728,
+      "sha256": "9b80f086742c76b9d8748d0df7dc15e4d1a599fd3b86e27e63ab8965343a541e"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/torch_cpu.dll",
+      "bytes": 305887744,
+      "sha256": "8a5fdbcfc5fe100c4f748411e7604ea31dd32edb862634d8943ea18f0ff119e4"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/torch_global_deps.dll",
+      "bytes": 9728,
+      "sha256": "98d7ef39f280a0d77b84e9ee89803eec159d9a8738305b4958da15c7eebda0a1"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/torch_python.dll",
+      "bytes": 20099584,
+      "sha256": "8c99b416600973be2f0cf2a2794d9ff478665716a6e27d9c889246b82a7a141d"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/uv.dll",
+      "bytes": 195072,
+      "sha256": "fa569e682fc5fb7a8eb94c6829af9f30a569748dbbc6bce39735d48bc960bcf8"
+    },
+    {
+      "path": "runtime/site-packages/torchvision/_C_stable.pyd",
+      "bytes": 359936,
+      "sha256": "f73ae4bb8514042974d3c886a6c48187fe75364aa4817437811355bc02d0f1fa"
+    },
+    {
+      "path": "runtime/site-packages/torchvision/image_stable.pyd",
+      "bytes": 129536,
+      "sha256": "c0b0abde2cc983659f2d186e65616dcad2ccc4598a4164346c82f6d61392a832"
+    },
+    {
+      "path": "runtime/site-packages/torchvision/jpeg8.dll",
+      "bytes": 688456,
+      "sha256": "e7c16e1e0330d747aec1cd161f6d54816f71e4172c14f41f76d5a2b2191c93a3"
+    },
+    {
+      "path": "runtime/site-packages/torchvision/libpng16.dll",
+      "bytes": 209736,
+      "sha256": "5befe1f2a614da8049da94ef252a9300d1bc75a9b2468750cdbe817f9c60d237"
+    },
+    {
+      "path": "runtime/site-packages/torchvision/libsharpyuv.dll",
+      "bytes": 37192,
+      "sha256": "5b9781467bae1b30a5df0707ab745730c98ad96a1db2a825b8f135f3cd6cf946"
+    },
+    {
+      "path": "runtime/site-packages/torchvision/libwebp.dll",
+      "bytes": 387912,
+      "sha256": "e9ebf8ca707ad2e964f8cdd9892c9e536517856696547c4671f62a7cd4d394f6"
+    },
+    {
+      "path": "runtime/site-packages/torchvision/zlib.dll",
+      "bytes": 102728,
+      "sha256": "a2e123cc624634d08200b4e5ee6a2828d2df88fd9573b5b5fdd9da336f5738a6"
+    },
+    {
+      "path": "runtime/site-packages/yaml/_yaml.cp311-win_amd64.pyd",
+      "bytes": 258560,
+      "sha256": "ee7df83fa5dca1467bfd841dc08189b10361f31700cf57a6aacddaf0c05706f4"
+    },
+    {
+      "path": "tools/ffmpeg/bin/ffmpeg.exe",
+      "bytes": 82797568,
+      "sha256": "04e1307997530f9cf2fe35cba2ca7e8875ca91da02f89d6c7243df819c94ad00"
+    },
+    {
+      "path": "tools/ffmpeg/bin/ffplay.exe",
+      "bytes": 82627072,
+      "sha256": "a8d357be4b14987416ffd44a36c3c17f38770df2f2bdf87334d6de8fe1eb026e"
+    },
+    {
+      "path": "tools/ffmpeg/bin/ffprobe.exe",
+      "bytes": 82668032,
+      "sha256": "3a7e2dc003dc2cd1472827e4c7c4f056ae1ae0ae7c5bbc580c99b49827351ba4"
+    },
+    {
+      "path": "tools/ffmpeg/ffmpeg.exe",
+      "bytes": 82797568,
+      "sha256": "04e1307997530f9cf2fe35cba2ca7e8875ca91da02f89d6c7243df819c94ad00"
+    },
+    {
+      "path": "tools/ffmpeg/ffprobe.exe",
+      "bytes": 82668032,
+      "sha256": "3a7e2dc003dc2cd1472827e4c7c4f056ae1ae0ae7c5bbc580c99b49827351ba4"
+    }
+  ]
+}
