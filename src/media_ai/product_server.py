@@ -26,7 +26,7 @@ class ProductHttpServer(ThreadingHTTPServer):
 
     def runtime_identity(self) -> dict:
         package_root = os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip()
-        if package_root and (Path(package_root) / "PACKAGE_MANIFEST.json").is_file():
+        if package_root and self.root.resolve() == (Path(package_root) / 'app').resolve() and (Path(package_root) / "PACKAGE_MANIFEST.json").is_file():
             manifest_path = Path(package_root) / "PACKAGE_MANIFEST.json"
             manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
             return {"product": "MINDLE MEDIA AI", "distribution": "EMPLOYEE_WIN_X64",
@@ -43,11 +43,14 @@ class ProductHttpServer(ThreadingHTTPServer):
             "ui/product_integration.js",
             "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
         ]
+        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js') if (self.root / relative).is_file())
         hashes = {relative: hashlib.sha256((self.root / relative).read_bytes()).hexdigest() for relative in files}
         fingerprint = hashlib.sha256("\n".join(f"{key}:{hashes[key]}" for key in files).encode("utf-8")).hexdigest()
         branch = subprocess.check_output(["git", "-C", str(self.root), "branch", "--show-current"], text=True).strip()
         head = subprocess.check_output(["git", "-C", str(self.root), "rev-parse", "HEAD"], text=True).strip()
-        return {"repo_root": str(self.root), "branch": branch, "head": head, "workspace_ui_fingerprint": fingerprint, "file_hashes": hashes}
+        return {"repo_root": str(self.root), "branch": branch, "head": head, "workspace_ui_fingerprint": fingerprint, "file_hashes": hashes,
+                "runtime_mode": 'DEVELOPMENT_UI_WITH_PACKAGE_MODELS' if package_root else 'DEVELOPMENT_UI',
+                "model_root": package_root or None}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -88,6 +91,8 @@ class Handler(BaseHTTPRequestHandler):
                     for job in project['jobs']:
                         primary = Path(job['primary_output']['path']).resolve()
                         job['preview_url'] = '/files/' + primary.relative_to(self.server.data_dir.resolve()).as_posix()
+                        source = Path(job['input']['path']).resolve()
+                        job['input_url'] = '/files/' + source.relative_to(self.server.data_dir.resolve()).as_posix()
                 self._json(200, {'project': project}); return
             except (OSError, ValueError, KeyError, TypeError) as error:
                 self._json(422, {'error': '저장된 프로젝트를 불러올 수 없습니다.', 'status': 'PROJECT_REOPEN_FAILED'}); return
@@ -121,8 +126,23 @@ class Handler(BaseHTTPRequestHandler):
                     self._json(502, {"status": "MARKETING_PROVIDER_UNAVAILABLE", "error": str(error), "request": request}); return
                 contract = result.get("contract", result) if isinstance(result, dict) else result
                 self._json(200, {"status": "bridge_contract_ready", "contract": contract, "provider_response": result, "request": request}); return
+            if route == "/api/video-edits":
+                result = self.server.service.edit_video(body)
+                primary = Path(result['primary_output']['path']).relative_to(self.server.data_dir)
+                result['preview_url'] = '/files/' + primary.as_posix()
+                self._json(201, result); return
+            if route == "/api/media/import":
+                result = self.server.service.import_media(body)
+                primary = Path(result['primary_output']['path']).relative_to(self.server.data_dir)
+                result['preview_url'] = '/files/' + primary.as_posix()
+                self._json(201, result); return
+            if route == "/api/photo-edits":
+                result = self.server.service.store_photo_edit(body)
+                primary = Path(result['primary_output']['path']).relative_to(self.server.data_dir)
+                result['preview_url'] = '/files/' + primary.as_posix()
+                self._json(201, result); return
             if route == "/api/jobs":
-                result = self.server.service.execute(body)
+                result = self.server.service.execute_isolated(body)
                 primary = Path(result["primary_output"]["path"]).relative_to(self.server.data_dir)
                 result["preview_url"] = "/files/" + primary.as_posix()
                 self._json(201, result); return

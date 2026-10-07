@@ -31,7 +31,7 @@ def test_package_identity_requires_no_git(tmp_path, monkeypatch):
     monkeypatch.setenv('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', str(tmp_path))
     (tmp_path / 'PACKAGE_MANIFEST.json').write_text(json.dumps({'package_version': '1.0', 'build_commit': 'a' * 40,
                         'ui_fingerprint': 'b' * 64, 'model_manifest_hash': 'c' * 64}))
-    server = object.__new__(ProductHttpServer); server.data_dir = tmp_path / 'data'
+    server = object.__new__(ProductHttpServer); server.data_dir = tmp_path / 'data'; server.root = tmp_path / 'app'
     with patch('media_ai.product_server.subprocess.check_output', side_effect=AssertionError('git forbidden')):
         identity = server.runtime_identity()
     assert identity['runtime_mode'] == 'LOCAL_OFFLINE_PACKAGE'
