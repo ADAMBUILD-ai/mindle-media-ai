@@ -46,11 +46,18 @@ class ProductHttpServer(ThreadingHTTPServer):
         files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js') if (self.root / relative).is_file())
         hashes = {relative: hashlib.sha256((self.root / relative).read_bytes()).hexdigest() for relative in files}
         fingerprint = hashlib.sha256("\n".join(f"{key}:{hashes[key]}" for key in files).encode("utf-8")).hexdigest()
-        branch = subprocess.check_output(["git", "-C", str(self.root), "branch", "--show-current"], text=True).strip()
-        head = subprocess.check_output(["git", "-C", str(self.root), "rev-parse", "HEAD"], text=True).strip()
+        branch = head = None
+        git_identity_status = "UNAVAILABLE"
+        try:
+            branch = subprocess.check_output(["git", "-C", str(self.root), "branch", "--show-current"], text=True, stderr=subprocess.DEVNULL).strip()
+            head = subprocess.check_output(["git", "-C", str(self.root), "rev-parse", "HEAD"], text=True, stderr=subprocess.DEVNULL).strip()
+            git_identity_status = "AVAILABLE"
+        except (OSError, subprocess.CalledProcessError):
+            # File fingerprints remain authoritative when Git is unavailable to this process.
+            branch = head = None
         return {"repo_root": str(self.root), "branch": branch, "head": head, "workspace_ui_fingerprint": fingerprint, "file_hashes": hashes,
                 "runtime_mode": 'DEVELOPMENT_UI_WITH_PACKAGE_MODELS' if package_root else 'DEVELOPMENT_UI',
-                "model_root": package_root or None}
+                "model_root": package_root or None, "git_identity_status": git_identity_status}
 
 
 class Handler(BaseHTTPRequestHandler):

@@ -52,3 +52,24 @@ def test_saved_jobs_survive_new_service_for_export_and_resave(tmp_path, monkeypa
         assert second.records['job1']['status'] == 'TESTED_PASS'
         assert second.export_project(saved['project_id'])['status'] == 'EXPORTED'
         assert second.save_project({'project_id': saved['project_id'], 'job_ids': ['job1']})['status'] == 'SAVED'
+
+
+def test_development_identity_keeps_fingerprints_when_git_is_unavailable(tmp_path, monkeypatch):
+    import subprocess
+    monkeypatch.delenv('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', raising=False)
+    files = ('ui/index.html', 'ui/approved_visual.css', 'ui/interaction.css',
+             'ui/interaction.js', 'ui/product_integration.js',
+             'ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico')
+    for relative in files:
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b'fixture')
+    server = object.__new__(ProductHttpServer)
+    server.root = tmp_path
+    with patch('media_ai.product_server.subprocess.check_output',
+               side_effect=subprocess.CalledProcessError(128, 'git')):
+        identity = server.runtime_identity()
+    assert identity['head'] is None and identity['branch'] is None
+    assert identity['git_identity_status'] == 'UNAVAILABLE'
+    assert len(identity['file_hashes']) == len(files)
+    assert len(identity['workspace_ui_fingerprint']) == 64
