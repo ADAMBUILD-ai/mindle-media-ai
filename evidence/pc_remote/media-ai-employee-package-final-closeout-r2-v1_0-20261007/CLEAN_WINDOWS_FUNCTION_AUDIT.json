@@ -1,0 +1,149 @@
+{
+  "status": "PASS_INSTALLED_HTTP_TEMPORARY_PROFILE",
+  "default_profile_host_gate": "PENDING",
+  "method": "Actual installed server HTTP; full model executions and output/preview/download hash verification",
+  "checks": {
+    "identity": "PASS",
+    "tracking": "PASS_INSTALLED_HTTP_AND_OUTPUT_VERIFICATION",
+    "transcribe": "PASS_INSTALLED_HTTP_AND_OUTPUT_VERIFICATION",
+    "segment": "PASS_INSTALLED_HTTP_AND_OUTPUT_VERIFICATION",
+    "upscale": "PASS_INSTALLED_HTTP_AND_OUTPUT_VERIFICATION",
+    "save": "PASS",
+    "export": "PASS_CONTENT_AND_DOWNLOAD_HASH",
+    "shortform_and_base_continuation": "PASS"
+  },
+  "reopen_checks": {
+    "identity": "PASS",
+    "save_close_reopen": "PASS_SERVER_RESTART",
+    "export": "PASS_CONTENT_AND_DOWNLOAD_HASH",
+    "shortform_and_base_continuation": "PASS"
+  },
+  "jobs": [
+    {
+      "job_id": "76f27451-d6e2-406a-9ef2-5ed5ecf04830",
+      "operation": "tracking",
+      "status": "TESTED_PASS",
+      "input": {
+        "file_name": "ce363b22-4b26-4df7-b4c5-6ce4f7f70323_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\inputs\\ce363b22-4b26-4df7-b4c5-6ce4f7f70323_video.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "track_1_overlays.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\jobs\\5b9f0e02-ab62-40cb-957d-9242c4a1c861\\sam_video\\track_1_overlays.mp4",
+        "bytes": 91227,
+        "sha256": "9e7523a307c3e5f343ce750382ff4fc44b201a3a12f8cbaa5440ea51c9a97f30"
+      },
+      "adapter": {
+        "id": "mindle.sam21.verified.cpu",
+        "version": "1.0.1",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.19045-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      }
+    },
+    {
+      "job_id": "e0c25ada-a432-4ce7-896f-fb67acfb23f9",
+      "operation": "transcribe",
+      "status": "TESTED_PASS",
+      "input": {
+        "file_name": "badd9e63-8e26-4eef-bc00-fea6255f9e75_korean.wav",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\inputs\\badd9e63-8e26-4eef-bc00-fea6255f9e75_korean.wav",
+        "bytes": 798778,
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      },
+      "primary_output": {
+        "file_name": "korean_transcript.json",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\jobs\\80c42417-3806-4758-a60b-eb94497d17bd\\whisper\\korean_transcript.json",
+        "bytes": 260,
+        "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+      },
+      "adapter": {
+        "id": "mindle.whisper.ko.verified.cpu",
+        "version": "1.0.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.19045-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      }
+    },
+    {
+      "job_id": "0d32774e-30ba-4841-a948-25860580c3d9",
+      "operation": "segment",
+      "status": "TESTED_PASS",
+      "input": {
+        "file_name": "a1e8650d-c2b6-480a-9454-f57b3d626c58_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\inputs\\a1e8650d-c2b6-480a-9454-f57b3d626c58_photo.png",
+        "bytes": 311919,
+        "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+      },
+      "primary_output": {
+        "file_name": "photo_overlay.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\jobs\\ba185db6-8d7f-4447-a183-7fb8ff84ccce\\sam_photo\\photo_overlay.png",
+        "bytes": 229370,
+        "sha256": "d75cb0eb12e4c65bca81c8b54a07c4163a69f24e59da9e5404d7e959a31a7fc3"
+      },
+      "adapter": {
+        "id": "mindle.sam21.verified.cpu",
+        "version": "1.0.1",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.19045-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      }
+    },
+    {
+      "job_id": "584514ef-121a-447e-9236-18235462c812",
+      "operation": "upscale",
+      "status": "TESTED_PASS",
+      "input": {
+        "file_name": "2cde18fb-436c-483e-aae5-b59c44cc2bf0_sisr_480x270.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\inputs\\2cde18fb-436c-483e-aae5-b59c44cc2bf0_sisr_480x270.png",
+        "bytes": 273579,
+        "sha256": "18480e03667a14f1a15ad98f3dc0264b25408331a3070df15ef9f3a8b206d79f"
+      },
+      "primary_output": {
+        "file_name": "upscaled_4x.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\jobs\\a46c0852-123f-48ce-b5ca-d44abc260258\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 2434803,
+        "sha256": "fd01c60b1bf4234bcd035689dd8dae7c2a10cbe2a3a07bbabf3bf2e11b82ae68"
+      },
+      "adapter": {
+        "id": "intel-open-model-zoo-sisr-1032",
+        "version": "1.0.1",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU"
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.19045-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      }
+    }
+  ],
+  "semantic_segmentation_or_STT_accuracy_benchmark": "Not asserted; verified real model execution, valid outputs and nonempty Hangul",
+  "source_tree_component_tests_counted_as_installed_pass": false
+}

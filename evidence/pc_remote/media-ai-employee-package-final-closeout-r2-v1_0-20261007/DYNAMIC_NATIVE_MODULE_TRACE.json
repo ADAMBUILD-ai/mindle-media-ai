@@ -1,0 +1,496 @@
+{
+  "status": "RUNTIME_DEPENDENCY_LEAK",
+  "pid": 12844,
+  "scope": "One installed product server during actual model inference",
+  "modules": [
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\python.exe",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\ntdll.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\kernel32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\KernelBase.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\ucrtbase.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\vcruntime140.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\python311.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\ws2_32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\rpcrt4.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\bcrypt.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\advapi32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\version.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\msvcrt.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\sechost.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\bcryptprimitives.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\python3.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_hashlib.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\libcrypto-3.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\user32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\win32u.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\gdi32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\gdi32full.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\msvcp_win.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\imm32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_socket.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\IPHLPAPI.DLL",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\select.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_ssl.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\crypt32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\libssl-3.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_bz2.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_lzma.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_uuid.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_queue.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\mswsock.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\charset_normalizer\\cd.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\charset_normalizer\\md.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\unicodedata.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_ctypes.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\ole32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\combase.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\oleaut32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\libffi-8.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_asyncio.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_overlapped.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\yaml\\_yaml.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_sqlite3.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\sqlite3.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\PIL\\_imaging.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\_core\\_multiarray_umath.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy.libs\\msvcp140-263139962577ecda4cd9469ca360a746.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\vcruntime140_1.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy.libs\\libscipy_openblas64_-13e2df515630b4a41f92893938845698.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\linalg\\_umath_linalg.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\cv2\\cv2.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\NapiNSP.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\pnrpnsp.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\wshbth.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\nlaapi.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\dnsapi.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\nsi.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\winrnr.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\kernel.appcore.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\msvcp140.dll",
+      "category": "MACHINE_VISUAL_CPP_RUNTIME"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\c10.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\dbghelp.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\libiomp5md.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\wintrust.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\imagehlp.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\msasn1.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\libiompstubs5md.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\shm.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\torch_cpu.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\vcruntime140_threads.dll",
+      "category": "MACHINE_VISUAL_CPP_RUNTIME"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\uv.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\psapi.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\userenv.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\cryptbase.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\torch.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\torch_global_deps.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\lib\\torch_python.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\msvcp140_atomic_wait.dll",
+      "category": "MACHINE_VISUAL_CPP_RUNTIME"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torch\\_C.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_multiprocessing.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\regex\\_regex.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\safetensors\\_safetensors_rust.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_decimal.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\markupsafe\\_speedups.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\tokenizers\\tokenizers.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\fft\\_pocketfft_umath.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\bit_generator.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\_common.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\mtrand.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\_bounded_integers.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\_mt19937.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\_philox.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\_pcg64.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\_sfc64.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\numpy\\random\\_generator.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torchvision\\_C_stable.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\PIL\\_imagingft.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torchvision\\image_stable.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torchvision\\libpng16.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torchvision\\libwebp.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torchvision\\jpeg8.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torchvision\\zlib.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\torchvision\\libsharpyuv.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\_elementtree.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs\\pyexpat.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\cv2\\opencv_videoio_ffmpeg500_64.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\secur32.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Windows\\System32\\sspicli.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\openvino\\_pyopenvino.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\openvino\\libs\\openvino.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\shlwapi.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\openvino\\libs\\tbb12.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\openvino\\libs\\tbbmalloc.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\openvino\\frontend\\tensorflow\\py_tensorflow_frontend.cp311-win_amd64.pyd",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\rasadhlp.dll",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\openvino\\libs\\openvino_ir_frontend.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages\\openvino\\libs\\tbbbind_2_5.dll",
+      "category": "PACKAGE_LOCAL"
+    },
+    {
+      "path": "C:\\Windows\\System32\\FWPUCLNT.DLL",
+      "category": "WINDOWS_SYSTEM_MODULE"
+    }
+  ],
+  "full_distribution_pass": false
+}

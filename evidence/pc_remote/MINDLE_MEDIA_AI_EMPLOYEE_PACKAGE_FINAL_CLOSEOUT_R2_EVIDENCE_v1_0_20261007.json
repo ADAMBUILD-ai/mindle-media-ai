@@ -1,0 +1,137 @@
+{
+  "status": "IN_PROGRESS_REMAINING_OWNER_AND_HOST_GATES",
+  "final_result": "RUNTIME_DEPENDENCY_LEAK",
+  "employee_package_clean_windows_e2e_pass": false,
+  "recorded_at": "2026-10-07T00:58:48.220059+00:00",
+  "control_plane_epoch": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "control_plane_validator": "CONTROL_PLANE_PASS",
+  "implementation_commit": "0371cb72ee00802b5b9bd17bd05c809858cba813",
+  "implementation_exact_remote_readback_files": 10,
+  "source_regression_tests_passed": 56,
+  "installed_function_checks": {
+    "identity": "PASS",
+    "tracking": "PASS_INSTALLED_HTTP_AND_OUTPUT_VERIFICATION",
+    "transcribe": "PASS_INSTALLED_HTTP_AND_OUTPUT_VERIFICATION",
+    "segment": "PASS_INSTALLED_HTTP_AND_OUTPUT_VERIFICATION",
+    "upscale": "PASS_INSTALLED_HTTP_AND_OUTPUT_VERIFICATION",
+    "save": "PASS",
+    "export": "PASS_CONTENT_AND_DOWNLOAD_HASH",
+    "shortform_and_base_continuation": "PASS"
+  },
+  "installed_reopen_checks": {
+    "identity": "PASS",
+    "save_close_reopen": "PASS_SERVER_RESTART",
+    "export": "PASS_CONTENT_AND_DOWNLOAD_HASH",
+    "shortform_and_base_continuation": "PASS"
+  },
+  "candidate_build": {
+    "status": "R2_CANDIDATE_NOT_RELEASE_APPROVED",
+    "implementation_commit": "0371cb72ee00802b5b9bd17bd05c809858cba813",
+    "zip_bytes": 1390413884,
+    "zip_sha256": "fe993be98a289a7d297466e312cba39b12477650c9dd73e39d0644b44d7c05d1",
+    "manifest_sha256": "74e9855398cf2340d9a4eff0125bd9a55c4ba8fadf4ddefa00acb2498aeea44c",
+    "manifest_file_count": 21192,
+    "archive_file_count": 21194,
+    "full_offline_distribution_approved": false,
+    "owner_license_gate": "UNCONFIRMED",
+    "default_profile_host_gate": "PENDING",
+    "archive_central_directory_actual_count": 21194,
+    "archive_file_set_matches_manifest": true,
+    "reconstructed_zip_sha256_verified": true,
+    "reconstruction_method": "PowerShell REASSEMBLE_AND_INSTALL.ps1 -VerifyOnly actual exit 0"
+  },
+  "split_manifest": {
+    "zip_name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip",
+    "zip_bytes": 1390413884,
+    "parts": [
+      {
+        "sha256": "eb8ad93a957013e5602b00dadffba763cfc189c240268b4a713d4d007d58299e",
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.001",
+        "bytes": 314572800
+      },
+      {
+        "sha256": "562e631d76a034919df0710a17f9c9199f86748134e5de8a8197242467c185ab",
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.002",
+        "bytes": 314572800
+      },
+      {
+        "sha256": "8859dc6f23e72d8553a48439bffd66f9a85f8286249f40e31d510dcbc4997c3e",
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.003",
+        "bytes": 314572800
+      },
+      {
+        "sha256": "148237afe11d964d978c8d11156908d6f7eb2c18a8507b718865d8ec570fe2a1",
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.004",
+        "bytes": 314572800
+      },
+      {
+        "sha256": "4dc4d5ad7ef5302fd5b3815e64fdd0d80c7c9ead84b2f3a748aee5d649e29ea4",
+        "name": "MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.005",
+        "bytes": 132122684
+      }
+    ],
+    "zip_sha256": "fe993be98a289a7d297466e312cba39b12477650c9dd73e39d0644b44d7c05d1"
+  },
+  "owner_license_gate": {
+    "status": "OFFLINE_FULL_PACKAGE_LICENSE_GATE_BLOCKED",
+    "human_reply": "아직 확인되지 않았다",
+    "redistribution_entitlement_inferred": false,
+    "path": "B_SEPARATE_ONLINE_BOOTSTRAP",
+    "new_microsoft_binaries_added_to_package": false,
+    "bootstrap_installation_performed": false
+  },
+  "default_profile_host_gate": "DEFAULT_PROFILE_HOST_GATE_PENDING",
+  "native_dynamic_audit": {
+    "status": "RUNTIME_DEPENDENCY_LEAK",
+    "observed_module_count": 122,
+    "outside_package_msvc": [
+      "msvcp140.dll",
+      "vcruntime140_threads.dll",
+      "msvcp140_atomic_wait.dll"
+    ]
+  },
+  "notices_audit": {
+    "status": "GENERATED_NOT_FULL_REDISTRIBUTION_PASS",
+    "unresolved": [
+      "Owner Visual Studio redistribution entitlement",
+      "Existing Python/NumPy embedded Microsoft DLLs",
+      "Complete FFmpeg static dependency corresponding source"
+    ],
+    "runtime_component_count": 33,
+    "model_count": 3
+  },
+  "remaining_work": [
+    "Owner evidence of Visual Studio redistribution entitlement",
+    "Ordinary Windows outside-Work default profile host gate, including desktop cold launch 2/2",
+    "Close complete FFmpeg static dependency corresponding-source gate",
+    "After runtime closure rebuild/retest final offline package and final hashes"
+  ],
+  "local_git_index_write": "Previously denied; normal GitHub tree/commit/ref API used on existing branch",
+  "no_new_repository_worktree_branch": true,
+  "no_main_merge_or_force_push": true,
+  "queued_layout_optimization_executed": false,
+  "detail_files": [
+    "CLEAN_WINDOWS_ENVIRONMENT.json",
+    "CLEAN_WINDOWS_FUNCTION_AUDIT.json",
+    "DESKTOP_SHORTCUT_TEST.json",
+    "DYNAMIC_NATIVE_MODULE_TRACE.json",
+    "EXPORT_TEST.json",
+    "INSTALLED_FUNCTION_TEST.json",
+    "INSTALLED_REOPEN_TEST.json",
+    "INSTALLER_TEST.json",
+    "LICENSE_NOTICE_AUDIT.json",
+    "MODEL_HASH_VERIFICATION.json",
+    "OWNER_LICENSE_GATE.json",
+    "PACKAGE_BUILD_MANIFEST.json",
+    "PACKAGE_SELF_CONTAINMENT_AUDIT.json",
+    "PACKAGE_SHA256SUMS.txt",
+    "PREVIEW_BROWSER_TEST.json",
+    "REGRESSION_TEST_RESULT.json",
+    "REMOTE_IMPLEMENTATION_READBACK.json",
+    "RUNTIME_LOCK_EMPLOYEE_WIN_X64.txt",
+    "SAVE_REOPEN_TEST.json",
+    "SHORTFORM_OFFLINE_BEHAVIOR.json",
+    "SPLIT_PARTS_MANIFEST.json",
+    "UNINSTALL_REINSTALL_TEST.json"
+  ]
+}
