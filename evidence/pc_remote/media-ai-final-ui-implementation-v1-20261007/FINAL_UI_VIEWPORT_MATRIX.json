@@ -1,0 +1,242 @@
+[
+  {
+    "alignment": [
+      {
+        "aiTop": 1465.825023651123,
+        "headerHeight": 100,
+        "headerTop": 69.99999904632568,
+        "previewHeight": 360,
+        "previewTop": 170.0000038146973
+      },
+      {
+        "aiTop": 1465.825023651123,
+        "headerHeight": 100,
+        "headerTop": 69.99999904632568,
+        "previewHeight": 360,
+        "previewTop": 170.0000038146973
+      }
+    ],
+    "hiddenControls": [],
+    "horizontalOverflow": false,
+    "media": [
+      {
+        "element": [
+          894,
+          358.3999938964844
+        ],
+        "fit": "contain",
+        "host": [
+          895.6000366210938,
+          360
+        ],
+        "inside": true,
+        "natural": [
+          640,
+          360
+        ],
+        "position": "50% 50%"
+      },
+      {
+        "element": [
+          894,
+          358.3999938964844
+        ],
+        "fit": "contain",
+        "host": [
+          895.6000366210938,
+          360
+        ],
+        "inside": true,
+        "natural": [
+          288,
+          512
+        ],
+        "position": "50% 50%"
+      }
+    ],
+    "viewport": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "alignment": [
+      {
+        "aiTop": 1239.137523651123,
+        "headerHeight": 100,
+        "headerTop": 61.99999928474426,
+        "previewHeight": 261.1125183105469,
+        "previewTop": 162.0000038146973
+      },
+      {
+        "aiTop": 1239.137523651123,
+        "headerHeight": 100,
+        "headerTop": 61.99999928474426,
+        "previewHeight": 261.1125183105469,
+        "previewTop": 162.0000038146973
+      }
+    ],
+    "hiddenControls": [],
+    "horizontalOverflow": false,
+    "media": [
+      {
+        "element": [
+          617.2000122070312,
+          259.51251220703125
+        ],
+        "fit": "contain",
+        "host": [
+          618.7999877929688,
+          261.1125183105469
+        ],
+        "inside": true,
+        "natural": [
+          640,
+          360
+        ],
+        "position": "50% 50%"
+      },
+      {
+        "element": [
+          617.2000122070312,
+          259.51251220703125
+        ],
+        "fit": "contain",
+        "host": [
+          618.7999877929688,
+          261.1125183105469
+        ],
+        "inside": true,
+        "natural": [
+          288,
+          512
+        ],
+        "position": "50% 50%"
+      }
+    ],
+    "viewport": [
+      1366,
+      768
+    ]
+  },
+  {
+    "alignment": [
+      {
+        "aiTop": 1204.024974822998,
+        "headerHeight": 130,
+        "headerTop": 55.99999904632568,
+        "previewHeight": 204,
+        "previewTop": 186.0000038146973
+      },
+      {
+        "aiTop": 1204.024974822998,
+        "headerHeight": 130,
+        "headerTop": 55.99999904632568,
+        "previewHeight": 204,
+        "previewTop": 186.0000038146973
+      }
+    ],
+    "hiddenControls": [],
+    "horizontalOverflow": false,
+    "media": [
+      {
+        "element": [
+          451,
+          202.40000915527344
+        ],
+        "fit": "contain",
+        "host": [
+          452.6000061035156,
+          204
+        ],
+        "inside": true,
+        "natural": [
+          640,
+          360
+        ],
+        "position": "50% 50%"
+      },
+      {
+        "element": [
+          451,
+          202.40000915527344
+        ],
+        "fit": "contain",
+        "host": [
+          452.6000061035156,
+          204
+        ],
+        "inside": true,
+        "natural": [
+          288,
+          512
+        ],
+        "position": "50% 50%"
+      }
+    ],
+    "viewport": [
+      1000,
+      600
+    ]
+  },
+  {
+    "alignment": [
+      {
+        "aiTop": 1180.024974822998,
+        "headerHeight": 130,
+        "headerTop": 55.99999904632568,
+        "previewHeight": 180,
+        "previewTop": 186.0000038146973
+      },
+      {
+        "aiTop": 1180.024974822998,
+        "headerHeight": 130,
+        "headerTop": 55.99999904632568,
+        "previewHeight": 180,
+        "previewTop": 186.0000038146973
+      }
+    ],
+    "hiddenControls": [],
+    "horizontalOverflow": false,
+    "media": [
+      {
+        "element": [
+          351,
+          178.40000915527344
+        ],
+        "fit": "contain",
+        "host": [
+          352.6000061035156,
+          180
+        ],
+        "inside": true,
+        "natural": [
+          640,
+          360
+        ],
+        "position": "50% 50%"
+      },
+      {
+        "element": [
+          351,
+          178.40000915527344
+        ],
+        "fit": "contain",
+        "host": [
+          352.6000061035156,
+          180
+        ],
+        "inside": true,
+        "natural": [
+          288,
+          512
+        ],
+        "position": "50% 50%"
+      }
+    ],
+    "viewport": [
+      800,
+      480
+    ]
+  }
+]
