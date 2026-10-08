@@ -176,13 +176,13 @@ def receipt(status,error=None):
                  'H264_PREVIEW_PROBE.json','VIDEO_BROWSER_DECODE_RESULT.json','KOREAN_STT_RESULT.json',
                  'SAVE_REOPEN_RESULT.json','EXPORT_RESULT.json','SHORTFORM_INTEGRATION_RESULT.json'):
         if not (OUT/name).exists():write(name,{'status':'NOT_REACHED','blocked_by':status})
-    write('EVIDENCE.json',{'status':status,'epoch':EPOCH,'source_commit':os.environ.get('GITHUB_SHA'),
+    write('EVIDENCE.json',{'status':status,'epoch':EPOCH,'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         'github_run':os.environ.get('GITHUB_RUN_ID'),'gates':GATES,'error':error,
         'PHOTO_MODELS_RERUN':False,'UI_SSOT_CHANGED':'NO','main_changed':False,
         'employee_package_rebuilt':False,'pr23':'HOLD / DO NOT MERGE',
         'full_product_pass':status=='PASS_MINDLE_MEDIA_AI_FULL_PRODUCT_E2E_RUNTIME_VERIFIED'})
     write('PRODUCT_E2E_RUN_RECEIPT.json',{'status':status,'epoch':EPOCH,
-          'run_id':os.environ.get('GITHUB_RUN_ID'),'source_commit':os.environ.get('GITHUB_SHA'),'gates':GATES})
+          'run_id':os.environ.get('GITHUB_RUN_ID'),'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'gates':GATES})
 
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
@@ -220,10 +220,12 @@ def main():
             message=video.find_element(By.CSS_SELECTOR,'[data-command-error]')
             if message.get_attribute('data-result')=='error':raise RuntimeError(message.text)
             result=next((r for r in server.service.records.values() if r.get('operation')=='transcribe' and r.get('status')=='TESTED_PASS'),None)
-            if not result or result['runtime_result']['text'] not in message.text:return False
+            if not result or not message.is_displayed() or result['runtime_result']['text'] not in message.text:return False
             if media_state(driver)['jobId']!=tracking['job_id']:raise RuntimeError('STT replaced VIDEO tracking preview')
             return result
         stt=WebDriverWait(driver,300).until(transcript_ready)
+        video.find_element(By.CSS_SELECTOR,'[data-command-error]').screenshot(str(OUT/'KOREAN_STT_UI.png'))
+        (OUT/'KOREAN_STT_UI_DOM.html').write_text(driver.page_source,encoding='utf-8')
         GATES['KOREAN_STT']='PASS'
         write('KOREAN_STT_RESULT.json',{'status':'PASS','backend_job':stt,'ui_transcript_visible':True,'tracking_preserved':True,'input':file_info(audio)})
         phase='FAIL_SAVE_REOPEN_E2E'
@@ -248,6 +250,8 @@ def main():
         write('SAVE_REOPEN_RESULT.json',{'status':'PASS','fully_closed_browser_and_server':True,'project_id':project_id,
             'saved_project':before,'restored_job_ids':reopened['job_ids'],'all_output_hashes_verified':True,
             'photo_upscale_restored':True,'tracking_restored':True,'stt_visible_after_reopen':True})
+        driver.find_element(By.CSS_SELECTOR,'[data-editor="video"] [data-command-error]').screenshot(str(OUT/'REOPENED_STT_UI.png'))
+        (OUT/'REOPENED_UI_DOM.html').write_text(driver.page_source,encoding='utf-8')
         driver.save_screenshot(str(OUT/'REOPENED_UI.png'))
         phase='FAIL_EXPORT_E2E'
         photo=driver.find_element(By.CSS_SELECTOR,'[data-editor="photo"]')

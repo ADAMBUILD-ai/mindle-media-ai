@@ -177,7 +177,10 @@
       const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio');
       if (transcript) {
         const editor = document.querySelector('[data-editor="video"]');
-        if (editor) message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId} · 한국어 자막: ${transcript.runtime_result.text}`);
+        if (editor) {
+          editor.querySelector('.track.purple').textContent='Subtitle Track · '+transcript.runtime_result.text;
+          message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId} · 한국어 자막: ${transcript.runtime_result.text}`);
+        }
       }
     } catch (error) {
       const editor = document.querySelector('[data-editor="video"]');
