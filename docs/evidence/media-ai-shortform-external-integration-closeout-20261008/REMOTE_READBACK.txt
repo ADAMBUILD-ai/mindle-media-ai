@@ -1,0 +1,7 @@
+PRE_PUBLICATION_REMOTE_READBACK_PASS
+Epoch=MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1
+Source commit=144abf748fda7630304ebec6a338c4d7e7c9095b
+Main=797da297f588780ad2d608deea3b5af8f05af450
+PR23 draft=true merged=false HOLD / DO NOT MERGE
+Current canonical=144abf748fda7630304ebec6a338c4d7e7c9095b
+Final evidence file readback will be appended after publication.

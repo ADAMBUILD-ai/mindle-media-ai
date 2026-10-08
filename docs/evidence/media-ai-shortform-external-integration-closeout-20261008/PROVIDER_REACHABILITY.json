@@ -1,0 +1,11 @@
+{
+  "configured": false,
+  "token_present": false,
+  "actual_runner": true,
+  "default_localhost_substituted": false,
+  "network_attempted": false,
+  "captured_at": "2026-10-08T07:35:13.572471+00:00",
+  "mock_used": false,
+  "status": "BLOCKED_MARKETING_PROVIDER_UNREACHABLE",
+  "reason": "MARKETING_SHORTFORM_BASE_URL_MISSING"
+}
