@@ -1,42 +1,43 @@
 {
-  "schema_version": "EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "schema_version": "PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1",
   "status": "ACTIVE",
-  "date": "2026-10-07",
+  "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "active_control_plane_epoch": "MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1",
   "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
-    "worker_a_pc_recovery": {
-      "role": "Windows employee package final-closeout executor",
-      "current_assignment": "Close only remaining employee package distribution gates per Final Closeout R2",
+    "worker_a_product_e2e": {
+      "role": "MINDLE MEDIA AI product E2E recovery executor",
+      "current_assignment": "Close VIDEO browser preview, then STT, Save/Reopen, Export, Marketing/AVORA/Shortform MP4 per active directive",
       "may_write": [
-        "scripts/**",
-        "src/** packaging/runtime fixes only",
-        "tests/** package/host-gate tests only",
-        "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_REVIEW_v1.0_20261007.md",
-        "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_v1_0_20261007.json",
-        "evidence/pc_remote/media-ai-employee-package-final-closeout-r2-v1_0-20261007/**",
-        "dist/**",
-        "LICENSES/**"
+        "src/** product runtime fixes",
+        "ui/** runtime-state fixes only; no visual/layout redesign",
+        "model_scout/**",
+        "tests/**",
+        "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_REVIEW_v1.0_20261008.md",
+        "docs/evidence/media-ai-product-e2e-full-pass-20261008/**"
       ],
       "may_not_change": [
         "main/default branch",
+        "approved UI visual/layout",
         "Master SSOT",
-        "historical evidence deletion",
-        "approved UI visual/layout except defect-required behavior fix"
+        "historical Evidence deletion",
+        "employee distribution package/dist in this cycle",
+        "PR #23 merge state"
       ]
     },
-    "worker_b_master_repository": {
+    "worker_b_governance": {
       "role": "Repository governance observer",
-      "current_assignment": "READ-ONLY until Final Closeout R2 Evidence is published",
+      "current_assignment": "READ-ONLY until full product E2E Evidence publication",
       "may_write": [],
       "may_not_change": [
-        "all repository content during active recovery"
+        "all product/runtime/control-plane files during active execution"
       ]
     }
   },
   "force_push_forbidden": true,
   "merge_main_forbidden": true,
-  "new_repo_or_worktree_forbidden": true
+  "new_repo_or_worktree_forbidden": true,
+  "pr23_hold_do_not_merge": true
 }
