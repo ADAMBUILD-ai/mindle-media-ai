@@ -1,0 +1,13 @@
+{
+  "active_epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-FULL-AUDIT-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_FULL_AUDIT_DIRECTIVE_v1.0_20261008.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_FULL_AUDIT_EVIDENCE_CONTRACT_v1.0_20261008.json",
+  "lane": "GENERAL_WORK_FINAL_FULL_AUDIT",
+  "product_changes_allowed": true,
+  "ui_redesign_allowed": false,
+  "package_build_allowed": false,
+  "main_merge_allowed": false,
+  "pr23_hold_do_not_merge": true,
+  "external_shortform_integration_required_for_general_work_pass": false,
+  "next_lane_after_pass": "PC_WORK_ONE_CLICK_RUNTIME_LAUNCHER_CLOSEOUT"
+}
