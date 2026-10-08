@@ -1,31 +1,32 @@
 {
-  "schema_version": "EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
-  "status": "ACTIVE_FINAL_CLOSEOUT_R2",
-  "date": "2026-10-07",
+  "schema_version": "PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1",
+  "status": "ACTIVE_PRODUCT_E2E_R1",
+  "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "epoch": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_DIRECTIVE_v1.0_20261007.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_CONTRACT_v1.0_20261007.json",
+  "epoch": "MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_DIRECTIVE_v1.0_20261008.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_EVIDENCE_CONTRACT_v1.0_20261008.json",
   "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_REVIEW_v1.0_20261007.md",
-    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_v1_0_20261007.json",
-    "detail_dir": "evidence/pc_remote/media-ai-employee-package-final-closeout-r2-v1_0-20261007/"
+    "review": "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_REVIEW_v1.0_20261008.md",
+    "evidence_json": "docs/evidence/media-ai-product-e2e-full-pass-20261008/EVIDENCE.json",
+    "detail_dir": "docs/evidence/media-ai-product-e2e-full-pass-20261008/"
   },
   "invariants": {
     "one_active_epoch": true,
     "one_active_directive": true,
     "one_active_contract": true,
     "no_restart_from_scratch": true,
+    "frozen_photo_pass_reuse": true,
+    "browser_video_decode_required": true,
+    "shortform_real_integration_required": true,
     "main_merge_forbidden": true,
     "force_push_forbidden": true,
     "new_repo_or_worktree_forbidden": true,
-    "owner_license_gate_required": true,
-    "default_profile_host_gate_required": true,
-    "installed_package_e2e_required": true
+    "pr23_hold_do_not_merge": true,
+    "employee_package_rebuild_deferred": true
   },
   "validator": "scripts/validate_pc_work_control_plane.py",
   "validator_required_result": "CONTROL_PLANE_PASS",
-  "recovery_pass_status": "RECOVERY_PASS",
-  "blocked_status": "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED"
+  "previous_control_plane": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2"
 }
