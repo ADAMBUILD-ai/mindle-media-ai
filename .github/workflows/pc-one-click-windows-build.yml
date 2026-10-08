@@ -111,11 +111,11 @@ jobs:
       - name: Build LGPL-only FFmpeg 6.1.1 with Windows Media Foundation
         shell: pwsh
         run: |
-          $bash = "C:\msys64\usr\bin\bash.exe"
-          if (-not (Test-Path $bash)) { throw "MSYS2 bash unavailable on windows-latest" }
-          & $bash -lc "pacman -S --noconfirm --needed git make diffutils nasm yasm mingw-w64-x86_64-toolchain mingw-w64-x86_64-pkg-config"
+          $msys = "C:\msys64\msys2_shell.cmd"
+          if (-not (Test-Path $msys)) { throw "MSYS2 MINGW64 shell unavailable on windows-latest" }
+          & $msys -defterm -no-start -mingw64 -c "pacman -S --noconfirm --needed git make diffutils nasm yasm mingw-w64-x86_64-toolchain mingw-w64-x86_64-pkg-config"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & $bash -lc 'export PATH=/mingw64/bin:/usr/bin:$PATH; rm -rf ffmpeg-src ffmpeg-install; git clone --depth 1 --branch n6.1.1 https://github.com/FFmpeg/FFmpeg.git ffmpeg-src; cd ffmpeg-src; ./configure --prefix=../ffmpeg-install --disable-debug --disable-doc --disable-gpl --disable-nonfree --disable-libx264 --disable-libx265 --disable-libfdk-aac --enable-shared; make -j2; make install'
+          & $msys -defterm -no-start -mingw64 -c 'export PATH=/mingw64/bin:/usr/bin:$PATH; rm -rf ffmpeg-src ffmpeg-install; git clone --depth 1 --branch n6.1.1 https://github.com/FFmpeg/FFmpeg.git ffmpeg-src; cd ffmpeg-src; ./configure --prefix=../ffmpeg-install --disable-debug --disable-doc --disable-gpl --disable-nonfree --disable-libx264 --disable-libx265 --disable-libfdk-aac --enable-shared; make -j2; make install'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           New-Item -ItemType Directory -Force package_inputs/ffmpeg | Out-Null
           Copy-Item ffmpeg-install/bin/* package_inputs/ffmpeg/ -Force
