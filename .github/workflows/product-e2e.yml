@@ -9,6 +9,9 @@ on:
       - "model_scout/run_shortform_external_closeout.py"
       - "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT*"
       - "CURRENT_PC_WORK_STATE.json"
+      - "CURRENT_GENERAL_WORK_*.json"
+      - "model_scout/run_general_work_audit.py"
+      - "tests/test_general_work_gaps.py"
       - "model_scout/run_product_e2e_continuation.py"
       - "src/media_ai/browser_preview.py"
       - "pyproject.toml"
@@ -36,6 +39,7 @@ jobs:
     outputs:
       base: ${{ steps.epoch.outputs.base }}
       external: ${{ steps.epoch.outputs.external }}
+      general: ${{ steps.epoch.outputs.general }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -46,9 +50,57 @@ jobs:
           import json, os
           from pathlib import Path
           epoch=json.loads(Path("CURRENT_PC_WORK_STATE.json").read_text())["control_plane_epoch"]
+          general=json.loads(Path('CURRENT_GENERAL_WORK_STATE.json').read_text()) if Path('CURRENT_GENERAL_WORK_STATE.json').is_file() else {}
           with open(os.environ["GITHUB_OUTPUT"],"a") as output:
               output.write("base="+str(epoch=="MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1").lower()+"\n")
               output.write("external="+str(epoch=="MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1").lower()+"\n")
+              output.write('general='+str(general.get('control_plane_epoch')=='MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1' and general.get('status')=='ACTIVE_GENERAL_WORK_FINAL_SELF_AUDIT').lower()+'\n')
+  general-work-final-self-audit:
+    needs: active-epoch
+    if: needs.active-epoch.outputs.general == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: src
+      MINDLE_DEFER_EXTERNAL_SHORTFORM: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      HF_HUB_OFFLINE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install audit dependencies without models or package building
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg fonts-noto-cjk
+          python -m pip install 'opencv-python-headless==4.12.0.88' 'numpy==2.2.6' 'Pillow==11.3.0' 'selenium==4.35.0' 'pytest>=9,<10' .
+      - name: Restore frozen real product receipts without model rerun
+        uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-product-e2e-full-pass-evidence
+          run-id: 37738880868
+          github-token: ${{ github.token }}
+          path: frozen_audit_checkpoint
+      - name: Regression and active control validators
+        run: |
+          mkdir -p docs/evidence/media-ai-general-work-final-self-audit-20261008
+          set -o pipefail
+          { python scripts/validate_general_work_control_plane.py && python scripts/validate_pc_work_control_plane.py && python -m pip check && python -m compileall -q src model_scout/run_general_work_audit.py && python -m pytest -q && node --test ui/interaction.test.js ui/ssot_structure.test.js; } 2>&1 | tee docs/evidence/media-ai-general-work-final-self-audit-20261008/REGRESSION.log
+      - name: Actual approved UI whole product audit
+        run: python model_scout/run_general_work_audit.py
+      - name: Preserve all runtime evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-general-work-final-self-audit-evidence
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            docs/evidence/media-ai-general-work-final-self-audit-20261008/**
+            general_work_audit_runtime/**
   external-shortform-closeout:
     needs: active-epoch
     if: needs.active-epoch.outputs.external == 'true'

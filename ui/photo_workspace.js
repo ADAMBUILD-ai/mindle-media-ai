@@ -71,7 +71,7 @@
       const rendered=await renderPhoto();
       const response=await fetch('/api/photo-edits',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:'photo_edit.png',content_base64:rendered.base64,command:label,options:rendered.options})});
       const result=await response.json();if(!response.ok) throw new Error(result.error||'사진 보정 저장 실패');
-      document.dispatchEvent(new CustomEvent('mindle:photo-result',{detail:result}));reset();say('보정 적용 완료 · 프로젝트 저장으로 보관할 수 있습니다.');
+      await window.mindleAcceptResult(result);reset();say('보정 적용 완료 · 프로젝트 저장으로 보관할 수 있습니다.');
     } catch(error) {say(error.message);} finally {busy=false;}
   }
   const adjust=(key,value)=>{const input=editor.querySelector(`[data-photo-adjust="${key}"]`);input.value=value;input.nextElementSibling.value=value;};
@@ -124,4 +124,5 @@
     return true;
   };
 })();
+
 

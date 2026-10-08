@@ -18,7 +18,7 @@ import zipfile
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
-from uuid import uuid4
+from uuid import uuid4, UUID
 
 from huggingface_hub import HfApi, hf_hub_download
 
@@ -124,6 +124,8 @@ class ProductModelVault:
     def _download_files(self, cache_name: str, expected: dict[str, tuple[int, str]]) -> Path:
         if self.local_root is not None:
             raise RuntimeError("network acquisition is disabled in local package mode")
+        if not self.token:
+            raise RuntimeError('AI 모델이 준비되지 않았습니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다.')
         info = self.api.model_info(PRIVATE_REPO, revision=BASELINE_REVISION, token=self.token, files_metadata=True)
         if info.sha != BASELINE_REVISION or not bool(getattr(info, "private", False)):
             raise RuntimeError("immutable private SAM/Whisper cache revision or visibility mismatch")
@@ -242,7 +244,7 @@ class ProductJobService:
         return json.loads(saved[0].read_text(encoding='utf-8'))
 
     def _store_input(self, filename: str, content_b64: str) -> Path:
-        safe = Path(filename).name
+        safe = filename.replace('\\', '/').rsplit('/', 1)[-1]
         if not safe or safe in {".", ".."}: raise ValueError("invalid input filename")
         payload = base64.b64decode(content_b64, validate=True)
         if not payload: raise ValueError("input payload is empty")
@@ -397,6 +399,8 @@ class ProductJobService:
         source = self._store_input(str(payload['filename']), str(payload['content_base64']))
         job_id = str(uuid4()); job_dir = self.jobs / job_id; job_dir.mkdir()
         options = payload.get('options', {})
+        if options.get('split') and float(options.get('start', 0)) <= 0:
+            raise ValueError('분할할 위치를 시작 초에 입력하세요.')
         package = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT')
         ffmpeg = str(Path(package) / 'tools/ffmpeg/ffmpeg.exe') if package else 'ffmpeg'
         output = job_dir / 'edited_video.mp4'
@@ -437,6 +441,11 @@ class ProductJobService:
             text_path = job_dir / 'subtitle.txt'; text_path.write_text(subtitle, encoding='utf-8')
             escape = lambda path: str(path).replace('\\','/').replace(':','\\:').replace("'", "\\'")
             font = Path(os.environ.get('SystemRoot', 'C:/Windows')) / 'Fonts/malgun.ttf'
+            if not font.is_file():
+                fonts = sorted(Path('/usr/share/fonts').rglob('*CJK*'))
+                font = next((path for path in fonts if path.suffix.lower() in {'.ttf', '.ttc', '.otf'}), None)
+                if font is None:
+                    raise RuntimeError('한국어 자막 글꼴을 찾을 수 없습니다.')
             vf.append(f"drawtext=fontfile='{escape(font)}':textfile='{escape(text_path)}':fontsize=24:fontcolor=white:box=1:boxcolor=black@0.5:x=(w-text_w)/2:y=h-text_h-20")
         command = [ffmpeg, '-y', '-i', str(source)]
         background = payload.get('background')
@@ -547,19 +556,35 @@ class ProductJobService:
 
     def save_project(self, payload: dict) -> dict:
         job_ids = list(dict.fromkeys(payload.get("job_ids", [])))
+        if any(job_id not in self.records for job_id in job_ids):
+            raise ValueError('완료된 작업을 찾을 수 없습니다.')
         selected = [self.records[job_id] for job_id in job_ids if job_id in self.records]
         if not selected or any(item["status"] != "TESTED_PASS" for item in selected): raise ValueError("only completed real jobs can be saved")
         project_id = str(payload.get("project_id") or uuid4())
+        project_id = str(UUID(project_id))
         path = self.projects / f"{project_id}.json"
         record = {"project_id": project_id, "saved_at": now(), "job_ids": job_ids, "jobs": selected, "status": "SAVED"}
-        path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        pending = path.with_suffix('.' + str(uuid4()) + '.tmp')
+        try:
+            pending.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            os.replace(pending, path)
+        finally:
+            pending.unlink(missing_ok=True)
         return {"status": "SAVED", "project_id": project_id, "project": file_record(path)}
 
     def export_project(self, project_id: str) -> dict:
+        project_id = str(UUID(project_id))
         source = self.projects / f"{project_id}.json"
         if not source.is_file(): raise ValueError("saved project is unavailable")
         export = self.projects / f"{project_id}_export.zip"
         project = json.loads(source.read_text(encoding="utf-8"))
+        for job in project['jobs']:
+            for output in job['outputs']:
+                path = Path(output['path'])
+                if not path.is_file():
+                    raise ValueError('내보낼 결과 파일이 누락되었습니다: ' + path.name)
+                if output.get('sha256') and file_record(path)['sha256'] != output['sha256']:
+                    raise ValueError('내보낼 결과 파일의 무결성 확인에 실패했습니다: ' + path.name)
         with zipfile.ZipFile(export, "w", compression=zipfile.ZIP_DEFLATED) as package:
             package.write(source, "project.json")
             for job in project["jobs"]:

@@ -7,6 +7,7 @@ import json
 import mimetypes
 import os
 import subprocess
+import threading
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -23,6 +24,23 @@ class ProductHttpServer(ThreadingHTTPServer):
         self.root, self.data_dir = Path(root), Path(data_dir)
         self.service = ProductJobService(self.data_dir, token)
         self.requests: list[dict] = []
+        self.job_lock = threading.Lock()
+        self.completed_requests: dict[str, tuple[str, dict]] = {}
+
+    def run_once(self, route: str, body: dict, action) -> dict:
+        """Serialize mutations; replay only an identical successful request in this session."""
+        request_id = str(body.get('request_id', ''))
+        fingerprint = hashlib.sha256((route + json.dumps(body, sort_keys=True)).encode()).hexdigest()
+        with self.job_lock:
+            previous = self.completed_requests.get(request_id) if request_id else None
+            if previous:
+                if previous[0] != fingerprint:
+                    raise ValueError('같은 요청 ID에 다른 작업을 보낼 수 없습니다.')
+                return previous[1]
+            result = action(body)
+            if request_id:
+                self.completed_requests[request_id] = (fingerprint, result)
+            return result
 
     def runtime_identity(self) -> dict:
         package_root = os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip()
@@ -43,7 +61,7 @@ class ProductHttpServer(ThreadingHTTPServer):
             "ui/product_integration.js",
             "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
         ]
-        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js') if (self.root / relative).is_file())
+        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js', 'ui/workspace_shell.js') if (self.root / relative).is_file())
         hashes = {relative: hashlib.sha256((self.root / relative).read_bytes()).hexdigest() for relative in files}
         fingerprint = hashlib.sha256("\n".join(f"{key}:{hashes[key]}" for key in files).encode("utf-8")).hexdigest()
         branch = head = None
@@ -91,9 +109,23 @@ class Handler(BaseHTTPRequestHandler):
             self._json(200, self.server.runtime_identity()); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
-        if route == '/api/projects/latest':
+        if route == '/api/projects':
+            projects = []
+            for path in sorted(self.server.service.projects.glob('*.json'), key=lambda p:p.stat().st_mtime, reverse=True):
+                try:
+                    project = json.loads(path.read_text(encoding='utf-8'))
+                    projects.append({'project_id':project['project_id'], 'saved_at':project['saved_at'], 'job_count':len(project['job_ids'])})
+                except (OSError, ValueError, KeyError, TypeError):
+                    continue
+            self._json(200, {'projects':projects, 'data_root':str(self.server.data_dir.resolve())}); return
+        if route == '/api/projects/latest' or route.startswith('/api/projects/'):
             try:
-                project = self.server.service.latest_project()
+                if route == '/api/projects/latest':
+                    project = self.server.service.latest_project()
+                else:
+                    from uuid import UUID
+                    project_id = str(UUID(route.rsplit('/', 1)[1]))
+                    project = json.loads((self.server.service.projects / (project_id+'.json')).read_text(encoding='utf-8'))
                 if project:
                     for job in project['jobs']:
                         primary = Path(job.get('preview_output', job['primary_output'])['path']).resolve()
@@ -115,7 +147,7 @@ class Handler(BaseHTTPRequestHandler):
         try:
             route = unquote(urlparse(self.path).path); body = self._body()
             if route == "/api/integrations/marketing/shortform":
-                if os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT"):
+                if os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT") or os.environ.get('MINDLE_DEFER_EXTERNAL_SHORTFORM') == '1':
                     self._json(503, {"status": "MARKETING_PROVIDER_UNAVAILABLE", "error": "마케팅 AI 연결이 필요합니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다."}); return
                 client = MarketingShortformClient.from_env()
                 request = build_marketing_shortform_request(
@@ -134,17 +166,17 @@ class Handler(BaseHTTPRequestHandler):
                 contract = result.get("contract", result) if isinstance(result, dict) else result
                 self._json(200, {"status": "bridge_contract_ready", "contract": contract, "provider_response": result, "request": request}); return
             if route == "/api/video-edits":
-                result = self.server.service.edit_video(body)
+                result = self.server.run_once(route, body, self.server.service.edit_video)
                 primary = Path(result['primary_output']['path']).relative_to(self.server.data_dir)
                 result['preview_url'] = '/files/' + primary.as_posix()
                 self._json(201, result); return
             if route == "/api/media/import":
-                result = self.server.service.import_media(body)
+                result = self.server.run_once(route, body, self.server.service.import_media)
                 primary = Path(result['primary_output']['path']).relative_to(self.server.data_dir)
                 result['preview_url'] = '/files/' + primary.as_posix()
                 self._json(201, result); return
             if route == "/api/photo-edits":
-                result = self.server.service.store_photo_edit(body)
+                result = self.server.run_once(route, body, self.server.service.store_photo_edit)
                 primary = Path(result['primary_output']['path']).relative_to(self.server.data_dir)
                 result['preview_url'] = '/files/' + primary.as_posix()
                 self._json(201, result); return
@@ -154,7 +186,7 @@ class Handler(BaseHTTPRequestHandler):
                 result['preview_url'] = '/files/' + primary.as_posix()
                 self._json(201, result); return
             if route == "/api/jobs":
-                result = self.server.service.execute_isolated(body)
+                result = self.server.run_once(route, body, self.server.service.execute_isolated)
                 if result.get("operation") == "tracking":
                     result = self.server.service.prepare_browser_preview(result["job_id"])
                 primary = Path(result.get("preview_output", result["primary_output"])["path"]).relative_to(self.server.data_dir)
@@ -177,10 +209,12 @@ def create_server(root: Path, data_dir: Path, token: str, port: int = 0) -> Prod
 def main() -> None:
     parser = argparse.ArgumentParser(); parser.add_argument("--root", type=Path, default=Path.cwd()); parser.add_argument("--data-dir", type=Path, required=True); parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args(); token = os.environ.get("HF_TOKEN")
-    if not token and not os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip():
-        raise RuntimeError("HF_TOKEN is required for the read-only private model cache")
-    server = create_server(args.root, args.data_dir, token, args.port)
-    print(f"http://127.0.0.1:{server.server_port}", flush=True); server.serve_forever()
+    server = create_server(args.root, args.data_dir, token or '', args.port)
+    print(f"http://127.0.0.1:{server.server_port}", flush=True)
+    try:
+        server.serve_forever()
+    finally:
+        server.server_close()
 
 
 if __name__ == "__main__": main()
