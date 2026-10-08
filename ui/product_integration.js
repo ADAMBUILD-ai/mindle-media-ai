@@ -162,7 +162,7 @@
       if (kind==='photo' && !selected.type.startsWith('image/') || kind==='video' && !/^(video|audio)\//.test(selected.type)) {message(editor,'지원하지 않는 입력 파일입니다.',true);input.value='';return;}
       state[kind] = selected;
       message(editor, `입력 준비 · ${state[kind].name}`);
-      if (state[kind].type.startsWith('audio/')) return;
+      if (state[kind].type.startsWith('audio/')) {input.value='';return;}
       window.mindleBeginEdit(kind);
       try {
         message(editor,'원본을 불러오고 있습니다.');
@@ -170,7 +170,7 @@
         const result=await response.json();if(!response.ok) throw new Error(result.error||'원본 불러오기 실패');
         await window.mindleAcceptResult(result);message(editor,'원본 불러오기 완료');
       } catch(error) {state[kind]=original;input.value='';message(editor,error.message,true);}
-      finally {window.mindleEndEdit(kind);}
+      finally {input.value='';window.mindleEndEdit(kind);}
 
     });
     editor.addEventListener("mindle:mode", (event) => { state.videoMode = event.detail.mode; message(editor, state.videoMode === "ad_shortform" ? "광고 숏폼 모드 · 자연어로 제품·대상·길이를 지시하세요." : "일반 영상 편집 모드"); });
@@ -180,6 +180,7 @@
     editor.addEventListener("mindle:export", () => exportProject(editor));
   });
   async function restoreSavedProject(url='/api/projects/latest') {
+    window.mindleRestoreReady=false;
     try {
       const response = await fetch(url);
       const result = await response.json();
@@ -215,7 +216,7 @@
     } catch (error) {
       const editor = document.querySelector('[data-editor="video"]');
       if (editor) message(editor, error.message, true);
-    }
+    } finally {window.mindleRestoreReady=true;}
   }
   window.mindleOpenProject = projectId => restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));
   window.mindleNewProject = () => {

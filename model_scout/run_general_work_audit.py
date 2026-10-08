@@ -97,7 +97,7 @@ def chrome():
 
 def start():
     server=create_server(ROOT,DATA,'',0)
-    server.service.records.update({job['job_id']:job for job in FROZEN.values()})
+    for frozen in FROZEN.values():server.service.records.setdefault(frozen['job_id'],frozen)
     thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
     return server,thread,f'http://127.0.0.1:{server.server_port}'
 
@@ -116,6 +116,7 @@ def set_value(driver,selector,value):
 
 def ready(driver,kind,operation=None,previous=None):
     def state(_):
+        if driver.execute_script('return window.mindleRestoreReady===false;'):return False
         value=driver.execute_script('''const h=document.querySelector('[data-preview="'+arguments[0]+'"]');const m=h.querySelector('img,video');if(!m)return null;
           return {job_id:h.dataset.jobId,operation:h.dataset.operation,sha256:m.dataset.outputSha256,
            ready: m.tagName==='IMG'?m.complete&&m.naturalWidth>0:m.readyState>=2&&m.videoWidth>0,
@@ -289,6 +290,16 @@ def main_runtime():
         click(driver,'[data-editor="photo"] .send-button');ready(driver,'photo','photo_edit',before['job_id'])
         click(driver,'[data-editor="photo"] .command-chips button:nth-child(4)');assert driver.find_element(By.CSS_SELECTOR,'[data-photo-resize]').is_displayed()
         passed('photo_command_chips_style_tone_ratio_send')
+        click(driver,'[data-editor="photo"] [data-action="save"]')
+        WebDriverWait(driver,10).until(lambda _:'프로젝트 저장 완료' in driver.find_element(By.CSS_SELECTOR,'[data-editor="photo"] [data-command-error]').text)
+        edited_project=requests.get(base+'/api/projects/latest',timeout=10).json()['project']
+        assert {'photo_edit','video_edit'} <= {j['operation'] for j in edited_project['jobs']}
+        edited_photo=ready(driver,'photo');edited_video=ready(driver,'video')
+        driver.quit();driver=None;stop(server,thread);server=None
+        server,thread,base=start();driver=chrome();driver.get(base)
+        assert ready(driver,'photo')['sha256']==edited_photo['sha256'] and ready(driver,'video')['sha256']==edited_video['sha256']
+        assert requests.get(base+'/api/projects/latest',timeout=10).json()['project']['job_ids']==edited_project['job_ids']
+        passed('corrected_edits_save_close_reopen',project_id=edited_project['project_id'],photo=edited_photo,video=edited_video,job_ids=edited_project['job_ids'])
         # Exact already verified segmentation/upscale/tracking/STT are reopened, not recomputed.
         for op in ('segment','upscale'):
             result=requests.post(base+'/api/projects/save',json={'job_ids':[FROZEN[op]['job_id']]},timeout=10).json()
@@ -318,6 +329,7 @@ def main_runtime():
         assert ready(driver,'photo')['sha256']==photo_before['sha256'] and ready(driver,'video')['sha256']==video_before['sha256']
         assert transcript in driver.find_element(By.CSS_SELECTOR,'.track.purple').text and digest(project_path)==saved_sha
         reopened=requests.get(base+'/api/projects/latest',timeout=10).json()['project'];assert reopened['job_ids']==project['job_ids']
+        assert [(j['job_id'],j.get('preview_output',j['primary_output'])['sha256']) for j in reopened['jobs']]==[(j['job_id'],j.get('preview_output',j['primary_output'])['sha256']) for j in project['jobs']]
         passed('save_full_close_reopen_all_lanes',project_id=project['project_id'],saved_sha256=saved_sha,jobs=reopened['job_ids'])
         click(driver,'[data-editor="photo"] [data-action="export"]')
         WebDriverWait(driver,30).until(lambda _:bool(list((WORK/'downloads').glob('*.zip'))))
