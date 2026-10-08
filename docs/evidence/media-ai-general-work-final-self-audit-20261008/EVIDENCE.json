@@ -74,5 +74,13 @@
     "package_jobs": "SKIPPED",
     "external_job": "SKIPPED",
     "prior_base_model_job": "SKIPPED"
+  },
+  "remote_readback": {
+    "verified_publication_commit": "73fe0f131081cda35f82b2e104ae6bfdede0866a",
+    "text_files_matched": 23,
+    "binary_blobs_matched": 6,
+    "source_blobs_unchanged": 899,
+    "main_unchanged": true,
+    "pr23_open_draft": true
   }
 }
