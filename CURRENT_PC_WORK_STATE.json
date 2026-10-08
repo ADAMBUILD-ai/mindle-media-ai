@@ -1,41 +1,22 @@
 {
-  "schema_version": "SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
-  "status": "ACTIVE_SHORTFORM_EXTERNAL_CLOSEOUT_R1",
+  "schema_version": "PC-WORK-PAUSED-PENDING-GENERAL-AUDIT-R1",
+  "status": "PAUSED_WAITING_GENERAL_WORK_PASS",
   "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "control_plane_epoch": "MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_DIRECTIVE_v1.0_20261008.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_EVIDENCE_CONTRACT_v1.0_20261008.json",
-  "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_REVIEW_v1.0_20261008.md",
-    "evidence_json": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/EVIDENCE.json",
-    "detail_dir": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/"
-  },
-  "execution_scope": "External Marketing / AVORA / Shortform integration closeout only",
-  "product_changes_allowed": true,
+  "control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-PAUSED-PENDING-GENERAL-AUDIT-R1",
+  "active_directive": null,
+  "evidence_contract": null,
+  "product_changes_allowed": false,
   "package_build_allowed": false,
   "ui_changes_allowed": false,
-  "branch_mutation_allowed": true,
-  "allowed_branch_mutation_scope": "Canonical branch commits only; integration/runtime/config fixes only; no main merge/force push/new branch/worktree",
-  "pass_result": "PASS_MINDLE_MEDIA_AI_FULL_PRODUCT_E2E_RUNTIME_VERIFIED",
-  "previous_cycle_result": "BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION",
-  "frozen_pass": [
-    "PHOTO segment and 4x",
-    "VIDEO H264 browser playback",
-    "Korean STT UI",
-    "Save/Close/Reopen",
-    "Base Export",
-    "Python 66 / UI 2"
-  ],
-  "current_blockers": [
-    "MARKETING_SHORTFORM_BASE_URL reachable provider unavailable in runner",
-    "MARKETING_SHORTFORM_BRIDGE_TOKEN absent",
-    "Approved AVORA asset not reached",
-    "9:16 Shortform Preview not reached",
-    "Representative Approval not reached",
-    "Approved MP4 Export not reached"
-  ],
-  "dependency_request": "docs/commander/MINDLE_MEDIA_AI_MARKETING_SHORTFORM_INTEGRATION_DEPENDENCY_REQUEST_v1.0_20261008.md",
-  "next_cycle_after_pass": "Commander activates final approved UI implementation + one-click employee package rebuild/clean-host validation as separately authorized"
+  "branch_mutation_allowed": false,
+  "reason": "Owner requires a final General Work whole-product self-audit before PC Work",
+  "general_work_epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "general_work_directive": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md",
+  "general_work_contract": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_EVIDENCE_CONTRACT_v1.0_20261008.json",
+  "unblock_result": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
+  "external_integration_status": "DEFERRED_EXTERNAL",
+  "next_pc_work_strategy": "ONE_CLICK_RUNTIME_PACKAGE",
+  "abandoned_primary_strategy": "COMPLEX_EMPLOYEE_INSTALLER_PACKAGE"
 }
