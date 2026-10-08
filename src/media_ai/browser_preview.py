@@ -46,11 +46,13 @@ def create_preview(source: Path, expected_sha256: str, destination: Path) -> dic
     ffmpeg, _ = tools()
     version = subprocess.run([ffmpeg,'-version'],check=True,capture_output=True,text=True,timeout=30).stdout.splitlines()[0]
     encoders = subprocess.run([ffmpeg,'-hide_banner','-encoders'],check=True,capture_output=True,text=True,timeout=30).stdout
-    if 'libx264' not in encoders: raise RuntimeError('verified H.264 encoder libx264 unavailable; no codec fallback')
+    package = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', '').strip()
+    encoder = 'h264_mf' if package and os.name == 'nt' else 'libx264'
+    if encoder not in encoders: raise RuntimeError(f'verified H.264 encoder {encoder} unavailable; no codec fallback')
     destination.parent.mkdir(parents=True,exist_ok=True)
+    video_args = ['-c:v','h264_mf','-pix_fmt','yuv420p'] if encoder == 'h264_mf' else ['-c:v','libx264','-preset','veryfast','-pix_fmt','yuv420p']
     command = [ffmpeg,'-y','-i',str(source),'-map','0:v:0','-map','0:a?',
-               '-vf','scale=trunc(iw/2)*2:trunc(ih/2)*2','-c:v','libx264',
-               '-preset','veryfast','-pix_fmt','yuv420p','-c:a','aac',
+               '-vf','scale=trunc(iw/2)*2:trunc(ih/2)*2',*video_args,'-c:a','aac',
                '-movflags','+faststart',str(destination)]
     subprocess.run(command,check=True,capture_output=True,timeout=600)
     info = probe(destination)
@@ -59,7 +61,7 @@ def create_preview(source: Path, expected_sha256: str, destination: Path) -> dic
         raise RuntimeError('H.264/yuv420p/faststart preview validation failed')
     if digest(source) != expected_sha256: raise RuntimeError('original tracking output changed')
     return {'status':'H264_PREVIEW_CREATED','model_output_preserved':True,
-            'ffmpeg_version':version,'encoder':'libx264','command':command,
+            'ffmpeg_version':version,'encoder':encoder,'command':command,
             'input':{'path':str(source),'sha256':expected_sha256},
             'output':{'path':str(destination),'file_name':destination.name,'bytes':destination.stat().st_size,'sha256':digest(destination)},
             'ffprobe':info,'faststart':True,'gpu_used':False,'paid_compute':False}
