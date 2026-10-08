@@ -1,35 +1,27 @@
 {
-  "schema_version": "SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
-  "status": "ACTIVE_SHORTFORM_EXTERNAL_CLOSEOUT_R1",
+  "schema_version": "PC-WORK-PAUSED-PENDING-GENERAL-AUDIT-R1",
+  "status": "PAUSED_WAITING_GENERAL_WORK_PASS",
   "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "epoch": "MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_DIRECTIVE_v1.0_20261008.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_EVIDENCE_CONTRACT_v1.0_20261008.json",
-  "exact_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_REVIEW_v1.0_20261008.md",
-    "evidence_json": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/EVIDENCE.json",
-    "detail_dir": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/"
-  },
+  "epoch": "MEDIA-AI-20261008-PC-WORK-PAUSED-PENDING-GENERAL-AUDIT-R1",
+  "active_directive": null,
+  "evidence_contract": null,
+  "blocking_general_work_epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "blocking_general_work_directive": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md",
+  "unblock_result": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
+  "next_target": "ONE_CLICK_RUNTIME_PACKAGE",
+  "pause_notice": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_PAUSE_PENDING_GENERAL_SELF_AUDIT_NOTICE_v1.0_20261008.md",
+  "decision_lock": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_DECISION_LOCK_v1.0_20261008.md",
   "invariants": {
-    "one_active_epoch": true,
-    "one_active_directive": true,
-    "one_active_contract": true,
-    "base_product_pass_frozen": true,
-    "real_marketing_http_required": true,
-    "approved_avora_required": true,
-    "representative_approval_required": true,
-    "approved_mp4_required": true,
-    "mock_as_pass_forbidden": true,
-    "plaintext_secret_forbidden": true,
+    "pc_work_execution_forbidden": true,
+    "package_build_forbidden": true,
+    "external_marketing_avora_deferred": true,
     "main_merge_forbidden": true,
     "force_push_forbidden": true,
     "new_repo_or_worktree_forbidden": true,
-    "pr23_hold_do_not_merge": true,
-    "employee_package_rebuild_deferred": true
+    "pr23_hold_do_not_merge": true
   },
   "validator": "scripts/validate_pc_work_control_plane.py",
-  "validator_required_result": "CONTROL_PLANE_PASS",
-  "previous_control_plane": "MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1"
+  "validator_required_result": "PC_WORK_PAUSED_WAITING_GENERAL_WORK_PASS"
 }
