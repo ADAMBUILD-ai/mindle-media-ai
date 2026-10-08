@@ -13,7 +13,28 @@ permissions:
   contents: read
 
 jobs:
+  product-epoch-gate:
+    runs-on: ubuntu-latest
+    outputs:
+      package_allowed: ${{ steps.control.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - id: control
+        name: Honor active product Control Plane package lock
+        shell: python
+        run: |
+          import json, os
+          from pathlib import Path
+          state = json.loads(Path("CURRENT_PC_WORK_STATE.json").read_text())
+          allowed = state.get("package_build_allowed") is True
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write("allowed=" + str(allowed).lower() + "\n")
+          print("package_build_allowed=" + str(allowed).lower())
   package:
+    needs: product-epoch-gate
+    if: needs.product-epoch-gate.outputs.package_allowed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
