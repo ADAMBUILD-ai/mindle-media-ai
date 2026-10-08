@@ -1,0 +1,94 @@
+{
+  "record_type": "REMOTE_PREFLIGHT_READBACK_ONLY",
+  "status": "BLOCKED_RUNTIME_REDISTRIBUTION_OR_DEPENDENCY",
+  "evidence_commit": "858bed40bb254f9394fa25ab650399a64a212dcd",
+  "exact_files": 17,
+  "files": [
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/EVIDENCE.json",
+      "exact": true,
+      "blob_sha": "a06c292a0767a98801e9ea8af8fdcf361f4660c3"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/LICENSE_AND_REDISTRIBUTION_AUDIT.json",
+      "exact": true,
+      "blob_sha": "1fe73e904ea509e1ee4340a3db6d710d24a21673"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/CONTROL_PLANE_PREFLIGHT.json",
+      "exact": true,
+      "blob_sha": "5c02d10bf7c43b0d72214352c1858837825d7e4e"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/PACKAGE_MANIFEST.json",
+      "exact": true,
+      "blob_sha": "658f53569a0ee181543ba639371a8fe51b95a615"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/WINDOWS_HOST_PROFILE.json",
+      "exact": true,
+      "blob_sha": "d5f2d13b9aa434ed3598cd7422459308d0bb3d9f"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/FIRST_DOUBLE_CLICK_RESULT.json",
+      "exact": true,
+      "blob_sha": "93e18992c5d39ff8518285687ac50eeb36f88ec1"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/SECOND_DOUBLE_CLICK_SINGLE_INSTANCE_RESULT.json",
+      "exact": true,
+      "blob_sha": "b84cc7a6aa24e815277998aa0ad8937b8133e49a"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/BROWSER_AUTO_OPEN_RESULT.json",
+      "exact": true,
+      "blob_sha": "4e0873a669ff024741e1ce5a90b43ff80776d34d"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/WINDOWS_RUNTIME_FUNCTION_E2E.json",
+      "exact": true,
+      "blob_sha": "c6bfef120a0a30f34c00ff8faf65486906f25745"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/SAVE_REOPEN_COLD_RELAUNCH_RESULT.json",
+      "exact": true,
+      "blob_sha": "ad3d4b1a47e78d40d6b75b23b3ce644b348e105c"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/EXPORT_INTEGRITY_RESULT.json",
+      "exact": true,
+      "blob_sha": "013e8c0c2dab0a734d7aaec99052c2817c583a56"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/NEGATIVE_STARTUP_TESTS.json",
+      "exact": true,
+      "blob_sha": "a5e9455dcc873ba239538582dfb853fd190c75dc"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/PROCESS_PORT_LIFECYCLE.json",
+      "exact": true,
+      "blob_sha": "7c6c1472b13c9dff7b43d4f2c95fd6deb902df91"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/REGRESSION_RESULT.json",
+      "exact": true,
+      "blob_sha": "946fe0a5724aa550ce9d5972ce749261080804af"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/DELIVERY_ARTIFACT_SHA256.txt",
+      "exact": true,
+      "blob_sha": "b7fbd50e37e548fc91f8bf09808ad42810ef513d"
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/IMPLEMENTATION_PLAN.md",
+      "exact": true,
+      "blob_sha": "ae9f9593477d36a08396321b3e79eea0dc0aea1b"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_REVIEW_v1.0_20261008.md",
+      "exact": true,
+      "blob_sha": "709f9c574ffa51415b8bab5bfa4e60615c2533e1"
+    }
+  ],
+  "note": "Exact remote readback does not substitute for an executed PC validator, built delivery artifact or ordinary-user Windows E2E."
+}
