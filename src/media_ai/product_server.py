@@ -179,6 +179,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:
         try:
             route = unquote(urlparse(self.path).path); body = self._body()
+            self.server.requests.append({'method':'POST','path':route,'lane':body.get('lane'),
+                                         'operation':body.get('operation'),'request_id':body.get('request_id')})
             if route == "/api/integrations/marketing/shortform":
                 if os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT") or os.environ.get('MINDLE_DEFER_EXTERNAL_SHORTFORM') == '1':
                     self._json(503, {"status": "MARKETING_PROVIDER_UNAVAILABLE", "error": "마케팅 AI 연결이 필요합니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다."}); return

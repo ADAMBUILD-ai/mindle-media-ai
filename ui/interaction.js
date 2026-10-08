@@ -93,7 +93,7 @@ function bindEditor(kind) {
       editor.dispatchEvent(new CustomEvent("mindle:mode", { detail: { mode } }));
     });
   }
-  command.addEventListener("focus", () => { state.focus(); sync(); });
+  command.addEventListener("focus", () => { state.setText(command.value);state.focus();sync(); });
   command.addEventListener("input", (event) => { state.setText(event.target.value); sync(); });
   const submit = () => {
     try {

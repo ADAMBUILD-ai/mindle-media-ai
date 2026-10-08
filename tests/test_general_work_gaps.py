@@ -86,6 +86,8 @@ def test_base_product_needs_no_hf_token(tmp_path, monkeypatch):
     assert job['runtime_result']['result_size'] == [16, 9]
     with pytest.raises(RuntimeError, match='AI 모델'):
         service.vault._download_files('sam21', {})
+    with pytest.raises(RuntimeError, match='AI 모델'):
+        service.execute_isolated({'operation':'upscale'})
 
 
 def test_subtitle_font_and_split_validation_use_actual_ffmpeg(tmp_path):

@@ -300,6 +300,18 @@ def main_runtime():
         assert ready(driver,'photo')['sha256']==edited_photo['sha256'] and ready(driver,'video')['sha256']==edited_video['sha256']
         assert requests.get(base+'/api/projects/latest',timeout=10).json()['project']['job_ids']==edited_project['job_ids']
         passed('corrected_edits_save_close_reopen',project_id=edited_project['project_id'],photo=edited_photo,video=edited_video,job_ids=edited_project['job_ids'])
+        click(driver,'[data-editor="video"] [data-action="export"]')
+        edited_zip=WORK/'downloads'/f"{edited_project['project_id']}_export.zip"
+        WebDriverWait(driver,30).until(lambda _:edited_zip.is_file())
+        edited_sha=driver.find_element(By.CSS_SELECTOR,'[data-editor="video"]').get_attribute('data-export-sha256')
+        assert digest(edited_zip)==edited_sha
+        with zipfile.ZipFile(edited_zip) as archive:
+            assert archive.testzip() is None
+            edited_saved=json.loads(archive.read('project.json'))
+            for item in edited_saved['jobs']:
+                for output in item['outputs']:
+                    assert hashlib.sha256(archive.read(f"jobs/{item['job_id']}/{Path(output['path']).name}")).hexdigest()==output['sha256']
+        passed('corrected_edits_ui_export_integrity',sha256=edited_sha,project_id=edited_project['project_id'],bytes=edited_zip.stat().st_size)
         # Exact already verified segmentation/upscale/tracking/STT are reopened, not recomputed.
         for op in ('segment','upscale'):
             result=requests.post(base+'/api/projects/save',json={'job_ids':[FROZEN[op]['job_id']]},timeout=10).json()
@@ -332,8 +344,8 @@ def main_runtime():
         assert [(j['job_id'],j.get('preview_output',j['primary_output'])['sha256']) for j in reopened['jobs']]==[(j['job_id'],j.get('preview_output',j['primary_output'])['sha256']) for j in project['jobs']]
         passed('save_full_close_reopen_all_lanes',project_id=project['project_id'],saved_sha256=saved_sha,jobs=reopened['job_ids'])
         click(driver,'[data-editor="photo"] [data-action="export"]')
-        WebDriverWait(driver,30).until(lambda _:bool(list((WORK/'downloads').glob('*.zip'))))
-        archive=next((WORK/'downloads').glob('*.zip'))
+        archive=WORK/'downloads'/f"{project['project_id']}_export.zip"
+        WebDriverWait(driver,30).until(lambda _:archive.is_file())
         expected=driver.find_element(By.CSS_SELECTOR,'[data-editor="photo"]').get_attribute('data-export-sha256');assert digest(archive)==expected
         with zipfile.ZipFile(archive) as z:
             assert z.testzip() is None
@@ -377,6 +389,13 @@ def main_runtime():
         WebDriverWait(driver,10).until(lambda _:'기본 사진/영상 편집' in driver.find_element(By.CSS_SELECTOR,'[data-editor="video"] [data-command-error]').text)
         click(driver,'[data-action="shortform-mode"]');assert ready(driver,'video')['sha256']==video_before['sha256']
         passed('external_unavailable_base_continues',live_integration='DEFERRED_EXTERNAL',outbound_marketing_calls=0)
+        for selector,lane,operation in [('[data-action="ai-auto-edit"]','video','tracking'),('[data-video-tool="auto-subtitle"]','korean_audio','transcribe'),('[data-photo-tool="upscale"]','photo','upscale')]:
+            start_requests=len(server.requests);click(driver,selector)
+            kind='photo' if lane=='photo' else 'video'
+            WebDriverWait(driver,10).until(lambda _:'AI 모델이 준비되지 않았습니다' in driver.find_element(By.CSS_SELECTOR,f'[data-editor="{kind}"] [data-command-error]').text)
+            actual=[item for item in server.requests[start_requests:] if item.get('operation')==operation]
+            assert actual and actual[-1]['lane']==lane
+            passed('model_ui_dispatch_'+operation,actual_request=actual[-1],model_unavailable_surface_verified=True,inference_pass_source_run=37738880868,model_rerun=False)
         driver.save_screenshot(str(OUT/'FINAL_APPROVED_UI.png'))
         (OUT/'FINAL_DOM.html').write_text(driver.page_source,encoding='utf-8')
         controls=driver.execute_script('''return [...document.querySelectorAll('button,input,summary')].filter(e=>e.type!=='file').map((e,i)=>({index:i,tag:e.tagName,text:e.textContent.trim()||e.getAttribute('aria-label')||e.name||e.dataset.photoAdjust||e.dataset.videoOption||e.type,disabled:e.disabled===true,hidden:!e.getClientRects().length,attributes:Object.fromEntries([...e.attributes].map(a=>[a.name,a.value]))}));''')

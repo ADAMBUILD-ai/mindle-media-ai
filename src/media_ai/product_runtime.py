@@ -307,6 +307,8 @@ class ProductJobService:
 
     def execute_isolated(self, request: dict) -> dict:
         """Release native model runtimes between jobs and isolate OpenMP libraries."""
+        if self.vault.local_root is None and not self.vault.token:
+            raise RuntimeError('AI 모델이 준비되지 않았습니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다.')
         import subprocess
         report = self.jobs / f'worker-result-{uuid4()}.json'
         source_root = str(Path(__file__).resolve().parents[1])
