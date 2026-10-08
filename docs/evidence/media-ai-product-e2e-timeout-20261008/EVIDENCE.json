@@ -1,5 +1,5 @@
 {
-  "status": "PASS_TARGETED_REGRESSION_ONLY_FULL_PRODUCT_E2E_PENDING",
+  "status": "PASS_PHOTO_UPSCALE_PREVIEW_FIX_FULL_E2E_FAIL_VIDEO_PREVIEW",
   "source_commit": "3615d1080a97d5102d1c90866a3db945b2a17d9c",
   "failed_run": 37638260222,
   "artifact_id": 11491720522,
@@ -54,5 +54,46 @@
     "Approved AVORA asset integration",
     "Shortform preview and approved MP4 export",
     "Installed clean-Windows employee-package retest"
-  ]
+  ],
+  "fix_commit": "0e541626b7e0b6e9b5990e3ba3ead791dc98dd61",
+  "dependency_commit": "67eb55548ee9d36d8ee6b5791c3f5c8be5ea449f",
+  "retest": {
+    "run_id": 37735046818,
+    "artifact_id": 11531386885,
+    "artifact_digest_from_github": "sha256:a5899732ca87c5a0362f4b4d1ad8e3aa76c21992abc11827419a4cc861852efc",
+    "artifact_access": "Selected ZIP members read by HTTP range; whole ZIP SHA was not independently recomputed for retest",
+    "photo_segment": "TESTED_PASS_AND_BROWSER_IMAGE_DECODED",
+    "photo_upscale": "TESTED_PASS_AND_BROWSER_IMAGE_DECODED",
+    "upscale_dimensions": [
+      1920,
+      1080
+    ],
+    "upscale_output_sha256": "a6dcc897c81f9cb581f8317a626e5f3e11eae5601cecb11fef7f1a8c5d0498f8",
+    "tracking_backend": "TESTED_PASS",
+    "tracking_browser_preview": "FAILED_300_SECOND_WAIT_MEDIA_READINESS",
+    "tracking_codec": {
+      "codec_name": "mpeg4",
+      "codec_tag_string": "mp4v",
+      "width": 512,
+      "height": 292,
+      "pix_fmt": "yuv420p"
+    },
+    "video_cause": "Likely browser codec compatibility; API 201, GET output 200, matching DOM operation/jobId. No browser MediaError code was captured, so codec attribution remains an inference.",
+    "transcribe": "NOT_REACHED",
+    "save_export": "NOT_REACHED"
+  },
+  "baseline_ci": {
+    "run_id": 37735401505,
+    "result": "SUCCESS",
+    "python_tests": 64,
+    "ui_tests": 2,
+    "evidence_sync": "SUCCESS",
+    "package_source_validation": "SUCCESS"
+  },
+  "source_file_sha256": {
+    "src/media_ai/product_runtime.py": "50bdd3830efde1bbd60e5ac21a791e04fb46cc8fb96b15804a8e268ca6c61997",
+    "ui/photo_workspace.js": "05d2518c8a1a9e50f556f6892d5ae878bf9de211d9b21b47c40022c23fa19ab3",
+    "ui/product_integration.js": "12e894338472ec1e953381697c0f3a20b5b5660d9440a4b3ede14416951b8076",
+    "model_scout/run_product_e2e.py": "2268aefdd79913b7f635badf07c355d2cf7ce12fa69c68eaf8237fb968bd8b15"
+  }
 }

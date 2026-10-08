@@ -1,0 +1,41 @@
+{
+  "status": "TESTED_PASS",
+  "job_id": "7d82c1ed-f5a6-434a-8bb3-3df0c9854472",
+  "lane": "photo",
+  "operation": "import",
+  "command": "원본 불러오기",
+  "input": {
+    "file_name": "25b0754f-22d4-4eef-bc83-9ed151352c53_intel_sisr_1032_street_480x270.png",
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/25b0754f-22d4-4eef-bc83-9ed151352c53_intel_sisr_1032_street_480x270.png",
+    "bytes": 189281,
+    "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+  },
+  "primary_output": {
+    "file_name": "original_photo.png",
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/7d82c1ed-f5a6-434a-8bb3-3df0c9854472/original_photo.png",
+    "bytes": 193380,
+    "sha256": "c4c7ea8170b6f794b29ae1a43799b03dfa41bc09e09b9ff2dd48bf129089e260"
+  },
+  "outputs": [
+    {
+      "file_name": "25b0754f-22d4-4eef-bc83-9ed151352c53_intel_sisr_1032_street_480x270.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/25b0754f-22d4-4eef-bc83-9ed151352c53_intel_sisr_1032_street_480x270.png",
+      "bytes": 189281,
+      "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+    },
+    {
+      "file_name": "original_photo.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/7d82c1ed-f5a6-434a-8bb3-3df0c9854472/original_photo.png",
+      "bytes": 193380,
+      "sha256": "c4c7ea8170b6f794b29ae1a43799b03dfa41bc09e09b9ff2dd48bf129089e260"
+    }
+  ],
+  "runtime_result": {
+    "result_size": [
+      480,
+      270
+    ],
+    "model_inference": false,
+    "sampled_frames": 0
+  }
+}
