@@ -1,39 +1,46 @@
 {
-  "schema_version": "SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
+  "schema_version": "GENERAL-WORK-FINAL-SELF-AUDIT-R1",
   "status": "ACTIVE",
   "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
+  "active_control_plane_epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
   "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
-    "worker_a_shortform_integration": {
-      "role": "MINDLE MEDIA AI external Shortform integration executor",
-      "current_assignment": "Close real Marketing HTTP, approved AVORA asset, 9:16 Preview, Representative Approval, approved MP4 Export",
+    "general_work_final_audit": {
+      "role": "MINDLE MEDIA AI General Work final self-audit executor",
+      "current_assignment": "Audit the whole implemented product, close verified gaps, publish Evidence, and hand off only after PASS",
       "may_write": [
-        "src/** integration/runtime fixes only",
-        "ui/** runtime-state fixes only; no visual/layout redesign",
-        "tests/** integration tests",
-        "model_scout/** integration E2E only",
-        "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_REVIEW_v1.0_20261008.md",
-        "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/**"
+        "src/** verified product/runtime gap fixes",
+        "ui/** verified owner-UI/runtime gap fixes only",
+        "tests/** regression tests",
+        "model_scout/** E2E/audit tools",
+        "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md",
+        "docs/evidence/media-ai-general-work-final-self-audit-20261008/**"
       ],
       "may_not_change": [
         "main/default branch",
-        "approved UI visual/layout",
-        "Master SSOT",
+        "owner-approved UI beyond verified gap fixes",
         "historical Evidence deletion",
-        "employee package/dist",
-        "PR #23 merge state",
-        "secret/token plaintext"
+        "employee/runtime package build",
+        "external Marketing/AVORA live integration",
+        "PR #23 merge state"
       ]
     },
-    "worker_b_governance": {
-      "role": "Repository governance observer",
-      "current_assignment": "READ-ONLY until Shortform external Evidence publication",
+    "pc_work": {
+      "role": "PC Work runtime packaging executor",
+      "current_assignment": "PAUSED until General Work PASS",
       "may_write": [],
       "may_not_change": [
-        "all active product/integration/control-plane files"
+        "all repository content before General Work PASS"
+      ]
+    },
+    "external_marketing_avora": {
+      "role": "Deferred external integration",
+      "current_assignment": "DEFERRED_EXTERNAL — preserve requests/evidence only",
+      "may_write": [],
+      "may_not_change": [
+        "active General Work closeout"
       ]
     }
   },
