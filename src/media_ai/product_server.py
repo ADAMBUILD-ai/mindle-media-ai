@@ -93,10 +93,10 @@ class Handler(BaseHTTPRequestHandler):
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
         if route == '/api/projects/latest':
             try:
-                project = self.server.service.latest_project() if os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT') else None
+                project = self.server.service.latest_project()
                 if project:
                     for job in project['jobs']:
-                        primary = Path(job['primary_output']['path']).resolve()
+                        primary = Path(job.get('preview_output', job['primary_output'])['path']).resolve()
                         job['preview_url'] = '/files/' + primary.relative_to(self.server.data_dir.resolve()).as_posix()
                         source = Path(job['input']['path']).resolve()
                         job['input_url'] = '/files/' + source.relative_to(self.server.data_dir.resolve()).as_posix()
@@ -148,9 +148,16 @@ class Handler(BaseHTTPRequestHandler):
                 primary = Path(result['primary_output']['path']).relative_to(self.server.data_dir)
                 result['preview_url'] = '/files/' + primary.as_posix()
                 self._json(201, result); return
+            if route.startswith('/api/jobs/') and route.endswith('/preview'):
+                result = self.server.service.prepare_browser_preview(route.split('/')[3])
+                primary = Path(result['preview_output']['path']).relative_to(self.server.data_dir)
+                result['preview_url'] = '/files/' + primary.as_posix()
+                self._json(201, result); return
             if route == "/api/jobs":
                 result = self.server.service.execute_isolated(body)
-                primary = Path(result["primary_output"]["path"]).relative_to(self.server.data_dir)
+                if result.get("operation") == "tracking":
+                    result = self.server.service.prepare_browser_preview(result["job_id"])
+                primary = Path(result.get("preview_output", result["primary_output"])["path"]).relative_to(self.server.data_dir)
                 result["preview_url"] = "/files/" + primary.as_posix()
                 self._json(201, result); return
             if route == "/api/projects/save": self._json(201, self.server.service.save_project(body)); return
@@ -177,3 +184,4 @@ def main() -> None:
 
 
 if __name__ == "__main__": main()
+

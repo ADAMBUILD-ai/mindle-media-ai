@@ -26,7 +26,7 @@
   };
   const preview = (editor, result) => {
     const host = editor.querySelector("[data-preview]"); host.replaceChildren();
-    const output = result.primary_output;
+    const output = result.preview_output || result.primary_output;
     let element;
     if (result.lane === "photo") { element = document.createElement("img"); element.alt = result.operation === "photo_edit" ? "보정 결과" : result.operation === "import" ? "원본 사진" : "AI 편집 결과"; element.src = result.preview_url; }
     else if (result.lane === "video") { element = document.createElement("video"); element.controls = false; element.src = result.preview_url; }
@@ -34,6 +34,7 @@
     element.dataset.jobId = result.job_id; element.dataset.outputSha256 = output.sha256; host.append(element);
     if(result.lane==='video') {
       const clock=seconds=>new Date(Math.max(0,seconds||0)*1000).toISOString().slice(11,19);
+      element.addEventListener('error',()=>{ host.dataset.previewStatus='media-error'; message(editor, '영상 미리보기를 재생할 수 없습니다 · MediaError '+(element.error?.code || 0), true); });
       element.addEventListener('loadedmetadata',()=>{
         editor.querySelector('[data-video-duration]').textContent='/ '+clock(element.duration);
         editor.querySelector('.timeline-ruler').textContent=Array.from({length:6},(_,i)=>clock(element.duration*i/5)).join('　');
@@ -89,7 +90,7 @@
       if (file.datasetReference) body.reference = file.datasetReference;
       const response = await fetch("/api/jobs", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
       const result = await response.json(); if (!response.ok || result.status !== "TESTED_PASS") throw new Error(result.error || "실제 모델 Job 실패");
-      state.jobs.push(result.job_id);
+      if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
       if(result.lane==='korean_audio' && editor.querySelector('[data-preview] video')) {
         editor.querySelector('.track.purple').textContent='Subtitle Track · '+result.runtime_result.text;
         message(editor,result.runtime_result.text);
@@ -115,9 +116,9 @@
       editor.dataset.exportStatus = "exported"; editor.dataset.exportSha256 = result.export.sha256; message(editor, `내보내기 완료 · ${result.export.file_name}`);
     } catch (error) { message(editor, error.message, true); }
   }
-  document.addEventListener('mindle:video-result', async (event) => { state.jobs.push(event.detail.job_id);preview(document.querySelector('[data-editor="video"]'),event.detail);await rememberResult(event.detail); });
+  document.addEventListener('mindle:video-result', async (event) => { if (!state.jobs.includes(event.detail.job_id)) state.jobs.push(event.detail.job_id);preview(document.querySelector('[data-editor="video"]'),event.detail);await rememberResult(event.detail); });
   document.addEventListener('mindle:photo-result', async (event) => {
-    const result = event.detail; state.jobs.push(result.job_id);
+    const result = event.detail; if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
     preview(document.querySelector('[data-editor="photo"]'), result);await rememberResult(result);
   });
   ["video", "photo"].forEach((kind) => {
@@ -139,7 +140,7 @@
         message(editor,'원본을 불러오고 있습니다.');
         const response=await fetch('/api/media/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,filename:state[kind].name,content_base64:await readFile(state[kind])})});
         const result=await response.json();if(!response.ok) throw new Error(result.error||'원본 불러오기 실패');
-        state.jobs.push(result.job_id);preview(editor,result);message(editor,'원본 불러오기 완료');
+        if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);preview(editor,result);message(editor,'원본 불러오기 완료');
       } catch(error) {message(editor,error.message,true);}
 
     });
@@ -184,4 +185,5 @@
   }
   restoreSavedProject();
 })();
+
 

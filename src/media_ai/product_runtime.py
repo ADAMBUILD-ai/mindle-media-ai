@@ -219,6 +219,22 @@ class ProductJobService:
             except (OSError, ValueError, KeyError, TypeError):
                 continue
 
+    def prepare_browser_preview(self, job_id: str) -> dict:
+        from .browser_preview import create_preview
+        record = self.records[job_id]
+        if record.get('lane') != 'video' or record.get('operation') != 'tracking':
+            raise ValueError('tracking video required')
+        original = record['primary_output']
+        source = Path(original['path'])
+        result = create_preview(source, original['sha256'], source.with_name(source.stem+'_browser_h264.mp4'))
+        derivative = result['output']
+        updated = {**record, 'preview_output':derivative, 'preview_derivative':result,
+                   'outputs':[item for item in record['outputs'] if item['path'] != derivative['path']] + [derivative]}
+        evidence = source.parent / 'PREVIEW_DERIVATIVE_EVIDENCE.json'
+        evidence.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+        self.records[job_id] = updated
+        return updated
+
     def latest_project(self) -> dict | None:
         saved = sorted(self.projects.glob('*.json'), key=lambda p: p.stat().st_mtime, reverse=True)
         if not saved:
@@ -530,7 +546,7 @@ class ProductJobService:
         return record
 
     def save_project(self, payload: dict) -> dict:
-        job_ids = list(payload.get("job_ids", []))
+        job_ids = list(dict.fromkeys(payload.get("job_ids", [])))
         selected = [self.records[job_id] for job_id in job_ids if job_id in self.records]
         if not selected or any(item["status"] != "TESTED_PASS" for item in selected): raise ValueError("only completed real jobs can be saved")
         project_id = str(payload.get("project_id") or uuid4())
@@ -552,4 +568,5 @@ class ProductJobService:
                     if path.is_file(): package.write(path, f"jobs/{job['job_id']}/{path.name}")
         if not zipfile.is_zipfile(export): raise RuntimeError("export archive validation failed")
         return {"status": "EXPORTED", "project_id": project_id, "export": file_record(export)}
+
 

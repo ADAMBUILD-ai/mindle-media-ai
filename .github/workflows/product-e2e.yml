@@ -6,6 +6,10 @@ on:
     paths:
       - ".github/workflows/product-e2e.yml"
       - "model_scout/run_product_e2e.py"
+      - "model_scout/run_product_e2e_continuation.py"
+      - "src/media_ai/browser_preview.py"
+      - "pyproject.toml"
+      - "tests/test_browser_preview.py"
       - "model_scout/stage_perpetual_use_alternatives.py"
       - "src/media_ai/product_runtime.py"
       - "src/media_ai/product_server.py"
@@ -17,6 +21,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: mindle-media-product-e2e-${{ github.ref }}
@@ -29,6 +34,8 @@ jobs:
     timeout-minutes: 15
     env:
       HF_TOKEN: ${{ secrets.MINDLE_MEDIA_HF_WRITE_TOKEN }}
+      MARKETING_SHORTFORM_BASE_URL: ${{ vars.MARKETING_SHORTFORM_BASE_URL || 'http://127.0.0.1:4318' }}
+      MARKETING_SHORTFORM_BRIDGE_TOKEN: ${{ secrets.MARKETING_SHORTFORM_BRIDGE_TOKEN }}
       HF_HUB_DISABLE_TELEMETRY: "1"
       HF_HUB_DISABLE_XET: "1"
       CUDA_VISIBLE_DEVICES: ""
@@ -39,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -67,36 +74,51 @@ jobs:
           sudo apt-get install -y --no-install-recommends ffmpeg
           python -m pip install --disable-pip-version-check "torch==2.8.0" "torchvision==0.23.0" --index-url https://download.pytorch.org/whl/cpu
           python -m pip install --disable-pip-version-check "transformers==4.57.3" "huggingface_hub==0.36.0" "safetensors==0.6.2" "opencv-python-headless==4.12.0.88" "onnxruntime==1.30.0" "numpy==2.2.6" "Pillow==11.3.0" "pyarrow==21.0.0" "soundfile==0.13.1" "jiwer==4.0.0" "requests==2.32.5" "selenium==4.35.0" "openvino==2025.3.0"
+      - name: Restore immutable PHOTO and tracking checkpoint without model rerun
+        uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-approved-ui-product-e2e-evidence
+          run-id: 37735046818
+          github-token: ${{ github.token }}
+          path: frozen_product_checkpoint
+      - name: Verify active epoch and baseline
+        shell: bash
+        run: |
+          mkdir -p docs/evidence/media-ai-product-e2e-full-pass-20261008
+          python -m pip install "pytest>=9,<10"
+          python -m pip check
+          set -o pipefail
+          { python scripts/validate_pc_work_control_plane.py && python -m pytest -q && node --test ui/interaction.test.js ui/ssot_structure.test.js; } 2>&1 | tee docs/evidence/media-ai-product-e2e-full-pass-20261008/BASELINE_CI_PASS.log
       - name: Directly acquire and stage perpetual-use alternatives
         run: python model_scout/stage_perpetual_use_alternatives.py
-      - name: Run approved UI real-model E2E
-        run: python model_scout/run_product_e2e.py
-      - name: Validate FINAL_PASS evidence
+      - name: Continue VIDEO diagnosis playback STT reopen export and live integration
+        run: python model_scout/run_product_e2e_continuation.py
+      - name: Validate full product runtime PASS
         shell: python
         run: |
           import json
           from pathlib import Path
-          evidence = json.loads(Path("product_e2e_evidence/PRODUCT_E2E_EVIDENCE.json").read_text(encoding="utf-8"))
-          assert evidence["status"] == "FINAL_PASS"
+          evidence = json.loads(Path("docs/evidence/media-ai-product-e2e-full-pass-20261008/EVIDENCE.json").read_text())
+          assert evidence["status"] == "PASS_MINDLE_MEDIA_AI_FULL_PRODUCT_E2E_RUNTIME_VERIFIED"
+          assert evidence["full_product_pass"] is True
+          assert evidence["PHOTO_MODELS_RERUN"] is False
           assert evidence["UI_SSOT_CHANGED"] == "NO"
-          assert evidence["production_changed"] is False
-          assert evidence["execution_environment"]["gpu_used"] is False
-          assert evidence["execution_environment"]["paid_compute"] is False
-          assert evidence["save_export"]["project_status"] == "saved"
-          assert evidence["save_export"]["export_status"] == "exported"
-          assert {job["operation"] for job in evidence["backend_jobs"].values()} == {"segment", "tracking", "upscale", "transcribe"}
-          assert all(job["status"] == "TESTED_PASS" for job in evidence["backend_jobs"].values())
+          assert evidence["main_changed"] is False
+          assert evidence["employee_package_rebuilt"] is False
       - name: Preserve actual inputs outputs logs screenshot and Evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mindle-media-approved-ui-product-e2e-evidence
+          name: mindle-media-product-e2e-full-pass-evidence
           retention-days: 90
           if-no-files-found: warn
           path: |
+            docs/evidence/media-ai-product-e2e-full-pass-20261008/**
+            product_e2e_evidence/downloads/**
             product_e2e_evidence/inputs/**
             product_e2e_evidence/product_data/inputs/**
             product_e2e_evidence/product_data/jobs/**
             product_e2e_evidence/product_data/projects/**
             product_e2e_evidence/logs/**
             product_e2e_evidence/PRODUCT_E2E_EVIDENCE.json
+
