@@ -82,6 +82,13 @@ def file_record(path: Path) -> dict:
     return {"file_name": path.name, "path": str(path), "bytes": path.stat().st_size, "sha256": sha256_file(path)}
 
 
+def h264_encoder_args(package_root: str | None) -> list[str]:
+    """Use the LGPL Windows Media Foundation encoder only in packaged Windows mode."""
+    if package_root and os.name == "nt":
+        return ["-c:v", "h264_mf", "-pix_fmt", "yuv420p"]
+    return ["-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p"]
+
+
 class ProductModelVault:
     """Read-only, one-process cache materializer for the three immutable models."""
 
@@ -484,7 +491,7 @@ class ProductJobService:
             command.extend(['-stream_loop', '-1', '-i', str(background_source)])
         if options.get('start'): command.extend(['-ss', str(max(0,float(options['start'])))])
         if options.get('duration'): command.extend(['-t', str(max(.1,float(options['duration'])))])
-        command.extend(['-vf', ','.join(vf), '-c:v','libx264','-preset','veryfast','-pix_fmt','yuv420p'])
+        command.extend(['-vf', ','.join(vf), *h264_encoder_args(package)])
         if options.get('mute'): command.append('-an')
         elif background_source:
             ffprobe = str(Path(package) / 'tools/ffmpeg/ffprobe.exe') if package else 'ffprobe'
@@ -507,8 +514,8 @@ class ProductJobService:
             if split_at <= 0: raise ValueError('분할할 위치를 시작 초에 입력하세요.')
             first = job_dir / 'split_1.mp4'; second = job_dir / 'split_2.mp4'
             for path, trim in ((first, ['-t', str(split_at)]), (second, ['-ss', str(split_at)])):
-                subprocess.run([ffmpeg,'-y','-i',str(source),*trim,'-c:v','libx264','-preset','veryfast',
-                                '-pix_fmt','yuv420p','-c:a','aac','-movflags','+faststart',str(path)],
+                subprocess.run([ffmpeg,'-y','-i',str(source),*trim,*h264_encoder_args(package),
+                                '-c:a','aac','-movflags','+faststart',str(path)],
                                check=True,capture_output=True,timeout=600)
             output = first
             extra_outputs.append(file_record(second))
@@ -541,9 +548,8 @@ class ProductJobService:
             ffmpeg = str(Path(package) / 'tools/ffmpeg/ffmpeg.exe') if package else 'ffmpeg'
             ffprobe = str(Path(package) / 'tools/ffmpeg/ffprobe.exe') if package else 'ffprobe'
             command = [ffmpeg, '-y', '-i', str(source), '-map', '0:v:0', '-map', '0:a?',
-                       '-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2', '-c:v', 'libx264',
-                       '-preset', 'veryfast', '-pix_fmt', 'yuv420p', '-c:a', 'aac',
-                       '-movflags', '+faststart', str(output)]
+                       '-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2', *h264_encoder_args(package),
+                       '-c:a', 'aac', '-movflags', '+faststart', str(output)]
             subprocess.run(command, check=True, capture_output=True, timeout=600)
             probe = subprocess.run([ffprobe, '-v', 'error', '-select_streams', 'v:0',
                                     '-show_entries', 'stream=width,height', '-of', 'json', str(output)],
