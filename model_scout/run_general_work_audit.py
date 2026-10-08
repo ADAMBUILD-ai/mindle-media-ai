@@ -21,7 +21,7 @@ from pathlib import Path
 from uuid import uuid4
 
 import requests
-from PIL import Image
+from PIL import Image, ImageChops
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -146,6 +146,11 @@ def photo_edit(driver,base,selector,value=None,apply=False):
     record=job(base,after['job_id'])
     assert after['sha256']==record['primary_output']['sha256']
     assert after['sha256']!=before['sha256']
+    before_job=job(base,before['job_id'])
+    before_path=before_job.get('preview_output',before_job['primary_output'])['path']
+    with Image.open(before_path) as prior, Image.open(record['primary_output']['path']) as output:
+        if prior.size==output.size:
+            assert ImageChops.difference(prior.convert('RGB'),output.convert('RGB')).getbbox() is not None
     return {'before':before,'after':after,'runtime':record}
 
 def video_edit(driver,base,selector,options=None,apply=False):
@@ -160,7 +165,7 @@ def video_edit(driver,base,selector,options=None,apply=False):
 
 def command(driver,kind,text,operation):
     before=ready(driver,kind)
-    field=driver.find_element(By.CSS_SELECTOR,f'[data-command="{kind}"]');field.send_keys(text);field.send_keys(Keys.ENTER)
+    field=driver.find_element(By.CSS_SELECTOR,f'[data-command="{kind}"]');field.clear();field.send_keys(text);field.send_keys(Keys.ENTER)
     return ready(driver,kind,operation,before['job_id'])
 
 def main_runtime():
@@ -226,6 +231,10 @@ def main_runtime():
         click(driver,'[data-video-play]');WebDriverWait(driver,10).until(lambda _:driver.execute_script('const v=document.querySelector("[data-preview] video");return v.currentTime>.1&&!v.paused;'))
         click(driver,'[data-video-play]');assert driver.execute_script('return document.querySelector("[data-preview] video").paused')
         set_value(driver,'[data-video-seek]',50);WebDriverWait(driver,10).until(lambda _:driver.execute_script('return document.querySelector("[data-preview] video").currentTime>1.5'))
+        seek_state=driver.execute_script('''const v=document.querySelector('[data-preview] video');return {currentSrc:v.currentSrc,readyState:v.readyState,videoWidth:v.videoWidth,currentTime:v.currentTime,MediaError_code:v.error?.code||null,seekable:Array.from({length:v.seekable.length},(_,i)=>[v.seekable.start(i),v.seekable.end(i)])};''')
+        response=requests.get(seek_state['currentSrc'],headers={'Range':'bytes=0-31'},timeout=10)
+        assert response.status_code==206 and len(response.content)==32
+        passed('video_seek_byte_range',browser=seek_state,http_status=response.status_code,content_range=response.headers['Content-Range'])
         click(driver,'[data-video-start]');click(driver,'[data-video-mute]');assert driver.execute_script('return document.querySelector("[data-preview] video").muted')
         click(driver,'[data-video-end]');passed('video_play_pause_seek_mute_start_end')
         for tool in ('rotate','fade','effect','highlight','shortform'):
@@ -260,9 +269,11 @@ def main_runtime():
         before=ready(driver,'video');after=command(driver,'video','밝게 편집해줘','video_edit')
         assert job(base,after['job_id'])['runtime_result']['options']['brightness']==15
         passed('video_command',browser=after)
-        field=driver.find_element(By.CSS_SELECTOR,'[data-command="video"]');field.send_keys('지원하지 않는 미지의 명령');field.send_keys(Keys.ENTER)
+        field=driver.find_element(By.CSS_SELECTOR,'[data-command="video"]');field.clear();field.send_keys('지원하지 않는 미지의 명령');field.send_keys(Keys.ENTER)
         WebDriverWait(driver,10).until(lambda _:'지원하는 영상 지시' in driver.find_element(By.CSS_SELECTOR,'[data-editor="video"] [data-command-error]').text)
         passed('unsupported_video_command_rejected')
+        assert driver.find_element(By.CSS_SELECTOR,'[data-command="video"]').get_attribute('value')=='지원하지 않는 미지의 명령'
+        passed('failed_command_retained_for_retry')
         # Existing command chips now focus real controls or prepare supported commands.
         click(driver,'[data-editor="video"] .command-chips button:nth-child(2)')
         assert driver.find_element(By.CSS_SELECTOR,'[data-command="video"]').get_attribute('value')=='영상 효과 적용해줘'
@@ -350,7 +361,7 @@ def main_runtime():
         assert ready(driver,'video')['sha256']==video_before['sha256'] and ready(driver,'photo')['sha256']==photo_before['sha256']
         passed('new_project_and_open_existing',project_id=project['project_id'])
         click(driver,'[data-action="shortform-mode"]')
-        field=driver.find_element(By.CSS_SELECTOR,'[data-command="video"]');field.send_keys('제품 광고 15초 숏폼');field.send_keys(Keys.ENTER)
+        field=driver.find_element(By.CSS_SELECTOR,'[data-command="video"]');field.clear();field.send_keys('제품 광고 15초 숏폼');field.send_keys(Keys.ENTER)
         WebDriverWait(driver,10).until(lambda _:'기본 사진/영상 편집' in driver.find_element(By.CSS_SELECTOR,'[data-editor="video"] [data-command-error]').text)
         click(driver,'[data-action="shortform-mode"]');assert ready(driver,'video')['sha256']==video_before['sha256']
         passed('external_unavailable_base_continues',live_integration='DEFERRED_EXTERNAL',outbound_marketing_calls=0)
@@ -372,6 +383,15 @@ def main_runtime():
         clips=process_video(inputs/'영상 원본.mp4',WORK/'legacy_concat.mp4',{'clips':[str(inputs/'영상 원본.mp4')]})
         info=probe(WORK/'legacy_concat.mp4');assert info['streams'][0]['width']==320 and info['streams'][0]['height']==180 and float(info['format']['duration'])>7
         passed('legacy_concat_original_ratio',runtime=clips,probe=info)
+    except Exception:
+        if driver:
+            try:
+                driver.save_screenshot(str(OUT/'RUNTIME_FAILURE.png'))
+                (OUT/'RUNTIME_FAILURE_DOM.html').write_text(driver.page_source,encoding='utf-8')
+                write('RUNTIME_FAILURE_DIAGNOSTICS.json',{'videos':driver.execute_script('''return [...document.querySelectorAll('video')].map(v=>({MediaError_code:v.error?.code||null,error_message:v.error?.message||null,readyState:v.readyState,videoWidth:v.videoWidth,currentSrc:v.currentSrc,currentTime:v.currentTime,duration:v.duration,seekable:Array.from({length:v.seekable.length},(_,i)=>[v.seekable.start(i),v.seekable.end(i)])}));'''),'console':driver.get_log('browser')})
+            except Exception:
+                pass
+        raise
     finally:
         if driver:
             driver.quit()

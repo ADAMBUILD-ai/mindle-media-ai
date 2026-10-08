@@ -145,3 +145,27 @@ def test_background_removal_uses_mask_without_changing_segmentation(tmp_path):
     saved=service.save_project({'job_ids':['seg']})
     assert ProductJobService(tmp_path,'').latest_project()['jobs'][0]['preview_output']['sha256']==result['preview_output']['sha256']
     assert service.export_project(saved['project_id'])['status']=='EXPORTED'
+
+
+def test_actual_http_byte_ranges_allow_browser_seek(tmp_path):
+    import threading
+    import requests
+    from media_ai.product_server import create_server
+    data=tmp_path/'data';data.mkdir()
+    payload=bytes(range(256))*4
+    (data/'video.mp4').write_bytes(payload)
+    server=create_server(tmp_path,data,'',0)
+    thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+    url=f'http://127.0.0.1:{server.server_port}/files/video.mp4'
+    try:
+        for header,expected in [('bytes=100-199',payload[100:200]),('bytes=900-',payload[900:]),('bytes=-10',payload[-10:])]:
+            response=requests.get(url,headers={'Range':header},timeout=5)
+            assert response.status_code==206 and response.content==expected
+            assert response.headers['Accept-Ranges']=='bytes'
+            assert response.headers['Content-Range'].endswith('/1024')
+        for header in ('bytes=2048-','bytes=-0','bytes=10-5','bytes=0-1,10-20'):
+            response=requests.get(url,headers={'Range':header},timeout=5)
+            assert response.status_code==416 and response.content==b''
+        assert requests.get(url,timeout=5).content==payload
+    finally:
+        server.shutdown();thread.join(5);server.server_close()

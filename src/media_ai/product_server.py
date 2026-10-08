@@ -95,8 +95,41 @@ class Handler(BaseHTTPRequestHandler):
     def _file(self, path: Path) -> None:
         if not path.is_file() or self.server.data_dir not in path.resolve().parents:
             self.send_error(HTTPStatus.NOT_FOUND); return
-        content = path.read_bytes()
-        self.send_response(HTTPStatus.OK); self._no_cache_headers(); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "application/octet-stream"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
+        size = path.stat().st_size
+        start, end, code = 0, size - 1, HTTPStatus.OK
+        requested = self.headers.get('Range')
+        if requested:
+            import re
+            match = re.fullmatch(r'bytes=(\d*)-(\d*)', requested.strip())
+            try:
+                if not match or not any(match.groups()):raise ValueError('invalid range')
+                first, last = match.groups()
+                if first:
+                    start = int(first);end = min(int(last), size-1) if last else size-1
+                else:
+                    length = int(last)
+                    if length <= 0:raise ValueError('invalid suffix range')
+                    start = max(0, size-length)
+                if start > end or start >= size:raise ValueError('unsatisfiable range')
+                code = HTTPStatus.PARTIAL_CONTENT
+            except ValueError:
+                self.send_response(HTTPStatus.REQUESTED_RANGE_NOT_SATISFIABLE)
+                self.send_header('Content-Range', f'bytes */{size}')
+                self.send_header('Content-Length', '0');self.end_headers();return
+        self.send_response(code);self._no_cache_headers()
+        self.send_header('Accept-Ranges','bytes')
+        self.send_header('Content-Type',mimetypes.guess_type(path.name)[0] or 'application/octet-stream')
+        self.send_header('Content-Length',str(max(0,end-start+1)))
+        if code == HTTPStatus.PARTIAL_CONTENT:self.send_header('Content-Range',f'bytes {start}-{end}/{size}')
+        self.end_headers()
+        with path.open('rb') as stream:
+            stream.seek(start);remaining=end-start+1
+            while remaining > 0:
+                block=stream.read(min(65536,remaining))
+                if not block:break
+                try:self.wfile.write(block)
+                except (BrokenPipeError, ConnectionResetError):break
+                remaining-=len(block)
 
     def _no_cache_headers(self) -> None:
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
