@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "export": {
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/projects/c2b5e325-46c6-4ec9-9547-fef602e23e25_export.zip",
+    "bytes": 2873475,
+    "sha256": "0453fd2bfb2950a91510a0f47ab8ca9ad4c9ba84a9a1da42515b4205f42c43a5"
+  },
+  "zip_crc": "PASS",
+  "members": [
+    "project.json",
+    "jobs/1d19ee90-daa1-47d0-afd5-a1b6ffa49d89/photo_mask.png",
+    "jobs/1d19ee90-daa1-47d0-afd5-a1b6ffa49d89/photo_overlay.png",
+    "jobs/aeb15991-38be-4e51-84d3-d5acf283b79f/upscaled_4x.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_00_mask.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_00_overlay.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_01_mask.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_01_overlay.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_02_mask.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_02_overlay.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_03_mask.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_03_overlay.png",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_overlays.mp4",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/tracking.json",
+    "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_overlays_browser_h264.mp4",
+    "jobs/3ebbc7e6-050b-433d-bd63-938be99507fc/korean_transcript.json"
+  ],
+  "ui_export_sha_matches": true,
+  "browser_download": {
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/downloads/c2b5e325-46c6-4ec9-9547-fef602e23e25_export.zip",
+    "bytes": 2873475,
+    "sha256": "0453fd2bfb2950a91510a0f47ab8ca9ad4c9ba84a9a1da42515b4205f42c43a5"
+  }
+}
