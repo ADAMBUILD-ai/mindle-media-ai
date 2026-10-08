@@ -404,6 +404,13 @@ def main_runtime():
         for selector in ('[data-photo-fullscreen]','[data-video-fullscreen]'):
             click(driver,selector);WebDriverWait(driver,5).until(lambda _:driver.execute_script('return Boolean(document.fullscreenElement)'))
             driver.execute_script('document.exitFullscreen()');passed(selector.strip('[]'))
+        click(driver,'[data-shell="home"]')
+        WebDriverWait(driver,10).until(lambda _:driver.execute_script('return window.scrollY<1'))
+        assert driver.find_element(By.CSS_SELECTOR,'.brand').text=='MINDLE MEDIA AI'
+        passed('shell_home_title_owner_ui_lock',title=driver.find_element(By.CSS_SELECTOR,'.brand').text,photo_corrections=len(driver.find_elements(By.CSS_SELECTOR,'[data-photo-adjust]')),shortform_entries=len(driver.find_elements(By.CSS_SELECTOR,'[data-action="shortform-mode"]')))
+        driver.save_screenshot(str(OUT/'APPROVED_UI_HEADER.png'))
+        assert driver.find_element(By.CSS_SELECTOR,'[data-before-after]').get_attribute('data-before-after')=='not-implemented'
+        passed('unimplemented_capability_declarations_corrected',before_after='NOT_IMPLEMENTED',batch='NOT_IMPLEMENTED',timeline='read-only-status')
         console=driver.get_log('browser');write('BROWSER_CONSOLE.json',console)
         errors=[entry for entry in console if entry['level']=='SEVERE' and ('Uncaught' in entry['message'] or 'ReferenceError' in entry['message'])]
         assert not errors,errors
