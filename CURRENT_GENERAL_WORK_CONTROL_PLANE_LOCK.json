@@ -1,35 +1,24 @@
 {
   "schema_version": "GENERAL-WORK-FINAL-SELF-AUDIT-R1",
-  "status": "ACTIVE_GENERAL_WORK_FINAL_SELF_AUDIT",
+  "status": "COMPLETE_HANDOFF_TO_PC_WORK",
   "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
-  "decision_lock": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_DECISION_LOCK_v1.0_20261008.md",
-  "active_directive": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md",
-  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_EVIDENCE_CONTRACT_v1.0_20261008.json",
-  "required_outputs": {
-    "review": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md",
-    "evidence_json": "docs/evidence/media-ai-general-work-final-self-audit-20261008/EVIDENCE.json",
-    "feature_inventory": "docs/evidence/media-ai-general-work-final-self-audit-20261008/FEATURE_INVENTORY.json",
-    "gap_register": "docs/evidence/media-ai-general-work-final-self-audit-20261008/GAP_REGISTER.json",
-    "ui_audit": "docs/evidence/media-ai-general-work-final-self-audit-20261008/UI_RUNTIME_AUDIT.json",
-    "code_audit": "docs/evidence/media-ai-general-work-final-self-audit-20261008/CODE_AUDIT.json",
-    "runtime_receipt": "docs/evidence/media-ai-general-work-final-self-audit-20261008/RUNTIME_E2E_RECEIPT.json",
-    "regression": "docs/evidence/media-ai-general-work-final-self-audit-20261008/REGRESSION_RESULT.json",
-    "remote_readback": "docs/evidence/media-ai-general-work-final-self-audit-20261008/REMOTE_READBACK.txt"
-  },
+  "final_result": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
+  "final_head": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
+  "review": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md",
+  "evidence": "docs/evidence/media-ai-general-work-final-self-audit-20261008/EVIDENCE.json",
+  "handoff": "docs/commander/MINDLE_MEDIA_AI_GENERAL_TO_PC_WORK_ONE_CLICK_HANDOFF_v1.0_20261008.md",
+  "active": false,
+  "external_marketing_avora_status": "DEFERRED_EXTERNAL",
+  "next_active_epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
   "invariants": {
-    "one_active_general_work_epoch": true,
     "evidence_less_pass_forbidden": true,
-    "external_marketing_avora_deferred": true,
-    "pc_work_paused_until_pass": true,
-    "package_build_forbidden": true,
     "main_merge_forbidden": true,
     "force_push_forbidden": true,
-    "new_repo_or_worktree_forbidden": true,
     "pr23_hold_do_not_merge": true
   },
   "validator": "scripts/validate_general_work_control_plane.py",
-  "validator_required_result": "GENERAL_WORK_CONTROL_PLANE_PASS"
+  "validator_required_result": "GENERAL_WORK_COMPLETE_HANDOFF_TO_PC_WORK"
 }
