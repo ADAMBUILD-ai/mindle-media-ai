@@ -115,7 +115,7 @@ jobs:
           if (-not (Test-Path $msys)) { throw "MSYS2 MINGW64 shell unavailable on windows-latest" }
           & $msys -defterm -no-start -mingw64 -c "pacman -S --noconfirm --needed git make diffutils nasm yasm mingw-w64-x86_64-toolchain mingw-w64-x86_64-pkg-config"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & $msys -defterm -no-start -mingw64 -c 'export PATH=/mingw64/bin:/usr/bin:$PATH; rm -rf ffmpeg-src ffmpeg-install; git clone --depth 1 --branch n6.1.1 https://github.com/FFmpeg/FFmpeg.git ffmpeg-src; cd ffmpeg-src; ./configure --prefix=../ffmpeg-install --disable-debug --disable-doc --disable-gpl --disable-nonfree --disable-libx264 --disable-libx265 --disable-libfdk-aac --enable-shared; make -j2; make install'
+          & $msys -defterm -no-start -mingw64 -c 'cd "$(cygpath -u "$GITHUB_WORKSPACE")"; export PATH=/mingw64/bin:/usr/bin:$PATH; rm -rf ffmpeg-src ffmpeg-install; git clone --depth 1 --branch n6.1.1 https://github.com/FFmpeg/FFmpeg.git ffmpeg-src; cd ffmpeg-src; ./configure --prefix="$(pwd)/../ffmpeg-install" --disable-debug --disable-doc --disable-gpl --disable-nonfree --disable-libx264 --disable-libx265 --disable-libfdk-aac --enable-shared; make -j2; make install'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           New-Item -ItemType Directory -Force package_inputs/ffmpeg | Out-Null
           Copy-Item ffmpeg-install/bin/* package_inputs/ffmpeg/ -Force
@@ -139,7 +139,7 @@ jobs:
       - name: Assemble portable one-click package
         shell: pwsh
         run: |
-          python scripts/build_one_click_runtime.py --repo . --python-embed package_inputs/python-embed --site-packages package_inputs/site-packages --model-root package_inputs/models-root --ffmpeg-root package_inputs/ffmpeg --launcher-exe launcher_publish/MINDLE_MEDIA_AI_RUN.exe --output dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64 --build-commit "\${{ github.sha }}"
+          python scripts/build_one_click_runtime.py --repo . --python-embed package_inputs/python-embed --site-packages package_inputs/site-packages --model-root package_inputs/models-root --ffmpeg-root package_inputs/ffmpeg --launcher-exe launcher_publish/MINDLE_MEDIA_AI_RUN.exe --output dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64 --build-commit "${{ github.sha }}"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           Copy-Item package_inputs/PYTHON_EMBED_AUDIT.json dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/LICENSES/
           Copy-Item package_inputs/FFMPEG_DISTRIBUTION_AUDIT.json dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/LICENSES/
