@@ -1,31 +1,31 @@
 {
-  "schema_version": "PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
+  "schema_version": "PC-WORK-ONE-CLICK-RUNTIME-BLOCKER-RECOVERY-R1",
   "status": "ACTIVE",
   "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
+  "active_control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-BLOCKER-RECOVERY-R1",
   "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
     "general_work": {
       "role": "Completed General Work",
-      "current_assignment": "COMPLETE / READ-ONLY handoff baseline",
+      "current_assignment": "COMPLETE / READ-ONLY",
       "may_write": [],
       "may_not_change": [
         "General Work PASS evidence and frozen product baseline"
       ]
     },
-    "pc_work_one_click_runtime": {
-      "role": "Windows PC Work one-click runtime executor",
-      "current_assignment": "Build and validate one-click Windows runtime package from General Work PASS baseline",
+    "pc_work_blocker_recovery": {
+      "role": "Windows PC Work one-click blocker recovery executor",
+      "current_assignment": "Recover exec tool, close VC/FFmpeg redistribution gates, build MINDLE_MEDIA_AI_RUN.exe, execute Windows E2E",
       "may_write": [
         "scripts/** Windows runtime/launcher/package fixes",
-        ".github/workflows/** only when needed for PC runtime/package validation",
-        "src/** only for verified Windows runtime lifecycle defects",
-        "ui/** only runtime lifecycle wiring without visual/layout redesign",
-        "tests/** PC/runtime regression tests",
-        "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_REVIEW_v1.0_20261008.md",
-        "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/**"
+        ".github/workflows/** only when required for PC package validation",
+        "src/** only verified Windows runtime lifecycle fixes",
+        "tests/**",
+        "LICENSES/** verified redistribution records/notices",
+        "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_BLOCKER_RECOVERY_REVIEW_v1.0_20261008.md",
+        "docs/evidence/media-ai-pc-work-one-click-runtime-blocker-recovery-20261008/**"
       ],
       "may_not_change": [
         "main/default branch",
@@ -40,7 +40,7 @@
       "current_assignment": "DEFERRED_EXTERNAL",
       "may_write": [],
       "may_not_change": [
-        "active PC Work closeout"
+        "active PC Work blocker recovery"
       ]
     }
   },
