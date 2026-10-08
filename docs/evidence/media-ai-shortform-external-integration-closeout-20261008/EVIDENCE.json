@@ -39,5 +39,11 @@
     "administration_tools_available": false,
     "configuration_by_integration_owner_required": true
   },
-  "full_product_pass_forbidden": true
+  "full_product_pass_forbidden": true,
+  "remote_readback": {
+    "status": "PASS",
+    "verified_publication_commit": "1c997074a53bd7271fd0fdef1140f5368ead5a48",
+    "verified_files": 12,
+    "frozen_files_unchanged": 97
+  }
 }

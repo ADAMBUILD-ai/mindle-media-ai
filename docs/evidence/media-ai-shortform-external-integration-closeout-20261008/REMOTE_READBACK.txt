@@ -1,7 +1,27 @@
-PRE_PUBLICATION_REMOTE_READBACK_PASS
+REMOTE_READBACK_PASS
 Epoch=MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1
-Source commit=144abf748fda7630304ebec6a338c4d7e7c9095b
+Verified publication commit=1c997074a53bd7271fd0fdef1140f5368ead5a48
+Actual runner source=144abf748fda7630304ebec6a338c4d7e7c9095b
+Run=37744311046
+Artifact=11534494818 SHA256=3857b9c4b8056d3c311a3b9fbe34c6d1f280e1b75b627ff2a40f9868b00c7fd8
 Main=797da297f588780ad2d608deea3b5af8f05af450
-PR23 draft=true merged=false HOLD / DO NOT MERGE
-Current canonical=144abf748fda7630304ebec6a338c4d7e7c9095b
-Final evidence file readback will be appended after publication.
+PR23 draft/open merged=false HOLD / DO NOT MERGE
+Product src, UI, Control Plane 4, validator, active directive/contract and previous product Evidence: all 97 frozen files unchanged against provided HEAD.
+Base E2E and both package jobs SKIPPED; real HTTP NOT_REACHED because URL missing; token_present=false.
+Final status=BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION; full product PASS forbidden.
+
+Published files verified by exact content readback:
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/APPROVED_MP4_EXPORT_RESULT.json git_blob_sha=08dc38bba147618b12354c25752f112370ce0247
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/REPRESENTATIVE_APPROVAL_RESULT.json git_blob_sha=08dc38bba147618b12354c25752f112370ce0247
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/AVORA_APPROVED_ASSET_RESULT.json git_blob_sha=08dc38bba147618b12354c25752f112370ce0247
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/PROVIDER_REACHABILITY.json git_blob_sha=8b23693509189a96a17ee16a71b683bb7c20f808
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/REGRESSION_RESULT.json git_blob_sha=e00d8da90620b714fa27fc0c4bb86a0ae665095e
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/SHORTFORM_9X16_BROWSER_PREVIEW.json git_blob_sha=08dc38bba147618b12354c25752f112370ce0247
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/CONTROL_PLANE.log git_blob_sha=781e0a4d5b9247802033fed0aa25e202dbc638ad
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/EVIDENCE.json git_blob_sha=8d62cb92479a89929ef0435657a63948ce0e41c1
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/MARKETING_HTTP_RESULT.json git_blob_sha=26778dd761058fe5629477a64e354611235476db
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/REMOTE_READBACK.txt git_blob_sha=653cb70bdd2ea63e100b233f6a4846e73921c8cf
+docs/evidence/media-ai-shortform-external-integration-closeout-20261008/ACTIONS_RUN.log git_blob_sha=6c1fb6556440f771d8b971210a26816924225d68
+docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_REVIEW_v1.0_20261008.md git_blob_sha=36cc2b2d3b62a64227598225f0221e526bff5d8e
+
+This record and the enriched machine readback are committed as documentation-only children of the verified publication; their contents are read back again after commit creation.
