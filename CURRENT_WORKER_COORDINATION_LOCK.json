@@ -1,38 +1,39 @@
 {
-  "schema_version": "PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1",
+  "schema_version": "SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
   "status": "ACTIVE",
   "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1",
+  "active_control_plane_epoch": "MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
   "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
-    "worker_a_product_e2e": {
-      "role": "MINDLE MEDIA AI product E2E recovery executor",
-      "current_assignment": "Close VIDEO browser preview, then STT, Save/Reopen, Export, Marketing/AVORA/Shortform MP4 per active directive",
+    "worker_a_shortform_integration": {
+      "role": "MINDLE MEDIA AI external Shortform integration executor",
+      "current_assignment": "Close real Marketing HTTP, approved AVORA asset, 9:16 Preview, Representative Approval, approved MP4 Export",
       "may_write": [
-        "src/** product runtime fixes",
+        "src/** integration/runtime fixes only",
         "ui/** runtime-state fixes only; no visual/layout redesign",
-        "model_scout/**",
-        "tests/**",
-        "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_REVIEW_v1.0_20261008.md",
-        "docs/evidence/media-ai-product-e2e-full-pass-20261008/**"
+        "tests/** integration tests",
+        "model_scout/** integration E2E only",
+        "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_REVIEW_v1.0_20261008.md",
+        "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/**"
       ],
       "may_not_change": [
         "main/default branch",
         "approved UI visual/layout",
         "Master SSOT",
         "historical Evidence deletion",
-        "employee distribution package/dist in this cycle",
-        "PR #23 merge state"
+        "employee package/dist",
+        "PR #23 merge state",
+        "secret/token plaintext"
       ]
     },
     "worker_b_governance": {
       "role": "Repository governance observer",
-      "current_assignment": "READ-ONLY until full product E2E Evidence publication",
+      "current_assignment": "READ-ONLY until Shortform external Evidence publication",
       "may_write": [],
       "may_not_change": [
-        "all product/runtime/control-plane files during active execution"
+        "all active product/integration/control-plane files"
       ]
     }
   },
