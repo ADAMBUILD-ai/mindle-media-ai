@@ -269,6 +269,9 @@ def main_runtime():
         passed('video_background_music',browser=after)
         before=ready(driver,'video');after=command(driver,'video','밝게 편집해줘','video_edit')
         assert job(base,after['job_id'])['runtime_result']['options']['brightness']==15
+        assert job(base,after['job_id'])['runtime_result']['options']['backgroundVolume']==.35
+        assert '추가한 배경음악' in driver.find_element(By.CSS_SELECTOR,'.track.green').text
+        passed('background_music_state_after_followup_edit',runtime=job(base,after['job_id']),track_text=driver.find_element(By.CSS_SELECTOR,'.track.green').text)
         passed('video_command',browser=after)
         field=driver.find_element(By.CSS_SELECTOR,'[data-command="video"]');field.clear();field.send_keys('지원하지 않는 미지의 명령');field.send_keys(Keys.ENTER)
         WebDriverWait(driver,10).until(lambda _:'지원하는 영상 지시' in driver.find_element(By.CSS_SELECTOR,'[data-editor="video"] [data-command-error]').text)

@@ -22,6 +22,7 @@
       const toggles=Object.fromEntries([...editor.querySelectorAll('[data-video-toggle]')].map(input=>[input.dataset.videoToggle,input.checked]));
       const options={...toggles,split:splitPending,start:value('start'),duration:value('duration'),speed:value('speed'),volume:value('volume'),brightness:value('brightness'),contrast:value('contrast'),saturation:value('saturation'),...extra};
       const bgm=editor.querySelector('[data-bgm-input]').files[0];
+      if(bgm && options.backgroundVolume==null) options.backgroundVolume=.35;
       let background=null;
       if(bgm) background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const r=new FileReader();r.onerror=reject;r.onload=()=>resolve(String(r.result).split(',')[1]);r.readAsDataURL(bgm);})};
       const response=await fetch('/api/video-edits',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:file.name,content_base64:base64,command:label,options,background})});
