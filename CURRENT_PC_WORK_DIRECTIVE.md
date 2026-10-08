@@ -1,33 +1,35 @@
 # MINDLE MEDIA AI — CURRENT PC WORK DIRECTIVE
 
-STATUS: ACTIVE — SHORTFORM EXTERNAL INTEGRATION CLOSEOUT
+STATUS: PAUSED — WAITING FOR GENERAL WORK FINAL SELF-AUDIT PASS
 DATE: 2026-10-08
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-PC-WORK-PAUSED-PENDING-GENERAL-AUDIT-R1
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
 
-## PREVIOUS RESULT
-BASE PRODUCT RUNTIME: PASS
-FULL PRODUCT E2E: BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION
+## DO NOT EXECUTE PC WORK YET
 
-## SINGLE ACTIVE DIRECTIVE
-docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_DIRECTIVE_v1.0_20261008.md
+PC Work is intentionally paused.
 
-## SINGLE ACTIVE EVIDENCE CONTRACT
-docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_EVIDENCE_CONTRACT_v1.0_20261008.json
+Active work is General Work final self-audit:
+docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md
 
-## EXECUTION RULE
-Reuse all passed base product gates.
-Close only:
-- actual Marketing provider reachability
-- real bridge authentication
-- approved AVORA asset
-- 9:16 Shortform browser Preview
-- Representative Approval
-- approved MP4 Export
-- final Evidence and remote readback
+Owner decision lock:
+docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_DECISION_LOCK_v1.0_20261008.md
 
-Do not rebuild employee package until full product E2E PASS.
+Pause notice:
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_PAUSE_PENDING_GENERAL_SELF_AUDIT_NOTICE_v1.0_20261008.md
 
-## FINAL PASS
-PASS_MINDLE_MEDIA_AI_FULL_PRODUCT_E2E_RUNTIME_VERIFIED
+## UNBLOCK CONDITION
+
+PC Work may resume only after General Work publishes:
+PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK
+
+## NEXT PC WORK TARGET AFTER UNBLOCK
+
+ONE-CLICK RUNTIME PACKAGE
+
+Required employee experience:
+double-click once -> runtime starts -> browser opens -> MINDLE MEDIA AI usable.
+
+Do not resume the old complex employee installer/package plan.
+Do not wait on Marketing/AVORA; those external integrations are deferred.
