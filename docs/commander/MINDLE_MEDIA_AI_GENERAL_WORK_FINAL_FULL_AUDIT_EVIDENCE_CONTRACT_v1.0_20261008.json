@@ -1,0 +1,48 @@
+{
+  "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-FULL-AUDIT-R1",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_FULL_AUDIT_DIRECTIVE_v1.0_20261008.md",
+  "required_final_status": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FULL_AUDIT_RUNTIME_VERIFIED",
+  "allowed_statuses": ["PASS", "PARTIAL", "FAIL", "NOT_IMPLEMENTED", "BLOCKED_EXTERNAL"],
+  "pass_requires_evidence": true,
+  "forbidden_shortcuts": [
+    "document_only_pass",
+    "code_only_pass",
+    "mock_only_pass",
+    "skip_failure_as_pass",
+    "timeout_only_fix",
+    "ui_redesign",
+    "main_merge",
+    "pr23_merge",
+    "package_before_general_work_pass"
+  ],
+  "external_only_blockers": [
+    "MARKETING_SHORTFORM_BASE_URL",
+    "MARKETING_SHORTFORM_BRIDGE_TOKEN",
+    "AVORA_APPROVED_ASSET",
+    "EXTERNAL_9_16_APPROVAL",
+    "EXTERNAL_AD_MP4_DELIVERY"
+  ],
+  "required_domains": [
+    "code_inventory",
+    "photo",
+    "video",
+    "ai_conversation_editing",
+    "stt",
+    "save_close_reopen",
+    "export",
+    "error_handling",
+    "ui_runtime_binding",
+    "ci_regression"
+  ],
+  "required_evidence_fields": [
+    "status",
+    "execution_path",
+    "input",
+    "actual_output",
+    "code_path",
+    "runtime_log_or_test",
+    "artifact_sha256_if_applicable",
+    "commit"
+  ],
+  "handoff_after_pass": "PC_WORK_ONE_CLICK_RUNTIME_LAUNCHER_CLOSEOUT"
+}
