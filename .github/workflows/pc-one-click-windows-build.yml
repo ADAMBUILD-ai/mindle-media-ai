@@ -20,7 +20,7 @@ permissions:
 
 concurrency:
   group: media-ai-one-click-windows-build
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build-one-click-runtime:
