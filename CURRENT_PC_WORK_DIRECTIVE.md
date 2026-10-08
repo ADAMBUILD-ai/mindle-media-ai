@@ -1,6 +1,6 @@
 # MINDLE MEDIA AI — CURRENT PC WORK DIRECTIVE
 
-STATUS: ACTIVE — ONE-CLICK RUNTIME BLOCKER RECOVERY
+STATUS: BLOCKED — PC EXECUTION ENVIRONMENT
 DATE: 2026-10-08
 CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-BLOCKER-RECOVERY-R1
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
@@ -10,27 +10,37 @@ BRANCH: feature/ad-shortform-bridge-p0-20260926
 PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK
 GENERAL_WORK_FINAL_HEAD: 9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb
 
-## PREVIOUS PC PREFLIGHT
-HEAD: dbc57ebbc6a576b4f5c1089f12797812f538afa3
-RESULT: BLOCKED_RUNTIME_REDISTRIBUTION_OR_DEPENDENCY
-
-## SINGLE ACTIVE DIRECTIVE
+## ACTIVE DIRECTIVE
 docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_BLOCKER_RECOVERY_DIRECTIVE_v1.0_20261008.md
 
-## SINGLE ACTIVE EVIDENCE CONTRACT
+## EVIDENCE CONTRACT
 docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_BLOCKER_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261008.json
 
-## HANDOFF
-docs/commander/MINDLE_MEDIA_AI_GENERAL_TO_PC_WORK_ONE_CLICK_HANDOFF_v1.0_20261008.md
+## BLOCK NOTICE
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXECUTION_ENVIRONMENT_BLOCKED_NOTICE_v1.0_20261008.md
 
-## EXECUTION ORDER
-1. recover PC execution tool and run validator
-2. close VC runtime dependency/redistribution evidence
-3. close FFmpeg redistribution path
-4. build MINDLE_MEDIA_AI_RUN.exe
-5. run actual Windows employee-style double-click E2E
-6. publish Evidence and remote readback
+## CURRENT RESULT
+PC_EXECUTION_ENVIRONMENT_BLOCKED
 
+Observed tool startup error:
+helper_unknown_error: setup refresh had errors
+
+## NOT RUN
+- local validator
+- MINDLE_MEDIA_AI_RUN.exe build
+- Windows double-click E2E
+- target-PC VC runtime audit
+- target-PC FFmpeg replacement/redistribution validation
+
+## RESUME CONDITION
+When the PC execution tool is restored:
+1. re-read this file
+2. run scripts/validate_pc_work_control_plane.py
+3. record PC_EXEC_TOOL_RECOVERY_RESULT.json
+4. continue the existing blocker-recovery directive from the VC/FFmpeg gate
+
+Do not restart General Work.
+Do not return to the old manual installer flow.
 External Marketing / AVORA remains DEFERRED_EXTERNAL.
 
 ## FINAL PASS
