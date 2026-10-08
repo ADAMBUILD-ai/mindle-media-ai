@@ -47,7 +47,7 @@
       editor.querySelector('.track.cyan').textContent='Effect Track · '+(options.effect?'영상 효과':options.fade?'장면 전환':'효과 없음');
       editor.querySelector('.track.green').textContent='Audio Track · '+(options.backgroundVolume!=null?'추가한 배경음악':'원본 오디오');
     }
-    host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
+    host.dataset.operation = result.operation; host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
     if (result.lane === "video") { const track = editor.querySelector(".track.film"); if (track) track.textContent = result.operation === "tracking" ? `영상 Track · SAM tracking · ${result.runtime_result.sampled_frames} samples` : "영상 Track · "+(result.operation === "import" ? "원본 영상" : "편집 결과"); }
   };
   async function executeShortform(editor, detail) {
@@ -184,3 +184,4 @@
   }
   restoreSavedProject();
 })();
+

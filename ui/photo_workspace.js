@@ -110,7 +110,7 @@
   editor.querySelector('[data-action="photo-generate"]').addEventListener('click',()=>say('현재 패키지에는 이미지 생성 모델이 포함돼 있지 않습니다. 사진 보정과 배경 제거는 계속 사용할 수 있습니다.'));
   editor.querySelectorAll('[data-action="photo-auto"]').forEach(button=>button.addEventListener('click',()=>tool('auto')));
   window.mindlePhotoCommand=async text=>{
-    if(/배경|분리|세그먼트|업스케일|고화질|해상도|4배|4x/i.test(text)) return false;
+    if(/배경|분리|분할|세그먼트|업스케일|고화질|해상도|4배|4x/i.test(text)) return false;
     let known=false;
     if(/따뜻|노을/.test(text)) {adjust('temperature',20);known=true;}
     if(/차갑/.test(text)) {adjust('temperature',-20);known=true;}
@@ -124,3 +124,4 @@
     return true;
   };
 })();
+

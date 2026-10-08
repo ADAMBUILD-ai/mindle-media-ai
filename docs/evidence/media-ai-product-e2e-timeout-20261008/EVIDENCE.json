@@ -1,0 +1,58 @@
+{
+  "status": "PASS_TARGETED_REGRESSION_ONLY_FULL_PRODUCT_E2E_PENDING",
+  "source_commit": "3615d1080a97d5102d1c90866a3db945b2a17d9c",
+  "failed_run": 37638260222,
+  "artifact_id": 11491720522,
+  "artifact_sha256": "b45a2ee7163af6a4c85e9c5b31348015495234d496698cdb574b4388d1cf91fb",
+  "root_cause": "Remote model-cache mode incorrectly inherited package-only offline worker settings; private revision lookup failed before inference.",
+  "additional_defects": [
+    "Photo workspace consumed Korean 분할 command without model dispatch",
+    "wait_preview accepted import as segment",
+    "Failure waited 300 seconds despite backend error",
+    "STT expected pre while current UI preserves video",
+    "Final model set included non-model import jobs"
+  ],
+  "original_run": {
+    "alternative_staging": "SUCCESS",
+    "photo_import": "TESTED_PASS",
+    "photo_segment": "NOT_EXECUTED_NO_EVIDENCE",
+    "photo_upscale": "FAILED_BEFORE_INFERENCE_OFFLINE_CACHE_LOOKUP",
+    "tracking": "NOT_REACHED",
+    "transcribe": "NOT_REACHED",
+    "save_export": "NOT_REACHED"
+  },
+  "validation": {
+    "python": {
+      "chunk_id": "458989",
+      "wall_time_seconds": 0.10121477,
+      "exit_code": 0,
+      "original_token_count": 220,
+      "output": "test_exact_operation_and_decoded_image_pass (test_upscale_regression.PreviewTests.test_exact_operation_and_decoded_image_pass) ... ok\ntest_failure_exits_without_300_second_wait (test_upscale_regression.PreviewTests.test_failure_exits_without_300_second_wait) ... ok\ntest_import_cannot_pass_as_segment (test_upscale_regression.PreviewTests.test_import_cannot_pass_as_segment) ... ok\ntest_unloaded_image_cannot_pass (test_upscale_regression.PreviewTests.test_unloaded_image_cannot_pass) ... ok\ntest_employee_package_stays_offline_and_token_free (test_upscale_regression.WorkerTests.test_employee_package_stays_offline_and_token_free) ... ok\ntest_remote_vault_can_read_pinned_private_cache (test_upscale_regression.WorkerTests.test_remote_vault_can_read_pinned_private_cache) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.095s\n\nOK\n"
+    },
+    "javascript": {
+      "chunk_id": "e4d94e",
+      "wall_time_seconds": 0.000026118,
+      "exit_code": 0,
+      "original_token_count": 20,
+      "output": "PASS: 3 model commands reach model router; unsupported command stays handled\n"
+    },
+    "syntax": {
+      "chunk_id": "75e0a7",
+      "wall_time_seconds": 0.078195474,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "test_limit": "Python methods are extracted via AST; worker tests execute real child processes against a stub service. Preview and JS routing use test doubles. No real model inference or actual browser E2E performed locally."
+  },
+  "ui_visual_files_changed": false,
+  "pr23": "HOLD / DO NOT MERGE",
+  "main_changed": false,
+  "pending": [
+    "Full corrected GitHub Actions real-model browser E2E",
+    "Actual Marketing HTTP integration",
+    "Approved AVORA asset integration",
+    "Shortform preview and approved MP4 export",
+    "Installed clean-Windows employee-package retest"
+  ]
+}

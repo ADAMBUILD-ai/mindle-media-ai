@@ -266,17 +266,17 @@ class ProductJobService:
         report = self.jobs / f'worker-result-{uuid4()}.json'
         source_root = str(Path(__file__).resolve().parents[1])
         worker = (
-            'import sys,json;from pathlib import Path\n'
+            'import sys,json,os;from pathlib import Path\n'
             'def deny_network(event,args):\n'
             ' if event == "socket.connect": raise PermissionError("Offline model worker forbids network connections")\n'
-            'sys.addaudithook(deny_network)\n'
+            'if os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip(): sys.addaudithook(deny_network)\n'
             'try:\n'
             ' from openvino_telemetry.main import Telemetry\n'
             ' Telemetry.opt_out(tid=None)\n'
             'except ImportError: pass\n'
             f'sys.path.insert(0,{source_root!r})\n'
             'from media_ai.product_runtime import ProductJobService;'
-            'service=ProductJobService(Path(sys.argv[1]),"");'
+            'service=ProductJobService(Path(sys.argv[1]),os.environ.get("HF_TOKEN",""));'
             'result=service.execute(json.load(sys.stdin));'
             'Path(sys.argv[2]).write_text(json.dumps(result,ensure_ascii=False),encoding="utf-8")'
         )
@@ -284,10 +284,17 @@ class ProductJobService:
         (self.root / 'runtime-profile/appdata').mkdir(parents=True, exist_ok=True)
         environment.update(OMP_NUM_THREADS='2', MKL_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2',
                            HF_HUB_DISABLE_TELEMETRY='1', LOCALAPPDATA=str(self.root / 'runtime-profile'),
-                           APPDATA=str(self.root / 'runtime-profile/appdata'), HF_HUB_OFFLINE='1',
-                           TRANSFORMERS_OFFLINE='1', HF_HOME=str(self.root / 'offline-worker-cache'))
-        for key in ('HF_TOKEN', 'HUGGING_FACE_HUB_TOKEN'):
-            environment.pop(key, None)
+                           APPDATA=str(self.root / 'runtime-profile/appdata'))
+        if self.vault.local_root is not None:
+            environment.update(HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1',
+                               HF_HOME=str(self.root / 'offline-worker-cache'))
+            for key in ('HF_TOKEN', 'HUGGING_FACE_HUB_TOKEN'):
+                environment.pop(key, None)
+        else:
+            # The CI vault reads immutable private revisions; it is not an offline package.
+            environment.pop('HF_HUB_OFFLINE', None)
+            environment.pop('TRANSFORMERS_OFFLINE', None)
+            environment['HF_TOKEN'] = self.vault.token
         try:
             result = subprocess.run([sys.executable, '-X', 'utf8', '-c', worker, str(self.root), str(report)],
                                     input=json.dumps(request, ensure_ascii=False), encoding='utf-8',
@@ -545,3 +552,4 @@ class ProductJobService:
                     if path.is_file(): package.write(path, f"jobs/{job['job_id']}/{path.name}")
         if not zipfile.is_zipfile(export): raise RuntimeError("export archive validation failed")
         return {"status": "EXPORTED", "project_id": project_id, "export": file_record(export)}
+
