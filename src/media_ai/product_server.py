@@ -185,10 +185,16 @@ class Handler(BaseHTTPRequestHandler):
                 primary = Path(result['preview_output']['path']).relative_to(self.server.data_dir)
                 result['preview_url'] = '/files/' + primary.as_posix()
                 self._json(201, result); return
+            if route.startswith('/api/jobs/') and route.endswith('/background'):
+                result = self.server.service.prepare_photo_background(route.split('/')[3])
+                result['preview_url'] = '/files/' + Path(result['preview_output']['path']).relative_to(self.server.data_dir).as_posix()
+                self._json(201, result); return
             if route == "/api/jobs":
                 result = self.server.run_once(route, body, self.server.service.execute_isolated)
                 if result.get("operation") == "tracking":
                     result = self.server.service.prepare_browser_preview(result["job_id"])
+                if result.get('operation') == 'segment' and any(word in str(body.get('command', '')) for word in ('배경', 'background')):
+                    result = self.server.service.prepare_photo_background(result['job_id'])
                 primary = Path(result.get("preview_output", result["primary_output"])["path"]).relative_to(self.server.data_dir)
                 result["preview_url"] = "/files/" + primary.as_posix()
                 self._json(201, result); return

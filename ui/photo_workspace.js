@@ -66,13 +66,13 @@
     const image=editor.querySelector('[data-preview] img');if(image) image.style.filter='';
   }
   async function apply(label='사진 보정') {
-    if(busy) return;busy=true;say('보정을 적용하고 있습니다.');
+    if(busy || window.mindleEditPending('photo')) return;busy=true;window.mindleBeginEdit('photo');say('보정을 적용하고 있습니다.');
     try {
       const rendered=await renderPhoto();
       const response=await fetch('/api/photo-edits',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:'photo_edit.png',content_base64:rendered.base64,command:label,options:rendered.options})});
       const result=await response.json();if(!response.ok) throw new Error(result.error||'사진 보정 저장 실패');
       await window.mindleAcceptResult(result);reset();say('보정 적용 완료 · 프로젝트 저장으로 보관할 수 있습니다.');
-    } catch(error) {say(error.message);} finally {busy=false;}
+    } catch(error) {say(error.message);} finally {busy=false;window.mindleEndEdit('photo');}
   }
   const adjust=(key,value)=>{const input=editor.querySelector(`[data-photo-adjust="${key}"]`);input.value=value;input.nextElementSibling.value=value;};
   editor.querySelector('[data-photo-apply]').addEventListener('click',()=>apply());

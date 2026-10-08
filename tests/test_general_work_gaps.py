@@ -121,3 +121,27 @@ def test_legacy_video_concat_newlines_and_original_ratio(tmp_path):
     result=probe(output)
     assert [result['streams'][0]['width'],result['streams'][0]['height']]==[120,240]
     assert float(result['format']['duration'])>=2
+
+
+def test_background_removal_uses_mask_without_changing_segmentation(tmp_path):
+    from media_ai.product_runtime import file_record
+    service=ProductJobService(tmp_path,'')
+    original=tmp_path/'inputs/원본.png';Image.new('RGB',(32,18),(120,80,30)).save(original)
+    directory=tmp_path/'jobs/sam';directory.mkdir()
+    overlay=directory/'photo_overlay.png';Image.new('RGB',(16,9),(255,30,30)).save(overlay)
+    mask=directory/'photo_mask.png';alpha=Image.new('L',(16,9),0)
+    for y in range(9):
+        for x in range(8):alpha.putpixel((x,y),255)
+    alpha.save(mask)
+    overlay_hash=file_record(overlay)['sha256']
+    service.records['seg']={'status':'TESTED_PASS','job_id':'seg','operation':'segment','lane':'photo','input':file_record(original),'primary_output':file_record(overlay),'outputs':[file_record(mask),file_record(overlay)]}
+    result=service.prepare_photo_background('seg')
+    with Image.open(result['preview_output']['path']) as output:
+        assert output.size==(32,18) and output.mode=='RGBA'
+        assert output.getpixel((2,2))==(120,80,30,255)
+        assert output.getpixel((30,2))==(120,80,30,0)
+    assert file_record(overlay)['sha256']==overlay_hash
+    assert result['background_removal']['model_rerun'] is False
+    saved=service.save_project({'job_ids':['seg']})
+    assert ProductJobService(tmp_path,'').latest_project()['jobs'][0]['preview_output']['sha256']==result['preview_output']['sha256']
+    assert service.export_project(saved['project_id'])['status']=='EXPORTED'

@@ -243,6 +243,33 @@ class ProductJobService:
             return None
         return json.loads(saved[0].read_text(encoding='utf-8'))
 
+    def prepare_photo_background(self, job_id: str) -> dict:
+        """Apply the verified SAM mask as alpha; keep original mask/overlay evidence intact."""
+        from PIL import Image
+        record = self.records[job_id]
+        if record.get('operation') != 'segment' or record.get('lane') != 'photo':
+            raise ValueError('완료된 사진 분할이 필요합니다.')
+        mask_info = next((item for item in record['outputs'] if Path(item['path']).name == 'photo_mask.png'), None)
+        if mask_info is None:
+            raise ValueError('사진 분할 마스크를 찾을 수 없습니다.')
+        for item in (record['input'], mask_info, record['primary_output']):
+            if file_record(Path(item['path']))['sha256'] != item['sha256']:
+                raise ValueError('사진 분할 원본의 무결성 확인에 실패했습니다.')
+        output = Path(mask_info['path']).with_name('photo_foreground_rgba.png')
+        with Image.open(record['input']['path']) as source, Image.open(mask_info['path']) as mask:
+            image = source.convert('RGBA')
+            alpha = mask.convert('L').resize(image.size, Image.Resampling.NEAREST)
+            if alpha.getextrema() != (0, 255):
+                raise ValueError('유효한 전경/배경 분할 마스크가 필요합니다.')
+            image.putalpha(alpha);image.save(output, 'PNG')
+        derivative = file_record(output)
+        updated = {**record, 'preview_output':derivative,
+                   'background_removal':{'engine':'Pillow_apply_verified_SAM_mask', 'model_rerun':False,
+                                         'source_sha256':record['input']['sha256'], 'mask_sha256':mask_info['sha256']},
+                   'outputs':[item for item in record['outputs'] if item['path'] != derivative['path']] + [derivative]}
+        self.records[job_id] = updated
+        return updated
+
     def _store_input(self, filename: str, content_b64: str) -> Path:
         safe = filename.replace('\\', '/').rsplit('/', 1)[-1]
         if not safe or safe in {".", ".."}: raise ValueError("invalid input filename")

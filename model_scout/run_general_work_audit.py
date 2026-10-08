@@ -200,7 +200,7 @@ def main_runtime():
         click(driver,'[data-photo-tool="similar"]');assert '참고 이미지' in driver.find_element(By.CSS_SELECTOR,'[data-photo-status]').text
         driver.find_element(By.CSS_SELECTOR,'[data-reference-input="photo"]').send_keys(str(inputs/'landscape.png')+'\n'+str(inputs/'portrait.png'))
         click(driver,'[data-photo-tool="similar"]')
-        assert 'landscape.png' in driver.find_element(By.CSS_SELECTOR,'[data-photo-status]').text
+        WebDriverWait(driver,10).until(lambda _:'landscape.png' in driver.find_element(By.CSS_SELECTOR,'[data-photo-status]').text)
         passed('photo_reference_similarity',result=driver.find_element(By.CSS_SELECTOR,'[data-photo-status]').text)
         click(driver,'[data-reference-remove="0"]');assert len(driver.find_elements(By.CSS_SELECTOR,'[data-reference-remove]'))==1
         passed('reference_remove')
@@ -208,6 +208,14 @@ def main_runtime():
         for selector in ('[data-editor="photo"] .editor-header [data-action="photo-auto"]','[data-editor="photo"] .photo-transport [data-action="photo-auto"]'):
             passed('photo_auto_entry_'+('header' if 'header' in selector else 'transport'),**photo_edit(driver,base,selector))
         photo_command=ready(driver,'photo')
+        before_count=len(requests.get(base+'/api/evidence',timeout=10).json()['jobs'])
+        set_value(driver,'[data-photo-adjust="brightness"]',10)
+        blocked=driver.execute_script('''document.querySelector('[data-photo-apply]').click();document.querySelector('[data-photo-apply]').click();document.querySelector('[data-editor="photo"] [data-action="save"]').click();return document.querySelector('[data-editor="photo"] [data-command-error]').textContent;''')
+        assert '進行' not in blocked and '진행 중인 편집' in blocked
+        updated=ready(driver,'photo','photo_edit',photo_command['job_id'])
+        assert len(requests.get(base+'/api/evidence',timeout=10).json()['jobs'])==before_count+1
+        passed('pending_edit_save_guard_duplicate_click',blocked_message=blocked,browser=updated,new_jobs=1)
+        photo_command=updated
         # Corrupt image import must preserve last successful pixels and editing input.
         driver.find_element(By.CSS_SELECTOR,'[data-primary-input="photo"]').send_keys(str(inputs/'invalid.png'))
         WebDriverWait(driver,10).until(lambda _:driver.find_element(By.CSS_SELECTOR,'[data-editor="photo"] [data-command-error]').get_attribute('data-result')=='error')
@@ -275,6 +283,15 @@ def main_runtime():
             result=requests.post(base+'/api/projects/save',json={'job_ids':[FROZEN[op]['job_id']]},timeout=10).json()
             driver.get(base);state=ready(driver,'photo',op);assert state['sha256']==FROZEN[op]['primary_output']['sha256']
             passed('frozen_photo_'+op,browser=state,reused_run=37738880868)
+            if op=='segment':
+                click(driver,'[data-photo-tool="segment"]')
+                changed=WebDriverWait(driver,15).until(lambda _: ready(driver,'photo')['sha256']!=state['sha256'])
+                foreground=ready(driver,'photo');derived=job(base,foreground['job_id'])
+                with Image.open(derived['preview_output']['path']) as image:
+                    assert image.mode=='RGBA' and image.getchannel('A').getextrema()==(0,255)
+                    with Image.open(derived['input']['path']) as original:assert image.size==original.size
+                assert digest(Path(derived['primary_output']['path']))==state['sha256']
+                passed('photo_background_removal_from_frozen_mask',browser=foreground,runtime=derived,model_rerun=False)
         state=requests.post(base+'/api/projects/save',json={'job_ids':[FROZEN[k]['job_id'] for k in ('segment','upscale','tracking','transcribe')]},timeout=10).json()
         driver.get(base);tracking=ready(driver,'video','tracking');assert tracking['sha256']==FROZEN['tracking']['preview_output']['sha256']
         click(driver,'[data-video-play]');WebDriverWait(driver,10).until(lambda _:driver.execute_script('return document.querySelector("[data-preview] video").currentTime>.1'))
@@ -302,6 +319,14 @@ def main_runtime():
                 for item in r['outputs']:assert hashlib.sha256(z.read(f"jobs/{r['job_id']}/{Path(item['path']).name}")).hexdigest()==item['sha256']
             entries=z.namelist()
         passed('ui_export_download_crc_all_hashes',sha256=expected,entries=entries,bytes=archive.stat().st_size)
+        # An actual save validation failure must never export the older saved project.
+        removed=server.service.records.pop(project['job_ids'][0])
+        before_requests=len(server.requests)
+        click(driver,'[data-editor="photo"] [data-action="export"]')
+        WebDriverWait(driver,10).until(lambda _:'완료된 작업을 찾을 수 없습니다' in driver.find_element(By.CSS_SELECTOR,'[data-editor="photo"] [data-command-error]').text)
+        assert not any(item['method']=='POST' and item['path'].endswith('/export') for item in server.requests[before_requests:])
+        server.service.records[removed['job_id']]=removed
+        passed('save_failure_prevents_stale_export',http_error=422,export_request_sent=False)
         # Real repeated HTTP pixel edits must yield one job, changed same ID must fail.
         payload={'content_base64':base64.b64encode((inputs/'landscape.png').read_bytes()).decode(),'request_id':str(uuid4())}
         a=requests.post(base+'/api/photo-edits',json=payload,timeout=10);b=requests.post(base+'/api/photo-edits',json=payload,timeout=10)

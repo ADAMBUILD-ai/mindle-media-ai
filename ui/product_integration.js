@@ -2,6 +2,10 @@
 (() => {
   const state = { video: null, photo: null, jobs: [], projectId: null, videoMode: "general", shortformContract: null };
   const executing = new Set();
+  const pending={photo:0,video:0};
+  window.mindleBeginEdit=kind=>{pending[kind]++;};
+  window.mindleEndEdit=kind=>{pending[kind]=Math.max(0,pending[kind]-1);};
+  window.mindleEditPending=kind=>pending[kind]>0;
   window.mindleInputFor = kind => state[kind];
   const readFile = (file) => new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -91,6 +95,14 @@
       const command = detail.command;
       if (kind === "video" && window.mindleVideoCommand && await window.mindleVideoCommand(command)) return;
       if (kind === "photo" && window.mindlePhotoCommand && await window.mindlePhotoCommand(command)) return;
+      if(kind==='photo' && /배경/.test(command)) {
+        const host=editor.querySelector('[data-preview]');
+        if(host.dataset.operation==='segment' && host.dataset.jobId) {
+          const response=await fetch('/api/jobs/'+encodeURIComponent(host.dataset.jobId)+'/background',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+          const result=await response.json();if(!response.ok) throw new Error(result.error||'배경 제거 실패');
+          await window.mindleAcceptResult(result);message(editor,'배경 제거 완료 · 원본 비율과 투명 배경을 보존했습니다.');return;
+        }
+      }
       if (kind === 'video' && !file.type.startsWith('audio/') && !/추적|tracking|자막|STT|받아쓰기/i.test(command)) {
         throw new Error('지원하는 영상 지시: 추적·자막·밝게·속도·자르기·전환·효과·숏폼');
       }
@@ -112,7 +124,7 @@
   }
   async function save(editor) {
     try {
-      if(executing.size) throw new Error('진행 중인 편집을 완료한 뒤 저장하세요.');
+      if(executing.size || pending.photo || pending.video) throw new Error('진행 중인 편집을 완료한 뒤 저장하세요.');
       const response = await fetch("/api/projects/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ project_id: state.projectId, job_ids: state.jobs }) });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || "저장 실패");
       state.projectId = result.project_id; editor.dataset.projectStatus = "saved"; message(editor, `프로젝트 저장 완료 · ${result.project_id}`);
@@ -146,16 +158,19 @@
       const original = state[kind];
       const selected = input.files[0];
       if (!selected) return;
+      if(window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);input.value='';return;}
       if (kind==='photo' && !selected.type.startsWith('image/') || kind==='video' && !/^(video|audio)\//.test(selected.type)) {message(editor,'지원하지 않는 입력 파일입니다.',true);input.value='';return;}
       state[kind] = selected;
       message(editor, `입력 준비 · ${state[kind].name}`);
       if (state[kind].type.startsWith('audio/')) return;
+      window.mindleBeginEdit(kind);
       try {
         message(editor,'원본을 불러오고 있습니다.');
         const response=await fetch('/api/media/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,filename:state[kind].name,content_base64:await readFile(state[kind])})});
         const result=await response.json();if(!response.ok) throw new Error(result.error||'원본 불러오기 실패');
         await window.mindleAcceptResult(result);message(editor,'원본 불러오기 완료');
       } catch(error) {state[kind]=original;input.value='';message(editor,error.message,true);}
+      finally {window.mindleEndEdit(kind);}
 
     });
     editor.addEventListener("mindle:mode", (event) => { state.videoMode = event.detail.mode; message(editor, state.videoMode === "ad_shortform" ? "광고 숏폼 모드 · 자연어로 제품·대상·길이를 지시하세요." : "일반 영상 편집 모드"); });
