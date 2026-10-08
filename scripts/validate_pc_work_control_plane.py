@@ -3,9 +3,9 @@ from __future__ import annotations
 import json, pathlib, sys
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-EPOCH="MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1"
-DIRECTIVE="docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_DIRECTIVE_v1.0_20261008.md"
-CONTRACT="docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_EVIDENCE_CONTRACT_v1.0_20261008.json"
+EPOCH="MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1"
+DIRECTIVE="docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_DIRECTIVE_v1.0_20261008.md"
+CONTRACT="docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_EVIDENCE_CONTRACT_v1.0_20261008.json"
 
 current=(ROOT/"CURRENT_PC_WORK_DIRECTIVE.md").read_text(encoding="utf-8")
 lock=json.loads((ROOT/"CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json").read_text(encoding="utf-8"))
@@ -36,11 +36,13 @@ for token in (EPOCH,DIRECTIVE,CONTRACT):
 if state.get("product_changes_allowed") is not True:
     fail("product_changes_allowed must be true")
 if state.get("package_build_allowed") is not False:
-    fail("package_build_allowed must be false for this product E2E lane")
+    fail("package_build_allowed must remain false")
 if state.get("ui_changes_allowed") is not False:
-    fail("ui_changes_allowed must remain false for visual/layout changes")
+    fail("ui_changes_allowed must remain false")
 if worker.get("pr23_hold_do_not_merge") is not True:
     fail("PR #23 must remain HOLD / DO NOT MERGE")
+if state.get("previous_cycle_result") != "BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION":
+    fail("previous cycle result must be BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION")
 
 print("CONTROL_PLANE_PASS")
 print(f"EPOCH={EPOCH}")
