@@ -75,6 +75,16 @@
       "mock_used": false,
       "auto_publish": false,
       "ad_spend": false
+    },
+    "REMOTE_READBACK": {
+      "status": "PASS",
+      "verified_evidence_commit": "a5ffa6b98e4627169ff1ea0e8d6e106277fce273",
+      "tested_runtime_source_unchanged": true,
+      "required_evidence_files_present": 12,
+      "original_control_plane_and_UI_html_css_unchanged": true,
+      "main_sha": "797da297f588780ad2d608deea3b5af8f05af450",
+      "pr23_draft": true,
+      "pr23_merged": false
     }
   },
   "error": null,
@@ -120,7 +130,9 @@
     "tested_source_head": "99a9cd4fcdced32a728db06f0692a394c9a4dfd2",
     "main_sha": "797da297f588780ad2d608deea3b5af8f05af450",
     "pr23_draft": true,
-    "pr23_merged": false
+    "pr23_merged": false,
+    "evidence_publication_commit": "a5ffa6b98e4627169ff1ea0e8d6e106277fce273",
+    "status": "PASS"
   },
   "stored_media": {
     "verified_browser_preview": "media/track_1_overlays_browser_h264.mp4",
