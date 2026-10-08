@@ -1,0 +1,35 @@
+GENERAL_WORK_CONTROL_PLANE_PASS
+EPOCH=MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1
+DIRECTIVE=docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md
+CONTRACT=docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_EVIDENCE_CONTRACT_v1.0_20261008.json
+DECISION_LOCK=docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_DECISION_LOCK_v1.0_20261008.md
+PC_WORK_PAUSED_WAITING_GENERAL_WORK_PASS
+PC_EPOCH=MEDIA-AI-20261008-PC-WORK-PAUSED-PENDING-GENERAL-AUDIT-R1
+ACTIVE_GENERAL_EPOCH=MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1
+GENERAL_DIRECTIVE=docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md
+No broken requirements found.
+........................................................................ [ 93%]
+.....                                                                    [100%]
+77 passed in 2.16s
+TAP version 13
+# Subtest: ui/interaction.test.js
+ok 1 - ui/interaction.test.js
+  ---
+  duration_ms: 156.815332
+  type: 'test'
+  ...
+# Subtest: ui/ssot_structure.test.js
+ok 2 - ui/ssot_structure.test.js
+  ---
+  duration_ms: 151.091994
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 188.356338

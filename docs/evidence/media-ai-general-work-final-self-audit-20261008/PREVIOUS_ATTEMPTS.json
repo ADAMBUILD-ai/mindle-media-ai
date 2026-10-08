@@ -1,0 +1,36 @@
+{
+  "attempts": [
+    {
+      "run_id": 37749458686,
+      "status": "FAIL",
+      "finding": "reference image decode wait"
+    },
+    {
+      "run_id": 37750027825,
+      "status": "FAIL",
+      "finding": "browser seeking"
+    },
+    {
+      "run_id": 37750501514,
+      "status": "FAIL",
+      "finding": "same file import"
+    },
+    {
+      "run_id": 37751080466,
+      "status": "FAIL",
+      "finding": "command input focus stale state"
+    },
+    {
+      "run_id": 37751670992,
+      "status": "PASS_SUPERSEDED",
+      "finding": "72 browser checks; BGM metadata gap discovered during review"
+    },
+    {
+      "run_id": 37752630381,
+      "status": "PASS",
+      "finding": "75 browser checks including BGM followup metadata"
+    }
+  ],
+  "final_source_commit": "92897f4ff943d30d788416dbb10324f3df2b9427",
+  "models_rerun": false
+}

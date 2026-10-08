@@ -1,0 +1,3248 @@
+{
+  "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "runtime_source_commit": "92897f4ff943d30d788416dbb10324f3df2b9427",
+  "runtime_run": "37752630381",
+  "control_count": 94,
+  "disabled_control_count": 11,
+  "entries": [
+    {
+      "feature": "▣ 프로젝트",
+      "ui_entrypoint": {
+        "index": 0,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "▣ 프로젝트",
+        "attributes": {
+          "data-shell": "projects",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js"
+      ],
+      "runtime_api_path": "/api/projects",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "real saved projects / job records / storage path",
+      "persistence_behavior": "saved project JSON / actual job records",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "shell_projects"
+      ]
+    },
+    {
+      "feature": "⚙ 설정",
+      "ui_entrypoint": {
+        "index": 1,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "⚙ 설정",
+        "attributes": {
+          "data-unimplemented": "settings",
+          "disabled": "",
+          "title": "설정 기능 미구현",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "설정 기능 미구현",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "●",
+      "ui_entrypoint": {
+        "index": 2,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "●",
+        "attributes": {
+          "class": "avatar",
+          "data-unimplemented": "account",
+          "disabled": "",
+          "title": "계정 기능 미구현",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "계정 기능 미구현",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "—",
+      "ui_entrypoint": {
+        "index": 3,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "—",
+        "attributes": {
+          "aria-label": "최소화",
+          "data-unimplemented": "native-minimize",
+          "disabled": "",
+          "title": "PC Work에서 검증할 창 제어",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "PC Work에서 검증할 창 제어",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "×",
+      "ui_entrypoint": {
+        "index": 4,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "×",
+        "attributes": {
+          "aria-label": "닫기",
+          "data-unimplemented": "native-close",
+          "disabled": "",
+          "title": "PC Work에서 검증할 종료 기능",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "PC Work에서 검증할 종료 기능",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "⌂ 홈",
+      "ui_entrypoint": {
+        "index": 5,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "⌂ 홈",
+        "attributes": {
+          "class": "sidebar-active",
+          "data-shell": "home"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js"
+      ],
+      "runtime_api_path": "browser navigation/dialog",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "help text / top of existing workspace",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "shell_home_title_owner_ui_lock"
+      ]
+    },
+    {
+      "feature": "◔ 작업 내역",
+      "ui_entrypoint": {
+        "index": 6,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "◔ 작업 내역",
+        "attributes": {
+          "data-shell": "history"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js"
+      ],
+      "runtime_api_path": "/api/evidence",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "real saved projects / job records / storage path",
+      "persistence_behavior": "saved project JSON / actual job records",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "shell_history"
+      ]
+    },
+    {
+      "feature": "▣ 저장소",
+      "ui_entrypoint": {
+        "index": 7,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "▣ 저장소",
+        "attributes": {
+          "data-shell": "storage"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js"
+      ],
+      "runtime_api_path": "/api/projects",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "real saved projects / job records / storage path",
+      "persistence_behavior": "saved project JSON / actual job records",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "shell_storage"
+      ]
+    },
+    {
+      "feature": "▦ 템플릿",
+      "ui_entrypoint": {
+        "index": 8,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "▦ 템플릿",
+        "attributes": {
+          "data-unimplemented": "templates",
+          "disabled": "",
+          "title": "템플릿 Runtime 미구현"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "템플릿 Runtime 미구현",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "? 도움말",
+      "ui_entrypoint": {
+        "index": 9,
+        "kind": "shell",
+        "tag": "BUTTON",
+        "text": "? 도움말",
+        "attributes": {
+          "class": "sidebar-help",
+          "data-shell": "help"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js"
+      ],
+      "runtime_api_path": "browser navigation/dialog",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "help text / top of existing workspace",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "shell_help"
+      ]
+    },
+    {
+      "feature": "＋ 영상 불러오기",
+      "ui_entrypoint": {
+        "index": 10,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "＋ 영상 불러오기",
+        "attributes": {
+          "class": "outline-purple",
+          "data-action": "load",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/media/import",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "persisted original + browser-decoded media",
+      "persistence_behavior": "input + import job + project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_import_ratio",
+        "video_tool_rotate"
+      ]
+    },
+    {
+      "feature": "✦ AI 자동 편집",
+      "ui_entrypoint": {
+        "index": 11,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "✦ AI 자동 편집",
+        "attributes": {
+          "class": "outline-blue",
+          "data-action": "ai-auto-edit",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/jobs tracking",
+      "model_or_program_dependency": "SAM2.1 CPU + H264 derivative",
+      "input": "user control",
+      "output": "tracking preview",
+      "persistence_behavior": "verified job/output",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "model_ui_dispatch_tracking",
+        "frozen_tracking_h264_playback"
+      ]
+    },
+    {
+      "feature": "✦ 광고 숏폼 NEW",
+      "ui_entrypoint": {
+        "index": 12,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "✦ 광고 숏폼 NEW",
+        "attributes": {
+          "aria-pressed": "false",
+          "class": "outline-purple",
+          "data-action": "shortform-mode",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/integrations/marketing/shortform",
+      "model_or_program_dependency": "Marketing/AVORA runtime",
+      "input": "ad brief",
+      "output": "unavailable message",
+      "persistence_behavior": "existing integration code preserved",
+      "error_behavior": "base editor continues",
+      "status": "DEFERRED_EXTERNAL",
+      "evidence_refs": [
+        "external_unavailable_base_continues"
+      ]
+    },
+    {
+      "feature": "▣ 프로젝트 저장",
+      "ui_entrypoint": {
+        "index": 13,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "▣ 프로젝트 저장",
+        "attributes": {
+          "class": "outline-blue",
+          "data-action": "save"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/projects/save",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "saved project_id",
+      "persistence_behavior": "atomic saved project JSON",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "corrected_edits_save_close_reopen",
+        "save_full_close_reopen_all_lanes"
+      ]
+    },
+    {
+      "feature": "⇧ 내보내기",
+      "ui_entrypoint": {
+        "index": 14,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "⇧ 내보내기",
+        "attributes": {
+          "class": "primary-blue",
+          "data-action": "export"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/projects/{id}/export then /files",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "actual browser ZIP download",
+      "persistence_behavior": "ZIP + SHA256/CRC",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "corrected_edits_ui_export_integrity",
+        "ui_export_download_crc_all_hashes",
+        "save_failure_prevents_stale_export"
+      ]
+    },
+    {
+      "feature": "영상 AI 지시",
+      "ui_entrypoint": {
+        "index": 15,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "영상 AI 지시",
+        "attributes": {
+          "aria-label": "영상 AI 지시",
+          "data-command": "video",
+          "placeholder": "(예) 여행 브이로그 느낌으로 편집해줘"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "ui/video_workspace.js"
+      ],
+      "runtime_api_path": "/api/photo-edits /api/video-edits /api/jobs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "actual edit command or explicit unsupported-input error",
+      "persistence_behavior": "successful Job/project; retained command/reference for retry",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_command",
+        "unsupported_video_command_rejected",
+        "failed_command_retained_for_retry"
+      ]
+    },
+    {
+      "feature": "＋ 참고 이미지 추가",
+      "ui_entrypoint": {
+        "index": 16,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "＋ 참고 이미지 추가",
+        "attributes": {
+          "data-action": "video-reference",
+          "data-unimplemented": "video-reference-guidance",
+          "disabled": "",
+          "title": "영상 참고 이미지 기반 편집 미구현",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "영상 참고 이미지 기반 편집 미구현",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "참고 이미지",
+      "ui_entrypoint": {
+        "index": 17,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "참고 이미지",
+        "attributes": {
+          "data-unimplemented": "video-reference-guidance",
+          "disabled": "",
+          "title": "영상 참고 이미지 기반 편집 미구현",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "영상 참고 이미지 기반 편집 미구현",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "스타일",
+      "ui_entrypoint": {
+        "index": 18,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "스타일",
+        "attributes": {
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js",
+        "ui/interaction.js"
+      ],
+      "runtime_api_path": "browser command/control focus; connected edit APIs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "supported command / actual length/resize/9:16 control",
+      "persistence_behavior": "result only when applied",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_command_chips_send_length_ratio"
+      ]
+    },
+    {
+      "feature": "길이",
+      "ui_entrypoint": {
+        "index": 19,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "길이",
+        "attributes": {
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js",
+        "ui/interaction.js"
+      ],
+      "runtime_api_path": "browser command/control focus; connected edit APIs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "supported command / actual length/resize/9:16 control",
+      "persistence_behavior": "result only when applied",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_command_chips_send_length_ratio"
+      ]
+    },
+    {
+      "feature": "비율",
+      "ui_entrypoint": {
+        "index": 20,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "비율",
+        "attributes": {
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js",
+        "ui/interaction.js"
+      ],
+      "runtime_api_path": "browser command/control focus; connected edit APIs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "supported command / actual length/resize/9:16 control",
+      "persistence_behavior": "result only when applied",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_command_chips_send_length_ratio"
+      ]
+    },
+    {
+      "feature": "➤",
+      "ui_entrypoint": {
+        "index": 21,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "➤",
+        "attributes": {
+          "aria-label": "전송",
+          "class": "send-button",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "ui/video_workspace.js"
+      ],
+      "runtime_api_path": "/api/photo-edits /api/video-edits /api/jobs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "actual edit command or explicit unsupported-input error",
+      "persistence_behavior": "successful Job/project; retained command/reference for retry",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_command",
+        "unsupported_video_command_rejected",
+        "failed_command_retained_for_retry"
+      ]
+    },
+    {
+      "feature": "◀",
+      "ui_entrypoint": {
+        "index": 22,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "◀",
+        "attributes": {
+          "aria-label": "영상 처음으로",
+          "data-video-start": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js"
+      ],
+      "runtime_api_path": "HTMLMediaElement/fullscreen",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "UI state",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_play_pause_seek_mute_start_end"
+      ]
+    },
+    {
+      "feature": "▶",
+      "ui_entrypoint": {
+        "index": 23,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "▶",
+        "attributes": {
+          "aria-label": "영상 재생 일시정지",
+          "data-video-play": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js"
+      ],
+      "runtime_api_path": "HTMLMediaElement/fullscreen",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "UI state",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_play_pause_seek_mute_start_end"
+      ]
+    },
+    {
+      "feature": "▶|",
+      "ui_entrypoint": {
+        "index": 24,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "▶|",
+        "attributes": {
+          "aria-label": "영상 끝으로",
+          "data-video-end": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js"
+      ],
+      "runtime_api_path": "HTMLMediaElement/fullscreen",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "UI state",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_play_pause_seek_mute_start_end"
+      ]
+    },
+    {
+      "feature": "영상 재생 위치",
+      "ui_entrypoint": {
+        "index": 25,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "영상 재생 위치",
+        "attributes": {
+          "aria-label": "영상 재생 위치",
+          "data-video-seek": "",
+          "max": "100",
+          "min": "0",
+          "step": "0.1",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_server.py"
+      ],
+      "runtime_api_path": "/files/... single-byte-range 206",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "actual currentTime/seekable range",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_seek_byte_range"
+      ]
+    },
+    {
+      "feature": "🔊",
+      "ui_entrypoint": {
+        "index": 26,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "🔊",
+        "attributes": {
+          "aria-label": "영상 음소거",
+          "data-video-mute": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js"
+      ],
+      "runtime_api_path": "HTMLMediaElement/fullscreen",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "UI state",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_play_pause_seek_mute_start_end"
+      ]
+    },
+    {
+      "feature": "⛶",
+      "ui_entrypoint": {
+        "index": 27,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "⛶",
+        "attributes": {
+          "aria-label": "영상 전체 화면",
+          "data-video-fullscreen": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js"
+      ],
+      "runtime_api_path": "HTMLMediaElement/fullscreen",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "UI state",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "data-video-fullscreen"
+      ]
+    },
+    {
+      "feature": "자르기",
+      "ui_entrypoint": {
+        "index": 28,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "자르기",
+        "attributes": {
+          "data-video-tool": "trim"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_trim"
+      ]
+    },
+    {
+      "feature": "분할",
+      "ui_entrypoint": {
+        "index": 29,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "분할",
+        "attributes": {
+          "data-video-tool": "split"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_split"
+      ]
+    },
+    {
+      "feature": "회전",
+      "ui_entrypoint": {
+        "index": 30,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "회전",
+        "attributes": {
+          "data-video-tool": "rotate"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_rotate"
+      ]
+    },
+    {
+      "feature": "속도",
+      "ui_entrypoint": {
+        "index": 31,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "속도",
+        "attributes": {
+          "data-video-tool": "speed"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_speed"
+      ]
+    },
+    {
+      "feature": "brightness",
+      "ui_entrypoint": {
+        "index": 32,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "brightness",
+        "attributes": {
+          "data-video-option": "brightness",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_corrections_stabilize_denoise"
+      ]
+    },
+    {
+      "feature": "contrast",
+      "ui_entrypoint": {
+        "index": 33,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "contrast",
+        "attributes": {
+          "data-video-option": "contrast",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_corrections_stabilize_denoise"
+      ]
+    },
+    {
+      "feature": "saturation",
+      "ui_entrypoint": {
+        "index": 34,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "saturation",
+        "attributes": {
+          "data-video-option": "saturation",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_corrections_stabilize_denoise"
+      ]
+    },
+    {
+      "feature": "checkbox",
+      "ui_entrypoint": {
+        "index": 35,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "checkbox",
+        "attributes": {
+          "data-video-toggle": "stabilize",
+          "type": "checkbox"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_corrections_stabilize_denoise"
+      ]
+    },
+    {
+      "feature": "checkbox",
+      "ui_entrypoint": {
+        "index": 36,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "checkbox",
+        "attributes": {
+          "data-video-toggle": "denoise",
+          "type": "checkbox"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_corrections_stabilize_denoise"
+      ]
+    },
+    {
+      "feature": "start",
+      "ui_entrypoint": {
+        "index": 37,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "start",
+        "attributes": {
+          "data-video-option": "start",
+          "min": "0",
+          "type": "number",
+          "value": "0"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_trim"
+      ]
+    },
+    {
+      "feature": "duration",
+      "ui_entrypoint": {
+        "index": 38,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "duration",
+        "attributes": {
+          "data-video-option": "duration",
+          "min": "0",
+          "type": "number",
+          "value": "0"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_trim"
+      ]
+    },
+    {
+      "feature": "speed",
+      "ui_entrypoint": {
+        "index": 39,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "speed",
+        "attributes": {
+          "data-video-option": "speed",
+          "max": "2",
+          "min": "0.5",
+          "step": "0.1",
+          "type": "number",
+          "value": "1"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_speed"
+      ]
+    },
+    {
+      "feature": "volume",
+      "ui_entrypoint": {
+        "index": 40,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "volume",
+        "attributes": {
+          "data-video-option": "volume",
+          "max": "2",
+          "min": "0",
+          "step": "0.1",
+          "type": "number",
+          "value": "1"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "FFmpeg source audio volume option; audit exercised default1; endpoint/wiring validated, no calibrated loudness-quality claim",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_background_music",
+        "video_tool_speed"
+      ]
+    },
+    {
+      "feature": "숏폼 변환",
+      "ui_entrypoint": {
+        "index": 41,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "숏폼 변환",
+        "attributes": {
+          "data-video-tool": "shortform"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_shortform"
+      ]
+    },
+    {
+      "feature": "장면 전환",
+      "ui_entrypoint": {
+        "index": 42,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "장면 전환",
+        "attributes": {
+          "data-video-tool": "fade"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_fade"
+      ]
+    },
+    {
+      "feature": "AI 효과",
+      "ui_entrypoint": {
+        "index": 43,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "AI 효과",
+        "attributes": {
+          "data-video-tool": "effect"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "FFmpeg vignette MP4; model_inference=false",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_effect"
+      ]
+    },
+    {
+      "feature": "자막",
+      "ui_entrypoint": {
+        "index": 44,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "자막",
+        "attributes": {
+          "data-video-tool": "subtitle"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_korean_subtitle_render"
+      ]
+    },
+    {
+      "feature": "자동 자막 생성",
+      "ui_entrypoint": {
+        "index": 45,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "자동 자막 생성",
+        "attributes": {
+          "data-video-tool": "auto-subtitle"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/jobs then /api/video-edits",
+      "model_or_program_dependency": "Whisper Korean CPU + FFmpeg subtitle",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "model_ui_dispatch_transcribe",
+        "frozen_korean_stt_visible"
+      ]
+    },
+    {
+      "feature": "하이라이트 추출",
+      "ui_entrypoint": {
+        "index": 46,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "하이라이트 추출",
+        "attributes": {
+          "data-video-tool": "highlight"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "frame-difference heuristic highlight MP4; not semantic LLM scene selection",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_tool_highlight"
+      ]
+    },
+    {
+      "feature": "배경음악 추가",
+      "ui_entrypoint": {
+        "index": 47,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "배경음악 추가",
+        "attributes": {
+          "data-video-tool": "bgm"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg CPU",
+      "input": "video + explicit options",
+      "output": "H264/yuv420p/faststart MP4",
+      "persistence_behavior": "Job + project JSON + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_background_music",
+        "background_music_state_after_followup_edit"
+      ]
+    },
+    {
+      "feature": "text",
+      "ui_entrypoint": {
+        "index": 48,
+        "kind": "video",
+        "tag": "INPUT",
+        "text": "text",
+        "attributes": {
+          "data-video-subtitle": "",
+          "placeholder": "표시할 자막"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "encoded video/audio edit",
+      "persistence_behavior": "applied options in Job/project JSON; exported MP4",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_korean_subtitle_render"
+      ]
+    },
+    {
+      "feature": "영상 편집 적용",
+      "ui_entrypoint": {
+        "index": 49,
+        "kind": "video",
+        "tag": "BUTTON",
+        "text": "영상 편집 적용",
+        "attributes": {
+          "data-video-apply": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/video_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/video-edits",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "user control",
+      "output": "actual MP4 and split clips",
+      "persistence_behavior": "Job/project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "video_corrections_stabilize_denoise",
+        "video_tool_trim",
+        "video_tool_split",
+        "video_korean_subtitle_render"
+      ]
+    },
+    {
+      "feature": "＋ 사진 불러오기",
+      "ui_entrypoint": {
+        "index": 50,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "＋ 사진 불러오기",
+        "attributes": {
+          "class": "outline-pink",
+          "data-action": "load",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/media/import",
+      "model_or_program_dependency": "Pillow EXIF transpose",
+      "input": "user control",
+      "output": "persisted original + browser-decoded media",
+      "persistence_behavior": "input + import job + project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_landscape_ratio",
+        "photo_portrait_auto_fit",
+        "invalid_import_keeps_previous"
+      ]
+    },
+    {
+      "feature": "✦ AI 이미지 생성",
+      "ui_entrypoint": {
+        "index": 51,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "✦ AI 이미지 생성",
+        "attributes": {
+          "class": "outline-purple",
+          "data-action": "photo-generate",
+          "data-unimplemented": "image-generation",
+          "disabled": "",
+          "title": "이미지 생성 모델 미포함"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "이미지 생성 모델 미포함",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "✦ AI 보정",
+      "ui_entrypoint": {
+        "index": 52,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "✦ AI 보정",
+        "attributes": {
+          "class": "outline-purple",
+          "data-action": "photo-auto"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow contrast/saturation/shadows; model_inference=false",
+      "input": "user control",
+      "output": "actual correction PNG",
+      "persistence_behavior": "Job/project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_auto_entry_header",
+        "photo_auto_entry_transport"
+      ]
+    },
+    {
+      "feature": "▣ 프로젝트 저장",
+      "ui_entrypoint": {
+        "index": 53,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "▣ 프로젝트 저장",
+        "attributes": {
+          "class": "outline-blue",
+          "data-action": "save"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/projects/save",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "saved project_id",
+      "persistence_behavior": "atomic saved project JSON",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "corrected_edits_save_close_reopen",
+        "save_full_close_reopen_all_lanes"
+      ]
+    },
+    {
+      "feature": "⇧ 내보내기",
+      "ui_entrypoint": {
+        "index": 54,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "⇧ 내보내기",
+        "attributes": {
+          "class": "primary-pink",
+          "data-action": "export"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/projects/{id}/export then /files",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "actual browser ZIP download",
+      "persistence_behavior": "ZIP + SHA256/CRC",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "corrected_edits_ui_export_integrity",
+        "ui_export_download_crc_all_hashes",
+        "save_failure_prevents_stale_export"
+      ]
+    },
+    {
+      "feature": "사진 AI 지시",
+      "ui_entrypoint": {
+        "index": 55,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "사진 AI 지시",
+        "attributes": {
+          "aria-label": "사진 AI 지시",
+          "data-command": "photo",
+          "placeholder": "(예) 노을 분위기로 보정해줘"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "ui/photo_workspace.js"
+      ],
+      "runtime_api_path": "/api/photo-edits /api/video-edits /api/jobs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "actual edit command or explicit unsupported-input error",
+      "persistence_behavior": "successful Job/project; retained command/reference for retry",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_command",
+        "photo_command_chips_style_tone_ratio_send"
+      ]
+    },
+    {
+      "feature": "＋ 참고 이미지 추가",
+      "ui_entrypoint": {
+        "index": 56,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "＋ 참고 이미지 추가",
+        "attributes": {
+          "data-action": "photo-reference",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "browser reference input",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "up to5 valid reference images",
+      "persistence_behavior": "browser-session state; command failures retain input",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_reference_similarity",
+        "reference_remove"
+      ]
+    },
+    {
+      "feature": "참고 이미지",
+      "ui_entrypoint": {
+        "index": 57,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "참고 이미지",
+        "attributes": {
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js",
+        "ui/interaction.js"
+      ],
+      "runtime_api_path": "browser command/control focus; connected edit APIs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "reference file chooser",
+      "persistence_behavior": "result only when applied",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_reference_similarity"
+      ]
+    },
+    {
+      "feature": "스타일",
+      "ui_entrypoint": {
+        "index": 58,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "스타일",
+        "attributes": {
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js",
+        "ui/interaction.js"
+      ],
+      "runtime_api_path": "browser command/control focus; connected edit APIs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "supported command / actual length/resize/9:16 control",
+      "persistence_behavior": "result only when applied",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_command_chips_style_tone_ratio_send"
+      ]
+    },
+    {
+      "feature": "톤 조정",
+      "ui_entrypoint": {
+        "index": 59,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "톤 조정",
+        "attributes": {
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js",
+        "ui/interaction.js"
+      ],
+      "runtime_api_path": "browser command/control focus; connected edit APIs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "supported command / actual length/resize/9:16 control",
+      "persistence_behavior": "result only when applied",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_command_chips_style_tone_ratio_send"
+      ]
+    },
+    {
+      "feature": "비율",
+      "ui_entrypoint": {
+        "index": 60,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "비율",
+        "attributes": {
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js",
+        "ui/interaction.js"
+      ],
+      "runtime_api_path": "browser command/control focus; connected edit APIs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "supported command / actual length/resize/9:16 control",
+      "persistence_behavior": "result only when applied",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_command_chips_style_tone_ratio_send"
+      ]
+    },
+    {
+      "feature": "➤",
+      "ui_entrypoint": {
+        "index": 61,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "➤",
+        "attributes": {
+          "class": "send-button",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "ui/photo_workspace.js"
+      ],
+      "runtime_api_path": "/api/photo-edits /api/video-edits /api/jobs",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "actual edit command or explicit unsupported-input error",
+      "persistence_behavior": "successful Job/project; retained command/reference for retry",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_command",
+        "photo_command_chips_style_tone_ratio_send"
+      ]
+    },
+    {
+      "feature": "✋",
+      "ui_entrypoint": {
+        "index": 62,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "✋",
+        "attributes": {
+          "data-unimplemented": "photo-pan",
+          "disabled": "",
+          "title": "현재 Auto Fit 미리보기는 이동 기능을 지원하지 않습니다."
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "현재 Auto Fit 미리보기는 이동 기능을 지원하지 않습니다.",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "⛶",
+      "ui_entrypoint": {
+        "index": 63,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "⛶",
+        "attributes": {
+          "aria-label": "사진 전체 화면",
+          "data-photo-fullscreen": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/workspace_shell.js"
+      ],
+      "runtime_api_path": "HTMLMediaElement/fullscreen",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "UI state",
+      "persistence_behavior": "ephemeral browser state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "data-photo-fullscreen"
+      ]
+    },
+    {
+      "feature": "↶",
+      "ui_entrypoint": {
+        "index": 64,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "↶",
+        "attributes": {
+          "data-unimplemented": "photo-undo",
+          "disabled": "",
+          "title": "편집 되돌리기 미구현"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "편집 되돌리기 미구현",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "↷",
+      "ui_entrypoint": {
+        "index": 65,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "↷",
+        "attributes": {
+          "data-unimplemented": "photo-redo",
+          "disabled": "",
+          "title": "편집 다시 적용 미구현"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": null,
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "편집 다시 적용 미구현",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "DISABLED; approved label/position/colors retained; no delivered feature claim"
+    },
+    {
+      "feature": "✦ AI 보정",
+      "ui_entrypoint": {
+        "index": 66,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "✦ AI 보정",
+        "attributes": {
+          "class": "outline-purple",
+          "data-action": "photo-auto"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/interaction.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow contrast/saturation/shadows; model_inference=false",
+      "input": "user control",
+      "output": "actual correction PNG",
+      "persistence_behavior": "Job/project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_auto_entry_header",
+        "photo_auto_entry_transport"
+      ]
+    },
+    {
+      "feature": "기본 보정",
+      "ui_entrypoint": {
+        "index": 67,
+        "kind": "photo",
+        "tag": "SUMMARY",
+        "text": "기본 보정",
+        "attributes": {},
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": "native HTML details",
+      "model_or_program_dependency": "Chrome",
+      "input": "user control",
+      "output": "expand/collapse correction group",
+      "persistence_behavior": "HTML default open state",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "UI_CONTROLS.json"
+      ]
+    },
+    {
+      "feature": "사진 밝기",
+      "ui_entrypoint": {
+        "index": 68,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "사진 밝기",
+        "attributes": {
+          "aria-label": "사진 밝기",
+          "data-photo-adjust": "brightness",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas pixels + Pillow",
+      "input": "decoded image and correction value",
+      "output": "actual pixel PNG",
+      "persistence_behavior": "Job evidence + project save/reopen + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_brightness"
+      ]
+    },
+    {
+      "feature": "사진 대비",
+      "ui_entrypoint": {
+        "index": 69,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "사진 대비",
+        "attributes": {
+          "aria-label": "사진 대비",
+          "data-photo-adjust": "contrast",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas pixels + Pillow",
+      "input": "decoded image and correction value",
+      "output": "actual pixel PNG",
+      "persistence_behavior": "Job evidence + project save/reopen + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_contrast"
+      ]
+    },
+    {
+      "feature": "사진 하이라이트",
+      "ui_entrypoint": {
+        "index": 70,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "사진 하이라이트",
+        "attributes": {
+          "aria-label": "사진 하이라이트",
+          "data-photo-adjust": "highlights",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas pixels + Pillow",
+      "input": "decoded image and correction value",
+      "output": "actual pixel PNG",
+      "persistence_behavior": "Job evidence + project save/reopen + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_highlights"
+      ]
+    },
+    {
+      "feature": "사진 그림자",
+      "ui_entrypoint": {
+        "index": 71,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "사진 그림자",
+        "attributes": {
+          "aria-label": "사진 그림자",
+          "data-photo-adjust": "shadows",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas pixels + Pillow",
+      "input": "decoded image and correction value",
+      "output": "actual pixel PNG",
+      "persistence_behavior": "Job evidence + project save/reopen + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_shadows"
+      ]
+    },
+    {
+      "feature": "사진 채도",
+      "ui_entrypoint": {
+        "index": 72,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "사진 채도",
+        "attributes": {
+          "aria-label": "사진 채도",
+          "data-photo-adjust": "saturation",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas pixels + Pillow",
+      "input": "decoded image and correction value",
+      "output": "actual pixel PNG",
+      "persistence_behavior": "Job evidence + project save/reopen + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_saturation"
+      ]
+    },
+    {
+      "feature": "사진 색온도",
+      "ui_entrypoint": {
+        "index": 73,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "사진 색온도",
+        "attributes": {
+          "aria-label": "사진 색온도",
+          "data-photo-adjust": "temperature",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas pixels + Pillow",
+      "input": "decoded image and correction value",
+      "output": "actual pixel PNG",
+      "persistence_behavior": "Job evidence + project save/reopen + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_temperature"
+      ]
+    },
+    {
+      "feature": "사진 선명도",
+      "ui_entrypoint": {
+        "index": 74,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "사진 선명도",
+        "attributes": {
+          "aria-label": "사진 선명도",
+          "data-photo-adjust": "sharpness",
+          "max": "100",
+          "min": "-100",
+          "type": "range",
+          "value": "0"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas pixels + Pillow",
+      "input": "decoded image and correction value",
+      "output": "actual pixel PNG",
+      "persistence_behavior": "Job evidence + project save/reopen + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_sharpness"
+      ]
+    },
+    {
+      "feature": "크롭",
+      "ui_entrypoint": {
+        "index": 75,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "크롭",
+        "attributes": {
+          "data-photo-tool": "crop",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_crop"
+      ]
+    },
+    {
+      "feature": "크기 조절",
+      "ui_entrypoint": {
+        "index": 76,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "크기 조절",
+        "attributes": {
+          "data-photo-tool": "resize",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_resize"
+      ]
+    },
+    {
+      "feature": "회전",
+      "ui_entrypoint": {
+        "index": 77,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "회전",
+        "attributes": {
+          "data-photo-tool": "rotate",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_rotate"
+      ]
+    },
+    {
+      "feature": "좌우 반전",
+      "ui_entrypoint": {
+        "index": 78,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "좌우 반전",
+        "attributes": {
+          "data-photo-tool": "flip-h",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_flip-h"
+      ]
+    },
+    {
+      "feature": "상하 반전",
+      "ui_entrypoint": {
+        "index": 79,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "상하 반전",
+        "attributes": {
+          "data-photo-tool": "flip-v",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_flip-v"
+      ]
+    },
+    {
+      "feature": "AI 보정",
+      "ui_entrypoint": {
+        "index": 80,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "AI 보정",
+        "attributes": {
+          "data-photo-tool": "auto",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_auto"
+      ]
+    },
+    {
+      "feature": "배경 제거",
+      "ui_entrypoint": {
+        "index": 81,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "배경 제거",
+        "attributes": {
+          "data-photo-tool": "segment",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/jobs or /api/jobs/{id}/background",
+      "model_or_program_dependency": "verified SAM mask + Pillow alpha derivative",
+      "input": "decoded image",
+      "output": "RGBA foreground; original mask/overlay hashes preserved",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_background_removal_from_frozen_mask",
+        "frozen_photo_segment"
+      ]
+    },
+    {
+      "feature": "색감 보정",
+      "ui_entrypoint": {
+        "index": 82,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "색감 보정",
+        "attributes": {
+          "data-photo-tool": "color",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_color"
+      ]
+    },
+    {
+      "feature": "스타일 변환",
+      "ui_entrypoint": {
+        "index": 83,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "스타일 변환",
+        "attributes": {
+          "data-photo-tool": "style",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_style"
+      ]
+    },
+    {
+      "feature": "인물 보정",
+      "ui_entrypoint": {
+        "index": 84,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "인물 보정",
+        "attributes": {
+          "data-photo-tool": "portrait",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "decoded image",
+      "output": "edited pixels",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_portrait"
+      ]
+    },
+    {
+      "feature": "해상도 향상",
+      "ui_entrypoint": {
+        "index": 85,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "해상도 향상",
+        "attributes": {
+          "data-photo-tool": "upscale",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/jobs",
+      "model_or_program_dependency": "Intel SISR1032/OpenVINO CPU",
+      "input": "decoded image",
+      "output": "exact 4x decoded PNG",
+      "persistence_behavior": "Job + saved project + ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "frozen_photo_upscale",
+        "model_ui_dispatch_upscale"
+      ]
+    },
+    {
+      "feature": "유사 이미지 검색",
+      "ui_entrypoint": {
+        "index": 86,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "유사 이미지 검색",
+        "attributes": {
+          "data-photo-tool": "similar",
+          "type": "button"
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "ui/product_integration.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "browser histogram comparison",
+      "model_or_program_dependency": "Canvas 24-bin RGB histogram",
+      "input": "current image + attached images",
+      "output": "reference filenames ordered by color histogram distance",
+      "persistence_behavior": "ephemeral reference list; not semantic/embedding search",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_reference_similarity"
+      ]
+    },
+    {
+      "feature": "number",
+      "ui_entrypoint": {
+        "index": 87,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "number",
+        "attributes": {
+          "data-crop": "left",
+          "max": "99",
+          "min": "0",
+          "type": "number",
+          "value": "0"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "user control",
+      "output": "reset edit options or actual PNG",
+      "persistence_behavior": "applied pixels saved to project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_crop"
+      ]
+    },
+    {
+      "feature": "number",
+      "ui_entrypoint": {
+        "index": 88,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "number",
+        "attributes": {
+          "data-crop": "top",
+          "max": "99",
+          "min": "0",
+          "type": "number",
+          "value": "0"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "user control",
+      "output": "reset edit options or actual PNG",
+      "persistence_behavior": "applied pixels saved to project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_crop"
+      ]
+    },
+    {
+      "feature": "number",
+      "ui_entrypoint": {
+        "index": 89,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "number",
+        "attributes": {
+          "data-crop": "right",
+          "max": "100",
+          "min": "1",
+          "type": "number",
+          "value": "100"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "user control",
+      "output": "reset edit options or actual PNG",
+      "persistence_behavior": "applied pixels saved to project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_crop"
+      ]
+    },
+    {
+      "feature": "number",
+      "ui_entrypoint": {
+        "index": 90,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "number",
+        "attributes": {
+          "data-crop": "bottom",
+          "max": "100",
+          "min": "1",
+          "type": "number",
+          "value": "100"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "user control",
+      "output": "reset edit options or actual PNG",
+      "persistence_behavior": "applied pixels saved to project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_crop"
+      ]
+    },
+    {
+      "feature": "number",
+      "ui_entrypoint": {
+        "index": 91,
+        "kind": "photo",
+        "tag": "INPUT",
+        "text": "number",
+        "attributes": {
+          "data-photo-resize": "",
+          "max": "8000",
+          "min": "1",
+          "type": "number",
+          "value": "512"
+        },
+        "hidden_at_final_capture": true
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "user control",
+      "output": "reset edit options or actual PNG",
+      "persistence_behavior": "applied pixels saved to project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_tool_resize"
+      ]
+    },
+    {
+      "feature": "↻ 초기화",
+      "ui_entrypoint": {
+        "index": 92,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "↻ 초기화",
+        "attributes": {
+          "data-photo-reset": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "user control",
+      "output": "reset edit options or actual PNG",
+      "persistence_behavior": "applied pixels saved to project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_reset"
+      ]
+    },
+    {
+      "feature": "적용하기",
+      "ui_entrypoint": {
+        "index": 93,
+        "kind": "photo",
+        "tag": "BUTTON",
+        "text": "적용하기",
+        "attributes": {
+          "data-photo-apply": ""
+        },
+        "hidden_at_final_capture": false
+      },
+      "source_paths": [
+        "ui/index.html",
+        "ui/photo_workspace.js",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/photo-edits",
+      "model_or_program_dependency": "Canvas/Pillow",
+      "input": "user control",
+      "output": "reset edit options or actual PNG",
+      "persistence_behavior": "applied pixels saved to project/ZIP",
+      "error_behavior": "visible error/status",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_brightness",
+        "corrected_edits_save_close_reopen"
+      ]
+    },
+    {
+      "feature": "Project create/open saved project",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/projects; /api/projects/{UUID}",
+      "model_or_program_dependency": "JSON filesystem",
+      "input": "real media/request",
+      "output": "real selected project",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "new_project_and_open_existing"
+      ]
+    },
+    {
+      "feature": "Reference validation/removal",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "browser CommandPanelState",
+      "model_or_program_dependency": "Chrome",
+      "input": "real media/request",
+      "output": "reference list and RGB histogram match order",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_reference_similarity",
+        "reference_remove",
+        "REGRESSION.log"
+      ]
+    },
+    {
+      "feature": "Actual HTTP replay/conflict/failed retry",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "ProductHttpServer.run_once",
+      "model_or_program_dependency": "thread lock/request fingerprint",
+      "input": "real media/request",
+      "output": "same successful job ID, conflict422, failed request retry allowed",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "http_idempotency",
+        "REGRESSION.log"
+      ]
+    },
+    {
+      "feature": "Pending edit save and duplicate-click guard",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "browser edit counters",
+      "model_or_program_dependency": "Chrome",
+      "input": "real media/request",
+      "output": "one actual job; save rejected while editing",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "pending_edit_save_guard_duplicate_click"
+      ]
+    },
+    {
+      "feature": "Background mask derivative",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/jobs/{id}/background",
+      "model_or_program_dependency": "Pillow + frozen SAM mask",
+      "input": "real media/request",
+      "output": "full-resolution RGBA; original hashes unchanged",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "photo_background_removal_from_frozen_mask"
+      ]
+    },
+    {
+      "feature": "Full process/browser close and reopen",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "server shutdown/new server + project latest",
+      "model_or_program_dependency": "Python HTTP server/Chrome",
+      "input": "real media/request",
+      "output": "one server; old port closed; photo/video/STT/job state restored",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "full_browser_server_close",
+        "save_full_close_reopen_all_lanes",
+        "single_server_after_relaunch"
+      ]
+    },
+    {
+      "feature": "Legacy local FFmpeg concat",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/runtime.py",
+        "src/media_ai/photo.py",
+        "src/media_ai/video.py"
+      ],
+      "runtime_api_path": "process_video",
+      "model_or_program_dependency": "FFmpeg",
+      "input": "real media/request",
+      "output": "H264/yuv420p original-ratio concatenated clips",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "legacy_concat_original_ratio",
+        "REGRESSION.log"
+      ]
+    },
+    {
+      "feature": "Legacy local Pillow/OpenCV computation",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/runtime.py",
+        "src/media_ai/photo.py",
+        "src/media_ai/video.py"
+      ],
+      "runtime_api_path": "MediaRuntime/process_photo",
+      "model_or_program_dependency": "Pillow/OpenCV",
+      "input": "real media/request",
+      "output": "real local program outputs; VERIFY_REQUIRED model evidence, never adopted model PASS",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "REGRESSION.log"
+      ]
+    },
+    {
+      "feature": "Runtime identity",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "/api/runtime-identity",
+      "model_or_program_dependency": "file hashes, optional Git in development",
+      "input": "real media/request",
+      "output": "authoritative UI hash fingerprint; package identity from manifest without Git",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "REGRESSION.log"
+      ]
+    },
+    {
+      "feature": "Malformed/unsupported input",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "runtime_api_path": "HTTP422 / visible UI status",
+      "model_or_program_dependency": "decoder/validation",
+      "input": "real media/request",
+      "output": "visible error; preceding successful input/project preserved",
+      "persistence_behavior": "as specified in detailed receipt",
+      "error_behavior": "explicit failure; no silent PASS",
+      "status": "PASS",
+      "evidence_refs": [
+        "invalid_import_keeps_previous",
+        "unsupported_video_command_rejected",
+        "REGRESSION.log"
+      ]
+    },
+    {
+      "feature": "before-after comparison",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": "not exposed",
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "not implemented",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "unimplemented_capability_declarations_corrected"
+      ],
+      "disposition": "Inactive declarative feature; false enabled attributes removed; no interactive implementation claim"
+    },
+    {
+      "feature": "batch editor",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": "not exposed",
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "not implemented",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "unimplemented_capability_declarations_corrected"
+      ],
+      "disposition": "Inactive declarative feature; false enabled attributes removed; no interactive implementation claim"
+    },
+    {
+      "feature": "keyframe editing",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": "not exposed",
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "not implemented",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "unimplemented_capability_declarations_corrected"
+      ],
+      "disposition": "Inactive declarative feature; false enabled attributes removed; no interactive implementation claim"
+    },
+    {
+      "feature": "clip context/range deletion",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": "not exposed",
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "not implemented",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "unimplemented_capability_declarations_corrected"
+      ],
+      "disposition": "Inactive declarative feature; false enabled attributes removed; no interactive implementation claim"
+    },
+    {
+      "feature": "editable multi-track timeline",
+      "ui_entrypoint": null,
+      "source_paths": [
+        "ui/index.html"
+      ],
+      "runtime_api_path": "not exposed",
+      "model_or_program_dependency": "none",
+      "input": null,
+      "output": null,
+      "persistence_behavior": "none",
+      "error_behavior": "not implemented",
+      "status": "NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "unimplemented_capability_declarations_corrected"
+      ],
+      "disposition": "Inactive declarative feature; false enabled attributes removed; no interactive implementation claim"
+    },
+    {
+      "feature": "real Marketing HTTP",
+      "ui_entrypoint": "existing 광고 숏폼 entry",
+      "source_paths": [
+        "src/media_ai/marketing_shortform_client.py",
+        "src/media_ai/shortform_bridge.py"
+      ],
+      "runtime_api_path": "external Marketing bridge",
+      "model_or_program_dependency": "external provider/assets",
+      "input": "owner-approved actual integration data",
+      "output": "future live advertising result",
+      "persistence_behavior": "deferred",
+      "error_behavior": "graceful unavailable",
+      "status": "DEFERRED_EXTERNAL",
+      "evidence_refs": [
+        "external_unavailable_base_continues"
+      ]
+    },
+    {
+      "feature": "approved AVORA assets",
+      "ui_entrypoint": "existing 광고 숏폼 entry",
+      "source_paths": [
+        "src/media_ai/marketing_shortform_client.py",
+        "src/media_ai/shortform_bridge.py"
+      ],
+      "runtime_api_path": "external Marketing bridge",
+      "model_or_program_dependency": "external provider/assets",
+      "input": "owner-approved actual integration data",
+      "output": "future live advertising result",
+      "persistence_behavior": "deferred",
+      "error_behavior": "graceful unavailable",
+      "status": "DEFERRED_EXTERNAL",
+      "evidence_refs": [
+        "external_unavailable_base_continues"
+      ]
+    },
+    {
+      "feature": "external ad 9:16 Preview",
+      "ui_entrypoint": "existing 광고 숏폼 entry",
+      "source_paths": [
+        "src/media_ai/marketing_shortform_client.py",
+        "src/media_ai/shortform_bridge.py"
+      ],
+      "runtime_api_path": "external Marketing bridge",
+      "model_or_program_dependency": "external provider/assets",
+      "input": "owner-approved actual integration data",
+      "output": "future live advertising result",
+      "persistence_behavior": "deferred",
+      "error_behavior": "graceful unavailable",
+      "status": "DEFERRED_EXTERNAL",
+      "evidence_refs": [
+        "external_unavailable_base_continues"
+      ]
+    },
+    {
+      "feature": "Representative Approval",
+      "ui_entrypoint": "existing 광고 숏폼 entry",
+      "source_paths": [
+        "src/media_ai/marketing_shortform_client.py",
+        "src/media_ai/shortform_bridge.py"
+      ],
+      "runtime_api_path": "external Marketing bridge",
+      "model_or_program_dependency": "external provider/assets",
+      "input": "owner-approved actual integration data",
+      "output": "future live advertising result",
+      "persistence_behavior": "deferred",
+      "error_behavior": "graceful unavailable",
+      "status": "DEFERRED_EXTERNAL",
+      "evidence_refs": [
+        "external_unavailable_base_continues"
+      ]
+    },
+    {
+      "feature": "approved ad MP4 Export",
+      "ui_entrypoint": "existing 광고 숏폼 entry",
+      "source_paths": [
+        "src/media_ai/marketing_shortform_client.py",
+        "src/media_ai/shortform_bridge.py"
+      ],
+      "runtime_api_path": "external Marketing bridge",
+      "model_or_program_dependency": "external provider/assets",
+      "input": "owner-approved actual integration data",
+      "output": "future live advertising result",
+      "persistence_behavior": "deferred",
+      "error_behavior": "graceful unavailable",
+      "status": "DEFERRED_EXTERNAL",
+      "evidence_refs": [
+        "external_unavailable_base_continues"
+      ]
+    },
+    {
+      "feature": "One-click Windows launch/update/native close/relaunch",
+      "ui_entrypoint": "future PC Work",
+      "source_paths": [
+        "scripts/employee_package_launcher.py"
+      ],
+      "runtime_api_path": "future ONE_CLICK_RUNTIME_PACKAGE",
+      "model_or_program_dependency": "controlled Windows runtime",
+      "input": "future owner-authorized package",
+      "output": "not executed in General Work",
+      "persistence_behavior": "must preserve user data; future PC Work acceptance",
+      "error_behavior": "native controls currently disabled",
+      "status": "PARTIAL",
+      "evidence_refs": [
+        "REGRESSION.log"
+      ],
+      "scope": "PC_WORK_PAUSED; not a General Work shipped runtime claim"
+    }
+  ],
+  "unknown_count": 0,
+  "status_counts": {
+    "PASS": 92,
+    "PARTIAL": 1,
+    "FAIL": 0,
+    "NOT_IMPLEMENTED": 16,
+    "DEFERRED_EXTERNAL": 6
+  },
+  "scope_note": "PASS applies to active base editor and explicit disabled/inactive dispositions. PC lifecycle and live external integrations are not delivered or tested as PASS."
+}
