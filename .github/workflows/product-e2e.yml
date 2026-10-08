@@ -6,6 +6,9 @@ on:
     paths:
       - ".github/workflows/product-e2e.yml"
       - "model_scout/run_product_e2e.py"
+      - "model_scout/run_shortform_external_closeout.py"
+      - "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT*"
+      - "CURRENT_PC_WORK_STATE.json"
       - "model_scout/run_product_e2e_continuation.py"
       - "src/media_ai/browser_preview.py"
       - "pyproject.toml"
@@ -28,7 +31,53 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  active-epoch:
+    runs-on: ubuntu-latest
+    outputs:
+      base: ${{ steps.epoch.outputs.base }}
+      external: ${{ steps.epoch.outputs.external }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - id: epoch
+        shell: python
+        run: |
+          import json, os
+          from pathlib import Path
+          epoch=json.loads(Path("CURRENT_PC_WORK_STATE.json").read_text())["control_plane_epoch"]
+          with open(os.environ["GITHUB_OUTPUT"],"a") as output:
+              output.write("base="+str(epoch=="MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1").lower()+"\n")
+              output.write("external="+str(epoch=="MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1").lower()+"\n")
+  external-shortform-closeout:
+    needs: active-epoch
+    if: needs.active-epoch.outputs.external == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify external epoch and actual runner configuration
+        env:
+          MARKETING_SHORTFORM_BASE_URL: ${{ vars.MARKETING_SHORTFORM_BASE_URL }}
+          MARKETING_SHORTFORM_BRIDGE_TOKEN: ${{ secrets.MARKETING_SHORTFORM_BRIDGE_TOKEN }}
+          MARKETING_SHORTFORM_HEALTH_PATH: ${{ vars.MARKETING_SHORTFORM_HEALTH_PATH }}
+        run: python model_scout/run_shortform_external_closeout.py
+      - name: Preserve external-only real runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-shortform-external-closeout-evidence
+          path: docs/evidence/media-ai-shortform-external-integration-closeout-20261008/**
+          retention-days: 90
+          if-no-files-found: error
   approved-ui-real-model-e2e:
+    needs: active-epoch
+    if: needs.active-epoch.outputs.base == 'true'
     name: Approved UI to perpetual-use CPU models
     runs-on: ubuntu-latest
     timeout-minutes: 15
