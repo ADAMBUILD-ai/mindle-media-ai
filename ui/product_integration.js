@@ -95,6 +95,7 @@
         editor.querySelector('.track.purple').textContent='Subtitle Track · '+result.runtime_result.text;
         message(editor,result.runtime_result.text);
         if(/자막/.test(command) && window.mindleApplyVideoSubtitle) await window.mindleApplyVideoSubtitle(result.runtime_result.text);
+        return;
       } else {preview(editor, result);await rememberResult(result);}
       message(editor, "편집 완료");
     } catch (error) { message(editor, error.message, true); }
