@@ -86,6 +86,7 @@ jobs:
         run: |
           mkdir -p docs/evidence/media-ai-product-e2e-full-pass-20261008
           python -m pip install "pytest>=9,<10"
+          python -m pip install --no-deps --force-reinstall .
           python -m pip check
           set -o pipefail
           { python scripts/validate_pc_work_control_plane.py && python -m pytest -q && node --test ui/interaction.test.js ui/ssot_structure.test.js; } 2>&1 | tee docs/evidence/media-ai-product-e2e-full-pass-20261008/BASELINE_CI_PASS.log
