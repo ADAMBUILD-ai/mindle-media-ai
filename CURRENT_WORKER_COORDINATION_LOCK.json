@@ -1,46 +1,46 @@
 {
-  "schema_version": "GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "schema_version": "PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
   "status": "ACTIVE",
   "date": "2026-10-08",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "active_control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
   "collision_status": "NO_ACTIVE_COLLISION",
   "worker_lanes": {
-    "general_work_final_audit": {
-      "role": "MINDLE MEDIA AI General Work final self-audit executor",
-      "current_assignment": "Audit the whole implemented product, close verified gaps, publish Evidence, and hand off only after PASS",
+    "general_work": {
+      "role": "Completed General Work",
+      "current_assignment": "COMPLETE / READ-ONLY handoff baseline",
+      "may_write": [],
+      "may_not_change": [
+        "General Work PASS evidence and frozen product baseline"
+      ]
+    },
+    "pc_work_one_click_runtime": {
+      "role": "Windows PC Work one-click runtime executor",
+      "current_assignment": "Build and validate one-click Windows runtime package from General Work PASS baseline",
       "may_write": [
-        "src/** verified product/runtime gap fixes",
-        "ui/** verified owner-UI/runtime gap fixes only",
-        "tests/** regression tests",
-        "model_scout/** E2E/audit tools",
-        "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md",
-        "docs/evidence/media-ai-general-work-final-self-audit-20261008/**"
+        "scripts/** Windows runtime/launcher/package fixes",
+        ".github/workflows/** only when needed for PC runtime/package validation",
+        "src/** only for verified Windows runtime lifecycle defects",
+        "ui/** only runtime lifecycle wiring without visual/layout redesign",
+        "tests/** PC/runtime regression tests",
+        "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_REVIEW_v1.0_20261008.md",
+        "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/**"
       ],
       "may_not_change": [
         "main/default branch",
-        "owner-approved UI beyond verified gap fixes",
-        "historical Evidence deletion",
-        "employee/runtime package build",
+        "approved UI layout/colors",
+        "General Work historical Evidence",
         "external Marketing/AVORA live integration",
         "PR #23 merge state"
       ]
     },
-    "pc_work": {
-      "role": "PC Work runtime packaging executor",
-      "current_assignment": "PAUSED until General Work PASS",
-      "may_write": [],
-      "may_not_change": [
-        "all repository content before General Work PASS"
-      ]
-    },
     "external_marketing_avora": {
       "role": "Deferred external integration",
-      "current_assignment": "DEFERRED_EXTERNAL — preserve requests/evidence only",
+      "current_assignment": "DEFERRED_EXTERNAL",
       "may_write": [],
       "may_not_change": [
-        "active General Work closeout"
+        "active PC Work closeout"
       ]
     }
   },
