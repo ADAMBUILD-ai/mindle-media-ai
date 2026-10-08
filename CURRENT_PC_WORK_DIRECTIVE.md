@@ -1,35 +1,33 @@
 # MINDLE MEDIA AI — CURRENT PC WORK DIRECTIVE
 
-STATUS: ACTIVE — PRODUCT E2E VIDEO PREVIEW TO FULL PASS
+STATUS: ACTIVE — SHORTFORM EXTERNAL INTEGRATION CLOSEOUT
 DATE: 2026-10-08
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
 
 ## PREVIOUS RESULT
-PASS_PHOTO_UPSCALE_PREVIEW_FIX
-FULL PRODUCT E2E: FAIL_VIDEO_BROWSER_PREVIEW
+BASE PRODUCT RUNTIME: PASS
+FULL PRODUCT E2E: BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION
 
 ## SINGLE ACTIVE DIRECTIVE
-docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_DIRECTIVE_v1.0_20261008.md
+docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_DIRECTIVE_v1.0_20261008.md
 
 ## SINGLE ACTIVE EVIDENCE CONTRACT
-docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_EVIDENCE_CONTRACT_v1.0_20261008.json
+docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_EVIDENCE_CONTRACT_v1.0_20261008.json
 
 ## EXECUTION RULE
-Do not restart passed PHOTO work.
-Close only the remaining product runtime gates:
-- capture actual browser media diagnostics
-- H.264/yuv420p/faststart preview decode
-- Korean STT UI E2E
-- Save/Close/Reopen restoration
-- Export
-- Marketing HTTP integration
-- approved AVORA asset integration
-- 광고 숏폼 9:16 Preview and approved MP4 export
+Reuse all passed base product gates.
+Close only:
+- actual Marketing provider reachability
+- real bridge authentication
+- approved AVORA asset
+- 9:16 Shortform browser Preview
+- Representative Approval
+- approved MP4 Export
 - final Evidence and remote readback
 
-Employee Windows package rebuild is deferred until full product E2E PASS.
+Do not rebuild employee package until full product E2E PASS.
 
 ## FINAL PASS
 PASS_MINDLE_MEDIA_AI_FULL_PRODUCT_E2E_RUNTIME_VERIFIED
