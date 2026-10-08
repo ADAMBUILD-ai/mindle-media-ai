@@ -3,40 +3,54 @@ from __future__ import annotations
 import json, pathlib, sys
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-PC_EPOCH="MEDIA-AI-20261008-PC-WORK-PAUSED-PENDING-GENERAL-AUDIT-R1"
-GENERAL_EPOCH="MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1"
-GENERAL_DIRECTIVE="docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md"
+EPOCH="MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1"
+DIRECTIVE="docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_DIRECTIVE_v1.0_20261008.md"
+CONTRACT="docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_EVIDENCE_CONTRACT_v1.0_20261008.json"
+PASS="PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK"
 
 current=(ROOT/"CURRENT_PC_WORK_DIRECTIVE.md").read_text(encoding="utf-8")
 lock=json.loads((ROOT/"CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json").read_text(encoding="utf-8"))
 state=json.loads((ROOT/"CURRENT_PC_WORK_STATE.json").read_text(encoding="utf-8"))
 worker=json.loads((ROOT/"CURRENT_WORKER_COORDINATION_LOCK.json").read_text(encoding="utf-8"))
+general=json.loads((ROOT/"CURRENT_GENERAL_WORK_STATE.json").read_text(encoding="utf-8"))
 
 def fail(msg):
     print("PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: "+msg, file=sys.stderr)
     raise SystemExit(2)
 
-if lock.get("epoch") != PC_EPOCH:
-    fail("PC pause epoch mismatch")
-if state.get("control_plane_epoch") != PC_EPOCH:
-    fail("PC state epoch mismatch")
-if worker.get("active_control_plane_epoch") != GENERAL_EPOCH:
-    fail("General Work must be active while PC Work is paused")
-if lock.get("status") != "PAUSED_WAITING_GENERAL_WORK_PASS":
-    fail("PC lock must remain paused")
-if state.get("status") != "PAUSED_WAITING_GENERAL_WORK_PASS":
-    fail("PC state must remain paused")
-if state.get("package_build_allowed") is not False:
-    fail("package_build_allowed must be false")
-if state.get("product_changes_allowed") is not False:
-    fail("PC product changes must be false while paused")
-for token in (PC_EPOCH,GENERAL_EPOCH,GENERAL_DIRECTIVE,"ONE-CLICK RUNTIME PACKAGE"):
-    if token not in current:
-        fail(f"CURRENT missing {token!r}")
+checks=[
+ ("lock epoch",lock.get("epoch"),EPOCH),
+ ("state epoch",state.get("control_plane_epoch"),EPOCH),
+ ("worker epoch",worker.get("active_control_plane_epoch"),EPOCH),
+ ("lock directive",lock.get("active_directive"),DIRECTIVE),
+ ("state directive",state.get("active_directive"),DIRECTIVE),
+ ("lock contract",lock.get("evidence_contract"),CONTRACT),
+ ("state contract",state.get("evidence_contract"),CONTRACT),
+]
+for label,actual,expected in checks:
+    if actual != expected:
+        fail(f"{label}: expected {expected!r}, got {actual!r}")
+
+if general.get("final_result") != PASS:
+    fail("General Work PASS missing")
+if general.get("final_head") != "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb":
+    fail("General Work final HEAD mismatch")
+if state.get("package_build_allowed") is not True:
+    fail("package_build_allowed must be true")
+if state.get("external_marketing_avora_required") is not False:
+    fail("external Marketing/AVORA must remain deferred")
+if state.get("normal_employee_action") != "DOUBLE_CLICK_ONLY":
+    fail("normal employee action must be DOUBLE_CLICK_ONLY")
+if state.get("employee_manual_install_steps_allowed") is not False:
+    fail("manual employee install steps must remain forbidden")
 if worker.get("pr23_hold_do_not_merge") is not True:
     fail("PR #23 must remain HOLD / DO NOT MERGE")
+for token in (EPOCH,DIRECTIVE,CONTRACT,PASS,"PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E"):
+    if token not in current:
+        fail(f"CURRENT missing {token!r}")
 
-print("PC_WORK_PAUSED_WAITING_GENERAL_WORK_PASS")
-print(f"PC_EPOCH={PC_EPOCH}")
-print(f"ACTIVE_GENERAL_EPOCH={GENERAL_EPOCH}")
-print(f"GENERAL_DIRECTIVE={GENERAL_DIRECTIVE}")
+print("PC_WORK_CONTROL_PLANE_PASS")
+print(f"EPOCH={EPOCH}")
+print(f"DIRECTIVE={DIRECTIVE}")
+print(f"CONTRACT={CONTRACT}")
+print("GENERAL_WORK_BASELINE=9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb")
