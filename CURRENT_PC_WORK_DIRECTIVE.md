@@ -1,8 +1,8 @@
 # MINDLE MEDIA AI — CURRENT PC WORK DIRECTIVE
 
-STATUS: BLOCKED — PC EXECUTION ENVIRONMENT
+STATUS: ACTIVE — REMOTE WINDOWS FALLBACK / LOCAL HELPER BLOCKED
 DATE: 2026-10-08
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-BLOCKER-RECOVERY-R1
+CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-PC-WORK-REMOTE-WINDOWS-FALLBACK-R1
 REPOSITORY: ADAMBUILD-ai/mindle-media-ai
 BRANCH: feature/ad-shortform-bridge-p0-20260926
 
@@ -10,38 +10,39 @@ BRANCH: feature/ad-shortform-bridge-p0-20260926
 PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK
 GENERAL_WORK_FINAL_HEAD: 9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb
 
-## ACTIVE DIRECTIVE
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_BLOCKER_RECOVERY_DIRECTIVE_v1.0_20261008.md
+## LOCAL PC HELPER
+STATUS: PC_EXECUTION_ENVIRONMENT_STILL_BLOCKED_SETUP_REFRESH
+ERROR: helper_unknown_error: setup refresh had errors
 
-## EVIDENCE CONTRACT
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_BLOCKER_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261008.json
+This blocks only local physical execution.
+IT DOES NOT STOP PC WORK.
 
-## BLOCK NOTICE
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXECUTION_ENVIRONMENT_BLOCKED_NOTICE_v1.0_20261008.md
+## SINGLE ACTIVE DIRECTIVE
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK_AND_LOCAL_ACCEPTANCE_DIRECTIVE_v1.0_20261008.md
 
-## CURRENT RESULT
-PC_EXECUTION_ENVIRONMENT_BLOCKED
+## SINGLE ACTIVE EVIDENCE CONTRACT
+docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK_EVIDENCE_CONTRACT_v1.0_20261008.json
 
-Observed tool startup error:
-helper_unknown_error: setup refresh had errors
+## ACTIVE EXECUTION MODE
+REMOTE_WINDOWS_FALLBACK
 
-## NOT RUN
-- local validator
-- MINDLE_MEDIA_AI_RUN.exe build
-- Windows double-click E2E
-- target-PC VC runtime audit
-- target-PC FFmpeg replacement/redistribution validation
+Continue immediately through GitHub Windows Runner:
+1. validator
+2. Windows runtime/dependency inventory
+3. VC Runtime closure
+4. FFmpeg distribution closure
+5. MINDLE_MEDIA_AI_RUN.exe implementation/build
+6. Windows automated runtime E2E
+7. package hashes/artifact/Evidence
 
-## RESUME CONDITION
-When the PC execution tool is restored:
-1. re-read this file
-2. run scripts/validate_pc_work_control_plane.py
-3. record PC_EXEC_TOOL_RECOVERY_RESULT.json
-4. continue the existing blocker-recovery directive from the VC/FFmpeg gate
+Leave only the final physical local double-click acceptance pending until the local helper recovers.
 
-Do not restart General Work.
-Do not return to the old manual installer flow.
-External Marketing / AVORA remains DEFERRED_EXTERNAL.
+## INTERMEDIATE REMOTE PASS
+PASS_REMOTE_WINDOWS_ONE_CLICK_BUILD_AND_AUTOMATION_READY_LOCAL_ACCEPTANCE_PENDING
 
 ## FINAL PASS
 PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E
+
+External Marketing / AVORA remains DEFERRED_EXTERNAL.
+PR #23 remains HOLD / DO NOT MERGE.
+No main merge.
