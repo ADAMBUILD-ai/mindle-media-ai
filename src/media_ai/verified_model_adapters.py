@@ -233,8 +233,10 @@ class Sam21VerifiedAdapter:
             ffmpeg = Path(package_root) / 'tools/ffmpeg/ffmpeg.exe'
             intermediate = output_dir / 'tracking_encode_input.mp4'
             video_path.rename(intermediate)
+            encoder = 'h264_mf' if os.name == 'nt' else 'libx264'
+            encoder_args = ['-c:v', 'h264_mf', '-pix_fmt', 'yuv420p'] if encoder == 'h264_mf' else ['-c:v', 'libx264', '-preset', 'fast', '-pix_fmt', 'yuv420p']
             subprocess.run([str(ffmpeg), '-nostdin', '-y', '-loglevel', 'error', '-i', str(intermediate),
-                            '-c:v', 'libx264', '-preset', 'fast', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', str(video_path)],
+                            *encoder_args, '-movflags', '+faststart', str(video_path)],
                            check=True, capture_output=True)
             intermediate.unlink()
         manifest_path = output_dir / "tracking.json"
