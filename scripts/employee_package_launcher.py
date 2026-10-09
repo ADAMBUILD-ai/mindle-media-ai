@@ -50,6 +50,7 @@ def main():
     parser.add_argument('--port', type=int)
     parser.add_argument('--data-root', type=Path)
     parser.add_argument('--deny-path', action='append', default=[])
+    parser.add_argument('--no-browser', action='store_true', help='CI/runtime verification only; do not open a browser window')
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
     blocked = json.loads(os.environ.get('MINDLE_TEST_BLOCKED_PATHS', '[]'))
@@ -142,13 +143,15 @@ def main():
             if port is None:
                 raise RuntimeError('사용 가능한 제품 포트가 없습니다.')
         url = f'http://127.0.0.1:{port}/?ui_build={manifest["ui_fingerprint"]}'
-        candidates = [Path(os.environ.get(key, '')) / suffix for key in ('ProgramFiles', 'ProgramFiles(x86)')
-                      for suffix in ('Microsoft/Edge/Application/msedge.exe', 'Google/Chrome/Application/chrome.exe')]
-        browser = next((p for p in candidates if p.is_file()), None)
-        if browser:
-            subprocess.Popen([str(browser), '--app=' + url])
-        else:
-            os.startfile(url)
+        print(f'MINDLE_MEDIA_AI_READY {url}')
+        if not args.no_browser:
+            candidates = [Path(os.environ.get(key, '')) / suffix for key in ('ProgramFiles', 'ProgramFiles(x86)')
+                          for suffix in ('Microsoft/Edge/Application/msedge.exe', 'Google/Chrome/Application/chrome.exe')]
+            browser = next((p for p in candidates if p.is_file()), None)
+            if browser:
+                subprocess.Popen([str(browser), '--app=' + url])
+            else:
+                os.startfile(url)
     finally:
         lock.seek(0); msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1); lock.close()
 
