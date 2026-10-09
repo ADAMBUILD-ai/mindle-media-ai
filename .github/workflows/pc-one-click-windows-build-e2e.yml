@@ -1,0 +1,492 @@
+name: MINDLE MEDIA AI one-click Windows build and E2E
+
+on:
+  push:
+    branches:
+      - feature/ad-shortform-bridge-p0-20260926
+    paths:
+      - ".github/workflows/pc-one-click-windows-build-e2e.yml"
+      - "CURRENT_PC_WORK_**"
+      - "CURRENT_WORKER_COORDINATION_LOCK.json"
+      - "scripts/one_click_bootstrap.py"
+      - "scripts/build_one_click_runtime_layout.py"
+      - "scripts/employee_package_launcher.py"
+      - "scripts/remote_windows_one_click_e2e.py"
+      - "scripts/validate_pc_work_control_plane.py"
+      - "src/media_ai/**"
+      - "LICENSES/**"
+      - "docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: mindle-media-one-click-windows-build-e2e
+  cancel-in-progress: false
+
+env:
+  EVIDENCE_DIR: docs/evidence/media-ai-pc-work-remote-windows-fallback-20261008
+  MODEL_PACKAGE_RUN_ID: "37778695858"
+  GENERAL_AUDIT_RUN_ID: "37752630381"
+  PYTHON_EMBED_URL: "https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip"
+  FFMPEG_URL: "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-win64-lgpl-shared-8.1.zip"
+  FFMPEG_EXPECTED_SHA256: "fab88c806009745666a4b0f4e0ff3b8cdbc91f8f5ae72cc67113dc6b5c67de46"
+
+jobs:
+  build-and-e2e:
+    runs-on: windows-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Initialize evidence and validate active PC Work
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path $env:EVIDENCE_DIR | Out-Null
+          @'
+          {
+            "status": "PC_EXECUTION_ENVIRONMENT_STILL_BLOCKED_SETUP_REFRESH",
+            "remote_fallback_active": true,
+            "local_final_acceptance": "PENDING"
+          }
+          '@ | Set-Content "$env:EVIDENCE_DIR/LOCAL_HELPER_STATUS.json" -Encoding utf8
+          python scripts/validate_pc_work_control_plane.py 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/CONTROL_PLANE_VALIDATOR_RESULT.txt"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Record remote Windows runner profile
+        shell: pwsh
+        run: |
+          $record = [ordered]@{
+            status = "REMOTE_WINDOWS_RUNNER_AVAILABLE"
+            os = [System.Environment]::OSVersion.VersionString
+            runner = $env:RUNNER_NAME
+            user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+            powershell = $PSVersionTable.PSVersion.ToString()
+            pwd = (Get-Location).Path
+            temp = $env:TEMP
+            localappdata = $env:LOCALAPPDATA
+            github_sha = $env:GITHUB_SHA
+            timestamp_utc = [DateTime]::UtcNow.ToString("o")
+          }
+          $record | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/REMOTE_WINDOWS_RUNNER_PROFILE.json" -Encoding utf8
+
+      - name: Download verified model payload parts from frozen package run
+        uses: actions/download-artifact@v4
+        with:
+          pattern: mindle-media-verified-runtime-package-v28_1-part-*
+          merge-multiple: true
+          run-id: ${{ env.MODEL_PACKAGE_RUN_ID }}
+          github-token: ${{ github.token }}
+          path: build/model-parts
+
+      - name: Reassemble verified model package
+        shell: pwsh
+        run: |
+          $parts = Get-ChildItem "build/model-parts/mindle-media-verified-runtime-package-v28_1.zip.part-*" | Sort-Object Name
+          if ($parts.Count -lt 1) { throw "model package parts missing" }
+          $zip = [IO.Path]::GetFullPath("build/model-package.zip")
+          $output = [IO.File]::Create($zip)
+          try {
+            foreach ($part in $parts) {
+              $input = [IO.File]::OpenRead($part.FullName)
+              try { $input.CopyTo($output) } finally { $input.Dispose() }
+            }
+          } finally { $output.Dispose() }
+          $expected = ((Get-Content "build/model-parts/mindle-media-verified-runtime-package-v28_1.zip.sha256" -Raw).Trim() -split "\s+")[0].ToLower()
+          $actual = (Get-FileHash -Algorithm SHA256 $zip).Hash.ToLower()
+          if ($actual -ne $expected) { throw "model package SHA mismatch expected=$expected actual=$actual" }
+          Expand-Archive -LiteralPath $zip -DestinationPath "build/model-package" -Force
+          [ordered]@{
+            source_run = [int64]$env:MODEL_PACKAGE_RUN_ID
+            zip_sha256 = $actual
+            part_count = $parts.Count
+            status = "VERIFIED_REASSEMBLED"
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/MODEL_PAYLOAD_REUSE.json" -Encoding utf8
+
+      - name: Download General Work verified fixtures
+        uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-general-work-final-self-audit-evidence
+          run-id: ${{ env.GENERAL_AUDIT_RUN_ID }}
+          github-token: ${{ github.token }}
+          path: build/general-audit
+
+      - name: Prepare official CPython 3.11 embeddable runtime
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path "build/python-embed" | Out-Null
+          Invoke-WebRequest -UseBasicParsing -Uri $env:PYTHON_EMBED_URL -OutFile "build/python-embed.zip"
+          $sha = (Get-FileHash -Algorithm SHA256 "build/python-embed.zip").Hash.ToLower()
+          Expand-Archive "build/python-embed.zip" -DestinationPath "build/python-embed" -Force
+          if (-not (Test-Path "build/python-embed/python.exe")) { throw "official embedded Python missing python.exe" }
+          [ordered]@{
+            source = $env:PYTHON_EMBED_URL
+            version = "3.11.9"
+            bytes = (Get-Item "build/python-embed.zip").Length
+            sha256 = $sha
+            status = "OFFICIAL_PYTHON_EMBED_ACQUIRED"
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/PYTHON_RUNTIME_AUDIT.json" -Encoding utf8
+
+      - name: Build pinned Windows CPU site-packages payload
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path "build/site-packages" | Out-Null
+          python -m pip install --disable-pip-version-check --target "build/site-packages" --index-url https://download.pytorch.org/whl/cpu "torch==2.8.0" "torchvision==0.23.0"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m pip install --disable-pip-version-check --upgrade --target "build/site-packages" `
+            "transformers==4.57.3" "huggingface_hub==0.36.0" "safetensors==0.6.2" `
+            "opencv-python-headless==4.12.0.88" "numpy==2.2.6" "Pillow==11.3.0" `
+            "requests==2.32.5" "openvino==2025.3.0"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          @'
+          import importlib.metadata as m
+          from pathlib import Path
+          root=Path("build/site-packages")
+          rows=sorted((d.metadata["Name"],d.version) for d in m.distributions(path=[str(root)]) if d.metadata.get("Name"))
+          Path("build/RUNTIME_LOCK_EMPLOYEE_WIN_X64.txt").write_text("\n".join(f"{n}=={v}" for n,v in rows)+"\n",encoding="utf-8")
+          print("target distributions",len(rows))
+          '@ | python
+
+      - name: Acquire pinned LGPL shared FFmpeg candidate and prove Media Foundation encoder
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -UseBasicParsing -Uri $env:FFMPEG_URL -OutFile "build/ffmpeg.zip"
+          $actual = (Get-FileHash -Algorithm SHA256 "build/ffmpeg.zip").Hash.ToLower()
+          if ($actual -ne $env:FFMPEG_EXPECTED_SHA256) { throw "FFmpeg asset changed expected=$env:FFMPEG_EXPECTED_SHA256 actual=$actual" }
+          Expand-Archive "build/ffmpeg.zip" -DestinationPath "build/ffmpeg" -Force
+          $ffmpeg = Get-ChildItem "build/ffmpeg" -Recurse -Filter ffmpeg.exe | Select-Object -First 1
+          if (-not $ffmpeg) { throw "ffmpeg.exe missing" }
+          $root = $ffmpeg.Directory.Parent.FullName
+          "FFMPEG_ROOT=$root" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          $version = & $ffmpeg.FullName -version
+          $encoders = & $ffmpeg.FullName -hide_banner -encoders
+          if (($encoders -join "`n") -notmatch "h264_mf") { throw "LGPL FFmpeg candidate lacks h264_mf" }
+          $config = ($version | Where-Object { $_ -like "configuration:*" } | Select-Object -First 1)
+          if ($config -match "--enable-gpl" -or $config -match "--enable-nonfree") { throw "FFmpeg candidate enables GPL/nonfree configuration" }
+          $probe = Join-Path $ffmpeg.Directory.FullName "ffprobe.exe"
+          if (-not (Test-Path $probe)) { throw "ffprobe.exe missing" }
+          $record = [ordered]@{
+            status = "LGPL_SHARED_CANDIDATE_VERIFIED"
+            asset_url = $env:FFMPEG_URL
+            asset_sha256 = $actual
+            asset_bytes = (Get-Item "build/ffmpeg.zip").Length
+            ffmpeg_sha256 = (Get-FileHash -Algorithm SHA256 $ffmpeg.FullName).Hash.ToLower()
+            ffprobe_sha256 = (Get-FileHash -Algorithm SHA256 $probe).Hash.ToLower()
+            ffmpeg_version = $version[0]
+            configuration = $config
+            h264_encoder = "h264_mf"
+            gpl_enabled = $false
+            nonfree_enabled = $false
+            linkage = "shared"
+            source_obligation_status = "REQUIRES_FINAL_NOTICE_SOURCE_READBACK"
+          }
+          $record | ConvertTo-Json -Depth 5 | Set-Content "$env:EVIDENCE_DIR/FFMPEG_DISTRIBUTION_AUDIT.json" -Encoding utf8
+
+      - name: Install build-only PE audit and EXE tools
+        run: python -m pip install --disable-pip-version-check "pefile==2024.8.26" "pyinstaller==6.16.0" "pytest>=9,<10"
+
+      - name: Audit VC runtime dependencies without copying System32 DLLs
+        shell: python
+        run: |
+          import json,re
+          from pathlib import Path
+          import pefile
+          roots=[Path("build/python-embed"),Path("build/site-packages")]
+          provided={}
+          binaries=[]
+          for root in roots:
+              for p in root.rglob("*"):
+                  if p.is_file() and p.suffix.lower() in {".exe",".dll",".pyd"}:
+                      provided.setdefault(p.name.lower(),[]).append(str(p))
+                      binaries.append(p)
+          imports={}
+          pattern=re.compile(r"^(?:msvcp|vcruntime|concrt)140.*\.dll$",re.I)
+          for p in binaries:
+              try:
+                  pe=pefile.PE(str(p),fast_load=True)
+                  pe.parse_data_directories(directories=[pefile.DIRECTORY_ENTRY["IMAGE_DIRECTORY_ENTRY_IMPORT"]])
+                  names=[]
+                  for entry in getattr(pe,"DIRECTORY_ENTRY_IMPORT",[]):
+                      name=entry.dll.decode("ascii","replace")
+                      if pattern.match(name):
+                          names.append(name)
+                  if names:
+                      imports[str(p)]=sorted(set(names),key=str.lower)
+              except Exception:
+                  pass
+          required=sorted({n.lower() for names in imports.values() for n in names})
+          unresolved=[n for n in required if n not in provided]
+          record={
+              "status":"AUDITED",
+              "system32_copy_forbidden":True,
+              "binary_count":len(binaries),
+              "required_vc_runtime_names":required,
+              "provided_inside_python_or_wheels":{n:provided.get(n,[]) for n in required if n in provided},
+              "unresolved_host_runtime_names":unresolved,
+              "redistribution_closed":len(unresolved)==0,
+              "note":"No DLL was copied from Windows System32. Unresolved host runtime names remain a release blocker until a licensed automatic strategy is approved.",
+          }
+          Path("docs/evidence/media-ai-pc-work-remote-windows-fallback-20261008/VC_RUNTIME_DEPENDENCY_AUDIT.json").write_text(json.dumps(record,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps(record,indent=2))
+
+      - name: Build employee-visible MINDLE_MEDIA_AI_RUN.exe
+        shell: pwsh
+        run: |
+          pyinstaller --clean --noconfirm --onefile --noconsole `
+            --name MINDLE_MEDIA_AI_RUN `
+            --icon "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico" `
+            "scripts/one_click_bootstrap.py"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (-not (Test-Path "dist/MINDLE_MEDIA_AI_RUN.exe")) { throw "MINDLE_MEDIA_AI_RUN.exe not built" }
+          [ordered]@{
+            status = "ONE_CLICK_LAUNCHER_EXE_BUILT"
+            path = "dist/MINDLE_MEDIA_AI_RUN.exe"
+            bytes = (Get-Item "dist/MINDLE_MEDIA_AI_RUN.exe").Length
+            sha256 = (Get-FileHash -Algorithm SHA256 "dist/MINDLE_MEDIA_AI_RUN.exe").Hash.ToLower()
+            console = "disabled"
+            employee_visible_action = "double-click"
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/ONE_CLICK_BUILD_RESULT.json" -Encoding utf8
+
+      - name: Assemble one-click runtime payload
+        shell: pwsh
+        run: |
+          python scripts/build_one_click_runtime_layout.py `
+            --repo "." `
+            --python-embed-root "build/python-embed" `
+            --site-packages-root "build/site-packages" `
+            --model-root "build/model-package/package" `
+            --ffmpeg-root "$env:FFMPEG_ROOT" `
+            --launcher-exe "dist/MINDLE_MEDIA_AI_RUN.exe" `
+            --output-root "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0" `
+            --build-commit "$env:GITHUB_SHA" `
+            --runtime-lock "build/RUNTIME_LOCK_EMPLOYEE_WIN_X64.txt"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Copy-Item "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/_payload/PACKAGE_MANIFEST.json" "$env:EVIDENCE_DIR/PACKAGE_MANIFEST.json"
+          Copy-Item "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/DELIVERY_ARTIFACT_SHA256.txt" "$env:EVIDENCE_DIR/DELIVERY_ARTIFACT_SHA256.txt"
+
+      - name: Verify embedded Python imports from payload only
+        shell: pwsh
+        run: |
+          $py = "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/_payload/runtime/python/python.exe"
+          & $py -X utf8 -c "import torch,transformers,cv2,openvino,numpy,PIL,huggingface_hub,safetensors; print('PACKAGED_IMPORT_PASS',torch.__version__,transformers.__version__,cv2.__version__,openvino.__version__)"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Materialize runtime through the actual EXE
+        shell: pwsh
+        run: |
+          $env:LOCALAPPDATA = [IO.Path]::GetFullPath("build/ci-localappdata")
+          New-Item -ItemType Directory -Force $env:LOCALAPPDATA | Out-Null
+          $exe = [IO.Path]::GetFullPath("build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")
+          & $exe --materialize-only 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/FIRST_DOUBLE_CLICK_RESULT.txt"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: First and second one-click launch with single-instance proof
+        shell: pwsh
+        run: |
+          $env:LOCALAPPDATA = [IO.Path]::GetFullPath("build/ci-localappdata")
+          $exe = [IO.Path]::GetFullPath("build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")
+          & $exe --no-browser 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/FIRST_RUNTIME_LAUNCH.txt"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $first = @(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match "employee_package_launcher\.py.+--server" })
+          & $exe --no-browser 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/SECOND_RUNTIME_LAUNCH.txt"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $second = @(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match "employee_package_launcher\.py.+--server" })
+          $firstPids = @($first.ProcessId | Sort-Object -Unique)
+          $secondPids = @($second.ProcessId | Sort-Object -Unique)
+          if ($secondPids.Count -ne 1) { throw "expected exactly one packaged server after second launch, got $($secondPids.Count)" }
+          if ($firstPids.Count -ne 1 -or $firstPids[0] -ne $secondPids[0]) { throw "second launch did not reuse the same server" }
+          [ordered]@{
+            status = "SINGLE_INSTANCE_PASS"
+            first_pids = $firstPids
+            second_pids = $secondPids
+            duplicate_server_count = 0
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/SINGLE_INSTANCE_RESULT.json" -Encoding utf8
+
+      - name: Run actual packaged PHOTO VIDEO STT Save Reopen Export E2E
+        shell: pwsh
+        run: |
+          python scripts/remote_windows_one_click_e2e.py `
+            --fixture-root "build/general-audit" `
+            --evidence-root "$env:EVIDENCE_DIR"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Cold process relaunch and saved-project persistence
+        shell: pwsh
+        run: |
+          $env:LOCALAPPDATA = [IO.Path]::GetFullPath("build/ci-localappdata")
+          $servers = @(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match "employee_package_launcher\.py.+--server" })
+          if ($servers.Count -ne 1) { throw "expected one server before cold relaunch" }
+          Stop-Process -Id $servers[0].ProcessId -Force
+          Start-Sleep -Seconds 2
+          $exe = [IO.Path]::GetFullPath("build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")
+          & $exe --no-browser | Out-Null
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $base = $null
+          foreach ($port in 18768..18777) {
+            try {
+              $identity = Invoke-RestMethod -UseBasicParsing -Uri "http://127.0.0.1:$port/api/runtime-identity" -TimeoutSec 2
+              if ($identity.runtime_mode -eq "LOCAL_OFFLINE_PACKAGE") { $base = "http://127.0.0.1:$port"; break }
+            } catch {}
+          }
+          if (-not $base) { throw "server did not return after cold relaunch" }
+          $latest = Invoke-RestMethod -UseBasicParsing -Uri "$base/api/projects/latest" -TimeoutSec 15
+          if (-not $latest.project_id) { throw "saved project did not survive cold relaunch" }
+          [ordered]@{
+            status = "SAVE_REOPEN_COLD_RELAUNCH_PASS"
+            project_id = $latest.project_id
+            base_url = $base
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/SAVE_REOPEN_COLD_RELAUNCH_RESULT.json" -Encoding utf8
+
+      - name: Source regression after packaging changes
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check "opencv-python-headless==4.12.0.88" "numpy==2.2.6" "Pillow==11.3.0" .
+          python -m pytest -q 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_PYTHON.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node --test ui/interaction.test.js ui/ssot_structure.test.js 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_UI.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          [ordered]@{
+            python = "PASS"
+            ui = "PASS"
+            packaged_windows_e2e = "PASS"
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/REGRESSION_RESULT.json" -Encoding utf8
+
+      - name: Create remote result and local acceptance pending receipt
+        if: always()
+        shell: pwsh
+        run: |
+          $vc = $null
+          if (Test-Path "$env:EVIDENCE_DIR/VC_RUNTIME_DEPENDENCY_AUDIT.json") {
+            $vc = Get-Content "$env:EVIDENCE_DIR/VC_RUNTIME_DEPENDENCY_AUDIT.json" -Raw | ConvertFrom-Json
+          }
+          $e2ePass = Test-Path "$env:EVIDENCE_DIR/REMOTE_WINDOWS_RUNTIME_E2E.json"
+          $result = if ($e2ePass -and $vc -and $vc.redistribution_closed) {
+            "PASS_REMOTE_WINDOWS_ONE_CLICK_BUILD_AND_AUTOMATION_READY_LOCAL_ACCEPTANCE_PENDING"
+          } elseif ($e2ePass) {
+            "BLOCKED_RUNTIME_REDISTRIBUTION_OR_DEPENDENCY"
+          } else {
+            "REMOTE_WINDOWS_ONE_CLICK_BUILD_OR_E2E_INCOMPLETE"
+          }
+          [ordered]@{
+            status = $result
+            local_helper = "PC_EXECUTION_ENVIRONMENT_STILL_BLOCKED_SETUP_REFRESH"
+            local_acceptance = "PENDING"
+            exe_built = (Test-Path "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")
+            remote_windows_e2e = if ($e2ePass) { "PASS" } else { "NOT_PASS" }
+            vc_redistribution_closed = if ($vc) { [bool]$vc.redistribution_closed } else { $false }
+            final_pass_claimed = $false
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/EVIDENCE.json" -Encoding utf8
+          [ordered]@{
+            status = "PENDING_LOCAL_HELPER_RECOVERY"
+            required_final_test = "physical double-click on employee-style local Windows profile"
+            final_pass = "PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E"
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/LOCAL_ACCEPTANCE_STATUS.json" -Encoding utf8
+
+      - name: Build split delivery archive for later local acceptance
+        if: success()
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib,zipfile,json
+          root=Path("build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0")
+          archive=Path("build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip")
+          with zipfile.ZipFile(archive,"w",compression=zipfile.ZIP_DEFLATED,compresslevel=1,allowZip64=True) as z:
+              for p in sorted(root.rglob("*")):
+                  if p.is_file(): z.write(p,root.name+"/"+p.relative_to(root).as_posix())
+          h=hashlib.sha256()
+          with archive.open("rb") as f:
+              for b in iter(lambda:f.read(1024*1024),b""):h.update(b)
+          Path("build/DELIVERY_ZIP_SHA256.txt").write_text(f"{h.hexdigest()}  {archive.name}\n")
+          part_size=400*1024*1024
+          with archive.open("rb") as src:
+              i=0
+              while True:
+                  chunk=src.read(part_size)
+                  if not chunk: break
+                  p=Path(f"build/{archive.name}.part-{i:02d}")
+                  p.write_bytes(chunk);i+=1
+          Path("build/DELIVERY_PARTS.json").write_text(json.dumps({"zip":archive.name,"sha256":h.hexdigest(),"parts":i},indent=2)+"\n")
+          print("delivery parts",i,"zip sha",h.hexdigest())
+
+      - name: Upload Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-one-click-windows-evidence
+          path: ${{ env.EVIDENCE_DIR }}/**
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Upload launcher and delivery manifests
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-one-click-windows-launcher-manifests
+          path: |
+            build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe
+            build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/DELIVERY_MANIFEST.json
+            build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/DELIVERY_ARTIFACT_SHA256.txt
+            build/DELIVERY_ZIP_SHA256.txt
+            build/DELIVERY_PARTS.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload delivery part 00
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-one-click-win-x64-part-00
+          path: build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip.part-00
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload delivery part 01
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-one-click-win-x64-part-01
+          path: build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip.part-01
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Upload delivery part 02
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-one-click-win-x64-part-02
+          path: build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip.part-02
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Upload delivery part 03
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-one-click-win-x64-part-03
+          path: build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip.part-03
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Upload delivery part 04
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-one-click-win-x64-part-04
+          path: build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip.part-04
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Upload delivery part 05
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-one-click-win-x64-part-05
+          path: build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip.part-05
+          if-no-files-found: ignore
+          retention-days: 30
