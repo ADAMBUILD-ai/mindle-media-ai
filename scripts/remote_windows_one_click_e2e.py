@@ -136,7 +136,8 @@ def main() -> int:
         raise RuntimeError("project save failed")
     project_id = project["project_id"]
 
-    latest = request_json(base + "/api/projects/latest")
+    latest_response = request_json(base + "/api/projects/latest")
+    latest = latest_response.get("project") or {}
     if latest.get("project_id") != project_id:
         raise RuntimeError("saved project was not readable from runtime")
 
@@ -168,6 +169,7 @@ def main() -> int:
         },
         "project_id": project_id,
         "latest_project": latest,
+        "latest_project_response": latest_response,
         "export": {
             **exported,
             "sha256": digest(export_path),
