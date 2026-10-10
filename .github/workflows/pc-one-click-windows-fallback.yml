@@ -1,0 +1,93 @@
+name: PC one-click Windows fallback preflight
+
+on:
+  push:
+    branches:
+      - feature/ad-shortform-bridge-p0-20260926
+    paths:
+      - ".github/workflows/pc-one-click-windows-fallback.yml"
+      - "CURRENT_PC_WORK_**"
+      - "CURRENT_WORKER_COORDINATION_LOCK.json"
+      - "scripts/validate_pc_work_control_plane.py"
+      - "docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK**"
+      - "scripts/**"
+      - "LICENSES/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: media-ai-pc-one-click-windows-fallback
+  cancel-in-progress: false
+
+jobs:
+  windows-fallback-preflight:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Windows runner profile
+        shell: pwsh
+        run: |
+          $profile = [ordered]@{
+            status = "REMOTE_WINDOWS_RUNNER_AVAILABLE"
+            os = [System.Environment]::OSVersion.VersionString
+            machine = $env:RUNNER_NAME
+            user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+            powershell = $PSVersionTable.PSVersion.ToString()
+            pwd = (Get-Location).Path
+            temp = $env:TEMP
+            localappdata = $env:LOCALAPPDATA
+            timestamp_utc = [DateTime]::UtcNow.ToString("o")
+          }
+          New-Item -ItemType Directory -Force -Path remote_windows_fallback_evidence | Out-Null
+          $profile | ConvertTo-Json | Set-Content remote_windows_fallback_evidence/REMOTE_WINDOWS_RUNNER_PROFILE.json -Encoding utf8
+          Get-Content remote_windows_fallback_evidence/REMOTE_WINDOWS_RUNNER_PROFILE.json
+
+      - name: Validate PC Work control plane
+        shell: pwsh
+        run: |
+          python scripts/validate_pc_work_control_plane.py 2>&1 | Tee-Object -FilePath remote_windows_fallback_evidence/CONTROL_PLANE_VALIDATOR_RESULT.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Inspect redistribution manifest
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          p=Path("LICENSES/RUNTIME_REDISTRIBUTION_MANIFEST.json")
+          data=json.loads(p.read_text(encoding="utf-8"))
+          report={
+            "manifest_status": data.get("status"),
+            "offline_distribution_approved": data.get("offline_distribution_approved"),
+            "remote_windows_preflight": "INSPECTED",
+          }
+          for c in data.get("components",[]):
+            name=str(c.get("name","")).lower()
+            if "visual c++" in name:
+              report["visual_c_runtime"]=c
+            if "ffmpeg" in name:
+              report["ffmpeg"]=c
+          out=Path("remote_windows_fallback_evidence/REDISTRIBUTION_PREFLIGHT.json")
+          out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(out.read_text(encoding="utf-8"))
+
+      - name: Python source compile smoke
+        shell: pwsh
+        run: |
+          python -m compileall -q src scripts
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload fallback preflight evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: media-ai-pc-windows-fallback-preflight
+          path: remote_windows_fallback_evidence/**
+          if-no-files-found: error
+          retention-days: 14

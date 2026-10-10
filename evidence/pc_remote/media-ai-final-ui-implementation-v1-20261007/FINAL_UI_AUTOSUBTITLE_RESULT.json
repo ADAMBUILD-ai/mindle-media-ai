@@ -1,0 +1,49 @@
+{
+  "status": "PASS_VIDEO_AUDIO_STT_BURNED_CAPTION_UI",
+  "job": {
+    "status": "TESTED_PASS",
+    "job_id": "4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "자동 자막 적용",
+    "input": {
+      "file_name": "1d739242-83bf-44b6-bb2c-fa5027802d15_korean_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\1d739242-83bf-44b6-bb2c-fa5027802d15_korean_video.mp4",
+      "bytes": 258297,
+      "sha256": "0514097357820f78866fa9d2ea9f7dbe9594c40d9a17e1c26ebc40d938561cae"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba\\edited_video.mp4",
+      "bytes": 232588,
+      "sha256": "59f33eb30c67635293b6782192c56eed6dca8a300cf71a6ab58f789c9455c89d"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba\\edited_video.mp4",
+        "bytes": 232588,
+        "sha256": "59f33eb30c67635293b6782192c56eed6dca8a300cf71a6ab58f789c9455c89d"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "stabilize": false,
+        "denoise": false,
+        "split": false,
+        "start": 0,
+        "duration": 0,
+        "speed": 1,
+        "volume": 1,
+        "brightness": 0,
+        "contrast": 0,
+        "saturation": 0,
+        "subtitle": "다리미 수직가"
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba/edited_video.mp4"
+  }
+}

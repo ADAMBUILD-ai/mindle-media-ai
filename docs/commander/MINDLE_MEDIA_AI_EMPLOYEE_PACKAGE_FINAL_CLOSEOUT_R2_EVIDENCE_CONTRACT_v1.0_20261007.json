@@ -1,0 +1,18 @@
+{
+  "contract_version": "1.0",
+  "date": "2026-10-07",
+  "status": "ACTIVE",
+  "control_plane_epoch": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_DIRECTIVE_v1.0_20261007.md",
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_REVIEW_v1.0_20261007.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_PACKAGE_FINAL_CLOSEOUT_R2_EVIDENCE_v1_0_20261007.json",
+    "detail_directory": "evidence/pc_remote/media-ai-employee-package-final-closeout-r2-v1_0-20261007/"
+  },
+  "required_final_result": "EMPLOYEE_PACKAGE_CLEAN_WINDOWS_E2E_PASS",
+  "owner_gate": "VISUAL_CPP_REDISTRIBUTION_ENTITLEMENT",
+  "host_gate": "DEFAULT_PROFILE_HOST_GATE_PASS",
+  "stale_evidence_refresh_required": true
+}

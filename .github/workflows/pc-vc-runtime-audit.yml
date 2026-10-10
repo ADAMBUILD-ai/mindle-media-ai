@@ -1,0 +1,144 @@
+name: MINDLE MEDIA AI VC runtime dependency audit
+
+on:
+  push:
+    branches:
+      - feature/ad-shortform-bridge-p0-20260926
+    paths:
+      - ".github/workflows/pc-vc-runtime-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  vc-runtime-audit:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Stage the same Python/native payload used by the one-click build
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force audit/site-packages | Out-Null
+          python -m pip install --disable-pip-version-check --target audit/site-packages torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m pip install --disable-pip-version-check --target audit/site-packages transformers==4.57.3 safetensors==0.6.2 opencv-python-headless==4.12.0.88 onnxruntime==1.30.0 numpy==2.2.6 Pillow==11.3.0 pyarrow==21.0.0 soundfile==0.13.1 requests==2.32.5 openvino==2025.3.0 pefile==2024.8.26
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $url="https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip"
+          Invoke-WebRequest -Uri $url -OutFile audit/python-embed.zip
+          Expand-Archive audit/python-embed.zip audit/python-embed
+
+      - name: Audit PE imports without copying System32
+        shell: python
+        run: |
+          import hashlib, json, os, re, sys
+          from pathlib import Path
+          sys.path.insert(0, "audit/site-packages")
+          import pefile
+
+          roots=[Path("audit/python-embed"),Path("audit/site-packages")]
+          binaries=[]
+          bundled={}
+          for root in roots:
+              for p in root.rglob("*"):
+                  if p.is_file() and p.suffix.lower() in {".dll",".pyd",".exe"}:
+                      key=p.name.lower()
+                      bundled.setdefault(key,[]).append(p)
+                      binaries.append(p)
+
+          wanted=re.compile(r"^(?:vcruntime|msvcp|concrt|vcomp|ucrtbase|api-ms-win-crt)",re.I)
+          records=[]
+          required={}
+          parse_errors=[]
+          for p in binaries:
+              try:
+                  pe=pefile.PE(str(p),fast_load=True)
+                  pe.parse_data_directories(directories=[pefile.DIRECTORY_ENTRY["IMAGE_DIRECTORY_ENTRY_IMPORT"]])
+                  imports=[]
+                  for entry in getattr(pe,"DIRECTORY_ENTRY_IMPORT",[]):
+                      name=entry.dll.decode("ascii","replace")
+                      imports.append(name)
+                      if wanted.match(name):
+                          required.setdefault(name.lower(),set()).add(str(p))
+                  records.append({"path":p.as_posix(),"imports":sorted(imports,key=str.lower)})
+              except Exception as exc:
+                  parse_errors.append({"path":p.as_posix(),"error":repr(exc)})
+
+          system32=Path(os.environ["SystemRoot"])/"System32"
+          dependency=[]
+          for name,consumers in sorted(required.items()):
+              bundled_paths=bundled.get(name,[])
+              host=system32/name
+              if name.startswith("api-ms-win-crt"):
+                  classification="WINDOWS_API_SET"
+              elif bundled_paths:
+                  classification="BUNDLED_BY_UPSTREAM_PAYLOAD"
+              elif host.is_file():
+                  classification="HOST_SYSTEM32_REQUIRED_NOT_COPIED"
+              else:
+                  classification="MISSING"
+              item={
+                  "name":name,
+                  "classification":classification,
+                  "consumers":sorted(consumers),
+                  "bundled_paths":[p.as_posix() for p in bundled_paths],
+                  "host_system32_present":host.is_file(),
+              }
+              if bundled_paths:
+                  item["bundled_sha256"]=[
+                      hashlib.sha256(p.read_bytes()).hexdigest() for p in bundled_paths
+                  ]
+              dependency.append(item)
+
+          unresolved=[x for x in dependency if x["classification"] in {"HOST_SYSTEM32_REQUIRED_NOT_COPIED","MISSING"}]
+          report={
+              "status":"VC_RUNTIME_DEPENDENCY_AUDIT_COMPLETE",
+              "system32_copy_performed":False,
+              "binary_count":len(binaries),
+              "dependency_count":len(dependency),
+              "dependencies":dependency,
+              "unresolved_host_dependencies":unresolved,
+              "parse_error_count":len(parse_errors),
+              "parse_errors":parse_errors,
+              "final_distribution_approved":False,
+              "reason":"Inventory only; redistribution/legal closure is a separate gate."
+          }
+          Path("VC_RUNTIME_DEPENDENCY_AUDIT.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps({
+              "status":report["status"],
+              "binary_count":report["binary_count"],
+              "dependency_count":report["dependency_count"],
+              "unresolved_count":len(unresolved),
+              "unresolved_names":[x["name"] for x in unresolved],
+          },indent=2))
+
+      - name: Capture signatures for bundled Microsoft-named DLLs
+        shell: pwsh
+        run: |
+          $rows=@()
+          Get-ChildItem audit -Recurse -File | Where-Object { $_.Name -match '^(vcruntime|msvcp|concrt|vcomp|ucrtbase).*\.dll$' } | ForEach-Object {
+            $sig=Get-AuthenticodeSignature -LiteralPath $_.FullName
+            $rows += [ordered]@{
+              path=$_.FullName.Substring((Get-Location).Path.Length+1)
+              sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLower()
+              signature_status=[string]$sig.Status
+              signer=if($sig.SignerCertificate){$sig.SignerCertificate.Subject}else{$null}
+            }
+          }
+          $rows | ConvertTo-Json -Depth 5 | Set-Content VC_RUNTIME_BUNDLED_SIGNATURES.json -Encoding utf8
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: media-ai-vc-runtime-dependency-audit
+          path: |
+            VC_RUNTIME_DEPENDENCY_AUDIT.json
+            VC_RUNTIME_BUNDLED_SIGNATURES.json
+          if-no-files-found: error
+          retention-days: 30

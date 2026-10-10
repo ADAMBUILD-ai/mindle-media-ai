@@ -1,0 +1,58 @@
+{
+  "contract_version": "20.2.2",
+  "date": "2026-10-02",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261002-V20.2.2",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_CORRECTION_DIRECTIVE_v20.2.2_20261002.md",
+  "parent_cycle": "v20.2.1",
+  "scope": "VIDEO/PHOTO left panels only",
+  "frozen_areas": [
+    "video_center",
+    "video_right",
+    "photo_center",
+    "photo_right",
+    "color_hierarchy",
+    "shortform_header",
+    "runtime",
+    "marketing",
+    "models"
+  ],
+  "icon_phase_status": "BLOCKED_PENDING_UI_APPROVAL",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_REVIEW_v20.2.2_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_LEFT_PANEL_VERTICAL_FILL_ALIGNMENT_EVIDENCE_v20_2_2_20261002.json",
+    "detail_directory": "evidence/pc_remote/media-ai-left-panel-v20_2_2-20261002/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CONTROL_PLANE_VALIDATION.txt",
+      "V20_2_1_BASELINE_PRESERVATION.json",
+      "LEFT_PANEL_ROOT_CAUSE.json",
+      "BEFORE_VIDEO_LEFT.png",
+      "AFTER_VIDEO_LEFT.png",
+      "BEFORE_PHOTO_LEFT.png",
+      "AFTER_PHOTO_LEFT.png",
+      "AFTER_MAXIMIZED_FULL_UI.png",
+      "AFTER_SPLIT_FULL_UI.png",
+      "LEFT_CENTER_BOTTOM_ALIGNMENT.json",
+      "VIDEO_LEFT_FILL_AUDIT.json",
+      "PHOTO_LEFT_FILL_AUDIT.json",
+      "LEFT_PANEL_FUNCTION_ACTIVATION.json",
+      "FROZEN_CENTER_RIGHT_REGRESSION.json",
+      "SHORTFORM_PRESERVATION.json",
+      "REPRESENTATIVE_SCREEN_GATE.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 20,
+  "allowed_results": [
+    "LEFT_PANEL_READY_FOR_REPRESENTATIVE",
+    "LEFT_PANEL_CORRECTION_REQUIRED",
+    "REPRESENTATIVE_UI_APPROVED",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}

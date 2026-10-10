@@ -1,0 +1,19 @@
+{
+  "schema_version": "GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "status": "COMPLETE_HANDOFF_TO_PC_WORK",
+  "date": "2026-10-08",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "final_result": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
+  "final_head": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
+  "product_changes_allowed": false,
+  "ui_changes_allowed": false,
+  "package_build_allowed": false,
+  "external_marketing_avora_status": "DEFERRED_EXTERNAL",
+  "pc_work_allowed": true,
+  "pc_work_epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
+  "pc_work_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_DIRECTIVE_v1.0_20261008.md",
+  "pc_work_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_EVIDENCE_CONTRACT_v1.0_20261008.json",
+  "handoff": "docs/commander/MINDLE_MEDIA_AI_GENERAL_TO_PC_WORK_ONE_CLICK_HANDOFF_v1.0_20261008.md"
+}

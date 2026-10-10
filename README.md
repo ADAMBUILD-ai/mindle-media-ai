@@ -1,16 +1,39 @@
 # MINDLE MEDIA AI
 
-## Two Track Work Package
+## CURRENT STATUS
 
-The non-destructive Work Track A handoff is in `docs/00_README_FIRST.md` through `docs/09_PC_REMOTE_FINAL_CHECKLIST.md`. The approved visual UI is intentionally not redrawn in this repository because its source and approved screenshot are absent; only the state contract is implemented in `src/media_ai/ui_contract.py`.
+Canonical branch:
+`feature/ad-shortform-bridge-p0-20260926`
 
-Model Scout를 제외한 P0 실행 코어입니다. 자연어 요청을 PHOTO 또는 VIDEO로 라우팅하고, 비동기 Job으로 처리하며, 원본과 결과 및 실행 로그를 분리 보관합니다.
+Current PC Work cycle:
+`MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0`
 
-## 실행
+Status:
+**RECOVERY ONLY — PRODUCT AND EMPLOYEE PACKAGE WORK PAUSED**
 
-```bash
-python -m pytest
-python -m media_ai.cli photo --input sample.jpg --output out.jpg --brightness 1.05
-```
+Single active directive:
+`docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_AND_ENVIRONMENT_DIAGNOSTIC_DIRECTIVE_v1.0_20261006.md`
 
-VIDEO 명령은 시스템의 `ffmpeg`를 사용하여 지정 구간 자르기와 16:9, 9:16, 1:1 리프레임의 첫 E2E를 제공합니다.
+Single active Evidence contract:
+`docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261006.json`
+
+The current recovery cycle exists to diagnose the repeated Windows Work process-creation failure and to remove stale directive-chain ambiguity.
+
+Historical v13, v21, v21.0A, v21.0A-R1, branch-rebind, and employee-package directives are not executable during recovery.
+
+Worker start order:
+1. CURRENT_PC_WORK_DIRECTIVE.md
+2. CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
+3. CURRENT_PC_WORK_STATE.json
+4. CURRENT_WORKER_COORDINATION_LOCK.json
+5. scripts/validate_pc_work_control_plane.py
+6. active recovery directive
+7. active recovery Evidence contract
+
+Recovery PASS:
+`RECOVERY_PASS`
+
+Blocked status:
+`WORK_ENVIRONMENT_ACL_HELPER_BLOCKED`
+
+Only after RECOVERY_PASS may employee package work be explicitly reactivated.

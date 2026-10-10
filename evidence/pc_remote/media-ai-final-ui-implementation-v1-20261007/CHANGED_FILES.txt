@@ -1,0 +1,10 @@
+ui/index.html
+ui/approved_visual.css
+ui/product_integration.js
+ui/photo_workspace.js
+ui/video_workspace.js
+src/media_ai/product_runtime.py
+src/media_ai/product_server.py
+src/media_ai/intel_sisr_verified_adapter.py
+tests/test_photo_edit_project.py
+tests/test_employee_offline_mode.py

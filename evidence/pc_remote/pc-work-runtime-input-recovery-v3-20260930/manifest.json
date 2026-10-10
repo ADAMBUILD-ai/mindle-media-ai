@@ -1,0 +1,14 @@
+{
+  "cycle": "pc-work-runtime-input-recovery-v3-20260930",
+  "server": "http://127.0.0.1:8765/",
+  "server_log_source": "GET /api/evidence",
+  "ui_screenshot": "Browser tab 4 screenshot captured during this cycle; chooser did not surface in the current browser automation surface.",
+  "requests": [
+    {"method": "POST", "path": "/api/jobs", "job_id": "6b410fb0-1471-4b8d-baea-858fcf5820e0", "status": 422, "lane": "photo_segmentation"},
+    {"method": "POST", "path": "/api/jobs", "job_id": "d243b8ba-79f3-4bef-843c-b7a5e8acd791", "status": 422, "lane": "photo_upscale"},
+    {"method": "POST", "path": "/api/integrations/marketing/shortform", "status": 503, "result": "VERIFY_REQUIRED"}
+  ],
+  "outputs": [],
+  "note": "No output artifact was claimed because no real job completed; no fake media or approval was created.",
+  "final_commit_sha": "46fd8babec9d3deed3c38c514aa8c6db87a043c1"
+}

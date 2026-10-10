@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "approved_image_as_background": false,
+  "approved_image_as_overlay": false,
+  "interactive_controls_are_dom": true,
+  "inputs_are_real_html": true,
+  "preview_is_runtime_surface": true,
+  "timeline_is_dom_surface": true,
+  "save_export_integration_preserved": true,
+  "approved_source_used_as_reference_only": true
+}

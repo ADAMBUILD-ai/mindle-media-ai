@@ -1,0 +1,12 @@
+{
+  "status": "PASS_INSTALLED_HTTP",
+  "result": {
+    "http_status": 503,
+    "body": {
+      "status": "MARKETING_PROVIDER_UNAVAILABLE",
+      "error": "마케팅 AI 연결이 필요합니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다."
+    }
+  },
+  "base_identity_and_project_requests_after_unavailable": "PASS",
+  "previous_actual_UI_graceful_handling": "FROZEN_PASS_REUSED_PER_R2_DIRECTIVE"
+}

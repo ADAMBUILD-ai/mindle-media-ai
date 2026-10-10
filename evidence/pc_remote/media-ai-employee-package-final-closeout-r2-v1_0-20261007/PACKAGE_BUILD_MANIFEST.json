@@ -1,0 +1,16 @@
+{
+  "status": "R2_CANDIDATE_NOT_RELEASE_APPROVED",
+  "implementation_commit": "0371cb72ee00802b5b9bd17bd05c809858cba813",
+  "zip_bytes": 1390413884,
+  "zip_sha256": "fe993be98a289a7d297466e312cba39b12477650c9dd73e39d0644b44d7c05d1",
+  "manifest_sha256": "74e9855398cf2340d9a4eff0125bd9a55c4ba8fadf4ddefa00acb2498aeea44c",
+  "manifest_file_count": 21192,
+  "archive_file_count": 21194,
+  "full_offline_distribution_approved": false,
+  "owner_license_gate": "UNCONFIRMED",
+  "default_profile_host_gate": "PENDING",
+  "archive_central_directory_actual_count": 21194,
+  "archive_file_set_matches_manifest": true,
+  "reconstructed_zip_sha256_verified": true,
+  "reconstruction_method": "PowerShell REASSEMBLE_AND_INSTALL.ps1 -VerifyOnly actual exit 0"
+}

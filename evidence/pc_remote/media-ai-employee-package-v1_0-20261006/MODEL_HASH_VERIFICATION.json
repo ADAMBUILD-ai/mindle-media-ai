@@ -1,0 +1,113 @@
+{
+  "status": "PASS_INSTALLED_PACKAGE_MODEL_MANIFEST_AND_VAULT",
+  "package_copy_tested": true,
+  "method": "Launcher verified every declared file before listening; local model vault checked immutable SAM/Whisper SHA-256 and Intel SHA-384; all four installed jobs passed",
+  "model_manifest_sha256": "a8340b0fc7a58863ef975f558365bbedc6d6402dfe37263de3b9a32fa718397b",
+  "records": [
+    {
+      "path": "models/sam21/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "models/sam21/config.json",
+      "bytes": 5705,
+      "sha256": "8e24a93b6a40d4dad86eaec383ce7b4044f37ec6360136460f5ff2ce55f87390"
+    },
+    {
+      "path": "models/sam21/model.safetensors",
+      "bytes": 323476296,
+      "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+    },
+    {
+      "path": "models/sam21/preprocessor_config.json",
+      "bytes": 683,
+      "sha256": "6ebf229ee259368ce4a8d4f2fe893a72b053023710853e257253939e601f583d"
+    },
+    {
+      "path": "models/sam21/processor_config.json",
+      "bytes": 95,
+      "sha256": "f8a68e865cfad115c1c2763f3d93eca7b1c622da06da2a9273eb437fb2389b6d"
+    },
+    {
+      "path": "models/sam21/video_preprocessor_config.json",
+      "bytes": 705,
+      "sha256": "9fccfe5f464ec38c2f236d0e6a68e95511c80c22132fc2fa4b9f7b65f24fad95"
+    },
+    {
+      "path": "models/whisper-small/LICENSE",
+      "bytes": 1063,
+      "sha256": "b5d65a59060e68c4ff940e1eddfa6f94b2d68fdf58ed7f4dd57721c997e35e9d"
+    },
+    {
+      "path": "models/whisper-small/added_tokens.json",
+      "bytes": 34604,
+      "sha256": "9715fd2243b6f06a5858b5e32950d2853f73dd5bc201aafcf76f5082a2d8acd1"
+    },
+    {
+      "path": "models/whisper-small/config.json",
+      "bytes": 1967,
+      "sha256": "e6a2b489da1b5aed65a8eb8d1e7466fa867ad5643a8bc138ba708bd56b2875c4"
+    },
+    {
+      "path": "models/whisper-small/generation_config.json",
+      "bytes": 3868,
+      "sha256": "71565b8ef50d0bf7a1193ed4bbed195b94e70c18894d81bba2f1233dcec3ab53"
+    },
+    {
+      "path": "models/whisper-small/merges.txt",
+      "bytes": 493869,
+      "sha256": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6"
+    },
+    {
+      "path": "models/whisper-small/model.safetensors",
+      "bytes": 966995080,
+      "sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+    },
+    {
+      "path": "models/whisper-small/normalizer.json",
+      "bytes": 52666,
+      "sha256": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd"
+    },
+    {
+      "path": "models/whisper-small/preprocessor_config.json",
+      "bytes": 184990,
+      "sha256": "9b5cd03a36fbb8a627c64d98a5b5b126ead95a77720723944487311f0110b666"
+    },
+    {
+      "path": "models/whisper-small/special_tokens_map.json",
+      "bytes": 2194,
+      "sha256": "e67ae3a0aaa99abcd9f187138e12db1f65c16a14761c50ef10eef2c174a7a691"
+    },
+    {
+      "path": "models/whisper-small/tokenizer.json",
+      "bytes": 2480466,
+      "sha256": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566"
+    },
+    {
+      "path": "models/whisper-small/tokenizer_config.json",
+      "bytes": 282683,
+      "sha256": "2a4c4281cf9f51ac6ccc406fdc711a087afe6530f671fa7b80953edc498275ce"
+    },
+    {
+      "path": "models/whisper-small/vocab.json",
+      "bytes": 835550,
+      "sha256": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9"
+    },
+    {
+      "path": "omz/intel/single-image-super-resolution-1032/FP32/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "omz/intel/single-image-super-resolution-1032/FP32/single-image-super-resolution-1032.bin",
+      "bytes": 119436,
+      "sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+    },
+    {
+      "path": "omz/intel/single-image-super-resolution-1032/FP32/single-image-super-resolution-1032.xml",
+      "bytes": 78485,
+      "sha256": "2e44c7a5827c452a99f807452d5e6db97b469006c52c0a0f3ee7db0134a38b1f"
+    }
+  ]
+}

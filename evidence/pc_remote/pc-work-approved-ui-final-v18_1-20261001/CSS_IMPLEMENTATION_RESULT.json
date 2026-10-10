@@ -1,0 +1,10 @@
+{
+  "status": "APPLIED",
+  "stylesheet": "ui/approved_visual.css",
+  "linked_from": "ui/index.html",
+  "behavior_stylesheet_preserved": "ui/interaction.css",
+  "backend_changed": false,
+  "model_changed": false,
+  "runtime_behavior_changed": false,
+  "implementation": "CSS visual layer plus non-functional visual panel scaffolding; existing data-action/data-command hooks preserved"
+}

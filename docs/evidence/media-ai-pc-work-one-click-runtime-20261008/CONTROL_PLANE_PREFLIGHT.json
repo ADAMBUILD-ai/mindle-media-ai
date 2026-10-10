@@ -1,0 +1,40 @@
+{
+  "status": "REMOTE_SEMANTIC_MATCH_VALIDATOR_NOT_EXECUTED",
+  "epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
+  "files": [
+    {
+      "path": "CURRENT_PC_WORK_DIRECTIVE.md",
+      "blob_sha": "1a607ca6e8182f0b94f25064aacadd40fa113e4c",
+      "read_from_commit": "4c2f5da208717a48458f8369c56c6f0452c29c33"
+    },
+    {
+      "path": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+      "blob_sha": "44cbec6438c7da083161bf91e3ad6b24ab6b6249",
+      "read_from_commit": "4c2f5da208717a48458f8369c56c6f0452c29c33"
+    },
+    {
+      "path": "CURRENT_PC_WORK_STATE.json",
+      "blob_sha": "65cc6b1f1ac63fcd1ab6cb88b90d2ef5b9e9a5d3",
+      "read_from_commit": "4c2f5da208717a48458f8369c56c6f0452c29c33"
+    },
+    {
+      "path": "CURRENT_WORKER_COORDINATION_LOCK.json",
+      "blob_sha": "e1b2a2625e1704dc67de6d711383237058400b18",
+      "read_from_commit": "4c2f5da208717a48458f8369c56c6f0452c29c33"
+    },
+    {
+      "path": "scripts/validate_pc_work_control_plane.py",
+      "blob_sha": "7c54cc1711538ae92bae53112f4ad189e4871560",
+      "read_from_commit": "4c2f5da208717a48458f8369c56c6f0452c29c33"
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_STATE.json",
+      "blob_sha": "d17aa168f6e8657795e7bb16d9f4cb8cb7dbf0f6",
+      "read_from_commit": "4c2f5da208717a48458f8369c56c6f0452c29c33"
+    }
+  ],
+  "required_execution": "python scripts/validate_pc_work_control_plane.py",
+  "required_result": "PC_WORK_CONTROL_PLANE_PASS",
+  "result": null,
+  "employee_instruction": false
+}

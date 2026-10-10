@@ -1,0 +1,207 @@
+name: MINDLE MEDIA AI one-click Windows build
+
+on:
+  push:
+    branches:
+      - feature/ad-shortform-bridge-p0-20260926
+    paths:
+      - ".github/workflows/pc-one-click-windows-build.yml"
+      - "scripts/build_one_click_runtime.py"
+      - "scripts/one_click_launcher/**"
+      - "scripts/employee_package_launcher.py"
+      - "src/**"
+      - "ui/**"
+      - "CURRENT_PC_WORK_**"
+      - "LICENSES/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: media-ai-one-click-windows-build
+  cancel-in-progress: true
+
+jobs:
+  build-one-click-runtime:
+    runs-on: windows-latest
+    timeout-minutes: 90
+    env:
+      PYTHONUTF8: "1"
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      TOKENIZERS_PARALLELISM: "false"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Validate active PC Work
+        shell: pwsh
+        run: |
+          python scripts/validate_pc_work_control_plane.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Stage exact CPU Python packages
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force package_inputs/site-packages | Out-Null
+          python -m pip install --disable-pip-version-check --target package_inputs/site-packages torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m pip install --disable-pip-version-check --target package_inputs/site-packages transformers==4.57.3 huggingface_hub==0.36.0 safetensors==0.6.2 opencv-python-headless==4.12.0.88 onnxruntime==1.30.0 numpy==2.2.6 Pillow==11.3.0 pyarrow==21.0.0 soundfile==0.13.1 requests==2.32.5 openvino==2025.3.0
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Stage official CPython embeddable runtime
+        shell: pwsh
+        run: |
+          $url = "https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip"
+          Invoke-WebRequest -Uri $url -OutFile package_inputs/python-embed.zip
+          Expand-Archive package_inputs/python-embed.zip -DestinationPath package_inputs/python-embed
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/python/cpython/v3.11.9/LICENSE" -OutFile package_inputs/python-embed/LICENSE.txt
+          $sha = (Get-FileHash package_inputs/python-embed.zip -Algorithm SHA256).Hash.ToLower()
+          @{ source=$url; sha256=$sha; version="3.11.9"; license="PSF-2.0" } | ConvertTo-Json | Set-Content package_inputs/PYTHON_EMBED_AUDIT.json -Encoding utf8
+
+      - name: Stage exact local model payloads
+        shell: python
+        run: |
+          import sys
+          sys.path.insert(0, "package_inputs/site-packages")
+          from huggingface_hub import snapshot_download
+          from pathlib import Path
+          import hashlib, urllib.request
+
+          root=Path("package_inputs/models-root")
+          sam=root/"models/sam21"; whisper=root/"models/whisper-small"
+          sisr=root/"omz/intel/single-image-super-resolution-1032/FP32"
+          sam.mkdir(parents=True); whisper.mkdir(parents=True); sisr.mkdir(parents=True)
+
+          snapshot_download(
+              repo_id="facebook/sam2.1-hiera-base-plus",
+              revision="b7320756a13354e7530a63935656d35b2f91a290",
+              local_dir=str(sam),
+              allow_patterns=["config.json","model.safetensors","preprocessor_config.json","processor_config.json","README.md"],
+          )
+          snapshot_download(
+              repo_id="openai/whisper-small",
+              revision="973afd24965f72e36ca33b3055d56a652f456b4d",
+              local_dir=str(whisper),
+              allow_patterns=["config.json","generation_config.json","model.safetensors","preprocessor_config.json","tokenizer.json","tokenizer_config.json","README.md"],
+          )
+          urls={
+            "single-image-super-resolution-1032.xml":"https://storage.openvinotoolkit.org/repositories/open_model_zoo/2023.0/models_bin/1/single-image-super-resolution-1032/FP32/single-image-super-resolution-1032.xml",
+            "single-image-super-resolution-1032.bin":"https://storage.openvinotoolkit.org/repositories/open_model_zoo/2023.0/models_bin/1/single-image-super-resolution-1032/FP32/single-image-super-resolution-1032.bin",
+          }
+          for name,url in urls.items():
+              urllib.request.urlretrieve(url, sisr/name)
+
+          expected={
+            sam/"model.safetensors":"2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780",
+            whisper/"model.safetensors":"1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b",
+          }
+          for path,want in expected.items():
+              got=hashlib.sha256(path.read_bytes()).hexdigest()
+              if got != want: raise SystemExit(f"model hash mismatch {path}: {got}")
+          print("MODEL_STAGE_PASS")
+
+      - name: Stage pinned LGPL shared FFmpeg with Windows Media Foundation
+        shell: pwsh
+        run: |
+          $url = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-win64-lgpl-shared-8.1.zip"
+          $expected = "c71b3df71bbcb7aed37d1a5b127158d84186ff51133cbd96e3839ca098fbf29f"
+          Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile package_inputs/ffmpeg.zip
+          $actual = (Get-FileHash package_inputs/ffmpeg.zip -Algorithm SHA256).Hash.ToLower()
+          if ($actual -ne $expected) { throw "FFmpeg asset hash mismatch expected=$expected actual=$actual" }
+          Expand-Archive package_inputs/ffmpeg.zip -DestinationPath package_inputs/ffmpeg-unpacked -Force
+          $ffmpeg = Get-ChildItem package_inputs/ffmpeg-unpacked -Recurse -Filter ffmpeg.exe | Select-Object -First 1
+          if (-not $ffmpeg) { throw "ffmpeg.exe missing" }
+          $ffprobe = Join-Path $ffmpeg.Directory.FullName "ffprobe.exe"
+          if (-not (Test-Path $ffprobe)) { throw "ffprobe.exe missing" }
+          $encoders = & $ffmpeg.FullName -hide_banner -encoders
+          if (($encoders -join "`n") -notmatch "h264_mf") { throw "h264_mf encoder unavailable" }
+          $version = & $ffmpeg.FullName -version
+          $config = ($version | Where-Object { $_ -like "configuration:*" } | Select-Object -First 1)
+          if ($config -match "--enable-gpl" -or $config -match "--enable-nonfree") { throw "FFmpeg candidate enables GPL/nonfree" }
+          New-Item -ItemType Directory -Force package_inputs/ffmpeg | Out-Null
+          Copy-Item (Join-Path $ffmpeg.Directory.FullName "*") package_inputs/ffmpeg/ -Force
+          Copy-Item LICENSES/FFMPEG_DISTRIBUTION_SOURCE_NOTICE_20261010.txt package_inputs/ffmpeg/ -Force
+          @{ version=$version[0]; license="LGPL"; gpl=$false; nonfree=$false; h264_encoder="h264_mf"; asset_url=$url; asset_sha256=$actual; source_obligation_status="CLOSED_BY_EXACT_SOURCE_NOTICE" } | ConvertTo-Json | Set-Content package_inputs/FFMPEG_DISTRIBUTION_AUDIT.json -Encoding utf8
+
+      - name: Build self-contained MINDLE_MEDIA_AI_RUN.exe
+        shell: pwsh
+        run: |
+          dotnet publish scripts/one_click_launcher/MindleMediaAiRun.csproj -c Release -r win-x64 --self-contained true -o launcher_publish
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (-not (Test-Path launcher_publish/MINDLE_MEDIA_AI_RUN.exe)) { throw "launcher exe missing" }
+
+      - name: Assemble portable one-click package
+        shell: pwsh
+        run: |
+          python scripts/build_one_click_runtime.py --repo . --python-embed package_inputs/python-embed --site-packages package_inputs/site-packages --model-root package_inputs/models-root --ffmpeg-root package_inputs/ffmpeg --launcher-exe launcher_publish/MINDLE_MEDIA_AI_RUN.exe --output dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64 --build-commit "${{ github.sha }}"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Copy-Item package_inputs/PYTHON_EMBED_AUDIT.json dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/LICENSES/
+          Copy-Item package_inputs/FFMPEG_DISTRIBUTION_AUDIT.json dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/LICENSES/
+
+      - name: Verify embedded Python and package hashes
+        shell: pwsh
+        run: |
+          $root = (Resolve-Path dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64).Path
+          & "$root/runtime/python/python.exe" "$root/app/launcher/employee_package_launcher.py" --verify-only
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & "$root/runtime/python/python.exe" -c "import sys; sys.path.insert(0, r'$root/app/src'); import torch, cv2, openvino, transformers, PIL; import media_ai.product_server; print('EMBEDDED_IMPORT_PASS')"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Remote Windows runtime smoke
+        shell: pwsh
+        run: |
+          $root = (Resolve-Path dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64).Path
+          $data = Join-Path $env:RUNNER_TEMP "mindle-one-click-data"
+          $env:MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT = $root
+          $env:HF_HUB_OFFLINE = "1"
+          $env:TRANSFORMERS_OFFLINE = "1"
+          $env:PYTHONNOUSERSITE = "1"
+          $env:PATH = "$root\tools\ffmpeg;" + $env:PATH
+          $proc = Start-Process -FilePath "$root\runtime\python\python.exe" -ArgumentList @("$root\app\launcher\employee_package_launcher.py","--server","--port","18768","--data-root",$data) -WorkingDirectory $root -PassThru -WindowStyle Hidden
+          $ok = $false
+          for ($i=0; $i -lt 240; $i++) {
+            Start-Sleep -Milliseconds 500
+            try {
+              $id = Invoke-RestMethod -Uri "http://127.0.0.1:18768/api/runtime-identity" -TimeoutSec 2
+              if ($id.product -eq "MINDLE MEDIA AI" -and $id.runtime_mode -eq "LOCAL_OFFLINE_PACKAGE") { $ok=$true; break }
+            } catch {}
+            if ($proc.HasExited) { break }
+          }
+          if (-not $ok) {
+            if (-not $proc.HasExited) { Stop-Process -Id $proc.Id -Force }
+            throw "packaged server failed to become ready"
+          }
+          $ui = Invoke-WebRequest -UseBasicParsing -Uri "http://127.0.0.1:18768/" -TimeoutSec 10
+          if ($ui.Content -notmatch "MINDLE MEDIA AI") { throw "approved UI title missing" }
+          Stop-Process -Id $proc.Id -Force
+          @{ status="REMOTE_WINDOWS_RUNTIME_SMOKE_PASS"; port=18768; ui_title="MINDLE MEDIA AI"; local_acceptance="PENDING" } | ConvertTo-Json | Set-Content dist/REMOTE_WINDOWS_RUNTIME_E2E.json -Encoding utf8
+
+      - name: Create delivery transport archive and hashes
+        shell: pwsh
+        run: |
+          Compress-Archive -Path dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64 -DestinationPath dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip -CompressionLevel Fastest
+          $exe = Get-FileHash dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/MINDLE_MEDIA_AI_RUN.exe -Algorithm SHA256
+          $zip = Get-FileHash dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip -Algorithm SHA256
+          "EXE $($exe.Hash.ToLower()) MINDLE_MEDIA_AI_RUN.exe" | Set-Content dist/DELIVERY_ARTIFACT_SHA256.txt -Encoding ascii
+          "ZIP $($zip.Hash.ToLower()) MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip" | Add-Content dist/DELIVERY_ARTIFACT_SHA256.txt -Encoding ascii
+
+      - name: Upload one-click runtime artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64
+          path: |
+            dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/**
+            dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip
+            dist/DELIVERY_ARTIFACT_SHA256.txt
+            dist/REMOTE_WINDOWS_RUNTIME_E2E.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0

@@ -1,0 +1,17 @@
+{
+  "contract_version": "1.2",
+  "date": "2026-10-06",
+  "status": "ACTIVE",
+  "control_plane_epoch": "MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_AND_RECOVERY_DIRECTIVE_v1.2_20261006.md",
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_REVIEW_v1.2_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_CANONICAL_LOCAL_REBIND_EVIDENCE_v1_2_20261006.json",
+    "detail_directory": "evidence/pc_remote/media-ai-canonical-local-rebind-v1_2-20261006/"
+  },
+  "pass_result": "LOCAL_CANONICAL_REBIND_PASS",
+  "final_recovery_result": "RECOVERY_PASS",
+  "package_build_allowed": false
+}

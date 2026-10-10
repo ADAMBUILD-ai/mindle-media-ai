@@ -1,0 +1,86 @@
+{
+  "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "status": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
+  "source_commit": "92897f4ff943d30d788416dbb10324f3df2b9427",
+  "run_id": "37752630381",
+  "checks": 75,
+  "error": null,
+  "external": "DEFERRED_EXTERNAL",
+  "models_rerun": false,
+  "package_built": false,
+  "main_changed": false,
+  "pr23": "HOLD / DO NOT MERGE",
+  "ui_layout_colors_changed": false,
+  "feature_inventory": "FEATURE_INVENTORY.json",
+  "gap_register": "GAP_REGISTER.json",
+  "code_audit": "CODE_AUDIT.json",
+  "regression": "REGRESSION_RESULT.json",
+  "open_active_base_gaps": 0,
+  "disabled_controls": 11,
+  "pc_work_status": "PAUSED_UNTIL_COMMANDER_ACTIVATION",
+  "pc_package_tested": false,
+  "inference_reused_from_run": 37738880868,
+  "fresh_inference_in_this_run": false,
+  "subtitle_wer_benchmark": "NOT_MEASURED",
+  "disabled_features_status": "NOT_IMPLEMENTED",
+  "general_work_pass_does_not_mean_external_or_pc_runtime_pass": true,
+  "artifact_run": 37752630381,
+  "artifact_id": 11538633312,
+  "artifact_sha256": "1809640a89cac062e6f7a56e79005a640581c9e4784640e2ec3bc2d7099c0ff8",
+  "artifact_zip_CRC": "PASS",
+  "independent_post_download_check": [
+    {
+      "file": "PHOTO_FOREGROUND_RGBA.png",
+      "sha256": "0866e968c0bc9c82ef0fd789562d3e8edfbaaf89a88476dae870afb657b8173a",
+      "bytes": 193445,
+      "source_runtime_check": "photo_background_removal_from_frozen_mask"
+    },
+    {
+      "file": "KOREAN_SUBTITLE_ACTUAL.mp4",
+      "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35",
+      "bytes": 130275,
+      "source_runtime_check": "video_korean_subtitle_render"
+    },
+    {
+      "file": "BGM_FOLLOWUP_ACTUAL.mp4",
+      "sha256": "5956ef16833a73f5ab4b282b4393f5e0b088a7ceae0640438d6bb4b4d336b6c0",
+      "bytes": 116363,
+      "source_runtime_check": "background_music_state_after_followup_edit"
+    },
+    {
+      "artifact_file": "general_work_audit_runtime/downloads/0325752c-3d86-48a9-89a7-2d960f4ca422_export.zip",
+      "sha256": "c0dbb827e44b13af9673020c3e9dc7ae7a369b4e4b71368160d04254e553545a",
+      "bytes": 6317540,
+      "CRC": "PASS",
+      "all_media_hashes": "PASS",
+      "entries": 72
+    },
+    {
+      "artifact_file": "general_work_audit_runtime/downloads/c276f6a4-4849-4f64-9661-57ec00f4c2cc_export.zip",
+      "sha256": "40255d8cde6da26e1c4e6743dc73b50d6f809ea7ef8fe6b0d0d94e849ceb49bb",
+      "bytes": 3067373,
+      "CRC": "PASS",
+      "all_media_hashes": "PASS",
+      "entries": 17
+    }
+  ],
+  "invariants_readback": {
+    "main": "797da297f588780ad2d608deea3b5af8f05af450",
+    "pr23_draft": true,
+    "pr23_merged": false,
+    "approved_css_and_assets_unchanged": true,
+    "control_plane_unchanged": true,
+    "PHOTO_inference_adapters_unchanged": true,
+    "package_jobs": "SKIPPED",
+    "external_job": "SKIPPED",
+    "prior_base_model_job": "SKIPPED"
+  },
+  "remote_readback": {
+    "verified_publication_commit": "73fe0f131081cda35f82b2e104ae6bfdede0866a",
+    "text_files_matched": 23,
+    "binary_blobs_matched": 6,
+    "source_blobs_unchanged": 899,
+    "main_unchanged": true,
+    "pr23_open_draft": true
+  }
+}

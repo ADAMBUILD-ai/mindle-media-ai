@@ -1,0 +1,33 @@
+{
+  "schema_version": "mindle.media.shortform-ingestion-gate.v1",
+  "observed_at": "2026-09-26T00:00:00Z",
+  "status": "NOT_INGESTED",
+  "gate_code": "UPSTREAM_APPROVED_AVORA_ASSET_REQUIRED",
+  "request": {
+    "product": "AVORA",
+    "target": "architects",
+    "duration_seconds": 15,
+    "aspect_ratio": "9:16"
+  },
+  "upstream_evidence": {
+    "repository": "ADAMBUILD-ai/mindle-marketing-department",
+    "branch": "feature/shortform-bridge-p0-20260926",
+    "path": "docs/evidence/MINDLE_ADA_SHORTFORM_AVORA_REAL_ASSET_E2E_BLOCKER_20260926.json",
+    "commit": "1e832e175bd327f15ada64bb7a5c9e5719481537"
+  },
+  "media_ai": {
+    "bridge_reader_invoked": false,
+    "timeline_created": false,
+    "preview_created": false,
+    "representative_approval_requested": false,
+    "mp4_exported": false
+  },
+  "reason": "No AVORA asset set carried an explicit advertising approval. Known GLB candidates are NOT_READY, partial, or DERIVATIVE_NON_CANONICAL. MEDIA AI correctly stops before ingestion.",
+  "safety": {
+    "placeholder_used": false,
+    "approval_fabricated": false,
+    "automatic_publish": false,
+    "external_distribution": false
+  },
+  "resume_condition": "Receive a Contract v1 whose asset references are source-verifiable and explicitly approved for advertising use."
+}

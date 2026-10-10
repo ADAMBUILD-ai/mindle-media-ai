@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RUN",
+  "scope": "Real PHOTO segmentation/upscale, VIDEO tracking and Korean STT",
+  "reason": "Local Windows executor initialization failed; no current one-click artifact exists.",
+  "passed": false,
+  "observations": null
+}

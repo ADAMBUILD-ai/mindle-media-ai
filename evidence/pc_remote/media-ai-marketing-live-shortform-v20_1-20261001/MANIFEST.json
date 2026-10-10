@@ -1,0 +1,11 @@
+{
+  "epoch": "MEDIA-AI-20261001-V20.1",
+  "result": "LIVE_E2E_PASS_VOICE_AUDIO_DEPENDENCY",
+  "media_repo_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "media_repo_commit": "899df9b1ff3bc805bcfaef3ee5a19afc8082df03",
+  "marketing_repo_branch": "feature/shortform-bridge-p0-20260926",
+  "marketing_repo_commit": "3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a",
+  "required_files": 18,
+  "mp4": "SHORTFORM_FINAL_15S_9X16.mp4",
+  "token_policy": "ephemeral in-memory >=256-bit; not persisted or logged"
+}

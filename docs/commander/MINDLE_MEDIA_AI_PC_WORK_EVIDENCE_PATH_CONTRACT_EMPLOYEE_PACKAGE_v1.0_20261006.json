@@ -1,0 +1,51 @@
+{
+  "contract_version": "1.0",
+  "date": "2026-10-06",
+  "status": "ACTIVE",
+  "control_plane_epoch": "MEDIA-AI-20261006-EMPLOYEE-PACKAGE-V1.1",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_REVIEW_v1.0_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_PACKAGE_EVIDENCE_v1_0_20261006.json",
+    "detail_directory": "evidence/pc_remote/media-ai-employee-package-v1_0-20261006/"
+  },
+  "required_distribution_outputs": [
+    "dist/MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip",
+    "dist/transfer_parts/MINDLE_MEDIA_AI_EMPLOYEE_FULL_WIN_X64_v1.0.zip.001",
+    "dist/transfer_parts/REASSEMBLE_AND_INSTALL.cmd",
+    "dist/transfer_parts/REASSEMBLE_AND_INSTALL.ps1"
+  ],
+  "required_detail_evidence": [
+    "PACKAGE_BUILD_MANIFEST.json",
+    "RUNTIME_LOCK_EMPLOYEE_WIN_X64.txt",
+    "MODEL_HASH_VERIFICATION.json",
+    "PACKAGE_SELF_CONTAINMENT_AUDIT.json",
+    "INSTALLER_TEST.json",
+    "DESKTOP_SHORTCUT_TEST.json",
+    "CLEAN_WINDOWS_ENVIRONMENT.json",
+    "CLEAN_WINDOWS_FUNCTION_AUDIT.json",
+    "SAVE_REOPEN_TEST.json",
+    "EXPORT_TEST.json",
+    "SHORTFORM_OFFLINE_BEHAVIOR.json",
+    "UNINSTALL_REINSTALL_TEST.json",
+    "PACKAGE_SHA256SUMS.txt",
+    "SPLIT_PARTS_MANIFEST.json",
+    "REMOTE_PUSH_VERIFY.txt"
+  ],
+  "pass_result": "EMPLOYEE_PACKAGE_CLEAN_WINDOWS_E2E_PASS",
+  "pass_requires": [
+    "package_built",
+    "models_bundled_and_hash_verified",
+    "no_git_dependency",
+    "no_system_python_dependency",
+    "no_hf_token_dependency",
+    "desktop_launch_pass",
+    "video_photo_stt_upscale_pass",
+    "save_reopen_export_pass",
+    "split_transfer_package_pass",
+    "remote_readback_pass"
+  ],
+  "current_execution_authority": "CURRENT_PC_WORK_DIRECTIVE.md"
+}

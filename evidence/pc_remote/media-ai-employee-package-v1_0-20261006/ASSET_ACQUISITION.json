@@ -1,0 +1,32 @@
+[
+  {
+    "source": "https://download.pytorch.org/whl/cpu/torch-2.14.0%2Bcpu-cp311-cp311-win_amd64.whl",
+    "name": "wheels/torch-2.14.0+cpu-cp311-cp311-win_amd64.whl",
+    "bytes": 123978438,
+    "sha256": "8e2c47c6556c7d5a85848634372bb2252907d411e9cad669c99406856d536eb5"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/facebookresearch/sam2/main/LICENSE",
+    "name": "model-root/models/sam21/LICENSE",
+    "bytes": 11357,
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/openai/whisper/main/LICENSE",
+    "name": "model-root/models/whisper-small/LICENSE",
+    "bytes": 1063,
+    "sha256": "b5d65a59060e68c4ff940e1eddfa6f94b2d68fdf58ed7f4dd57721c997e35e9d"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/openvinotoolkit/open_model_zoo/a6946b6d6ce42cbf4278df20275fab199655fc7d/LICENSE",
+    "name": "model-root/omz/intel/single-image-super-resolution-1032/FP32/LICENSE",
+    "bytes": 11357,
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  {
+    "source": "https://github.com/GyanD/codexffmpeg/releases/download/6.1.1/ffmpeg-6.1.1-essentials_build.zip",
+    "name": "ffmpeg-6.1.1-essentials_build.zip",
+    "bytes": 87520045,
+    "sha256": "742e32fc9f92681f9f254b925e1b613fdd8074ba40749d4879aefdb009b94cc5"
+  }
+]

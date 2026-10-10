@@ -1,0 +1,146 @@
+{
+  "status": "BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION",
+  "epoch": "MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1",
+  "source_commit": "99a9cd4fcdced32a728db06f0692a394c9a4dfd2",
+  "github_run": "37738880868",
+  "gates": {
+    "PHOTO": "FROZEN_PASS_REUSED_WITH_HASH_VERIFICATION",
+    "VIDEO_BROWSER_DIAGNOSTICS": {
+      "browser": {
+        "MediaError": {
+          "code": 4,
+          "message": "PipelineStatus::DEMUXER_ERROR_NO_SUPPORTED_STREAMS: FFmpegDemuxer: no supported streams"
+        },
+        "canPlayType": {
+          "h264": "probably",
+          "mp4": "maybe",
+          "mp4v": ""
+        },
+        "currentSrc": "http://127.0.0.1:36741/files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+        "currentTime": 0,
+        "duration": null,
+        "jobId": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+        "networkState": 3,
+        "operation": "tracking",
+        "paused": true,
+        "readyState": 0,
+        "videoHeight": 0,
+        "videoWidth": 0
+      },
+      "http": {
+        "status": 200,
+        "Content-Type": "video/mp4",
+        "sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69"
+      },
+      "browser_console": [],
+      "ffprobe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "mpeg4",
+            "codec_tag_string": "mp4v",
+            "width": 512,
+            "height": 292,
+            "pix_fmt": "yuv420p",
+            "duration": "2.000000"
+          }
+        ],
+        "format": {
+          "duration": "2.000000"
+        }
+      },
+      "captured_before_codec_repair": true,
+      "source_run": 37735046818
+    },
+    "VIDEO_BROWSER_DECODE": "PASS",
+    "KOREAN_STT": "PASS",
+    "SAVE_CLOSE_REOPEN": "PASS",
+    "EXPORT": "PASS",
+    "SHORTFORM": {
+      "status": "BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION",
+      "missing_dependencies": [
+        "MARKETING_SHORTFORM_BRIDGE_TOKEN for the actual Marketing provider",
+        "actual Marketing runtime at http://127.0.0.1:4318"
+      ],
+      "provider_base_url": "http://127.0.0.1:4318",
+      "token_present": false,
+      "provider": {
+        "reachable": false
+      },
+      "marketing_http_contract": "NOT_REACHED",
+      "approved_avora_asset": "NOT_REACHED",
+      "shortform_preview": "NOT_REACHED",
+      "representative_approval": "NOT_REACHED",
+      "mp4_export": "NOT_REACHED",
+      "mock_used": false,
+      "auto_publish": false,
+      "ad_spend": false
+    },
+    "REMOTE_READBACK": {
+      "status": "PASS",
+      "verified_evidence_commit": "a5ffa6b98e4627169ff1ea0e8d6e106277fce273",
+      "tested_runtime_source_unchanged": true,
+      "required_evidence_files_present": 12,
+      "original_control_plane_and_UI_html_css_unchanged": true,
+      "main_sha": "797da297f588780ad2d608deea3b5af8f05af450",
+      "pr23_draft": true,
+      "pr23_merged": false
+    }
+  },
+  "error": null,
+  "PHOTO_MODELS_RERUN": false,
+  "UI_SSOT_CHANGED": "NO",
+  "main_changed": false,
+  "employee_package_rebuilt": false,
+  "pr23": "HOLD / DO NOT MERGE",
+  "full_product_pass": false,
+  "execution_run_url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/37738880868",
+  "artifact": {
+    "id": 11533405537,
+    "sha256": "d76770a6724348adaa18a0c5d4a2fa4bc7dd4abbd0df4801c206c40baefb7e03",
+    "zip_crc": "PASS",
+    "expires_at": "2027-01-06T06:40:11Z"
+  },
+  "base_product_runtime": "PASS_VIDEO_STT_SAVE_REOPEN_EXPORT",
+  "final_pass_forbidden": true,
+  "failure_classification": {
+    "model_processing": "FROZEN_TRACKING_TESTED_PASS",
+    "job_identity_and_preview_HTTP": "PASS_EXPECTED_JOB_AND_SHA_HTTP_200",
+    "browser_decode": "MP4V_UNSUPPORTED_MEDIA_ERROR_4",
+    "fixed_with": "CPU_H264_YUV420P_FASTSTART_DERIVATIVE"
+  },
+  "baseline": {
+    "product_e2e_python": 66,
+    "ui": 2,
+    "pip_check": "PASS",
+    "control_plane_validator": "PASS",
+    "canonical_baseline_run": 37738880875,
+    "canonical_python": 64,
+    "canonical_ffmpeg_targeted_tests_skipped": 2
+  },
+  "packaging_guard": {
+    "effective_from": "d53416be8b2e362dd886969d12ba091ec8ad2efa",
+    "latest_remote_runtime_run": 37738880886,
+    "latest_windows_runtime_run": 37738880882,
+    "both_package_jobs": "SKIPPED",
+    "legacy_auto_runtime_artifacts_created_before_guard": true,
+    "full_employee_R2_distribution_created": false
+  },
+  "repository_readback": {
+    "tested_source_head": "99a9cd4fcdced32a728db06f0692a394c9a4dfd2",
+    "main_sha": "797da297f588780ad2d608deea3b5af8f05af450",
+    "pr23_draft": true,
+    "pr23_merged": false,
+    "evidence_publication_commit": "a5ffa6b98e4627169ff1ea0e8d6e106277fce273",
+    "status": "PASS"
+  },
+  "stored_media": {
+    "verified_browser_preview": "media/track_1_overlays_browser_h264.mp4",
+    "actual_browser_downloaded_export": "media/c2b5e325-46c6-4ec9-9547-fef602e23e25_export.zip"
+  },
+  "limitations": [
+    "Marketing provider unreachable in this Actions runner and bridge token absent; approved AVORA/9:16 preview/representative approval/ad MP4 export NOT_REACHED",
+    "Korean STT runtime/UI visibility verified; reference transcript/WER accuracy was not measured",
+    "Canonical baseline skips FFmpeg tests because FFmpeg absent there; the product E2E runner executes all 66 tests"
+  ]
+}

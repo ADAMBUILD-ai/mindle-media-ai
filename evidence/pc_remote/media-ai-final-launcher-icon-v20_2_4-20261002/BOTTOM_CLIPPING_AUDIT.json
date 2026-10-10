@@ -1,0 +1,4 @@
+{
+  "status": "PASS",
+  "basis": "existing v20.2.2 UI baseline preserved; launcher changes do not alter geometry"
+}

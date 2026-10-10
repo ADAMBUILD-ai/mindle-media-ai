@@ -1,0 +1,42 @@
+{
+  "contract_version": "17.1",
+  "status": "ACTIVE",
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "approved_source": {
+    "library_filename": "네온 다크 테마 AI 미디어 편집기.png",
+    "format": "PNG",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541"
+  },
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_F27E_VISUAL_CLOSEOUT_REVIEW_v17.1_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_F27E_VISUAL_CLOSEOUT_EVIDENCE_v17_1_20261001.json",
+    "detail_directory": "evidence/pc_remote/pc-work-approved-ui-recovery-v17_1-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "LIBRARY_SOURCE_RECOVERY.json",
+      "APPROVED_SSOT_F27E.png",
+      "LIVE_UI_AFTER.png",
+      "LIVE_VS_APPROVED.png",
+      "VISUAL_DELTA_ANNOTATED.png",
+      "SSOT_METADATA_REPAIR.json",
+      "VISUAL_IMPLEMENTATION_DIFF.json",
+      "VISUAL_ACCEPTANCE_MATRIX.json",
+      "NO_SCREENSHOT_CHEAT_GATE.json",
+      "LIVE_SOURCE_IDENTITY.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "V14_PASS_PRESERVATION_CHECK.json",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 15,
+  "screenshot_as_ui_forbidden": true,
+  "remote_readback_required": true
+}

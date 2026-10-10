@@ -1,0 +1,15 @@
+{
+  "library_filename": "네온 다크 테마 AI 미디어 편집기.png",
+  "expected_format": "PNG",
+  "expected_dimensions": [1536, 1024],
+  "expected_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "pc_work_search": {
+    "searched_local_codex_roots": true,
+    "searched_repository_history": true,
+    "searched_historical_ui_assets": true,
+    "exact_file_found": false,
+    "exact_file_materialized": false
+  },
+  "status": "ASSET_HANDOFF_REQUIRED",
+  "reason": "The exact ChatGPT Library file is not accessible from this PC Work environment; no substitute is permitted."
+}

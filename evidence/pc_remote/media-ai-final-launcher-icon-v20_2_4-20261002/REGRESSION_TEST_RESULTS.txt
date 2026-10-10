@@ -1,0 +1,2 @@
+node --test ui/ssot_structure.test.js ui/interaction.test.js: PASS 2/2
+pytest -q: PASS 52/52

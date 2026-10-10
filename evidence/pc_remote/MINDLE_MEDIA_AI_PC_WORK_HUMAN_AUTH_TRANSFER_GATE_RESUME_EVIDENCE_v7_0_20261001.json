@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_head": "d1f3759ea36ab627b53d312892e586563476debe",
+  "directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_HUMAN_AUTH_TRANSFER_GATE_RESUME_DIRECTIVE_v7.0_20261001.md",
+    "commit": "d1f3759ea36ab627b53d312892e586563476debe"
+  },
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO",
+    "HUMAN_AUTH_TRANSFER_GATE": "OPEN"
+  },
+  "gate": {
+    "run_url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35974551384",
+    "artifact_id": 10797756522,
+    "part": "v29 part-01",
+    "expected_bytes": 418706393,
+    "expected_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128",
+    "status": "HUMAN_ACTION_REQUIRED"
+  },
+  "local_rejected_candidate": {
+    "path": "C:\\Users\\PC\\Downloads\\mindle-media-verified-runtime-package-v28_1-part-01.zip",
+    "bytes": 418706255,
+    "sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3",
+    "accepted": false
+  },
+  "tooling": {
+    "gh_cli": "NOT_INSTALLED",
+    "authenticated_transfer": "NOT_AVAILABLE",
+    "direct_huggingface": "NOT_ATTEMPTED",
+    "mixed_generation_reassembly": "NOT_ATTEMPTED"
+  },
+  "lanes": {
+    "runtime_transfer": "HUMAN_ACTION_REQUIRED",
+    "runtime_reassembly": "VERIFY_REQUIRED",
+    "photo_segmentation": "REWORK",
+    "photo_4x": "REWORK",
+    "preview": "VERIFY_REQUIRED",
+    "save": "VERIFY_REQUIRED",
+    "export": "VERIFY_REQUIRED",
+    "video_tracking": "VERIFY_REQUIRED",
+    "korean_stt": "VERIFY_REQUIRED",
+    "shortform": "VERIFY_REQUIRED"
+  },
+  "fabricated_assets_or_results": false,
+  "final_commit_sha": "1d00b40b76d38cfe955b787b3e630357f2caae7f"
+}

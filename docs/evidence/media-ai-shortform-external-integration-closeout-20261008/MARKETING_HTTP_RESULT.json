@@ -1,0 +1,8 @@
+{
+  "status": "NOT_REACHED",
+  "token_present": false,
+  "authentication_tested": false,
+  "reason": "BLOCKED_MARKETING_PROVIDER_UNREACHABLE",
+  "request_sent": false,
+  "secret_values_recorded": false
+}

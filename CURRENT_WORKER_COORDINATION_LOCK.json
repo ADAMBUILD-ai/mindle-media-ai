@@ -1,0 +1,59 @@
+{
+  "schema_version": "PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
+  "status": "ACTIVE",
+  "date": "2026-10-08",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
+  "collision_status": "NO_ACTIVE_COLLISION",
+  "worker_lanes": {
+    "general_work": {
+      "role": "Completed General Work",
+      "current_assignment": "COMPLETE / READ-ONLY",
+      "may_write": [],
+      "may_not_change": [
+        "General Work PASS evidence and frozen product baseline"
+      ]
+    },
+    "pc_work_remote_windows": {
+      "role": "Windows PC Work remote fallback executor",
+      "current_assignment": "Continue one-click runtime implementation/build/test on GitHub Windows Runner while local helper is blocked",
+      "may_write": [
+        "scripts/** Windows runtime/launcher/package implementation",
+        ".github/workflows/** PC Windows build/test workflows",
+        "src/** only verified Windows runtime lifecycle fixes",
+        "tests/** Windows/package regression tests",
+        "LICENSES/** verified redistribution records/notices",
+        "docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK_REVIEW_v1.0_20261008.md",
+        "docs/evidence/media-ai-pc-work-remote-windows-fallback-20261008/**"
+      ],
+      "may_not_change": [
+        "main/default branch",
+        "approved UI layout/colors",
+        "General Work historical Evidence",
+        "external Marketing/AVORA live integration",
+        "PR #23 merge state"
+      ]
+    },
+    "local_pc_acceptance": {
+      "role": "Final physical Windows acceptance",
+      "current_assignment": "PENDING until local helper recovers; do not block remote work",
+      "may_write": [],
+      "may_not_change": [
+        "remote work progress"
+      ]
+    },
+    "external_marketing_avora": {
+      "role": "Deferred external integration",
+      "current_assignment": "DEFERRED_EXTERNAL",
+      "may_write": [],
+      "may_not_change": [
+        "active PC Work"
+      ]
+    }
+  },
+  "force_push_forbidden": true,
+  "merge_main_forbidden": true,
+  "new_repo_or_worktree_forbidden": true,
+  "pr23_hold_do_not_merge": true
+}

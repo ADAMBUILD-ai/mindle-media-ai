@@ -1,0 +1,10 @@
+{
+  "evidence_version": "v12.0",
+  "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FIRST_PRODUCT_RECOVERY_REVIEW_v12.0_20261001.md",
+  "evidence": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FIRST_PRODUCT_RECOVERY_EVIDENCE_v12_0_20261001.json",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FIRST_PRODUCT_RECOVERY_DIRECTIVE_v12.0_20261001.md",
+  "next_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FIRST_PRODUCT_RECOVERY_NEXT_DIRECTIVE_v12.1_20261001.md",
+  "status": "PARTIAL_INVENTORY_ONLY",
+  "ui_ssot_changed": false,
+  "evidence_commit_sha": "5f74a2e"
+}

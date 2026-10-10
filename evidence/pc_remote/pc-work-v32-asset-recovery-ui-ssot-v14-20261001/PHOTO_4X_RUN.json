@@ -1,0 +1,163 @@
+{
+  "status": "TESTED_PASS",
+  "job_id": "1c007e5b-9f5d-4910-ad8e-bef2001f6057",
+  "evidence_id": "84fa3348-f942-4c13-88e2-2248a4b35fe3",
+  "lane": "photo",
+  "operation": "upscale",
+  "command": "사진을 4배 확대해줘",
+  "state_history": [
+    "queued",
+    "validating",
+    "preflight_ready",
+    "dispatched",
+    "running",
+    "output_validating",
+    "succeeded"
+  ],
+  "model": {
+    "identity": {
+      "repo_id": "openvinotoolkit/open_model_zoo",
+      "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+      "license": "apache-2.0",
+      "weight_name": "single-image-super-resolution-1032.bin",
+      "weight_size_bytes": 119436,
+      "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+    },
+    "local_recovered_package": {
+      "root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+      "read_only": true,
+      "sha384_verified": true
+    }
+  },
+  "adapter": {
+    "id": "intel-open-model-zoo-sisr-1032",
+    "version": "1.0.1",
+    "runtime_backend": "openvino-cpu",
+    "device_requirement": "CPU"
+  },
+  "input": {
+    "file_name": "7c99e3de-9354-476f-a795-d782150c9b46_photo.png",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\7c99e3de-9354-476f-a795-d782150c9b46_photo.png",
+    "bytes": 189281,
+    "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+  },
+  "runtime_result": {
+    "outputs": [
+      {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\32eb32f3-c1bd-48c6-9dfc-b4651556f008\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 1920451,
+        "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f",
+        "dimensions": [
+          1920,
+          1080
+        ]
+      }
+    ],
+    "elapsed_ms": 1686.9999999998981
+  },
+  "primary_output": {
+    "file_name": "upscaled_4x.png",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\32eb32f3-c1bd-48c6-9dfc-b4651556f008\\intel_sisr_1032\\upscaled_4x.png",
+    "bytes": 1920451,
+    "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f"
+  },
+  "outputs": [
+    {
+      "file_name": "upscaled_4x.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\32eb32f3-c1bd-48c6-9dfc-b4651556f008\\intel_sisr_1032\\upscaled_4x.png",
+      "bytes": 1920451,
+      "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f"
+    }
+  ],
+  "backend": {
+    "api_status": 201,
+    "delivery_gate": "DELIVERED",
+    "job_evidence": {
+      "job_id": "1c007e5b-9f5d-4910-ad8e-bef2001f6057",
+      "evidence_id": "84fa3348-f942-4c13-88e2-2248a4b35fe3",
+      "evidence_status": "VERIFY_REQUIRED",
+      "runtime_status": "OUTPUT_VALIDATED",
+      "terminal_state": "succeeded",
+      "recorded_at": "2026-10-01T04:09:49.117914+00:00",
+      "started_at": "2026-10-01T04:09:49.018658+00:00",
+      "finished_at": "2026-10-01T04:09:49.117914+00:00",
+      "project_id": null,
+      "requested_operation": "upscale",
+      "source_provenance": {
+        "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\7c99e3de-9354-476f-a795-d782150c9b46_photo.png",
+        "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+        "ingress": "approved-ui"
+      },
+      "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+      "reference_files": [],
+      "retry_provenance": {
+        "job_id": "1c007e5b-9f5d-4910-ad8e-bef2001f6057",
+        "evidence_id": "84fa3348-f942-4c13-88e2-2248a4b35fe3",
+        "attempt": 1
+      },
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "runtime": {
+        "platform": "Windows-10-10.0.19045-SP0",
+        "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+      },
+      "adapter_id": "intel-open-model-zoo-sisr-1032",
+      "model_or_program_id": "openvinotoolkit/open_model_zoo",
+      "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+      "license_source": "apache-2.0",
+      "runtime_backend": "openvino-cpu",
+      "device_requirement": "CPU",
+      "execution_context": {
+        "job_id": "1c007e5b-9f5d-4910-ad8e-bef2001f6057",
+        "evidence_id": "84fa3348-f942-4c13-88e2-2248a4b35fe3",
+        "lane": "photo",
+        "source_hashes": {
+          "source": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+        },
+        "nl_instruction": "사진을 4배 확대해줘",
+        "reference_images": [],
+        "retry_provenance": {
+          "job_id": "1c007e5b-9f5d-4910-ad8e-bef2001f6057",
+          "evidence_id": "84fa3348-f942-4c13-88e2-2248a4b35fe3",
+          "attempt": 0
+        },
+        "adapter_identity": {
+          "adapter_id": "intel-open-model-zoo-sisr-1032",
+          "model_or_program_id": "openvinotoolkit/open_model_zoo",
+          "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+        }
+      },
+      "output_artifact": {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\32eb32f3-c1bd-48c6-9dfc-b4651556f008\\intel_sisr_1032\\upscaled_4x.png",
+        "type": ".png",
+        "size_bytes": 1920451,
+        "sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f",
+        "status": "validated"
+      },
+      "model_scout_delivery": {
+        "status": "DELIVERED",
+        "callback_id": "callback-82ecbc81-899c-45d6-baa6-05ae39c9ee99",
+        "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+        "output_sha256": "4806a7ab40db3cf8dabec2451ee58015c70e662834643389ae8b6d4684c9d35f",
+        "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\32eb32f3-c1bd-48c6-9dfc-b4651556f008\\intel_sisr_1032\\upscaled_4x.png",
+        "elapsed_ms": 1686.9999999998981
+      }
+    }
+  },
+  "execution_environment": {
+    "hardware": "CPU",
+    "gpu_used": false,
+    "paid_compute": false,
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.11.9",
+    "process": "3.11.9"
+  }
+}

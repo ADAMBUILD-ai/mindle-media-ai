@@ -1,0 +1,49 @@
+{
+  "status": "BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION",
+  "epoch": "MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
+  "source_commit": "144abf748fda7630304ebec6a338c4d7e7c9095b",
+  "run_id": "37744311046",
+  "missing_dependencies": [
+    "MARKETING_SHORTFORM_BASE_URL repository variable is empty in the actual runner",
+    "MARKETING_SHORTFORM_BRIDGE_TOKEN Actions secret is absent in the actual runner"
+  ],
+  "provider_gate": "BLOCKED_MARKETING_PROVIDER_UNREACHABLE",
+  "marketing_gate": "NOT_REACHED",
+  "full_product_pass": false,
+  "base_product_pass_frozen": true,
+  "main_changed": false,
+  "pr23": "HOLD / DO NOT MERGE",
+  "employee_package_rebuilt": false,
+  "mock_used": false,
+  "auto_publish": false,
+  "ad_spend": false,
+  "artifact": {
+    "id": 11534494818,
+    "sha256": "3857b9c4b8056d3c311a3b9fbe34c6d1f280e1b75b627ff2a40f9868b00c7fd8",
+    "download_sha_verified": true,
+    "zip_crc": "PASS"
+  },
+  "secondary_dependency_code": "BLOCKED_MARKETING_BRIDGE_TOKEN_MISSING",
+  "no_actual_HTTP_due_to_missing_URL": true,
+  "actual_jobs": {
+    "base_e2e": "SKIPPED",
+    "epoch": "SUCCESS",
+    "external_e2e": "BLOCKED_EXIT_3",
+    "remote_runtime_package": "SKIPPED",
+    "windows_runtime_package": "SKIPPED"
+  },
+  "canonical_baseline_run": 37744310808,
+  "canonical_baseline_result": "SUCCESS",
+  "secure_configuration": {
+    "secret_values_recorded": false,
+    "administration_tools_available": false,
+    "configuration_by_integration_owner_required": true
+  },
+  "full_product_pass_forbidden": true,
+  "remote_readback": {
+    "status": "PASS",
+    "verified_publication_commit": "1c997074a53bd7271fd0fdef1140f5368ead5a48",
+    "verified_files": 12,
+    "frozen_files_unchanged": 97
+  }
+}

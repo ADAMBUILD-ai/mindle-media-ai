@@ -23,7 +23,7 @@ class CommandPanelState {
     if (this.references.some((reference) => reference.name.toLowerCase() === name.toLowerCase())) { this.error = "같은 참고 이미지는 한 번만 첨부할 수 있습니다."; return false; }
     this.references.push({ name, type: file.type, preview: file.preview || null }); this.error = null; return true;
   }
-  remove(index) { this.references.splice(index, 1); this.error = null; }
+  remove(index) { const removed=this.references.splice(index, 1)[0]; if(removed?.preview && typeof URL !== 'undefined') URL.revokeObjectURL(removed.preview); this.error = null; }
   submit() {
     if (!this.text.trim()) { this.error = "AI 지시를 입력하세요."; this.phase = "expanded"; throw new Error("command required"); }
     this.error = null; this.phase = "executing";
@@ -37,6 +37,12 @@ class EditorActionState {
   constructor(kind) { this.kind = kind; this.saved = false; this.exports = 0; }
   save() { this.saved = true; return { action: "save", kind: this.kind, result: "edit-state-saved" }; }
   export() { this.exports += 1; return { action: "export", kind: this.kind, result: "result-file-requested", sequence: this.exports }; }
+}
+
+class ShortformModeState {
+  constructor() { this.mode = "general"; }
+  toggle() { this.mode = this.mode === "general" ? "ad_shortform" : "general"; return this.mode; }
+  isShortform() { return this.mode === "ad_shortform"; }
 }
 
 class AdapterFeatureState {
@@ -59,6 +65,7 @@ class AdapterFeatureState {
 
 const videoCommand = new CommandPanelState("video");
 const photoCommand = new CommandPanelState("photo");
+const shortformMode = new ShortformModeState();
 
 function renderPanel(root, state) {
   root.dataset.phase = state.phase;
@@ -77,21 +84,40 @@ function bindEditor(kind) {
   const state = kind === "video" ? videoCommand : photoCommand; const actions = new EditorActionState(kind);
   const command = editor.querySelector("[data-command]"); const fileInput = editor.querySelector("[data-reference-input]"); const panel = editor.querySelector("[data-command-panel]");
   const sync = () => renderPanel(panel, state);
-  command.addEventListener("focus", () => { state.focus(); sync(); });
+  if (kind === "video") {
+    const shortformButton = editor.querySelector("[data-action='shortform-mode']");
+    if (shortformButton) shortformButton.addEventListener("click", () => {
+      const mode = shortformMode.toggle();
+      shortformButton.setAttribute("aria-pressed", String(mode === "ad_shortform"));
+      editor.dataset.videoMode = mode;
+      editor.dispatchEvent(new CustomEvent("mindle:mode", { detail: { mode } }));
+    });
+  }
+  command.addEventListener("focus", () => { state.setText(command.value);state.focus();sync(); });
   command.addEventListener("input", (event) => { state.setText(event.target.value); sync(); });
+  const submit = () => {
+    try {
+      const detail = state.submit();
+      // Preserve the command/reference input for retry after a runtime failure.
+      state.phase='expanded'; sync();
+      editor.dispatchEvent(new CustomEvent("mindle:command", { detail }));
+    } catch (_) { sync(); }
+  };
   command.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" || event.shiftKey) return; event.preventDefault();
-    try { editor.dispatchEvent(new CustomEvent("mindle:command", { detail: state.submit() })); state.complete(); } catch (_) {} sync();
+    submit();
   });
+  panel.querySelector(".send-button").addEventListener("click", submit);
   editor.querySelector("[data-action$='reference']").addEventListener("click", () => fileInput.click());
   fileInput.addEventListener("change", (event) => {
-    [...event.target.files].forEach((file) => state.attach({ name: file.name, type: file.type, preview: URL.createObjectURL(file) })); fileInput.value = ""; sync();
+    [...event.target.files].forEach((file) => {const preview=URL.createObjectURL(file);if(!state.attach({ name:file.name,type:file.type,preview })) URL.revokeObjectURL(preview);}); fileInput.value = ""; sync();
   });
   panel.addEventListener("click", (event) => { const index = event.target.dataset.referenceRemove; if (index !== undefined) { state.remove(Number(index)); sync(); } });
-  editor.querySelector("[data-action='save']").addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:save", { detail: actions.save() })));
+  editor.querySelectorAll("[data-action='save']").forEach((button) => button.addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:save", { detail: actions.save() }))));
   editor.querySelector("[data-action='export']").addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:export", { detail: actions.export() })));
   sync();
 }
 
 if (typeof document !== "undefined") ["video", "photo"].forEach(bindEditor);
-if (typeof module !== "undefined") module.exports = { CommandPanelState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand };
+if (typeof module !== "undefined") module.exports = { CommandPanelState, ShortformModeState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand, shortformMode };
+

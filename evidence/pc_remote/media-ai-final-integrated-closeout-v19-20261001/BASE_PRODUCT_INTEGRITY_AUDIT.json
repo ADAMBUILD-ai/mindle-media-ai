@@ -1,0 +1,14 @@
+{
+  "status": "TESTED_PASS",
+  "control_plane": "CONTROL_PLANE_PASS",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "head": "e1c8b91f647c2fe47cb3dfbf435175addfe3d370",
+  "source_changes_since_v18_2": "none in src/ or ui/",
+  "approved_visual_css_loaded": true,
+  "base_runtime_v14_evidence": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_TORCH_RECOVERY_FINAL_LOCAL_E2E_EVIDENCE_v32_20260925.json",
+  "base_runtime_evidence_status": "PASS_WITH_SCOPED_REWORK; prior PASS preserved",
+  "save_export_reopen": "prior v14 PASS preserved",
+  "model_substitution": false,
+  "backend_regression": false,
+  "screenshot_cheat_gate": "prior v18.1 PASS preserved"
+}

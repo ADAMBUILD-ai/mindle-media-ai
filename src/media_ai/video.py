@@ -5,15 +5,17 @@ ASPECTS = {"16:9": "1920:1080", "9:16": "1080:1920", "1:1": "1080:1080"}
 
 def process_video(source: Path, destination: Path, options: dict) -> dict:
     destination.parent.mkdir(parents=True, exist_ok=True)
-    aspect = options.get("aspect", "16:9")
-    canvas = ASPECTS.get(aspect, ASPECTS["16:9"])
-    vf = f"scale={canvas}:force_original_aspect_ratio=decrease,pad={canvas}:(ow-iw)/2:(oh-ih)/2"
+    aspect = options.get("aspect")
+    if aspect and aspect not in ASPECTS:
+        raise ValueError('Unsupported video aspect ratio')
+    canvas = ASPECTS.get(aspect)
+    vf = f"scale={canvas}:force_original_aspect_ratio=decrease,pad={canvas}:(ow-iw)/2:(oh-ih)/2,setsar=1" if canvas else 'scale=trunc(iw/2)*2:trunc(ih/2)*2'
     input_source = source
     concat_file = None
     if options.get("clips"):
         concat_file = destination.with_suffix('.concat.txt')
         clips = [source, *map(Path, options['clips'])]
-        concat_file.write_text(''.join(f"file '{clip.resolve()}'\\n" for clip in clips), encoding='utf-8')
+        concat_file.write_text(''.join("file '" + str(clip.resolve()).replace("'", "'\\''") + "'\n" for clip in clips), encoding='utf-8')
         input_source = concat_file
     command = ["ffmpeg", "-y"]
     if concat_file: command += ["-f", "concat", "-safe", "0"]
@@ -23,7 +25,7 @@ def process_video(source: Path, destination: Path, options: dict) -> dict:
     if options.get("subtitle"):
         subtitle = str(Path(options['subtitle']).resolve()).replace('\\', '\\\\').replace(':', '\\:')
         vf += f",subtitles='{subtitle}'"
-    command += ["-vf", vf, "-c:v", "libx264", "-crf", str(options.get("crf", 23))]
+    command += ["-vf", vf, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-crf", str(options.get("crf", 23))]
     if options.get("mute"): command += ["-an"]
     else:
         if options.get("volume") is not None: command += ["-af", f"volume={float(options['volume'])}"]
