@@ -32,7 +32,7 @@ env:
   GENERAL_AUDIT_RUN_ID: "37752630381"
   PYTHON_EMBED_URL: "https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip"
   FFMPEG_URL: "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-win64-lgpl-shared-8.1.zip"
-  FFMPEG_EXPECTED_SHA256: "fab88c806009745666a4b0f4e0ff3b8cdbc91f8f5ae72cc67113dc6b5c67de46"
+  FFMPEG_EXPECTED_SHA256: "c71b3df71bbcb7aed37d1a5b127158d84186ff51133cbd96e3839ca098fbf29f"
 
 jobs:
   build-and-e2e:
