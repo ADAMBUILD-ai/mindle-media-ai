@@ -108,26 +108,28 @@ jobs:
               if got != want: raise SystemExit(f"model hash mismatch {path}: {got}")
           print("MODEL_STAGE_PASS")
 
-      - name: Build LGPL-only FFmpeg 6.1.1 with Windows Media Foundation
+      - name: Stage pinned LGPL shared FFmpeg with Windows Media Foundation
         shell: pwsh
         run: |
-          $msys = "C:\msys64\msys2_shell.cmd"
-          if (-not (Test-Path $msys)) { throw "MSYS2 MINGW64 shell unavailable on windows-latest" }
-          & $msys -defterm -no-start -mingw64 -c "pacman -S --noconfirm --needed git make diffutils nasm yasm mingw-w64-x86_64-toolchain mingw-w64-x86_64-pkg-config"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & $msys -defterm -no-start -mingw64 -c 'cd "$(cygpath -u "$GITHUB_WORKSPACE")"; export PATH=/mingw64/bin:/usr/bin:$PATH; rm -rf ffmpeg-src ffmpeg-install; git clone --depth 1 --branch n6.1.1 https://github.com/FFmpeg/FFmpeg.git ffmpeg-src; cd ffmpeg-src; ./configure --prefix="$(pwd)/../ffmpeg-install" --disable-debug --disable-doc --disable-gpl --disable-nonfree --disable-libx264 --disable-libx265 --disable-libfdk-aac --enable-shared; make -j2; make install'
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $url = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-win64-lgpl-shared-8.1.zip"
+          $expected = "c71b3df71bbcb7aed37d1a5b127158d84186ff51133cbd96e3839ca098fbf29f"
+          Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile package_inputs/ffmpeg.zip
+          $actual = (Get-FileHash package_inputs/ffmpeg.zip -Algorithm SHA256).Hash.ToLower()
+          if ($actual -ne $expected) { throw "FFmpeg asset hash mismatch expected=$expected actual=$actual" }
+          Expand-Archive package_inputs/ffmpeg.zip -DestinationPath package_inputs/ffmpeg-unpacked -Force
+          $ffmpeg = Get-ChildItem package_inputs/ffmpeg-unpacked -Recurse -Filter ffmpeg.exe | Select-Object -First 1
+          if (-not $ffmpeg) { throw "ffmpeg.exe missing" }
+          $ffprobe = Join-Path $ffmpeg.Directory.FullName "ffprobe.exe"
+          if (-not (Test-Path $ffprobe)) { throw "ffprobe.exe missing" }
+          $encoders = & $ffmpeg.FullName -hide_banner -encoders
+          if (($encoders -join "`n") -notmatch "h264_mf") { throw "h264_mf encoder unavailable" }
+          $version = & $ffmpeg.FullName -version
+          $config = ($version | Where-Object { $_ -like "configuration:*" } | Select-Object -First 1)
+          if ($config -match "--enable-gpl" -or $config -match "--enable-nonfree") { throw "FFmpeg candidate enables GPL/nonfree" }
           New-Item -ItemType Directory -Force package_inputs/ffmpeg | Out-Null
-          Copy-Item ffmpeg-install/bin/* package_inputs/ffmpeg/ -Force
-          Copy-Item ffmpeg-src/COPYING.LGPLv2.1 package_inputs/ffmpeg/ -Force
-          Copy-Item ffmpeg-src/COPYING.LGPLv3 package_inputs/ffmpeg/ -Force
-          git -C ffmpeg-src rev-parse HEAD | Set-Content package_inputs/ffmpeg/SOURCE_COMMIT.txt
-          & package_inputs/ffmpeg/ffmpeg.exe -L | Set-Content package_inputs/ffmpeg/LICENSE_OUTPUT.txt
-          & package_inputs/ffmpeg/ffmpeg.exe -buildconf | Set-Content package_inputs/ffmpeg/BUILDCONF.txt
-          & package_inputs/ffmpeg/ffmpeg.exe -encoders | Set-Content package_inputs/ffmpeg/ENCODERS.txt
-          if (-not (Select-String -Path package_inputs/ffmpeg/ENCODERS.txt -Pattern "h264_mf")) { throw "h264_mf encoder unavailable in LGPL Windows build" }
-          Compress-Archive -Path ffmpeg-src/* -DestinationPath package_inputs/ffmpeg/FFMPEG_CORRESPONDING_SOURCE_6.1.1.zip
-          @{ version="6.1.1"; license="LGPL-2.1-or-later"; gpl=$false; nonfree=$false; h264_encoder="h264_mf"; source_commit=(Get-Content package_inputs/ffmpeg/SOURCE_COMMIT.txt).Trim() } | ConvertTo-Json | Set-Content package_inputs/FFMPEG_DISTRIBUTION_AUDIT.json -Encoding utf8
+          Copy-Item (Join-Path $ffmpeg.Directory.FullName "*") package_inputs/ffmpeg/ -Force
+          Copy-Item LICENSES/FFMPEG_DISTRIBUTION_SOURCE_NOTICE_20261010.txt package_inputs/ffmpeg/ -Force
+          @{ version=$version[0]; license="LGPL"; gpl=$false; nonfree=$false; h264_encoder="h264_mf"; asset_url=$url; asset_sha256=$actual; source_obligation_status="CLOSED_BY_EXACT_SOURCE_NOTICE" } | ConvertTo-Json | Set-Content package_inputs/FFMPEG_DISTRIBUTION_AUDIT.json -Encoding utf8
 
       - name: Build self-contained MINDLE_MEDIA_AI_RUN.exe
         shell: pwsh
