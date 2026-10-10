@@ -171,6 +171,8 @@ jobs:
           if ($config -match "--enable-gpl" -or $config -match "--enable-nonfree") { throw "FFmpeg candidate enables GPL/nonfree configuration" }
           $probe = Join-Path $ffmpeg.Directory.FullName "ffprobe.exe"
           if (-not (Test-Path $probe)) { throw "ffprobe.exe missing" }
+          $sourceNotice = "LICENSES/FFMPEG_DISTRIBUTION_SOURCE_NOTICE_20261010.txt"
+          if (-not (Test-Path $sourceNotice)) { throw "FFmpeg exact source notice missing" }
           $record = [ordered]@{
             status = "LGPL_SHARED_CANDIDATE_VERIFIED"
             asset_url = $env:FFMPEG_URL
@@ -184,7 +186,10 @@ jobs:
             gpl_enabled = $false
             nonfree_enabled = $false
             linkage = "shared"
-            source_obligation_status = "REQUIRES_FINAL_NOTICE_SOURCE_READBACK"
+            source_obligation_status = "CLOSED_BY_EXACT_SOURCE_NOTICE"
+            source_notice = $sourceNotice
+            build_scripts_commit = "bd26828f0e965c2c657553584b09caf5d57eee52"
+            ffmpeg_source_branch = "release/8.1"
           }
           $record | ConvertTo-Json -Depth 5 | Set-Content "$env:EVIDENCE_DIR/FFMPEG_DISTRIBUTION_AUDIT.json" -Encoding utf8
 
@@ -365,8 +370,13 @@ jobs:
           if (Test-Path "$env:EVIDENCE_DIR/VC_RUNTIME_DEPENDENCY_AUDIT.json") {
             $vc = Get-Content "$env:EVIDENCE_DIR/VC_RUNTIME_DEPENDENCY_AUDIT.json" -Raw | ConvertFrom-Json
           }
+          $ffmpeg = $null
+          if (Test-Path "$env:EVIDENCE_DIR/FFMPEG_DISTRIBUTION_AUDIT.json") {
+            $ffmpeg = Get-Content "$env:EVIDENCE_DIR/FFMPEG_DISTRIBUTION_AUDIT.json" -Raw | ConvertFrom-Json
+          }
           $e2ePass = Test-Path "$env:EVIDENCE_DIR/REMOTE_WINDOWS_RUNTIME_E2E.json"
-          $result = if ($e2ePass -and $vc -and $vc.redistribution_closed) {
+          $ffmpegClosed = $ffmpeg -and $ffmpeg.source_obligation_status -eq "CLOSED_BY_EXACT_SOURCE_NOTICE"
+          $result = if ($e2ePass -and $vc -and $vc.redistribution_closed -and $ffmpegClosed) {
             "PASS_REMOTE_WINDOWS_ONE_CLICK_BUILD_AND_AUTOMATION_READY_LOCAL_ACCEPTANCE_PENDING"
           } elseif ($e2ePass) {
             "BLOCKED_RUNTIME_REDISTRIBUTION_OR_DEPENDENCY"
@@ -380,6 +390,7 @@ jobs:
             exe_built = (Test-Path "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")
             remote_windows_e2e = if ($e2ePass) { "PASS" } else { "NOT_PASS" }
             vc_redistribution_closed = if ($vc) { [bool]$vc.redistribution_closed } else { $false }
+            ffmpeg_source_obligation_closed = [bool]$ffmpegClosed
             final_pass_claimed = $false
           } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/EVIDENCE.json" -Encoding utf8
           [ordered]@{
