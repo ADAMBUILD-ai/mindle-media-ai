@@ -354,7 +354,16 @@ class ProductJobService:
                                     input=json.dumps(request, ensure_ascii=False), encoding='utf-8',
                                     capture_output=True, errors='replace', timeout=900, env=environment)
             if result.returncode or not report.is_file():
-                raise RuntimeError('AI 작업을 완료하지 못했습니다. ' + result.stderr[-1200:])
+                message = 'AI 작업을 완료하지 못했습니다.'
+                if os.environ.get('MINDLE_DIAGNOSTIC_MODE') == '1':
+                    message += (
+                        f' returncode={result.returncode}; '
+                        f'stdout_tail={result.stdout[-4000:]!r}; '
+                        f'stderr_tail={result.stderr[-4000:]!r}'
+                    )
+                else:
+                    message += ' ' + result.stderr[-1200:]
+                raise RuntimeError(message)
             record = json.loads(report.read_text(encoding='utf-8'))
             self.records[record['job_id']] = record
             return record
