@@ -24,7 +24,7 @@ permissions:
 
 concurrency:
   group: mindle-media-one-click-windows-build-e2e
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   EVIDENCE_DIR: docs/evidence/media-ai-pc-work-remote-windows-fallback-20261008
