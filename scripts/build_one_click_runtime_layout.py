@@ -122,6 +122,21 @@ def main() -> int:
     if args.runtime_lock and args.runtime_lock.is_file():
         shutil.copy2(args.runtime_lock, payload / "RUNTIME_LOCK_EMPLOYEE_WIN_X64.txt")
 
+    model_records = [
+        {
+            "path": p.relative_to(payload).as_posix(),
+            "bytes": p.stat().st_size,
+            "sha256": digest(p),
+        }
+        for folder in (payload / "models", payload / "omz")
+        for p in sorted(folder.rglob("*"))
+        if p.is_file()
+    ]
+    model_manifest_path = payload / "MODEL_MANIFEST.json"
+    model_manifest_path.write_text(
+        json.dumps(model_records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
     ui_names = [
         "index.html",
         "approved_visual.css",
@@ -143,6 +158,7 @@ def main() -> int:
         "runtime_id": runtime_id,
         "build_commit": args.build_commit,
         "ui_fingerprint": ui_hash,
+        "model_manifest_hash": digest(model_manifest_path),
         "launcher": "MINDLE_MEDIA_AI_RUN.exe",
         "normal_user_action": "DOUBLE_CLICK_ONLY",
         "files": files_manifest(payload),
