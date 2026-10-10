@@ -375,10 +375,11 @@ class ProductJobService:
     def execute(self, request: dict) -> dict:
         lane = MediaType(request["lane"])
         operation, command = str(request["operation"]), str(request["command"]).strip()
+        execution_lane = MediaType.KOREAN_AUDIO if operation == "transcribe" else lane
         if not command: raise ValueError("natural-language command is required")
         source = self._store_input(str(request["filename"]), str(request["content_base64"]))
         job_dir = self.jobs / str(uuid4()); job_dir.mkdir()
-        job = MediaJob(request=command, input_path=source, media_type=lane, requested_operation=operation, project_id=request.get("project_id"), source_provenance={"source_path": str(source), "sha256": sha256_file(source), "ingress": "approved-ui"})
+        job = MediaJob(request=command, input_path=source, media_type=execution_lane, requested_operation=operation, project_id=request.get("project_id"), source_provenance={"source_path": str(source), "sha256": sha256_file(source), "ingress": "approved-ui"})
         adapter = None
         try:
             if operation in {"segment", "tracking"}:
@@ -411,8 +412,8 @@ class ProductJobService:
                 raise ValueError(f"unsupported verified product operation: {operation}")
 
             registry, intake = ModelScoutAdapterRegistry(), InputArtifactIntake()
-            handoff = self._handoff(lane, operation, model, artifact, adapter)
-            registry.ingest(handoff); intake.ingest(lane, source, job.source_provenance)
+            handoff = self._handoff(execution_lane, operation, model, artifact, adapter)
+            registry.ingest(handoff); intake.ingest(execution_lane, source, job.source_provenance)
             gate = RuntimeIntegrationGate(registry, intake)
             if gate.readiness(job) is not IntegrationStatus.RUNTIME_READY: raise RuntimeError("verified adapter did not reach RUNTIME_READY")
             orchestrator = RuntimeOrchestrator(registry.runtime_registry)
@@ -422,10 +423,10 @@ class ProductJobService:
             if not receipt.valid: raise RuntimeError(receipt.reason or "output validation failed")
             input_sha = sha256_file(source)
             output_sha = sha256_file(primary)
-            callback = {"request_id": handoff.request_id, "issue_id": handoff.issue_id, "callback_id": f"callback-{uuid4()}", "job_id": job.id, "evidence_id": job.evidence_id, "lane": lane, "revision": handoff.revision, "artifact_sha256": handoff.artifact_sha256, "adapter_id": handoff.adapter_id, "adapter_version": handoff.adapter_version, "status": IntegrationStatus.TESTED_PASS, "input_sha256": input_sha, "output_sha256": output_sha, "output_path": str(primary), "elapsed_ms": float(result.get("elapsed_ms", 0.0)), "runtime_backend": handoff.runtime_backend, "device_requirement": handoff.device_requirement, "sent_at": now()}
+            callback = {"request_id": handoff.request_id, "issue_id": handoff.issue_id, "callback_id": f"callback-{uuid4()}", "job_id": job.id, "evidence_id": job.evidence_id, "lane": execution_lane, "revision": handoff.revision, "artifact_sha256": handoff.artifact_sha256, "adapter_id": handoff.adapter_id, "adapter_version": handoff.adapter_version, "status": IntegrationStatus.TESTED_PASS, "input_sha256": input_sha, "output_sha256": output_sha, "output_path": str(primary), "elapsed_ms": float(result.get("elapsed_ms", 0.0)), "runtime_backend": handoff.runtime_backend, "device_requirement": handoff.device_requirement, "sent_at": now()}
             delivery = gate.accept_callback(job, callback)
             outputs = [file_record(path) for path in sorted(job_dir.rglob("*")) if path.is_file()]
-            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": lane.value, "operation": operation, "command": command, "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version(), "process": sys.version.split()[0]}}
+            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version(), "process": sys.version.split()[0]}}
             (job_dir / "JOB_EVIDENCE.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.records[job.id] = record
             return record
