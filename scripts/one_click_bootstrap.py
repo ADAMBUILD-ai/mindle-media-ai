@@ -21,6 +21,8 @@ import time
 
 APP_DIR = "MINDLE_MEDIA_AI"
 READY_FILE = ".mindle_runtime_ready.json"
+VC_REDIST_URL = "https://aka.ms/vc14/vc_redist.x64.exe"
+VC_RUNTIME_REQUIRED = ("msvcp140.dll",)
 
 
 def sha256(path: Path) -> str:
@@ -113,6 +115,95 @@ def materialize(source: Path, manifest: dict, manifest_sha: str, target: Path) -
     os.replace(staging, target)
 
 
+
+def _vc_missing() -> list[str]:
+    system_root = Path(os.environ.get("SystemRoot", r"C:\Windows"))
+    system32 = system_root / "System32"
+    return [name for name in VC_RUNTIME_REQUIRED if not (system32 / name).is_file()]
+
+
+def ensure_vc_runtime(local: Path) -> dict:
+    """Use host VC runtime when present; otherwise install only from Microsoft's signed URL."""
+    missing = _vc_missing()
+    receipt_dir = local / "prerequisites"
+    receipt_dir.mkdir(parents=True, exist_ok=True)
+    receipt_path = receipt_dir / "VC_RUNTIME_INSTALL_RESULT.json"
+    if not missing:
+        record = {
+            "status": "HOST_VC_RUNTIME_PRESENT",
+            "source": "Windows System32",
+            "missing_before": [],
+            "download_performed": False,
+            "system32_copy_performed": False,
+        }
+        receipt_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return record
+
+    powershell = shutil.which("powershell.exe") or shutil.which("pwsh.exe")
+    if not powershell:
+        raise RuntimeError("Microsoft Visual C++ Runtime 자동 준비를 위한 PowerShell을 찾을 수 없습니다.")
+
+    installer = receipt_dir / "vc_redist.x64.exe"
+    script_path = receipt_dir / "install_vc_runtime.ps1"
+    installer_ps = str(installer).replace("'", "''")
+    receipt_ps = str(receipt_path).replace("'", "''")
+    script = f"""$ErrorActionPreference='Stop'
+$Url='{VC_REDIST_URL}'
+$Installer='{installer_ps}'
+$Receipt='{receipt_ps}'
+[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest -UseBasicParsing -Uri $Url -OutFile $Installer
+$Sig=Get-AuthenticodeSignature -LiteralPath $Installer
+if ($Sig.Status -ne 'Valid' -or $Sig.SignerCertificate.Subject -notmatch '(^|,\\s*)O=Microsoft Corporation(,|$)') {{
+  throw 'Microsoft Visual C++ Redistributable signature verification failed'
+}}
+$Sha=(Get-FileHash -LiteralPath $Installer -Algorithm SHA256).Hash.ToLower()
+$Proc=Start-Process -FilePath $Installer -ArgumentList '/install','/quiet','/norestart' -Verb RunAs -Wait -PassThru
+$Ok=$Proc.ExitCode -in @(0,1638,3010)
+[ordered]@{{
+  status=if($Ok){{'OFFICIAL_VC_RUNTIME_INSTALLER_COMPLETED'}}else{{'FAILED'}}
+  source_url=$Url
+  sha256=$Sha
+  signature=[string]$Sig.Status
+  publisher=$Sig.SignerCertificate.Subject
+  exit_code=$Proc.ExitCode
+  reboot_required=($Proc.ExitCode -eq 3010)
+  system32_copy_performed=$false
+}} | ConvertTo-Json | Set-Content -LiteralPath $Receipt -Encoding UTF8
+if (-not $Ok) {{ exit $Proc.ExitCode }}
+"""
+    script_path.write_text(script, encoding="utf-8-sig")
+    completed = subprocess.run(
+        [powershell, "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(script_path)],
+        cwd=receipt_dir,
+        capture_output=True,
+        text=True,
+        errors="replace",
+        check=False,
+    )
+    if completed.returncode != 0:
+        raise RuntimeError(
+            "Microsoft Visual C++ Runtime 자동 설치가 실패했습니다. "
+            + (completed.stderr[-1200:] or completed.stdout[-1200:])
+        )
+    missing_after = _vc_missing()
+    if missing_after:
+        raise RuntimeError(
+            "Microsoft Visual C++ Runtime 설치 후에도 필수 파일이 확인되지 않습니다: "
+            + ", ".join(missing_after)
+        )
+    try:
+        record = json.loads(receipt_path.read_text(encoding="utf-8-sig"))
+    except Exception:
+        record = {"status": "OFFICIAL_VC_RUNTIME_INSTALLER_COMPLETED"}
+    record["missing_before"] = missing
+    record["missing_after"] = missing_after
+    record["automatic_first_run"] = True
+    record["system32_copy_performed"] = False
+    receipt_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return record
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--no-browser", action="store_true", help="CI verification mode")
@@ -144,6 +235,11 @@ def main() -> int:
     print(f"MINDLE_RUNTIME_READY {target}")
     if args.materialize_only:
         return 0
+
+    # Keep normal employee operation one-click. If the host lacks the single
+    # Microsoft C++ runtime dependency, fetch Microsoft's signed redistributable
+    # and install it automatically instead of asking the employee to repair DLLs.
+    ensure_vc_runtime(local)
 
     pythonw = target / "runtime" / "python" / "pythonw.exe"
     python = target / "runtime" / "python" / "python.exe"
