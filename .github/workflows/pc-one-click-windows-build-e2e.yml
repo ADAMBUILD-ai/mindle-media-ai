@@ -342,10 +342,10 @@ jobs:
           }
           if (-not $base) { throw "server did not return after cold relaunch" }
           $latest = Invoke-RestMethod -UseBasicParsing -Uri "$base/api/projects/latest" -TimeoutSec 15
-          if (-not $latest.project_id) { throw "saved project did not survive cold relaunch" }
+          if (-not $latest.project -or -not $latest.project.project_id) { throw "saved project did not survive cold relaunch" }
           [ordered]@{
             status = "SAVE_REOPEN_COLD_RELAUNCH_PASS"
-            project_id = $latest.project_id
+            project_id = $latest.project.project_id
             base_url = $base
           } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/SAVE_REOPEN_COLD_RELAUNCH_RESULT.json" -Encoding utf8
 
