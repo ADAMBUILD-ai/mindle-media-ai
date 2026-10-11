@@ -14,6 +14,7 @@ on:
       - "scripts/remote_windows_one_click_e2e.py"
       - "scripts/validate_pc_work_control_plane.py"
       - "src/media_ai/**"
+      - "tests/**"
       - "LICENSES/**"
       - "docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK**"
   workflow_dispatch:
