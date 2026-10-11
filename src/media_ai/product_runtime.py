@@ -336,9 +336,16 @@ class ProductJobService:
         )
         environment = dict(os.environ)
         (self.root / 'runtime-profile/appdata').mkdir(parents=True, exist_ok=True)
-        environment.update(OMP_NUM_THREADS='2', MKL_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2',
-                           HF_HUB_DISABLE_TELEMETRY='1', LOCALAPPDATA=str(self.root / 'runtime-profile'),
-                           APPDATA=str(self.root / 'runtime-profile/appdata'))
+        environment.update(
+            OMP_NUM_THREADS='2', MKL_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2',
+            OMP_DYNAMIC='FALSE',
+            # Hosted/older employee CPUs can expose a broader ISA in CPUID than the
+            # VM actually executes reliably. Cap oneDNN/OpenVINO at AVX2 so the
+            # verified Intel SISR worker does not terminate with STATUS_ILLEGAL_INSTRUCTION.
+            ONEDNN_MAX_CPU_ISA='AVX2', DNNL_MAX_CPU_ISA='AVX2',
+            HF_HUB_DISABLE_TELEMETRY='1', LOCALAPPDATA=str(self.root / 'runtime-profile'),
+            APPDATA=str(self.root / 'runtime-profile/appdata')
+        )
         if self.vault.local_root is not None:
             environment.update(HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1',
                                HF_HOME=str(self.root / 'offline-worker-cache'))
