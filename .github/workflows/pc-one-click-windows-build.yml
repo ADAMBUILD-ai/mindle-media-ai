@@ -184,24 +184,58 @@ jobs:
           Stop-Process -Id $proc.Id -Force
           @{ status="REMOTE_WINDOWS_RUNTIME_SMOKE_PASS"; port=18768; ui_title="MINDLE MEDIA AI"; local_acceptance="PENDING" } | ConvertTo-Json | Set-Content dist/REMOTE_WINDOWS_RUNTIME_E2E.json -Encoding utf8
 
-      - name: Create delivery transport archive and hashes
-        shell: pwsh
+      - name: Create Zip64 delivery transport archive, split parts, and hashes
+        shell: python
         run: |
-          Compress-Archive -Path dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64 -DestinationPath dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip -CompressionLevel Fastest
-          $exe = Get-FileHash dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/MINDLE_MEDIA_AI_RUN.exe -Algorithm SHA256
-          $zip = Get-FileHash dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip -Algorithm SHA256
-          "EXE $($exe.Hash.ToLower()) MINDLE_MEDIA_AI_RUN.exe" | Set-Content dist/DELIVERY_ARTIFACT_SHA256.txt -Encoding ascii
-          "ZIP $($zip.Hash.ToLower()) MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip" | Add-Content dist/DELIVERY_ARTIFACT_SHA256.txt -Encoding ascii
+          from pathlib import Path
+          import hashlib, json, zipfile
+          root = Path("dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64")
+          archive = Path("dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip")
+          with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=1, allowZip64=True) as z:
+              for p in sorted(root.rglob("*")):
+                  if p.is_file():
+                      z.write(p, root.name + "/" + p.relative_to(root).as_posix())
+          def sha(path):
+              h = hashlib.sha256()
+              with path.open("rb") as f:
+                  for b in iter(lambda: f.read(1024 * 1024), b""):
+                      h.update(b)
+              return h.hexdigest()
+          exe = root / "MINDLE_MEDIA_AI_RUN.exe"
+          zip_sha = sha(archive)
+          Path("dist/DELIVERY_ARTIFACT_SHA256.txt").write_text(
+              f"EXE {sha(exe)} MINDLE_MEDIA_AI_RUN.exe\nZIP {zip_sha} {archive.name}\n",
+              encoding="ascii",
+          )
+          part_size = 400 * 1024 * 1024
+          parts = []
+          with archive.open("rb") as src:
+              i = 0
+              while True:
+                  chunk = src.read(part_size)
+                  if not chunk:
+                      break
+                  part = Path(f"dist/{archive.name}.part-{i:02d}")
+                  part.write_bytes(chunk)
+                  parts.append({"name": part.name, "bytes": part.stat().st_size, "sha256": sha(part)})
+                  i += 1
+          Path("dist/DELIVERY_PARTS.json").write_text(
+              json.dumps({"zip": archive.name, "zip_sha256": zip_sha, "parts": parts}, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          print("ZIP64_DELIVERY_PASS", archive.stat().st_size, len(parts), zip_sha)
 
-      - name: Upload one-click runtime artifact
+      - name: Upload one-click runtime transport
         uses: actions/upload-artifact@v4
         with:
           name: MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64
           path: |
-            dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/**
-            dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip
+            dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64.zip.part-*
             dist/DELIVERY_ARTIFACT_SHA256.txt
+            dist/DELIVERY_PARTS.json
             dist/REMOTE_WINDOWS_RUNTIME_E2E.json
+            dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/MINDLE_MEDIA_AI_RUN.exe
+            dist/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64/PACKAGE_MANIFEST.json
           if-no-files-found: error
           retention-days: 14
           compression-level: 0
