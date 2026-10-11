@@ -12,7 +12,7 @@ from uuid import uuid4
 ROOT = Path(__file__).resolve().parents[1]
 
 def function(path, name, globals_):
-    tree = ast.parse(path.read_text())
+    tree = ast.parse(path.read_text(encoding='utf-8'))
     node = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == name)
     exec(compile(ast.Module(body=[node], type_ignores=[]), str(path), 'exec'), globals_)
     return globals_[name]
