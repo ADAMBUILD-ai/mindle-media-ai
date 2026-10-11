@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import base64
 import hashlib
+import io
 import json
 from pathlib import Path
 import time
@@ -39,6 +40,11 @@ def request_json(url: str, payload: dict | None = None, timeout: int = 900) -> d
     except HTTPError as error:
         body = error.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"HTTP {error.code} {url}: {body}") from error
+
+
+def fetch_bytes(url: str, timeout: int = 120) -> bytes:
+    with urlopen(url, timeout=timeout) as response:
+        return response.read()
 
 
 def post_file(base: str, path: str, lane: str, operation: str, command: str, source: Path) -> dict:
@@ -95,6 +101,29 @@ def main() -> int:
     tracking_input = locate(args.fixture_root, "448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4")
     stt_input = locate(args.fixture_root, "49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav")
 
+    photo_import = request_json(
+        base + "/api/media/import",
+        {
+            "kind": "photo",
+            "filename": segment_input.name,
+            "content_base64": base64.b64encode(segment_input.read_bytes()).decode("ascii"),
+        },
+    )
+    video_import = request_json(
+        base + "/api/media/import",
+        {
+            "kind": "video",
+            "filename": tracking_input.name,
+            "content_base64": base64.b64encode(tracking_input.read_bytes()).decode("ascii"),
+        },
+    )
+    for name, record in {"photo_import": photo_import, "video_import": video_import}.items():
+        if record.get("status") != "TESTED_PASS" or not record.get("preview_url"):
+            raise RuntimeError(f"{name} did not pass packaged file import: {record}")
+        preview = fetch_bytes(base + record["preview_url"])
+        if not preview:
+            raise RuntimeError(f"{name} preview download was empty")
+
     basic_photo = request_json(
         base + "/api/photo-edits",
         {
@@ -124,6 +153,8 @@ def main() -> int:
         base + "/api/projects/save",
         {
             "job_ids": [
+                photo_import["job_id"],
+                video_import["job_id"],
                 basic_photo["job_id"],
                 segment["job_id"],
                 upscale["job_id"],
@@ -154,6 +185,17 @@ def main() -> int:
         entries = archive.namelist()
         if "project.json" not in entries:
             raise RuntimeError("project.json missing from export")
+    download_url = exported.get("download_url")
+    if not download_url:
+        raise RuntimeError("export download URL missing")
+    downloaded = fetch_bytes(base + download_url)
+    downloaded_sha = hashlib.sha256(downloaded).hexdigest()
+    export_sha = digest(export_path)
+    if downloaded_sha != export_sha:
+        raise RuntimeError("downloaded export does not match server export")
+    with zipfile.ZipFile(io.BytesIO(downloaded)) as archive:
+        if archive.testzip() is not None or "project.json" not in archive.namelist():
+            raise RuntimeError("downloaded export ZIP validation failed")
 
     result = {
         "status": "REMOTE_WINDOWS_PACKAGED_RUNTIME_E2E_PASS",
@@ -161,6 +203,8 @@ def main() -> int:
         "runtime_identity": identity,
         "ui_title": "MINDLE MEDIA AI",
         "jobs": {
+            "photo_import": photo_import,
+            "video_import": video_import,
             "basic_photo": basic_photo,
             "segment": segment,
             "upscale": upscale,
@@ -170,9 +214,17 @@ def main() -> int:
         "project_id": project_id,
         "latest_project": latest,
         "latest_project_response": latest_response,
+        "file_io": {
+            "photo_import": "PASS",
+            "video_import": "PASS",
+            "photo_preview_download": "PASS",
+            "video_preview_download": "PASS",
+            "export_download": "PASS",
+        },
         "export": {
             **exported,
-            "sha256": digest(export_path),
+            "sha256": export_sha,
+            "download_sha256": downloaded_sha,
             "zip_crc": "PASS",
             "entry_count": len(entries),
         },
