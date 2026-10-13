@@ -151,6 +151,16 @@ class Handler(BaseHTTPRequestHandler):
                              'physical_owner_acceptance':'NOT_VERIFIED'}); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
+        if route == '/api/assets':
+            assets=[]
+            for record in self.server.service.records.values():
+                if record.get('operation') != 'import': continue
+                item=dict(record)
+                path=Path(item['primary_output']['path']).resolve()
+                if path.is_file() and self.server.data_dir.resolve() in path.parents:
+                    item['preview_url']='/files/'+path.relative_to(self.server.data_dir.resolve()).as_posix()
+                    assets.append(item)
+            self._json(200, {'assets':assets}); return
         if route == '/api/projects':
             projects = []
             for path in sorted(self.server.service.projects.glob('*.json'), key=lambda p:p.stat().st_mtime, reverse=True):

@@ -140,10 +140,29 @@
       editor.dataset.exportStatus = "exported"; editor.dataset.exportSha256 = result.export.sha256; message(editor, `내보내기 완료 · ${result.export.file_name}`);
     } catch (error) { message(editor, error.message, true); }
   }
+  window.mindleRefreshAssets = async () => {
+    const response=await fetch('/api/assets');if(!response.ok) throw new Error('실제 원본 목록을 읽을 수 없습니다.');
+    const {assets}=await response.json();
+    for(const kind of ['video','photo']) {
+      const grid=document.querySelector(`[data-editor="${kind}"] .asset-grid`);grid.replaceChildren();
+      for(const asset of assets.filter(item=>item.lane===kind)) {
+        const tile=document.createElement('span');tile.textContent=asset.input.file_name;tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',asset.input.file_name+' 불러오기');
+        if(kind==='photo') tile.style.backgroundImage=`url("${asset.preview_url}")`;
+        const open=async()=>{
+          if(executing.size || pending.photo || pending.video) return;
+          window.mindleBeginEdit(kind);
+          try {await window.mindleAcceptResult(asset);} catch(error) {message(document.querySelector(`[data-editor="${kind}"]`),error.message,true);}
+          finally {window.mindleEndEdit(kind);}
+        };
+        tile.addEventListener('click',open);tile.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' ') {event.preventDefault();open();}});grid.append(tile);
+      }
+    }
+  };
   window.mindleAcceptResult = async result => {
     if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
     await rememberResult(result);
     preview(document.querySelector(`[data-editor="${result.lane}"]`),result);
+    await window.mindleRefreshAssets();
   };
   document.addEventListener('mindle:video-result', async (event) => { await window.mindleAcceptResult(event.detail); });
   document.addEventListener('mindle:photo-result', async (event) => {
@@ -179,6 +198,7 @@
     editor.addEventListener("mindle:save", () => save(editor));
     editor.addEventListener("mindle:export", () => exportProject(editor));
   });
+  document.querySelectorAll('.asset-grid').forEach(grid=>grid.replaceChildren());
   async function restoreSavedProject(url='/api/projects/latest') {
     window.mindleRestoreReady=false;
     try {
@@ -216,7 +236,7 @@
     } catch (error) {
       const editor = document.querySelector('[data-editor="video"]');
       if (editor) message(editor, error.message, true);
-    } finally {window.mindleRestoreReady=true;}
+    } finally {try {await window.mindleRefreshAssets();} catch(error) {message(document.querySelector('[data-editor="video"]'),error.message,true);}window.mindleRestoreReady=true;}
   }
   window.mindleOpenProject = projectId => restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));
   window.mindleNewProject = () => {

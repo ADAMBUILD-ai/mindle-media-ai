@@ -3,7 +3,7 @@
   const editor = document.querySelector('[data-editor="photo"]');
   const status = editor.querySelector('[data-photo-status]');
   let rotation = 0, flipH = false, flipV = false, style = 'neutral';
-  let busy = false;
+  let busy = false, automaticAnalysis = null;
   const say = text => { status.textContent = text; };
   const controls = () => Object.fromEntries([...editor.querySelectorAll('[data-photo-adjust]')].map(input => [input.dataset.photoAdjust, Number(input.value)]));
   const updatePreview = () => {
@@ -67,11 +67,11 @@
       if(!Number.isInteger(resizeWidth)||resizeWidth<1||resizeWidth>8000) throw new Error('사진 폭은 1~8000 px 범위입니다.');
       output=document.createElement('canvas');output.width=resizeWidth;output.height=Math.max(1,Math.round(canvas.height*resizeWidth/canvas.width));output.getContext('2d').drawImage(canvas,0,0,output.width,output.height);
     }
-    return {base64:output.toDataURL('image/png').split(',')[1], options:{...v,rotation,flipH,flipV,style,resizeWidth,crop:cropVisible?crop:null}};
+    return {base64:output.toDataURL('image/png').split(',')[1], options:{...v,rotation,flipH,flipV,style,resizeWidth,crop:cropVisible?crop:null,automaticAnalysis}};
   }
   function reset() {
     editor.querySelectorAll('[data-photo-adjust]').forEach(input => { input.value=0;input.nextElementSibling.value=0; });
-    rotation=0;flipH=flipV=false;style='neutral';editor.querySelector('[data-crop-controls]').hidden=true;editor.querySelector('[data-photo-resize-controls]').hidden=true;
+    rotation=0;flipH=flipV=false;style='neutral';automaticAnalysis=null;editor.querySelector('[data-crop-controls]').hidden=true;editor.querySelector('[data-photo-resize-controls]').hidden=true;
     const image=editor.querySelector('[data-preview] img');if(image) { image.style.filter=''; image.style.transform=''; }
   }
   async function apply(label='사진 보정') {
@@ -95,7 +95,22 @@
     if(key==='rotate') rotation=(rotation+90)%360;
     if(key==='flip-h') flipH=!flipH;
     if(key==='flip-v') flipV=!flipV;
-    if(key==='auto') {adjust('contrast',8);adjust('saturation',8);adjust('shadows',12);}
+    if(key==='auto') {
+      const image=editor.querySelector('[data-preview] img');
+      if(!image?.complete || !image.naturalWidth) {say('먼저 사진을 불러오세요.');return;}
+      const canvas=document.createElement('canvas');canvas.width=Math.min(256,image.naturalWidth);canvas.height=Math.max(1,Math.round(image.naturalHeight*canvas.width/image.naturalWidth));
+      const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0,canvas.width,canvas.height);
+      const pixels=ctx.getImageData(0,0,canvas.width,canvas.height).data, luminance=[];let red=0,blue=0;
+      for(let i=0;i<pixels.length;i+=4) {if(!pixels[i+3]) continue;luminance.push(.2126*pixels[i]+.7152*pixels[i+1]+.0722*pixels[i+2]);red+=pixels[i];blue+=pixels[i+2];}
+      if(!luminance.length) {say('투명 사진에는 자동 보정을 적용할 수 없습니다.');return;}
+      luminance.sort((a,b)=>a-b);const quantile=q=>luminance[Math.floor((luminance.length-1)*q)],p10=quantile(.1),p50=quantile(.5),p90=quantile(.9);
+      const clamp=(v,a,b)=>Math.round(Math.max(a,Math.min(b,v)));
+      adjust('brightness',clamp((122-p50)/.7,-40,40));
+      adjust('contrast',p90-p10<5?0:clamp((180/(p90-p10)-1)*100,-15,30));
+      adjust('shadows',clamp((38-p10)/.6,0,25));adjust('highlights',clamp((215-p90)/.6,-25,0));
+      adjust('temperature',clamp((blue-red)/luminance.length/.6,-16,16));
+      automaticAnalysis={method:'decoded_pixel_percentiles_v1',model_inference:false,sample_pixels:luminance.length,p10,p50,p90};
+    }
     if(key==='color') {adjust('temperature',15);adjust('saturation',10);}
     if(key==='style') style=style==='mono'?'warm':'mono';
     if(key==='portrait') {adjust('shadows',10);adjust('sharpness',-25);say('인물 보정은 그림자 완화와 전체 사진의 부드럽게 보정을 적용합니다.');}
@@ -133,5 +148,3 @@
     return true;
   };
 })();
-
-

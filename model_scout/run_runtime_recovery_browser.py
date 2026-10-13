@@ -44,6 +44,8 @@ def main():
         driver.find_element(By.CSS_SELECTOR,'[data-primary-input=video]').send_keys(str(source.resolve()))
         wait.until(lambda d:(media_state(d) or {}).get('readyState',0)>=2)
         record('actual_import_media_diagnostics',media_state(driver))
+        wait.until(lambda d:len(d.find_elements(By.CSS_SELECTOR,'[data-editor=video] [data-asset-job-id]'))==1)
+        record('actual_media_library_contains_user_import',driver.find_element(By.CSS_SELECTOR,'[data-asset-job-id]').text)
         driver.find_element(By.CSS_SELECTOR,'[data-action=ai-auto-edit]').click()
         wait.until(lambda d: d.execute_script("return document.querySelector('[data-preview=video]').dataset.operation==='video_edit' && !window.mindleEditPending('video')"))
         jobs=driver.execute_async_script("fetch('/api/evidence').then(r=>r.json()).then(arguments[0])")['jobs']
@@ -58,6 +60,14 @@ def main():
         record('actual_h264_playback',media_state(driver))
         driver.find_element(By.CSS_SELECTOR,'[data-primary-input=photo]').send_keys(str(photo.resolve()))
         wait.until(lambda d:d.execute_script("const i=document.querySelector('[data-preview=photo] img');return i?.complete&&i.naturalWidth===120&&!window.mindleEditPending('photo')"))
+        driver.find_element(By.CSS_SELECTOR,'[data-editor=photo] [data-action=photo-auto]').click()
+        wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.operation==='photo_edit'&&!window.mindleEditPending('photo')"))
+        photo_jobs=driver.execute_async_script("fetch('/api/evidence').then(r=>r.json()).then(arguments[0])")['jobs']
+        auto_photo=[j for j in photo_jobs.values() if j['operation']=='photo_edit'][-1]
+        assert auto_photo['runtime_result']['options']['automaticAnalysis']['sample_pixels']>0
+        assert auto_photo['runtime_result']['options']['automaticAnalysis']['model_inference'] is False
+        record('actual_photo_auto_measured_pixels_not_preset',auto_photo)
+        wait.until(lambda d:d.execute_script("const i=document.querySelector('[data-preview=photo] img');return i?.complete&&i.naturalWidth===120"))
         driver.execute_script("const i=document.querySelector('[data-photo-adjust=brightness]');i.value=20;i.dispatchEvent(new Event('input',{bubbles:true}))")
         driver.find_element(By.CSS_SELECTOR,'[data-photo-apply]').click()
         wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.operation==='photo_edit'&&!window.mindleEditPending('photo')"))
@@ -73,6 +83,8 @@ def main():
         wait.until(lambda d:d.execute_script("return window.mindleRestoreReady&&document.querySelector('[data-editor=video]').dataset.projectStatus==='reopened'"))
         reopened=driver.execute_async_script("fetch('/api/projects/latest').then(r=>r.json()).then(arguments[0])")['project']
         assert reopened==saved
+        assert len(driver.find_elements(By.CSS_SELECTOR,'[data-asset-job-id]'))==2
+        record('actual_asset_library_survives_restart',{'assets':2})
         record('full_server_browser_restart_identical_saved_analysis',{'project_id':saved['project_id'],'job_ids':saved['job_ids']})
         driver.find_element(By.CSS_SELECTOR,'[data-editor=video] [data-action=export]').click()
         wait.until(lambda d:d.execute_script("return document.querySelector('[data-editor=video]').dataset.exportStatus==='exported'"))
