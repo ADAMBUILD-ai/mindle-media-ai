@@ -449,7 +449,7 @@ class ProductJobService:
                 output = job_dir / "intel_sisr_1032" / "upscaled_4x.png"
                 artifact = adapter.weight
             elif operation == "transcribe":
-                if source.suffix.lower() != '.wav':
+                if operation == 'transcribe':
                     import subprocess
                     package = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT')
                     ffmpeg = str(Path(package) / 'tools/ffmpeg/ffmpeg.exe') if package else 'ffmpeg'

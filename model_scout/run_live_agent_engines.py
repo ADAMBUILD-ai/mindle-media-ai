@@ -31,6 +31,10 @@ def main():
         for operation in ('segment','upscale','tracking','transcribe'):
             previous=records[operation];source=frozen/'inputs'/Path(previous['input']['path']).name
             assert hashlib.sha256(source.read_bytes()).hexdigest()==previous['input']['sha256']
+            if operation=='transcribe':
+                import subprocess
+                original=source;source=OUT/'long_korean_44100.wav'
+                subprocess.run(['ffmpeg','-y','-stream_loop','2','-i',str(original),'-ar','44100','-ac','2',str(source)],check=True,capture_output=True)
             request={'lane':previous['lane'],'operation':operation,'command':previous['command'],
                      'filename':source.name,'content_base64':base64.b64encode(source.read_bytes()).decode()}
             if operation=='segment':
@@ -45,7 +49,16 @@ def main():
             assert result['status']=='TESTED_PASS'
             assert result['execution_started_at']<result['execution_finished_at']
             assert result['state_history']==['queued','validating','preflight_ready','dispatched','running','output_validating','succeeded']
-            receipt['real_model_calls']+=1;receipt['jobs'].append(result)
+            if operation=='tracking':
+                import cv2
+                capture=cv2.VideoCapture(str(source));count=int(capture.get(cv2.CAP_PROP_FRAME_COUNT));capture.release()
+                assert result['runtime_result']['tracked_frames']==count
+            if operation=='segment':assert result['runtime_result']['reference_match']['score']>=.75
+            if operation=='transcribe':
+                assert result['runtime_result']['duration_seconds']>25
+                assert len(result['runtime_result']['segments'])>=2
+                assert result['runtime_result']['sample_rate']==16000
+            receipt['real_model_calls']+=1;receipt['real_model_jobs']=receipt['real_model_calls'];receipt['jobs'].append(result)
             (OUT/'LIVE_ENGINE_RECEIPT.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
         saved=service.save_project({'job_ids':[j['job_id'] for j in receipt['jobs']]})
         reopened=ProductJobService(ROOT/'live_agent_engine_data',os.environ.get('HF_TOKEN',''))

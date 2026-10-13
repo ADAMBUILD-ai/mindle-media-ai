@@ -33,7 +33,11 @@ def main():
     source=OUT/'SOURCE.mp4'
     subprocess.run(['ffmpeg','-y','-f','lavfi','-i','testsrc2=size=160x90:rate=12','-t','5','-c:v','libx264','-pix_fmt','yuv420p',str(source)],check=True,capture_output=True)
     from PIL import Image
-    photo=OUT/'SOURCE_PORTRAIT.png';Image.new('RGB',(120,240),(80,100,120)).save(photo)
+    photo=OUT/'SOURCE_PORTRAIT.png';picture=Image.new('RGB',(120,240))
+    for y in range(240):
+        for x in range(120):picture.putpixel((x,y),(40+x,60+y//2,180-x//2))
+    from PIL import ImageDraw
+    drawing=ImageDraw.Draw(picture);drawing.rectangle((25,50,75,130),fill=(220,220,220));drawing.line((10,10,100,220),fill=(5,5,5),width=3);picture.save(photo)
     options=webdriver.ChromeOptions();options.add_argument('--headless=new');options.add_argument('--no-sandbox');options.add_argument('--disable-dev-shm-usage');options.add_argument('--window-size=1920,1080')
     options.add_experimental_option('prefs',{'download.default_directory':str(OUT.resolve()),'download.prompt_for_download':False})
     driver=webdriver.Chrome(options=options);server,thread=serve()
@@ -109,10 +113,12 @@ def main():
         assert media_state(driver)['videoWidth']==360
         for key in ('contrast','highlights','shadows','saturation','temperature','sharpness'):
             old=driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")
+            old_hash=driver.execute_script("return document.querySelector('[data-preview=photo] img').dataset.outputSha256")
             driver.execute_script("const i=document.querySelector('[data-photo-adjust='+arguments[0]+']');i.value=15;i.dispatchEvent(new Event('input',{bubbles:true}))",key)
             driver.find_element(By.CSS_SELECTOR,'[data-photo-apply]').click()
             wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId!==arguments[0]&&!window.mindleEditPending('photo')",old))
             wait.until(lambda d:d.execute_script("const i=document.querySelector('[data-preview=photo] img');return i?.complete&&i.naturalWidth>0"))
+            assert driver.execute_script("return document.querySelector('[data-preview=photo] img').dataset.outputSha256")!=old_hash
             record('actual_photo_correction_'+key,{'job_id':driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")})
         for key in ('rotate','rotate','flip-h','flip-v'):
             old=driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")
