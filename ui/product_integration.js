@@ -146,7 +146,8 @@
     for(const kind of ['video','photo']) {
       const grid=document.querySelector(`[data-editor="${kind}"] .asset-grid`);grid.replaceChildren();
       for(const asset of assets.filter(item=>item.lane===kind)) {
-        const tile=document.createElement('span');tile.textContent=asset.input.file_name;tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',asset.input.file_name+' 불러오기');
+        const name=asset.original_filename||asset.input.file_name.replace(/^[0-9a-f-]{36}_/i,'');
+        const tile=document.createElement('span');tile.textContent=name;tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',name+' 불러오기');
         if(kind==='photo') tile.style.backgroundImage=`url("${asset.preview_url}")`;
         const open=async()=>{
           if(executing.size || pending.photo || pending.video) return;
@@ -159,7 +160,7 @@
     }
   };
   window.mindleAcceptResult = async result => {
-    if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
+    state.jobs=state.jobs.filter(id=>id!==result.job_id);state.jobs.push(result.job_id);
     await rememberResult(result);
     preview(document.querySelector(`[data-editor="${result.lane}"]`),result);
     await window.mindleRefreshAssets();

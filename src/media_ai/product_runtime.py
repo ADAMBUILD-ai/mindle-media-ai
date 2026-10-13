@@ -568,6 +568,7 @@ class ProductJobService:
             info = json.loads(probe.stdout)['streams'][0]
             dimensions = [info['width'], info['height']]
         record = {'status':'TESTED_PASS', 'job_id':job_id, 'lane':kind, 'operation':'import',
+                  'original_filename': Path(str(payload['filename']).replace('\\','/')).name,
                   'command':'원본 불러오기', 'input':file_record(source), 'primary_output':file_record(output),
                   'outputs':[file_record(source), file_record(output)],
                   'runtime_result':{'result_size':dimensions, 'model_inference':False, 'sampled_frames':0}}
