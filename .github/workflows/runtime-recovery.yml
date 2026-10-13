@@ -74,10 +74,10 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: mindle-live-agent-engines-20261014
-          run-id: 38423892003
+          run-id: 38425586338
           github-token: ${{ github.token }}
           path: engine_resume
-      - name: Verify unchanged current engine receipts and corrected complete long Korean audio
+      - name: Verify preserved engines and persisted reference-guided segmentation
         run: python model_scout/run_live_agent_engines.py
       - uses: actions/upload-artifact@v4
         if: always()
