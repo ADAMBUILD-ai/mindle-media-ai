@@ -71,7 +71,13 @@ jobs:
           run-id: 37738880868
           github-token: ${{ github.token }}
           path: engine_fixtures
-      - name: Run actual HTTP engines including complete long Korean audio
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-live-agent-engines-20261014
+          run-id: 38423892003
+          github-token: ${{ github.token }}
+          path: engine_resume
+      - name: Verify unchanged current engine receipts and corrected complete long Korean audio
         run: python model_scout/run_live_agent_engines.py
       - uses: actions/upload-artifact@v4
         if: always()
@@ -82,4 +88,3 @@ jobs:
             docs/evidence/media-ai-agent-engine-repair-20261014/**
             live_agent_engine_data/jobs/**
             live_agent_engine_data/projects/**
-
