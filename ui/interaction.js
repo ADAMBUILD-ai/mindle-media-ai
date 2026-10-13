@@ -21,13 +21,13 @@ class CommandPanelState {
     if (!REFERENCE_IMAGE_EXTENSIONS.has(extension)) { this.error = "JPG, PNG, WEBP, TIFF 이미지만 첨부할 수 있습니다."; return false; }
     if (this.references.length >= this.maxReferences) { this.error = `참고 이미지는 최대 ${this.maxReferences}개까지 첨부할 수 있습니다.`; return false; }
     if (this.references.some((reference) => reference.name.toLowerCase() === name.toLowerCase())) { this.error = "같은 참고 이미지는 한 번만 첨부할 수 있습니다."; return false; }
-    this.references.push({ name, type: file.type, preview: file.preview || null }); this.error = null; return true;
+    this.references.push({ name, type: file.type, preview: file.preview || null, ...(file.file ? {file:file.file} : {}) }); this.error = null; return true;
   }
   remove(index) { const removed=this.references.splice(index, 1)[0]; if(removed?.preview && typeof URL !== 'undefined') URL.revokeObjectURL(removed.preview); this.error = null; }
   submit() {
     if (!this.text.trim()) { this.error = "AI 지시를 입력하세요."; this.phase = "expanded"; throw new Error("command required"); }
     this.error = null; this.phase = "executing";
-    return { kind: this.kind, command: this.text.trim(), references: this.references.map(({ name, type }) => ({ name, type })) };
+    return { kind: this.kind, command: this.text.trim(), references: this.references.map(({ name, type, file }) => ({ name, type, ...(file ? {file} : {}) })) };
   }
   complete() { this.phase = "collapsed"; this.text = ""; this.references = []; this.error = null; }
   fail(message = "작업을 완료하지 못했습니다. 지시 내용을 확인해 주세요.") { this.phase = "expanded"; this.error = message; }
@@ -110,7 +110,7 @@ function bindEditor(kind) {
   panel.querySelector(".send-button").addEventListener("click", submit);
   editor.querySelector("[data-action$='reference']").addEventListener("click", () => fileInput.click());
   fileInput.addEventListener("change", (event) => {
-    [...event.target.files].forEach((file) => {const preview=URL.createObjectURL(file);if(!state.attach({ name:file.name,type:file.type,preview })) URL.revokeObjectURL(preview);}); fileInput.value = ""; sync();
+    [...event.target.files].forEach((file) => {const preview=URL.createObjectURL(file);if(!state.attach({ name:file.name,type:file.type,preview,file })) URL.revokeObjectURL(preview);}); fileInput.value = ""; sync();
   });
   panel.addEventListener("click", (event) => { const index = event.target.dataset.referenceRemove; if (index !== undefined) { state.remove(Number(index)); sync(); } });
   editor.querySelectorAll("[data-action='save']").forEach((button) => button.addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:save", { detail: actions.save() }))));
@@ -120,4 +120,3 @@ function bindEditor(kind) {
 
 if (typeof document !== "undefined") ["video", "photo"].forEach(bindEditor);
 if (typeof module !== "undefined") module.exports = { CommandPanelState, ShortformModeState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand, shortformMode };
-

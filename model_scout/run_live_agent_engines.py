@@ -16,6 +16,9 @@ def main():
     original=[]
     for p in projects:original.extend(json.loads(p.read_text())['jobs'])
     records={j['operation']:j for j in original if j['operation'] in ('segment','upscale','tracking','transcribe')}
+    revision=records['upscale']['model']['private_cache']['revision']
+    os.environ['MINDLE_ALTERNATIVE_CACHE_REVISION']=revision
+    os.environ['MINDLE_ALTERNATIVE_MANIFEST_RUN_ID']='37738880868'
     service=ProductJobService(ROOT/'live_agent_engine_data',os.environ.get('HF_TOKEN',''))
     receipt={'source_commit':os.environ['GITHUB_SHA'],'status':'RUNNING','real_model_calls':0,'jobs':[],'full_product_pass':False}
     try:

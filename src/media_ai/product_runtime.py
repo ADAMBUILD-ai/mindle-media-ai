@@ -151,6 +151,12 @@ class ProductModelVault:
         adapter = Sam21VerifiedAdapter(snapshot, SAM)
         return adapter, {"identity": asdict(SAM), "private_cache": {"repo_id": PRIVATE_REPO, "revision": BASELINE_REVISION, "path": "VERIFIED_MODEL_CACHE/sam21", "read_only": True}}
 
+    def sam_video(self):
+        from .continuous_tracking import ContinuousSamTracking
+        local=self._local_snapshot('sam21',SAM_FILES)
+        snapshot=local if local is not None else self._download_files('sam21',SAM_FILES)
+        return ContinuousSamTracking(snapshot,SAM), {'identity':asdict(SAM),'video_memory':True}
+
     def _alternatives(self) -> tuple[str, dict]:
         if self.local_root is not None:
             raise RuntimeError("network acquisition is disabled in local package mode")
@@ -158,7 +164,9 @@ class ProductModelVault:
         if not re.fullmatch(r"[0-9a-f]{40}", revision): raise RuntimeError("perpetual-use alternative cache revision is required")
         info = self.api.model_info(PRIVATE_REPO, revision=revision, token=self.token, files_metadata=True)
         if info.sha != revision or not bool(getattr(info, "private", False)): raise RuntimeError("alternative private cache revision or visibility mismatch")
-        filename = f"ALTERNATIVE_MODEL_EVIDENCE/{os.environ.get('GITHUB_RUN_ID','local')}/ALTERNATIVE_MODEL_MANIFEST.json"
+        manifest_run=os.environ.get('MINDLE_ALTERNATIVE_MANIFEST_RUN_ID') or os.environ.get('GITHUB_RUN_ID','local')
+        if manifest_run!='local' and not manifest_run.isdigit():raise RuntimeError('invalid immutable manifest run identity')
+        filename = f"ALTERNATIVE_MODEL_EVIDENCE/{manifest_run}/ALTERNATIVE_MODEL_MANIFEST.json"
         path = Path(hf_hub_download(repo_id=PRIVATE_REPO, filename=filename, revision=revision, token=self.token, local_dir=str(self.downloads)))
         manifest = json.loads(path.read_text(encoding="utf-8"))
         if manifest.get("gate_result") != "PERPETUAL_USE_EVIDENCE_READY": raise RuntimeError("alternative perpetual-use gate is not closed")
@@ -406,11 +414,17 @@ class ProductJobService:
         source = self._store_input(str(request["filename"]), str(request["content_base64"]))
         job_dir = self.jobs / str(uuid4()); job_dir.mkdir()
         job = MediaJob(request=command, input_path=source, media_type=execution_lane, requested_operation=operation, project_id=request.get("project_id"), source_provenance={"source_path": str(source), "sha256": sha256_file(source), "ingress": "approved-ui"})
+        reference_records=[]
+        for reference in request.get('references',[]):
+            ref=self._store_input(str(reference['filename']),str(reference['content_base64']))
+            from PIL import Image
+            with Image.open(ref) as image:image.verify()
+            job.reference_files.append(str(ref));reference_records.append(file_record(ref))
         adapter = None
         job.transition(JobState.VALIDATING)
         try:
             if operation in {"segment", "tracking"}:
-                adapter, model = self.vault.sam()
+                adapter, model = self.vault.sam_video() if operation=='tracking' else self.vault.sam()
                 artifact = adapter.weight
             elif operation == "upscale":
                 adapter, model = self.vault.realesrgan()
@@ -443,11 +457,25 @@ class ProductJobService:
             if orchestrator.preflight(job).status.value != "PREFLIGHT_READY": raise RuntimeError(job.error or "product preflight failed")
             orchestrator.dispatch(job); orchestrator.start(job)
             execution_started_at = now()
+            if reference_records and operation!='segment':
+                raise ValueError('이 모델 작업은 참고 이미지 지시를 소비하지 않습니다. 사진 배경 제거에는 대상 크롭 참고 이미지를 사용할 수 있습니다.')
             if operation == 'segment':
-                result = adapter.segment_photo(source, job_dir/'sam_photo', self._photo_target_point(command, source))
+                point=self._photo_target_point(command,source)
+                reference_match=None
+                if reference_records:
+                    import cv2
+                    image=cv2.imread(str(source));template=cv2.imread(reference_records[0]['path'])
+                    if image is None or template is None or template.shape[0]>image.shape[0] or template.shape[1]>image.shape[1]:raise ValueError('대상 참고 이미지는 원본 안의 크롭 이미지여야 합니다.')
+                    if template.std()<2:raise ValueError('대상 참고 이미지에 구분할 수 있는 특징이 없습니다.')
+                    scores=cv2.matchTemplate(image,template,cv2.TM_CCOEFF_NORMED);_,score,_,location=cv2.minMaxLoc(scores)
+                    if score<.75:raise ValueError('원본에서 참고 대상을 충분히 일치시키지 못했습니다.')
+                    point=(location[0]+template.shape[1]//2,location[1]+template.shape[0]//2)
+                    reference_match={'engine':'OpenCV template matching','score':score,'point':point}
+                result = adapter.segment_photo(source, job_dir/'sam_photo', point)
+                result['reference_match']=reference_match
                 primary = Path(result['outputs'][-1]['path'])
             elif operation == 'tracking':
-                result = adapter.track_video(source, job_dir/'sam_video')
+                result = adapter.track_video(source, job_dir/'sam_video', command)
                 primary = Path(result['outputs'][0]['path'])
             elif operation == 'upscale':
                 result = adapter.upscale(source, output)
@@ -463,7 +491,7 @@ class ProductJobService:
             callback = {"request_id": handoff.request_id, "issue_id": handoff.issue_id, "callback_id": f"callback-{uuid4()}", "job_id": job.id, "evidence_id": job.evidence_id, "lane": execution_lane, "revision": handoff.revision, "artifact_sha256": handoff.artifact_sha256, "adapter_id": handoff.adapter_id, "adapter_version": handoff.adapter_version, "status": IntegrationStatus.TESTED_PASS, "input_sha256": input_sha, "output_sha256": output_sha, "output_path": str(primary), "elapsed_ms": float(result.get("elapsed_ms", 0.0)), "runtime_backend": handoff.runtime_backend, "device_requirement": handoff.device_requirement, "sent_at": now()}
             delivery = gate.accept_callback(job, callback)
             outputs = [file_record(path) for path in sorted(job_dir.rglob("*")) if path.is_file()]
-            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "request_id":request.get("request_id"), "execution_started_at":execution_started_at, "execution_finished_at":execution_finished_at, "quality_status":"TASK_QUALITY_NOT_BENCHMARKED", "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version(), "process": sys.version.split()[0]}}
+            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "request_id":request.get("request_id"), "reference_artifacts":reference_records, "execution_started_at":execution_started_at, "execution_finished_at":execution_finished_at, "quality_status":"TASK_QUALITY_NOT_BENCHMARKED", "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version(), "process": sys.version.split()[0]}}
             (job_dir / "JOB_EVIDENCE.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.records[job.id] = record
             return record

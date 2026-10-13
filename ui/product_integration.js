@@ -109,6 +109,7 @@
       message(editor, "AI 편집을 실행하고 있습니다.");
       const choice = operationFor(kind, file, command);
       const body = { ...choice, request_id:crypto.randomUUID(), command, filename: file.name, content_base64: await readFile(file), project_id: state.projectId };
+      body.references=await Promise.all((detail.references||[]).filter(ref=>ref.file).map(async ref=>({filename:ref.name,content_base64:await readFile(ref.file)})));
       if (file.datasetReference) body.reference = file.datasetReference;
       const response = await fetch("/api/jobs", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
       const result = await response.json(); if (!response.ok || result.status !== "TESTED_PASS") throw new Error(result.error || "실제 모델 Job 실패");
