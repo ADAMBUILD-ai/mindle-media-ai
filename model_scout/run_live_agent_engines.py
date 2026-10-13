@@ -5,6 +5,7 @@ import json
 import os
 import threading
 import shutil
+import zipfile
 import requests
 from media_ai.product_server import create_server
 from pathlib import Path
@@ -98,6 +99,13 @@ def main():
         reopened=ProductJobService(ROOT/'live_agent_engine_data',os.environ.get('HF_TOKEN',''))
         assert reopened.latest_project()['project_id']==saved['project_id']
         receipt['export']=reopened.export_project(saved['project_id'])
+        with zipfile.ZipFile(receipt['export']['export']['path']) as archive:
+            assert archive.testzip() is None
+            project=json.loads(archive.read('project.json'))
+            for job in project['jobs']:
+                for output in job['outputs']:
+                    assert hashlib.sha256(archive.read('jobs/'+job['job_id']+'/'+Path(output['path']).name)).hexdigest()==output['sha256']
+        receipt['export_crc_all_output_hashes']='PASS'
         receipt['status']='PASS_ADOPTED_CPU_ENGINE_EXECUTION_AND_PERSISTENCE'
     except Exception as error:
         receipt.update(status='FAILED',error=repr(error));raise
