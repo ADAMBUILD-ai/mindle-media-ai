@@ -324,7 +324,7 @@ class WhisperKoreanVerifiedAdapter:
             chunk=audio[offset:offset+25*sample_rate]
             inputs=self.processor(chunk,sampling_rate=sample_rate,return_tensors='pt')
             with self.torch.inference_mode():
-                tokens=self.model.generate(inputs.input_features,language='ko',task='transcribe',max_new_tokens=448,do_sample=False)
+                tokens=self.model.generate(inputs.input_features,language='ko',task='transcribe',max_new_tokens=440,do_sample=False)
             segment_text=self.processor.batch_decode(tokens,skip_special_tokens=True)[0].strip()
             segments.append({'start_seconds':offset/sample_rate,'end_seconds':(offset+len(chunk))/sample_rate,'text':segment_text})
         elapsed = round((time.perf_counter() - started) * 1000, 2)

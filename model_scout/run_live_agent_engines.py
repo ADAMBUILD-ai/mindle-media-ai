@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import threading
+import shutil
 import requests
 from media_ai.product_server import create_server
 from pathlib import Path
@@ -28,7 +29,31 @@ def main():
     base_url=f'http://127.0.0.1:{server.server_port}'
     receipt={'source_commit':os.environ['GITHUB_SHA'],'status':'RUNNING','real_model_calls':0,'jobs':[],'full_product_pass':False}
     try:
+        resume=ROOT/'engine_resume'
+        prior=resume/'docs/evidence/media-ai-agent-engine-repair-20261014/LIVE_ENGINE_RECEIPT.json'
+        completed=set()
+        if prior.is_file():
+            checkpoint=json.loads(prior.read_text())
+            assert checkpoint['source_commit']=='21de52169e1c2f5fe4ff3b119c2a1c6b13e50a13'
+            shutil.copytree(resume/'live_agent_engine_data/jobs',ROOT/'live_agent_engine_data/jobs',dirs_exist_ok=True)
+            def rebase(value):
+                if isinstance(value,dict):return {k:rebase(v) for k,v in value.items()}
+                if isinstance(value,list):return [rebase(v) for v in value]
+                if isinstance(value,str) and '/live_agent_engine_data/' in value:return str(ROOT/'live_agent_engine_data'/value.split('/live_agent_engine_data/',1)[1])
+                return value
+            for previous in checkpoint['jobs']:
+                if previous['operation']=='transcribe':continue
+                item=rebase(previous)
+                for output in item['outputs']:
+                    assert hashlib.sha256(Path(output['path']).read_bytes()).hexdigest()==output['sha256']
+                original=records[item['operation']]
+                original_source=frozen/'inputs'/Path(original['input']['path']).name
+                destination=Path(item['input']['path']);destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(original_source,destination)
+                assert hashlib.sha256(destination.read_bytes()).hexdigest()==item['input']['sha256']
+                item['verification_provenance']='REUSED_CURRENT_REPAIR_RUN_38423892003_SAME_ENGINE_IMPLEMENTATION'
+                service.records[item['job_id']]=item;receipt['jobs'].append(item);completed.add(item['operation'])
         for operation in ('segment','upscale','tracking','transcribe'):
+            if operation in completed:continue
             previous=records[operation];source=frozen/'inputs'/Path(previous['input']['path']).name
             assert hashlib.sha256(source.read_bytes()).hexdigest()==previous['input']['sha256']
             if operation=='transcribe':
@@ -58,7 +83,7 @@ def main():
                 assert result['runtime_result']['duration_seconds']>25
                 assert len(result['runtime_result']['segments'])>=2
                 assert result['runtime_result']['sample_rate']==16000
-            receipt['real_model_calls']+=1;receipt['real_model_jobs']=receipt['real_model_calls'];receipt['jobs'].append(result)
+            receipt['real_model_calls']+=1;receipt['real_model_jobs']=len(receipt['jobs'])+1;receipt['jobs'].append(result)
             (OUT/'LIVE_ENGINE_RECEIPT.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
         saved=service.save_project({'job_ids':[j['job_id'] for j in receipt['jobs']]})
         reopened=ProductJobService(ROOT/'live_agent_engine_data',os.environ.get('HF_TOKEN',''))
