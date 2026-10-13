@@ -427,21 +427,23 @@ class ProductJobService:
         lane = MediaType(request["lane"])
         operation, command = str(request["operation"]), str(request["command"]).strip()
         execution_lane = MediaType.KOREAN_AUDIO if operation == "transcribe" else lane
+        if (lane.value,operation) not in {('photo','segment'),('photo','upscale'),('video','tracking'),('video','transcribe'),('korean_audio','transcribe')}:raise ValueError('Unsupported media lane and engine operation combination')
         if not command: raise ValueError("natural-language command is required")
         source = self._store_input(str(request["filename"]), str(request["content_base64"]))
         job_dir = self.jobs / str(uuid4()); job_dir.mkdir()
         job = MediaJob(request=command, input_path=source, media_type=execution_lane, requested_operation=operation, project_id=request.get("project_id"), source_provenance={"source_path": str(source), "sha256": sha256_file(source), "ingress": "approved-ui"})
         reference_records=[]
-        for reference in request.get('references',[]):
-            ref=self._store_input(str(reference['filename']),str(reference['content_base64']))
-            from PIL import Image
-            with Image.open(ref) as image:image.verify()
-            destination=job_dir/'references'/ref.name;destination.parent.mkdir(exist_ok=True);shutil.copy2(ref,destination)
-            job.reference_files.append(str(destination));reference_records.append(file_record(destination)|{'original_filename':str(reference['filename']).replace('\\','/').rsplit('/',1)[-1]})
         adapter = None
         job.transition(JobState.VALIDATING)
         if hasattr(self,'progress_hook'):self.progress_hook({'status':'RUNNING','job_id':job.id,'state':'validating','operation':operation,'request_id':request.get('request_id')})
         try:
+            if len(request.get('references',[]))>1:raise ValueError('현재 대상 분할에는 크롭 참고 이미지 1장을 사용하세요. 색감 유사도 검색은 여러 장을 지원합니다.')
+            for reference in request.get('references',[]):
+                ref=self._store_input(str(reference['filename']),str(reference['content_base64']))
+                from PIL import Image
+                with Image.open(ref) as image:image.verify()
+                destination=job_dir/'references'/ref.name;destination.parent.mkdir(exist_ok=True);shutil.copy2(ref,destination)
+                job.reference_files.append(str(destination));reference_records.append(file_record(destination)|{'original_filename':str(reference['filename']).replace('\\','/').rsplit('/',1)[-1]})
             if operation in {"segment", "tracking"}:
                 adapter, model = self.vault.sam_video() if operation=='tracking' else self.vault.sam()
                 artifact = adapter.weight
