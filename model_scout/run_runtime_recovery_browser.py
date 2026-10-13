@@ -48,6 +48,13 @@ def main():
         driver.find_element(By.CSS_SELECTOR,'[data-primary-input=video]').send_keys(str(source.resolve()))
         wait.until(lambda d:(media_state(d) or {}).get('readyState',0)>=2)
         record('actual_import_media_diagnostics',media_state(driver))
+        audio=OUT/'SEPARATE_AUDIO.wav'
+        subprocess.run(['ffmpeg','-y','-f','lavfi','-i','sine=frequency=440:duration=1','-ar','44100','-ac','2',str(audio)],check=True,capture_output=True)
+        before=driver.execute_script("return document.querySelector('[data-preview=video]').dataset.jobId")
+        driver.find_element(By.CSS_SELECTOR,'[data-primary-input=video]').send_keys(str(audio.resolve()))
+        wait.until(lambda d:'음성 입력 준비' in d.find_element(By.CSS_SELECTOR,'[data-editor=video] [data-command-error]').text)
+        assert driver.execute_script("return document.querySelector('[data-preview=video]').dataset.jobId")==before
+        record('separate_audio_import_preserves_video_preview',media_state(driver))
         wait.until(lambda d:len(d.find_elements(By.CSS_SELECTOR,'[data-editor=video] [data-asset-job-id]'))==1)
         assert driver.find_element(By.CSS_SELECTOR,'[data-asset-job-id]').text=='SOURCE.mp4'
         record('actual_media_library_contains_user_import',driver.find_element(By.CSS_SELECTOR,'[data-asset-job-id]').text)

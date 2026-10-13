@@ -55,7 +55,7 @@
     const speed=value('speed'); if(Number.isFinite(speed)&&speed>=.5&&speed<=2) v.playbackRate=speed;
   };
   editor.querySelectorAll('[data-video-option]').forEach(input=>input.addEventListener('input',()=>{if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;updateVideoPreview();}));
-  window.mindleApplyVideoSubtitle=text=>apply({subtitle:text},"자동 자막 적용");
+  window.mindleApplyVideoSubtitle=(text,segments=[])=>apply({subtitle:text,subtitleSegments:segments},"자동 자막 적용");
   window.mindleVideoCommand=async text=>{
     if(/자동.*편집|하이라이트/.test(text)) {await apply({auto_edit:true},'장면 분석 자동 편집');return true;}
     if(/숏폼|초.*만들|속도|자르|전환|효과|밝게|오디오/.test(text)) {

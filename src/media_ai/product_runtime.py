@@ -559,7 +559,6 @@ class ProductJobService:
         if options.get('stabilize'): vf.append('deshake')
         subtitle = str(options.get('subtitle', '')).strip()
         if subtitle:
-            text_path = job_dir / 'subtitle.txt'; text_path.write_text(subtitle, encoding='utf-8')
             escape = lambda path: str(path).replace('\\','/').replace(':','\\:').replace("'", "\\'")
             font = Path(os.environ.get('SystemRoot', 'C:/Windows')) / 'Fonts/malgun.ttf'
             if not font.is_file():
@@ -567,7 +566,32 @@ class ProductJobService:
                 font = next((path for path in fonts if path.suffix.lower() in {'.ttf', '.ttc', '.otf'}), None)
                 if font is None:
                     raise RuntimeError('한국어 자막 글꼴을 찾을 수 없습니다.')
-            vf.append(f"drawtext=fontfile='{escape(font)}':textfile='{escape(text_path)}':fontsize=24:fontcolor=white:box=1:boxcolor=black@0.5:x=(w-text_w)/2:y=h-text_h-20")
+            ffprobe=str(Path(package)/'tools/ffmpeg/ffprobe.exe') if package else 'ffprobe'
+            info=json.loads(subprocess.check_output([ffprobe,'-v','error','-select_streams','v:0','-show_entries','stream=width,height','-of','json',str(source)]))['streams'][0]
+            width,height=info['width'],info['height']
+            if options.get('rotate'):width,height=height,width
+            if options.get('aspect')=='9:16':width,height=360,640
+            from PIL import ImageFont
+            fontsize=max(12,min(24,height//10))
+            font_metrics=ImageFont.truetype(str(font),fontsize)
+            def wrap(text):
+                lines=[];line=''
+                for char in text:
+                    if char=='\n' or font_metrics.getlength(line+char)>width-20:
+                        if line:lines.append(line)
+                        line='' if char=='\n' else char
+                    else:line+=char
+                if line:lines.append(line)
+                return '\n'.join(lines)
+            segments=options.get('subtitleSegments') or [{'text':subtitle}]
+            for index,segment in enumerate(segments):
+                text_path=job_dir/f'subtitle_{index}.txt';text_path.write_text(wrap(str(segment['text'])),encoding='utf-8')
+                enabled=''
+                if 'start_seconds' in segment:
+                    start=max(0,float(segment['start_seconds']));end=float(segment['end_seconds'])
+                    if end<=start:raise ValueError('자막 시간 범위가 올바르지 않습니다.')
+                    enabled=f":enable='between(t,{start},{end})'"
+                vf.append(f"drawtext=fontfile='{escape(font)}':textfile='{escape(text_path)}':fontsize={fontsize}:fontcolor=white:box=1:boxcolor=black@0.5:x=(w-text_w)/2:y=h-text_h-10{enabled}")
         command = [ffmpeg, '-y', '-i', str(source)]
         background = payload.get('background')
         background_source = None

@@ -86,7 +86,15 @@ def main():
                 assert result['runtime_result']['sample_rate']==16000
             receipt['real_model_calls']+=1;receipt['real_model_jobs']=len(receipt['jobs'])+1;receipt['jobs'].append(result)
             (OUT/'LIVE_ENGINE_RECEIPT.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
-        saved=service.save_project({'job_ids':[j['job_id'] for j in receipt['jobs']]})
+        transcript=next(j for j in receipt['jobs'] if j['operation']=='transcribe')['runtime_result']
+        video=records['tracking'];video_source=frozen/'inputs'/Path(video['input']['path']).name
+        import subprocess
+        caption_source=OUT/'TIMED_SUBTITLE_SOURCE.mp4'
+        subprocess.run(['ffmpeg','-y','-stream_loop','-1','-i',str(video_source),'-t',str(transcript['duration_seconds']),'-c','copy',str(caption_source)],check=True,capture_output=True)
+        caption=requests.post(base_url+'/api/video-edits',json={'filename':caption_source.name,'content_base64':base64.b64encode(caption_source.read_bytes()).decode(),'options':{'subtitle':transcript['text'],'subtitleSegments':transcript['segments']}},timeout=120)
+        if not caption.ok:raise RuntimeError(caption.json().get('error','timed subtitle rendering failed'))
+        receipt['timed_subtitle_render']=caption.json()
+        saved=service.save_project({'job_ids':[j['job_id'] for j in receipt['jobs']]+[receipt['timed_subtitle_render']['job_id']]})
         reopened=ProductJobService(ROOT/'live_agent_engine_data',os.environ.get('HF_TOKEN',''))
         assert reopened.latest_project()['project_id']==saved['project_id']
         receipt['export']=reopened.export_project(saved['project_id'])

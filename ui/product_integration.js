@@ -1,6 +1,6 @@
 /* Behaviour layer for the approved layout.  It never selects or substitutes a model. */
 (() => {
-  const state = { video: null, photo: null, jobs: [], projectId: null, videoMode: "general", shortformContract: null };
+  const state = { video: null, photo: null, jobs: [], projectId: null, videoMode: "general", shortformContract: null, audio: null };
   const executing = new Set();
   const pending={photo:0,video:0};
   window.mindleBeginEdit=kind=>{pending[kind]++;};
@@ -90,7 +90,7 @@
   }
   async function executeReady(editor, kind, detail) {
     if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
-    const file = state[kind];
+    const file = kind==='video' && /자막|STT|받아쓰기/.test(detail.command) && state.audio ? state.audio : state[kind];
     if (!file) { message(editor, "먼저 실제 원본 파일을 불러오세요.", true); return; }
     try {
       const command = detail.command;
@@ -122,7 +122,7 @@
       if(result.lane==='korean_audio' && editor.querySelector('[data-preview] video')) {
         editor.querySelector('.track.purple').textContent='Subtitle Track · '+result.runtime_result.text;
         message(editor,result.runtime_result.text);
-        if(/자막/.test(command) && window.mindleApplyVideoSubtitle) await window.mindleApplyVideoSubtitle(result.runtime_result.text);
+        if(/자막/.test(command) && window.mindleApplyVideoSubtitle) await window.mindleApplyVideoSubtitle(result.runtime_result.text,result.runtime_result.segments||[]);
         return;
       } else {preview(editor, result);await rememberResult(result);}
       message(editor, "편집 완료");
@@ -186,6 +186,8 @@
       if (!selected) return;
       if(window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);input.value='';return;}
       if (kind==='photo' && !selected.type.startsWith('image/') || kind==='video' && !/^(video|audio)\//.test(selected.type)) {message(editor,'지원하지 않는 입력 파일입니다.',true);input.value='';return;}
+      if(kind==='video' && selected.type.startsWith('audio/')) {state.audio=selected;message(editor,'음성 입력 준비 · '+selected.name);input.value='';return;}
+      if(kind==='video') state.audio=null;
       state[kind] = selected;
       message(editor, `입력 준비 · ${state[kind].name}`);
       if (state[kind].type.startsWith('audio/')) {input.value='';return;}
@@ -215,7 +217,7 @@
       if (!result.project) return;
       state.projectId = result.project.project_id;
       state.jobs = result.project.job_ids;
-      state.photo=state.video=null;
+      state.photo=state.video=state.audio=null;
       document.querySelectorAll('[data-preview]').forEach(host=>host.replaceChildren());
       for (const job of result.project.jobs) {
         // A saved transcript must not replace an available VIDEO result preview.
@@ -239,6 +241,7 @@
       }
       const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio');
       if (transcript) {
+        if(transcript.input_url) {const r=await fetch(transcript.input_url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');const blob=await r.blob();state.audio=new File([blob],transcript.input.file_name||'saved_audio.wav',{type:'audio/wav'});}
         const editor = document.querySelector('[data-editor="video"]');
         if (editor) {
           editor.querySelector('.track.purple').textContent='Subtitle Track · '+transcript.runtime_result.text;
@@ -252,7 +255,7 @@
   }
   window.mindleOpenProject = projectId => restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));
   window.mindleNewProject = () => {
-    state.projectId=null;state.jobs=[];state.photo=state.video=null;
+    state.projectId=null;state.jobs=[];state.photo=state.video=state.audio=null;
     document.querySelectorAll('[data-preview]').forEach(host=>{host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;});
     const video=document.querySelector('[data-editor="video"]');
     video.querySelector('.track.purple').textContent='Subtitle Track · 자막 없음';
