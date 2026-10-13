@@ -1,5 +1,5 @@
 MINDLE MEDIA AI — FFmpeg redistribution/source notice
-Date: 2026-10-10
+Date: 2026-10-13
 
 Distributed binary candidate:
 - Project: FFmpeg
@@ -7,9 +7,9 @@ Distributed binary candidate:
 - Variant: win64-lgpl-shared
 - FFmpeg release branch addin: 8.1 -> release/8.1
 - Asset: ffmpeg-n8.1-latest-win64-lgpl-shared-8.1.zip
-- GitHub release id: 408966939
-- GitHub asset id: 628034905
-- Asset SHA-256: cd4fd7a1a03d71022c4be81af1a2aeb03a6507bd993b41ee8c6c55dc31f8b105
+- GitHub release id: 410636293
+- GitHub asset id: 633882496
+- Asset SHA-256: 10fa2fdcbbd4554c480a8e81af681f07c060b717921ea3e70ee78bd8c3b6cd7c
 - Build-scripts source commit referenced by the release tag at verification:
   63ac3265b0789ea16c7b1f8351cd2ad195a28722
 
