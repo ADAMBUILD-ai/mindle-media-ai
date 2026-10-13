@@ -1,0 +1,29 @@
+{
+  "checked": "2026-10-14 KST",
+  "dependencies": {
+    "torch": "2.8.0 CPU",
+    "torchvision": "0.23.0",
+    "transformers": "4.57.3",
+    "openvino": "2025.3.0",
+    "soundfile": "0.13.1"
+  },
+  "sources": [
+    {
+      "url": "https://huggingface.co/docs/transformers/v4.57.0/en/model_doc/sam2_video",
+      "use": "official streaming-memory implementation contract; nearest available minor docs"
+    },
+    {
+      "url": "https://github.com/huggingface/transformers/blob/v4.57.3/src/transformers/models/sam2_video/modeling_sam2_video.py",
+      "use": "actual pinned implementation inspected"
+    },
+    {
+      "url": "https://docs.openvino.ai/2023.3/omz_models_model_single_image_super_resolution_1032.html",
+      "use": "BGR two-input 4x superresolution contract"
+    },
+    {
+      "url": "https://huggingface.co/openai/whisper-small",
+      "use": "multilingual ASR task prefix and long-input chunking"
+    }
+  ],
+  "decision": "Keep immutable adopted weights and pinned dependencies verified in actual CI; do not upgrade merely because newer releases exist."
+}
