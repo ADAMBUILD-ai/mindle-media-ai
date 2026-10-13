@@ -20,6 +20,8 @@ class ContinuousSamTracking:
         self.torch=torch
         config=Sam2VideoConfig.from_pretrained(snapshot,local_files_only=True)
         config.image_size=512;config.prompt_encoder_config.image_size=512;config.vision_config.image_size=512
+        config.vision_config.backbone_feature_sizes=[(128,128),(64,64),(32,32)]
+        config.memory_attention_rope_feat_sizes=[32,32]
         self.model,loading=Sam2VideoModel.from_pretrained(snapshot,config=config,local_files_only=True,trust_remote_code=False,output_loading_info=True)
         if loading.get('missing_keys') or loading.get('mismatched_keys'):
             raise RuntimeError('Pinned checkpoint does not contain the complete video memory engine')

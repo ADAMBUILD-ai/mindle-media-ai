@@ -3,6 +3,9 @@ import base64
 import hashlib
 import json
 import os
+import threading
+import requests
+from media_ai.product_server import create_server
 from pathlib import Path
 from media_ai.product_runtime import ProductJobService
 
@@ -19,7 +22,10 @@ def main():
     revision=records['upscale']['model']['private_cache']['revision']
     os.environ['MINDLE_ALTERNATIVE_CACHE_REVISION']=revision
     os.environ['MINDLE_ALTERNATIVE_MANIFEST_RUN_ID']='37738880868'
-    service=ProductJobService(ROOT/'live_agent_engine_data',os.environ.get('HF_TOKEN',''))
+    server=create_server(ROOT,ROOT/'live_agent_engine_data',os.environ.get('HF_TOKEN',''),0)
+    worker=threading.Thread(target=server.serve_forever,daemon=True);worker.start()
+    service=server.service
+    base_url=f'http://127.0.0.1:{server.server_port}'
     receipt={'source_commit':os.environ['GITHUB_SHA'],'status':'RUNNING','real_model_calls':0,'jobs':[],'full_product_pass':False}
     try:
         for operation in ('segment','upscale','tracking','transcribe'):
@@ -33,7 +39,9 @@ def main():
                 buffer=io.BytesIO()
                 with Image.open(source) as image:image.crop((109,126,141,166)).save(buffer,'PNG')
                 request['references']=[{'filename':'target_crop.png','content_base64':base64.b64encode(buffer.getvalue()).decode()}]
-            result=service.execute_isolated(request)
+            response=requests.post(base_url+'/api/jobs',json=request,timeout=950)
+            result=response.json()
+            if not response.ok:raise RuntimeError(result.get('error','actual HTTP job failed'))
             assert result['status']=='TESTED_PASS'
             assert result['execution_started_at']<result['execution_finished_at']
             assert result['state_history']==['queued','validating','preflight_ready','dispatched','running','output_validating','succeeded']
@@ -47,5 +55,6 @@ def main():
     except Exception as error:
         receipt.update(status='FAILED',error=repr(error));raise
     finally:
+        server.shutdown();worker.join(5);server.server_close()
         (OUT/'LIVE_ENGINE_RECEIPT.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
 if __name__=='__main__':main()

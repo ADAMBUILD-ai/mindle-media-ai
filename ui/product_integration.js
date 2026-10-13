@@ -56,7 +56,7 @@
       editor.querySelector('.track.green').textContent='Audio Track · '+(options.backgroundVolume!=null?'추가한 배경음악':'원본 오디오');
     }
     host.dataset.operation = result.operation; host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
-    if (result.lane === "video") { const track = editor.querySelector(".track.film"); if (track) track.textContent = result.operation === "tracking" ? `영상 Track · SAM tracking · ${result.runtime_result.sampled_frames} samples` : "영상 Track · "+(result.operation === "import" ? "원본 영상" : "편집 결과"); }
+    if (result.lane === "video") { const track = editor.querySelector(".track.film"); if (track) track.textContent = result.operation === "tracking" ? (result.runtime_result.tracking_mode==='continuous_video_memory'?`영상 Track · 전체 ${result.runtime_result.tracked_frames}프레임 연속 추적`:`영상 Track · SAM tracking · ${result.runtime_result.sampled_frames} samples`) : "영상 Track · "+(result.operation === "import" ? "원본 영상" : "편집 결과"); }
   };
   async function executeShortform(editor, detail) {
     try {
