@@ -4,6 +4,7 @@ on:
     branches: [feature/ad-shortform-bridge-p0-20260926]
     paths:
       - .github/workflows/runtime-recovery.yml
+      - .github/workflows/canonical-baseline.yml
       - src/media_ai/**
       - ui/**
       - model_scout/run_runtime_recovery_browser.py
