@@ -71,7 +71,8 @@ jobs:
           run-id: 37738880868
           github-token: ${{ github.token }}
           path: engine_fixtures
-      - run: python model_scout/run_live_agent_engines.py
+      - name: Run current full-frame video and adopted CPU engine jobs
+        run: python model_scout/run_live_agent_engines.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -81,3 +82,4 @@ jobs:
             docs/evidence/media-ai-agent-engine-repair-20261014/**
             live_agent_engine_data/jobs/**
             live_agent_engine_data/projects/**
+
