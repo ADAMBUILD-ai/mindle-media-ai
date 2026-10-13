@@ -151,6 +151,9 @@ class Handler(BaseHTTPRequestHandler):
                              'physical_owner_acceptance':'NOT_VERIFIED'}); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
+        if route.startswith('/api/jobs/'):
+            job=self.server.service.records.get(route.rsplit('/',1)[1])
+            self._json(200 if job else 404, {'job':job});return
         if route == '/api/assets':
             assets=[]
             for record in self.server.service.records.values():

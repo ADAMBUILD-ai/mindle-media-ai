@@ -22,7 +22,7 @@ from uuid import uuid4, UUID
 
 from huggingface_hub import HfApi, hf_hub_download
 
-from .contracts import MediaJob, MediaType
+from .contracts import MediaJob, MediaType, JobState
 from .model_scout_integration import (
     InputArtifactIntake,
     IntegrationStatus,
@@ -224,6 +224,11 @@ class ProductJobService:
             except (OSError, RuntimeError, ValueError) as error:
                 self.model_readiness.update(status='BLOCKED_MODEL_FILES', error=str(error))
         self.records: dict[str, dict] = {}
+        for path in self.jobs.glob('*/JOB_EVIDENCE.json'):
+            try:
+                record=json.loads(path.read_text(encoding='utf-8'))
+                self.records[record['job_id']]=record
+            except (OSError,ValueError,KeyError,TypeError):pass
         for saved in self.projects.glob('*.json'):
             try:
                 record = json.loads(saved.read_text(encoding='utf-8'))
@@ -294,7 +299,7 @@ class ProductJobService:
     def _handoff(self, lane: MediaType, operation: str, model: dict, artifact: Path, adapter) -> ModelScoutHandoff:
         identity = model["identity"]
         return ModelScoutHandoff(
-            request_id=f"product-{uuid4()}", issue_id="PR-10", lane=lane, operation=operation,
+            request_id=f"product-{uuid4()}", issue_id="PR-23", lane=lane, operation=operation,
             model_or_program_id=identity["repo_id"], source="MINDLE private VERIFIED_MODEL_CACHE",
             revision=identity["revision"], license_evidence=identity["license"], artifact_path=artifact,
             artifact_filename=artifact.name, artifact_size_bytes=artifact.stat().st_size, artifact_sha256=sha256_file(artifact),
@@ -311,10 +316,12 @@ class ProductJobService:
         with Image.open(source) as image:
             width, height = image.size
         normalized = command.replace(" ", "")
-        if "왼쪽" in normalized or "인물" in normalized:
+        if "왼쪽" in normalized:
             return (round(width * 0.26), round(height * 0.54))
         if "오른쪽" in normalized:
             return (round(width * 0.74), round(height * 0.54))
+        if "인물" in normalized:
+            return (round(width * 0.26), round(height * 0.54))
         return (width // 2, height // 2)
 
     def execute_isolated(self, request: dict) -> dict:
@@ -325,6 +332,7 @@ class ProductJobService:
             # Preserve fail-closed model identity while keeping base editing usable.
             self.vault.verify_local_models()
         import subprocess
+        before_jobs = set(self.jobs.glob('*/JOB_EVIDENCE.json'))
         report = self.jobs / f'worker-result-{uuid4()}.json'
         source_root = str(Path(__file__).resolve().parents[1])
         worker = (
@@ -369,6 +377,9 @@ class ProductJobService:
                                     input=json.dumps(request, ensure_ascii=False), encoding='utf-8',
                                     capture_output=True, errors='replace', timeout=900, env=environment)
             if result.returncode or not report.is_file():
+                for failed_path in set(self.jobs.glob('*/JOB_EVIDENCE.json')) - before_jobs:
+                    failed = json.loads(failed_path.read_text(encoding='utf-8'))
+                    if failed.get('status') == 'FAILED':self.records[failed['job_id']] = failed
                 message = 'AI 작업을 완료하지 못했습니다.'
                 if os.environ.get('MINDLE_DIAGNOSTIC_MODE') == '1':
                     message += (
@@ -396,17 +407,15 @@ class ProductJobService:
         job_dir = self.jobs / str(uuid4()); job_dir.mkdir()
         job = MediaJob(request=command, input_path=source, media_type=execution_lane, requested_operation=operation, project_id=request.get("project_id"), source_provenance={"source_path": str(source), "sha256": sha256_file(source), "ingress": "approved-ui"})
         adapter = None
+        job.transition(JobState.VALIDATING)
         try:
             if operation in {"segment", "tracking"}:
                 adapter, model = self.vault.sam()
-                result = (adapter.segment_photo(source, job_dir / "sam_photo", self._photo_target_point(command, source)) if operation == "segment" else adapter.track_video(source, job_dir / "sam_video"))
-                primary = Path(result["outputs"][-1 if operation == "segment" else 0]["path"])
                 artifact = adapter.weight
             elif operation == "upscale":
                 adapter, model = self.vault.realesrgan()
                 output = job_dir / "intel_sisr_1032" / "upscaled_4x.png"
-                result = adapter.upscale(source, output)
-                primary = output; artifact = adapter.weight
+                artifact = adapter.weight
             elif operation == "transcribe":
                 if source.suffix.lower() != '.wav':
                     import subprocess
@@ -421,8 +430,7 @@ class ProductJobService:
                     job.source_provenance = {"source_path": str(source), "sha256": sha256_file(source),
                                              "ingress": "approved-ui-extracted-audio", "derived_from": original}
                 adapter, model = self.vault.whisper()
-                result = adapter.transcribe(source, job_dir / "whisper", request.get("reference"))
-                primary = Path(result["outputs"][0]["path"]); artifact = adapter.weight
+                artifact = adapter.weight
             else:
                 raise ValueError(f"unsupported verified product operation: {operation}")
 
@@ -434,6 +442,20 @@ class ProductJobService:
             orchestrator = RuntimeOrchestrator(registry.runtime_registry)
             if orchestrator.preflight(job).status.value != "PREFLIGHT_READY": raise RuntimeError(job.error or "product preflight failed")
             orchestrator.dispatch(job); orchestrator.start(job)
+            execution_started_at = now()
+            if operation == 'segment':
+                result = adapter.segment_photo(source, job_dir/'sam_photo', self._photo_target_point(command, source))
+                primary = Path(result['outputs'][-1]['path'])
+            elif operation == 'tracking':
+                result = adapter.track_video(source, job_dir/'sam_video')
+                primary = Path(result['outputs'][0]['path'])
+            elif operation == 'upscale':
+                result = adapter.upscale(source, output)
+                primary = output
+            else:
+                result = adapter.transcribe(source, job_dir/'whisper', request.get('reference'))
+                primary = Path(result['outputs'][0]['path'])
+            execution_finished_at = now()
             receipt = orchestrator.complete(job, primary)
             if not receipt.valid: raise RuntimeError(receipt.reason or "output validation failed")
             input_sha = sha256_file(source)
@@ -441,12 +463,14 @@ class ProductJobService:
             callback = {"request_id": handoff.request_id, "issue_id": handoff.issue_id, "callback_id": f"callback-{uuid4()}", "job_id": job.id, "evidence_id": job.evidence_id, "lane": execution_lane, "revision": handoff.revision, "artifact_sha256": handoff.artifact_sha256, "adapter_id": handoff.adapter_id, "adapter_version": handoff.adapter_version, "status": IntegrationStatus.TESTED_PASS, "input_sha256": input_sha, "output_sha256": output_sha, "output_path": str(primary), "elapsed_ms": float(result.get("elapsed_ms", 0.0)), "runtime_backend": handoff.runtime_backend, "device_requirement": handoff.device_requirement, "sent_at": now()}
             delivery = gate.accept_callback(job, callback)
             outputs = [file_record(path) for path in sorted(job_dir.rglob("*")) if path.is_file()]
-            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version(), "process": sys.version.split()[0]}}
+            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "request_id":request.get("request_id"), "execution_started_at":execution_started_at, "execution_finished_at":execution_finished_at, "quality_status":"TASK_QUALITY_NOT_BENCHMARKED", "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version(), "process": sys.version.split()[0]}}
             (job_dir / "JOB_EVIDENCE.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.records[job.id] = record
             return record
         except Exception as error:
-            record = {"status": "FAILED", "job_id": job.id, "lane": lane.value, "operation": operation, "error": str(error), "input": file_record(source), "state": job.state.value}
+            if job.state in {JobState.VALIDATING, JobState.RUNNING, JobState.OUTPUT_VALIDATING}:
+                job.transition(JobState.FAILED)
+            record = {"status": "FAILED", "job_id": job.id, "lane": lane.value, "operation": operation, "error": str(error), "input": file_record(source), "state": job.state.value, "request_id":request.get("request_id"), "state_history":[state.value for state in job.state_history], "finished_at":now()}
             (job_dir / "JOB_EVIDENCE.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.records[job.id] = record
             raise
