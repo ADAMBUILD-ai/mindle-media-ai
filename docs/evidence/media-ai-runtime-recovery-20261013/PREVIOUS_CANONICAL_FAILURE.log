@@ -1,0 +1,502 @@
+﻿2026-10-13T14:28:01.4649314Z Current runner version: '2.337.0'
+2026-10-13T14:28:01.4685893Z ##[group]Runner Image Provisioner
+2026-10-13T14:28:01.4687145Z Hosted Compute Agent
+2026-10-13T14:28:01.4688197Z Version: 20261002.596
+2026-10-13T14:28:01.4689295Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-13T14:28:01.4690513Z Build Date: 2026-10-02T22:28:27Z
+2026-10-13T14:28:01.4691763Z Worker ID: {1f7c6ed4-4b6a-4a89-9492-4fae20f8a4fe}
+2026-10-13T14:28:01.4692974Z Region: eastus
+2026-10-13T14:28:01.4694197Z Cloud: Azure
+2026-10-13T14:28:01.4695293Z ##[endgroup]
+2026-10-13T14:28:01.4697559Z ##[group]Operating System
+2026-10-13T14:28:01.4698780Z Ubuntu
+2026-10-13T14:28:01.4699640Z 24.04.5
+2026-10-13T14:28:01.4700523Z LTS
+2026-10-13T14:28:01.4701336Z ##[endgroup]
+2026-10-13T14:28:01.4702307Z ##[group]Runner Image
+2026-10-13T14:28:01.4703430Z Image: ubuntu-24.04
+2026-10-13T14:28:01.4704609Z Version: 20261004.327.1
+2026-10-13T14:28:01.4706834Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-13T14:28:01.4709567Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-13T14:28:01.4711316Z ##[endgroup]
+2026-10-13T14:28:01.4713355Z ##[group]GITHUB_TOKEN Permissions
+2026-10-13T14:28:01.4716488Z Contents: read
+2026-10-13T14:28:01.4717475Z Metadata: read
+2026-10-13T14:28:01.4718470Z Packages: read
+2026-10-13T14:28:01.4719374Z ##[endgroup]
+2026-10-13T14:28:01.4722440Z Secret source: Actions
+2026-10-13T14:28:01.4724382Z Cache mode: write
+2026-10-13T14:28:01.4725587Z Prepare workflow directory
+2026-10-13T14:28:01.5200793Z Prepare all required actions
+2026-10-13T14:28:01.5271291Z Getting action download info
+2026-10-13T14:28:01.9598408Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-13T14:28:02.0546030Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-13T14:28:02.1323512Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-13T14:28:02.3249516Z Complete job name: verify
+2026-10-13T14:28:02.4085527Z ##[group]Run actions/checkout@v4
+2026-10-13T14:28:02.4086499Z with:
+2026-10-13T14:28:02.4087014Z   repository: ADAMBUILD-ai/mindle-media-ai
+2026-10-13T14:28:02.4091288Z   token: ***
+2026-10-13T14:28:02.4091766Z   ssh-strict: true
+2026-10-13T14:28:02.4092256Z   ssh-user: git
+2026-10-13T14:28:02.4092743Z   persist-credentials: true
+2026-10-13T14:28:02.4093278Z   clean: true
+2026-10-13T14:28:02.4094048Z   sparse-checkout-cone-mode: true
+2026-10-13T14:28:02.4094626Z   fetch-depth: 1
+2026-10-13T14:28:02.4095102Z   fetch-tags: false
+2026-10-13T14:28:02.4095596Z   show-progress: true
+2026-10-13T14:28:02.4096090Z   lfs: false
+2026-10-13T14:28:02.4096551Z   submodules: false
+2026-10-13T14:28:02.4097036Z   set-safe-directory: true
+2026-10-13T14:28:02.4097577Z   allow-unsafe-pr-checkout: false
+2026-10-13T14:28:02.4098473Z ##[endgroup]
+2026-10-13T14:28:02.5158421Z Syncing repository: ADAMBUILD-ai/mindle-media-ai
+2026-10-13T14:28:02.5160993Z ##[group]Getting Git version info
+2026-10-13T14:28:02.5162198Z Working directory is '/home/runner/work/mindle-media-ai/mindle-media-ai'
+2026-10-13T14:28:02.5175026Z [command]/usr/bin/git version
+2026-10-13T14:28:02.5286396Z git version 2.55.0
+2026-10-13T14:28:02.5311729Z ##[endgroup]
+2026-10-13T14:28:02.5329597Z Temporarily overriding HOME='/home/runner/work/_temp/cfbe4f4b-ca0e-44e0-8786-679f1436785b' before making global git config changes
+2026-10-13T14:28:02.5332361Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-13T14:28:02.5338148Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mindle-media-ai/mindle-media-ai
+2026-10-13T14:28:02.5404914Z Deleting the contents of '/home/runner/work/mindle-media-ai/mindle-media-ai'
+2026-10-13T14:28:02.5407775Z ##[group]Initializing the repository
+2026-10-13T14:28:02.5409553Z [command]/usr/bin/git init /home/runner/work/mindle-media-ai/mindle-media-ai
+2026-10-13T14:28:02.5540507Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-13T14:28:02.5541932Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-13T14:28:02.5543041Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-13T14:28:02.5544812Z hint: call:
+2026-10-13T14:28:02.5545333Z hint:
+2026-10-13T14:28:02.5546097Z hint: 	git config --global init.defaultBranch <name>
+2026-10-13T14:28:02.5547470Z hint:
+2026-10-13T14:28:02.5548823Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-13T14:28:02.5550857Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-13T14:28:02.5552531Z hint:
+2026-10-13T14:28:02.5553432Z hint: 	git branch -m <name>
+2026-10-13T14:28:02.5554821Z hint:
+2026-10-13T14:28:02.5556108Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-13T14:28:02.5558463Z Initialized empty Git repository in /home/runner/work/mindle-media-ai/mindle-media-ai/.git/
+2026-10-13T14:28:02.5569465Z [command]/usr/bin/git remote add origin https://github.com/ADAMBUILD-ai/mindle-media-ai
+2026-10-13T14:28:02.5623224Z ##[endgroup]
+2026-10-13T14:28:02.5625197Z ##[group]Disabling automatic garbage collection
+2026-10-13T14:28:02.5628480Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-13T14:28:02.5670042Z ##[endgroup]
+2026-10-13T14:28:02.5671475Z ##[group]Setting up auth
+2026-10-13T14:28:02.5680445Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-13T14:28:02.5721590Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-13T14:28:02.6108294Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-13T14:28:02.6144985Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-13T14:28:02.6392094Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-13T14:28:02.6435495Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-13T14:28:02.6662162Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-13T14:28:02.6702166Z ##[endgroup]
+2026-10-13T14:28:02.6704232Z ##[group]Fetching the repository
+2026-10-13T14:28:02.6714101Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +eef02aceb8eb9970f105fa4949630cb8131791d8:refs/remotes/pull/23/merge
+2026-10-13T14:28:05.3051980Z From https://github.com/ADAMBUILD-ai/mindle-media-ai
+2026-10-13T14:28:05.3054541Z  * [new ref]         eef02aceb8eb9970f105fa4949630cb8131791d8 -> pull/23/merge
+2026-10-13T14:28:05.3058759Z ##[endgroup]
+2026-10-13T14:28:05.3060325Z ##[group]Determining the checkout info
+2026-10-13T14:28:05.3062029Z ##[endgroup]
+2026-10-13T14:28:05.3064923Z [command]/usr/bin/git sparse-checkout disable
+2026-10-13T14:28:05.3126797Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-13T14:28:05.3160143Z ##[group]Checking out the ref
+2026-10-13T14:28:05.3162388Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/23/merge
+2026-10-13T14:28:06.0535391Z Note: switching to 'refs/remotes/pull/23/merge'.
+2026-10-13T14:28:06.0536074Z 
+2026-10-13T14:28:06.0536484Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-13T14:28:06.0537380Z changes and commit them, and you can discard any commits you make in this
+2026-10-13T14:28:06.0538306Z state without impacting any branches by switching back to a branch.
+2026-10-13T14:28:06.0538871Z 
+2026-10-13T14:28:06.0539270Z If you want to create a new branch to retain commits you create, you may
+2026-10-13T14:28:06.0540592Z do so (now or later) by using -c with the switch command. Example:
+2026-10-13T14:28:06.0541084Z 
+2026-10-13T14:28:06.0541298Z   git switch -c <new-branch-name>
+2026-10-13T14:28:06.0541635Z 
+2026-10-13T14:28:06.0541840Z Or undo this operation with:
+2026-10-13T14:28:06.0542138Z 
+2026-10-13T14:28:06.0542318Z   git switch -
+2026-10-13T14:28:06.0542578Z 
+2026-10-13T14:28:06.0542971Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-13T14:28:06.0543549Z 
+2026-10-13T14:28:06.0544415Z HEAD is now at eef02ac Merge b3a7dd2aca8e84b8b62d19c425124dcc97180397 into 2d26c335020d7a84466a804e6ac48be986e6a29f
+2026-10-13T14:28:06.0560988Z ##[endgroup]
+2026-10-13T14:28:06.0607793Z [command]/usr/bin/git log -1 --format=%H
+2026-10-13T14:28:06.0679480Z eef02aceb8eb9970f105fa4949630cb8131791d8
+2026-10-13T14:28:06.0921408Z ##[group]Run actions/setup-python@v5
+2026-10-13T14:28:06.0921737Z with:
+2026-10-13T14:28:06.0921968Z   python-version: 3.11
+2026-10-13T14:28:06.0922238Z   check-latest: false
+2026-10-13T14:28:06.0925181Z   token: ***
+2026-10-13T14:28:06.0925423Z   update-environment: true
+2026-10-13T14:28:06.0925685Z   allow-prereleases: false
+2026-10-13T14:28:06.0925952Z   freethreaded: false
+2026-10-13T14:28:06.0926193Z ##[endgroup]
+2026-10-13T14:28:06.2236234Z ##[group]Installed versions
+2026-10-13T14:28:06.2325355Z (node:2312) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-13T14:28:06.2326728Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-13T14:28:06.2327561Z Successfully set up CPython (3.11.17)
+2026-10-13T14:28:06.2328400Z ##[endgroup]
+2026-10-13T14:28:06.2575056Z ##[group]Run actions/setup-node@v4
+2026-10-13T14:28:06.2575537Z with:
+2026-10-13T14:28:06.2575864Z   node-version: 20
+2026-10-13T14:28:06.2576220Z   always-auth: false
+2026-10-13T14:28:06.2576585Z   check-latest: false
+2026-10-13T14:28:06.2582235Z   token: ***
+2026-10-13T14:28:06.2582595Z env:
+2026-10-13T14:28:06.2583029Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:06.2583941Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-13T14:28:06.2584675Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:06.2585327Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:06.2585974Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:06.2586632Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-13T14:28:06.2587185Z ##[endgroup]
+2026-10-13T14:28:06.4063188Z Attempting to download 20...
+2026-10-13T14:28:06.4169474Z (node:2320) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-13T14:28:06.4170464Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-13T14:28:07.0188918Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+2026-10-13T14:28:07.3782810Z Extracting ...
+2026-10-13T14:28:07.3908312Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/348bae4d-af93-445f-9de3-0bc035aa6073 -f /home/runner/work/_temp/fce7b6ee-1662-4ad1-a04b-db85a69a0522
+2026-10-13T14:28:08.4044503Z Adding to the cache ...
+2026-10-13T14:28:10.1424778Z ##[group]Environment details
+2026-10-13T14:28:10.3610003Z node: v20.20.2
+2026-10-13T14:28:10.3610490Z npm: 10.8.2
+2026-10-13T14:28:10.3610878Z yarn: 1.22.22
+2026-10-13T14:28:10.3611749Z ##[endgroup]
+2026-10-13T14:28:10.3782109Z ##[group]Run python -m pip install --upgrade pip
+2026-10-13T14:28:10.3782579Z [36;1mpython -m pip install --upgrade pip[0m
+2026-10-13T14:28:10.4052422Z shell: /usr/bin/bash -e {0}
+2026-10-13T14:28:10.4052794Z env:
+2026-10-13T14:28:10.4053178Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:10.4054052Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-13T14:28:10.4054876Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:10.4055435Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:10.4056002Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:10.4056520Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-13T14:28:10.4056887Z ##[endgroup]
+2026-10-13T14:28:11.0501213Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (26.2.1)
+2026-10-13T14:28:11.2228947Z ##[group]Run python -m pip install ".[dev]"
+2026-10-13T14:28:11.2229351Z [36;1mpython -m pip install ".[dev]"[0m
+2026-10-13T14:28:11.2293269Z shell: /usr/bin/bash -e {0}
+2026-10-13T14:28:11.2293541Z env:
+2026-10-13T14:28:11.2294084Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:11.2294566Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-13T14:28:11.2295047Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:11.2295460Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:11.2295869Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:11.2296282Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-13T14:28:11.2296629Z ##[endgroup]
+2026-10-13T14:28:11.5477528Z Processing ./.
+2026-10-13T14:28:11.5491261Z   Installing build dependencies: started
+2026-10-13T14:28:12.2172401Z   Installing build dependencies: finished with status 'done'
+2026-10-13T14:28:12.2178272Z   Getting requirements to build wheel: started
+2026-10-13T14:28:12.6711328Z   Getting requirements to build wheel: finished with status 'done'
+2026-10-13T14:28:12.6720139Z   Preparing metadata (pyproject.toml): started
+2026-10-13T14:28:12.8540532Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2026-10-13T14:28:13.5461615Z Collecting Pillow>=10.0 (from mindle-media-ai==0.1.0)
+2026-10-13T14:28:13.5972701Z   Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-10-13T14:28:13.7913614Z Collecting opencv-python-headless<6,>=4.12 (from mindle-media-ai==0.1.0)
+2026-10-13T14:28:13.7950765Z   Downloading opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_x86_64.whl.metadata (19 kB)
+2026-10-13T14:28:13.8376233Z Collecting huggingface_hub==0.36.0 (from mindle-media-ai==0.1.0)
+2026-10-13T14:28:13.8430430Z   Downloading huggingface_hub-0.36.0-py3-none-any.whl.metadata (14 kB)
+2026-10-13T14:28:14.1011307Z Collecting pytest>=9.0 (from mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.1052386Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-10-13T14:28:14.1280414Z Collecting filelock (from huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.1316939Z   Downloading filelock-4.1.1-py3-none-any.whl.metadata (2.0 kB)
+2026-10-13T14:28:14.1485007Z Collecting fsspec>=2023.5.0 (from huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.1521922Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-10-13T14:28:14.1807275Z Collecting packaging>=20.9 (from huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.1842776Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-13T14:28:14.2158860Z Collecting pyyaml>=5.1 (from huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.2200656Z   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-10-13T14:28:14.2409112Z Collecting requests (from huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.2445236Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-10-13T14:28:14.2694272Z Collecting tqdm>=4.42.1 (from huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.2734429Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-10-13T14:28:14.2930952Z Collecting typing-extensions>=3.7.4.3 (from huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.2966821Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-13T14:28:14.3336901Z Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.3379175Z   Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+2026-10-13T14:28:14.5361592Z Collecting numpy>=2 (from opencv-python-headless<6,>=4.12->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.5401854Z   Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-10-13T14:28:14.5529778Z Collecting iniconfig>=1.0.1 (from pytest>=9.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.5568615Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-10-13T14:28:14.5685462Z Collecting pluggy<2,>=1.5 (from pytest>=9.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.5722487Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-10-13T14:28:14.5881893Z Collecting pygments>=2.7.2 (from pytest>=9.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.5928925Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-10-13T14:28:14.7035344Z Collecting charset_normalizer<4,>=2 (from requests->huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.7088440Z   Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+2026-10-13T14:28:14.7241198Z Collecting idna<4,>=2.5 (from requests->huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.7283006Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-10-13T14:28:14.7480370Z Collecting urllib3<3,>=1.26 (from requests->huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.7519928Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-10-13T14:28:14.7678853Z Collecting certifi>=2023.5.7 (from requests->huggingface_hub==0.36.0->mindle-media-ai==0.1.0)
+2026-10-13T14:28:14.7719672Z   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+2026-10-13T14:28:14.7801415Z Downloading huggingface_hub-0.36.0-py3-none-any.whl (566 kB)
+2026-10-13T14:28:14.7892527Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.1/566.1 kB 77.1 MB/s  0:00:00
+2026-10-13T14:28:14.7932282Z Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+2026-10-13T14:28:14.8098656Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 274.6 MB/s  0:00:00
+2026-10-13T14:28:14.8147843Z Downloading opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_x86_64.whl (61.2 MB)
+2026-10-13T14:28:15.0529971Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 MB 258.6 MB/s  0:00:00
+2026-10-13T14:28:15.0569178Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-10-13T14:28:15.0630281Z Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+2026-10-13T14:28:15.1211033Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 298.9 MB/s  0:00:00
+2026-10-13T14:28:15.1249206Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-13T14:28:15.1312722Z Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+2026-10-13T14:28:15.1617938Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 240.6 MB/s  0:00:00
+2026-10-13T14:28:15.1655691Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+2026-10-13T14:28:15.1718567Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-10-13T14:28:15.1771998Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-10-13T14:28:15.1879510Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-10-13T14:28:15.1943025Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 236.6 MB/s  0:00:00
+2026-10-13T14:28:15.1986558Z Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+2026-10-13T14:28:15.2034557Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 195.9 MB/s  0:00:00
+2026-10-13T14:28:15.2081727Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-10-13T14:28:15.2148258Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-13T14:28:15.2202114Z Downloading filelock-4.1.1-py3-none-any.whl (132 kB)
+2026-10-13T14:28:15.2257377Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-10-13T14:28:15.2312694Z Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+2026-10-13T14:28:15.2374720Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-10-13T14:28:15.2428197Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-10-13T14:28:15.2487182Z Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+2026-10-13T14:28:15.3731327Z Building wheels for collected packages: mindle-media-ai
+2026-10-13T14:28:15.3740162Z   Building wheel for mindle-media-ai (pyproject.toml): started
+2026-10-13T14:28:15.5839906Z   Building wheel for mindle-media-ai (pyproject.toml): finished with status 'done'
+2026-10-13T14:28:15.5845881Z   Created wheel for mindle-media-ai: filename=mindle_media_ai-0.1.0-py3-none-any.whl size=58763 sha256=90c1990826327a31680b2d1d3c531cf2f6f0784f5b4310b91feffd772c500501
+2026-10-13T14:28:15.5847578Z   Stored in directory: /tmp/pip-ephem-wheel-cache-id1akvb8/wheels/0e/c4/a6/8a1d5c1fc1c836c3c0ffa2dbd592c14cd12c3b440cb99c7f9b
+2026-10-13T14:28:15.5864486Z Successfully built mindle-media-ai
+2026-10-13T14:28:15.6389533Z Installing collected packages: urllib3, typing-extensions, tqdm, pyyaml, pygments, pluggy, Pillow, packaging, numpy, iniconfig, idna, hf-xet, fsspec, filelock, charset_normalizer, certifi, requests, pytest, opencv-python-headless, huggingface_hub, mindle-media-ai
+2026-10-13T14:28:20.2509925Z 
+2026-10-13T14:28:20.2527011Z Successfully installed Pillow-12.3.0 certifi-2026.7.22 charset_normalizer-3.5.2 filelock-4.1.1 fsspec-2026.9.0 hf-xet-1.7.0 huggingface_hub-0.36.0 idna-3.20 iniconfig-2.3.1 mindle-media-ai-0.1.0 numpy-2.4.6 opencv-python-headless-5.0.0.93 packaging-26.3 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1 pyyaml-6.0.3 requests-2.34.2 tqdm-4.70.1 typing-extensions-4.16.0 urllib3-2.8.0
+2026-10-13T14:28:20.3926334Z ##[group]Run python -m pytest -q
+2026-10-13T14:28:20.3926683Z [36;1mpython -m pytest -q[0m
+2026-10-13T14:28:20.3990027Z shell: /usr/bin/bash -e {0}
+2026-10-13T14:28:20.3990293Z env:
+2026-10-13T14:28:20.3990578Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:20.3991046Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-13T14:28:20.3991507Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:20.3991923Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:20.3992332Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-13T14:28:20.3992747Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-13T14:28:20.3993120Z ##[endgroup]
+2026-10-13T14:28:22.6539141Z ss............ss............................................F........... [ 86%]
+2026-10-13T14:28:22.6700087Z ...........                                                              [100%]
+2026-10-13T14:28:22.6701200Z =================================== FAILURES ===================================
+2026-10-13T14:28:22.6702367Z ________ test_scene_analysis_selects_content_and_survives_reopen_export ________
+2026-10-13T14:28:22.6703061Z 
+2026-10-13T14:28:22.6704253Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_scene_analysis_selects_co0')
+2026-10-13T14:28:22.6705383Z monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd932938c10>
+2026-10-13T14:28:22.6705894Z 
+2026-10-13T14:28:22.6706406Z     def test_scene_analysis_selects_content_and_survives_reopen_export(tmp_path, monkeypatch):
+2026-10-13T14:28:22.6707419Z         monkeypatch.delenv('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', raising=False)
+2026-10-13T14:28:22.6708124Z         source = tmp_path/'source.mp4'
+2026-10-13T14:28:22.6709006Z >       subprocess.run(['ffmpeg','-y','-f','lavfi','-i','color=black:size=160x90:rate=10:duration=3',
+2026-10-13T14:28:22.6710243Z                         '-f','lavfi','-i','testsrc2=size=160x90:rate=10:duration=5',
+2026-10-13T14:28:22.6711050Z                         '-filter_complex','[0:v][1:v]concat=n=2:v=1:a=0[v]','-map','[v]',
+2026-10-13T14:28:22.6711965Z                         '-c:v','libx264','-pix_fmt','yuv420p',str(source)],check=True,capture_output=True)
+2026-10-13T14:28:22.6712484Z 
+2026-10-13T14:28:22.6712744Z tests/test_runtime_recovery.py:14: 
+2026-10-13T14:28:22.6713395Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-10-13T14:28:22.6714496Z /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py:548: in run
+2026-10-13T14:28:22.6715240Z     with Popen(*popenargs, **kwargs) as process:
+2026-10-13T14:28:22.6715747Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-13T14:28:22.6716518Z /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py:1026: in __init__
+2026-10-13T14:28:22.6717386Z     self._execute_child(args, executable, preexec_fn, close_fds,
+2026-10-13T14:28:22.6718176Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-10-13T14:28:22.6718564Z 
+2026-10-13T14:28:22.6719066Z self = <Popen: returncode: 255 args: ['ffmpeg', '-y', '-f', 'lavfi', '-i', 'color=b...>
+2026-10-13T14:28:22.6720073Z args = ['ffmpeg', '-y', '-f', 'lavfi', '-i', 'color=black:size=160x90:rate=10:duration=3', ...]
+2026-10-13T14:28:22.6721009Z executable = b'ffmpeg', preexec_fn = None, close_fds = True, pass_fds = ()
+2026-10-13T14:28:22.6721899Z cwd = None, env = None, startupinfo = None, creationflags = 0, shell = False
+2026-10-13T14:28:22.6722771Z p2cread = -1, p2cwrite = -1, c2pread = 11, c2pwrite = 12, errread = 13
+2026-10-13T14:28:22.6723608Z errwrite = 14, restore_signals = True, gid = None, gids = None, uid = None
+2026-10-13T14:28:22.6724587Z umask = -1, start_new_session = False, process_group = -1
+2026-10-13T14:28:22.6724950Z 
+2026-10-13T14:28:22.6725290Z     def _execute_child(self, args, executable, preexec_fn, close_fds,
+2026-10-13T14:28:22.6725916Z                        pass_fds, cwd, env,
+2026-10-13T14:28:22.6726693Z                        startupinfo, creationflags, shell,
+2026-10-13T14:28:22.6727251Z                        p2cread, p2cwrite,
+2026-10-13T14:28:22.6727717Z                        c2pread, c2pwrite,
+2026-10-13T14:28:22.6728172Z                        errread, errwrite,
+2026-10-13T14:28:22.6728649Z                        restore_signals,
+2026-10-13T14:28:22.6729133Z                        gid, gids, uid, umask,
+2026-10-13T14:28:22.6729673Z                        start_new_session, process_group):
+2026-10-13T14:28:22.6730221Z         """Execute program (POSIX version)"""
+2026-10-13T14:28:22.6730650Z     
+2026-10-13T14:28:22.6731000Z         if isinstance(args, (str, bytes)):
+2026-10-13T14:28:22.6731455Z             args = [args]
+2026-10-13T14:28:22.6731945Z         elif isinstance(args, os.PathLike):
+2026-10-13T14:28:22.6732393Z             if shell:
+2026-10-13T14:28:22.6732915Z                 raise TypeError('path-like args is not allowed when '
+2026-10-13T14:28:22.6733522Z                                 'shell is true')
+2026-10-13T14:28:22.6734168Z             args = [args]
+2026-10-13T14:28:22.6734505Z         else:
+2026-10-13T14:28:22.6734826Z             args = list(args)
+2026-10-13T14:28:22.6735185Z     
+2026-10-13T14:28:22.6735467Z         if shell:
+2026-10-13T14:28:22.6735950Z             # On Android the default shell is at '/system/bin/sh'.
+2026-10-13T14:28:22.6736524Z             unix_shell = ('/system/bin/sh' if
+2026-10-13T14:28:22.6737147Z                       hasattr(sys, 'getandroidapilevel') else '/bin/sh')
+2026-10-13T14:28:22.6737747Z             args = [unix_shell, "-c"] + args
+2026-10-13T14:28:22.6738189Z             if executable:
+2026-10-13T14:28:22.6738600Z                 args[0] = executable
+2026-10-13T14:28:22.6738985Z     
+2026-10-13T14:28:22.6739311Z         if executable is None:
+2026-10-13T14:28:22.6739732Z             executable = args[0]
+2026-10-13T14:28:22.6740315Z     
+2026-10-13T14:28:22.6740773Z         sys.audit("subprocess.Popen", executable, args, cwd, env)
+2026-10-13T14:28:22.6741299Z     
+2026-10-13T14:28:22.6741593Z         if (_USE_POSIX_SPAWN
+2026-10-13T14:28:22.6742062Z                 and os.path.dirname(executable)
+2026-10-13T14:28:22.6742568Z                 and preexec_fn is None
+2026-10-13T14:28:22.6743102Z                 and not close_fds
+2026-10-13T14:28:22.6743575Z                 and not pass_fds
+2026-10-13T14:28:22.6744218Z                 and cwd is None
+2026-10-13T14:28:22.6744677Z                 and (p2cread == -1 or p2cread > 2)
+2026-10-13T14:28:22.6745202Z                 and (c2pwrite == -1 or c2pwrite > 2)
+2026-10-13T14:28:22.6745733Z                 and (errwrite == -1 or errwrite > 2)
+2026-10-13T14:28:22.6746240Z                 and not start_new_session
+2026-10-13T14:28:22.6746715Z                 and process_group == -1
+2026-10-13T14:28:22.6747140Z                 and gid is None
+2026-10-13T14:28:22.6747549Z                 and gids is None
+2026-10-13T14:28:22.6747963Z                 and uid is None
+2026-10-13T14:28:22.6748369Z                 and umask < 0):
+2026-10-13T14:28:22.6748902Z             self._posix_spawn(args, executable, env, restore_signals,
+2026-10-13T14:28:22.6749511Z                               p2cread, p2cwrite,
+2026-10-13T14:28:22.6749999Z                               c2pread, c2pwrite,
+2026-10-13T14:28:22.6750515Z                               errread, errwrite)
+2026-10-13T14:28:22.6750929Z             return
+2026-10-13T14:28:22.6751226Z     
+2026-10-13T14:28:22.6751595Z         orig_executable = executable
+2026-10-13T14:28:22.6751981Z     
+2026-10-13T14:28:22.6752460Z         # For transferring possible exec failure from child to parent.
+2026-10-13T14:28:22.6753204Z         # Data format: "exception name:hex errno:description"
+2026-10-13T14:28:22.6754099Z         # Pickle is not used; it is complex and involves memory allocation.
+2026-10-13T14:28:22.6754753Z         errpipe_read, errpipe_write = os.pipe()
+2026-10-13T14:28:22.6755423Z         # errpipe_write must not be in the standard io 0, 1, or 2 fd range.
+2026-10-13T14:28:22.6756220Z         low_fds_to_close = []
+2026-10-13T14:28:22.6756659Z         while errpipe_write < 3:
+2026-10-13T14:28:22.6757140Z             low_fds_to_close.append(errpipe_write)
+2026-10-13T14:28:22.6757693Z             errpipe_write = os.dup(errpipe_write)
+2026-10-13T14:28:22.6758206Z         for low_fd in low_fds_to_close:
+2026-10-13T14:28:22.6758625Z             os.close(low_fd)
+2026-10-13T14:28:22.6758984Z         try:
+2026-10-13T14:28:22.6759281Z             try:
+2026-10-13T14:28:22.6759719Z                 # We must avoid complex work that could involve
+2026-10-13T14:28:22.6760339Z                 # malloc or free in the child process to avoid
+2026-10-13T14:28:22.6760963Z                 # potential deadlocks, thus we do all this here.
+2026-10-13T14:28:22.6761523Z                 # and pass it to fork_exec()
+2026-10-13T14:28:22.6761933Z     
+2026-10-13T14:28:22.6762268Z                 if env is not None:
+2026-10-13T14:28:22.6762704Z                     env_list = []
+2026-10-13T14:28:22.6763233Z                     for k, v in env.items():
+2026-10-13T14:28:22.6763889Z                         k = os.fsencode(k)
+2026-10-13T14:28:22.6764349Z                         if b'=' in k:
+2026-10-13T14:28:22.6764943Z                             raise ValueError("illegal environment variable name")
+2026-10-13T14:28:22.6765622Z                         env_list.append(k + b'=' + os.fsencode(v))
+2026-10-13T14:28:22.6766112Z                 else:
+2026-10-13T14:28:22.6766567Z                     env_list = None  # Use execv instead of execve.
+2026-10-13T14:28:22.6767154Z                 executable = os.fsencode(executable)
+2026-10-13T14:28:22.6767682Z                 if os.path.dirname(executable):
+2026-10-13T14:28:22.6768212Z                     executable_list = (executable,)
+2026-10-13T14:28:22.6768662Z                 else:
+2026-10-13T14:28:22.6769157Z                     # This matches the behavior of os._execvpe().
+2026-10-13T14:28:22.6769909Z                     executable_list = tuple(
+2026-10-13T14:28:22.6770483Z                         os.path.join(os.fsencode(dir), executable)
+2026-10-13T14:28:22.6771071Z                         for dir in os.get_exec_path(env))
+2026-10-13T14:28:22.6771588Z                 fds_to_keep = set(pass_fds)
+2026-10-13T14:28:22.6772080Z                 fds_to_keep.add(errpipe_write)
+2026-10-13T14:28:22.6772556Z                 self.pid = _fork_exec(
+2026-10-13T14:28:22.6773013Z                         args, executable_list,
+2026-10-13T14:28:22.6773583Z                         close_fds, tuple(sorted(map(int, fds_to_keep))),
+2026-10-13T14:28:22.6774329Z                         cwd, env_list,
+2026-10-13T14:28:22.6774843Z                         p2cread, p2cwrite, c2pread, c2pwrite,
+2026-10-13T14:28:22.6775366Z                         errread, errwrite,
+2026-10-13T14:28:22.6775862Z                         errpipe_read, errpipe_write,
+2026-10-13T14:28:22.6776423Z                         restore_signals, start_new_session,
+2026-10-13T14:28:22.6776995Z                         process_group, gid, gids, uid, umask,
+2026-10-13T14:28:22.6777523Z                         preexec_fn, _USE_VFORK)
+2026-10-13T14:28:22.6778019Z                 self._child_created = True
+2026-10-13T14:28:22.6778442Z             finally:
+2026-10-13T14:28:22.6778893Z                 # be sure the FD is closed no matter what
+2026-10-13T14:28:22.6779432Z                 os.close(errpipe_write)
+2026-10-13T14:28:22.6779841Z     
+2026-10-13T14:28:22.6780240Z             self._close_pipe_fds(p2cread, p2cwrite,
+2026-10-13T14:28:22.6780767Z                                  c2pread, c2pwrite,
+2026-10-13T14:28:22.6781262Z                                  errread, errwrite)
+2026-10-13T14:28:22.6781663Z     
+2026-10-13T14:28:22.6782102Z             # Wait for exec to fail or succeed; possibly raising an
+2026-10-13T14:28:22.6782677Z             # exception (limited in size)
+2026-10-13T14:28:22.6783164Z             errpipe_data = bytearray()
+2026-10-13T14:28:22.6783572Z             while True:
+2026-10-13T14:28:22.6784394Z                 part = os.read(errpipe_read, 50000)
+2026-10-13T14:28:22.6784902Z                 errpipe_data += part
+2026-10-13T14:28:22.6785415Z                 if not part or len(errpipe_data) > 50000:
+2026-10-13T14:28:22.6785874Z                     break
+2026-10-13T14:28:22.6786215Z         finally:
+2026-10-13T14:28:22.6786624Z             # be sure the FD is closed no matter what
+2026-10-13T14:28:22.6787132Z             os.close(errpipe_read)
+2026-10-13T14:28:22.6787509Z     
+2026-10-13T14:28:22.6787806Z         if errpipe_data:
+2026-10-13T14:28:22.6788146Z             try:
+2026-10-13T14:28:22.6788550Z                 pid, sts = os.waitpid(self.pid, 0)
+2026-10-13T14:28:22.6789043Z                 if pid == self.pid:
+2026-10-13T14:28:22.6789522Z                     self._handle_exitstatus(sts)
+2026-10-13T14:28:22.6789966Z                 else:
+2026-10-13T14:28:22.6790381Z                     self.returncode = sys.maxsize
+2026-10-13T14:28:22.6790896Z             except ChildProcessError:
+2026-10-13T14:28:22.6791325Z                 pass
+2026-10-13T14:28:22.6791643Z     
+2026-10-13T14:28:22.6791917Z             try:
+2026-10-13T14:28:22.6792324Z                 exception_name, hex_errno, err_msg = (
+2026-10-13T14:28:22.6792866Z                         errpipe_data.split(b':', 2))
+2026-10-13T14:28:22.6793428Z                 # The encoding here should match the encoding
+2026-10-13T14:28:22.6794268Z                 # written in by the subprocess implementations
+2026-10-13T14:28:22.6794821Z                 # like _posixsubprocess
+2026-10-13T14:28:22.6795296Z                 err_msg = err_msg.decode()
+2026-10-13T14:28:22.6795776Z             except ValueError:
+2026-10-13T14:28:22.6796247Z                 exception_name = b'SubprocessError'
+2026-10-13T14:28:22.6796743Z                 hex_errno = b'0'
+2026-10-13T14:28:22.6797309Z                 err_msg = 'Bad exception data from child: {!r}'.format(
+2026-10-13T14:28:22.6798110Z                               bytes(errpipe_data))
+2026-10-13T14:28:22.6798618Z             child_exception_type = getattr(
+2026-10-13T14:28:22.6992509Z                     builtins, exception_name.decode('ascii'),
+2026-10-13T14:28:22.6993171Z                     SubprocessError)
+2026-10-13T14:28:22.6994077Z             if issubclass(child_exception_type, OSError) and hex_errno:
+2026-10-13T14:28:22.6994750Z                 errno_num = int(hex_errno, 16)
+2026-10-13T14:28:22.6995295Z                 if err_msg == "noexec:chdir":
+2026-10-13T14:28:22.6995791Z                     err_msg = ""
+2026-10-13T14:28:22.6996322Z                     # The error must be from chdir(cwd).
+2026-10-13T14:28:22.6996842Z                     err_filename = cwd
+2026-10-13T14:28:22.6997348Z                 elif err_msg == "noexec":
+2026-10-13T14:28:22.6997830Z                     err_msg = ""
+2026-10-13T14:28:22.6998312Z                     err_filename = None
+2026-10-13T14:28:22.6998727Z                 else:
+2026-10-13T14:28:22.6999223Z                     err_filename = orig_executable
+2026-10-13T14:28:22.6999916Z                 if errno_num != 0:
+2026-10-13T14:28:22.7000562Z                     err_msg = os.strerror(errno_num)
+2026-10-13T14:28:22.7001200Z                 if err_filename is not None:
+2026-10-13T14:28:22.7002100Z >                   raise child_exception_type(errno_num, err_msg, err_filename)
+2026-10-13T14:28:22.7003288Z E                   FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
+2026-10-13T14:28:22.7004078Z 
+2026-10-13T14:28:22.7004804Z /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py:1955: FileNotFoundError
+2026-10-13T14:28:22.7005977Z =========================== short test summary info ============================
+2026-10-13T14:28:22.7007884Z FAILED tests/test_runtime_recovery.py::test_scene_analysis_selects_content_and_survives_reopen_export - FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
+2026-10-13T14:28:22.7009199Z 1 failed, 78 passed, 4 skipped in 1.64s
+2026-10-13T14:28:22.7603435Z ##[error]Process completed with exit code 1.
+2026-10-13T14:28:22.7760578Z Post job cleanup.
+2026-10-13T14:28:22.8610630Z [command]/usr/bin/git version
+2026-10-13T14:28:22.8657095Z git version 2.55.0
+2026-10-13T14:28:22.8700670Z Temporarily overriding HOME='/home/runner/work/_temp/dc936287-2eb1-43c7-96a7-6e770402453b' before making global git config changes
+2026-10-13T14:28:22.8702332Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-13T14:28:22.8706874Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mindle-media-ai/mindle-media-ai
+2026-10-13T14:28:22.8746738Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-13T14:28:22.8782562Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-13T14:28:22.9038282Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-13T14:28:22.9066618Z http.https://github.com/.extraheader
+2026-10-13T14:28:22.9096050Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-13T14:28:22.9137880Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-13T14:28:22.9395171Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-13T14:28:22.9433520Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-13T14:28:22.9847392Z Cleaning up orphan processes
+2026-10-13T14:28:23.0156577Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
