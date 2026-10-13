@@ -232,6 +232,7 @@ class ProductJobService:
         self.inputs, self.jobs, self.projects = self.root / "inputs", self.root / "jobs", self.root / "projects"
         for path in (self.inputs, self.jobs, self.projects): path.mkdir(parents=True, exist_ok=True)
         self.vault = ProductModelVault(self.root, token)
+        self.active_reports={}
         self.model_readiness = {'status': 'NOT_VERIFIED', 'inference_verified': False}
         if self.vault.local_root is not None:
             try:
@@ -348,8 +349,11 @@ class ProductJobService:
             # Preserve fail-closed model identity while keeping base editing usable.
             self.vault.verify_local_models()
         import subprocess
+        request=dict(request);request.setdefault('request_id',str(uuid4()))
+        if not hasattr(self,'active_reports'):self.active_reports={}
         before_jobs = set(self.jobs.glob('*/JOB_EVIDENCE.json'))
         report = self.jobs / f'worker-result-{uuid4()}.json'
+        self.active_reports[request['request_id']]=report
         source_root = str(Path(__file__).resolve().parents[1])
         worker = (
             'import sys,json,os;from pathlib import Path\n'
@@ -363,6 +367,7 @@ class ProductJobService:
             f'sys.path.insert(0,{source_root!r})\n'
             'from media_ai.product_runtime import ProductJobService;'
             'service=ProductJobService(Path(sys.argv[1]),os.environ.get("HF_TOKEN",""));'
+            'service.progress_hook=lambda value: Path(sys.argv[2]).write_text(json.dumps(value),encoding="utf-8");'
             'result=service.execute(json.load(sys.stdin));'
             'Path(sys.argv[2]).write_text(json.dumps(result,ensure_ascii=False),encoding="utf-8")'
         )
@@ -408,10 +413,14 @@ class ProductJobService:
                 raise RuntimeError(message)
             record = json.loads(report.read_text(encoding='utf-8'))
             self.records[record['job_id']] = record
+            if hasattr(self,'model_readiness'):
+                executed=set(self.model_readiness.get('executed_operations',[]));executed.add(record['operation'])
+                self.model_readiness.update(status='PARTIAL_ENGINE_EXECUTION_VERIFIED' if len(executed)<4 else 'ADOPTED_ENGINE_OPERATIONS_EXECUTED',inference_verified=True,executed_operations=sorted(executed))
             return record
         except subprocess.TimeoutExpired as error:
             raise RuntimeError('AI 작업 시간이 초과되었습니다. 작업을 다시 실행하세요.') from error
         finally:
+            self.active_reports.pop(request['request_id'],None)
             report.unlink(missing_ok=True)
 
     def execute(self, request: dict) -> dict:
@@ -430,6 +439,7 @@ class ProductJobService:
             job.reference_files.append(str(ref));reference_records.append(file_record(ref))
         adapter = None
         job.transition(JobState.VALIDATING)
+        if hasattr(self,'progress_hook'):self.progress_hook({'status':'RUNNING','job_id':job.id,'state':'validating','operation':operation,'request_id':request.get('request_id')})
         try:
             if operation in {"segment", "tracking"}:
                 adapter, model = self.vault.sam_video() if operation=='tracking' else self.vault.sam()
@@ -464,6 +474,7 @@ class ProductJobService:
             orchestrator = RuntimeOrchestrator(registry.runtime_registry)
             if orchestrator.preflight(job).status.value != "PREFLIGHT_READY": raise RuntimeError(job.error or "product preflight failed")
             orchestrator.dispatch(job); orchestrator.start(job)
+            if hasattr(self,'progress_hook'):self.progress_hook({'status':'RUNNING','job_id':job.id,'state':'running','operation':operation,'request_id':request.get('request_id')})
             execution_started_at = now()
             if reference_records and operation!='segment':
                 raise ValueError('이 모델 작업은 참고 이미지 지시를 소비하지 않습니다. 사진 배경 제거에는 대상 크롭 참고 이미지를 사용할 수 있습니다.')

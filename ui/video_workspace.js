@@ -23,11 +23,12 @@
       const options={...toggles,split:splitPending,start:value('start'),duration:value('duration'),speed:value('speed'),volume:value('volume'),brightness:value('brightness'),contrast:value('contrast'),saturation:value('saturation'),...extra};
       const bgm=editor.querySelector('[data-bgm-input]').files[0];
       if(bgm && options.backgroundVolume==null) options.backgroundVolume=.35;
+      if(!bgm && file.mindleAudio?.backgroundVolume!=null) {options.backgroundVolume=file.mindleAudio.backgroundVolume;options.backgroundAlreadyMixed=true;}
       let background=null;
       if(bgm) background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const r=new FileReader();r.onerror=reject;r.onload=()=>resolve(String(r.result).split(',')[1]);r.readAsDataURL(bgm);})};
       const response=await fetch('/api/video-edits',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:file.name,content_base64:base64,command:label,options,background})});
       const result=await response.json();if(!response.ok) throw new Error(result.error||'영상 편집 실패');
-      await window.mindleAcceptResult(result);editor.querySelectorAll('[data-video-option]').forEach(input=>{input.value=['speed','volume'].includes(input.dataset.videoOption)?1:0;if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;});splitPending=false;message.textContent=result.runtime_result.analysis?'장면 분석 편집 완료 · '+result.runtime_result.analysis.sample_count+'개 프레임 표본 · '+result.runtime_result.analysis.start.toFixed(1)+'초부터 '+result.runtime_result.analysis.duration.toFixed(1)+'초 · 로컬 분석 (생성형 AI 아님)':result.runtime_result.options.split?'분할 완료 · 두 클립을 프로젝트 내보내기에서 받을 수 있습니다.':'영상 편집 완료';
+      await window.mindleAcceptResult(result);editor.querySelector('[data-bgm-input]').value='';editor.querySelectorAll('[data-video-option]').forEach(input=>{input.value=['speed','volume'].includes(input.dataset.videoOption)?1:0;if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;});splitPending=false;message.textContent=result.runtime_result.analysis?'장면 분석 편집 완료 · '+result.runtime_result.analysis.sample_count+'개 프레임 표본 · '+result.runtime_result.analysis.start.toFixed(1)+'초부터 '+result.runtime_result.analysis.duration.toFixed(1)+'초 · 로컬 분석 (생성형 AI 아님)':result.runtime_result.options.split?'분할 완료 · 두 클립을 프로젝트 내보내기에서 받을 수 있습니다.':'영상 편집 완료';
     } catch(error) {message.textContent=error.message;} finally {busy=false;window.mindleEndEdit('video');}
   }
   editor.querySelectorAll('[data-video-tool]').forEach(button=>button.addEventListener('click',()=>{

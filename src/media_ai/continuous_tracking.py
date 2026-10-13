@@ -15,13 +15,15 @@ class ContinuousSamTracking:
     device_requirement='cpu'
     def __init__(self,snapshot,identity):
         import torch
-        from transformers import Sam2VideoModel,Sam2VideoProcessor
+        from transformers import Sam2VideoModel,Sam2VideoProcessor,Sam2VideoConfig,Sam2ImageProcessorFast,Sam2VideoVideoProcessor
         self.identity=identity;self.weight=identity.verify_snapshot(Path(snapshot),{'config.json','model.safetensors','preprocessor_config.json','processor_config.json'})
         self.torch=torch
-        self.model,loading=Sam2VideoModel.from_pretrained(snapshot,local_files_only=True,trust_remote_code=False,output_loading_info=True)
+        config=Sam2VideoConfig.from_pretrained(snapshot,local_files_only=True)
+        config.image_size=512;config.prompt_encoder_config.image_size=512;config.vision_config.image_size=512
+        self.model,loading=Sam2VideoModel.from_pretrained(snapshot,config=config,local_files_only=True,trust_remote_code=False,output_loading_info=True)
         if loading.get('missing_keys') or loading.get('mismatched_keys'):
             raise RuntimeError('Pinned checkpoint does not contain the complete video memory engine')
-        self.model=self.model.to('cpu').eval();self.processor=Sam2VideoProcessor.from_pretrained(snapshot,local_files_only=True,trust_remote_code=False)
+        self.model=self.model.to('cpu').eval();self.processor=Sam2VideoProcessor(image_processor=Sam2ImageProcessorFast.from_pretrained(snapshot,local_files_only=True,size={'height':512,'width':512}),video_processor=Sam2VideoVideoProcessor(size={'height':512,'width':512}),target_size=512)
     def track_video(self,source,directory,command=''):
         directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
         capture=cv2.VideoCapture(str(source));fps=capture.get(cv2.CAP_PROP_FPS)

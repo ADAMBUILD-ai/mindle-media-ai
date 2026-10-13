@@ -27,6 +27,12 @@ def main():
             assert hashlib.sha256(source.read_bytes()).hexdigest()==previous['input']['sha256']
             request={'lane':previous['lane'],'operation':operation,'command':previous['command'],
                      'filename':source.name,'content_base64':base64.b64encode(source.read_bytes()).decode()}
+            if operation=='segment':
+                import io
+                from PIL import Image
+                buffer=io.BytesIO()
+                with Image.open(source) as image:image.crop((109,126,141,166)).save(buffer,'PNG')
+                request['references']=[{'filename':'target_crop.png','content_base64':base64.b64encode(buffer.getvalue()).decode()}]
             result=service.execute_isolated(request)
             assert result['status']=='TESTED_PASS'
             assert result['execution_started_at']<result['execution_finished_at']

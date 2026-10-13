@@ -151,6 +151,15 @@ class Handler(BaseHTTPRequestHandler):
                              'physical_owner_acceptance':'NOT_VERIFIED'}); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
+        if route.startswith('/api/tasks/'):
+            identifier=route.rsplit('/',1)[1]
+            report=self.server.service.active_reports.get(identifier)
+            if report:
+                try:value=json.loads(report.read_text(encoding='utf-8'))
+                except (OSError,ValueError):value={'status':'RUNNING','state':'worker_starting','request_id':identifier}
+                self._json(200,value);return
+            completed=next((item for item in self.server.service.records.values() if item.get('request_id')==identifier),None)
+            self._json(200 if completed else 404,completed or {'status':'NOT_FOUND'});return
         if route.startswith('/api/jobs/'):
             job=self.server.service.records.get(route.rsplit('/',1)[1])
             self._json(200 if job else 404, {'job':job});return

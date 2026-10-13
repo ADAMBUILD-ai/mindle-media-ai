@@ -29,6 +29,7 @@
     const response=await fetch(result.preview_url);
     if(!response.ok) throw new Error('편집 결과 파일을 읽을 수 없습니다.');
     const blob=await response.blob();state[result.lane]=new File([blob],result.primary_output.file_name||result.primary_output.path.split(/[\\/]/).pop(),{type:blob.type});
+    state[result.lane].mindleAudio=result.runtime_result.options||{};
   };
   const preview = (editor, result) => {
     const host = editor.querySelector("[data-preview]"); host.replaceChildren();
@@ -111,7 +112,11 @@
       const body = { ...choice, request_id:crypto.randomUUID(), command, filename: file.name, content_base64: await readFile(file), project_id: state.projectId };
       body.references=await Promise.all((detail.references||[]).filter(ref=>ref.file).map(async ref=>({filename:ref.name,content_base64:await readFile(ref.file)})));
       if (file.datasetReference) body.reference = file.datasetReference;
-      const response = await fetch("/api/jobs", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      const monitor=setInterval(async()=>{
+        try {const r=await fetch('/api/tasks/'+encodeURIComponent(body.request_id));if(r.ok) {const task=await r.json();if(task.status==='RUNNING') message(editor,'AI 처리 중 · '+task.operation+' · '+task.state);}} catch(_) {}
+      },1000);
+      let response;
+      try {response=await fetch('/api/jobs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});} finally {clearInterval(monitor);}
       const result = await response.json(); if (!response.ok || result.status !== "TESTED_PASS") throw new Error(result.error || "실제 모델 Job 실패");
       if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
       if(result.lane==='korean_audio' && editor.querySelector('[data-preview] video')) {
@@ -221,7 +226,7 @@
           preview(editor, job);
           if(job.preview_url && job.lane!=='korean_audio') {
             const inputResponse=await fetch(job.preview_url);
-            if(inputResponse.ok) {const blob=await inputResponse.blob();state[kind]=new File([blob],job.input.file_name||job.input.path.split(/[\\/]/).pop(),{type:blob.type});}
+            if(inputResponse.ok) {const blob=await inputResponse.blob();state[kind]=new File([blob],job.input.file_name||job.input.path.split(/[\\/]/).pop(),{type:blob.type});state[kind].mindleAudio=job.runtime_result.options||{};}
           }
           editor.dataset.projectStatus = 'reopened';
           message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);

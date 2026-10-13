@@ -120,6 +120,32 @@ def main():
             wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId!==arguments[0]&&!window.mindleEditPending('photo')",old))
             wait.until(lambda d:d.execute_script("const i=document.querySelector('[data-preview=photo] img');return i?.complete&&i.naturalWidth>0"))
             record('actual_photo_'+key,{'job_id':driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")})
+        for key in ('color','style','portrait'):
+            old=driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")
+            driver.find_element(By.CSS_SELECTOR,'[data-photo-tool='+key+']').click()
+            wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId!==arguments[0]&&!window.mindleEditPending('photo')",old))
+            wait.until(lambda d:d.execute_script("const i=document.querySelector('[data-preview=photo] img');return i?.complete&&i.naturalWidth>0"))
+            record('actual_photo_'+key,{'job_id':driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")})
+        driver.find_element(By.CSS_SELECTOR,'[data-reference-input=photo]').send_keys(str(photo.resolve()))
+        driver.find_element(By.CSS_SELECTOR,'[data-photo-tool=similar]').click()
+        wait.until(lambda d:'SOURCE_PORTRAIT' in d.find_element(By.CSS_SELECTOR,'[data-photo-status]').text)
+        record('actual_reference_color_similarity',{'text':driver.find_element(By.CSS_SELECTOR,'[data-photo-status]').text})
+        driver.find_element(By.CSS_SELECTOR,'[data-photo-tool=resize]').click()
+        driver.execute_script("document.querySelector('[data-photo-resize]').value=60")
+        old=driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")
+        driver.find_element(By.CSS_SELECTOR,'[data-photo-apply]').click()
+        wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId!==arguments[0]&&!window.mindleEditPending('photo')",old))
+        wait.until(lambda d:d.execute_script("const i=document.querySelector('[data-preview=photo] img');return i?.complete&&i.naturalWidth===60&&i.naturalHeight===120"))
+        record('actual_photo_resize_original_ratio',{'dimensions':[60,120]})
+        music=OUT/'BGM.wav'
+        subprocess.run(['ffmpeg','-y','-f','lavfi','-i','sine=frequency=220:sample_rate=16000','-t','2',str(music)],check=True,capture_output=True)
+        old=driver.execute_script("return document.querySelector('[data-preview=video]').dataset.jobId")
+        driver.find_element(By.CSS_SELECTOR,'[data-bgm-input]').send_keys(str(music.resolve()))
+        wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=video]').dataset.jobId!==arguments[0]&&!window.mindleEditPending('video')",old))
+        assert driver.execute_script("return document.querySelector('[data-bgm-input]').files.length")==0
+        record('actual_bgm_added_selection_consumed_once',{'job_id':driver.execute_script("return document.querySelector('[data-preview=video]').dataset.jobId")})
+        follow=edited('[data-video-tool=effect]','actual_bgm_followup_without_readding_music')
+        assert follow['runtime_result']['options']['backgroundAlreadyMixed'] is True
         # Return to the original before save; prove chosen current result survives restart.
         driver.find_element(By.CSS_SELECTOR,'[data-editor=photo] [data-asset-job-id]').click()
         wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.operation==='import'&&!window.mindleEditPending('photo')"))
