@@ -27,7 +27,7 @@
       if(bgm) background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const r=new FileReader();r.onerror=reject;r.onload=()=>resolve(String(r.result).split(',')[1]);r.readAsDataURL(bgm);})};
       const response=await fetch('/api/video-edits',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:file.name,content_base64:base64,command:label,options,background})});
       const result=await response.json();if(!response.ok) throw new Error(result.error||'영상 편집 실패');
-      await window.mindleAcceptResult(result);editor.querySelectorAll('[data-video-option]').forEach(input=>{input.value=['speed','volume'].includes(input.dataset.videoOption)?1:0;if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;});splitPending=false;message.textContent=result.runtime_result.options.split?'분할 완료 · 두 클립을 프로젝트 내보내기에서 받을 수 있습니다.':'영상 편집 완료';
+      await window.mindleAcceptResult(result);editor.querySelectorAll('[data-video-option]').forEach(input=>{input.value=['speed','volume'].includes(input.dataset.videoOption)?1:0;if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;});splitPending=false;message.textContent=result.runtime_result.analysis?'장면 분석 편집 완료 · '+result.runtime_result.analysis.sample_count+'개 프레임 표본 · '+result.runtime_result.analysis.start.toFixed(1)+'초부터 '+result.runtime_result.analysis.duration.toFixed(1)+'초 · 로컬 분석 (생성형 AI 아님)':result.runtime_result.options.split?'분할 완료 · 두 클립을 프로젝트 내보내기에서 받을 수 있습니다.':'영상 편집 완료';
     } catch(error) {message.textContent=error.message;} finally {busy=false;window.mindleEndEdit('video');}
   }
   editor.querySelectorAll('[data-video-tool]').forEach(button=>button.addEventListener('click',()=>{
@@ -56,6 +56,7 @@
   editor.querySelectorAll('[data-video-option]').forEach(input=>input.addEventListener('input',()=>{if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;updateVideoPreview();}));
   window.mindleApplyVideoSubtitle=text=>apply({subtitle:text},"자동 자막 적용");
   window.mindleVideoCommand=async text=>{
+    if(/자동.*편집|하이라이트/.test(text)) {await apply({auto_edit:true},'장면 분석 자동 편집');return true;}
     if(/숏폼|초.*만들|속도|자르|전환|효과|밝게|오디오/.test(text)) {
       const extra={};if(/숏폼/.test(text)) extra.aspect='9:16';const sec=text.match(/(\d+)\s*초/);if(sec) extra.duration=Number(sec[1]);
       if(/전환/.test(text)) extra.fade=true;if(/효과/.test(text)) extra.effect=true;if(/밝게/.test(text)) extra.brightness=15;
@@ -66,4 +67,3 @@
     return false;
   };
 })();
-

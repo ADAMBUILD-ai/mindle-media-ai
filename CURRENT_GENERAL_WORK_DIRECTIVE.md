@@ -1,29 +1,12 @@
-# MINDLE MEDIA AI — CURRENT GENERAL WORK STATUS
+# CURRENT GENERAL WORK — OWNER RUNTIME RECOVERY
 
-STATUS: COMPLETE — HANDOFF TO PC WORK
-DATE: 2026-10-08
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1
-NEXT_ACTIVE_PC_WORK_EPOCH: MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1
-REPOSITORY: ADAMBUILD-ai/mindle-media-ai
-BRANCH: feature/ad-shortform-bridge-p0-20260926
+ACTIVE_OWNER_RUNTIME_RECOVERY
+Epoch: MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1
 
-## FINAL RESULT
-PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK
+Owner explicitly reopened development on 2026-10-13.
+Directive: docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_DIRECTIVE_v1.0_20261013.md
 
-## VERIFIED FINAL HEAD
-9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb
-
-## REVIEW
-docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md
-
-## EVIDENCE
-docs/evidence/media-ai-general-work-final-self-audit-20261008/EVIDENCE.json
-
-## HANDOFF
-docs/commander/MINDLE_MEDIA_AI_GENERAL_TO_PC_WORK_ONE_CLICK_HANDOFF_v1.0_20261008.md
-
-General Work is closed for this cycle.
-Do not continue feature development here unless the commander explicitly reopens it.
-
-External Marketing / AVORA remains DEFERRED_EXTERNAL.
-PC Work is now the active execution lane.
+Historical General Work PASS does not establish owner PC runtime acceptance.
+PR23 HOLD / DO NOT MERGE. No main merge. No layout or color redesign.
+OpenAI NOT_CONNECTED; credentials authorized only at connection gate.
+Package builds paused for this repair gate; existing PC evidence and package are historical.

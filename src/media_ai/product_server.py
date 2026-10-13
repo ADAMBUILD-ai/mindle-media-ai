@@ -140,6 +140,15 @@ class Handler(BaseHTTPRequestHandler):
         route = unquote(urlparse(self.path).path)
         if route == "/api/runtime-identity":
             self._json(200, self.server.runtime_identity()); return
+        if route == '/api/runtime-readiness':
+            import shutil
+            package = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', '').strip()
+            ffmpeg = str(Path(package)/'tools/ffmpeg/ffmpeg.exe') if package else shutil.which('ffmpeg')
+            self._json(200, {'product':'MINDLE MEDIA AI', 'models': self.server.service.model_readiness,
+                             'video_tool_present': bool(ffmpeg and Path(ffmpeg).is_file()),
+                             'auto_edit_engine':'OpenCV measured scene window + FFmpeg',
+                             'auto_edit_model_inference':False, 'generative_provider':'NOT_CONNECTED',
+                             'physical_owner_acceptance':'NOT_VERIFIED'}); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
         if route == '/api/projects':
@@ -259,4 +268,3 @@ def main() -> None:
 
 
 if __name__ == "__main__": main()
-

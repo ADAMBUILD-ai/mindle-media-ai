@@ -174,7 +174,7 @@
 
     });
     editor.addEventListener("mindle:mode", (event) => { state.videoMode = event.detail.mode; message(editor, state.videoMode === "ad_shortform" ? "광고 숏폼 모드 · 자연어로 제품·대상·길이를 지시하세요." : "일반 영상 편집 모드"); });
-    editor.querySelector("[data-action='ai-auto-edit']")?.addEventListener("click", () => execute(editor, kind, {command:"대상을 추적해줘"}));
+    editor.querySelector("[data-action='ai-auto-edit']")?.addEventListener("click", () => execute(editor, kind, {command:"자동 편집"}));
     editor.addEventListener("mindle:command", (event) => execute(editor, kind, event.detail));
     editor.addEventListener("mindle:save", () => save(editor));
     editor.addEventListener("mindle:export", () => exportProject(editor));
@@ -230,6 +230,3 @@
   };
   restoreSavedProject();
 })();
-
-
-

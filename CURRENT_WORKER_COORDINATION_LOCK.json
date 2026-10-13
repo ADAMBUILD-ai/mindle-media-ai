@@ -1,23 +1,36 @@
 {
   "schema_version": "PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
   "status": "ACTIVE",
-  "date": "2026-10-08",
+  "date": "2026-10-13",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
-  "active_control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
-  "collision_status": "NO_ACTIVE_COLLISION",
+  "active_control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
+  "collision_status": "OWNER_REOPENED_GENERAL_WORK_PC_BUILD_STAGED",
   "worker_lanes": {
     "general_work": {
-      "role": "Completed General Work",
-      "current_assignment": "COMPLETE / READ-ONLY",
-      "may_write": [],
+      "role": "Owner-appointed development commander",
+      "current_assignment": "ACTIVE_OWNER_RUNTIME_RECOVERY",
+      "may_write": [
+        "src/** runtime fixes",
+        "ui/** behavior only",
+        "tests/**",
+        "model_scout/run_runtime_recovery_browser.py",
+        ".github/workflows/runtime-recovery.yml",
+        "CURRENT_GENERAL_WORK_*",
+        "scripts/validate_general_work_control_plane.py",
+        "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY*",
+        "docs/evidence/media-ai-runtime-recovery-20261013/**"
+      ],
       "may_not_change": [
-        "General Work PASS evidence and frozen product baseline"
+        "main/default branch",
+        "approved UI layout/colors",
+        "historical model Evidence",
+        "PR23 merge state"
       ]
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "Continue one-click runtime implementation/build/test on GitHub Windows Runner while local helper is blocked",
+      "current_assignment": "STAGED_PENDING_VERIFIED_CORE_RECOVERY; preserve existing package/evidence; no automatic rebuild for source repair commit",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",

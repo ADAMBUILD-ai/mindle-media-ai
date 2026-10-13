@@ -216,8 +216,13 @@ class ProductJobService:
         self.inputs, self.jobs, self.projects = self.root / "inputs", self.root / "jobs", self.root / "projects"
         for path in (self.inputs, self.jobs, self.projects): path.mkdir(parents=True, exist_ok=True)
         self.vault = ProductModelVault(self.root, token)
+        self.model_readiness = {'status': 'NOT_VERIFIED', 'inference_verified': False}
         if self.vault.local_root is not None:
-            self.vault.verify_local_models()
+            try:
+                self.vault.verify_local_models()
+                self.model_readiness['status'] = 'FILES_VERIFIED_INFERENCE_NOT_RUN'
+            except (OSError, RuntimeError, ValueError) as error:
+                self.model_readiness.update(status='BLOCKED_MODEL_FILES', error=str(error))
         self.records: dict[str, dict] = {}
         for saved in self.projects.glob('*.json'):
             try:
@@ -316,6 +321,9 @@ class ProductJobService:
         """Release native model runtimes between jobs and isolate OpenMP libraries."""
         if self.vault.local_root is None and not self.vault.token:
             raise RuntimeError('AI 모델이 준비되지 않았습니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다.')
+        if self.vault.local_root is not None:
+            # Preserve fail-closed model identity while keeping base editing usable.
+            self.vault.verify_local_models()
         import subprocess
         report = self.jobs / f'worker-result-{uuid4()}.json'
         source_root = str(Path(__file__).resolve().parents[1])
@@ -457,26 +465,12 @@ class ProductJobService:
         package = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT')
         ffmpeg = str(Path(package) / 'tools/ffmpeg/ffmpeg.exe') if package else 'ffmpeg'
         output = job_dir / 'edited_video.mp4'
-        if options.get('highlight'):
-            import cv2
-            capture = cv2.VideoCapture(str(source))
-            fps = capture.get(cv2.CAP_PROP_FPS) or 1
-            duration = capture.get(cv2.CAP_PROP_FRAME_COUNT) / fps
-            scores = []
-            previous = None
-            for second in range(0, int(duration), max(1, int(duration / 300))):
-                capture.set(cv2.CAP_PROP_POS_MSEC, second * 1000)
-                ok, frame = capture.read()
-                if not ok: continue
-                gray = cv2.cvtColor(cv2.resize(frame, (160, 90)), cv2.COLOR_BGR2GRAY)
-                if previous is not None:
-                    scores.append((float(cv2.absdiff(gray, previous).mean()), second))
-                previous = gray
-            capture.release()
-            peak = max(scores)[1] if scores else 0
-            length = min(30, duration)
-            options = {**options, 'start': max(0, min(duration-length, peak-length/2)),
-                       'duration': length, 'highlight_method': 'frame_difference'}
+        analysis = None
+        if options.get('highlight') or options.get('auto_edit'):
+            from .video_analysis import analyze_video
+            analysis = analyze_video(source, options.get('duration') or 30)
+            options = {**options, 'start': analysis['start'], 'duration': analysis['duration'],
+                       'highlight_method': analysis['method']}
         speed = float(options.get('speed', 1))
         if not .5 <= speed <= 2: raise ValueError('속도는 0.5~2배 범위입니다.')
         vf = ['scale=trunc(iw/2)*2:trunc(ih/2)*2']
@@ -539,7 +533,7 @@ class ProductJobService:
         record = {'status':'TESTED_PASS','job_id':job_id,'lane':'video','operation':'video_edit',
                   'command':str(payload.get('command','영상 편집')), 'input':file_record(source),
                   'primary_output':file_record(output),'outputs':[file_record(output)] + extra_outputs + ([file_record(background_source)] if background_source else []),
-                  'runtime_result':{'engine':'FFmpeg','options':options,'model_inference':False,'sampled_frames':0}}
+                  'runtime_result':{'engine':'FFmpeg','options':options,'model_inference':False,'sampled_frames':analysis['sample_count'] if analysis else 0, 'analysis':analysis}}
         (job_dir/'JOB_EVIDENCE.json').write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
         self.records[job_id]=record
         return record
@@ -645,5 +639,3 @@ class ProductJobService:
                     if path.is_file(): package.write(path, f"jobs/{job['job_id']}/{path.name}")
         if not zipfile.is_zipfile(export): raise RuntimeError("export archive validation failed")
         return {"status": "EXPORTED", "project_id": project_id, "export": file_record(export)}
-
-

@@ -1,24 +1,26 @@
 {
-  "schema_version": "GENERAL-WORK-FINAL-SELF-AUDIT-R1",
-  "status": "COMPLETE_HANDOFF_TO_PC_WORK",
-  "date": "2026-10-08",
+  "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
+  "status": "ACTIVE_OWNER_RUNTIME_RECOVERY",
+  "date": "2026-10-13",
+  "control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
+  "owner_authorization": "Explicit current conversation: development commander, repair and reinforce existing product without optional confirmation; approve only OpenAI credential connection.",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
-  "final_result": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
-  "final_head": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
-  "review": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md",
-  "evidence": "docs/evidence/media-ai-general-work-final-self-audit-20261008/EVIDENCE.json",
-  "handoff": "docs/commander/MINDLE_MEDIA_AI_GENERAL_TO_PC_WORK_ONE_CLICK_HANDOFF_v1.0_20261008.md",
-  "active": false,
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_DIRECTIVE_v1.0_20261013.md",
+  "product_changes_allowed": true,
+  "ui_changes_allowed": "NO_LAYOUT_OR_VISUAL_REDESIGN",
+  "package_build_allowed": false,
   "external_marketing_avora_status": "DEFERRED_EXTERNAL",
-  "next_active_epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
+  "historical_general_pass_head": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
+  "owner_pc_runtime_pass": false,
+  "final_product_pass": false,
+  "openai_connected": false,
+  "epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
+  "active": true,
   "invariants": {
-    "evidence_less_pass_forbidden": true,
     "main_merge_forbidden": true,
     "force_push_forbidden": true,
-    "pr23_hold_do_not_merge": true
-  },
-  "validator": "scripts/validate_general_work_control_plane.py",
-  "validator_required_result": "GENERAL_WORK_COMPLETE_HANDOFF_TO_PC_WORK"
+    "pr23_hold_do_not_merge": true,
+    "approved_visual_frozen": true
+  }
 }

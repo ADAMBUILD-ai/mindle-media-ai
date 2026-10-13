@@ -33,7 +33,7 @@ class ProductJobService:
             fn = function(ROOT/'src/media_ai/product_runtime.py', 'execute_isolated',
                           {'Path':Path,'sys':sys,'os':os,'json':json,'uuid4':uuid4,'__file__':str(package/'product_runtime.py')})
             data = root/'data'; jobs = data/'jobs'; jobs.mkdir(parents=True)
-            service = SimpleNamespace(root=data,jobs=jobs,records={},vault=SimpleNamespace(local_root=root if local else None,token='test-only-credential'))
+            service = SimpleNamespace(root=data,jobs=jobs,records={},vault=SimpleNamespace(local_root=root if local else None,token='test-only-credential', verify_local_models=lambda: None))
             env = {'HF_TOKEN':'test-only-credential','HF_HUB_OFFLINE':'1','TRANSFORMERS_OFFLINE':'1'}
             if local: env['MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT']=str(root)
             with patch.dict(os.environ, env):

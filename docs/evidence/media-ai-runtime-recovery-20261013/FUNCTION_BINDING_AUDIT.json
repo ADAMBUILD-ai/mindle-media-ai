@@ -1,0 +1,73 @@
+{
+  "baseline_source": "17ff980cbb9995590fe48eb47ffac22ab3e194c2",
+  "owner_pc_runtime_pass": false,
+  "product_full_pass": false,
+  "bindings": [
+    {
+      "control": "AI 자동 편집",
+      "before": "fixed target tracking command to /api/jobs",
+      "after": "measured scene-window analysis -> /api/video-edits -> OpenCV/FFmpeg -> real MP4",
+      "model_inference": false,
+      "status": "LOCAL_REGRESSION_PASS_BROWSER_PENDING"
+    },
+    {
+      "control": "PHOTO AI 보정",
+      "binding": "fixed contrast/saturation/shadows preset -> canvas pixel edit -> /api/photo-edits",
+      "model_inference": false,
+      "status": "PRESET_NOT_GENERATIVE_AI"
+    },
+    {
+      "control": "AI 효과",
+      "binding": "FFmpeg vignette",
+      "model_inference": false,
+      "status": "FILTER_NOT_GENERATIVE_AI"
+    },
+    {
+      "control": "자동 자막",
+      "binding": "/api/jobs transcribe -> Whisper Korean -> FFmpeg subtitle",
+      "status": "CURRENT_PACKAGE_INFERENCE_NOT_REVERIFIED"
+    },
+    {
+      "control": "배경 제거 / 추적",
+      "binding": "SAM2.1 immutable adapter via isolated worker",
+      "status": "CURRENT_PACKAGE_INFERENCE_NOT_REVERIFIED"
+    },
+    {
+      "control": "해상도 향상",
+      "binding": "Intel SISR 1032 OpenVINO isolated worker",
+      "status": "CURRENT_PACKAGE_INFERENCE_NOT_REVERIFIED"
+    },
+    {
+      "control": "AI 대화 편집",
+      "binding": "regex command rules; no generative planner",
+      "status": "GENERATIVE_AGENT_NOT_CONNECTED"
+    },
+    {
+      "control": "유사 이미지",
+      "binding": "attached image color histogram ranking",
+      "status": "NO_EXTERNAL_IMAGE_SEARCH"
+    },
+    {
+      "control": "광고 숏폼",
+      "binding": "Marketing HTTP; packaged mode deliberately503",
+      "status": "DEFERRED_EXTERNAL"
+    },
+    {
+      "control": "MEDIA cards",
+      "binding": "static sample labels/CSS thumbnails",
+      "status": "STATIC_NOT_USER_ASSET_LIBRARY"
+    },
+    {
+      "control": "Timeline tracks",
+      "binding": "read-only status labels",
+      "status": "NOT_MULTITRACK_EDITOR"
+    }
+  ],
+  "pending_gates": [
+    "Current Windows package real SAM/SISR/Whisper inference",
+    "Owner office double-click/use of own media",
+    "Generative planning/semantic analysis provider credential gate",
+    "Corrected Windows rebuild and delivery after core verification",
+    "Replace static library/status-only surfaces with real project assets as required without visual redesign"
+  ]
+}

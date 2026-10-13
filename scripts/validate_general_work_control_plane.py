@@ -12,6 +12,16 @@ lock=json.loads((ROOT/"CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json").read_text(
 state=json.loads((ROOT/"CURRENT_GENERAL_WORK_STATE.json").read_text(encoding="utf-8"))
 worker=json.loads((ROOT/"CURRENT_WORKER_COORDINATION_LOCK.json").read_text(encoding="utf-8"))
 
+if state.get('control_plane_epoch') == 'MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1':
+    assert worker['active_control_plane_epoch'] == state['control_plane_epoch']
+    assert state['status'] == lock['status'] == 'ACTIVE_OWNER_RUNTIME_RECOVERY'
+    assert lock['epoch'] == state['control_plane_epoch'] and lock['active'] is True
+    assert state['control_plane_epoch'] in current and state['product_changes_allowed'] is True
+    assert state['owner_pc_runtime_pass'] is False and state['final_product_pass'] is False
+    assert lock['invariants']['main_merge_forbidden'] and lock['invariants']['pr23_hold_do_not_merge']
+    print('GENERAL_WORK_OWNER_RUNTIME_RECOVERY_ACTIVE')
+    raise SystemExit(0)
+
 def fail(msg):
     print("GENERAL_WORK_HANDOFF_MISMATCH_BLOCKED: "+msg, file=sys.stderr)
     raise SystemExit(2)
