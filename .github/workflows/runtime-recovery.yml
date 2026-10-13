@@ -36,7 +36,7 @@ jobs:
           node --test ui/interaction.test.js ui/ssot_structure.test.js
           python -m compileall -q src model_scout/run_runtime_recovery_browser.py
           python -m pip check
-      - name: Actual approved UI recovery and selected asset persistence
+      - name: Actual full editor feature regression and selected asset persistence
         run: python model_scout/run_runtime_recovery_browser.py
       - uses: actions/upload-artifact@v4
         if: always()
