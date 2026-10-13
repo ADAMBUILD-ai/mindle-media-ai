@@ -48,7 +48,8 @@ def main():
                     assert hashlib.sha256(Path(output['path']).read_bytes()).hexdigest()==output['sha256']
                 original=records[item['operation']]
                 original_source=frozen/'inputs'/Path(original['input']['path']).name
-                destination=Path(item['input']['path']);destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(original_source,destination)
+                destination=Path(item['input']['path']);destination.parent.mkdir(parents=True,exist_ok=True)
+                if not destination.is_file():shutil.copy2(original_source,destination)
                 assert hashlib.sha256(destination.read_bytes()).hexdigest()==item['input']['sha256']
                 item['verification_provenance']='REUSED_CURRENT_REPAIR_RUN_38425586338_SAME_ENGINE_IMPLEMENTATION'
                 service.records[item['job_id']]=item;receipt['jobs'].append(item);completed.add(item['operation'])
