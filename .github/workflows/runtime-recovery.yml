@@ -71,7 +71,7 @@ jobs:
           run-id: 37738880868
           github-token: ${{ github.token }}
           path: engine_fixtures
-      - name: Run current full-frame video and adopted CPU engine jobs
+      - name: Run bounded full-frame video memory and reference-bound adopted engine jobs
         run: python model_scout/run_live_agent_engines.py
       - uses: actions/upload-artifact@v4
         if: always()
