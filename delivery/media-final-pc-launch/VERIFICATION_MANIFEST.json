@@ -1,0 +1,27 @@
+{
+  "source_run": 38121146106,
+  "source_status": "SUCCESS",
+  "final_delivery_sha256": "7136c1512001b371cce86883b0f63a2373d4a77c720ec31d926001dc3d344061",
+  "parts": [
+    {
+      "index": "00",
+      "artifact_sha256": "2081322d5186538b18d52b977be6c5881a2055d4abb2be22d98485ee58f3c988"
+    },
+    {
+      "index": "01",
+      "artifact_sha256": "d31e3b3dda04dbba7b1aa79242200a04b26685056bcefe40270740b2e192f529"
+    },
+    {
+      "index": "02",
+      "artifact_sha256": "62e7f4704d20d6bb048f5f9e1593c1084771407b9ea707ac4d51598929c599c4"
+    },
+    {
+      "index": "03",
+      "artifact_sha256": "9a32c5d9c83176f9661ed61ebb5bdf7c01c348250dd44c637365efb4e6dd8312"
+    },
+    {
+      "index": "04",
+      "artifact_sha256": "39ae66ad4f3a9317d9eecbd28375ef99b02cf061a00e6b2122fc320ca9f743f1"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+name: Package MEDIA final PC launch helper
+on:
+  push:
+    branches:
+      - delivery/media-final-pc-launch-20261013
+    paths:
+      - "delivery/media-final-pc-launch/**"
+      - ".github/workflows/media-final-pc-launch-package.yml"
+permissions:
+  contents: read
+jobs:
+  verify-and-package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify helper syntax and locked identities
+        shell: pwsh
+        run: |
+          $errors=$null
+          [System.Management.Automation.Language.Parser]::ParseFile("delivery/media-final-pc-launch/MINDLE_MEDIA_AI_FINAL_RUN.ps1",[ref]$null,[ref]$errors)|Out-Null
+          if($errors.Count -gt 0){$errors|Format-List|Out-String|Write-Error;exit 1}
+          $m=Get-Content "delivery/media-final-pc-launch/VERIFICATION_MANIFEST.json" -Raw|ConvertFrom-Json
+          if($m.source_run -ne 38121146106){throw "source run mismatch"}
+          if($m.source_status -ne "SUCCESS"){throw "source status mismatch"}
+          if($m.final_delivery_sha256 -ne "7136c1512001b371cce86883b0f63a2373d4a77c720ec31d926001dc3d344061"){throw "final SHA mismatch"}
+          if($m.parts.Count -ne 5){throw "part count mismatch"}
+          Write-Host "MEDIA_FINAL_PC_LAUNCH_HELPER_VERIFIED"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MINDLE_MEDIA_AI_FINAL_PC_LAUNCH
+          path: delivery/media-final-pc-launch/**
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 9
