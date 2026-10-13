@@ -28,7 +28,9 @@ jobs:
           import json, os
           from pathlib import Path
           state = json.loads(Path("CURRENT_PC_WORK_STATE.json").read_text())
-          allowed = state.get("package_build_allowed") is True
+          general = json.loads(Path("CURRENT_GENERAL_WORK_STATE.json").read_text())
+          recovery = general.get("status") == "ACTIVE_OWNER_RUNTIME_RECOVERY"
+          allowed = state.get("package_build_allowed") is True and not recovery
           with open(os.environ["GITHUB_OUTPUT"], "a") as output:
               output.write("allowed=" + str(allowed).lower() + "\n")
           print("package_build_allowed=" + str(allowed).lower())
