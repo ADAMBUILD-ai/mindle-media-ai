@@ -167,6 +167,14 @@ class ProductModelVault:
         manifest_run=os.environ.get('MINDLE_ALTERNATIVE_MANIFEST_RUN_ID') or os.environ.get('GITHUB_RUN_ID','local')
         if manifest_run!='local' and not manifest_run.isdigit():raise RuntimeError('invalid immutable manifest run identity')
         filename = f"ALTERNATIVE_MODEL_EVIDENCE/{manifest_run}/ALTERNATIVE_MODEL_MANIFEST.json"
+        names=[item.rfilename for item in info.siblings if item.rfilename.startswith('ALTERNATIVE_MODEL_EVIDENCE/') and item.rfilename.endswith('/ALTERNATIVE_MODEL_MANIFEST.json')]
+        if filename not in names:
+            if len(names)==1:filename=names[0]
+            else:
+                tree=list(self.api.list_repo_tree(PRIVATE_REPO,path_in_repo='ALTERNATIVE_MODEL_EVIDENCE',recursive=True,expand=True,revision=revision,token=self.token))
+                current=[item.path for item in tree if item.path in names and getattr(item,'last_commit',{}).get('oid')==revision]
+                if len(current)!=1:raise RuntimeError('Exact alternative manifest run identity is required for this cache revision')
+                filename=current[0]
         path = Path(hf_hub_download(repo_id=PRIVATE_REPO, filename=filename, revision=revision, token=self.token, local_dir=str(self.downloads)))
         manifest = json.loads(path.read_text(encoding="utf-8"))
         if manifest.get("gate_result") != "PERPETUAL_USE_EVIDENCE_READY": raise RuntimeError("alternative perpetual-use gate is not closed")

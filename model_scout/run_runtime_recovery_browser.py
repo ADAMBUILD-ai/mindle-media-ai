@@ -78,6 +78,51 @@ def main():
         wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.operation==='import'&&!window.mindleEditPending('photo')"))
         selected_photo=driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")
         record('actual_original_selection_changes_current_result',{'job_id':selected_photo})
+        def edited(selector,label):
+            old=driver.execute_script("return document.querySelector('[data-preview=video]').dataset.jobId")
+            driver.find_element(By.CSS_SELECTOR,selector).click()
+            wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=video]').dataset.jobId!==arguments[0]&&!window.mindleEditPending('video')",old))
+            wait.until(lambda d:(media_state(d) or {}).get('readyState',0)>=2)
+            jobs=driver.execute_async_script("fetch('/api/evidence').then(r=>r.json()).then(arguments[0])")['jobs']
+            identifier=driver.execute_script("return document.querySelector('[data-preview=video]').dataset.jobId")
+            result=jobs[identifier];record(label,result);return result
+        for key in ('rotate','rotate','fade','effect'):
+            edited('[data-video-tool='+key+']','actual_video_'+key)
+        for toggle in ('denoise','stabilize'):
+            driver.find_element(By.CSS_SELECTOR,'[data-video-toggle='+toggle+']').click()
+            edited('[data-video-apply]','actual_video_'+toggle)
+            driver.find_element(By.CSS_SELECTOR,'[data-video-toggle='+toggle+']').click()
+        driver.find_element(By.CSS_SELECTOR,'[data-video-tool=speed]').click()
+        driver.execute_script("document.querySelector('[data-video-option=speed]').value=1.25")
+        speed_job=edited('[data-video-apply]','actual_video_speed');assert speed_job['runtime_result']['options']['speed']==1.25
+        driver.find_element(By.CSS_SELECTOR,'[data-video-tool=trim]').click()
+        driver.execute_script("document.querySelector('[data-video-option=start]').value=.2;document.querySelector('[data-video-option=duration]').value=1.2")
+        edited('[data-video-apply]','actual_video_trim')
+        driver.find_element(By.CSS_SELECTOR,'[data-video-tool=subtitle]').click()
+        driver.find_element(By.CSS_SELECTOR,'[data-video-subtitle]').send_keys('실제 한국어 자막')
+        edited('[data-video-apply]','actual_video_manual_korean_subtitle')
+        driver.find_element(By.CSS_SELECTOR,'[data-video-subtitle]').clear()
+        driver.find_element(By.CSS_SELECTOR,'[data-video-tool=split]').click()
+        driver.execute_script("document.querySelector('[data-video-option=start]').value=.6")
+        split_job=edited('[data-video-apply]','actual_video_split');assert len(split_job['outputs'])==2
+        edited('[data-video-tool=shortform]','actual_video_9x16_shortform')
+        assert media_state(driver)['videoWidth']==360
+        for key in ('contrast','highlights','shadows','saturation','temperature','sharpness'):
+            old=driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")
+            driver.execute_script("const i=document.querySelector('[data-photo-adjust='+arguments[0]+']');i.value=15;i.dispatchEvent(new Event('input',{bubbles:true}))",key)
+            driver.find_element(By.CSS_SELECTOR,'[data-photo-apply]').click()
+            wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId!==arguments[0]&&!window.mindleEditPending('photo')",old))
+            wait.until(lambda d:d.execute_script("const i=document.querySelector('[data-preview=photo] img');return i?.complete&&i.naturalWidth>0"))
+            record('actual_photo_correction_'+key,{'job_id':driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")})
+        for key in ('rotate','rotate','flip-h','flip-v'):
+            old=driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")
+            driver.find_element(By.CSS_SELECTOR,'[data-photo-tool='+key+']').click()
+            wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId!==arguments[0]&&!window.mindleEditPending('photo')",old))
+            wait.until(lambda d:d.execute_script("const i=document.querySelector('[data-preview=photo] img');return i?.complete&&i.naturalWidth>0"))
+            record('actual_photo_'+key,{'job_id':driver.execute_script("return document.querySelector('[data-preview=photo]').dataset.jobId")})
+        # Return to the original before save; prove chosen current result survives restart.
+        driver.find_element(By.CSS_SELECTOR,'[data-editor=photo] [data-asset-job-id]').click()
+        wait.until(lambda d:d.execute_script("return document.querySelector('[data-preview=photo]').dataset.operation==='import'&&!window.mindleEditPending('photo')"))
         driver.find_element(By.CSS_SELECTOR,'[data-editor=video] [data-action=save]').click()
         wait.until(lambda d:d.execute_script("return document.querySelector('[data-editor=video]').dataset.projectStatus==='saved'"))
         saved=driver.execute_async_script("fetch('/api/projects/latest').then(r=>r.json()).then(arguments[0])")['project']
