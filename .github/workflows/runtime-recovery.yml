@@ -4,7 +4,8 @@ on:
     branches: [feature/ad-shortform-bridge-p0-20260926]
     paths:
       - .github/workflows/runtime-recovery.yml
-      - src/media_ai/video_analysis.py
+      - src/media_ai/**
+      - ui/**
       - model_scout/run_runtime_recovery_browser.py
   workflow_dispatch:
 permissions:
