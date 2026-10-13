@@ -6,11 +6,20 @@
   let busy = false;
   const say = text => { status.textContent = text; };
   const controls = () => Object.fromEntries([...editor.querySelectorAll('[data-photo-adjust]')].map(input => [input.dataset.photoAdjust, Number(input.value)]));
+  const updatePreview = () => {
+    const image = editor.querySelector('[data-preview] img');
+    if (!image) return;
+    const v = controls();
+    const brightness = Math.max(.2, 1 + v.brightness/100 + v.shadows/500 + v.highlights/600);
+    const contrast = Math.max(.2, 1 + v.contrast/100 + v.sharpness/500);
+    const saturation = Math.max(0, 1 + v.saturation/100);
+    const warmth = Math.min(.22, Math.abs(v.temperature)/450);
+    const hue = v.temperature < 0 ? -Math.abs(v.temperature)/4 : v.temperature/8;
+    image.style.filter = `brightness(${brightness}) contrast(${contrast}) saturate(${saturation}) sepia(${warmth}) hue-rotate(${hue}deg)`;
+  };
   editor.querySelectorAll('[data-photo-adjust]').forEach(input => input.addEventListener('input', () => {
     input.nextElementSibling.value = input.value;
-    const image = editor.querySelector('[data-preview] img');
-    const v = controls();
-    if (image) image.style.filter = `brightness(${1+v.brightness/100}) contrast(${1+v.contrast/100}) saturate(${1+v.saturation/100})`;
+    updatePreview();
     say('보정 미리보기 · 적용하기를 누르면 실제 결과가 저장됩니다.');
   }));
   async function renderPhoto() {
@@ -63,7 +72,7 @@
   function reset() {
     editor.querySelectorAll('[data-photo-adjust]').forEach(input => { input.value=0;input.nextElementSibling.value=0; });
     rotation=0;flipH=flipV=false;style='neutral';editor.querySelector('[data-crop-controls]').hidden=true;editor.querySelector('[data-photo-resize-controls]').hidden=true;
-    const image=editor.querySelector('[data-preview] img');if(image) image.style.filter='';
+    const image=editor.querySelector('[data-preview] img');if(image) { image.style.filter=''; image.style.transform=''; }
   }
   async function apply(label='사진 보정') {
     if(busy || window.mindleEditPending('photo')) return;busy=true;window.mindleBeginEdit('photo');say('보정을 적용하고 있습니다.');
@@ -107,7 +116,7 @@
     await apply(key==='auto'?'자동 사진 보정':key);
   }
   editor.querySelectorAll('[data-photo-tool]').forEach(button=>button.addEventListener('click',()=>tool(button.dataset.photoTool)));
-  editor.querySelector('[data-action="photo-generate"]').addEventListener('click',()=>say('현재 패키지에는 이미지 생성 모델이 포함돼 있지 않습니다. 사진 보정과 배경 제거는 계속 사용할 수 있습니다.'));
+  editor.querySelector('[data-action="photo-generate"]')?.addEventListener('click',()=>say('현재 패키지에는 이미지 생성 모델이 포함돼 있지 않습니다. 사진 보정과 배경 제거는 계속 사용할 수 있습니다.'));
   editor.querySelectorAll('[data-action="photo-auto"]').forEach(button=>button.addEventListener('click',()=>tool('auto')));
   window.mindlePhotoCommand=async text=>{
     if(/배경|분리|분할|세그먼트|업스케일|고화질|해상도|4배|4x/i.test(text)) return false;

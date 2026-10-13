@@ -143,6 +143,9 @@ def main() -> int:
         "interaction.css",
         "interaction.js",
         "product_integration.js",
+        "photo_workspace.js",
+        "video_workspace.js",
+        "workspace_shell.js",
         "assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
     ]
     ui_hash = hashlib.sha256(

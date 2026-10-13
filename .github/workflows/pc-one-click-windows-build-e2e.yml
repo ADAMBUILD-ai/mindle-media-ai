@@ -14,13 +14,15 @@ on:
       - "scripts/remote_windows_one_click_e2e.py"
       - "scripts/validate_pc_work_control_plane.py"
       - "src/media_ai/**"
+      - "ui/**"
       - "tests/**"
+      - "scripts/windows_final_ui_browser_acceptance.py"
       - "LICENSES/**"
       - "docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK**"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   actions: read
 
 concurrency:
@@ -339,6 +341,21 @@ jobs:
             --evidence-root "$env:EVIDENCE_DIR"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+      - name: Install real-browser acceptance runtime
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check "playwright==1.55.0"
+          python -m playwright install chromium
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Real browser final UI and interaction acceptance
+        shell: pwsh
+        run: |
+          python scripts/windows_final_ui_browser_acceptance.py `
+            --fixture-root "build/general-audit" `
+            --evidence-root "$env:EVIDENCE_DIR"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Cold process relaunch and saved-project persistence
         shell: pwsh
         run: |
@@ -442,6 +459,28 @@ jobs:
                   p.write_bytes(chunk);i+=1
           Path("build/DELIVERY_PARTS.json").write_text(json.dumps({"zip":archive.name,"sha256":h.hexdigest(),"parts":i},indent=2)+"\n")
           print("delivery parts",i,"zip sha",h.hexdigest())
+
+      - name: Publish corrected final package only after full E2E and browser acceptance
+        if: success()
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = "media-final-20261013-r2"
+          $asset = "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip"
+          $sha = (Get-FileHash -Algorithm SHA256 $asset).Hash.ToLowerInvariant()
+          gh release view $tag --repo ${{ github.repository }} *> $null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $tag --repo ${{ github.repository }} --target $env:GITHUB_SHA --title "MINDLE MEDIA AI Final Windows Package R2 2026-10-13" --notes "Final UI 2026-10-13 + real browser interaction acceptance. Build commit: $env:GITHUB_SHA. SHA256: $sha"
+          }
+          gh release upload $tag $asset --repo ${{ github.repository }} --clobber
+          [ordered]@{
+            status = "FINAL_R2_RELEASE_PUBLISHED"
+            tag = $tag
+            asset = "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip"
+            sha256 = $sha
+            build_commit = $env:GITHUB_SHA
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/FINAL_R2_RELEASE.json" -Encoding utf8
 
       - name: Upload Evidence
         if: always()

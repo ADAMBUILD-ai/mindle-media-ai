@@ -45,7 +45,15 @@
   }));
   editor.querySelector('[data-video-apply]').addEventListener('click',()=>apply({subtitle:editor.querySelector('[data-video-subtitle]').value}));
   editor.querySelector('[data-bgm-input]').addEventListener('change',()=>apply({backgroundVolume:.35},'배경음악 추가'));
-  editor.querySelectorAll('[data-video-option]').forEach(input=>input.addEventListener('input',()=>{if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;}));
+  const updateVideoPreview=()=>{
+    const v=media(); if(!v) return;
+    const brightness=Math.max(.2,1+value('brightness')/100);
+    const contrast=Math.max(.2,1+value('contrast')/100);
+    const saturation=Math.max(0,1+value('saturation')/100);
+    v.style.filter=`brightness(${brightness}) contrast(${contrast}) saturate(${saturation})`;
+    const speed=value('speed'); if(Number.isFinite(speed)&&speed>=.5&&speed<=2) v.playbackRate=speed;
+  };
+  editor.querySelectorAll('[data-video-option]').forEach(input=>input.addEventListener('input',()=>{if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;updateVideoPreview();}));
   window.mindleApplyVideoSubtitle=text=>apply({subtitle:text},"자동 자막 적용");
   window.mindleVideoCommand=async text=>{
     if(/숏폼|초.*만들|속도|자르|전환|효과|밝게|오디오/.test(text)) {
