@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/pc-one-click-windows-build-e2e.yml"
       - "CURRENT_PC_WORK_**"
+      - "CURRENT_GENERAL_WORK_**"
       - "CURRENT_WORKER_COORDINATION_LOCK.json"
       - "scripts/one_click_bootstrap.py"
       - "scripts/build_one_click_runtime_layout.py"
@@ -39,7 +40,30 @@ env:
   MINDLE_DIAGNOSTIC_MODE: "1"
 
 jobs:
+  product-epoch-gate:
+    runs-on: ubuntu-latest
+    outputs:
+      package_allowed: ${{ steps.control.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - id: control
+        name: Honor active product Control Plane package lock
+        shell: python
+        run: |
+          import json, os
+          from pathlib import Path
+          state = json.loads(Path("CURRENT_PC_WORK_STATE.json").read_text())
+          general = json.loads(Path("CURRENT_GENERAL_WORK_STATE.json").read_text())
+          recovery = general.get("status") == "ACTIVE_OWNER_RUNTIME_RECOVERY"
+          allowed = state.get("package_build_allowed") is True and not recovery
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write("allowed=" + str(allowed).lower() + "\n")
+          print("package_build_allowed=" + str(allowed).lower())
   build-and-e2e:
+    needs: product-epoch-gate
+    if: needs.product-epoch-gate.outputs.package_allowed == 'true'
     runs-on: windows-latest
     timeout-minutes: 120
     steps:
