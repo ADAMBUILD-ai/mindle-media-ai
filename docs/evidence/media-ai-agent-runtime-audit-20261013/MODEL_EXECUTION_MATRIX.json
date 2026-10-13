@@ -1,0 +1,704 @@
+{
+  "active_model_count": 3,
+  "historical_operations": [
+    {
+      "operation": "segment",
+      "historical_job_id": "54338f7e-14ad-4673-a792-a6533d8a3a6f",
+      "model": {
+        "repo_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license": "apache-2.0",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 323476296,
+        "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+      },
+      "adapter": {
+        "id": "mindle.sam21.verified.cpu",
+        "version": "1.0.1",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "93a0609f-2148-4ff6-9718-f54bf25a51c1_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\93a0609f-2148-4ff6-9718-f54bf25a51c1_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+        "bytes": 189281,
+        "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+      },
+      "primary_output": {
+        "file_name": "photo_overlay.png",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\807a1071-69d8-4274-9528-d274a8c20d90\\sam_photo\\photo_overlay.png",
+        "bytes": 174450,
+        "sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91"
+      },
+      "outputs": [
+        {
+          "file_name": "photo_mask.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\807a1071-69d8-4274-9528-d274a8c20d90\\sam_photo\\photo_mask.png",
+          "bytes": 647,
+          "sha256": "c680453dad37442b24f08bcbec38ebba82609726e40b690df17bd179b043200b"
+        },
+        {
+          "file_name": "photo_overlay.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\807a1071-69d8-4274-9528-d274a8c20d90\\sam_photo\\photo_overlay.png",
+          "bytes": 174450,
+          "sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91"
+        }
+      ],
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\93a0609f-2148-4ff6-9718-f54bf25a51c1_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+        "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+        "prompt_point": [
+          125,
+          146
+        ],
+        "selected_mask_index": 1,
+        "foreground_fraction": 0.016512345679012344,
+        "elapsed_ms": 4584.36,
+        "outputs": [
+          {
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\807a1071-69d8-4274-9528-d274a8c20d90\\sam_photo\\photo_mask.png",
+            "sha256": "c680453dad37442b24f08bcbec38ebba82609726e40b690df17bd179b043200b",
+            "bytes": 647
+          },
+          {
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\807a1071-69d8-4274-9528-d274a8c20d90\\sam_photo\\photo_overlay.png",
+            "sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91",
+            "bytes": 174450
+          }
+        ]
+      },
+      "job_evidence": {
+        "job_id": "54338f7e-14ad-4673-a792-a6533d8a3a6f",
+        "evidence_id": "eacab2e7-9b0b-4001-9a01-535b27efefda",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-11T07:27:56.383373+00:00",
+        "started_at": "2026-10-11T07:27:56.383373+00:00",
+        "finished_at": "2026-10-11T07:27:56.383373+00:00",
+        "project_id": null,
+        "requested_operation": "segment",
+        "source_provenance": {
+          "source_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\93a0609f-2148-4ff6-9718-f54bf25a51c1_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "54338f7e-14ad-4673-a792-a6533d8a3a6f",
+          "evidence_id": "eacab2e7-9b0b-4001-9a01-535b27efefda",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.26100-SP0",
+          "hardware": "AMD64 Family 26 Model 2 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "mindle.sam21.verified.cpu",
+        "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license_source": "apache-2.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu",
+        "execution_context": {
+          "job_id": "54338f7e-14ad-4673-a792-a6533d8a3a6f",
+          "evidence_id": "eacab2e7-9b0b-4001-9a01-535b27efefda",
+          "lane": "photo",
+          "source_hashes": {
+            "source": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+          },
+          "nl_instruction": "왼쪽 인물을 실제로 분할해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "54338f7e-14ad-4673-a792-a6533d8a3a6f",
+            "evidence_id": "eacab2e7-9b0b-4001-9a01-535b27efefda",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "mindle.sam21.verified.cpu",
+            "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+            "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+          }
+        },
+        "output_artifact": {
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\807a1071-69d8-4274-9528-d274a8c20d90\\sam_photo\\photo_overlay.png",
+          "type": ".png",
+          "size_bytes": 174450,
+          "sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-13ce8518-1364-4444-b1e2-973b80ebfb80",
+          "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+          "output_sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91",
+          "output_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\807a1071-69d8-4274-9528-d274a8c20d90\\sam_photo\\photo_overlay.png",
+          "elapsed_ms": 4584.36
+        }
+      },
+      "evidence_scope": "HISTORICAL_WINDOWS_RUN_38121146106_SOURCE_8b28e712bf8e77052ca7efcc3459f7779597dc5a",
+      "fresh_inference_in_this_audit": false
+    },
+    {
+      "operation": "upscale",
+      "historical_job_id": "217c102e-8e84-4465-bdd1-9539113f1366",
+      "model": {
+        "repo_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license": "apache-2.0",
+        "weight_name": "single-image-super-resolution-1032.bin",
+        "weight_size_bytes": 119436,
+        "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+      },
+      "adapter": {
+        "id": "intel-open-model-zoo-sisr-1032",
+        "version": "1.1.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU"
+      },
+      "input": {
+        "file_name": "ce83b756-8c93-4253-bc51-47a8d5b30b21_f3b9b84a-f627-4ae5-bd99-f3f5904ea466_photo_overlay.png",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\ce83b756-8c93-4253-bc51-47a8d5b30b21_f3b9b84a-f627-4ae5-bd99-f3f5904ea466_photo_overlay.png",
+        "bytes": 172645,
+        "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f"
+      },
+      "primary_output": {
+        "file_name": "upscaled_4x.png",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\4b109ba5-7ab9-4f80-af00-ef3ea6669eaa\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 1912643,
+        "sha256": "a6dcc897c81f9cb581f8317a626e5f3e11eae5601cecb11fef7f1a8c5d0498f8"
+      },
+      "outputs": [
+        {
+          "file_name": "upscaled_4x.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\4b109ba5-7ab9-4f80-af00-ef3ea6669eaa\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 1912643,
+          "sha256": "a6dcc897c81f9cb581f8317a626e5f3e11eae5601cecb11fef7f1a8c5d0498f8"
+        }
+      ],
+      "runtime_result": {
+        "outputs": [
+          {
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\4b109ba5-7ab9-4f80-af00-ef3ea6669eaa\\intel_sisr_1032\\upscaled_4x.png",
+            "bytes": 1912643,
+            "sha256": "a6dcc897c81f9cb581f8317a626e5f3e11eae5601cecb11fef7f1a8c5d0498f8",
+            "dimensions": [
+              1920,
+              1080
+            ]
+          }
+        ],
+        "tiles": 1,
+        "scale": 4,
+        "elapsed_ms": 1390.9999999999627
+      },
+      "job_evidence": {
+        "job_id": "217c102e-8e84-4465-bdd1-9539113f1366",
+        "evidence_id": "bc5e02ae-bd80-4012-bcc3-701779c61ea0",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-11T07:28:00.511244+00:00",
+        "started_at": "2026-10-11T07:28:00.500379+00:00",
+        "finished_at": "2026-10-11T07:28:00.511244+00:00",
+        "project_id": null,
+        "requested_operation": "upscale",
+        "source_provenance": {
+          "source_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\ce83b756-8c93-4253-bc51-47a8d5b30b21_f3b9b84a-f627-4ae5-bd99-f3f5904ea466_photo_overlay.png",
+          "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "217c102e-8e84-4465-bdd1-9539113f1366",
+          "evidence_id": "bc5e02ae-bd80-4012-bcc3-701779c61ea0",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.26100-SP0",
+          "hardware": "AMD64 Family 26 Model 2 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "intel-open-model-zoo-sisr-1032",
+        "model_or_program_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license_source": "apache-2.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU",
+        "execution_context": {
+          "job_id": "217c102e-8e84-4465-bdd1-9539113f1366",
+          "evidence_id": "bc5e02ae-bd80-4012-bcc3-701779c61ea0",
+          "lane": "photo",
+          "source_hashes": {
+            "source": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f"
+          },
+          "nl_instruction": "사진을 실제 4배 업스케일해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "217c102e-8e84-4465-bdd1-9539113f1366",
+            "evidence_id": "bc5e02ae-bd80-4012-bcc3-701779c61ea0",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "intel-open-model-zoo-sisr-1032",
+            "model_or_program_id": "openvinotoolkit/open_model_zoo",
+            "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+          }
+        },
+        "output_artifact": {
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\4b109ba5-7ab9-4f80-af00-ef3ea6669eaa\\intel_sisr_1032\\upscaled_4x.png",
+          "type": ".png",
+          "size_bytes": 1912643,
+          "sha256": "a6dcc897c81f9cb581f8317a626e5f3e11eae5601cecb11fef7f1a8c5d0498f8",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-006539e5-97b7-4793-8742-f567df322d8e",
+          "input_sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+          "output_sha256": "a6dcc897c81f9cb581f8317a626e5f3e11eae5601cecb11fef7f1a8c5d0498f8",
+          "output_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\4b109ba5-7ab9-4f80-af00-ef3ea6669eaa\\intel_sisr_1032\\upscaled_4x.png",
+          "elapsed_ms": 1390.9999999999627
+        }
+      },
+      "evidence_scope": "HISTORICAL_WINDOWS_RUN_38121146106_SOURCE_8b28e712bf8e77052ca7efcc3459f7779597dc5a",
+      "fresh_inference_in_this_audit": false
+    },
+    {
+      "operation": "tracking",
+      "historical_job_id": "448ea83d-6254-49e0-8a58-e0c0d20a5d67",
+      "model": {
+        "repo_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license": "apache-2.0",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 323476296,
+        "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+      },
+      "adapter": {
+        "id": "mindle.sam21.verified.cpu",
+        "version": "1.0.1",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "4b24165c-8be5-4daa-be0b-9a86c2e12685_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\4b24165c-8be5-4daa-be0b-9a86c2e12685_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "track_1_overlays.mp4",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_overlays.mp4",
+        "bytes": 63331,
+        "sha256": "27620cf0ae4f58e0220dc512d8e2e1163a5fdab5041bae6e4c941d998395d873"
+      },
+      "outputs": [
+        {
+          "file_name": "track_1_frame_00_mask.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_00_mask.png",
+          "bytes": 1592,
+          "sha256": "e425e851eb4f6582950553d77bc75842eabf679fb82a4a4f68f90543208e292c"
+        },
+        {
+          "file_name": "track_1_frame_00_overlay.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_00_overlay.png",
+          "bytes": 223743,
+          "sha256": "b86c5b3ba304b28f0431ade64cf3de9fbe14068d172dc021726a3db47c89c6a8"
+        },
+        {
+          "file_name": "track_1_frame_01_mask.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_01_mask.png",
+          "bytes": 365,
+          "sha256": "8977ace92ae135fdc8aeca2b30b47b90ee4a12851e826f08ee494542ac04a158"
+        },
+        {
+          "file_name": "track_1_frame_01_overlay.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_01_overlay.png",
+          "bytes": 154413,
+          "sha256": "3913ab4482b84cb8c56cfa27b0d1cb4a5c9d5df894f17257e4c9c7c3d1c910c6"
+        },
+        {
+          "file_name": "track_1_frame_02_mask.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_02_mask.png",
+          "bytes": 2065,
+          "sha256": "fd729c57ed04d9feceb9c478bba45073134b5498d1cd4cd8aca4fa41cc94584e"
+        },
+        {
+          "file_name": "track_1_frame_02_overlay.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_02_overlay.png",
+          "bytes": 152020,
+          "sha256": "a5182049023b67696e05dd7d97e8598df3a9addbc28ceb70b4381d4a4a7b37cc"
+        },
+        {
+          "file_name": "track_1_frame_03_mask.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_03_mask.png",
+          "bytes": 1403,
+          "sha256": "7ade0725633746cca314408e4cccd2957886637d356f024a662970bf336d9dea"
+        },
+        {
+          "file_name": "track_1_frame_03_overlay.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_03_overlay.png",
+          "bytes": 181933,
+          "sha256": "3d514968fac3fdab52a4cba86899bee9fc9b41b92ad4d9ebaa540603e7299688"
+        },
+        {
+          "file_name": "track_1_overlays.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_overlays.mp4",
+          "bytes": 63331,
+          "sha256": "27620cf0ae4f58e0220dc512d8e2e1163a5fdab5041bae6e4c941d998395d873"
+        },
+        {
+          "file_name": "tracking.json",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\tracking.json",
+          "bytes": 3757,
+          "sha256": "b50772363c0edcf8daae1cd76a7b938092f20f2d3241d6473aa16c1c9dbf0ccd"
+        },
+        {
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_overlays_browser_h264.mp4",
+          "file_name": "track_1_overlays_browser_h264.mp4",
+          "bytes": 57636,
+          "sha256": "656fc438efbfbae456cbb4f4549e2ace53236785bff1ac070a15d580e94b1cb0"
+        }
+      ],
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\4b24165c-8be5-4daa-be0b-9a86c2e12685_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+        "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+        "track_id": 1,
+        "sampled_frames": 4,
+        "samples": [
+          {
+            "track_id": 1,
+            "source_frame_index": 0,
+            "prompt_point": [
+              256,
+              146
+            ],
+            "centroid": [
+              253,
+              142
+            ],
+            "selected_mask_index": 0,
+            "foreground_fraction": 0.14438459897610922,
+            "iou_with_previous_sample": null,
+            "elapsed_ms": 4806.48,
+            "mask_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_00_mask.png",
+            "mask_sha256": "e425e851eb4f6582950553d77bc75842eabf679fb82a4a4f68f90543208e292c",
+            "overlay_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_00_overlay.png",
+            "overlay_sha256": "b86c5b3ba304b28f0431ade64cf3de9fbe14068d172dc021726a3db47c89c6a8"
+          },
+          {
+            "track_id": 1,
+            "source_frame_index": 41,
+            "prompt_point": [
+              253,
+              142
+            ],
+            "centroid": [
+              249,
+              136
+            ],
+            "selected_mask_index": 2,
+            "foreground_fraction": 0.003359641638225256,
+            "iou_with_previous_sample": 0.02326869806094183,
+            "elapsed_ms": 4753.06,
+            "mask_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_01_mask.png",
+            "mask_sha256": "8977ace92ae135fdc8aeca2b30b47b90ee4a12851e826f08ee494542ac04a158",
+            "overlay_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_01_overlay.png",
+            "overlay_sha256": "3913ab4482b84cb8c56cfa27b0d1cb4a5c9d5df894f17257e4c9c7c3d1c910c6"
+          },
+          {
+            "track_id": 1,
+            "source_frame_index": 83,
+            "prompt_point": [
+              249,
+              136
+            ],
+            "centroid": [
+              240,
+              182
+            ],
+            "selected_mask_index": 0,
+            "foreground_fraction": 0.13604548848122866,
+            "iou_with_previous_sample": 0.024694987505512273,
+            "elapsed_ms": 4487.97,
+            "mask_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_02_mask.png",
+            "mask_sha256": "fd729c57ed04d9feceb9c478bba45073134b5498d1cd4cd8aca4fa41cc94584e",
+            "overlay_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_02_overlay.png",
+            "overlay_sha256": "a5182049023b67696e05dd7d97e8598df3a9addbc28ceb70b4381d4a4a7b37cc"
+          },
+          {
+            "track_id": 1,
+            "source_frame_index": 124,
+            "prompt_point": [
+              240,
+              182
+            ],
+            "centroid": [
+              251,
+              178
+            ],
+            "selected_mask_index": 0,
+            "foreground_fraction": 0.12669981868600683,
+            "iou_with_previous_sample": 0.716052070181549,
+            "elapsed_ms": 4839.37,
+            "mask_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_03_mask.png",
+            "mask_sha256": "7ade0725633746cca314408e4cccd2957886637d356f024a662970bf336d9dea",
+            "overlay_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_frame_03_overlay.png",
+            "overlay_sha256": "3d514968fac3fdab52a4cba86899bee9fc9b41b92ad4d9ebaa540603e7299688"
+          }
+        ],
+        "outputs": [
+          {
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_overlays.mp4",
+            "sha256": "27620cf0ae4f58e0220dc512d8e2e1163a5fdab5041bae6e4c941d998395d873",
+            "bytes": 63331
+          },
+          {
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\tracking.json",
+            "sha256": "b50772363c0edcf8daae1cd76a7b938092f20f2d3241d6473aa16c1c9dbf0ccd",
+            "bytes": 3757
+          }
+        ]
+      },
+      "job_evidence": {
+        "job_id": "448ea83d-6254-49e0-8a58-e0c0d20a5d67",
+        "evidence_id": "7688f1e1-2b9a-4dc4-a8ab-59bf53e6b837",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-11T07:28:25.102058+00:00",
+        "started_at": "2026-10-11T07:28:25.098031+00:00",
+        "finished_at": "2026-10-11T07:28:25.102058+00:00",
+        "project_id": null,
+        "requested_operation": "tracking",
+        "source_provenance": {
+          "source_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\4b24165c-8be5-4daa-be0b-9a86c2e12685_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "448ea83d-6254-49e0-8a58-e0c0d20a5d67",
+          "evidence_id": "7688f1e1-2b9a-4dc4-a8ab-59bf53e6b837",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.26100-SP0",
+          "hardware": "AMD64 Family 26 Model 2 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "mindle.sam21.verified.cpu",
+        "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license_source": "apache-2.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu",
+        "execution_context": {
+          "job_id": "448ea83d-6254-49e0-8a58-e0c0d20a5d67",
+          "evidence_id": "7688f1e1-2b9a-4dc4-a8ab-59bf53e6b837",
+          "lane": "video",
+          "source_hashes": {
+            "source": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+          },
+          "nl_instruction": "대상을 실제 추적해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "448ea83d-6254-49e0-8a58-e0c0d20a5d67",
+            "evidence_id": "7688f1e1-2b9a-4dc4-a8ab-59bf53e6b837",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "mindle.sam21.verified.cpu",
+            "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+            "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+          }
+        },
+        "output_artifact": {
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_overlays.mp4",
+          "type": ".mp4",
+          "size_bytes": 63331,
+          "sha256": "27620cf0ae4f58e0220dc512d8e2e1163a5fdab5041bae6e4c941d998395d873",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-01f10c23-47ee-4bf2-90ef-537e13c1276d",
+          "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+          "output_sha256": "27620cf0ae4f58e0220dc512d8e2e1163a5fdab5041bae6e4c941d998395d873",
+          "output_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ec9bcf36-37c7-4866-8cf3-1f51a45174e1\\sam_video\\track_1_overlays.mp4",
+          "elapsed_ms": 0.0
+        }
+      },
+      "evidence_scope": "HISTORICAL_WINDOWS_RUN_38121146106_SOURCE_8b28e712bf8e77052ca7efcc3459f7779597dc5a",
+      "fresh_inference_in_this_audit": false
+    },
+    {
+      "operation": "transcribe",
+      "historical_job_id": "89c8a299-9d8f-45d6-899a-8877f378f416",
+      "model": {
+        "repo_id": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "license": "mit",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 966995080,
+        "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+      },
+      "adapter": {
+        "id": "mindle.whisper.ko.verified.cpu",
+        "version": "1.0.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "b36a8fcb-03a0-4744-a78c-8caa501daea1_49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\b36a8fcb-03a0-4744-a78c-8caa501daea1_49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav",
+        "bytes": 798778,
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      },
+      "primary_output": {
+        "file_name": "korean_transcript.json",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\2b769c70-f82d-4d73-bd4d-6a3d508d2a3a\\whisper\\korean_transcript.json",
+        "bytes": 260,
+        "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+      },
+      "outputs": [
+        {
+          "file_name": "korean_transcript.json",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\2b769c70-f82d-4d73-bd4d-6a3d508d2a3a\\whisper\\korean_transcript.json",
+          "bytes": 260,
+          "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+        }
+      ],
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\b36a8fcb-03a0-4744-a78c-8caa501daea1_49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav",
+        "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+        "sample_rate": 16000,
+        "duration_seconds": 12.48,
+        "reference": null,
+        "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+        "word_error_rate": null,
+        "elapsed_ms": 4167.82,
+        "outputs": [
+          {
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\2b769c70-f82d-4d73-bd4d-6a3d508d2a3a\\whisper\\korean_transcript.json",
+            "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+            "bytes": 260
+          }
+        ]
+      },
+      "job_evidence": {
+        "job_id": "89c8a299-9d8f-45d6-899a-8877f378f416",
+        "evidence_id": "2a7e6ea7-ea45-44de-be7b-031bcba9b989",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-11T07:28:38.431490+00:00",
+        "started_at": "2026-10-11T07:28:38.431490+00:00",
+        "finished_at": "2026-10-11T07:28:38.431490+00:00",
+        "project_id": null,
+        "requested_operation": "transcribe",
+        "source_provenance": {
+          "source_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\b36a8fcb-03a0-4744-a78c-8caa501daea1_49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav",
+          "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "89c8a299-9d8f-45d6-899a-8877f378f416",
+          "evidence_id": "2a7e6ea7-ea45-44de-be7b-031bcba9b989",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.26100-SP0",
+          "hardware": "AMD64 Family 26 Model 2 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "mindle.whisper.ko.verified.cpu",
+        "model_or_program_id": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "license_source": "mit",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu",
+        "execution_context": {
+          "job_id": "89c8a299-9d8f-45d6-899a-8877f378f416",
+          "evidence_id": "2a7e6ea7-ea45-44de-be7b-031bcba9b989",
+          "lane": "korean_audio",
+          "source_hashes": {
+            "source": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+          },
+          "nl_instruction": "한국어 음성을 실제 텍스트로 변환해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "89c8a299-9d8f-45d6-899a-8877f378f416",
+            "evidence_id": "2a7e6ea7-ea45-44de-be7b-031bcba9b989",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "mindle.whisper.ko.verified.cpu",
+            "model_or_program_id": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+          }
+        },
+        "output_artifact": {
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\2b769c70-f82d-4d73-bd4d-6a3d508d2a3a\\whisper\\korean_transcript.json",
+          "type": ".json",
+          "size_bytes": 260,
+          "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-1b64e694-f6db-43b5-985e-48b10164d776",
+          "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+          "output_sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+          "output_path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\2b769c70-f82d-4d73-bd4d-6a3d508d2a3a\\whisper\\korean_transcript.json",
+          "elapsed_ms": 4167.82
+        }
+      },
+      "evidence_scope": "HISTORICAL_WINDOWS_RUN_38121146106_SOURCE_8b28e712bf8e77052ca7efcc3459f7779597dc5a",
+      "fresh_inference_in_this_audit": false
+    }
+  ],
+  "inference_reruns": 0,
+  "owner_pc_model_execution_verified": false
+}
