@@ -348,6 +348,14 @@ jobs:
           python -m playwright install chromium
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+      - name: Prepare small real video fixture for browser interaction
+        shell: pwsh
+        run: |
+          $source = "docs/evidence/media-ai-general-work-final-self-audit-20261008/KOREAN_SUBTITLE_ACTUAL.mp4"
+          $target = Get-ChildItem "build/general-audit" -Recurse -File -Filter "448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4" | Select-Object -First 1
+          if (-not $target) { throw "browser video fixture target missing" }
+          Copy-Item $source $target.FullName -Force
+
       - name: Real browser final UI and interaction acceptance
         shell: pwsh
         run: |
