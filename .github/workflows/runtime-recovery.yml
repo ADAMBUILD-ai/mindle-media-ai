@@ -8,6 +8,7 @@ on:
       - src/media_ai/**
       - ui/**
       - model_scout/run_runtime_recovery_browser.py
+      - model_scout/run_live_agent_engines.py
   workflow_dispatch:
 permissions:
   contents: read
