@@ -109,6 +109,10 @@ function bindEditor(kind) {
   });
   panel.querySelector(".send-button").addEventListener("click", submit);
   editor.querySelector("[data-action$='reference']").addEventListener("click", () => fileInput.click());
+  editor.addEventListener('mindle:restore-references',event=>{
+    while(state.references.length) state.remove(0);
+    for(const file of event.detail.files) state.attach({name:file.name,type:file.type,preview:URL.createObjectURL(file),file});sync();
+  });
   fileInput.addEventListener("change", (event) => {
     [...event.target.files].forEach((file) => {const preview=URL.createObjectURL(file);if(!state.attach({ name:file.name,type:file.type,preview,file })) URL.revokeObjectURL(preview);}); fileInput.value = ""; sync();
   });

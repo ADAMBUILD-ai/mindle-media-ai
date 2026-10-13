@@ -436,7 +436,8 @@ class ProductJobService:
             ref=self._store_input(str(reference['filename']),str(reference['content_base64']))
             from PIL import Image
             with Image.open(ref) as image:image.verify()
-            job.reference_files.append(str(ref));reference_records.append(file_record(ref))
+            destination=job_dir/'references'/ref.name;destination.parent.mkdir(exist_ok=True);shutil.copy2(ref,destination)
+            job.reference_files.append(str(destination));reference_records.append(file_record(destination)|{'original_filename':str(reference['filename']).replace('\\','/').rsplit('/',1)[-1]})
         adapter = None
         job.transition(JobState.VALIDATING)
         if hasattr(self,'progress_hook'):self.progress_hook({'status':'RUNNING','job_id':job.id,'state':'validating','operation':operation,'request_id':request.get('request_id')})

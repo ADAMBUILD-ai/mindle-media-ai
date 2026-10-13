@@ -232,6 +232,11 @@
           message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);
         }
       }
+      for(const kind of ['photo','video']) {
+        const referenceJob=[...result.project.jobs].reverse().find(job=>job.lane===kind&&job.reference_urls?.length);
+        const files=[];for(const reference of referenceJob?.reference_urls||[]) {const r=await fetch(reference.url);if(!r.ok) throw new Error('저장된 참고 이미지를 읽을 수 없습니다.');const blob=await r.blob();files.push(new File([blob],reference.name,{type:blob.type}));}
+        document.querySelector(`[data-editor="${kind}"]`).dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files}}));
+      }
       const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio');
       if (transcript) {
         const editor = document.querySelector('[data-editor="video"]');

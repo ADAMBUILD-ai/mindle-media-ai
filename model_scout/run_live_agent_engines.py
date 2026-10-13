@@ -34,7 +34,7 @@ def main():
         completed=set()
         if prior.is_file():
             checkpoint=json.loads(prior.read_text())
-            assert checkpoint['source_commit']=='21de52169e1c2f5fe4ff3b119c2a1c6b13e50a13'
+            assert checkpoint['source_commit']=='ac0ee3c4eaa6c708712f3cc3467cf155ce710606'
             shutil.copytree(resume/'live_agent_engine_data/jobs',ROOT/'live_agent_engine_data/jobs',dirs_exist_ok=True)
             def rebase(value):
                 if isinstance(value,dict):return {k:rebase(v) for k,v in value.items()}
@@ -42,7 +42,7 @@ def main():
                 if isinstance(value,str) and '/live_agent_engine_data/' in value:return str(ROOT/'live_agent_engine_data'/value.split('/live_agent_engine_data/',1)[1])
                 return value
             for previous in checkpoint['jobs']:
-                if previous['operation']=='transcribe':continue
+                if previous['operation']=='segment':continue
                 item=rebase(previous)
                 for output in item['outputs']:
                     assert hashlib.sha256(Path(output['path']).read_bytes()).hexdigest()==output['sha256']
@@ -50,7 +50,7 @@ def main():
                 original_source=frozen/'inputs'/Path(original['input']['path']).name
                 destination=Path(item['input']['path']);destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(original_source,destination)
                 assert hashlib.sha256(destination.read_bytes()).hexdigest()==item['input']['sha256']
-                item['verification_provenance']='REUSED_CURRENT_REPAIR_RUN_38423892003_SAME_ENGINE_IMPLEMENTATION'
+                item['verification_provenance']='REUSED_CURRENT_REPAIR_RUN_38425586338_SAME_ENGINE_IMPLEMENTATION'
                 service.records[item['job_id']]=item;receipt['jobs'].append(item);completed.add(item['operation'])
         for operation in ('segment','upscale','tracking','transcribe'):
             if operation in completed:continue
