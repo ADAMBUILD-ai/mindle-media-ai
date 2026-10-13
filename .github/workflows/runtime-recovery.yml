@@ -1,0 +1,46 @@
+name: MINDLE actual runtime recovery
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths:
+      - .github/workflows/runtime-recovery.yml
+      - src/media_ai/video_analysis.py
+      - model_scout/run_runtime_recovery_browser.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src
+      HF_HUB_OFFLINE: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      MINDLE_DEFER_EXTERNAL_SHORTFORM: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-cjk
+      - run: python -m pip install '.[dev]' selenium==4.35.0
+      - name: Full regression
+        run: |
+          mkdir -p docs/evidence/media-ai-runtime-recovery-20261013
+          set -o pipefail
+          python scripts/validate_general_work_control_plane.py
+          python -m pytest -q 2>&1 | tee docs/evidence/media-ai-runtime-recovery-20261013/REGRESSION.log
+          node --test ui/interaction.test.js ui/ssot_structure.test.js
+          python -m compileall -q src model_scout/run_runtime_recovery_browser.py
+          python -m pip check
+      - name: Actual approved UI recovery runtime
+        run: python model_scout/run_runtime_recovery_browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mindle-runtime-recovery-20261013
+          retention-days: 90
+          path: |
+            docs/evidence/media-ai-runtime-recovery-20261013/**
+            runtime_recovery_data/**
