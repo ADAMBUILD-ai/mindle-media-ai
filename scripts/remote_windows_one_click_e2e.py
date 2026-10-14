@@ -140,6 +140,9 @@ def main() -> int:
     tracking = post_file(base, "/api/jobs", "video", "tracking", "대상을 실제 추적해줘", tracking_input)
     transcript = post_file(base, "/api/jobs", "video", "transcribe", "한국어 음성을 실제 텍스트로 변환해줘", stt_input)
 
+    if transcript.get("lane") != "korean_audio" or transcript.get("requested_lane") != "video":
+        raise RuntimeError("STT receipt must retain requested video lane but return canonical korean_audio lane")
+
     for name, record in {
         "segment": segment,
         "upscale": upscale,
@@ -237,3 +240,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

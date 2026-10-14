@@ -442,9 +442,17 @@ jobs:
             $ffmpeg = Get-Content "$env:EVIDENCE_DIR/FFMPEG_DISTRIBUTION_AUDIT.json" -Raw | ConvertFrom-Json
           }
           $e2ePass = Test-Path "$env:EVIDENCE_DIR/REMOTE_WINDOWS_RUNTIME_E2E.json"
+          $browserPass = $false
+          if (Test-Path "$env:EVIDENCE_DIR/FINAL_UI_BROWSER_ACCEPTANCE.json") {
+            $browserReceipt = Get-Content "$env:EVIDENCE_DIR/FINAL_UI_BROWSER_ACCEPTANCE.json" -Raw | ConvertFrom-Json
+            $browserPass = $browserReceipt.status -eq "FINAL_UI_BROWSER_FUNCTION_PASS"
+          }
+          $pipelinePass = "${{ job.status }}" -eq "success"
           $ffmpegClosed = $ffmpeg -and $ffmpeg.source_obligation_status -eq "CLOSED_BY_EXACT_SOURCE_NOTICE"
-          $result = if ($e2ePass -and $vc -and $vc.redistribution_closed -and $ffmpegClosed) {
-            "PASS_REMOTE_WINDOWS_ONE_CLICK_BUILD_AND_AUTOMATION_READY_LOCAL_ACCEPTANCE_PENDING"
+          $result = if ($e2ePass -and $browserPass -and $pipelinePass -and $vc -and $vc.redistribution_closed -and $ffmpegClosed) {
+            "PASS_CORRECTED_WINDOWS_CANDIDATE_RUNTIME_VERIFIED_LOCAL_ACCEPTANCE_PENDING"
+          } elseif ($e2ePass -and -not $browserPass) {
+            "PARTIAL_MODELS_PASS_BROWSER_NOT_PASS"
           } elseif ($e2ePass) {
             "BLOCKED_RUNTIME_REDISTRIBUTION_OR_DEPENDENCY"
           } else {
@@ -456,6 +464,8 @@ jobs:
             local_acceptance = "PENDING"
             exe_built = (Test-Path "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")
             remote_windows_e2e = if ($e2ePass) { "PASS" } else { "NOT_PASS" }
+            browser_pass = [bool]$browserPass
+            pipeline_pass = [bool]$pipelinePass
             vc_redistribution_closed = if ($vc) { [bool]$vc.redistribution_closed } else { $false }
             ffmpeg_source_obligation_closed = [bool]$ffmpegClosed
             final_pass_claimed = $false

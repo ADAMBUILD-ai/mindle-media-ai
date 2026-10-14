@@ -32,6 +32,7 @@
     state[result.lane].mindleAudio=result.runtime_result.options||{};
   };
   const preview = (editor, result) => {
+    if(result.operation==="transcribe") result={...result,lane:"korean_audio"};
     const host = editor.querySelector("[data-preview]"); host.replaceChildren();
     const output = result.preview_output || result.primary_output;
     let element;
@@ -41,12 +42,14 @@
     element.dataset.jobId = result.job_id; element.dataset.outputSha256 = output.sha256; host.append(element);
     if(result.lane==='video') {
       const clock=seconds=>new Date(Math.max(0,seconds||0)*1000).toISOString().slice(11,19);
-      element.addEventListener('error',()=>{ host.dataset.previewStatus='media-error'; message(editor, '영상 미리보기를 재생할 수 없습니다 · MediaError '+(element.error?.code || 0), true); });
+      element.addEventListener('error',()=>{ if(!host.contains(element)) return;host.dataset.previewStatus='media-error'; message(editor, '영상 미리보기를 재생할 수 없습니다 · MediaError '+(element.error?.code || 0), true); });
       element.addEventListener('loadedmetadata',()=>{
+        if(!host.contains(element)) return;
         editor.querySelector('[data-video-duration]').textContent='/ '+clock(element.duration);
         editor.querySelector('.timeline-ruler').textContent=Array.from({length:6},(_,i)=>clock(element.duration*i/5)).join('　');
       });
       element.addEventListener('timeupdate',()=>{
+        if(!host.contains(element)) return;
         editor.querySelector('[data-video-time]').textContent=clock(element.currentTime);
         editor.querySelector('[data-video-seek]').value=element.duration?element.currentTime/element.duration*100:0;
       });
@@ -219,9 +222,10 @@
       state.jobs = result.project.job_ids;
       state.photo=state.video=state.audio=null;
       document.querySelectorAll('[data-preview]').forEach(host=>host.replaceChildren());
-      for (const job of result.project.jobs) {
+      for (const storedJob of result.project.jobs) {
+        const job=storedJob.operation==="transcribe"?{...storedJob,lane:"korean_audio"}:storedJob;
         // A saved transcript must not replace an available VIDEO result preview.
-        if (job.lane === 'korean_audio' && result.project.jobs.some((item) => item.lane === 'video')) continue;
+        if (job.lane === 'korean_audio' && result.project.jobs.some((item) => item.lane === 'video' && item.operation!=='transcribe')) continue;
         const kind = job.lane === 'photo' ? 'photo' : 'video';
         const editor = document.querySelector(`[data-editor="${kind}"]`);
         if (editor) {
@@ -239,7 +243,7 @@
         const files=[];for(const reference of referenceJob?.reference_urls||[]) {const r=await fetch(reference.url);if(!r.ok) throw new Error('저장된 참고 이미지를 읽을 수 없습니다.');const blob=await r.blob();files.push(new File([blob],reference.name,{type:blob.type}));}
         document.querySelector(`[data-editor="${kind}"]`).dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files}}));
       }
-      const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio');
+      const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio' || job.operation==='transcribe');
       if (transcript) {
         if(transcript.input_url) {const r=await fetch(transcript.input_url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');const blob=await r.blob();state.audio=new File([blob],transcript.input.file_name||'saved_audio.wav',{type:'audio/wav'});}
         const editor = document.querySelector('[data-editor="video"]');

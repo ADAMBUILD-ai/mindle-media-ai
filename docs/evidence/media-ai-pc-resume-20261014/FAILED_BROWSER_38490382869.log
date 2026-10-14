@@ -1,0 +1,1219 @@
+﻿2026-10-14T00:28:50.6408461Z Current runner version: '2.337.0'
+2026-10-14T00:28:50.6438958Z ##[group]Runner Image Provisioner
+2026-10-14T00:28:50.6440114Z Hosted Compute Agent
+2026-10-14T00:28:50.6441278Z Version: 20260901.588
+2026-10-14T00:28:50.6442186Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-14T00:28:50.6443105Z Build Date: 2026-09-01T19:56:44Z
+2026-10-14T00:28:50.6443910Z Worker ID: {d40886dc-7295-4130-b1c0-2917a5e8a804}
+2026-10-14T00:28:50.6444844Z Azure Region: centralus
+2026-10-14T00:28:50.6445531Z ##[endgroup]
+2026-10-14T00:28:50.6447665Z ##[group]Operating System
+2026-10-14T00:28:50.6448511Z Microsoft Windows Server 2025
+2026-10-14T00:28:50.6449308Z 10.0.26100
+2026-10-14T00:28:50.6449998Z Datacenter
+2026-10-14T00:28:50.6450637Z ##[endgroup]
+2026-10-14T00:28:50.6451367Z ##[group]Runner Image
+2026-10-14T00:28:50.6452116Z Image: windows-2025-vs2026
+2026-10-14T00:28:50.6452811Z Version: 20260925.250.1
+2026-10-14T00:28:50.6454676Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20260925.250/images/windows/Windows2025-VS2026-Readme.md
+2026-10-14T00:28:50.6456866Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20260925.250
+2026-10-14T00:28:50.6458160Z ##[endgroup]
+2026-10-14T00:28:50.6459669Z ##[group]GITHUB_TOKEN Permissions
+2026-10-14T00:28:50.6462922Z Actions: read
+2026-10-14T00:28:50.6463671Z Contents: write
+2026-10-14T00:28:50.6464422Z Metadata: read
+2026-10-14T00:28:50.6465119Z ##[endgroup]
+2026-10-14T00:28:50.6467940Z Secret source: Actions
+2026-10-14T00:28:50.6469238Z Cache mode: write
+2026-10-14T00:28:50.6470169Z Prepare workflow directory
+2026-10-14T00:28:50.6932421Z Prepare all required actions
+2026-10-14T00:28:50.6994504Z Getting action download info
+2026-10-14T00:28:50.9353251Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-14T00:28:51.0541627Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-14T00:28:51.1799521Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-14T00:28:51.6177751Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-14T00:28:51.9630335Z Complete job name: build-and-e2e
+2026-10-14T00:28:52.1522200Z ##[group]Run actions/checkout@v4
+2026-10-14T00:28:52.1523746Z with:
+2026-10-14T00:28:52.1524358Z   repository: ADAMBUILD-ai/mindle-media-ai
+2026-10-14T00:28:52.1529116Z   token: ***
+2026-10-14T00:28:52.1529695Z   ssh-strict: true
+2026-10-14T00:28:52.1530247Z   ssh-user: git
+2026-10-14T00:28:52.1530856Z   persist-credentials: true
+2026-10-14T00:28:52.1531444Z   clean: true
+2026-10-14T00:28:52.1531990Z   sparse-checkout-cone-mode: true
+2026-10-14T00:28:52.1532584Z   fetch-depth: 1
+2026-10-14T00:28:52.1533123Z   fetch-tags: false
+2026-10-14T00:28:52.1533721Z   show-progress: true
+2026-10-14T00:28:52.1534248Z   lfs: false
+2026-10-14T00:28:52.1534788Z   submodules: false
+2026-10-14T00:28:52.1535408Z   set-safe-directory: true
+2026-10-14T00:28:52.1536071Z   allow-unsafe-pr-checkout: false
+2026-10-14T00:28:52.1536960Z env:
+2026-10-14T00:28:52.1537707Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:28:52.1538759Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:28:52.1539402Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:28:52.1540356Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:28:52.1542412Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:28:52.1544124Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:28:52.1545180Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:28:52.1545763Z ##[endgroup]
+2026-10-14T00:28:52.2985711Z Syncing repository: ADAMBUILD-ai/mindle-media-ai
+2026-10-14T00:28:52.2991003Z ##[group]Getting Git version info
+2026-10-14T00:28:52.2992016Z Working directory is 'D:\a\mindle-media-ai\mindle-media-ai'
+2026-10-14T00:28:52.3739956Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-14T00:28:52.7122500Z git version 2.55.0.windows.5
+2026-10-14T00:28:52.7176874Z ##[endgroup]
+2026-10-14T00:28:52.7200616Z Temporarily overriding HOME='D:\a\_temp\89a46d8e-f519-478b-8dbd-b256b547955e' before making global git config changes
+2026-10-14T00:28:52.7203840Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T00:28:52.7213661Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mindle-media-ai\mindle-media-ai
+2026-10-14T00:28:52.7824477Z Deleting the contents of 'D:\a\mindle-media-ai\mindle-media-ai'
+2026-10-14T00:28:52.7830963Z ##[group]Initializing the repository
+2026-10-14T00:28:52.7841524Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\mindle-media-ai\mindle-media-ai
+2026-10-14T00:28:52.8653069Z Initialized empty Git repository in D:/a/mindle-media-ai/mindle-media-ai/.git/
+2026-10-14T00:28:52.8702680Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/ADAMBUILD-ai/mindle-media-ai
+2026-10-14T00:28:52.9327322Z ##[endgroup]
+2026-10-14T00:28:52.9330212Z ##[group]Disabling automatic garbage collection
+2026-10-14T00:28:52.9338790Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-14T00:28:52.9633262Z ##[endgroup]
+2026-10-14T00:28:52.9635205Z ##[group]Setting up auth
+2026-10-14T00:28:52.9646661Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T00:28:52.9951377Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-14T00:28:54.4446790Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T00:28:54.4767445Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-14T00:28:55.0447815Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T00:28:55.0760037Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-14T00:28:55.6328163Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-14T00:28:55.6647275Z ##[endgroup]
+2026-10-14T00:28:55.6648407Z ##[group]Fetching the repository
+2026-10-14T00:28:55.6661375Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d0002cd864dab4a2de8abf62b4c394f7ac4bce30:refs/remotes/origin/feature/ad-shortform-bridge-p0-20260926
+2026-10-14T00:28:59.7197343Z From https://github.com/ADAMBUILD-ai/mindle-media-ai
+2026-10-14T00:28:59.7198766Z  * [new ref]         d0002cd864dab4a2de8abf62b4c394f7ac4bce30 -> origin/feature/ad-shortform-bridge-p0-20260926
+2026-10-14T00:28:59.7248869Z ##[endgroup]
+2026-10-14T00:28:59.7249760Z ##[group]Determining the checkout info
+2026-10-14T00:28:59.7251453Z ##[endgroup]
+2026-10-14T00:28:59.7262836Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-14T00:28:59.7713524Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-14T00:28:59.8022372Z ##[group]Checking out the ref
+2026-10-14T00:28:59.8031582Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B feature/ad-shortform-bridge-p0-20260926 refs/remotes/origin/feature/ad-shortform-bridge-p0-20260926
+2026-10-14T00:29:01.2340417Z Updating files:  80% (829/1027)
+2026-10-14T00:29:01.2517246Z Updating files:  81% (832/1027)
+2026-10-14T00:29:01.2667291Z Updating files:  82% (843/1027)
+2026-10-14T00:29:01.6339493Z Updating files:  83% (853/1027)
+2026-10-14T00:29:01.6526825Z Updating files:  84% (863/1027)
+2026-10-14T00:29:01.6638925Z Updating files:  85% (873/1027)
+2026-10-14T00:29:01.6665799Z Updating files:  86% (884/1027)
+2026-10-14T00:29:01.6695247Z Updating files:  87% (894/1027)
+2026-10-14T00:29:01.6713183Z Updating files:  88% (904/1027)
+2026-10-14T00:29:01.6734839Z Updating files:  89% (915/1027)
+2026-10-14T00:29:01.6754910Z Updating files:  90% (925/1027)
+2026-10-14T00:29:01.6772753Z Updating files:  91% (935/1027)
+2026-10-14T00:29:01.6793359Z Updating files:  92% (945/1027)
+2026-10-14T00:29:01.6822881Z Updating files:  93% (956/1027)
+2026-10-14T00:29:01.6850236Z Updating files:  94% (966/1027)
+2026-10-14T00:29:01.6880931Z Updating files:  95% (976/1027)
+2026-10-14T00:29:01.6901099Z Updating files:  96% (986/1027)
+2026-10-14T00:29:01.6927790Z Updating files:  97% (997/1027)
+2026-10-14T00:29:01.7199564Z Updating files:  98% (1007/1027)
+2026-10-14T00:29:01.7225034Z Updating files:  99% (1017/1027)
+2026-10-14T00:29:01.7227840Z Updating files: 100% (1027/1027)
+2026-10-14T00:29:01.7229064Z Updating files: 100% (1027/1027), done.
+2026-10-14T00:29:01.7386126Z Switched to a new branch 'feature/ad-shortform-bridge-p0-20260926'
+2026-10-14T00:29:01.7399639Z branch 'feature/ad-shortform-bridge-p0-20260926' set up to track 'origin/feature/ad-shortform-bridge-p0-20260926'.
+2026-10-14T00:29:01.7723788Z ##[endgroup]
+2026-10-14T00:29:01.8105641Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-14T00:29:01.8417635Z d0002cd864dab4a2de8abf62b4c394f7ac4bce30
+2026-10-14T00:29:01.8979223Z ##[group]Run actions/setup-python@v5
+2026-10-14T00:29:01.8979771Z with:
+2026-10-14T00:29:01.8980104Z   python-version: 3.11
+2026-10-14T00:29:01.8980430Z   check-latest: false
+2026-10-14T00:29:01.8983385Z   token: ***
+2026-10-14T00:29:01.8983737Z   update-environment: true
+2026-10-14T00:29:01.8984057Z   allow-prereleases: false
+2026-10-14T00:29:01.8984402Z   freethreaded: false
+2026-10-14T00:29:01.8984706Z env:
+2026-10-14T00:29:01.8985127Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:29:01.8985614Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:29:01.8985932Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:29:01.8986461Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:29:01.8987420Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:29:01.8988480Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:29:01.8989017Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:29:01.8989341Z ##[endgroup]
+2026-10-14T00:29:02.0814917Z ##[group]Installed versions
+2026-10-14T00:29:02.5836512Z (node:2176) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T00:29:02.5837468Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T00:29:02.5838332Z Successfully set up CPython (3.11.9)
+2026-10-14T00:29:02.5848408Z ##[endgroup]
+2026-10-14T00:29:02.6157506Z ##[group]Run New-Item -ItemType Directory -Force -Path $env:EVIDENCE_DIR | Out-Null
+2026-10-14T00:29:02.6158462Z [36;1mNew-Item -ItemType Directory -Force -Path $env:EVIDENCE_DIR | Out-Null[0m
+2026-10-14T00:29:02.6158944Z [36;1m@'[0m
+2026-10-14T00:29:02.6159212Z [36;1m{[0m
+2026-10-14T00:29:02.6159554Z [36;1m  "status": "USER_REPORTED_NORMAL_20261014",[0m
+2026-10-14T00:29:02.6159945Z [36;1m  "remote_fallback_active": true,[0m
+2026-10-14T00:29:02.6160331Z [36;1m  "local_final_acceptance": "PENDING"[0m
+2026-10-14T00:29:02.6160678Z [36;1m}[0m
+2026-10-14T00:29:02.6161057Z [36;1m'@ | Set-Content "$env:EVIDENCE_DIR/LOCAL_HELPER_STATUS.json" -Encoding utf8[0m
+2026-10-14T00:29:02.6162121Z [36;1mpython scripts/validate_pc_work_control_plane.py 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/CONTROL_PLANE_VALIDATOR_RESULT.txt"[0m
+2026-10-14T00:29:02.6162829Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:29:02.6703861Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:29:02.6704416Z env:
+2026-10-14T00:29:02.6704832Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:29:02.6705299Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:29:02.6705651Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:29:02.6706149Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:29:02.6707033Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:29:02.6707980Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:29:02.6708512Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:29:02.6708921Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:02.6709443Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:29:02.6709955Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:02.6710409Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:02.6710846Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:02.6711723Z ##[endgroup]
+2026-10-14T00:29:03.9153657Z PC_WORK_CORRECTED_WINDOWS_CANDIDATE_GATE_PASS
+2026-10-14T00:29:03.9157253Z LOCAL_READINESS=USER_REPORTED_NORMAL; LOCAL_PRODUCT_PASS=false; FINAL_PRODUCT_PASS=false
+2026-10-14T00:29:03.9857214Z ##[group]Run $record = [ordered]@{
+2026-10-14T00:29:03.9857754Z [36;1m$record = [ordered]@{[0m
+2026-10-14T00:29:03.9858203Z [36;1m  status = "REMOTE_WINDOWS_RUNNER_AVAILABLE"[0m
+2026-10-14T00:29:03.9858672Z [36;1m  os = [System.Environment]::OSVersion.VersionString[0m
+2026-10-14T00:29:03.9859089Z [36;1m  runner = $env:RUNNER_NAME[0m
+2026-10-14T00:29:03.9859552Z [36;1m  user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name[0m
+2026-10-14T00:29:03.9860139Z [36;1m  powershell = $PSVersionTable.PSVersion.ToString()[0m
+2026-10-14T00:29:03.9860559Z [36;1m  pwd = (Get-Location).Path[0m
+2026-10-14T00:29:03.9860889Z [36;1m  temp = $env:TEMP[0m
+2026-10-14T00:29:03.9861249Z [36;1m  localappdata = $env:LOCALAPPDATA[0m
+2026-10-14T00:29:03.9861649Z [36;1m  github_sha = $env:GITHUB_SHA[0m
+2026-10-14T00:29:03.9862066Z [36;1m  timestamp_utc = [DateTime]::UtcNow.ToString("o")[0m
+2026-10-14T00:29:03.9862442Z [36;1m}[0m
+2026-10-14T00:29:03.9863121Z [36;1m$record | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/REMOTE_WINDOWS_RUNNER_PROFILE.json" -Encoding utf8[0m
+2026-10-14T00:29:03.9930800Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:29:03.9931244Z env:
+2026-10-14T00:29:03.9931662Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:29:03.9932178Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:29:03.9932523Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:29:03.9933019Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:29:03.9933997Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:29:03.9934961Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:29:03.9935501Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:29:03.9935910Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:03.9936426Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:29:03.9937129Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:03.9937618Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:03.9938101Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:03.9938549Z ##[endgroup]
+2026-10-14T00:29:04.4813597Z ##[group]Run actions/download-artifact@v4
+2026-10-14T00:29:04.4814119Z with:
+2026-10-14T00:29:04.4814514Z   pattern: mindle-media-verified-runtime-package-v28_1-part-*
+2026-10-14T00:29:04.4814968Z   merge-multiple: true
+2026-10-14T00:29:04.4815272Z   run-id: 37778695858
+2026-10-14T00:29:04.4818253Z   github-token: ***
+2026-10-14T00:29:04.4818554Z   path: build/model-parts
+2026-10-14T00:29:04.4818895Z   repository: ADAMBUILD-ai/mindle-media-ai
+2026-10-14T00:29:04.4819254Z env:
+2026-10-14T00:29:04.4819661Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:29:04.4820148Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:29:04.4820505Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:29:04.4821025Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:29:04.4822052Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:29:04.4822953Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:29:04.4823489Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:29:04.4823879Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:04.4824406Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:29:04.4824921Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:04.4825438Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:04.4825934Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:04.4826338Z ##[endgroup]
+2026-10-14T00:29:04.6795031Z Fetching artifact list for workflow run 37778695858 in repository ADAMBUILD-ai/mindle-media-ai
+2026-10-14T00:29:04.6863418Z (node:5508) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T00:29:04.6864481Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T00:29:04.7271370Z (node:5508) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-14T00:29:04.9510011Z Found 3 artifact(s)
+2026-10-14T00:29:04.9511595Z Filtering artifacts by pattern 'mindle-media-verified-runtime-package-v28_1-part-*'
+2026-10-14T00:29:04.9533391Z Preparing to download the following artifacts:
+2026-10-14T00:29:04.9534710Z - mindle-media-verified-runtime-package-v28_1-part-02 (ID: 11550774317, Size: 78665512, Expected Digest: sha256:ff60f84574426581c400077490169d22c558df0d880400c44e83fb569fb9213a)
+2026-10-14T00:29:04.9536737Z - mindle-media-verified-runtime-package-v28_1-part-01 (ID: 11550613600, Size: 418706379, Expected Digest: sha256:a42de236a484689ebdb5c3ef75ec059db1f36c22effae7d0476952d89128d554)
+2026-10-14T00:29:04.9539162Z - mindle-media-verified-runtime-package-v28_1-part-00 (ID: 11550324630, Size: 419251230, Expected Digest: sha256:61d3bbb59988822a5f8ded17c727b7352eeab2bfa95c560591104d660202ae77)
+2026-10-14T00:29:04.9593101Z Downloading artifact '11550613600' from 'ADAMBUILD-ai/mindle-media-ai'
+2026-10-14T00:29:04.9637903Z Downloading artifact '11550774317' from 'ADAMBUILD-ai/mindle-media-ai'
+2026-10-14T00:29:04.9687177Z Downloading artifact '11550324630' from 'ADAMBUILD-ai/mindle-media-ai'
+2026-10-14T00:29:05.1413056Z Redirecting to blob download url: https://productionresultssa4.blob.core.windows.net/actions-results/5d236b17-5a37-8437-b65b-35f65407168e/workflow-job-run-0635a308-7379-5cd2-8923-e516e9319622/artifacts/dae12404860d8f577538b09c360f48748281cfc6bb4cebd44f5d471db0238538.zip
+2026-10-14T00:29:05.1415763Z Starting download of artifact to: D:\a\mindle-media-ai\mindle-media-ai\build\model-parts
+2026-10-14T00:29:05.2239588Z Redirecting to blob download url: https://productionresultssa4.blob.core.windows.net/actions-results/5d236b17-5a37-8437-b65b-35f65407168e/workflow-job-run-0635a308-7379-5cd2-8923-e516e9319622/artifacts/0af5dda9e11ddbf54706782b09e47ab00cf313ecd6d3e4430ccf54a6785c82e3.zip
+2026-10-14T00:29:05.2241944Z Starting download of artifact to: D:\a\mindle-media-ai\mindle-media-ai\build\model-parts
+2026-10-14T00:29:05.2326470Z Redirecting to blob download url: https://productionresultssa4.blob.core.windows.net/actions-results/5d236b17-5a37-8437-b65b-35f65407168e/workflow-job-run-0635a308-7379-5cd2-8923-e516e9319622/artifacts/717c48ed550addfabfbef7d1f190db9211fb0521098664661c894ebe11cd98c5.zip
+2026-10-14T00:29:05.2328620Z Starting download of artifact to: D:\a\mindle-media-ai\mindle-media-ai\build\model-parts
+2026-10-14T00:29:05.2926180Z (node:5508) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-14T00:29:08.0966926Z SHA256 digest of downloaded artifact is ff60f84574426581c400077490169d22c558df0d880400c44e83fb569fb9213a
+2026-10-14T00:29:08.0967916Z Artifact download completed successfully.
+2026-10-14T00:29:14.7476040Z SHA256 digest of downloaded artifact is a42de236a484689ebdb5c3ef75ec059db1f36c22effae7d0476952d89128d554
+2026-10-14T00:29:14.7476763Z Artifact download completed successfully.
+2026-10-14T00:29:19.4519157Z SHA256 digest of downloaded artifact is 61d3bbb59988822a5f8ded17c727b7352eeab2bfa95c560591104d660202ae77
+2026-10-14T00:29:19.4519889Z Artifact download completed successfully.
+2026-10-14T00:29:19.4520362Z Total of 3 artifact(s) downloaded
+2026-10-14T00:29:19.4528989Z Download artifact has finished successfully
+2026-10-14T00:29:19.4922185Z ##[group]Run $parts = Get-ChildItem "build/model-parts/mindle-media-verified-runtime-package-v28_1.zip.part-*" | Sort-Object Name
+2026-10-14T00:29:19.4923971Z [36;1m$parts = Get-ChildItem "build/model-parts/mindle-media-verified-runtime-package-v28_1.zip.part-*" | Sort-Object Name[0m
+2026-10-14T00:29:19.4925170Z [36;1mif ($parts.Count -lt 1) { throw "model package parts missing" }[0m
+2026-10-14T00:29:19.4925993Z [36;1m$zip = [IO.Path]::GetFullPath("build/model-package.zip")[0m
+2026-10-14T00:29:19.4926630Z [36;1m$output = [IO.File]::Create($zip)[0m
+2026-10-14T00:29:19.4927129Z [36;1mtry {[0m
+2026-10-14T00:29:19.4927641Z [36;1m  foreach ($part in $parts) {[0m
+2026-10-14T00:29:19.4928221Z [36;1m    $input = [IO.File]::OpenRead($part.FullName)[0m
+2026-10-14T00:29:19.4928914Z [36;1m    try { $input.CopyTo($output) } finally { $input.Dispose() }[0m
+2026-10-14T00:29:19.4929495Z [36;1m  }[0m
+2026-10-14T00:29:19.4930099Z [36;1m} finally { $output.Dispose() }[0m
+2026-10-14T00:29:19.4931717Z [36;1m$expected = ((Get-Content "build/model-parts/mindle-media-verified-runtime-package-v28_1.zip.sha256" -Raw).Trim() -split "\s+")[0].ToLower()[0m
+2026-10-14T00:29:19.4933050Z [36;1m$actual = (Get-FileHash -Algorithm SHA256 $zip).Hash.ToLower()[0m
+2026-10-14T00:29:19.4934026Z [36;1mif ($actual -ne $expected) { throw "model package SHA mismatch expected=$expected actual=$actual" }[0m
+2026-10-14T00:29:19.4935134Z [36;1mExpand-Archive -LiteralPath $zip -DestinationPath "build/model-package" -Force[0m
+2026-10-14T00:29:19.4935955Z [36;1m[ordered]@{[0m
+2026-10-14T00:29:19.4936470Z [36;1m  source_run = [int64]$env:MODEL_PACKAGE_RUN_ID[0m
+2026-10-14T00:29:19.4937088Z [36;1m  zip_sha256 = $actual[0m
+2026-10-14T00:29:19.4937596Z [36;1m  part_count = $parts.Count[0m
+2026-10-14T00:29:19.4938203Z [36;1m  status = "VERIFIED_REASSEMBLED"[0m
+2026-10-14T00:29:19.4939060Z [36;1m} | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/MODEL_PAYLOAD_REUSE.json" -Encoding utf8[0m
+2026-10-14T00:29:19.5022599Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:29:19.5023052Z env:
+2026-10-14T00:29:19.5023494Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:29:19.5023989Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:29:19.5024316Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:29:19.5024855Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:29:19.5025765Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:29:19.5026704Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:29:19.5027226Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:29:19.5027609Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:19.5028177Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:29:19.5028706Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:19.5029577Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:19.5030508Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:19.5031106Z ##[endgroup]
+2026-10-14T00:29:30.6369993Z ##[group]Run actions/download-artifact@v4
+2026-10-14T00:29:30.6370457Z with:
+2026-10-14T00:29:30.6370733Z   name: mindle-media-general-work-final-self-audit-evidence
+2026-10-14T00:29:30.6371075Z   run-id: 37752630381
+2026-10-14T00:29:30.6374199Z   github-token: ***
+2026-10-14T00:29:30.6374403Z   path: build/general-audit
+2026-10-14T00:29:30.6374629Z   merge-multiple: false
+2026-10-14T00:29:30.6374848Z   repository: ADAMBUILD-ai/mindle-media-ai
+2026-10-14T00:29:30.6375098Z env:
+2026-10-14T00:29:30.6375406Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:29:30.6375797Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:29:30.6376018Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:29:30.6376399Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:29:30.6377426Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:29:30.6378176Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:29:30.6378571Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:29:30.6378851Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:30.6379248Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:29:30.6379974Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:30.6380343Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:30.6380695Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:30.6380980Z ##[endgroup]
+2026-10-14T00:29:30.8209321Z Downloading single artifact
+2026-10-14T00:29:30.8279768Z (node:5216) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T00:29:30.8280960Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T00:29:30.8581347Z (node:5216) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-14T00:29:31.0616736Z Preparing to download the following artifacts:
+2026-10-14T00:29:31.0617933Z - mindle-media-general-work-final-self-audit-evidence (ID: 11538633312, Size: 36550491, Expected Digest: sha256:1809640a89cac062e6f7a56e79005a640581c9e4784640e2ec3bc2d7099c0ff8)
+2026-10-14T00:29:31.0659750Z Downloading artifact '11538633312' from 'ADAMBUILD-ai/mindle-media-ai'
+2026-10-14T00:29:31.2368636Z Redirecting to blob download url: https://productionresultssa7.blob.core.windows.net/actions-results/692cf5ac-9a13-8fe7-85ee-34f64702b6c4/workflow-job-run-37b5b174-280e-564f-856c-1e98e9925964/artifacts/2ee22b5beb1d2662c86b0ae26321c75c0ac4234ab94fff23d999e01b2ab69460.zip
+2026-10-14T00:29:31.2369953Z Starting download of artifact to: D:\a\mindle-media-ai\mindle-media-ai\build\general-audit
+2026-10-14T00:29:31.4456783Z (node:5216) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-14T00:29:32.6666444Z SHA256 digest of downloaded artifact is 1809640a89cac062e6f7a56e79005a640581c9e4784640e2ec3bc2d7099c0ff8
+2026-10-14T00:29:32.6667148Z Artifact download completed successfully.
+2026-10-14T00:29:32.6667436Z Total of 1 artifact(s) downloaded
+2026-10-14T00:29:32.6674816Z Download artifact has finished successfully
+2026-10-14T00:29:32.6999711Z ##[group]Run New-Item -ItemType Directory -Force -Path "build/python-embed" | Out-Null
+2026-10-14T00:29:32.7000471Z [36;1mNew-Item -ItemType Directory -Force -Path "build/python-embed" | Out-Null[0m
+2026-10-14T00:29:32.7001107Z [36;1mInvoke-WebRequest -UseBasicParsing -Uri $env:PYTHON_EMBED_URL -OutFile "build/python-embed.zip"[0m
+2026-10-14T00:29:32.7001730Z [36;1m$sha = (Get-FileHash -Algorithm SHA256 "build/python-embed.zip").Hash.ToLower()[0m
+2026-10-14T00:29:32.7002323Z [36;1mExpand-Archive "build/python-embed.zip" -DestinationPath "build/python-embed" -Force[0m
+2026-10-14T00:29:32.7003013Z [36;1mif (-not (Test-Path "build/python-embed/python.exe")) { throw "official embedded Python missing python.exe" }[0m
+2026-10-14T00:29:32.7003530Z [36;1m[ordered]@{[0m
+2026-10-14T00:29:32.7003769Z [36;1m  source = $env:PYTHON_EMBED_URL[0m
+2026-10-14T00:29:32.7004044Z [36;1m  version = "3.11.9"[0m
+2026-10-14T00:29:32.7004424Z [36;1m  bytes = (Get-Item "build/python-embed.zip").Length[0m
+2026-10-14T00:29:32.7004759Z [36;1m  sha256 = $sha[0m
+2026-10-14T00:29:32.7005017Z [36;1m  status = "OFFICIAL_PYTHON_EMBED_ACQUIRED"[0m
+2026-10-14T00:29:32.7005510Z [36;1m} | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/PYTHON_RUNTIME_AUDIT.json" -Encoding utf8[0m
+2026-10-14T00:29:32.7071866Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:29:32.7072205Z env:
+2026-10-14T00:29:32.7072527Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:29:32.7072910Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:29:32.7073153Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:29:32.7073576Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:29:32.7074343Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:29:32.7075126Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:29:32.7075537Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:29:32.7075984Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:32.7076858Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:29:32.7077396Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:32.7077905Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:32.7078414Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:32.7078822Z ##[endgroup]
+2026-10-14T00:29:33.7633479Z ##[group]Run New-Item -ItemType Directory -Force -Path "build/site-packages" | Out-Null
+2026-10-14T00:29:33.7634141Z [36;1mNew-Item -ItemType Directory -Force -Path "build/site-packages" | Out-Null[0m
+2026-10-14T00:29:33.7635002Z [36;1mpython -m pip install --disable-pip-version-check --target "build/site-packages" --index-url https://download.pytorch.org/whl/cpu "torch==2.8.0" "torchvision==0.23.0"[0m
+2026-10-14T00:29:33.7635939Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:29:33.7636446Z [36;1mpython -m pip install --disable-pip-version-check --upgrade --target "build/site-packages" `[0m
+2026-10-14T00:29:33.7637009Z [36;1m  "transformers==4.57.3" "huggingface_hub==0.36.0" "safetensors==0.6.2" `[0m
+2026-10-14T00:29:33.7637487Z [36;1m  "opencv-python-headless==4.12.0.88" "numpy==2.2.6" "Pillow==11.3.0" `[0m
+2026-10-14T00:29:33.7637868Z [36;1m  "requests==2.32.5" "openvino==2025.3.0"[0m
+2026-10-14T00:29:33.7638221Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:29:33.7638503Z [36;1m@'[0m
+2026-10-14T00:29:33.7638700Z [36;1mimport importlib.metadata as m[0m
+2026-10-14T00:29:33.7638959Z [36;1mfrom pathlib import Path[0m
+2026-10-14T00:29:33.7639434Z [36;1mroot=Path("build/site-packages")[0m
+2026-10-14T00:29:33.7640035Z [36;1mrows=sorted((d.metadata["Name"],d.version) for d in m.distributions(path=[str(root)]) if d.metadata.get("Name"))[0m
+2026-10-14T00:29:33.7640872Z [36;1mPath("build/RUNTIME_LOCK_EMPLOYEE_WIN_X64.txt").write_text("\n".join(f"{n}=={v}" for n,v in rows)+"\n",encoding="utf-8")[0m
+2026-10-14T00:29:33.7641530Z [36;1mprint("target distributions",len(rows))[0m
+2026-10-14T00:29:33.7642412Z [36;1m'@ | python[0m
+2026-10-14T00:29:33.7712536Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:29:33.7713384Z env:
+2026-10-14T00:29:33.7714168Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:29:33.7714850Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:29:33.7715171Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:29:33.7715714Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:29:33.7716541Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:29:33.7717442Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:29:33.7717926Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:29:33.7718286Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:33.7718797Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:29:33.7719304Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:33.7719773Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:33.7720227Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:29:33.7720591Z ##[endgroup]
+2026-10-14T00:29:37.3209239Z Looking in indexes: https://download.pytorch.org/whl/cpu
+2026-10-14T00:29:37.7381200Z Collecting torch==2.8.0
+2026-10-14T00:29:38.0452024Z   Downloading torch-2.8.0%2Bcpu-cp311-cp311-win_amd64.whl.metadata (29 kB)
+2026-10-14T00:29:38.1776134Z Collecting torchvision==0.23.0
+2026-10-14T00:29:38.2422012Z   Downloading torchvision-0.23.0%2Bcpu-cp311-cp311-win_amd64.whl.metadata (6.3 kB)
+2026-10-14T00:29:38.3129802Z Collecting filelock (from torch==2.8.0)
+2026-10-14T00:29:38.5238921Z   Downloading filelock-3.32.3-py3-none-any.whl.metadata (2.0 kB)
+2026-10-14T00:29:38.5788132Z Collecting typing-extensions>=4.10.0 (from torch==2.8.0)
+2026-10-14T00:29:38.5950784Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-14T00:29:38.6512348Z Collecting sympy>=1.13.3 (from torch==2.8.0)
+2026-10-14T00:29:38.6665590Z   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2026-10-14T00:29:38.7432761Z Collecting networkx (from torch==2.8.0)
+2026-10-14T00:29:38.7588185Z   Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+2026-10-14T00:29:38.8159193Z Collecting jinja2 (from torch==2.8.0)
+2026-10-14T00:29:38.8301531Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-10-14T00:29:38.8923349Z Collecting fsspec (from torch==2.8.0)
+2026-10-14T00:29:38.9086261Z   Downloading fsspec-2026.7.0-py3-none-any.whl.metadata (10 kB)
+2026-10-14T00:29:39.2407259Z Collecting numpy (from torchvision==0.23.0)
+2026-10-14T00:29:39.2567936Z   Downloading numpy-2.4.6-cp311-cp311-win_amd64.whl.metadata (6.6 kB)
+2026-10-14T00:29:39.5213049Z Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.23.0)
+2026-10-14T00:29:39.5395435Z   Downloading pillow-12.3.0-cp311-cp311-win_amd64.whl.metadata (9.3 kB)
+2026-10-14T00:29:39.6002337Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.8.0)
+2026-10-14T00:29:39.6173890Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2026-10-14T00:29:39.6778210Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.8.0)
+2026-10-14T00:29:39.6917647Z   Downloading markupsafe-3.0.3-cp311-cp311-win_amd64.whl.metadata (2.8 kB)
+2026-10-14T00:29:39.7669474Z Downloading torch-2.8.0%2Bcpu-cp311-cp311-win_amd64.whl (619.4 MB)
+2026-10-14T00:29:54.8405787Z    ---------------------------------------- 619.4/619.4 MB 20.7 MB/s  0:00:15
+2026-10-14T00:29:54.8736319Z Downloading torchvision-0.23.0%2Bcpu-cp311-cp311-win_amd64.whl (1.6 MB)
+2026-10-14T00:29:55.1035242Z    ---------------------------------------- 1.6/1.6 MB 6.6 MB/s  0:00:00
+2026-10-14T00:29:55.1196229Z Downloading pillow-12.3.0-cp311-cp311-win_amd64.whl (7.2 MB)
+2026-10-14T00:29:55.3261837Z    ---------------------------------------- 7.2/7.2 MB 40.8 MB/s  0:00:00
+2026-10-14T00:29:55.3417174Z Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2026-10-14T00:29:55.4073572Z    ---------------------------------------- 6.3/6.3 MB 95.8 MB/s  0:00:00
+2026-10-14T00:29:55.4224802Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+2026-10-14T00:29:55.4660878Z    ---------------------------------------- 536.2/536.2 kB 5.8 MB/s  0:00:00
+2026-10-14T00:29:55.4811336Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-14T00:29:55.5103772Z Downloading filelock-3.32.3-py3-none-any.whl (98 kB)
+2026-10-14T00:29:55.5400109Z Downloading fsspec-2026.7.0-py3-none-any.whl (206 kB)
+2026-10-14T00:29:55.5750306Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-10-14T00:29:55.6049993Z Downloading markupsafe-3.0.3-cp311-cp311-win_amd64.whl (15 kB)
+2026-10-14T00:29:55.6371855Z Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+2026-10-14T00:29:55.6720840Z    ---------------------------------------- 2.1/2.1 MB 58.3 MB/s  0:00:00
+2026-10-14T00:29:55.6879290Z Downloading numpy-2.4.6-cp311-cp311-win_amd64.whl (12.6 MB)
+2026-10-14T00:29:55.7963847Z    ---------------------------------------- 12.6/12.6 MB 113.3 MB/s  0:00:00
+2026-10-14T00:29:57.1222977Z Installing collected packages: mpmath, typing-extensions, sympy, pillow, numpy, networkx, MarkupSafe, fsspec, filelock, jinja2, torch, torchvision
+2026-10-14T00:30:56.2640591Z 
+2026-10-14T00:30:56.2657705Z Successfully installed MarkupSafe-3.0.3 filelock-3.32.3 fsspec-2026.7.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 numpy-2.4.6 pillow-12.3.0 sympy-1.14.0 torch-2.8.0+cpu torchvision-0.23.0+cpu typing-extensions-4.16.0
+2026-10-14T00:31:25.6555626Z Collecting transformers==4.57.3
+2026-10-14T00:31:25.8899702Z   Downloading transformers-4.57.3-py3-none-any.whl.metadata (43 kB)
+2026-10-14T00:31:26.1670791Z Collecting huggingface_hub==0.36.0
+2026-10-14T00:31:26.1902745Z   Downloading huggingface_hub-0.36.0-py3-none-any.whl.metadata (14 kB)
+2026-10-14T00:31:26.3810735Z Collecting safetensors==0.6.2
+2026-10-14T00:31:26.3985000Z   Downloading safetensors-0.6.2-cp38-abi3-win_amd64.whl.metadata (4.1 kB)
+2026-10-14T00:31:26.5258338Z Collecting opencv-python-headless==4.12.0.88
+2026-10-14T00:31:26.5459067Z   Downloading opencv_python_headless-4.12.0.88-cp37-abi3-win_amd64.whl.metadata (20 kB)
+2026-10-14T00:31:26.8373777Z Collecting numpy==2.2.6
+2026-10-14T00:31:26.8556796Z   Downloading numpy-2.2.6-cp311-cp311-win_amd64.whl.metadata (60 kB)
+2026-10-14T00:31:27.5686298Z Collecting Pillow==11.3.0
+2026-10-14T00:31:27.5869822Z   Downloading pillow-11.3.0-cp311-cp311-win_amd64.whl.metadata (9.2 kB)
+2026-10-14T00:31:27.8265886Z Collecting requests==2.32.5
+2026-10-14T00:31:27.8446691Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+2026-10-14T00:31:28.3299039Z Collecting openvino==2025.3.0
+2026-10-14T00:31:28.3487686Z   Downloading openvino-2025.3.0-19807-cp311-cp311-win_amd64.whl.metadata (13 kB)
+2026-10-14T00:31:28.6217551Z Collecting filelock (from transformers==4.57.3)
+2026-10-14T00:31:28.6391016Z   Downloading filelock-4.1.1-py3-none-any.whl.metadata (2.0 kB)
+2026-10-14T00:31:28.8874922Z Collecting packaging>=20.0 (from transformers==4.57.3)
+2026-10-14T00:31:28.9054121Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-14T00:31:29.2527767Z Collecting pyyaml>=5.1 (from transformers==4.57.3)
+2026-10-14T00:31:29.2727619Z   Downloading pyyaml-6.0.3-cp311-cp311-win_amd64.whl.metadata (2.4 kB)
+2026-10-14T00:31:29.9984809Z Collecting regex!=2019.12.17 (from transformers==4.57.3)
+2026-10-14T00:31:30.0178763Z   Downloading regex-2026.9.29-cp311-cp311-win_amd64.whl.metadata (41 kB)
+2026-10-14T00:31:30.4298876Z Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.57.3)
+2026-10-14T00:31:30.4524399Z   Downloading tokenizers-0.22.2-cp39-abi3-win_amd64.whl.metadata (7.4 kB)
+2026-10-14T00:31:30.5198117Z Collecting tqdm>=4.27 (from transformers==4.57.3)
+2026-10-14T00:31:30.5394622Z   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+2026-10-14T00:31:30.6407989Z Collecting fsspec>=2023.5.0 (from huggingface_hub==0.36.0)
+2026-10-14T00:31:30.6589747Z   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-10-14T00:31:30.7376145Z Collecting typing-extensions>=3.7.4.3 (from huggingface_hub==0.36.0)
+2026-10-14T00:31:30.7410363Z   Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-14T00:31:30.9744458Z Collecting charset_normalizer<4,>=2 (from requests==2.32.5)
+2026-10-14T00:31:30.9931732Z   Downloading charset_normalizer-3.5.2-cp311-cp311-win_amd64.whl.metadata (47 kB)
+2026-10-14T00:31:31.0567609Z Collecting idna<4,>=2.5 (from requests==2.32.5)
+2026-10-14T00:31:31.0743588Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-10-14T00:31:31.1471594Z Collecting urllib3<3,>=1.21.1 (from requests==2.32.5)
+2026-10-14T00:31:31.1657238Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-10-14T00:31:31.2510336Z Collecting certifi>=2017.4.17 (from requests==2.32.5)
+2026-10-14T00:31:31.2694561Z   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+2026-10-14T00:31:31.5352303Z Collecting openvino-telemetry>=2023.2.1 (from openvino==2025.3.0)
+2026-10-14T00:31:31.5545113Z   Downloading openvino_telemetry-2025.2.0-py3-none-any.whl.metadata (2.3 kB)
+2026-10-14T00:31:31.6261010Z Collecting colorama (from tqdm>=4.27->transformers==4.57.3)
+2026-10-14T00:31:31.6473420Z   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+2026-10-14T00:31:31.6931369Z Downloading transformers-4.57.3-py3-none-any.whl (12.0 MB)
+2026-10-14T00:31:32.4442157Z    ---------------------------------------- 12.0/12.0 MB 16.0 MB/s  0:00:00
+2026-10-14T00:31:32.4656404Z Downloading huggingface_hub-0.36.0-py3-none-any.whl (566 kB)
+2026-10-14T00:31:32.8283505Z    ---------------------------------------- 566.1/566.1 kB 846.7 kB/s  0:00:00
+2026-10-14T00:31:32.8753331Z Downloading safetensors-0.6.2-cp38-abi3-win_amd64.whl (320 kB)
+2026-10-14T00:31:32.9612416Z Downloading opencv_python_headless-4.12.0.88-cp37-abi3-win_amd64.whl (38.9 MB)
+2026-10-14T00:31:36.7076711Z    ---------------------------------------- 38.9/38.9 MB 10.4 MB/s  0:00:03
+2026-10-14T00:31:36.7252645Z Downloading numpy-2.2.6-cp311-cp311-win_amd64.whl (12.9 MB)
+2026-10-14T00:31:36.9609389Z    ---------------------------------------- 12.9/12.9 MB 54.0 MB/s  0:00:00
+2026-10-14T00:31:36.9788315Z Downloading pillow-11.3.0-cp311-cp311-win_amd64.whl (7.0 MB)
+2026-10-14T00:31:37.0661313Z    ---------------------------------------- 7.0/7.0 MB 86.2 MB/s  0:00:00
+2026-10-14T00:31:37.0837654Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+2026-10-14T00:31:37.1853149Z Downloading openvino-2025.3.0-19807-cp311-cp311-win_amd64.whl (40.6 MB)
+2026-10-14T00:31:39.9624239Z    ---------------------------------------- 40.6/40.6 MB 14.6 MB/s  0:00:02
+2026-10-14T00:31:39.9834168Z Downloading charset_normalizer-3.5.2-cp311-cp311-win_amd64.whl (214 kB)
+2026-10-14T00:31:40.0173547Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-10-14T00:31:40.0595037Z Downloading tokenizers-0.22.2-cp39-abi3-win_amd64.whl (2.7 MB)
+2026-10-14T00:31:40.1040704Z    ---------------------------------------- 2.7/2.7 MB 80.2 MB/s  0:00:00
+2026-10-14T00:31:40.1219520Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-10-14T00:31:40.1604563Z Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+2026-10-14T00:31:40.1942809Z Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-10-14T00:31:40.2342952Z Downloading openvino_telemetry-2025.2.0-py3-none-any.whl (25 kB)
+2026-10-14T00:31:40.2721771Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-14T00:31:40.3065565Z Downloading pyyaml-6.0.3-cp311-cp311-win_amd64.whl (158 kB)
+2026-10-14T00:31:40.3425144Z Downloading regex-2026.9.29-cp311-cp311-win_amd64.whl (280 kB)
+2026-10-14T00:31:40.3789606Z Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+2026-10-14T00:31:40.3946104Z Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-14T00:31:40.4116786Z Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+2026-10-14T00:31:40.4432084Z Downloading filelock-4.1.1-py3-none-any.whl (132 kB)
+2026-10-14T00:31:40.9101555Z Installing collected packages: openvino-telemetry, urllib3, typing-extensions, safetensors, regex, pyyaml, Pillow, packaging, numpy, idna, fsspec, filelock, colorama, charset_normalizer, certifi, tqdm, requests, openvino, opencv-python-headless, huggingface_hub, tokenizers, transformers
+2026-10-14T00:32:05.1521532Z 
+2026-10-14T00:32:05.1541417Z Successfully installed Pillow-11.3.0 certifi-2026.7.22 charset_normalizer-3.5.2 colorama-0.4.6 filelock-4.1.1 fsspec-2026.9.0 huggingface_hub-0.36.0 idna-3.20 numpy-2.2.6 opencv-python-headless-4.12.0.88 openvino-2025.3.0 openvino-telemetry-2025.2.0 packaging-26.3 pyyaml-6.0.3 regex-2026.9.29 requests-2.32.5 safetensors-0.6.2 tokenizers-0.22.2 tqdm-4.70.1 transformers-4.57.3 typing-extensions-4.16.0 urllib3-2.8.0
+2026-10-14T00:32:10.8410891Z target distributions 33
+2026-10-14T00:32:10.9012883Z ##[group]Run Invoke-WebRequest -UseBasicParsing -Uri $env:FFMPEG_URL -OutFile "build/ffmpeg.zip"
+2026-10-14T00:32:10.9014073Z [36;1mInvoke-WebRequest -UseBasicParsing -Uri $env:FFMPEG_URL -OutFile "build/ffmpeg.zip"[0m
+2026-10-14T00:32:10.9014718Z [36;1m$actual = (Get-FileHash -Algorithm SHA256 "build/ffmpeg.zip").Hash.ToLower()[0m
+2026-10-14T00:32:10.9015516Z [36;1mif ($actual -ne $env:FFMPEG_EXPECTED_SHA256) { throw "FFmpeg asset changed expected=$env:FFMPEG_EXPECTED_SHA256 actual=$actual" }[0m
+2026-10-14T00:32:10.9016272Z [36;1mExpand-Archive "build/ffmpeg.zip" -DestinationPath "build/ffmpeg" -Force[0m
+2026-10-14T00:32:10.9016902Z [36;1m$ffmpeg = Get-ChildItem "build/ffmpeg" -Recurse -Filter ffmpeg.exe | Select-Object -First 1[0m
+2026-10-14T00:32:10.9017477Z [36;1mif (-not $ffmpeg) { throw "ffmpeg.exe missing" }[0m
+2026-10-14T00:32:10.9017885Z [36;1m$root = $ffmpeg.Directory.Parent.FullName[0m
+2026-10-14T00:32:10.9018479Z [36;1m"FFMPEG_ROOT=$root" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append[0m
+2026-10-14T00:32:10.9018961Z [36;1m$version = & $ffmpeg.FullName -version[0m
+2026-10-14T00:32:10.9019357Z [36;1m$encoders = & $ffmpeg.FullName -hide_banner -encoders[0m
+2026-10-14T00:32:10.9019894Z [36;1mif (($encoders -join "`n") -notmatch "h264_mf") { throw "LGPL FFmpeg candidate lacks h264_mf" }[0m
+2026-10-14T00:32:10.9020538Z [36;1m$config = ($version | Where-Object { $_ -like "configuration:*" } | Select-Object -First 1)[0m
+2026-10-14T00:32:10.9021353Z [36;1mif ($config -match "--enable-gpl" -or $config -match "--enable-nonfree") { throw "FFmpeg candidate enables GPL/nonfree configuration" }[0m
+2026-10-14T00:32:10.9022771Z [36;1m$probe = Join-Path $ffmpeg.Directory.FullName "ffprobe.exe"[0m
+2026-10-14T00:32:10.9023268Z [36;1mif (-not (Test-Path $probe)) { throw "ffprobe.exe missing" }[0m
+2026-10-14T00:32:10.9023789Z [36;1m$sourceNotice = "LICENSES/FFMPEG_DISTRIBUTION_SOURCE_NOTICE_20261014.txt"[0m
+2026-10-14T00:32:10.9024372Z [36;1mif (-not (Test-Path $sourceNotice)) { throw "FFmpeg exact source notice missing" }[0m
+2026-10-14T00:32:10.9024827Z [36;1m$record = [ordered]@{[0m
+2026-10-14T00:32:10.9025160Z [36;1m  status = "LGPL_SHARED_CANDIDATE_VERIFIED"[0m
+2026-10-14T00:32:10.9025547Z [36;1m  asset_url = $env:FFMPEG_URL[0m
+2026-10-14T00:32:10.9025861Z [36;1m  asset_sha256 = $actual[0m
+2026-10-14T00:32:10.9026215Z [36;1m  asset_bytes = (Get-Item "build/ffmpeg.zip").Length[0m
+2026-10-14T00:32:10.9026727Z [36;1m  ffmpeg_sha256 = (Get-FileHash -Algorithm SHA256 $ffmpeg.FullName).Hash.ToLower()[0m
+2026-10-14T00:32:10.9027310Z [36;1m  ffprobe_sha256 = (Get-FileHash -Algorithm SHA256 $probe).Hash.ToLower()[0m
+2026-10-14T00:32:10.9027752Z [36;1m  ffmpeg_version = $version[0][0m
+2026-10-14T00:32:10.9028077Z [36;1m  configuration = $config[0m
+2026-10-14T00:32:10.9028383Z [36;1m  h264_encoder = "h264_mf"[0m
+2026-10-14T00:32:10.9028690Z [36;1m  gpl_enabled = $false[0m
+2026-10-14T00:32:10.9029029Z [36;1m  nonfree_enabled = $false[0m
+2026-10-14T00:32:10.9029324Z [36;1m  linkage = "shared"[0m
+2026-10-14T00:32:10.9029714Z [36;1m  source_obligation_status = "CLOSED_BY_EXACT_SOURCE_NOTICE"[0m
+2026-10-14T00:32:10.9030133Z [36;1m  source_notice = $sourceNotice[0m
+2026-10-14T00:32:10.9030537Z [36;1m  build_scripts_commit = "63ac3265b0789ea16c7b1f8351cd2ad195a28722"[0m
+2026-10-14T00:32:10.9031436Z [36;1m  ffmpeg_source_branch = "release/8.1"[0m
+2026-10-14T00:32:10.9031774Z [36;1m}[0m
+2026-10-14T00:32:10.9032265Z [36;1m$record | ConvertTo-Json -Depth 5 | Set-Content "$env:EVIDENCE_DIR/FFMPEG_DISTRIBUTION_AUDIT.json" -Encoding utf8[0m
+2026-10-14T00:32:10.9104053Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:32:10.9104483Z env:
+2026-10-14T00:32:10.9104913Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:32:10.9105405Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:32:10.9105749Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:32:10.9107970Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:32:10.9108881Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:32:10.9110240Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:32:10.9110740Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:32:10.9111108Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:10.9111601Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:32:10.9112121Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:10.9112560Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:10.9112999Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:10.9113366Z ##[endgroup]
+2026-10-14T00:32:14.9073908Z ##[group]Run python -m pip install --disable-pip-version-check "pefile==2023.2.7" "pyinstaller==6.16.0" "pytest>=9,<10"
+2026-10-14T00:32:14.9074867Z [36;1mpython -m pip install --disable-pip-version-check "pefile==2023.2.7" "pyinstaller==6.16.0" "pytest>=9,<10"[0m
+2026-10-14T00:32:14.9143712Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:32:14.9144130Z env:
+2026-10-14T00:32:14.9144533Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:32:14.9145000Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:32:14.9145324Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:32:14.9145812Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:32:14.9147976Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:32:14.9148994Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:32:14.9149517Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:32:14.9149909Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:14.9150437Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:32:14.9150974Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:14.9151501Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:14.9151974Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:14.9152626Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:32:14.9153216Z ##[endgroup]
+2026-10-14T00:32:16.6381043Z Collecting pefile==2023.2.7
+2026-10-14T00:32:16.8460204Z   Downloading pefile-2023.2.7-py3-none-any.whl.metadata (1.4 kB)
+2026-10-14T00:32:17.0927444Z Collecting pyinstaller==6.16.0
+2026-10-14T00:32:17.1074131Z   Downloading pyinstaller-6.16.0-py3-none-win_amd64.whl.metadata (8.5 kB)
+2026-10-14T00:32:17.3985046Z Collecting pytest<10,>=9
+2026-10-14T00:32:17.4117966Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-10-14T00:32:17.6379838Z Collecting altgraph (from pyinstaller==6.16.0)
+2026-10-14T00:32:17.6511470Z   Downloading altgraph-0.17.5-py2.py3-none-any.whl.metadata (7.5 kB)
+2026-10-14T00:32:17.7106252Z Collecting packaging>=22.0 (from pyinstaller==6.16.0)
+2026-10-14T00:32:17.7139545Z   Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-14T00:32:17.7886734Z Collecting pyinstaller-hooks-contrib>=2025.8 (from pyinstaller==6.16.0)
+2026-10-14T00:32:17.8011377Z   Downloading pyinstaller_hooks_contrib-2026.8-py3-none-any.whl.metadata (16 kB)
+2026-10-14T00:32:17.9006652Z Collecting pywin32-ctypes>=0.2.1 (from pyinstaller==6.16.0)
+2026-10-14T00:32:17.9133270Z   Downloading pywin32_ctypes-0.2.3-py3-none-any.whl.metadata (3.9 kB)
+2026-10-14T00:32:17.9539205Z Requirement already satisfied: setuptools>=42.0.0 in C:\hostedtoolcache\windows\Python\3.11.9\x64\Lib\site-packages (from pyinstaller==6.16.0) (65.5.0)
+2026-10-14T00:32:17.9617530Z Collecting colorama>=0.4 (from pytest<10,>=9)
+2026-10-14T00:32:17.9654801Z   Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+2026-10-14T00:32:18.0054755Z Collecting iniconfig>=1.0.1 (from pytest<10,>=9)
+2026-10-14T00:32:18.0406744Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-10-14T00:32:18.5129784Z Collecting pluggy<2,>=1.5 (from pytest<10,>=9)
+2026-10-14T00:32:18.5262911Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-10-14T00:32:18.9884576Z Collecting pygments>=2.7.2 (from pytest<10,>=9)
+2026-10-14T00:32:19.0015996Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-10-14T00:32:19.1167906Z Downloading pefile-2023.2.7-py3-none-any.whl (71 kB)
+2026-10-14T00:32:19.3495144Z Downloading pyinstaller-6.16.0-py3-none-win_amd64.whl (1.4 MB)
+2026-10-14T00:32:19.9117787Z    ---------------------------------------- 1.4/1.4 MB 2.0 MB/s  0:00:00
+2026-10-14T00:32:20.0583732Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+2026-10-14T00:32:20.2075914Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-10-14T00:32:20.2811435Z Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+2026-10-14T00:32:20.2946132Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-10-14T00:32:20.3139504Z Using cached packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-14T00:32:20.3280938Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-10-14T00:32:20.3590211Z    ---------------------------------------- 1.3/1.3 MB 30.9 MB/s  0:00:00
+2026-10-14T00:32:20.3733504Z Downloading pyinstaller_hooks_contrib-2026.8-py3-none-any.whl (462 kB)
+2026-10-14T00:32:20.4086760Z Downloading pywin32_ctypes-0.2.3-py3-none-any.whl (30 kB)
+2026-10-14T00:32:20.4393749Z Downloading altgraph-0.17.5-py2.py3-none-any.whl (21 kB)
+2026-10-14T00:32:20.5983761Z Installing collected packages: altgraph, pywin32-ctypes, pygments, pluggy, pefile, packaging, iniconfig, colorama, pytest, pyinstaller-hooks-contrib, pyinstaller
+2026-10-14T00:32:32.1776405Z 
+2026-10-14T00:32:32.1793212Z Successfully installed altgraph-0.17.5 colorama-0.4.6 iniconfig-2.3.1 packaging-26.3 pefile-2023.2.7 pluggy-1.6.0 pygments-2.21.0 pyinstaller-6.16.0 pyinstaller-hooks-contrib-2026.8 pytest-9.1.1 pywin32-ctypes-0.2.3
+2026-10-14T00:32:32.3927240Z ##[group]Run import json,re
+2026-10-14T00:32:32.3928645Z [36;1mimport json,re[0m
+2026-10-14T00:32:32.3929007Z [36;1mfrom pathlib import Path[0m
+2026-10-14T00:32:32.3929331Z [36;1mimport pefile[0m
+2026-10-14T00:32:32.3929731Z [36;1mroots=[Path("build/python-embed"),Path("build/site-packages")][0m
+2026-10-14T00:32:32.3930202Z [36;1mprovided={}[0m
+2026-10-14T00:32:32.3930474Z [36;1mbinaries=[][0m
+2026-10-14T00:32:32.3930751Z [36;1mfor root in roots:[0m
+2026-10-14T00:32:32.3931351Z [36;1m    for p in root.rglob("*"):[0m
+2026-10-14T00:32:32.3931808Z [36;1m        if p.is_file() and p.suffix.lower() in {".exe",".dll",".pyd"}:[0m
+2026-10-14T00:32:32.3932314Z [36;1m            provided.setdefault(p.name.lower(),[]).append(str(p))[0m
+2026-10-14T00:32:32.3932768Z [36;1m            binaries.append(p)[0m
+2026-10-14T00:32:32.3933083Z [36;1mimports={}[0m
+2026-10-14T00:32:32.3934304Z [36;1mpattern=re.compile(r"^(?:msvcp|vcruntime|concrt)140.*\.dll$",re.I)[0m
+2026-10-14T00:32:32.3935007Z [36;1mfor p in binaries:[0m
+2026-10-14T00:32:32.3935295Z [36;1m    try:[0m
+2026-10-14T00:32:32.3935592Z [36;1m        pe=pefile.PE(str(p),fast_load=True)[0m
+2026-10-14T00:32:32.3936163Z [36;1m        pe.parse_data_directories(directories=[pefile.DIRECTORY_ENTRY["IMAGE_DIRECTORY_ENTRY_IMPORT"]])[0m
+2026-10-14T00:32:32.3936708Z [36;1m        names=[][0m
+2026-10-14T00:32:32.3937084Z [36;1m        for entry in getattr(pe,"DIRECTORY_ENTRY_IMPORT",[]):[0m
+2026-10-14T00:32:32.3937534Z [36;1m            name=entry.dll.decode("ascii","replace")[0m
+2026-10-14T00:32:32.3937953Z [36;1m            if pattern.match(name):[0m
+2026-10-14T00:32:32.3938593Z [36;1m                names.append(name)[0m
+2026-10-14T00:32:32.3938934Z [36;1m        if names:[0m
+2026-10-14T00:32:32.3939536Z [36;1m            imports[str(p)]=sorted(set(names),key=str.lower)[0m
+2026-10-14T00:32:32.3939928Z [36;1m    except Exception:[0m
+2026-10-14T00:32:32.3940219Z [36;1m        pass[0m
+2026-10-14T00:32:32.3940611Z [36;1mrequired=sorted({n.lower() for names in imports.values() for n in names})[0m
+2026-10-14T00:32:32.3941118Z [36;1munresolved=[n for n in required if n not in provided][0m
+2026-10-14T00:32:32.3941961Z [36;1mbootstrap=Path("scripts/one_click_bootstrap.py").read_text(encoding="utf-8")[0m
+2026-10-14T00:32:32.3942539Z [36;1mofficial_bootstrap=all(token in bootstrap for token in ([0m
+2026-10-14T00:32:32.3942993Z [36;1m    "https://aka.ms/vc14/vc_redist.x64.exe",[0m
+2026-10-14T00:32:32.3943843Z [36;1m    "Get-AuthenticodeSignature",[0m
+2026-10-14T00:32:32.3944431Z [36;1m    "Microsoft Corporation",[0m
+2026-10-14T00:32:32.3944857Z [36;1m    "Start-Process",[0m
+2026-10-14T00:32:32.3945232Z [36;1m    "system32_copy_performed",[0m
+2026-10-14T00:32:32.3945534Z [36;1m))[0m
+2026-10-14T00:32:32.3945956Z [36;1monline_fallback_closed=official_bootstrap and set(unresolved).issubset({"msvcp140.dll"})[0m
+2026-10-14T00:32:32.3946587Z [36;1mdependency_closed=(len(unresolved)==0) or online_fallback_closed[0m
+2026-10-14T00:32:32.3947322Z [36;1mrecord={[0m
+2026-10-14T00:32:32.3947593Z [36;1m    "status":"AUDITED",[0m
+2026-10-14T00:32:32.3947908Z [36;1m    "system32_copy_forbidden":True,[0m
+2026-10-14T00:32:32.3948257Z [36;1m    "system32_copy_performed":False,[0m
+2026-10-14T00:32:32.3948873Z [36;1m    "binary_count":len(binaries),[0m
+2026-10-14T00:32:32.3949219Z [36;1m    "required_vc_runtime_names":required,[0m
+2026-10-14T00:32:32.3950247Z [36;1m    "provided_inside_python_or_wheels":{n:provided.get(n,[]) for n in required if n in provided},[0m
+2026-10-14T00:32:32.3950884Z [36;1m    "unresolved_host_runtime_names":unresolved,[0m
+2026-10-14T00:32:32.3951275Z [36;1m    "redistribution_closed":dependency_closed,[0m
+2026-10-14T00:32:32.3951700Z [36;1m    "offline_without_host_vc_runtime":len(unresolved)==0,[0m
+2026-10-14T00:32:32.3952177Z [36;1m    "automatic_official_online_prerequisite":online_fallback_closed,[0m
+2026-10-14T00:32:32.3955501Z [36;1m    "official_source_url":"https://aka.ms/vc14/vc_redist.x64.exe" if online_fallback_closed else None,[0m
+2026-10-14T00:32:32.3956484Z [36;1m    "signature_verification_required":online_fallback_closed,[0m
+2026-10-14T00:32:32.3957047Z [36;1m    "normal_employee_manual_install_required":False if dependency_closed else True,[0m
+2026-10-14T00:32:32.3958023Z [36;1m    "note":"No DLL is copied from System32. If msvcp140.dll is absent, the one-click bootstrap downloads Microsoft's signed VC redistributable and installs it automatically.",[0m
+2026-10-14T00:32:32.3959105Z [36;1m}[0m
+2026-10-14T00:32:32.3959832Z [36;1mPath("docs/evidence/media-ai-corrected-windows-candidate-20261014/VC_RUNTIME_DEPENDENCY_AUDIT.json").write_text(json.dumps(record,indent=2)+"\n",encoding="utf-8")[0m
+2026-10-14T00:32:32.3960614Z [36;1mprint(json.dumps(record,indent=2))[0m
+2026-10-14T00:32:32.3967503Z shell: C:\hostedtoolcache\windows\Python\3.11.9\x64\python.EXE {0}
+2026-10-14T00:32:32.3967915Z env:
+2026-10-14T00:32:32.3968326Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:32:32.3968796Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:32:32.3969106Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:32:32.3970006Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:32:32.3970894Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:32:32.3972602Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:32:32.3973216Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:32:32.3973594Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:32.3974124Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:32:32.3974603Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:32.3975062Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:32.3976100Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:32.3976729Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:32:32.3977287Z ##[endgroup]
+2026-10-14T00:32:34.5492450Z {
+2026-10-14T00:32:34.5493046Z   "status": "AUDITED",
+2026-10-14T00:32:34.5493688Z   "system32_copy_forbidden": true,
+2026-10-14T00:32:34.5494325Z   "system32_copy_performed": false,
+2026-10-14T00:32:34.5494944Z   "binary_count": 130,
+2026-10-14T00:32:34.5495473Z   "required_vc_runtime_names": [
+2026-10-14T00:32:34.5496128Z     "msvcp140-263139962577ecda4cd9469ca360a746.dll",
+2026-10-14T00:32:34.5496773Z     "msvcp140.dll",
+2026-10-14T00:32:34.5497367Z     "vcruntime140.dll",
+2026-10-14T00:32:34.5497894Z     "vcruntime140_1.dll"
+2026-10-14T00:32:34.5498436Z   ],
+2026-10-14T00:32:34.5498940Z   "provided_inside_python_or_wheels": {
+2026-10-14T00:32:34.5499636Z     "msvcp140-263139962577ecda4cd9469ca360a746.dll": [
+2026-10-14T00:32:34.5500616Z       "build\\site-packages\\numpy.libs\\msvcp140-263139962577ecda4cd9469ca360a746.dll"
+2026-10-14T00:32:34.5501523Z     ],
+2026-10-14T00:32:34.5502376Z     "vcruntime140.dll": [
+2026-10-14T00:32:34.5502831Z       "build\\python-embed\\vcruntime140.dll"
+2026-10-14T00:32:34.5503283Z     ],
+2026-10-14T00:32:34.5503622Z     "vcruntime140_1.dll": [
+2026-10-14T00:32:34.5504062Z       "build\\python-embed\\vcruntime140_1.dll"
+2026-10-14T00:32:34.5504968Z     ]
+2026-10-14T00:32:34.5505281Z   },
+2026-10-14T00:32:34.5505616Z   "unresolved_host_runtime_names": [
+2026-10-14T00:32:34.5506051Z     "msvcp140.dll"
+2026-10-14T00:32:34.5506389Z   ],
+2026-10-14T00:32:34.5506739Z   "redistribution_closed": true,
+2026-10-14T00:32:34.5507177Z   "offline_without_host_vc_runtime": false,
+2026-10-14T00:32:34.5507698Z   "automatic_official_online_prerequisite": true,
+2026-10-14T00:32:34.5509436Z   "official_source_url": "https://aka.ms/vc14/vc_redist.x64.exe",
+2026-10-14T00:32:34.5510080Z   "signature_verification_required": true,
+2026-10-14T00:32:34.5510561Z   "normal_employee_manual_install_required": false,
+2026-10-14T00:32:34.5511626Z   "note": "No DLL is copied from System32. If msvcp140.dll is absent, the one-click bootstrap downloads Microsoft's signed VC redistributable and installs it automatically."
+2026-10-14T00:32:34.5512552Z }
+2026-10-14T00:32:34.5889213Z ##[group]Run pyinstaller --clean --noconfirm --onefile --noconsole `
+2026-10-14T00:32:34.5889847Z [36;1mpyinstaller --clean --noconfirm --onefile --noconsole `[0m
+2026-10-14T00:32:34.5890318Z [36;1m  --name MINDLE_MEDIA_AI_RUN `[0m
+2026-10-14T00:32:34.5890731Z [36;1m  --icon "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico" `[0m
+2026-10-14T00:32:34.5891154Z [36;1m  "scripts/one_click_bootstrap.py"[0m
+2026-10-14T00:32:34.5891556Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:32:34.5892123Z [36;1mif (-not (Test-Path "dist/MINDLE_MEDIA_AI_RUN.exe")) { throw "MINDLE_MEDIA_AI_RUN.exe not built" }[0m
+2026-10-14T00:32:34.5892636Z [36;1m[ordered]@{[0m
+2026-10-14T00:32:34.5892948Z [36;1m  status = "ONE_CLICK_LAUNCHER_EXE_BUILT"[0m
+2026-10-14T00:32:34.5893340Z [36;1m  path = "dist/MINDLE_MEDIA_AI_RUN.exe"[0m
+2026-10-14T00:32:34.5893801Z [36;1m  bytes = (Get-Item "dist/MINDLE_MEDIA_AI_RUN.exe").Length[0m
+2026-10-14T00:32:34.5894463Z [36;1m  sha256 = (Get-FileHash -Algorithm SHA256 "dist/MINDLE_MEDIA_AI_RUN.exe").Hash.ToLower()[0m
+2026-10-14T00:32:34.5895013Z [36;1m  console = "disabled"[0m
+2026-10-14T00:32:34.5895369Z [36;1m  employee_visible_action = "double-click"[0m
+2026-10-14T00:32:34.5895909Z [36;1m} | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/ONE_CLICK_BUILD_RESULT.json" -Encoding utf8[0m
+2026-10-14T00:32:34.5985257Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:32:34.5985681Z env:
+2026-10-14T00:32:34.5986093Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:32:34.5986569Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:32:34.5986888Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:32:34.5987381Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:32:34.5988283Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:32:34.5989200Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:32:34.5989713Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:32:34.5990099Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:34.5990606Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:32:34.5991101Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:34.5991566Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:34.5992025Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:34.5992663Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:32:34.5994220Z ##[endgroup]
+2026-10-14T00:32:35.3026238Z 271 INFO: PyInstaller: 6.16.0, contrib hooks: 2026.8
+2026-10-14T00:32:35.3027147Z 271 INFO: Python: 3.11.9
+2026-10-14T00:32:35.3129424Z 281 INFO: Platform: Windows-10-10.0.26100-SP0
+2026-10-14T00:32:35.3130543Z 281 INFO: Python environment: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:35.3136327Z 283 INFO: wrote D:\a\mindle-media-ai\mindle-media-ai\MINDLE_MEDIA_AI_RUN.spec
+2026-10-14T00:32:35.3176340Z 287 INFO: Removing temporary files and cleaning cache in C:\Users\runneradmin\AppData\Local\pyinstaller
+2026-10-14T00:32:35.3184665Z 287 INFO: Module search paths (PYTHONPATH):
+2026-10-14T00:32:35.3185269Z ['C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\Scripts\\pyinstaller.exe',
+2026-10-14T00:32:35.3186093Z  'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\python311.zip',
+2026-10-14T00:32:35.3186760Z  'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\DLLs',
+2026-10-14T00:32:35.3187185Z  'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\Lib',
+2026-10-14T00:32:35.3187627Z  'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64',
+2026-10-14T00:32:35.3190435Z  'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\Lib\\site-packages',
+2026-10-14T00:32:35.3190954Z  'D:\\a\\mindle-media-ai\\mindle-media-ai\\scripts']
+2026-10-14T00:32:35.5566036Z 526 INFO: checking Analysis
+2026-10-14T00:32:35.5566633Z 526 INFO: Building Analysis because Analysis-00.toc is non existent
+2026-10-14T00:32:35.5568171Z 526 INFO: Looking for Python shared library...
+2026-10-14T00:32:35.5569299Z 527 INFO: Using Python shared library: C:\hostedtoolcache\windows\Python\3.11.9\x64\python311.dll
+2026-10-14T00:32:35.5570048Z 527 INFO: Running Analysis Analysis-00.toc
+2026-10-14T00:32:35.5570492Z 527 INFO: Target bytecode optimization level: 0
+2026-10-14T00:32:35.5570877Z 527 INFO: Initializing module dependency graph...
+2026-10-14T00:32:35.5670303Z 536 INFO: Initializing module graph hook caches...
+2026-10-14T00:32:35.5917205Z 560 INFO: Analyzing modules for base_library.zip ...
+2026-10-14T00:32:36.4420610Z 1410 INFO: Processing standard module hook 'hook-heapq.py' from 'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\Lib\\site-packages\\PyInstaller\\hooks'
+2026-10-14T00:32:36.8000418Z 1769 INFO: Processing standard module hook 'hook-encodings.py' from 'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\Lib\\site-packages\\PyInstaller\\hooks'
+2026-10-14T00:32:38.7183169Z 3688 INFO: Processing standard module hook 'hook-pickle.py' from 'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\Lib\\site-packages\\PyInstaller\\hooks'
+2026-10-14T00:32:40.9077305Z 5876 INFO: Caching module dependency graph...
+2026-10-14T00:32:40.9435897Z 5912 INFO: Analyzing D:\a\mindle-media-ai\mindle-media-ai\scripts\one_click_bootstrap.py
+2026-10-14T00:32:40.9857440Z 5955 INFO: Processing standard module hook 'hook-_ctypes.py' from 'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\Lib\\site-packages\\PyInstaller\\hooks'
+2026-10-14T00:32:41.0435607Z 6013 INFO: Processing module hooks (post-graph stage)...
+2026-10-14T00:32:41.0488004Z 6018 INFO: Performing binary vs. data reclassification (1 entries)
+2026-10-14T00:32:41.0502206Z 6020 INFO: Looking for ctypes DLLs
+2026-10-14T00:32:41.0638075Z 6033 INFO: Analyzing run-time hooks ...
+2026-10-14T00:32:41.0647551Z 6034 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'C:\\hostedtoolcache\\windows\\Python\\3.11.9\\x64\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+2026-10-14T00:32:41.0692513Z 6038 INFO: Creating base_library.zip...
+2026-10-14T00:32:41.0860087Z 6056 INFO: Looking for dynamic libraries
+2026-10-14T00:32:41.1835447Z 6152 INFO: Extra DLL search directories (AddDllDirectory): []
+2026-10-14T00:32:41.1835939Z 6153 INFO: Extra DLL search directories (PATH): []
+2026-10-14T00:32:41.6421535Z 6610 INFO: Warnings written to D:\a\mindle-media-ai\mindle-media-ai\build\MINDLE_MEDIA_AI_RUN\warn-MINDLE_MEDIA_AI_RUN.txt
+2026-10-14T00:32:41.6594728Z 6629 INFO: Graph cross-reference written to D:\a\mindle-media-ai\mindle-media-ai\build\MINDLE_MEDIA_AI_RUN\xref-MINDLE_MEDIA_AI_RUN.html
+2026-10-14T00:32:41.6736341Z 6642 INFO: checking PYZ
+2026-10-14T00:32:41.6737754Z 6642 INFO: Building PYZ because PYZ-00.toc is non existent
+2026-10-14T00:32:41.6738856Z 6642 INFO: Building PYZ (ZlibArchive) D:\a\mindle-media-ai\mindle-media-ai\build\MINDLE_MEDIA_AI_RUN\PYZ-00.pyz
+2026-10-14T00:32:41.8343046Z 6803 INFO: Building PYZ (ZlibArchive) D:\a\mindle-media-ai\mindle-media-ai\build\MINDLE_MEDIA_AI_RUN\PYZ-00.pyz completed successfully.
+2026-10-14T00:32:41.8521601Z 6821 INFO: checking PKG
+2026-10-14T00:32:41.8522953Z 6821 INFO: Building PKG because PKG-00.toc is non existent
+2026-10-14T00:32:41.8523724Z 6821 INFO: Building PKG (CArchive) MINDLE_MEDIA_AI_RUN.pkg
+2026-10-14T00:32:44.3322401Z 9301 INFO: Building PKG (CArchive) MINDLE_MEDIA_AI_RUN.pkg completed successfully.
+2026-10-14T00:32:44.3340719Z 9303 INFO: Bootloader C:\hostedtoolcache\windows\Python\3.11.9\x64\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+2026-10-14T00:32:44.3341419Z 9303 INFO: checking EXE
+2026-10-14T00:32:44.3341916Z 9303 INFO: Building EXE because EXE-00.toc is non existent
+2026-10-14T00:32:44.3343284Z 9303 INFO: Building EXE from EXE-00.toc
+2026-10-14T00:32:44.3344025Z 9303 INFO: Copying bootloader EXE to D:\a\mindle-media-ai\mindle-media-ai\dist\MINDLE_MEDIA_AI_RUN.exe
+2026-10-14T00:32:44.3369893Z 9307 INFO: Copying icon to EXE
+2026-10-14T00:32:44.3387778Z 9307 INFO: Copying 0 resources to EXE
+2026-10-14T00:32:44.3388235Z 9309 INFO: Embedding manifest in EXE
+2026-10-14T00:32:44.3403184Z 9309 INFO: Appending PKG archive to EXE
+2026-10-14T00:32:44.3454551Z 9314 INFO: Fixing EXE headers
+2026-10-14T00:32:44.4222175Z 9392 INFO: Building EXE from EXE-00.toc completed successfully.
+2026-10-14T00:32:44.4239727Z 9394 INFO: Build complete! The results are available in: D:\a\mindle-media-ai\mindle-media-ai\dist
+2026-10-14T00:32:44.6800075Z ##[group]Run python scripts/build_one_click_runtime_layout.py `
+2026-10-14T00:32:44.6800713Z [36;1mpython scripts/build_one_click_runtime_layout.py `[0m
+2026-10-14T00:32:44.6801159Z [36;1m  --repo "." `[0m
+2026-10-14T00:32:44.6801502Z [36;1m  --python-embed-root "build/python-embed" `[0m
+2026-10-14T00:32:44.6801922Z [36;1m  --site-packages-root "build/site-packages" `[0m
+2026-10-14T00:32:44.6802325Z [36;1m  --model-root "build/model-package/package" `[0m
+2026-10-14T00:32:44.6802708Z [36;1m  --ffmpeg-root "$env:FFMPEG_ROOT" `[0m
+2026-10-14T00:32:44.6803086Z [36;1m  --launcher-exe "dist/MINDLE_MEDIA_AI_RUN.exe" `[0m
+2026-10-14T00:32:44.6803542Z [36;1m  --output-root "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0" `[0m
+2026-10-14T00:32:44.6803977Z [36;1m  --build-commit "$env:GITHUB_SHA" `[0m
+2026-10-14T00:32:44.6804415Z [36;1m  --runtime-lock "build/RUNTIME_LOCK_EMPLOYEE_WIN_X64.txt"[0m
+2026-10-14T00:32:44.6804914Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:32:44.6805617Z [36;1mCopy-Item "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/_payload/PACKAGE_MANIFEST.json" "$env:EVIDENCE_DIR/PACKAGE_MANIFEST.json"[0m
+2026-10-14T00:32:44.6806566Z [36;1mCopy-Item "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/DELIVERY_ARTIFACT_SHA256.txt" "$env:EVIDENCE_DIR/DELIVERY_ARTIFACT_SHA256.txt"[0m
+2026-10-14T00:32:44.6871657Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:32:44.6872067Z env:
+2026-10-14T00:32:44.6872457Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:32:44.6872909Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:32:44.6873216Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:32:44.6873691Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:32:44.6875017Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:32:44.6875850Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:32:44.6876524Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:32:44.6876885Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:44.6877368Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:32:44.6877840Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:44.6878275Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:44.6878707Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:32:44.6879312Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:32:44.6879883Z ##[endgroup]
+2026-10-14T00:33:35.5583307Z {
+2026-10-14T00:33:35.5587221Z   "distribution": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64",
+2026-10-14T00:33:35.5587964Z   "build_commit": "d0002cd864dab4a2de8abf62b4c394f7ac4bce30",
+2026-10-14T00:33:35.5588548Z   "runtime_id": "d0002cd864da-b8fdf0bc5789",
+2026-10-14T00:33:35.5589053Z   "launcher": {
+2026-10-14T00:33:35.5589439Z     "path": "MINDLE_MEDIA_AI_RUN.exe",
+2026-10-14T00:33:35.5589844Z     "bytes": 8163683,
+2026-10-14T00:33:35.5590400Z     "sha256": "6d75ca9320945e9481d4fbc5c407ef67b1346e057d789aab85127d4a78e3b7c7"
+2026-10-14T00:33:35.5590995Z   },
+2026-10-14T00:33:35.5591367Z   "payload_manifest": {
+2026-10-14T00:33:35.5591790Z     "path": "_payload/PACKAGE_MANIFEST.json",
+2026-10-14T00:33:35.5592250Z     "bytes": 3982447,
+2026-10-14T00:33:35.5593024Z     "sha256": "afbc71c53c5acc2dea5e321979e6778de544debcca28de4bd21b05d4804f6da7",
+2026-10-14T00:33:35.5593494Z     "file_count": 19235
+2026-10-14T00:33:35.5593761Z   }
+2026-10-14T00:33:35.5593996Z }
+2026-10-14T00:33:35.7061999Z ##[group]Run $py = "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/_payload/runtime/python/python.exe"
+2026-10-14T00:33:35.7062886Z [36;1m$py = "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/_payload/runtime/python/python.exe"[0m
+2026-10-14T00:33:35.7063972Z [36;1m& $py -X utf8 -c "import torch,transformers,cv2,openvino,numpy,PIL,huggingface_hub,safetensors; print('PACKAGED_IMPORT_PASS',torch.__version__,transformers.__version__,cv2.__version__,openvino.__version__)"[0m
+2026-10-14T00:33:35.7064933Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:33:35.7139156Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:33:35.7139614Z env:
+2026-10-14T00:33:35.7140069Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:33:35.7140577Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:33:35.7140918Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:33:35.7141584Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:33:35.7142482Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:33:35.7143332Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:33:35.7143810Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:33:35.7144284Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:33:35.7144759Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:33:35.7145277Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:33:35.7145723Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:33:35.7146171Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:33:35.7146797Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:33:35.7147354Z ##[endgroup]
+2026-10-14T00:33:40.8664341Z PACKAGED_IMPORT_PASS 2.8.0+cpu 4.57.3 4.12.0 2025.3.0-19807-44526285f24-releases/2025/3
+2026-10-14T00:33:41.4386408Z ##[group]Run $env:LOCALAPPDATA = [IO.Path]::GetFullPath("build/ci-localappdata")
+2026-10-14T00:33:41.4387359Z [36;1m$env:LOCALAPPDATA = [IO.Path]::GetFullPath("build/ci-localappdata")[0m
+2026-10-14T00:33:41.4387911Z [36;1mNew-Item -ItemType Directory -Force $env:LOCALAPPDATA | Out-Null[0m
+2026-10-14T00:33:41.4388578Z [36;1m$exe = [IO.Path]::GetFullPath("build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")[0m
+2026-10-14T00:33:41.4389319Z [36;1m& $exe --materialize-only 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/FIRST_DOUBLE_CLICK_RESULT.txt"[0m
+2026-10-14T00:33:41.4389906Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:33:41.4460644Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:33:41.4461089Z env:
+2026-10-14T00:33:41.4461519Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:33:41.4462026Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:33:41.4462500Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:33:41.4463034Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:33:41.4463956Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:33:41.4464854Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:33:41.4465372Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:33:41.4465842Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:33:41.4466364Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:33:41.4466848Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:33:41.4467314Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:33:41.4467769Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:33:41.4468386Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:33:41.4468953Z ##[endgroup]
+2026-10-14T00:35:02.1561332Z MINDLE_RUNTIME_READY D:\a\mindle-media-ai\mindle-media-ai\build\ci-localappdata\MINDLE_MEDIA_AI\runtime\d0002cd864da-b8fdf0bc5789
+2026-10-14T00:35:02.5457575Z ##[group]Run $env:LOCALAPPDATA = [IO.Path]::GetFullPath("build/ci-localappdata")
+2026-10-14T00:35:02.5458408Z [36;1m$env:LOCALAPPDATA = [IO.Path]::GetFullPath("build/ci-localappdata")[0m
+2026-10-14T00:35:02.5459107Z [36;1m$exe = [IO.Path]::GetFullPath("build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")[0m
+2026-10-14T00:35:02.5459861Z [36;1m& $exe --no-browser 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/FIRST_RUNTIME_LAUNCH.txt"[0m
+2026-10-14T00:35:02.5460452Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:35:02.5461154Z [36;1m$first = @(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match "employee_package_launcher\.py.+--server" })[0m
+2026-10-14T00:35:02.5462046Z [36;1m& $exe --no-browser 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/SECOND_RUNTIME_LAUNCH.txt"[0m
+2026-10-14T00:35:02.5462589Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:35:02.5463299Z [36;1m$second = @(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match "employee_package_launcher\.py.+--server" })[0m
+2026-10-14T00:35:02.5463962Z [36;1m$firstPids = @($first.ProcessId | Sort-Object -Unique)[0m
+2026-10-14T00:35:02.5464415Z [36;1m$secondPids = @($second.ProcessId | Sort-Object -Unique)[0m
+2026-10-14T00:35:02.5465063Z [36;1mif ($secondPids.Count -ne 1) { throw "expected exactly one packaged server after second launch, got $($secondPids.Count)" }[0m
+2026-10-14T00:35:02.5465885Z [36;1mif ($firstPids.Count -ne 1 -or $firstPids[0] -ne $secondPids[0]) { throw "second launch did not reuse the same server" }[0m
+2026-10-14T00:35:02.5466435Z [36;1m[ordered]@{[0m
+2026-10-14T00:35:02.5466790Z [36;1m  status = "SINGLE_INSTANCE_PASS"[0m
+2026-10-14T00:35:02.5467324Z [36;1m  first_pids = $firstPids[0m
+2026-10-14T00:35:02.5467648Z [36;1m  second_pids = $secondPids[0m
+2026-10-14T00:35:02.5468352Z [36;1m  duplicate_server_count = 0[0m
+2026-10-14T00:35:02.5469011Z [36;1m} | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/SINGLE_INSTANCE_RESULT.json" -Encoding utf8[0m
+2026-10-14T00:35:02.5546322Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:35:02.5547407Z env:
+2026-10-14T00:35:02.5547829Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:35:02.5548314Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:35:02.5548653Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:35:02.5549159Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:35:02.5550053Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:35:02.5551027Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:35:02.5551581Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:35:02.5552023Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:35:02.5552520Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:35:02.5553014Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:35:02.5553485Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:35:02.5553928Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:35:02.5554603Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:35:02.5555167Z ##[endgroup]
+2026-10-14T00:36:05.9362079Z MINDLE_RUNTIME_READY D:\a\mindle-media-ai\mindle-media-ai\build\ci-localappdata\MINDLE_MEDIA_AI\runtime\d0002cd864da-b8fdf0bc5789
+2026-10-14T00:36:32.6693322Z MINDLE_RUNTIME_READY D:\a\mindle-media-ai\mindle-media-ai\build\ci-localappdata\MINDLE_MEDIA_AI\runtime\d0002cd864da-b8fdf0bc5789
+2026-10-14T00:36:33.7935311Z ##[group]Run python scripts/remote_windows_one_click_e2e.py `
+2026-10-14T00:36:33.7936171Z [36;1mpython scripts/remote_windows_one_click_e2e.py `[0m
+2026-10-14T00:36:33.7936600Z [36;1m  --fixture-root "build/general-audit" `[0m
+2026-10-14T00:36:33.7936979Z [36;1m  --evidence-root "$env:EVIDENCE_DIR"[0m
+2026-10-14T00:36:33.7937370Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:36:33.8014622Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:36:33.8015063Z env:
+2026-10-14T00:36:33.8015470Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:36:33.8015936Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:36:33.8016295Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:36:33.8016778Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:36:33.8017779Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:36:33.8018668Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:36:33.8019308Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:36:33.8019680Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:36:33.8020184Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:36:33.8020682Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:36:33.8021169Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:36:33.8021618Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:36:33.8022243Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:36:33.8022994Z ##[endgroup]
+2026-10-14T00:40:56.9676472Z {"status": "REMOTE_WINDOWS_PACKAGED_RUNTIME_E2E_PASS", "project_id": "11f32942-14c9-4900-9b90-d6c3af659af6", "export_sha256": "7ac6b9c0dcc400ef962fe3d3f2f241268c764971ec38b3e4fe15be8c91450210"}
+2026-10-14T00:40:57.1519412Z ##[group]Run python -m pip install --disable-pip-version-check "playwright==1.55.0"
+2026-10-14T00:40:57.1520419Z [36;1mpython -m pip install --disable-pip-version-check "playwright==1.55.0"[0m
+2026-10-14T00:40:57.1520910Z [36;1mpython -m playwright install chromium[0m
+2026-10-14T00:40:57.1521315Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:40:57.1599099Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:40:57.1599585Z env:
+2026-10-14T00:40:57.1600154Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:40:57.1600780Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:40:57.1601167Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:40:57.1601721Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:40:57.1602953Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:40:57.1603890Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:40:57.1604396Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:40:57.1604804Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:40:57.1605388Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:40:57.1605928Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:40:57.1606427Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:40:57.1607206Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:40:57.1607909Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:40:57.1608470Z ##[endgroup]
+2026-10-14T00:41:00.6535364Z Collecting playwright==1.55.0
+2026-10-14T00:41:00.9180366Z   Downloading playwright-1.55.0-py3-none-win_amd64.whl.metadata (3.5 kB)
+2026-10-14T00:41:01.0174050Z Collecting pyee<14,>=13 (from playwright==1.55.0)
+2026-10-14T00:41:01.0358836Z   Downloading pyee-13.0.1-py3-none-any.whl.metadata (3.0 kB)
+2026-10-14T00:41:01.3177299Z Collecting greenlet<4.0.0,>=3.1.1 (from playwright==1.55.0)
+2026-10-14T00:41:01.3372688Z   Downloading greenlet-3.5.6-cp311-cp311-win_amd64.whl.metadata (3.9 kB)
+2026-10-14T00:41:01.4219900Z Collecting typing-extensions (from pyee<14,>=13->playwright==1.55.0)
+2026-10-14T00:41:01.4393264Z   Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-14T00:41:01.4764182Z Downloading playwright-1.55.0-py3-none-win_amd64.whl (35.5 MB)
+2026-10-14T00:41:03.3208578Z    ---------------------------------------- 35.5/35.5 MB 20.0 MB/s  0:00:01
+2026-10-14T00:41:03.3482055Z Downloading greenlet-3.5.6-cp311-cp311-win_amd64.whl (323 kB)
+2026-10-14T00:41:03.4366847Z Downloading pyee-13.0.1-py3-none-any.whl (15 kB)
+2026-10-14T00:41:03.4923165Z Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-14T00:41:03.8647857Z Installing collected packages: typing-extensions, greenlet, pyee, playwright
+2026-10-14T00:41:06.1555471Z 
+2026-10-14T00:41:06.1575646Z Successfully installed greenlet-3.5.6 playwright-1.55.0 pyee-13.0.1 typing-extensions-4.16.0
+2026-10-14T00:41:06.8183084Z Downloading Chromium 140.0.7339.16 (playwright build v1187)[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1187/chromium-win64.zip[22m
+2026-10-14T00:41:07.2201443Z |                                                                                |   0% of 148.9 MiB
+2026-10-14T00:41:07.5291511Z |■■■■■■■■                                                                        |  10% of 148.9 MiB
+2026-10-14T00:41:07.7141878Z |■■■■■■■■■■■■■■■■                                                                |  20% of 148.9 MiB
+2026-10-14T00:41:07.8961476Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 148.9 MiB
+2026-10-14T00:41:08.0544795Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 148.9 MiB
+2026-10-14T00:41:08.2136728Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 148.9 MiB
+2026-10-14T00:41:08.3686926Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 148.9 MiB
+2026-10-14T00:41:08.5061678Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 148.9 MiB
+2026-10-14T00:41:08.6617117Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 148.9 MiB
+2026-10-14T00:41:08.7969959Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 148.9 MiB
+2026-10-14T00:41:08.9720026Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 148.9 MiB
+2026-10-14T00:41:13.4897288Z Chromium 140.0.7339.16 (playwright build v1187) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\chromium-1187
+2026-10-14T00:41:13.4902387Z Downloading FFMPEG playwright build v1011[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-win64.zip[22m
+2026-10-14T00:41:13.8163287Z |                                                                                |   1% of 1.3 MiB
+2026-10-14T00:41:13.8331885Z |■■■■■■■■                                                                        |  10% of 1.3 MiB
+2026-10-14T00:41:13.8435383Z |■■■■■■■■■■■■■■■■                                                                |  20% of 1.3 MiB
+2026-10-14T00:41:13.8511276Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 1.3 MiB
+2026-10-14T00:41:13.8560444Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 1.3 MiB
+2026-10-14T00:41:13.8597126Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  51% of 1.3 MiB
+2026-10-14T00:41:13.8633786Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 1.3 MiB
+2026-10-14T00:41:13.8662506Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 1.3 MiB
+2026-10-14T00:41:13.8683847Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 1.3 MiB
+2026-10-14T00:41:13.8705217Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 1.3 MiB
+2026-10-14T00:41:13.8724054Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 1.3 MiB
+2026-10-14T00:41:14.1269252Z FFMPEG playwright build v1011 downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\ffmpeg-1011
+2026-10-14T00:41:14.1273349Z Downloading Chromium Headless Shell 140.0.7339.16 (playwright build v1187)[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1187/chromium-headless-shell-win64.zip[22m
+2026-10-14T00:41:14.3813746Z |                                                                                |   0% of 91.3 MiB
+2026-10-14T00:41:14.5650113Z |■■■■■■■■                                                                        |  10% of 91.3 MiB
+2026-10-14T00:41:14.6719015Z |■■■■■■■■■■■■■■■■                                                                |  20% of 91.3 MiB
+2026-10-14T00:41:14.7651406Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 91.3 MiB
+2026-10-14T00:41:14.8701115Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 91.3 MiB
+2026-10-14T00:41:14.9724295Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 91.3 MiB
+2026-10-14T00:41:15.0471000Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 91.3 MiB
+2026-10-14T00:41:15.1757819Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 91.3 MiB
+2026-10-14T00:41:15.2894352Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 91.3 MiB
+2026-10-14T00:41:15.3910517Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 91.3 MiB
+2026-10-14T00:41:15.4890003Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 91.3 MiB
+2026-10-14T00:41:17.7656469Z Chromium Headless Shell 140.0.7339.16 (playwright build v1187) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\chromium_headless_shell-1187
+2026-10-14T00:41:17.7661753Z Downloading Winldd playwright build v1007[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/winldd/1007/winldd-win64.zip[22m
+2026-10-14T00:41:18.0769449Z |■■■■■■■■                                                                        |  12% of 0.1 MiB
+2026-10-14T00:41:18.0779005Z |■■■■■■■■■■■■■■■■                                                                |  25% of 0.1 MiB
+2026-10-14T00:41:18.0812622Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  38% of 0.1 MiB
+2026-10-14T00:41:18.0954787Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  51% of 0.1 MiB
+2026-10-14T00:41:18.0990369Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 0.1 MiB
+2026-10-14T00:41:18.1036612Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  89% of 0.1 MiB
+2026-10-14T00:41:18.1060811Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 0.1 MiB
+2026-10-14T00:41:18.1308020Z Winldd playwright build v1007 downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\winldd-1007
+2026-10-14T00:41:18.5279783Z ##[group]Run $source = "docs/evidence/media-ai-general-work-final-self-audit-20261008/KOREAN_SUBTITLE_ACTUAL.mp4"
+2026-10-14T00:41:18.5280758Z [36;1m$source = "docs/evidence/media-ai-general-work-final-self-audit-20261008/KOREAN_SUBTITLE_ACTUAL.mp4"[0m
+2026-10-14T00:41:18.5281689Z [36;1m$target = Get-ChildItem "build/general-audit" -Recurse -File -Filter "448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4" | Select-Object -First 1[0m
+2026-10-14T00:41:18.5282556Z [36;1mif (-not $target) { throw "browser video fixture target missing" }[0m
+2026-10-14T00:41:18.5283340Z [36;1mCopy-Item $source $target.FullName -Force[0m
+2026-10-14T00:41:18.5355130Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:41:18.5355557Z env:
+2026-10-14T00:41:18.5355976Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:41:18.5356477Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:41:18.5356921Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:41:18.5357446Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:41:18.5358328Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:41:18.5359198Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:41:18.5359693Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:41:18.5360105Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:41:18.5360625Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:41:18.5361127Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:41:18.5361586Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:41:18.5362055Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:41:18.5362689Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:41:18.5363295Z ##[endgroup]
+2026-10-14T00:41:19.1082598Z ##[group]Run python scripts/windows_final_ui_browser_acceptance.py `
+2026-10-14T00:41:19.1083480Z [36;1mpython scripts/windows_final_ui_browser_acceptance.py `[0m
+2026-10-14T00:41:19.1084140Z [36;1m  --fixture-root "build/general-audit" `[0m
+2026-10-14T00:41:19.1085003Z [36;1m  --evidence-root "$env:EVIDENCE_DIR"[0m
+2026-10-14T00:41:19.1085619Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-10-14T00:41:19.1180600Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:41:19.1181274Z env:
+2026-10-14T00:41:19.1181684Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:41:19.1182192Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:41:19.1182504Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:41:19.1182988Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:41:19.1184724Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:41:19.1185605Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:41:19.1186105Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:41:19.1186472Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:41:19.1186960Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:41:19.1187452Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:41:19.1187939Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:41:19.1188379Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:41:19.1188991Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:41:19.1189529Z ##[endgroup]
+2026-10-14T00:43:41.5507859Z Traceback (most recent call last):
+2026-10-14T00:43:41.5651534Z   File "D:\a\mindle-media-ai\mindle-media-ai\scripts\windows_final_ui_browser_acceptance.py", line 110, in <module>
+2026-10-14T00:43:41.5652762Z     raise SystemExit(main())
+2026-10-14T00:43:41.5653212Z                      ^^^^^^
+2026-10-14T00:43:41.5654299Z   File "D:\a\mindle-media-ai\mindle-media-ai\scripts\windows_final_ui_browser_acceptance.py", line 88, in main
+2026-10-14T00:43:41.5656113Z     page.wait_for_function("() => document.querySelector('[data-preview=video]').dataset.previewStatus === 'actual-output'",timeout=120000)
+2026-10-14T00:43:41.5658792Z   File "C:\hostedtoolcache\windows\Python\3.11.9\x64\Lib\site-packages\playwright\sync_api\_generated.py", line 11559, in wait_for_function
+2026-10-14T00:43:41.5659774Z     self._sync(
+2026-10-14T00:43:41.5660600Z   File "C:\hostedtoolcache\windows\Python\3.11.9\x64\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+2026-10-14T00:43:41.5661650Z     return task.result()
+2026-10-14T00:43:41.5662096Z            ^^^^^^^^^^^^^
+2026-10-14T00:43:41.5663690Z   File "C:\hostedtoolcache\windows\Python\3.11.9\x64\Lib\site-packages\playwright\_impl\_page.py", line 1113, in wait_for_function
+2026-10-14T00:43:41.5664872Z     return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+2026-10-14T00:43:41.5665615Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-14T00:43:41.5666641Z   File "C:\hostedtoolcache\windows\Python\3.11.9\x64\Lib\site-packages\playwright\_impl\_frame.py", line 860, in wait_for_function
+2026-10-14T00:43:41.5667674Z     await self._channel.send("waitForFunction", self._timeout, params)
+2026-10-14T00:43:41.5668709Z   File "C:\hostedtoolcache\windows\Python\3.11.9\x64\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+2026-10-14T00:43:41.5669694Z     return await self._connection.wrap_api_call(
+2026-10-14T00:43:41.5670242Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-14T00:43:41.5674576Z   File "C:\hostedtoolcache\windows\Python\3.11.9\x64\Lib\site-packages\playwright\_impl\_connection.py", line 558, in wrap_api_call
+2026-10-14T00:43:41.5676178Z     raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+2026-10-14T00:43:41.5677204Z playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 120000ms exceeded.
+2026-10-14T00:43:41.6572478Z ##[error]Process completed with exit code 1.
+2026-10-14T00:43:41.7163488Z ##[group]Run $vc = $null
+2026-10-14T00:43:41.7164026Z [36;1m$vc = $null[0m
+2026-10-14T00:43:41.7164458Z [36;1mif (Test-Path "$env:EVIDENCE_DIR/VC_RUNTIME_DEPENDENCY_AUDIT.json") {[0m
+2026-10-14T00:43:41.7165185Z [36;1m  $vc = Get-Content "$env:EVIDENCE_DIR/VC_RUNTIME_DEPENDENCY_AUDIT.json" -Raw | ConvertFrom-Json[0m
+2026-10-14T00:43:41.7165715Z [36;1m}[0m
+2026-10-14T00:43:41.7165985Z [36;1m$ffmpeg = $null[0m
+2026-10-14T00:43:41.7166610Z [36;1mif (Test-Path "$env:EVIDENCE_DIR/FFMPEG_DISTRIBUTION_AUDIT.json") {[0m
+2026-10-14T00:43:41.7167262Z [36;1m  $ffmpeg = Get-Content "$env:EVIDENCE_DIR/FFMPEG_DISTRIBUTION_AUDIT.json" -Raw | ConvertFrom-Json[0m
+2026-10-14T00:43:41.7167770Z [36;1m}[0m
+2026-10-14T00:43:41.7168160Z [36;1m$e2ePass = Test-Path "$env:EVIDENCE_DIR/REMOTE_WINDOWS_RUNTIME_E2E.json"[0m
+2026-10-14T00:43:41.7168805Z [36;1m$ffmpegClosed = $ffmpeg -and $ffmpeg.source_obligation_status -eq "CLOSED_BY_EXACT_SOURCE_NOTICE"[0m
+2026-10-14T00:43:41.7169601Z [36;1m$result = if ($e2ePass -and $vc -and $vc.redistribution_closed -and $ffmpegClosed) {[0m
+2026-10-14T00:43:41.7170256Z [36;1m  "PASS_REMOTE_WINDOWS_ONE_CLICK_BUILD_AND_AUTOMATION_READY_LOCAL_ACCEPTANCE_PENDING"[0m
+2026-10-14T00:43:41.7170773Z [36;1m} elseif ($e2ePass) {[0m
+2026-10-14T00:43:41.7171137Z [36;1m  "BLOCKED_RUNTIME_REDISTRIBUTION_OR_DEPENDENCY"[0m
+2026-10-14T00:43:41.7171500Z [36;1m} else {[0m
+2026-10-14T00:43:41.7171853Z [36;1m  "REMOTE_WINDOWS_ONE_CLICK_BUILD_OR_E2E_INCOMPLETE"[0m
+2026-10-14T00:43:41.7172227Z [36;1m}[0m
+2026-10-14T00:43:41.7172497Z [36;1m[ordered]@{[0m
+2026-10-14T00:43:41.7172786Z [36;1m  status = $result[0m
+2026-10-14T00:43:41.7173166Z [36;1m  local_helper = "USER_REPORTED_NORMAL_20261014"[0m
+2026-10-14T00:43:41.7173568Z [36;1m  local_acceptance = "PENDING"[0m
+2026-10-14T00:43:41.7174082Z [36;1m  exe_built = (Test-Path "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")[0m
+2026-10-14T00:43:41.7174705Z [36;1m  remote_windows_e2e = if ($e2ePass) { "PASS" } else { "NOT_PASS" }[0m
+2026-10-14T00:43:41.7175267Z [36;1m  vc_redistribution_closed = if ($vc) { [bool]$vc.redistribution_closed } else { $false }[0m
+2026-10-14T00:43:41.7175812Z [36;1m  ffmpeg_source_obligation_closed = [bool]$ffmpegClosed[0m
+2026-10-14T00:43:41.7176241Z [36;1m  final_pass_claimed = $false[0m
+2026-10-14T00:43:41.7176778Z [36;1m} | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/EVIDENCE.json" -Encoding utf8[0m
+2026-10-14T00:43:41.7177248Z [36;1m[ordered]@{[0m
+2026-10-14T00:43:41.7177642Z [36;1m  status = "PENDING_CORRECTED_CANDIDATE_DELIVERY_AND_LOCAL_EXECUTION"[0m
+2026-10-14T00:43:41.7178291Z [36;1m  required_final_test = "physical double-click on employee-style local Windows profile"[0m
+2026-10-14T00:43:41.7178911Z [36;1m  final_pass = "PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E"[0m
+2026-10-14T00:43:41.7179821Z [36;1m} | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/LOCAL_ACCEPTANCE_STATUS.json" -Encoding utf8[0m
+2026-10-14T00:43:41.7258271Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-14T00:43:41.7258923Z env:
+2026-10-14T00:43:41.7259361Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:43:41.7259922Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:43:41.7260277Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:43:41.7260772Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:43:41.7261723Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:43:41.7262598Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:43:41.7263112Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:43:41.7263579Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:43:41.7265750Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:43:41.7266330Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:43:41.7266819Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:43:41.7267277Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:43:41.7267951Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:43:41.7268671Z ##[endgroup]
+2026-10-14T00:43:42.4306399Z ##[group]Run actions/upload-artifact@v4
+2026-10-14T00:43:42.4306924Z with:
+2026-10-14T00:43:42.4307264Z   name: mindle-media-one-click-windows-evidence
+2026-10-14T00:43:42.4307754Z   path: docs/evidence/media-ai-corrected-windows-candidate-20261014/**
+2026-10-14T00:43:42.4308235Z   if-no-files-found: warn
+2026-10-14T00:43:42.4308550Z   retention-days: 90
+2026-10-14T00:43:42.4308858Z   compression-level: 6
+2026-10-14T00:43:42.4309200Z   overwrite: false
+2026-10-14T00:43:42.4409754Z   include-hidden-files: false
+2026-10-14T00:43:42.4410348Z env:
+2026-10-14T00:43:42.4410970Z   EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+2026-10-14T00:43:42.4412686Z   MODEL_PACKAGE_RUN_ID: 37778695858
+2026-10-14T00:43:42.4413404Z   GENERAL_AUDIT_RUN_ID: 37752630381
+2026-10-14T00:43:42.4414181Z   PYTHON_EMBED_URL: https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip
+2026-10-14T00:43:42.4422551Z   FFMPEG_URL: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+2026-10-14T00:43:42.4424207Z   FFMPEG_EXPECTED_SHA256: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+2026-10-14T00:43:42.4425794Z   MINDLE_DIAGNOSTIC_MODE: 1
+2026-10-14T00:43:42.4426424Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:43:42.4427268Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.11.9\x64/lib/pkgconfig
+2026-10-14T00:43:42.4428070Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:43:42.4428771Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:43:42.4429285Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.11.9\x64
+2026-10-14T00:43:42.4429949Z   FFMPEG_ROOT: D:\a\mindle-media-ai\mindle-media-ai\build\ffmpeg\ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1
+2026-10-14T00:43:42.4430605Z ##[endgroup]
+2026-10-14T00:43:44.4966611Z (node:1728) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T00:43:44.4967864Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T00:43:44.5344701Z With the provided path, there will be 18 files uploaded
+2026-10-14T00:43:44.5351641Z Artifact name is valid!
+2026-10-14T00:43:44.5353298Z Root directory input is valid!
+2026-10-14T00:43:45.0715572Z Beginning upload of artifact content to blob storage
+2026-10-14T00:43:45.3352497Z (node:1728) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-14T00:43:45.7766935Z Uploaded bytes 1407613
+2026-10-14T00:43:45.8248896Z Finished uploading artifact content to blob storage!
+2026-10-14T00:43:45.8249752Z SHA256 digest of uploaded artifact zip is e30dcbcadbe621ec576017ab1999d6902a363e703bee831982cfcc9ae7e9f2b7
+2026-10-14T00:43:45.8251419Z Finalizing artifact upload
+2026-10-14T00:43:46.0605042Z Artifact mindle-media-one-click-windows-evidence.zip successfully finalized. Artifact ID 11861758826
+2026-10-14T00:43:46.0606240Z Artifact mindle-media-one-click-windows-evidence has been successfully uploaded! Final size is 1407613 bytes. Artifact ID is 11861758826
+2026-10-14T00:43:46.0665063Z Artifact download URL: https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38490382869/artifacts/11861758826
+2026-10-14T00:43:46.2320371Z Post job cleanup.
+2026-10-14T00:43:46.4815934Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-14T00:43:46.7989204Z git version 2.55.0.windows.5
+2026-10-14T00:43:46.8102829Z Temporarily overriding HOME='D:\a\_temp\dc521d25-672a-45d9-9bca-8bba5a9156f1' before making global git config changes
+2026-10-14T00:43:46.8103937Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T00:43:46.8114190Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mindle-media-ai\mindle-media-ai
+2026-10-14T00:43:46.8784495Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T00:43:46.9132726Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-14T00:43:48.0682801Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T00:43:48.0959944Z http.https://github.com/.extraheader
+2026-10-14T00:43:48.1011014Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-10-14T00:43:48.1373181Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-14T00:43:48.7033211Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T00:43:48.7341972Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-14T00:43:49.3274257Z Cleaning up orphan processes
+2026-10-14T00:43:49.6873920Z Terminate orphan process: pid (6092) (python)
+2026-10-14T00:43:49.6932275Z Terminate orphan process: pid (6072) (conhost)
+2026-10-14T00:43:49.7226339Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
