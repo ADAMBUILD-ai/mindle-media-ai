@@ -1,0 +1,28 @@
+{
+  "schema": "CORRECTED_WINDOWS_CANDIDATE_EVIDENCE_R1",
+  "epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
+  "required": [
+    "source_sha",
+    "package_manifest",
+    "delivery_zip_sha256",
+    "model_revision_weight_hashes",
+    "windows_dependency_imports",
+    "exe_launch_single_instance",
+    "packaged_actual_model_jobs",
+    "browser_media_diagnostics",
+    "save_cold_restart",
+    "export_crc_all_output_hashes",
+    "local_pc_60_button_dispositions"
+  ],
+  "scoped_runner_result": "PASS_CORRECTED_WINDOWS_CANDIDATE_RUNTIME_VERIFIED_LOCAL_ACCEPTANCE_PENDING",
+  "full_product_pass": false,
+  "owner_pc_pass": false,
+  "forbidden": [
+    "historical_PASS_relabel",
+    "main_merge",
+    "force_push",
+    "approved_UI_redesign",
+    "old_release_clobber",
+    "unapproved_OpenAI_connection"
+  ]
+}

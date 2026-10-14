@@ -1,48 +1,15 @@
-# MINDLE MEDIA AI — CURRENT PC WORK DIRECTIVE
+# Corrected Windows candidate and PC acceptance — 2026-10-14
+Epoch: MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1
 
-STATUS: ACTIVE — REMOTE WINDOWS FALLBACK / LOCAL HELPER BLOCKED
-DATE: 2026-10-08
-CONTROL_PLANE_EPOCH: MEDIA-AI-20261008-PC-WORK-REMOTE-WINDOWS-FALLBACK-R1
-REPOSITORY: ADAMBUILD-ai/mindle-media-ai
-BRANCH: feature/ad-shortform-bridge-p0-20260926
+Preserve verified core source 92a281f8c5eee70e4e23d14949f2f2c9b728da82, run 38433228957. Build one latest-source corrected Windows candidate using only pc-one-click-windows-build-e2e.yml. No old final release replacement, no employee final package claim, no main merge; PR23 HOLD / DO NOT MERGE. PHOTO weights/algorithm and approved HTML/CSS remain frozen.
 
-## GENERAL WORK BASELINE
-PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK
-GENERAL_WORK_FINAL_HEAD: 9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb
+Owner's PC preparation report: helper normal, Ryzen5800X/32GB/RTX3060, 8 inputs,60 button candidates, backup CRC reported. This is supplied evidence, not independently read local evidence. Old setup-refresh error is historical, not current. Local product PASS remains false.
 
-## LOCAL PC HELPER
-STATUS: PC_EXECUTION_ENVIRONMENT_STILL_BLOCKED_SETUP_REFRESH
-ERROR: helper_unknown_error: setup refresh had errors
+General: align controls and validators; build candidate with exact source/manifest/dependency/model hashes; execute packaged models, actual browser, cold restart, Export; keep failures; provide immutable artifacts and delivery checksums. Do not auto-publish or overwrite an old GitHub release. Run only one Windows candidate workflow to minimize duplicate CI use.
 
-This blocks only local physical execution.
-IT DOES NOT STOP PC WORK.
+PC Work: prepare and preserve existing files; after exact candidate delivery and SHA verification, EXE double-click → original aspect/approved UI → all60 candidate buttons disposition → actual model4operations → playback diagnostic → save/full close/reopen → Export CRC/output hashes. Record MediaError.code, readyState,videoWidth,currentSrc before timeout diagnosis. Never extend300sec as the fix.
 
-## SINGLE ACTIVE DIRECTIVE
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK_AND_LOCAL_ACCEPTANCE_DIRECTIVE_v1.0_20261008.md
+OpenAI NOT_CONNECTED pending owner key authorization. Marketing/AVORA DEFERRED_EXTERNAL. No full-product PASS. No office-PC PASS from remote runner. Candidate handoff is a scoped gate, not final product release.
 
-## SINGLE ACTIVE EVIDENCE CONTRACT
-docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK_EVIDENCE_CONTRACT_v1.0_20261008.json
-
-## ACTIVE EXECUTION MODE
-REMOTE_WINDOWS_FALLBACK
-
-Continue immediately through GitHub Windows Runner:
-1. validator
-2. Windows runtime/dependency inventory
-3. VC Runtime closure
-4. FFmpeg distribution closure
-5. MINDLE_MEDIA_AI_RUN.exe implementation/build
-6. Windows automated runtime E2E
-7. package hashes/artifact/Evidence
-
-Leave only the final physical local double-click acceptance pending until the local helper recovers.
-
-## INTERMEDIATE REMOTE PASS
-PASS_REMOTE_WINDOWS_ONE_CLICK_BUILD_AND_AUTOMATION_READY_LOCAL_ACCEPTANCE_PENDING
-
-## FINAL PASS
-PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E
-
-External Marketing / AVORA remains DEFERRED_EXTERNAL.
-PR #23 remains HOLD / DO NOT MERGE.
-No main merge.
+Directive: docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_DIRECTIVE_v1.0_20261014.md
+Evidence Contract: docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_EVIDENCE_CONTRACT_v1.0_20261014.json

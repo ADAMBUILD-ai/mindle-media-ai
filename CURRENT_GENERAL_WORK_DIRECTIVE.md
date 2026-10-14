@@ -9,4 +9,4 @@ Directive: docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_DIRECTIVE_v1.0_
 Historical General Work PASS does not establish owner PC runtime acceptance.
 PR23 HOLD / DO NOT MERGE. No main merge. No layout or color redesign.
 OpenAI NOT_CONNECTED; credentials authorized only at connection gate.
-Package builds paused for this repair gate; existing PC evidence and package are historical.
+Core recovery verified. Phase: VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD. Only latest-source corrected candidate build through pc-one-click-windows-build-e2e.yml is allowed; no final employee release. Existing PC evidence/package remain historical.

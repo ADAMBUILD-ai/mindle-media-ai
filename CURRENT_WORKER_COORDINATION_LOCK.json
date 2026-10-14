@@ -1,15 +1,15 @@
 {
   "schema_version": "PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
   "status": "ACTIVE",
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
   "active_control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
-  "collision_status": "OWNER_REOPENED_GENERAL_WORK_PC_BUILD_STAGED",
+  "collision_status": "GENERAL_PC_EPOCH_ALIGNED_CORRECTED_CANDIDATE_ONLY",
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "ACTIVE_OWNER_RUNTIME_RECOVERY",
+      "current_assignment": "Verified core preserved; Windows candidate build and exact package handoff",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -19,7 +19,11 @@
         "CURRENT_GENERAL_WORK_*",
         "scripts/validate_general_work_control_plane.py",
         "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY*",
-        "docs/evidence/media-ai-runtime-recovery-20261013/**"
+        "docs/evidence/media-ai-runtime-recovery-20261013/**",
+        "CURRENT_PC_WORK_*",
+        "CURRENT_WORKER_COORDINATION_LOCK.json",
+        "scripts/validate_pc_work_control_plane.py",
+        "docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE*"
       ],
       "may_not_change": [
         "main/default branch",
@@ -30,7 +34,7 @@
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "STAGED_PENDING_VERIFIED_CORE_RECOVERY; preserve existing package/evidence; no automatic rebuild for source repair commit",
+      "current_assignment": "Build/test corrected Windows candidate; no employee final release; preserve all historical packages",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",
@@ -50,7 +54,7 @@
     },
     "local_pc_acceptance": {
       "role": "Final physical Windows acceptance",
-      "current_assignment": "PENDING until local helper recovers; do not block remote work",
+      "current_assignment": "User reports helper normal. Exact candidate receipt required before actual double-click. PASS requires local execution evidence.",
       "may_write": [],
       "may_not_change": [
         "remote work progress"

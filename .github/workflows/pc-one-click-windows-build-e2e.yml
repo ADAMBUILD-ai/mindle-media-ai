@@ -31,7 +31,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  EVIDENCE_DIR: docs/evidence/media-ai-pc-work-remote-windows-fallback-20261008
+  EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
   MODEL_PACKAGE_RUN_ID: "37778695858"
   GENERAL_AUDIT_RUN_ID: "37752630381"
   PYTHON_EMBED_URL: "https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip"
@@ -57,7 +57,7 @@ jobs:
           state = json.loads(Path("CURRENT_PC_WORK_STATE.json").read_text())
           general = json.loads(Path("CURRENT_GENERAL_WORK_STATE.json").read_text())
           recovery = general.get("status") == "ACTIVE_OWNER_RUNTIME_RECOVERY"
-          allowed = state.get("package_build_allowed") is True and not recovery
+          allowed = (state.get("package_build_allowed") is True and general.get("package_build_allowed") is True and general.get("phase") == "VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD" and general.get("package_workflow") == ".github/workflows/pc-one-click-windows-build-e2e.yml" and state.get("control_plane_epoch") == general.get("control_plane_epoch"))
           with open(os.environ["GITHUB_OUTPUT"], "a") as output:
               output.write("allowed=" + str(allowed).lower() + "\n")
           print("package_build_allowed=" + str(allowed).lower())
@@ -79,7 +79,7 @@ jobs:
           New-Item -ItemType Directory -Force -Path $env:EVIDENCE_DIR | Out-Null
           @'
           {
-            "status": "PC_EXECUTION_ENVIRONMENT_STILL_BLOCKED_SETUP_REFRESH",
+            "status": "USER_REPORTED_NORMAL_20261014",
             "remote_fallback_active": true,
             "local_final_acceptance": "PENDING"
           }
@@ -281,7 +281,7 @@ jobs:
               "normal_employee_manual_install_required":False if dependency_closed else True,
               "note":"No DLL is copied from System32. If msvcp140.dll is absent, the one-click bootstrap downloads Microsoft's signed VC redistributable and installs it automatically.",
           }
-          Path("docs/evidence/media-ai-pc-work-remote-windows-fallback-20261008/VC_RUNTIME_DEPENDENCY_AUDIT.json").write_text(json.dumps(record,indent=2)+"\n",encoding="utf-8")
+          Path("docs/evidence/media-ai-corrected-windows-candidate-20261014/VC_RUNTIME_DEPENDENCY_AUDIT.json").write_text(json.dumps(record,indent=2)+"\n",encoding="utf-8")
           print(json.dumps(record,indent=2))
 
       - name: Build employee-visible MINDLE_MEDIA_AI_RUN.exe
@@ -452,7 +452,7 @@ jobs:
           }
           [ordered]@{
             status = $result
-            local_helper = "PC_EXECUTION_ENVIRONMENT_STILL_BLOCKED_SETUP_REFRESH"
+            local_helper = "USER_REPORTED_NORMAL_20261014"
             local_acceptance = "PENDING"
             exe_built = (Test-Path "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")
             remote_windows_e2e = if ($e2ePass) { "PASS" } else { "NOT_PASS" }
@@ -461,7 +461,7 @@ jobs:
             final_pass_claimed = $false
           } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/EVIDENCE.json" -Encoding utf8
           [ordered]@{
-            status = "PENDING_LOCAL_HELPER_RECOVERY"
+            status = "PENDING_CORRECTED_CANDIDATE_DELIVERY_AND_LOCAL_EXECUTION"
             required_final_test = "physical double-click on employee-style local Windows profile"
             final_pass = "PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E"
           } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/LOCAL_ACCEPTANCE_STATUS.json" -Encoding utf8
@@ -491,28 +491,6 @@ jobs:
                   p.write_bytes(chunk);i+=1
           Path("build/DELIVERY_PARTS.json").write_text(json.dumps({"zip":archive.name,"sha256":h.hexdigest(),"parts":i},indent=2)+"\n")
           print("delivery parts",i,"zip sha",h.hexdigest())
-
-      - name: Publish corrected final package only after full E2E and browser acceptance
-        if: success()
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          $tag = "media-final-20261013-r2"
-          $asset = "build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip"
-          $sha = (Get-FileHash -Algorithm SHA256 $asset).Hash.ToLowerInvariant()
-          gh release view $tag --repo ${{ github.repository }} *> $null
-          if ($LASTEXITCODE -ne 0) {
-            gh release create $tag --repo ${{ github.repository }} --target $env:GITHUB_SHA --title "MINDLE MEDIA AI Final Windows Package R2 2026-10-13" --notes "Final UI 2026-10-13 + real browser interaction acceptance. Build commit: $env:GITHUB_SHA. SHA256: $sha"
-          }
-          gh release upload $tag $asset --repo ${{ github.repository }} --clobber
-          [ordered]@{
-            status = "FINAL_R2_RELEASE_PUBLISHED"
-            tag = $tag
-            asset = "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip"
-            sha256 = $sha
-            build_commit = $env:GITHUB_SHA
-          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/FINAL_R2_RELEASE.json" -Encoding utf8
 
       - name: Upload Evidence
         if: always()
