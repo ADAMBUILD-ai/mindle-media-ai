@@ -552,14 +552,19 @@ class ProductJobService:
         if speed != 1: vf.append(f'setpts=PTS/{speed}')
         if options.get('aspect') == '9:16':
             vf.append('scale=360:640:force_original_aspect_ratio=decrease,pad=360:640:(ow-iw)/2:(oh-ih)/2,setsar=1')
-        vf.append(f"eq=brightness={float(options.get('brightness',0))/100}:contrast={1+float(options.get('contrast',0))/100}:saturation={1+float(options.get('saturation',0))/100}")
+        brightness=float(options.get('brightness',0))/100
+        contrast=1+float(options.get('contrast',0))/100
+        saturation=1+float(options.get('saturation',0))/100
+        # eq/hqdn3d are GPL-only and absent from the verified LGPL package.
+        # lutyuv implements the same linear luma and chroma controls without them.
+        vf.append(f"lutyuv=y='clip((val-128)*{contrast}+128+{brightness}*255,0,255)':u='clip((val-128)*{saturation}+128,0,255)':v='clip((val-128)*{saturation}+128,0,255)'")
         if options.get('fade'): vf.append('fade=t=in:st=0:d=0.4')
         if options.get('effect'): vf.append('vignette=PI/6')
-        if options.get('denoise'): vf.append('hqdn3d')
+        if options.get('denoise'): vf.append('atadenoise')
         if options.get('stabilize'): vf.append('deshake')
         subtitle = str(options.get('subtitle', '')).strip()
         if subtitle:
-            escape = lambda path: str(path).replace('\\','/').replace(':','\\:').replace("'", "\\'")
+            escape = lambda path: Path(path).as_posix().replace(':','\\:').replace("'", "\\'")
             font = Path(os.environ.get('SystemRoot', 'C:/Windows')) / 'Fonts/malgun.ttf'
             if not font.is_file():
                 fonts = sorted(Path('/usr/share/fonts').rglob('*CJK*'))

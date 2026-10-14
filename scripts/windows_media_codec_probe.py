@@ -40,3 +40,20 @@ try:
 finally:
     server.shutdown();server.server_close();(out/'CODEC_MATRIX.json').write_text(json.dumps(result,indent=2)+'\n')
 assert result['status']=='PASS_OFFICIAL_CHROME_EXACT_H264_PREVIEW',result
+import base64
+from media_ai.product_runtime import ProductJobService
+service=ProductJobService(root/'codec_probe_data','')
+result['filter_inventory']=subprocess.check_output([str(target/'ffmpeg.exe'),'-hide_banner','-filters'],text=True,stderr=subprocess.STDOUT)
+result['malgun_available']=(Path(os.environ.get('SystemRoot','C:/Windows'))/'Fonts/malgun.ttf').is_file()
+result['edit_tests']=[]
+for name,options in [('brightness_contrast_saturation',{'brightness':18,'contrast':20,'saturation':15}),('denoise',{'denoise':True}),('stabilize',{'stabilize':True}),('effect',{'effect':True}),('fade',{'fade':True}),('korean_subtitle',{'subtitle':'한국어 자막 검증'})]:
+    row={'test':name,'options':options}
+    try:
+        edited=service.edit_video({'filename':source.name,'content_base64':base64.b64encode(source.read_bytes()).decode(),'options':options})
+        row.update(status='PASS',result=edited)
+    except subprocess.CalledProcessError as e:row.update(status='FAIL',error=repr(e),stderr=e.stderr.decode(errors='replace') if isinstance(e.stderr,bytes) else e.stderr)
+    except Exception as e:row.update(status='FAIL',error=repr(e))
+    result['edit_tests'].append(row);(out/'CODEC_MATRIX.json').write_text(json.dumps(result,indent=2)+'\\n')
+result['status']='PASS_CHROME_AND_LGPL_NATIVE_EDIT_FILTERS' if all(x['status']=='PASS' for x in result['edit_tests']) else 'FAIL_NATIVE_EDIT_FILTERS'
+(out/'CODEC_MATRIX.json').write_text(json.dumps(result,indent=2)+'\\n')
+assert result['status']=='PASS_CHROME_AND_LGPL_NATIVE_EDIT_FILTERS',result
