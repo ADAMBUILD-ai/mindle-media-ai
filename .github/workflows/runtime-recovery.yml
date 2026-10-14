@@ -27,6 +27,15 @@ jobs:
         with:
           python-version: '3.11'
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-cjk
+      - name: Verify actual LGPL-compatible edit filters before browser regression
+        run: |
+          python - <<'PY'
+          import subprocess
+          output = subprocess.check_output(['ffmpeg','-hide_banner','-filters'],text=True,stderr=subprocess.STDOUT)
+          names = {parts[1] for line in output.splitlines() if len(parts:=line.split()) >= 2}
+          assert {'lutyuv','atadenoise'}.issubset(names), 'Required video correction or denoise filter unavailable'
+          print('ACTUAL_VIDEO_FILTER_PREFLIGHT_PASS')
+          PY
       - run: python -m pip install '.[dev]' selenium==4.35.0
       - name: Full regression
         run: |
