@@ -1,7 +1,7 @@
 {
   "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
   "date": "2026-10-14",
-  "status": "ACTIVE_CORRECTED_WINDOWS_CANDIDATE_BUILD",
+  "status": "READY_FOR_LOCAL_PC_ACCEPTANCE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
@@ -22,7 +22,7 @@
   "work_must_continue": true,
   "product_changes_allowed": true,
   "allowed_product_change_scope": "Windows runtime/package/lifecycle fixes only, approved layout frozen",
-  "package_build_allowed": true,
+  "package_build_allowed": false,
   "package_build_location": "GITHUB_WINDOWS_RUNNER",
   "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
   "local_physical_acceptance_allowed": true,
@@ -31,11 +31,64 @@
   "external_marketing_avora_status": "DEFERRED_EXTERNAL",
   "employee_manual_install_steps_allowed": false,
   "normal_employee_action": "DOUBLE_CLICK_ONLY",
-  "verified_core_source": "92a281f8c5eee70e4e23d14949f2f2c9b728da82",
-  "verified_core_run": 38433228957,
-  "package_status": "NOT_BUILT",
+  "verified_core_source": "f7f4d0f5e077d287b1cc44bb1329ec72422963b9",
+  "verified_core_run": 38497715964,
+  "package_status": "CORRECTED_CANDIDATE_VERIFIED_AND_DELIVERABLE",
   "owner_pc_runtime_pass": false,
   "final_product_pass": false,
   "openai_connected": false,
-  "final_result": null
+  "final_result": null,
+  "phase": "VERIFIED_WINDOWS_CANDIDATE_READY_FOR_PC_ACCEPTANCE",
+  "candidate_source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
+  "candidate_run": 38497304486,
+  "candidate_zip_sha256": "8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527",
+  "candidate_payload_manifest_sha256": "99e201b2a27ce89d6f109c0375520e5867cc8343b6be846aed9f4e202fb27769",
+  "candidate_launcher_sha256": "9d70283f16b48b74f62795f65dd0bfc9fbf1f29b00f3e980c6f7d972e91ce4d9",
+  "candidate_runtime_id": "0e4e12a9e4c7-e533e9ff57d4",
+  "candidate_readback_run": 38499220659,
+  "candidate_readback_status": "PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES",
+  "candidate_artifacts": [
+    {
+      "id": 11865435553,
+      "name": "mindle-media-one-click-win-x64-part-03",
+      "digest": "sha256:1ba00d6bbc5afc3e164232b1093a1f6d56902f6895333c10cdb08b29f0a67c54",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38497304486/artifacts/11865435553"
+    },
+    {
+      "id": 11865360696,
+      "name": "mindle-media-one-click-win-x64-part-04",
+      "digest": "sha256:3a492bb63affad81b7b005f2a94120f1828688e9167214fb88a43e9517c15b07",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38497304486/artifacts/11865360696"
+    },
+    {
+      "id": 11865290633,
+      "name": "mindle-media-one-click-win-x64-part-02",
+      "digest": "sha256:1e7103791e8681566928f409c7e2b19485f7954b6f361c36cb85536ecd6176c5",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38497304486/artifacts/11865290633"
+    },
+    {
+      "id": 11865215789,
+      "name": "mindle-media-one-click-win-x64-part-01",
+      "digest": "sha256:df92f7b81510663da2a2ea691bee0bbb27cb8f99c9f3649a6bef25401c599e31",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38497304486/artifacts/11865215789"
+    },
+    {
+      "id": 11865210788,
+      "name": "mindle-media-one-click-windows-launcher-manifests",
+      "digest": "sha256:c4a98263b373c89bff38f221bef10204c242cffe2afcd3862535e07f3208ba03",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38497304486/artifacts/11865210788"
+    },
+    {
+      "id": 11865170893,
+      "name": "mindle-media-one-click-windows-evidence",
+      "digest": "sha256:c9c6494ea3bac67c3b07c3eb871e476ebf4fe80b59c1e80f3a4c77760a1b1f2e",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38497304486/artifacts/11865170893"
+    },
+    {
+      "id": 11865150922,
+      "name": "mindle-media-one-click-win-x64-part-00",
+      "digest": "sha256:29b07fcbd7a0c93c241f83897ca85e30e472e4b52c7524f54622935012cdbd3d",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38497304486/artifacts/11865150922"
+    }
+  ]
 }

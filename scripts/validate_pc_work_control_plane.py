@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json,pathlib,sys
+import json,pathlib
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 def require(value,message):
     if not value:raise SystemExit('PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: '+message)
@@ -10,16 +10,25 @@ require(p.get('control_plane_epoch')==l.get('epoch')==g.get('control_plane_epoch
 require(p.get('active_directive')==l.get('active_directive')=='docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_DIRECTIVE_v1.0_20261014.md','directive mismatch')
 require(p.get('evidence_contract')==l.get('evidence_contract')=='docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_EVIDENCE_CONTRACT_v1.0_20261014.json','contract mismatch')
 require((ROOT/p['active_directive']).is_file() and (ROOT/p['evidence_contract']).is_file(),'missing active files')
-require(json.loads((ROOT/p['evidence_contract']).read_text())['epoch']==epoch,'evidence contract epoch mismatch')
-require(p.get('package_build_allowed') is True and g.get('package_build_allowed') is True,'build gate not released')
-require(g.get('phase')=='VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD' and g.get('package_workflow')=='.github/workflows/pc-one-click-windows-build-e2e.yml','candidate scope mismatch')
-require(p.get('verified_core_source')==g.get('verified_core_source')=='92a281f8c5eee70e4e23d14949f2f2c9b728da82' and p.get('verified_core_run')==g.get('verified_core_run')==38433228957,'verified core mismatch')
-for s in (p,g):
-    require(s.get('owner_pc_runtime_pass') is False and s.get('final_product_pass') is False and s.get('openai_connected') is False,'unsupported final PASS')
+require(json.loads((ROOT/p['evidence_contract']).read_text())['epoch']==epoch,'contract epoch mismatch')
+phase=g.get('phase')
+require(phase==p.get('phase')==gl.get('phase')==l.get('phase'),'phase mismatch')
+if phase=='VERIFIED_WINDOWS_CANDIDATE_READY_FOR_PC_ACCEPTANCE':
+    for state in (p,l,g,gl):
+        require(state.get('package_build_allowed') is False,'repeat build gate must be closed')
+        require(state.get('candidate_source')=='0e4e12a9e4c758f202c6ebb5085df5a542bb6314' and state.get('candidate_run')==38497304486,'candidate source/run mismatch')
+        require(state.get('candidate_zip_sha256')=='8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527' and state.get('candidate_readback_run')==38499220659,'candidate byte readback mismatch')
+    require(p.get('local_physical_acceptance_allowed') is True and p.get('package_status')=='CORRECTED_CANDIDATE_VERIFIED_AND_DELIVERABLE','local acceptance release missing')
+else:
+    require(phase=='VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD','unknown phase')
+    require(p.get('package_build_allowed') is True and g.get('package_build_allowed') is True,'build gate not released')
+require(p.get('verified_core_source')==g.get('verified_core_source') and p.get('verified_core_run')==g.get('verified_core_run'),'core mismatch')
+for state in (p,l,g,gl):
+    require(state.get('owner_pc_runtime_pass') is False and state.get('final_product_pass') is False and state.get('openai_connected') is False,'unsupported final PASS')
 require(p.get('employee_manual_install_steps_allowed') is False and p.get('external_marketing_avora_status')=='DEFERRED_EXTERNAL','scope mismatch')
 require(w.get('pr23_hold_do_not_merge') is True and w.get('merge_main_forbidden') is True and w.get('force_push_forbidden') is True,'invariant mismatch')
 for inv in ('main_merge_forbidden','force_push_forbidden','pr23_hold_do_not_merge','approved_ui_preserved'):
     require(l['invariants'].get(inv) is True,inv)
-require(epoch in (ROOT/'CURRENT_PC_WORK_DIRECTIVE.md').read_text(),'current directive epoch missing')
-print('PC_WORK_CORRECTED_WINDOWS_CANDIDATE_GATE_PASS')
-print('LOCAL_READINESS=USER_REPORTED_NORMAL; LOCAL_PRODUCT_PASS=false; FINAL_PRODUCT_PASS=false')
+require(epoch in (ROOT/'CURRENT_PC_WORK_DIRECTIVE.md').read_text(),'current epoch missing')
+print('PC_WORK_CORRECTED_CANDIDATE_READY_FOR_LOCAL_ACCEPTANCE_PASS' if phase.endswith('PC_ACCEPTANCE') else 'PC_WORK_CORRECTED_WINDOWS_CANDIDATE_GATE_PASS')
+print('OWNER_PC_PASS=false; FULL_PRODUCT_PASS=false; OPENAI_CONNECTED=false')

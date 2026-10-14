@@ -5,11 +5,11 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
   "active_control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
-  "collision_status": "GENERAL_PC_EPOCH_ALIGNED_CORRECTED_CANDIDATE_ONLY",
+  "collision_status": "ALIGNED_CANDIDATE_VERIFIED_HANDOFF_TO_LOCAL_PC",
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "Verified core preserved; Windows candidate build and exact package handoff",
+      "current_assignment": "Verified corrected Windows candidate delivered; preserve receipts; fix actual PC findings; OpenAI credentials still owner approval gate",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -34,7 +34,7 @@
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "Build/test corrected Windows candidate; no employee final release; preserve all historical packages",
+      "current_assignment": "COMPLETE_CURRENT_CANDIDATE; build gate closed; preserve artifacts; no automatic rebuild or final release",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",
@@ -54,7 +54,7 @@
     },
     "local_pc_acceptance": {
       "role": "Final physical Windows acceptance",
-      "current_assignment": "User reports helper normal. Exact candidate receipt required before actual double-click. PASS requires local execution evidence.",
+      "current_assignment": "READY: download exact run38497304486 artifacts, assemble and verify ZIP SHA, then physical EXE double-click and 60 button/8 input acceptance; no full product PASS",
       "may_write": [],
       "may_not_change": [
         "remote work progress"
