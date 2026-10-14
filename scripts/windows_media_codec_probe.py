@@ -53,7 +53,8 @@ for name,options in [('brightness_contrast_saturation',{'brightness':18,'contras
         row.update(status='PASS',result=edited)
     except subprocess.CalledProcessError as e:row.update(status='FAIL',error=repr(e),stderr=e.stderr.decode(errors='replace') if isinstance(e.stderr,bytes) else e.stderr)
     except Exception as e:row.update(status='FAIL',error=repr(e))
-    result['edit_tests'].append(row);(out/'CODEC_MATRIX.json').write_text(json.dumps(result,indent=2)+'\\n')
+    result['edit_tests'].append(row);(out/'CODEC_MATRIX.json').write_text(json.dumps(result,indent=2)+'\n')
 result['status']='PASS_CHROME_AND_LGPL_NATIVE_EDIT_FILTERS' if all(x['status']=='PASS' for x in result['edit_tests']) else 'FAIL_NATIVE_EDIT_FILTERS'
-(out/'CODEC_MATRIX.json').write_text(json.dumps(result,indent=2)+'\\n')
+(out/'CODEC_MATRIX.json').write_text(json.dumps(result,indent=2)+'\n')
 assert result['status']=='PASS_CHROME_AND_LGPL_NATIVE_EDIT_FILTERS',result
+
