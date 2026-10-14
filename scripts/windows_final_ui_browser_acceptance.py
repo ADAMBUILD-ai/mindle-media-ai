@@ -39,7 +39,8 @@ def main() -> int:
     base=find_server()
     result={"status":"FAIL","base_url":base,"checks":{}}
     with sync_playwright() as p:
-        browser=p.chromium.launch(headless=True)
+        browser=p.chromium.launch(channel="chrome",headless=True)
+        result["browser"]={"channel":"chrome","version":browser.version}
         page=browser.new_page(viewport={"width":1536,"height":1024},device_scale_factor=1)
         http=[];errors=[]
         page.on('pageerror',lambda error:errors.append(str(error)))
@@ -47,6 +48,8 @@ def main() -> int:
         try:
             page.goto(base,wait_until="networkidle",timeout=120000)
             page.wait_for_function("() => window.mindleRestoreReady===true",timeout=120000)
+            result['codec_capability']=page.evaluate("""()=>{const v=document.createElement('video');return {h264:v.canPlayType('video/mp4; codecs="avc1.42E01E"'),aac:v.canPlayType('audio/mp4; codecs="mp4a.40.2"'),userAgent:navigator.userAgent}}""")
+            if not result['codec_capability']['h264'] or not result['codec_capability']['aac']:raise RuntimeError('Official Chrome media codec preflight failed')
             body=page.locator("body").inner_text()
             for marker in ("MINDLE MEDIA AI","Create. Edit. Together.","VIDEO","PHOTO","AI가 만드는 더 큰 가능성","for a better tomorrow","신작가님"):
                 if marker not in body:
@@ -99,9 +102,11 @@ def main() -> int:
               const v=host.querySelector('video');
               return host.dataset.jobId!==old&&host.dataset.operation==='import'&&!window.mindleEditPending('video')&&v&&v.readyState>=2&&v.videoWidth>0&&!v.error;
             }""",arg=old_video_job,timeout=120000)
+            result['media_before_play']=page.locator('[data-preview=video] video').evaluate('(v)=>({MediaError_code:v.error?.code||null,readyState:v.readyState,videoWidth:v.videoWidth,currentSrc:v.currentSrc,currentTime:v.currentTime})')
             page.locator('[data-video-play]').click()
             page.wait_for_timeout(1600)
             current=page.locator('[data-preview="video"] video').evaluate("(v)=>v.currentTime")
+            result['media_after_play']=page.locator('[data-preview=video] video').evaluate('(v)=>({MediaError_code:v.error?.code||null,readyState:v.readyState,videoWidth:v.videoWidth,currentSrc:v.currentSrc,currentTime:v.currentTime})')
             if current<=0:
                 raise RuntimeError("video play button produced no movement")
             page.locator('[data-video-play]').click()
