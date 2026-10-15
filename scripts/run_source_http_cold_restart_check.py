@@ -56,6 +56,13 @@ def main():
             assert hashlib.sha256(archive).hexdigest()==exported['export']['sha256']
             with zipfile.ZipFile(io.BytesIO(archive)) as z:
                 assert z.testzip() is None
+                bundle=json.loads(z.read('BUNDLE_MANIFEST.json'))
+                assert bundle['project_id']==saved['project_id']
+                assert {item['role'] for item in bundle['files']}=={'input','output'}
+                for item in bundle['files']:
+                    content=z.read(item['archive_path'])
+                    assert hashlib.sha256(content).hexdigest()==item['sha256']
+                    assert len(content)==item['bytes']
                 for job in reopened['jobs']:
                     content=z.read('jobs/'+job['job_id']+'/'+Path(job['primary_output']['path']).name)
                     assert hashlib.sha256(content).hexdigest()==expected[job['job_id']]
@@ -63,10 +70,11 @@ def main():
             result={'status':'PASS_LINUX_SOURCE_HTTP_COLD_RESTART_PHOTO_VIDEO_EXPORT',
                     'first_pid':pid1,'second_pid':pid2,'old_endpoint_closed':old_endpoint_closed,
                     'project_id':saved['project_id'],'job_output_sha256':expected,'export_sha256':hashlib.sha256(archive).hexdigest(),
-                    'zip_crc':'PASS','members':members,'model_inference':False,
+                    'zip_crc':'PASS','members':members,'bundle_files_verified':len(bundle['files']),'model_inference':False,
                     'scope':'GENERATED_FIXTURES_LINUX_SOURCE_HTTP_ONLY','windows_exe_pass':False,
                     'owner_pc_pass':False,'full_product_pass':False}
             out=ROOT/'outputs/r9-source-regression';out.mkdir(parents=True,exist_ok=True)
+            (out/'SOURCE_HTTP_EXPORT.zip').write_bytes(archive)
             (out/'SOURCE_HTTP_COLD_RESTART.json').write_text(json.dumps(result,indent=2)+'\n')
             print(json.dumps(result))
         finally:

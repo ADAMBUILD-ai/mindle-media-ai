@@ -728,24 +728,48 @@ class ProductJobService:
         if not source.is_file(): raise ValueError("saved project is unavailable")
         export = self.projects / f"{project_id}_export.zip"
         project = json.loads(source.read_text(encoding="utf-8"))
+        artifacts = []
         for job in project['jobs']:
             for output in job['outputs']:
-                path = Path(output['path'])
-                if not path.is_file():
-                    raise ValueError('내보낼 결과 파일이 누락되었습니다: ' + path.name)
-                if output.get('sha256') and file_record(path)['sha256'] != output['sha256']:
-                    raise ValueError('내보낼 결과 파일의 무결성 확인에 실패했습니다: ' + path.name)
+                artifacts.append(('output', job['job_id'], output, f"jobs/{job['job_id']}/{Path(output['path']).name}"))
+            if job.get('input'):
+                item = job['input']
+                artifacts.append(('input', job['job_id'], item, f"inputs/{job['job_id']}/{Path(item['path']).name}"))
+            for index, item in enumerate(job.get('reference_artifacts', [])):
+                artifacts.append(('reference', job['job_id'], item, f"references/{job['job_id']}/{index:03d}_{Path(item['path']).name}"))
+        manifest_files = []
+        names = set()
+        for role, job_id, item, name in artifacts:
+            if name in names:
+                raise ValueError('내보낼 파일 이름이 중복되었습니다: ' + name)
+            names.add(name)
+            path = Path(item['path'])
+            if not path.is_file():
+                raise ValueError('내보낼 파일이 누락되었습니다: ' + path.name)
+            actual = file_record(path)
+            if (item.get('sha256') and actual['sha256'] != item['sha256']) or ('bytes' in item and actual['bytes'] != item['bytes']):
+                raise ValueError('내보낼 파일의 무결성 확인에 실패했습니다: ' + path.name)
+            manifest_files.append({'role': role, 'job_id': job_id, 'archive_path': name,
+                                   'sha256': actual['sha256'], 'bytes': actual['bytes']})
         pending = export.with_suffix('.' + str(uuid4()) + '.tmp')
         try:
             with zipfile.ZipFile(pending, "w", compression=zipfile.ZIP_DEFLATED) as package:
                 package.write(source, "project.json")
-                for job in project["jobs"]:
-                    for output in job["outputs"]:
-                        path = Path(output["path"])
-                        package.write(path, f"jobs/{job['job_id']}/{path.name}")
+                for _, _, item, name in artifacts:
+                    package.write(Path(item['path']), name)
+                package.writestr('BUNDLE_MANIFEST.json', json.dumps({'schema': 'MINDLE_PROJECT_BUNDLE_V1',
+                    'project_id': project_id, 'files': manifest_files}, ensure_ascii=False, indent=2) + '\n')
             with zipfile.ZipFile(pending) as package:
                 if package.testzip() is not None:
                     raise RuntimeError("export archive validation failed")
+                for item in manifest_files:
+                    digest = hashlib.sha256()
+                    size = 0
+                    with package.open(item['archive_path']) as stream:
+                        for block in iter(lambda: stream.read(1024 * 1024), b''):
+                            digest.update(block); size += len(block)
+                    if digest.hexdigest() != item['sha256'] or size != item['bytes']:
+                        raise ValueError('내보내는 중 파일이 변경되었습니다: ' + item['archive_path'])
             os.replace(pending, export)
         finally:
             pending.unlink(missing_ok=True)
