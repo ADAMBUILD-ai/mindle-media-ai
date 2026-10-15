@@ -58,7 +58,10 @@ with zipfile.ZipFile(archive) as z:
         assert packaged_content.replace(b'\r\n',b'\n')==expected_content,'R9 source content not packaged: '+source
         actual,size=hash_entry(z,prefix+'_payload/'+packaged)
         repaired_sources[source]={'sha256':actual,'bytes':size,'source_content_sha256':hashlib.sha256(expected_content).hexdigest(),'git_checkout_line_endings_only':packaged_content!=expected_content}
-    assert repaired_sources['ui/approved_visual.css']['source_content_sha256']=='712cfaa77fe0b3936c48a65a3d0a781397d9014afa0b5e6fffdb938f3d46a488'
+    frozen_css=(root/'ui/approved_visual.css').read_bytes()
+    frozen_blob=hashlib.sha1(b'blob '+str(len(frozen_css)).encode()+b'\0'+frozen_css).hexdigest()
+    assert frozen_blob=='3e1334c14b84fcbd5845a7a7a693c3f6bfe5a5da','approved CSS Git blob changed'
+    repaired_sources['ui/approved_visual.css']['frozen_git_blob']=frozen_blob
     result={'generated_bytecode_cache_files_not_in_source_manifest':extra_cache_hashes,'r9_sources_verified':repaired_sources,'status':'PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES','source_commit':manifest['build_commit'],'producer_run':38822776656,'verifier_source':os.environ['GITHUB_SHA'],'zip_name':name,'zip_sha256':digest.hexdigest(),'zip_bytes':archive.stat().st_size,'parts':len(parts),'crc':'PASS','payload_files_checked':checked,'payload_manifest_sha256':hashlib.sha256(manifest_bytes).hexdigest(),'launcher_sha256':delivery['launcher']['sha256'],'runtime_id':manifest['runtime_id'],'ui_fingerprint':manifest['ui_fingerprint'],'office_pc_pass':False,'full_product_pass':False,'scope':'CORRECTED_DEVELOPMENT_CANDIDATE_ONLY_NOT_FINAL_EMPLOYEE_RELEASE'}
 (out/'INDEPENDENT_CANDIDATE_READBACK.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps({k:v for k,v in result.items() if k not in {'generated_bytecode_cache_files_not_in_source_manifest','r9_sources_verified'}}))
