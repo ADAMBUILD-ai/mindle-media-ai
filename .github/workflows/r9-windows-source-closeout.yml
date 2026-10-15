@@ -35,7 +35,7 @@ jobs:
           # CI fixtures only. No package payload, final release or production tool is built/changed.
       - run: python -m pip install pytest==8.4.2 Pillow==11.3.0 huggingface-hub==0.35.3 opencv-python-headless==4.12.0.88 playwright==1.55.0
       - name: Windows input reference atomic Export persistence regression
-        run: python -m pytest -q tests/test_export_project_dependencies.py tests/test_export_atomicity.py tests/test_photo_edit_project.py tests/test_runtime_recovery.py
+        run: python -m pytest -q tests/test_product_server_paths.py tests/test_export_project_dependencies.py tests/test_export_atomicity.py tests/test_photo_edit_project.py tests/test_runtime_recovery.py
       - name: Real Windows server restart and official Chrome source UI
         run: python scripts/run_source_http_cold_restart_check.py --browser
       - uses: actions/upload-artifact@v4
