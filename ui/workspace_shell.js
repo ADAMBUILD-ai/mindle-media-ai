@@ -16,6 +16,7 @@
   document.querySelectorAll('[data-shell]').forEach(button=>button.addEventListener('click',async()=>{
     try {
       const key=button.dataset.shell;
+      if(key==='cloud') {display('클라우드 연동 미완료',['현재 패키지에는 외부 클라우드 저장소가 연결되어 있지 않습니다.','프로젝트 저장은 이 PC의 로컬 저장소를 사용합니다.']);return;}
       if(key==='home') {window.scrollTo({top:0,behavior:'smooth'});return;}
       if(key==='help') {display('MINDLE MEDIA AI 도움말',['원본 불러오기 → 편집 도구 / AI 지시 → 프로젝트 저장 → 내보내기','내보내기는 프로젝트와 모든 결과 파일을 ZIP으로 보관합니다.','배경 제거·4배 업스케일·추적·한국어 STT는 준비된 모델 Runtime을 사용합니다.','광고 숏폼 외부 연동은 현재 별도 검증 대기입니다.','미구현 기능은 비활성화돼 있습니다.']);return;}
       if(key==='history') {const r=await fetch('/api/evidence');if(!r.ok) throw new Error('작업 내역을 읽을 수 없습니다.');const data=await r.json();display('실제 작업 내역',Object.values(data.jobs).map(job=>`${job.lane} · ${job.operation} · ${job.status} · ${job.job_id}`));return;}
@@ -36,3 +37,4 @@
     }));
   }
 })();
+
