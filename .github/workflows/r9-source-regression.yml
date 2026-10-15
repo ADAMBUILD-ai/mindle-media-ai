@@ -1,4 +1,4 @@
-name: R9 source-only preview geometry
+name: R9 source geometry and native lock regression
 on:
   push:
     branches: [feature/ad-shortform-bridge-p0-20260926]
@@ -19,9 +19,25 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install playwright==1.55.0
       - run: python scripts/reproduce_photo_preview_geometry.py
+      - run: python -m pip install pytest==8.4.2 Pillow==11.3.0 huggingface-hub==0.35.3 opencv-python-headless==4.12.0.88
+      - name: Source persistence and launcher fault regression without models
+        env:
+          PYTHONPATH: src
+          HF_HUB_OFFLINE: '1'
+        run: python -m pytest -q tests/test_export_atomicity.py tests/test_photo_edit_project.py tests/test_runtime_recovery.py tests/test_launcher_lock_lifecycle.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: r9-source-photo-geometry
           path: outputs/r9-source-regression
           retention-days: 14
+  native-lock:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Native Windows source lock exclusion and error recovery
+        run: python -m unittest discover -s tests -p test_launcher_lock_windows.py -v
