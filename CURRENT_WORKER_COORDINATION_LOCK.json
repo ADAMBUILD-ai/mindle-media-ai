@@ -5,7 +5,7 @@
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
   "active_control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
-  "collision_status": "ALIGNED_ONE_R9_DEVELOPMENT_CANDIDATE_BUILD",
+  "collision_status": "ALIGNED_R9_CORRECTED_CANDIDATE_INDEPENDENT_READBACK",
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
@@ -34,7 +34,7 @@
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "R9 candidate run 38821443702 in progress at a680477b4bb844691fd271b71d35d98f6d0315e4; one-attempt build gate already reclosed; no automatic rebuild",
+      "current_assignment": "R9 corrected candidate 38822776656 SUCCESS at fef692312ae8d8e3070c97e013dacdd31a043172; independent ZIP readback pending; package build gate CLOSED",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",
@@ -54,7 +54,7 @@
     },
     "local_pc_acceptance": {
       "role": "Final physical Windows acceptance",
-      "current_assignment": "WAIT_NEW_R9_CANDIDATE_BYTES; previous candidate lacks six R9 source repairs",
+      "current_assignment": "WAIT_R9_INDEPENDENT_READBACK_AND_EXACT_CANDIDATE_IDENTITY; preserve input8/button60/R9 results; no model inference repeat",
       "may_write": [],
       "may_not_change": [
         "remote work progress"
