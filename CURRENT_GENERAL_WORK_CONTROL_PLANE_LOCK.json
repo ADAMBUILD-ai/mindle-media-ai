@@ -9,7 +9,7 @@
   "active_directive": "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_DIRECTIVE_v1.0_20261013.md",
   "product_changes_allowed": true,
   "ui_changes_allowed": "NO_LAYOUT_OR_VISUAL_REDESIGN",
-  "package_build_allowed": true,
+  "package_build_allowed": false,
   "external_marketing_avora_status": "DEFERRED_EXTERNAL",
   "historical_general_pass_head": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
   "owner_pc_runtime_pass": false,
@@ -23,7 +23,7 @@
     "pr23_hold_do_not_merge": true,
     "approved_visual_frozen": true
   },
-  "phase": "VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD",
+  "phase": "R9_CORRECTED_CANDIDATE_BUILD_IN_PROGRESS",
   "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
   "package_workflow": ".github/workflows/pc-one-click-windows-build-e2e.yml",
   "verified_core_source": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
@@ -37,8 +37,8 @@
   "candidate_build_authorized_parent": "ada81a9f60ca8f77d31743b8ae9947c6f8d8a480",
   "candidate_build_scope": "ONE_R9_DEVELOPMENT_VERIFICATION_BUILD_NOT_EMPLOYEE_FINAL_RELEASE",
   "candidate_build_authorization": "Completion retry of the owner-approved R9 development candidate; initial run blocked only by test-source cp1252 decode; product runtime/browser/cold restart passed; no new model inference",
-  "candidate_attempt_run": 38821443702,
-  "candidate_attempt_source": "a680477b4bb844691fd271b71d35d98f6d0315e4",
+  "candidate_attempt_run": 38822776656,
+  "candidate_attempt_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
   "previous_candidate_attempt": {
     "source": "a680477b4bb844691fd271b71d35d98f6d0315e4",
     "run": 38821443702,
