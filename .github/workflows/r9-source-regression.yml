@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install source media test dependency
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - run: python -m pip install playwright==1.55.0
       - run: python scripts/reproduce_photo_preview_geometry.py
       - run: python -m pip install pytest==8.4.2 Pillow==11.3.0 huggingface-hub==0.35.3 opencv-python-headless==4.12.0.88
@@ -25,6 +27,11 @@ jobs:
           PYTHONPATH: src
           HF_HUB_OFFLINE: '1'
         run: python -m pytest -q tests/test_export_atomicity.py tests/test_photo_edit_project.py tests/test_runtime_recovery.py tests/test_launcher_lock_lifecycle.py
+      - name: Actual source HTTP process cold restart without model inference
+        env:
+          PYTHONPATH: src
+          HF_HUB_OFFLINE: '1'
+        run: python scripts/run_source_http_cold_restart_check.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
