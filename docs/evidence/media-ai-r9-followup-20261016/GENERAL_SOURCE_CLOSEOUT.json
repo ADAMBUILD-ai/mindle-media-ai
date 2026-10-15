@@ -1,0 +1,97 @@
+{
+  "schema": "MINDLE_MEDIA_AI_GENERAL_SOURCE_CLOSEOUT_20261016",
+  "status": "PASS_AUTHORIZED_SOURCE_REPAIRS_AND_REGRESSION_ONLY",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "runtime_source_head": "a4f093acf80c5e675d191fce7be9a8c95228547e",
+  "evidence_head": "3c3c968ab85bc5d7cff4212e1a83ec59c42c84ce",
+  "repairs": [
+    {
+      "item": "cloud routing",
+      "commit": "38bed49a46d46788f53f664a0f41c28b47466530",
+      "scope": "Separate absent external cloud from actual local storage; external cloud remains deferred"
+    },
+    {
+      "item": "PHOTO clipping / launcher resource cleanup / atomic export",
+      "commit": "d3c88ea13af7f924dfbcba6f22c691a91b73d8da"
+    },
+    {
+      "item": "verified recorded inputs and references in Export",
+      "commit": "4f1d9e818811d5622722ceec4fd4404b32a9c2e1"
+    }
+  ],
+  "verification": {
+    "full_source_regression": {
+      "run": 38791565780,
+      "job": 116617159645,
+      "passed": 110,
+      "skipped": 3,
+      "ui_node_passed": 2,
+      "evidence_sync": "PASS",
+      "source_completeness": "PASS"
+    },
+    "skipped_scope": "Three native Windows tests skipped on Linux; native Windows source helper checked separately.",
+    "photo_geometry": {
+      "run": 38790535399,
+      "official_chrome_combinations": 6,
+      "passed": 6,
+      "baseline_clipping_reproduced": 4,
+      "scope": "source HTML/CSS only"
+    },
+    "native_windows_lock": {
+      "run": 38790535399,
+      "passed": 3,
+      "scope": "actual msvcrt source helper; not packaged EXE or owner PC"
+    },
+    "latest_dependency_regression": {
+      "run": 38791557820,
+      "passed": 13
+    },
+    "http_cold_restart": {
+      "run": 38791557820,
+      "first_pid": 3797,
+      "second_pid": 3852,
+      "old_endpoint_closed": true,
+      "photo_video_outputs_restored": true,
+      "zip_crc": "PASS",
+      "scope": "Linux source HTTP with generated fixtures"
+    },
+    "independent_export_bytes": {
+      "artifact": 12000626976,
+      "files_checked": 4,
+      "sha256": "4462e5c64c27a02497c7b4b499d3dc93c759cd9bc4256f96b29271543fa4a35a"
+    },
+    "new_model_inference": false
+  },
+  "preservation": {
+    "approved_outer_ui_layout": true,
+    "approved_colors": true,
+    "photo_model_adapters_and_weights": true,
+    "historical_pass_receipts": true,
+    "main_expected_sha": "797da297f588780ad2d608deea3b5af8f05af450",
+    "force_push": false,
+    "package_rebuilt": false
+  },
+  "next_candidate": {
+    "required": true,
+    "scope": "Development verification candidate containing cloud, PHOTO, launcher and Export repairs",
+    "package_build_allowed": false,
+    "existing_candidate_source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
+    "existing_candidate_contains_repairs": false
+  },
+  "remaining_actual_pc": [
+    "Read back original R9 report/CSV/approved comparison PNG/ZIP bytes",
+    "Compare full approved UI using same viewport and original approved asset",
+    "Correlate actual R9 launcher exception with source fixes",
+    "Packaged EXE full server stop / relaunch / project restore / Export",
+    "Windows player playback / seek / actual audio"
+  ],
+  "external": {
+    "openai": "NOT_APPROVED_NOT_CONNECTED",
+    "marketing": "DEFERRED",
+    "avora": "DEFERRED"
+  },
+  "pr23": "OPEN_DRAFT_HOLD_DO_NOT_MERGE",
+  "owner_pc_runtime_pass": false,
+  "final_product_pass": false
+}
