@@ -13,7 +13,12 @@ require((ROOT/p['active_directive']).is_file() and (ROOT/p['evidence_contract'])
 require(json.loads((ROOT/p['evidence_contract']).read_text())['epoch']==epoch,'contract epoch mismatch')
 phase=g.get('phase')
 require(phase==p.get('phase')==gl.get('phase')==l.get('phase'),'phase mismatch')
-if phase=='VERIFIED_WINDOWS_CANDIDATE_READY_FOR_PC_ACCEPTANCE':
+if phase in {'R9_CORRECTED_CANDIDATE_BUILD_IN_PROGRESS','R9_CORRECTED_CANDIDATE_REVIEW_REQUIRED','R9_CORRECTED_CANDIDATE_READY_FOR_PC_ACCEPTANCE'}:
+    for state in (p,l,g,gl):
+        require(state.get('package_build_allowed') is False,'R9 one-attempt build gate must be closed')
+        require(state.get('candidate_attempt_run')==p.get('candidate_attempt_run') and state.get('candidate_attempt_source')==p.get('candidate_attempt_source'),'R9 attempt identity mismatch')
+    require(p.get('candidate_attempt_run') and p.get('candidate_attempt_source'),'R9 attempt missing')
+elif phase=='VERIFIED_WINDOWS_CANDIDATE_READY_FOR_PC_ACCEPTANCE':
     for state in (p,l,g,gl):
         require(state.get('package_build_allowed') is False,'repeat build gate must be closed')
         require(state.get('candidate_source')=='0e4e12a9e4c758f202c6ebb5085df5a542bb6314' and state.get('candidate_run')==38497304486,'candidate source/run mismatch')

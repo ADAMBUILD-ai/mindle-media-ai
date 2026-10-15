@@ -22,7 +22,7 @@
   "work_must_continue": true,
   "product_changes_allowed": true,
   "allowed_product_change_scope": "Windows runtime/package/lifecycle fixes only, approved layout frozen",
-  "package_build_allowed": true,
+  "package_build_allowed": false,
   "package_build_location": "GITHUB_WINDOWS_RUNNER",
   "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
   "local_physical_acceptance_allowed": false,
@@ -38,7 +38,7 @@
   "final_product_pass": false,
   "openai_connected": false,
   "final_result": null,
-  "phase": "VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD",
+  "phase": "R9_CORRECTED_CANDIDATE_BUILD_IN_PROGRESS",
   "candidate_source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
   "candidate_run": 38497304486,
   "candidate_zip_sha256": "8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527",
@@ -93,5 +93,7 @@
   ],
   "candidate_build_authorized_parent": "d21c5ebcc825bd92b5a6551fb8d8eec76280795c",
   "candidate_build_scope": "ONE_R9_DEVELOPMENT_VERIFICATION_BUILD_NOT_EMPLOYEE_FINAL_RELEASE",
-  "candidate_build_authorization": "Owner continued immediately after explicit proposal to build one corrected development verification Windows candidate, 2026-10-16 KST"
+  "candidate_build_authorization": "Owner continued immediately after explicit proposal to build one corrected development verification Windows candidate, 2026-10-16 KST",
+  "candidate_attempt_run": 38821443702,
+  "candidate_attempt_source": "a680477b4bb844691fd271b71d35d98f6d0315e4"
 }

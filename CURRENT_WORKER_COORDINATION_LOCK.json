@@ -34,7 +34,7 @@
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "ONE_R9_BUILD_AUTHORIZED_PARENT_d21c5ebcc825bd92b5a6551fb8d8eec76280795c; no model inference repeat; close gate after attempt; no employee final release",
+      "current_assignment": "R9 candidate run 38821443702 in progress at a680477b4bb844691fd271b71d35d98f6d0315e4; one-attempt build gate already reclosed; no automatic rebuild",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",
