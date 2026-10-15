@@ -1,0 +1,12 @@
+{
+  "status": "PASS_INDEPENDENT_REMOTE_BUNDLE_BYTES",
+  "files_checked": 4,
+  "roles": [
+    "input",
+    "output"
+  ],
+  "zip_sha256": "4462e5c64c27a02497c7b4b499d3dc93c759cd9bc4256f96b29271543fa4a35a",
+  "zip_crc": "PASS",
+  "owner_pc_pass": false,
+  "full_product_pass": false
+}
