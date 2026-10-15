@@ -24,8 +24,9 @@ def main():
                 for variant in ('baseline','candidate'):
                     page=browser.new_page(viewport={'width':width,'height':1024})
                     page.set_content(html)
-                    page.add_style_tag(content=css)
-                    if variant=='candidate':page.add_style_tag(content=CANDIDATE)
+                    # Compare the original rules with the actual shipped repair,
+                    # rather than merely injecting an uncommitted proposal.
+                    page.add_style_tag(content=css.split('/* Bound replaced-element intrinsic sizing')[0] if variant=='baseline' else css)
                     host=page.locator('[data-preview="photo"]')
                     empty=host.bounding_box()
                     svg=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}"><rect width="100%" height="100%" fill="orange"/><rect x="2" y="2" width="{w-4}" height="{h-4}" fill="none" stroke="lime" stroke-width="8"/></svg>'
@@ -50,7 +51,7 @@ def main():
     result={'scope':'LINUX_CHROME_SOURCE_GEOMETRY_ONLY','browser':browser_version,'rows':rows,
             'baseline_failures':sum(not r['pass'] for r in rows if r['variant']=='baseline'),
             'candidate_failures':sum(not r['pass'] for r in rows if r['variant']=='candidate'),
-            'candidate_css':CANDIDATE,'owner_pc_pass':False,'full_product_pass':False}
+            'candidate_css':CANDIDATE,'candidate_from_shipped_css':True,'owner_pc_pass':False,'full_product_pass':False}
     (OUT/'PHOTO_GEOMETRY_MATRIX.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result))
     return int(result['candidate_failures']>0)

@@ -1,6 +1,7 @@
 """Package-only entry point; stdlib bootstrap, no Git or user Python lookup."""
 from __future__ import annotations
 import argparse
+from contextlib import contextmanager
 import hashlib
 import json
 import msvcrt
@@ -41,6 +42,41 @@ def identity(port):
             return json.load(response)
     except Exception:
         return None
+
+
+@contextmanager
+def launch_request_lock(path):
+    """Close failed acquisitions; preserve startup errors if unlock also fails."""
+    lock = open(path, 'a+b')
+    acquired = False
+    try:
+        if lock.tell() == 0:
+            lock.write(b'0'); lock.flush()
+        deadline = time.monotonic() + 90
+        while True:
+            try:
+                lock.seek(0)
+                msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+                acquired = True
+                break
+            except OSError:
+                if time.monotonic() > deadline:
+                    raise RuntimeError('다른 실행 요청을 기다리는 중입니다. 잠시 후 다시 실행하세요.')
+                time.sleep(.25)
+        yield
+    finally:
+        original_error = sys.exc_info()[1]
+        try:
+            if acquired:
+                try:
+                    lock.seek(0)
+                    msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+                except OSError as cleanup_error:
+                    if original_error is None:
+                        raise
+                    original_error.add_note('launch.lock release also failed: ' + str(cleanup_error))
+        finally:
+            lock.close()
 
 
 def main():
@@ -94,18 +130,7 @@ def main():
         server = create_server(root / 'app', data, '', args.port)
         server.serve_forever()
         return
-    lock = open(data / 'launch.lock', 'a+b')
-    if lock.tell() == 0:
-        lock.write(b'0'); lock.flush()
-    deadline = time.monotonic() + 90
-    while True:
-        try:
-            lock.seek(0); msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1); break
-        except OSError:
-            if time.monotonic() > deadline:
-                raise RuntimeError('다른 실행 요청을 기다리는 중입니다. 잠시 후 다시 실행하세요.')
-            time.sleep(.25)
-    try:
+    with launch_request_lock(data / 'launch.lock'):
         expected = sha256(root / 'PACKAGE_MANIFEST.json')
         port = None
         for candidate in range(18768, 18778):
@@ -152,8 +177,6 @@ def main():
                 subprocess.Popen([str(browser), '--app=' + url])
             else:
                 os.startfile(url)
-    finally:
-        lock.seek(0); msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1); lock.close()
 
 
 if __name__ == '__main__':
@@ -163,3 +186,4 @@ if __name__ == '__main__':
         import ctypes
         ctypes.windll.user32.MessageBoxW(None, str(error), 'MINDLE MEDIA AI', 0x10)
         raise
+

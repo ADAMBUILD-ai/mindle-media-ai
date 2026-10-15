@@ -735,11 +735,19 @@ class ProductJobService:
                     raise ValueError('내보낼 결과 파일이 누락되었습니다: ' + path.name)
                 if output.get('sha256') and file_record(path)['sha256'] != output['sha256']:
                     raise ValueError('내보낼 결과 파일의 무결성 확인에 실패했습니다: ' + path.name)
-        with zipfile.ZipFile(export, "w", compression=zipfile.ZIP_DEFLATED) as package:
-            package.write(source, "project.json")
-            for job in project["jobs"]:
-                for output in job["outputs"]:
-                    path = Path(output["path"])
-                    if path.is_file(): package.write(path, f"jobs/{job['job_id']}/{path.name}")
-        if not zipfile.is_zipfile(export): raise RuntimeError("export archive validation failed")
+        pending = export.with_suffix('.' + str(uuid4()) + '.tmp')
+        try:
+            with zipfile.ZipFile(pending, "w", compression=zipfile.ZIP_DEFLATED) as package:
+                package.write(source, "project.json")
+                for job in project["jobs"]:
+                    for output in job["outputs"]:
+                        path = Path(output["path"])
+                        package.write(path, f"jobs/{job['job_id']}/{path.name}")
+            with zipfile.ZipFile(pending) as package:
+                if package.testzip() is not None:
+                    raise RuntimeError("export archive validation failed")
+            os.replace(pending, export)
+        finally:
+            pending.unlink(missing_ok=True)
         return {"status": "EXPORTED", "project_id": project_id, "export": file_record(export)}
+
