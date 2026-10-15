@@ -1,0 +1,468 @@
+{
+  "scope": "LINUX_CHROME_SOURCE_GEOMETRY_ONLY",
+  "browser": "155.0.8059.39",
+  "rows": [
+    {
+      "viewport": 1280,
+      "shape": "portrait",
+      "variant": "baseline",
+      "empty": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "host": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "image": {
+        "x": 782,
+        "y": 176,
+        "width": 308,
+        "height": 512
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        900,
+        1600
+      ],
+      "artwork": {
+        "x": 792,
+        "y": 176,
+        "width": 288,
+        "height": 512
+      },
+      "stable_stage": true,
+      "contained": false,
+      "pass": false
+    },
+    {
+      "viewport": 1280,
+      "shape": "portrait",
+      "variant": "candidate",
+      "empty": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "host": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "image": {
+        "x": 782,
+        "y": 176,
+        "width": 308,
+        "height": 172.375
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        900,
+        1600
+      ],
+      "artwork": {
+        "x": 887.625,
+        "y": 176.1875,
+        "width": 96.75,
+        "height": 172
+      },
+      "stable_stage": true,
+      "contained": true,
+      "pass": true
+    },
+    {
+      "viewport": 1280,
+      "shape": "landscape",
+      "variant": "baseline",
+      "empty": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "host": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "image": {
+        "x": 782,
+        "y": 176,
+        "width": 308,
+        "height": 173.25
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        1600,
+        900
+      ],
+      "artwork": {
+        "x": 782.2222222222222,
+        "y": 176.125,
+        "width": 307.55555555555554,
+        "height": 173
+      },
+      "stable_stage": true,
+      "contained": true,
+      "pass": true
+    },
+    {
+      "viewport": 1280,
+      "shape": "landscape",
+      "variant": "candidate",
+      "empty": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "host": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "image": {
+        "x": 782,
+        "y": 176,
+        "width": 308,
+        "height": 172.375
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        1600,
+        900
+      ],
+      "artwork": {
+        "x": 783.1111111111111,
+        "y": 176.1875,
+        "width": 305.77777777777777,
+        "height": 172
+      },
+      "stable_stage": true,
+      "contained": true,
+      "pass": true
+    },
+    {
+      "viewport": 1280,
+      "shape": "square",
+      "variant": "baseline",
+      "empty": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "host": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "image": {
+        "x": 782,
+        "y": 176,
+        "width": 308,
+        "height": 308
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        1000,
+        1000
+      ],
+      "artwork": {
+        "x": 782,
+        "y": 176,
+        "width": 308,
+        "height": 308
+      },
+      "stable_stage": true,
+      "contained": false,
+      "pass": false
+    },
+    {
+      "viewport": 1280,
+      "shape": "square",
+      "variant": "candidate",
+      "empty": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "host": {
+        "x": 781,
+        "y": 175,
+        "width": 310,
+        "height": 174.375
+      },
+      "image": {
+        "x": 782,
+        "y": 176,
+        "width": 308,
+        "height": 172.375
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        1000,
+        1000
+      ],
+      "artwork": {
+        "x": 850,
+        "y": 176.1875,
+        "width": 172,
+        "height": 172
+      },
+      "stable_stage": true,
+      "contained": true,
+      "pass": true
+    },
+    {
+      "viewport": 1536,
+      "shape": "portrait",
+      "variant": "baseline",
+      "empty": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "host": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "image": {
+        "x": 924,
+        "y": 162,
+        "width": 406,
+        "height": 512
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        900,
+        1600
+      ],
+      "artwork": {
+        "x": 983,
+        "y": 162,
+        "width": 288,
+        "height": 512
+      },
+      "stable_stage": true,
+      "contained": false,
+      "pass": false
+    },
+    {
+      "viewport": 1536,
+      "shape": "portrait",
+      "variant": "candidate",
+      "empty": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "host": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "image": {
+        "x": 924,
+        "y": 162,
+        "width": 406,
+        "height": 227.5
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        900,
+        1600
+      ],
+      "artwork": {
+        "x": 1062.875,
+        "y": 161.75,
+        "width": 128.25,
+        "height": 227.99999999999997
+      },
+      "stable_stage": true,
+      "contained": true,
+      "pass": true
+    },
+    {
+      "viewport": 1536,
+      "shape": "landscape",
+      "variant": "baseline",
+      "empty": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "host": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "image": {
+        "x": 924,
+        "y": 162,
+        "width": 406,
+        "height": 228.375
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        1600,
+        900
+      ],
+      "artwork": {
+        "x": 924.3333333333333,
+        "y": 162.1875,
+        "width": 405.33333333333337,
+        "height": 228.00000000000003
+      },
+      "stable_stage": true,
+      "contained": true,
+      "pass": true
+    },
+    {
+      "viewport": 1536,
+      "shape": "landscape",
+      "variant": "candidate",
+      "empty": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "host": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "image": {
+        "x": 924,
+        "y": 162,
+        "width": 406,
+        "height": 227.5
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        1600,
+        900
+      ],
+      "artwork": {
+        "x": 924.3333333333333,
+        "y": 161.75,
+        "width": 405.33333333333337,
+        "height": 228.00000000000003
+      },
+      "stable_stage": true,
+      "contained": true,
+      "pass": true
+    },
+    {
+      "viewport": 1536,
+      "shape": "square",
+      "variant": "baseline",
+      "empty": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "host": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "image": {
+        "x": 924,
+        "y": 162,
+        "width": 406,
+        "height": 406
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        1000,
+        1000
+      ],
+      "artwork": {
+        "x": 924,
+        "y": 162,
+        "width": 406,
+        "height": 406
+      },
+      "stable_stage": true,
+      "contained": false,
+      "pass": false
+    },
+    {
+      "viewport": 1536,
+      "shape": "square",
+      "variant": "candidate",
+      "empty": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "host": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "image": {
+        "x": 924,
+        "y": 162,
+        "width": 406,
+        "height": 227.5
+      },
+      "fit": "contain",
+      "position": "50% 50%",
+      "natural": [
+        1000,
+        1000
+      ],
+      "artwork": {
+        "x": 1013,
+        "y": 161.75,
+        "width": 228,
+        "height": 228
+      },
+      "stable_stage": true,
+      "contained": true,
+      "pass": true
+    }
+  ],
+  "baseline_failures": 4,
+  "candidate_failures": 0,
+  "candidate_css": "[data-preview=\"photo\"] > img { position:absolute; inset:0; width:100%; height:100%; min-width:0; min-height:0; max-width:100%; max-height:100%; object-fit:contain; object-position:center; }",
+  "candidate_from_shipped_css": true,
+  "owner_pc_pass": false,
+  "full_product_pass": false
+}
