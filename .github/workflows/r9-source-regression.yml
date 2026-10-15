@@ -1,0 +1,27 @@
+name: R9 source-only preview geometry
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths:
+      - .github/workflows/r9-source-regression.yml
+      - scripts/reproduce_photo_preview_geometry.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install playwright==1.55.0
+      - run: python scripts/reproduce_photo_preview_geometry.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r9-source-photo-geometry
+          path: outputs/r9-source-regression
+          retention-days: 14
