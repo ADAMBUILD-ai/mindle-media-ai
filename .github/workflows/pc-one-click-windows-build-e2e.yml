@@ -31,7 +31,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  EVIDENCE_DIR: docs/evidence/media-ai-corrected-windows-candidate-20261014
+  EVIDENCE_DIR: docs/evidence/media-ai-r9-corrected-windows-candidate-20261016
   MODEL_PACKAGE_RUN_ID: "37778695858"
   GENERAL_AUDIT_RUN_ID: "37752630381"
   PYTHON_EMBED_URL: "https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip"
@@ -48,6 +48,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 2
       - id: control
         name: Honor active product Control Plane package lock
         shell: python
@@ -56,8 +57,10 @@ jobs:
           from pathlib import Path
           state = json.loads(Path("CURRENT_PC_WORK_STATE.json").read_text())
           general = json.loads(Path("CURRENT_GENERAL_WORK_STATE.json").read_text())
-          recovery = general.get("status") == "ACTIVE_OWNER_RUNTIME_RECOVERY"
+          import subprocess
+          parent = subprocess.check_output(["git", "rev-parse", "HEAD^"], text=True).strip()
           allowed = (state.get("package_build_allowed") is True and general.get("package_build_allowed") is True and general.get("phase") == "VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD" and general.get("package_workflow") == ".github/workflows/pc-one-click-windows-build-e2e.yml" and state.get("control_plane_epoch") == general.get("control_plane_epoch"))
+          allowed = allowed and state.get("candidate_build_authorized_parent") == parent and general.get("candidate_build_authorized_parent") == parent
           with open(os.environ["GITHUB_OUTPUT"], "a") as output:
               output.write("allowed=" + str(allowed).lower() + "\n")
           print("package_build_allowed=" + str(allowed).lower())
@@ -281,7 +284,7 @@ jobs:
               "normal_employee_manual_install_required":False if dependency_closed else True,
               "note":"No DLL is copied from System32. If msvcp140.dll is absent, the one-click bootstrap downloads Microsoft's signed VC redistributable and installs it automatically.",
           }
-          Path("docs/evidence/media-ai-corrected-windows-candidate-20261014/VC_RUNTIME_DEPENDENCY_AUDIT.json").write_text(json.dumps(record,indent=2)+"\n",encoding="utf-8")
+          Path("docs/evidence/media-ai-r9-corrected-windows-candidate-20261016/VC_RUNTIME_DEPENDENCY_AUDIT.json").write_text(json.dumps(record,indent=2)+"\n",encoding="utf-8")
           print(json.dumps(record,indent=2))
 
       - name: Build employee-visible MINDLE_MEDIA_AI_RUN.exe
@@ -357,10 +360,10 @@ jobs:
             duplicate_server_count = 0
           } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/SINGLE_INSTANCE_RESULT.json" -Encoding utf8
 
-      - name: Run actual packaged PHOTO VIDEO STT Save Reopen Export E2E
+      - name: Run packaged R9 import PHOTO Save Reopen Export repair regression
         shell: pwsh
         run: |
-          python scripts/remote_windows_one_click_e2e.py `
+          python scripts/remote_windows_one_click_e2e.py --skip-model-inference `
             --fixture-root "build/general-audit" `
             --evidence-root "$env:EVIDENCE_DIR"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -382,7 +385,7 @@ jobs:
       - name: Real browser final UI and interaction acceptance
         shell: pwsh
         run: |
-          python scripts/windows_final_ui_browser_acceptance.py `
+          python scripts/windows_final_ui_browser_acceptance.py --skip-model-inference `
             --fixture-root "build/general-audit" `
             --evidence-root "$env:EVIDENCE_DIR"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -393,25 +396,59 @@ jobs:
           $env:LOCALAPPDATA = [IO.Path]::GetFullPath("build/ci-localappdata")
           $servers = @(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match "employee_package_launcher\.py.+--server" })
           if ($servers.Count -ne 1) { throw "expected one server before cold relaunch" }
-          Stop-Process -Id $servers[0].ProcessId -Force
-          Start-Sleep -Seconds 2
+          $oldPid = $servers[0].ProcessId
+          $oldCommand = $servers[0].CommandLine
+          if ($oldCommand -notlike "*ci-localappdata*") { throw "refusing to stop unrelated server" }
+          $beforeBase = $null
+          foreach ($port in 18768..18777) {
+            try {
+              $id = Invoke-RestMethod -Uri "http://127.0.0.1:$port/api/runtime-identity" -TimeoutSec 2
+              if ($id.runtime_mode -eq "LOCAL_OFFLINE_PACKAGE") { $beforeBase = "http://127.0.0.1:$port"; break }
+            } catch {}
+          }
+          if (-not $beforeBase) { throw "pre-restart endpoint missing" }
+          $saved = Invoke-RestMethod -Uri "$beforeBase/api/projects/latest" -TimeoutSec 15
+          $projectId = $saved.project.project_id
+          if (-not $projectId) { throw "pre-restart project missing" }
+          # This server has no HTTP shutdown route. Stop only the positively identified packaged process.
+          Stop-Process -Id $oldPid
+          Wait-Process -Id $oldPid -Timeout 20 -ErrorAction SilentlyContinue
+          if (Get-Process -Id $oldPid -ErrorAction SilentlyContinue) { throw "old server still alive" }
+          $oldClosed = $false
+          try { Invoke-RestMethod -Uri "$beforeBase/api/runtime-identity" -TimeoutSec 2 | Out-Null } catch { $oldClosed = $true }
+          if (-not $oldClosed) { throw "old endpoint still responding" }
           $exe = [IO.Path]::GetFullPath("build/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe")
           & $exe --no-browser | Out-Null
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $newServers = @(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match "employee_package_launcher\.py.+--server" })
+          if ($newServers.Count -ne 1 -or $newServers[0].ProcessId -eq $oldPid) { throw "fresh single server not proved" }
           $base = $null
           foreach ($port in 18768..18777) {
             try {
-              $identity = Invoke-RestMethod -UseBasicParsing -Uri "http://127.0.0.1:$port/api/runtime-identity" -TimeoutSec 2
+              $identity = Invoke-RestMethod -Uri "http://127.0.0.1:$port/api/runtime-identity" -TimeoutSec 2
               if ($identity.runtime_mode -eq "LOCAL_OFFLINE_PACKAGE") { $base = "http://127.0.0.1:$port"; break }
             } catch {}
           }
           if (-not $base) { throw "server did not return after cold relaunch" }
-          $latest = Invoke-RestMethod -UseBasicParsing -Uri "$base/api/projects/latest" -TimeoutSec 15
-          if (-not $latest.project -or -not $latest.project.project_id) { throw "saved project did not survive cold relaunch" }
+          $latest = Invoke-RestMethod -Uri "$base/api/projects/latest" -TimeoutSec 15
+          if ($latest.project.project_id -ne $projectId) { throw "same project not restored" }
+          $exported = Invoke-RestMethod -Method Post -ContentType "application/json" -Body "{}" -Uri "$base/api/projects/$projectId/export" -TimeoutSec 120
+          if ($exported.status -ne "EXPORTED") { throw "post-restart Export failed" }
+          Invoke-WebRequest -Uri "$base$($exported.download_url)" -OutFile "$env:EVIDENCE_DIR/AFTER_COLD_RESTART_EXPORT.zip"
+          $sha = (Get-FileHash "$env:EVIDENCE_DIR/AFTER_COLD_RESTART_EXPORT.zip" -Algorithm SHA256).Hash.ToLower()
+          if ($sha -ne $exported.export.sha256) { throw "post-restart export hash mismatch" }
           [ordered]@{
-            status = "SAVE_REOPEN_COLD_RELAUNCH_PASS"
-            project_id = $latest.project.project_id
+            status = "SAVE_REOPEN_COLD_RELAUNCH_EXPORT_PASS"
+            first_pid = $oldPid
+            first_command_line = $oldCommand
+            second_pid = $newServers[0].ProcessId
+            second_command_line = $newServers[0].CommandLine
+            old_endpoint_closed = $oldClosed
+            project_id = $projectId
+            restored_jobs = @($latest.project.jobs).Count
+            export_sha256 = $sha
             base_url = $base
+            owner_pc_pass = $false
           } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/SAVE_REOPEN_COLD_RELAUNCH_RESULT.json" -Encoding utf8
 
       - name: Stage isolated CI-only FFmpeg for libx264 regression fixtures
@@ -432,7 +469,7 @@ jobs:
           python -m pip install --disable-pip-version-check "opencv-python-headless==4.12.0.88" "numpy==2.2.6" "Pillow==11.3.0" .
           python -m pytest -q 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_PYTHON.log"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          node --test ui/interaction.test.js ui/ssot_structure.test.js 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_UI.log"
+          node --test ui/interaction.test.js ui/ssot_structure.test.js ui/cloud_navigation.test.js 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_UI.log"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           [ordered]@{
             python = "PASS"
@@ -461,7 +498,7 @@ jobs:
           $pipelinePass = "${{ job.status }}" -eq "success"
           $ffmpegClosed = $ffmpeg -and $ffmpeg.source_obligation_status -eq "CLOSED_BY_EXACT_SOURCE_NOTICE"
           $result = if ($e2ePass -and $browserPass -and $pipelinePass -and $vc -and $vc.redistribution_closed -and $ffmpegClosed) {
-            "PASS_CORRECTED_WINDOWS_CANDIDATE_RUNTIME_VERIFIED_LOCAL_ACCEPTANCE_PENDING"
+            "PASS_R9_CORRECTED_WINDOWS_CANDIDATE_REPAIRS_LOCAL_ACCEPTANCE_PENDING"
           } elseif ($e2ePass -and -not $browserPass) {
             "PARTIAL_MODELS_PASS_BROWSER_NOT_PASS"
           } elseif ($e2ePass) {
@@ -480,6 +517,8 @@ jobs:
             vc_redistribution_closed = if ($vc) { [bool]$vc.redistribution_closed } else { $false }
             ffmpeg_source_obligation_closed = [bool]$ffmpegClosed
             final_pass_claimed = $false
+            new_model_inference = $false
+            scope = "DEVELOPMENT_VERIFICATION_CANDIDATE_R9_REPAIRS_ONLY"
           } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/EVIDENCE.json" -Encoding utf8
           [ordered]@{
             status = "PENDING_CORRECTED_CANDIDATE_DELIVERY_AND_LOCAL_EXECUTION"

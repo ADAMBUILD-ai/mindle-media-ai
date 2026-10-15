@@ -85,6 +85,7 @@ def find_server() -> tuple[str, dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--skip-model-inference", action="store_true", help="R9 candidate repair regression only; preserve prior model receipts")
     parser.add_argument("--fixture-root", type=Path, required=True)
     parser.add_argument("--evidence-root", type=Path, required=True)
     args = parser.parse_args()
@@ -135,35 +136,32 @@ def main() -> int:
     if basic_photo.get("status") != "TESTED_PASS":
         raise RuntimeError("basic photo edit did not pass")
 
-    segment = post_file(base, "/api/jobs", "photo", "segment", "왼쪽 인물을 실제로 분할해줘", segment_input)
-    upscale = post_file(base, "/api/jobs", "photo", "upscale", "사진을 실제 4배 업스케일해줘", upscale_input)
-    tracking = post_file(base, "/api/jobs", "video", "tracking", "대상을 실제 추적해줘", tracking_input)
-    transcript = post_file(base, "/api/jobs", "video", "transcribe", "한국어 음성을 실제 텍스트로 변환해줘", stt_input)
+    jobs = {"photo_import": photo_import, "video_import": video_import, "basic_photo": basic_photo}
+    if not args.skip_model_inference:
+        segment = post_file(base, "/api/jobs", "photo", "segment", "왼쪽 인물을 실제로 분할해줘", segment_input)
+        upscale = post_file(base, "/api/jobs", "photo", "upscale", "사진을 실제 4배 업스케일해줘", upscale_input)
+        tracking = post_file(base, "/api/jobs", "video", "tracking", "대상을 실제 추적해줘", tracking_input)
+        transcript = post_file(base, "/api/jobs", "video", "transcribe", "한국어 음성을 실제 텍스트로 변환해줘", stt_input)
 
-    if transcript.get("lane") != "korean_audio" or transcript.get("requested_lane") != "video":
-        raise RuntimeError("STT receipt must retain requested video lane but return canonical korean_audio lane")
+        if transcript.get("lane") != "korean_audio" or transcript.get("requested_lane") != "video":
+            raise RuntimeError("STT receipt must retain requested video lane but return canonical korean_audio lane")
 
-    for name, record in {
-        "segment": segment,
-        "upscale": upscale,
-        "tracking": tracking,
-        "transcribe": transcript,
-    }.items():
-        if record.get("status") != "TESTED_PASS":
-            raise RuntimeError(f"{name} packaged inference did not pass: {record}")
+        for name, record in {
+            "segment": segment,
+            "upscale": upscale,
+            "tracking": tracking,
+            "transcribe": transcript,
+        }.items():
+            if record.get("status") != "TESTED_PASS":
+                raise RuntimeError(f"{name} packaged inference did not pass: {record}")
+
+
+        jobs.update(segment=segment, upscale=upscale, tracking=tracking, transcribe=transcript)
 
     project = request_json(
         base + "/api/projects/save",
         {
-            "job_ids": [
-                photo_import["job_id"],
-                video_import["job_id"],
-                basic_photo["job_id"],
-                segment["job_id"],
-                upscale["job_id"],
-                tracking["job_id"],
-                transcript["job_id"],
-            ]
+            "job_ids": [record["job_id"] for record in jobs.values()]
         },
     )
     if project.get("status") != "SAVED":
@@ -201,19 +199,13 @@ def main() -> int:
             raise RuntimeError("downloaded export ZIP validation failed")
 
     result = {
-        "status": "REMOTE_WINDOWS_PACKAGED_RUNTIME_E2E_PASS",
+        "status": "PASS_PACKAGED_REPAIR_REGRESSION_NO_NEW_INFERENCE" if args.skip_model_inference else "REMOTE_WINDOWS_PACKAGED_RUNTIME_E2E_PASS",
         "base_url": base,
         "runtime_identity": identity,
         "ui_title": "MINDLE MEDIA AI",
-        "jobs": {
-            "photo_import": photo_import,
-            "video_import": video_import,
-            "basic_photo": basic_photo,
-            "segment": segment,
-            "upscale": upscale,
-            "tracking": tracking,
-            "transcribe": transcript,
-        },
+        "jobs": jobs,
+        "new_model_inference": not args.skip_model_inference,
+        "scope": "R9_PACKAGED_REPAIR_REGRESSION" if args.skip_model_inference else "PACKAGED_MODEL_E2E",
         "project_id": project_id,
         "latest_project": latest,
         "latest_project_response": latest_response,

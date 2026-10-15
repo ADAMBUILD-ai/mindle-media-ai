@@ -30,6 +30,7 @@ def sha(data: bytes) -> str:
 
 def main() -> int:
     ap=argparse.ArgumentParser()
+    ap.add_argument("--skip-model-inference",action="store_true")
     ap.add_argument("--fixture-root",type=Path,required=True)
     ap.add_argument("--evidence-root",type=Path,required=True)
     args=ap.parse_args()
@@ -85,13 +86,14 @@ def main() -> int:
             page.wait_for_function("() => document.querySelector('[data-photo-status]').textContent.includes('보정 적용 완료')",timeout=120000)
             result["checks"]["photo_live_and_apply"]="PASS"
     
-            page.locator('[data-photo-tool="segment"]').click()
-            page.wait_for_function("""() => {
-              const t=document.querySelector('[data-editor=photo] [data-command-error]').textContent;
-              return t.includes('편집 완료') || t.includes('배경 제거 완료');
-            }""",timeout=240000)
-            result["checks"]["photo_background_button"]="PASS"
-    
+            if not args.skip_model_inference:
+                page.locator('[data-photo-tool="segment"]').click()
+                page.wait_for_function("""() => {
+                  const t=document.querySelector('[data-editor=photo] [data-command-error]').textContent;
+                  return t.includes('편집 완료') || t.includes('배경 제거 완료');
+                }""",timeout=240000)
+                result["checks"]["photo_background_button"]="PASS"
+        
             page.wait_for_function("() => !window.mindleEditPending('photo')&&!window.mindleEditPending('video')",timeout=120000)
             old_video_job=page.locator('[data-preview=video]').get_attribute('data-job-id')
             page.locator('[data-editor="video"] [data-primary-input="video"]').set_input_files(str(video))
@@ -117,6 +119,16 @@ def main() -> int:
             page.locator('[data-video-apply]').click()
             page.wait_for_function("() => document.querySelector('[data-editor=video] [data-command-error]').textContent.includes('영상 편집 완료')",timeout=240000)
             result["checks"]["video_play_and_edit"]="PASS"
+            from PIL import Image
+            portrait=args.evidence_root/"portrait-r9-fixture.png"
+            Image.new("RGB",(90,160),(190,80,30)).save(portrait)
+            page.locator('[data-editor="photo"] [data-primary-input="photo"]').set_input_files(str(portrait))
+            page.wait_for_function("() => {const i=document.querySelector('[data-preview=photo] img');return i&&i.naturalWidth===90&&i.naturalHeight===160&&!window.mindleEditPending('photo')}",timeout=30000)
+            fit=page.locator('[data-preview=photo]').evaluate("""h=>{const i=h.querySelector('img'),a=h.getBoundingClientRect(),b=i.getBoundingClientRect(),c=getComputedStyle(i);return {host:{x:a.x,y:a.y,width:a.width,height:a.height},image:{x:b.x,y:b.y,width:b.width,height:b.height},objectFit:c.objectFit,objectPosition:c.objectPosition,natural:[i.naturalWidth,i.naturalHeight]}}""")
+            a,b=fit["host"],fit["image"]
+            assert fit["objectFit"]=="contain" and b["x"]>=a["x"] and b["y"]>=a["y"] and b["x"]+b["width"]<=a["x"]+a["width"]+1 and b["y"]+b["height"]<=a["y"]+a["height"]+1
+            result["checks"]["portrait_auto_fit"]="PASS"
+            result["portrait_geometry"]=fit
             page.screenshot(path=str(args.evidence_root/"FINAL_UI_FUNCTION_AFTER.png"),full_page=True)
         except Exception as error:
             result['error']=repr(error)
