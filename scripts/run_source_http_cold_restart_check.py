@@ -51,6 +51,8 @@ def main():
             else:raise AssertionError('old process endpoint still responds')
             p,base2=start();pid2=p.pid
             assert pid1!=pid2
+            path_diagnostics={'data_root_supplied':str(data),'data_root_resolved':str(data.resolve())}
+            (out/'SOURCE_DATA_ROOT.json').write_text(json.dumps(path_diagnostics,indent=2)+'\n')
             reopened=call(base2,'/api/projects/latest')['project']
             assert reopened['project_id']==saved['project_id']
             expected={j['job_id']:j['primary_output']['sha256'] for j in (photo,edited)}
@@ -114,7 +116,7 @@ def main():
                 members=z.namelist()
             result={'status':'PASS_'+platform.system().upper()+'_SOURCE_HTTP_COLD_RESTART_PHOTO_VIDEO_EXPORT',
                     'first_pid':pid1,'second_pid':pid2,'old_endpoint_closed':old_endpoint_closed,
-                    'project_id':saved['project_id'],'job_output_sha256':expected,'export_sha256':hashlib.sha256(archive).hexdigest(),
+                    'project_id':saved['project_id'],'path_diagnostics':path_diagnostics,'job_output_sha256':expected,'export_sha256':hashlib.sha256(archive).hexdigest(),
                     'zip_crc':'PASS','members':members,'bundle_files_verified':len(bundle['files']),'model_inference':False,
                     'scope':'GENERATED_FIXTURES_'+platform.system().upper()+'_SOURCE_HTTP_ONLY','source_browser':browser_result,'windows_exe_pass':False,
                     'owner_pc_pass':False,'full_product_pass':False}

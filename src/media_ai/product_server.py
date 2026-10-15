@@ -21,7 +21,9 @@ from .product_runtime import ProductJobService
 class ProductHttpServer(ThreadingHTTPServer):
     def __init__(self, address, handler, root: Path, data_dir: Path, token: str):
         super().__init__(address, handler)
-        self.root, self.data_dir = Path(root), Path(data_dir)
+        # File containment and generated URLs must share one canonical root.
+        # Relative and Windows 8.3 roots otherwise differ from resolved files.
+        self.root, self.data_dir = Path(root).resolve(), Path(data_dir).resolve()
         self.service = ProductJobService(self.data_dir, token)
         self.requests: list[dict] = []
         self.job_lock = threading.Lock()
@@ -291,3 +293,4 @@ def main() -> None:
 
 
 if __name__ == "__main__": main()
+
