@@ -15,16 +15,16 @@
   "owner_pc_runtime_pass": false,
   "final_product_pass": false,
   "openai_connected": false,
-  "phase": "R9_CORRECTED_CANDIDATE_BUILD_IN_PROGRESS",
+  "phase": "R9_CORRECTED_CANDIDATE_READY_FOR_PC_ACCEPTANCE",
   "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
   "package_workflow": ".github/workflows/pc-one-click-windows-build-e2e.yml",
   "verified_core_source": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
   "verified_core_run": 38801035307,
   "pc_work_allowed": true,
-  "candidate_source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
-  "candidate_run": 38497304486,
-  "candidate_zip_sha256": "8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527",
-  "candidate_readback_run": 38499220659,
+  "candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+  "candidate_run": 38822776656,
+  "candidate_zip_sha256": "79b8fc38a5dade14a5974b132f265ba52476058f574b9d6c1795aa000aed7fe6",
+  "candidate_readback_run": 38824641294,
   "candidate_readback_status": "PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES",
   "candidate_build_authorized_parent": "ada81a9f60ca8f77d31743b8ae9947c6f8d8a480",
   "candidate_build_scope": "ONE_R9_DEVELOPMENT_VERIFICATION_BUILD_NOT_EMPLOYEE_FINAL_RELEASE",
@@ -36,5 +36,17 @@
     "run": 38821443702,
     "status": "FAILED_REGRESSION_TEST_ENCODING_6_FAIL_110_PASS_1_SKIP",
     "artifact": 12014036542
-  }
+  },
+  "previous_verified_candidate": {
+    "source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
+    "run": 38497304486,
+    "readback_run": 38499220659,
+    "zip_sha256": "8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527"
+  },
+  "candidate_payload_manifest_sha256": "3facd08b16aeae044af39755c2d0d9638af4fe3fa0fec317b2dbc0bd863f2c17",
+  "candidate_launcher_sha256": "dd3f485a13a869acac87c3094381c9b97f872e461044af685e768afe9cadbe5a",
+  "candidate_runtime_id": "fef692312ae8-1261762e58ca",
+  "candidate_ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
+  "candidate_zip_bytes": 1913892012,
+  "candidate_contains_r9_repairs": true
 }
