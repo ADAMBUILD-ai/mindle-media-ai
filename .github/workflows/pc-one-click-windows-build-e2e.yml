@@ -371,7 +371,7 @@ jobs:
       - name: Install Playwright driver for runner-provided official Chrome
         shell: pwsh
         run: |
-          python -m pip install --disable-pip-version-check "playwright==1.55.0"
+          python -m pip install --disable-pip-version-check "playwright==1.55.0" "Pillow==11.3.0"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Prepare small real video fixture for browser interaction

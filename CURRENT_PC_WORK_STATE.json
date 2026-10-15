@@ -1,6 +1,6 @@
 {
   "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
-  "date": "2026-10-14",
+  "date": "2026-10-16",
   "status": "READY_FOR_LOCAL_PC_ACCEPTANCE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
@@ -22,23 +22,23 @@
   "work_must_continue": true,
   "product_changes_allowed": true,
   "allowed_product_change_scope": "Windows runtime/package/lifecycle fixes only, approved layout frozen",
-  "package_build_allowed": false,
+  "package_build_allowed": true,
   "package_build_location": "GITHUB_WINDOWS_RUNNER",
   "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
-  "local_physical_acceptance_allowed": true,
+  "local_physical_acceptance_allowed": false,
   "local_physical_acceptance_condition": "Only after exact corrected candidate SHA/manifest and runner results have been delivered and checked; user-reported environment readiness is not product PASS.",
   "external_marketing_avora_required": false,
   "external_marketing_avora_status": "DEFERRED_EXTERNAL",
   "employee_manual_install_steps_allowed": false,
   "normal_employee_action": "DOUBLE_CLICK_ONLY",
-  "verified_core_source": "f7f4d0f5e077d287b1cc44bb1329ec72422963b9",
-  "verified_core_run": 38497715964,
-  "package_status": "CORRECTED_CANDIDATE_VERIFIED_AND_DELIVERABLE",
+  "verified_core_source": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
+  "verified_core_run": 38801035307,
+  "package_status": "R9_CORRECTED_CANDIDATE_BUILD_AUTHORIZED_ONCE",
   "owner_pc_runtime_pass": false,
   "final_product_pass": false,
   "openai_connected": false,
   "final_result": null,
-  "phase": "VERIFIED_WINDOWS_CANDIDATE_READY_FOR_PC_ACCEPTANCE",
+  "phase": "VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD",
   "candidate_source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
   "candidate_run": 38497304486,
   "candidate_zip_sha256": "8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527",
@@ -90,5 +90,8 @@
       "digest": "sha256:29b07fcbd7a0c93c241f83897ca85e30e472e4b52c7524f54622935012cdbd3d",
       "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38497304486/artifacts/11865150922"
     }
-  ]
+  ],
+  "candidate_build_authorized_parent": "d21c5ebcc825bd92b5a6551fb8d8eec76280795c",
+  "candidate_build_scope": "ONE_R9_DEVELOPMENT_VERIFICATION_BUILD_NOT_EMPLOYEE_FINAL_RELEASE",
+  "candidate_build_authorization": "Owner continued immediately after explicit proposal to build one corrected development verification Windows candidate, 2026-10-16 KST"
 }

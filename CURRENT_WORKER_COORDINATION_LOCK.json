@@ -1,11 +1,11 @@
 {
   "schema_version": "PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
   "status": "ACTIVE",
-  "date": "2026-10-14",
+  "date": "2026-10-16",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
   "active_control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
-  "collision_status": "ALIGNED_CANDIDATE_VERIFIED_HANDOFF_TO_LOCAL_PC",
+  "collision_status": "ALIGNED_ONE_R9_DEVELOPMENT_CANDIDATE_BUILD",
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
@@ -34,7 +34,7 @@
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "COMPLETE_CURRENT_CANDIDATE; build gate closed; preserve artifacts; no automatic rebuild or final release",
+      "current_assignment": "ONE_R9_BUILD_AUTHORIZED_PARENT_d21c5ebcc825bd92b5a6551fb8d8eec76280795c; no model inference repeat; close gate after attempt; no employee final release",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",
@@ -54,7 +54,7 @@
     },
     "local_pc_acceptance": {
       "role": "Final physical Windows acceptance",
-      "current_assignment": "READY: download exact run38497304486 artifacts, assemble and verify ZIP SHA, then physical EXE double-click and 60 button/8 input acceptance; no full product PASS",
+      "current_assignment": "WAIT_NEW_R9_CANDIDATE_BYTES; previous candidate lacks six R9 source repairs",
       "may_write": [],
       "may_not_change": [
         "remote work progress"
