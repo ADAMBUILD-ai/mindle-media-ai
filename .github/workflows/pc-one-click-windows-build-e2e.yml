@@ -38,6 +38,7 @@ env:
   FFMPEG_URL: "https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip"
   FFMPEG_EXPECTED_SHA256: "fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051"
   MINDLE_DIAGNOSTIC_MODE: "1"
+  PYTHONUTF8: "1"
 
 jobs:
   product-epoch-gate:
@@ -226,6 +227,32 @@ jobs:
 
       - name: Install build-only PE audit and EXE tools
         run: python -m pip install --disable-pip-version-check "pefile==2023.2.7" "pyinstaller==6.16.0" "pytest>=9,<10"
+
+      - name: Stage isolated CI-only FFmpeg for libx264 regression fixtures
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-gpl-shared-8.1.zip" -OutFile build/ci-test-only-ffmpeg.zip
+          if ((Get-FileHash build/ci-test-only-ffmpeg.zip -Algorithm SHA256).Hash.ToLower() -ne "7bad9c116b45fb7441c636d2dc8c15d40cd2933772c6920d60569bb184c8c524") {throw "CI test FFmpeg hash mismatch"}
+          Expand-Archive build/ci-test-only-ffmpeg.zip build/ci-test-only-ffmpeg
+          $testBinary = Get-ChildItem build/ci-test-only-ffmpeg -Recurse -Filter ffmpeg.exe | Select-Object -First 1
+          if (-not $testBinary) {throw "test-only FFmpeg missing"}
+          $testBinary.Directory.FullName | Out-File $env:GITHUB_PATH -Append -Encoding utf8
+          # This test tool is outside the already assembled payload. Production still uses pinned LGPL tools.
+          [ordered]@{scope="CI_TEST_FIXTURES_ONLY_NOT_DISTRIBUTED";sha256="7bad9c116b45fb7441c636d2dc8c15d40cd2933772c6920d60569bb184c8c524";production_ffmpeg_root=$env:FFMPEG_ROOT} | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/CI_TEST_ONLY_FFMPEG.json" -Encoding utf8
+
+      - name: Source regression after packaging changes
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check "opencv-python-headless==4.12.0.88" "numpy==2.2.6" "Pillow==11.3.0" .
+          python -m pytest -q 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_PYTHON.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node --test ui/interaction.test.js ui/ssot_structure.test.js ui/cloud_navigation.test.js 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_UI.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          [ordered]@{
+            python = "PASS"
+            ui = "PASS"
+            packaged_windows_e2e = "PASS"
+          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/REGRESSION_RESULT.json" -Encoding utf8
 
       - name: Audit VC runtime dependencies without copying System32 DLLs
         shell: python
@@ -451,32 +478,6 @@ jobs:
             owner_pc_pass = $false
           } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/SAVE_REOPEN_COLD_RELAUNCH_RESULT.json" -Encoding utf8
 
-      - name: Stage isolated CI-only FFmpeg for libx264 regression fixtures
-        shell: pwsh
-        run: |
-          Invoke-WebRequest -Uri "https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-gpl-shared-8.1.zip" -OutFile build/ci-test-only-ffmpeg.zip
-          if ((Get-FileHash build/ci-test-only-ffmpeg.zip -Algorithm SHA256).Hash.ToLower() -ne "7bad9c116b45fb7441c636d2dc8c15d40cd2933772c6920d60569bb184c8c524") {throw "CI test FFmpeg hash mismatch"}
-          Expand-Archive build/ci-test-only-ffmpeg.zip build/ci-test-only-ffmpeg
-          $testBinary = Get-ChildItem build/ci-test-only-ffmpeg -Recurse -Filter ffmpeg.exe | Select-Object -First 1
-          if (-not $testBinary) {throw "test-only FFmpeg missing"}
-          $testBinary.Directory.FullName | Out-File $env:GITHUB_PATH -Append -Encoding utf8
-          # This test tool is outside the already assembled payload. Production still uses pinned LGPL tools.
-          [ordered]@{scope="CI_TEST_FIXTURES_ONLY_NOT_DISTRIBUTED";sha256="7bad9c116b45fb7441c636d2dc8c15d40cd2933772c6920d60569bb184c8c524";production_ffmpeg_root=$env:FFMPEG_ROOT} | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/CI_TEST_ONLY_FFMPEG.json" -Encoding utf8
-
-      - name: Source regression after packaging changes
-        shell: pwsh
-        run: |
-          python -m pip install --disable-pip-version-check "opencv-python-headless==4.12.0.88" "numpy==2.2.6" "Pillow==11.3.0" .
-          python -m pytest -q 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_PYTHON.log"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          node --test ui/interaction.test.js ui/ssot_structure.test.js ui/cloud_navigation.test.js 2>&1 | Tee-Object -FilePath "$env:EVIDENCE_DIR/REGRESSION_UI.log"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          [ordered]@{
-            python = "PASS"
-            ui = "PASS"
-            packaged_windows_e2e = "PASS"
-          } | ConvertTo-Json | Set-Content "$env:EVIDENCE_DIR/REGRESSION_RESULT.json" -Encoding utf8
-
       - name: Create remote result and local acceptance pending receipt
         if: always()
         shell: pwsh
@@ -500,9 +501,9 @@ jobs:
           $result = if ($e2ePass -and $browserPass -and $pipelinePass -and $vc -and $vc.redistribution_closed -and $ffmpegClosed) {
             "PASS_R9_CORRECTED_WINDOWS_CANDIDATE_REPAIRS_LOCAL_ACCEPTANCE_PENDING"
           } elseif ($e2ePass -and -not $browserPass) {
-            "PARTIAL_MODELS_PASS_BROWSER_NOT_PASS"
+            "PARTIAL_REPAIR_RUNTIME_PASS_BROWSER_NOT_PASS"
           } elseif ($e2ePass) {
-            "BLOCKED_RUNTIME_REDISTRIBUTION_OR_DEPENDENCY"
+            "INCOMPLETE_REPAIR_CANDIDATE_PIPELINE_OR_DEPENDENCY"
           } else {
             "REMOTE_WINDOWS_ONE_CLICK_BUILD_OR_E2E_INCOMPLETE"
           }

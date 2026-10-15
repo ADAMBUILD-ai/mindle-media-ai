@@ -15,7 +15,7 @@ class Handle(io.BytesIO):
 class LockLifecycleTests(unittest.TestCase):
     def helper(self, effects=None, clock=None, handle=None):
         source=Path(__file__).parents[1]/'scripts/employee_package_launcher.py'
-        fn=next(n for n in ast.parse(source.read_text()).body if isinstance(n,ast.FunctionDef) and n.name=='launch_request_lock')
+        fn=next(n for n in ast.parse(source.read_text(encoding='utf-8')).body if isinstance(n,ast.FunctionDef) and n.name=='launch_request_lock')
         handle=handle or Handle()
         crt=Mock(LK_NBLCK=1,LK_UNLCK=2)
         if effects is not None:crt.locking.side_effect=effects
