@@ -1,0 +1,121 @@
+{
+  "scope": "EXACT_DELIVERED_CANDIDATE_ON_GITHUB_WINDOWS_RUNNER_ONLY",
+  "model_inference": false,
+  "packaged_exe_pass": true,
+  "owner_pc_pass": false,
+  "full_product_pass": false,
+  "host": {
+    "hostname": "runnervm0xl3a",
+    "user": "runneradmin",
+    "github_actions": "true",
+    "profile": "D:\\a\\_temp\\mindle_followup_38851276116"
+  },
+  "identified_processes": [
+    {
+      "ProcessId": 1488,
+      "CommandLine": "D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE_MEDIA_AI\\runtime\\c37c7819b145-cfb26b181119\\runtime\\python\\python.exe D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE_MEDIA_AI\\runtime\\c37c7819b145-cfb26b181119\\app\\launcher\\employee_package_launcher.py --server --port 18768 --data-root D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE\\MEDIA_AI_DATA"
+    }
+  ],
+  "runtime_identity": {
+    "product": "MINDLE MEDIA AI",
+    "distribution": "EMPLOYEE_WIN_X64",
+    "package_version": "ONE_CLICK_RUNTIME_R1",
+    "build_commit": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+    "package_manifest_sha256": "7a31da30969b9e7901da8f109c467f281e2550171c15e9ddf3a8ddf215ab3377",
+    "ui_fingerprint": "cfb26b1811196c1abd19d5e59d33c420647ca122c060c753a7391ff43a8f8c2f",
+    "model_manifest_hash": "2f2a3555b69639840f7efbd360063fc79c7a54b39f438b0af14d7c93455c5d6d",
+    "install_root": "D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE_MEDIA_AI\\runtime\\c37c7819b145-cfb26b181119",
+    "data_root": "D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE\\MEDIA_AI_DATA",
+    "runtime_mode": "LOCAL_OFFLINE_PACKAGE"
+  },
+  "first_process": {
+    "ProcessId": 3624,
+    "CommandLine": "D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE_MEDIA_AI\\runtime\\c37c7819b145-cfb26b181119\\runtime\\python\\python.exe D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE_MEDIA_AI\\runtime\\c37c7819b145-cfb26b181119\\app\\launcher\\employee_package_launcher.py --server --port 18768 --data-root D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE\\MEDIA_AI_DATA"
+  },
+  "chrome": "155.0.8059.40",
+  "visual_viewport": {
+    "width": 1536,
+    "height": 1024,
+    "devicePixelRatio": 1,
+    "zoom": 1
+  },
+  "approved_image": {
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "size": [
+      1536,
+      1024
+    ]
+  },
+  "save_response": {
+    "status": "SAVED",
+    "project_id": "f08cbb2c-915a-4285-9dd7-bbb9a5b6022d",
+    "project": {
+      "file_name": "f08cbb2c-915a-4285-9dd7-bbb9a5b6022d.json",
+      "path": "D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE\\MEDIA_AI_DATA\\projects\\f08cbb2c-915a-4285-9dd7-bbb9a5b6022d.json",
+      "bytes": 3835,
+      "sha256": "0ba8ba83bf47f4bfbe4c0c9bc0d66223e9a281a824b02052b851fdd709fff824"
+    }
+  },
+  "before": {
+    "photo": [
+      {
+        "name": "photo-ref.png",
+        "bytes": 225,
+        "sha256": "a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e"
+      }
+    ],
+    "video": [
+      {
+        "name": "video-ref.png",
+        "bytes": 225,
+        "sha256": "e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18"
+      }
+    ],
+    "audio": {
+      "name": "input-ko.wav",
+      "bytes": 3244,
+      "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd"
+    }
+  },
+  "old_endpoint_closed": true,
+  "first_pid": 3624,
+  "second_pid": 1488,
+  "second_process": {
+    "ProcessId": 1488,
+    "CommandLine": "D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE_MEDIA_AI\\runtime\\c37c7819b145-cfb26b181119\\runtime\\python\\python.exe D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE_MEDIA_AI\\runtime\\c37c7819b145-cfb26b181119\\app\\launcher\\employee_package_launcher.py --server --port 18768 --data-root D:\\a\\_temp\\mindle_followup_38851276116\\MINDLE\\MEDIA_AI_DATA"
+  },
+  "after": {
+    "photo": [
+      {
+        "name": "photo-ref.png",
+        "bytes": 225,
+        "sha256": "a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e"
+      }
+    ],
+    "video": [
+      {
+        "name": "video-ref.png",
+        "bytes": 225,
+        "sha256": "e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18"
+      }
+    ],
+    "audio": {
+      "name": "input-ko.wav",
+      "bytes": 3244,
+      "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd"
+    }
+  },
+  "project_id": "f08cbb2c-915a-4285-9dd7-bbb9a5b6022d",
+  "export": {
+    "sha256": "6d109430716f6a1bc6abecf62146c53325b47d92f4ee9af4fdca777e40fb4d2a",
+    "bytes": 3737,
+    "crc": "PASS",
+    "manifest_files": 6
+  },
+  "new_project_clears_attachments": true,
+  "status": "PASS_EXACT_PACKAGED_EXE_PENDING_ATTACHMENTS_COLD_REOPEN_UI_EXPORT",
+  "artifact_id": 12025910982,
+  "verification_run": 38851276116,
+  "artifact_zip_sha256": "1507dfe3286501a39bf5a1be673cadfb7890a0c411dcb688c1f5ef29b15b6bc5",
+  "independent_export_byte_readback": "PASS_ALL_6_FILES_SHA_SIZE_AND_ZIP_CRC"
+}

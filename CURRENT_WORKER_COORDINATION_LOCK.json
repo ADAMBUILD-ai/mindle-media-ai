@@ -9,7 +9,7 @@
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "Pending workspace reference/audio persistence repaired and source-browser verified; delivered R9 candidate remains unchanged and requires future refresh",
+      "current_assignment": "Existing c37 follow-up candidate independently read back; exact packaged pending-attachment cold-reopen/export and approved-original visual comparison; no new build",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -34,7 +34,7 @@
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "COMPLETE: R9 producer 38822776656; independent readback 38824641294 PASS; gate CLOSED; no automatic rebuild",
+      "current_assignment": "Producer 38845082039 and independent readback 38846038527 PASS; gate CLOSED",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",
@@ -54,7 +54,7 @@
     },
     "local_pc_acceptance": {
       "role": "Final physical Windows acceptance",
-      "current_assignment": "Preserve R9 progress; current candidate known to lose unexecuted workspace references/audio; original-data preservation and focused remaining PC gates only; do not claim source repair is packaged",
+      "current_assignment": "Actual office-PC EXE/cold restart/restore/export and installed Windows player with real hearing remain required; remote runner is not office PC",
       "may_write": [],
       "may_not_change": [
         "remote work progress"
