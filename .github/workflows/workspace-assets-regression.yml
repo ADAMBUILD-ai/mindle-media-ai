@@ -1,0 +1,42 @@
+name: Workspace attachments source browser regression
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths: [.github/workflows/workspace-assets-regression.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-workspace:
+    runs-on: windows-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: product/src
+      PYTHONUTF8: '1'
+      HF_HUB_OFFLINE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: product
+      - uses: actions/checkout@v4
+        with:
+          ref: 55003e0d2d8cf2d4f79411064bf96b644656f510
+          path: baseline
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install pytest==8.4.2 Pillow==11.3.0 huggingface-hub==0.35.3 opencv-python-headless==4.12.0.88 playwright==1.55.0
+      - name: Verify attachment persistence and affected Export paths
+        run: python -m pytest -q product/tests/test_workspace_assets.py product/tests/test_export_atomicity.py product/tests/test_export_project_dependencies.py product/tests/test_photo_edit_project.py product/tests/test_runtime_recovery.py
+      - name: Preserve existing UI behavior contracts
+        run: node --test product/ui/interaction.test.js product/ui/ssot_structure.test.js product/ui/cloud_navigation.test.js
+      - name: Reproduce actual baseline attachment loss through Save cold reopen
+        run: python product/scripts/check_workspace_asset_persistence.py --root baseline --out outputs/workspace-assets/baseline --expect-loss
+      - name: Verify repaired actual browser Save cold reopen and UI Export
+        run: python product/scripts/check_workspace_asset_persistence.py --root product --out outputs/workspace-assets/repaired
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: workspace-assets-browser-before-after
+          path: outputs/workspace-assets
+          retention-days: 30
