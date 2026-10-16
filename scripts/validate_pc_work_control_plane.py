@@ -7,7 +7,7 @@ def read(name):return json.loads((ROOT/name).read_text(encoding='utf-8'))
 p=read('CURRENT_PC_WORK_STATE.json');l=read('CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json');g=read('CURRENT_GENERAL_WORK_STATE.json');gl=read('CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json');w=read('CURRENT_WORKER_COORDINATION_LOCK.json')
 epoch='MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1'
 require(p.get('control_plane_epoch')==l.get('epoch')==g.get('control_plane_epoch')==gl.get('epoch')==w.get('active_control_plane_epoch')==epoch,'epoch mismatch')
-r9=p.get('phase','').startswith('R9_')
+r9=p.get('active_directive')=='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md'
 expected_directive='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md' if r9 else 'docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_DIRECTIVE_v1.0_20261014.md'
 expected_contract='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_EVIDENCE_CONTRACT_20261016.json' if r9 else 'docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_EVIDENCE_CONTRACT_v1.0_20261014.json'
 require(p.get('active_directive')==l.get('active_directive')==expected_directive,'directive mismatch')
