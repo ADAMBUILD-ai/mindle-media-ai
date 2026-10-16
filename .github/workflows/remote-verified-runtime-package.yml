@@ -6,7 +6,6 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - ".github/workflows/remote-verified-runtime-package.yml"
-      - "docs/commander/**"
       - "evidence/model_scout/FINAL_ADOPTED_MODEL_MANIFEST_V13.json"
 
 permissions:
