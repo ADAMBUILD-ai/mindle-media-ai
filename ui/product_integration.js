@@ -134,7 +134,12 @@
   async function save(editor) {
     try {
       if(executing.size || pending.photo || pending.video) throw new Error('진행 중인 편집을 완료한 뒤 저장하세요.');
-      const response = await fetch("/api/projects/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ project_id: state.projectId, job_ids: state.jobs }) });
+      const serialize = async file => ({filename:file.name,mime_type:file.type,content_base64:await readFile(file)});
+      const workspace = {references:{},audio:null};
+      for(const kind of ['photo','video']) workspace.references[kind]=await Promise.all((window.mindleReferenceFiles?.(kind)||[]).map(serialize));
+      const audio=state.audio;
+      if(audio) workspace.audio=await serialize(audio);
+      const response = await fetch("/api/projects/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ project_id: state.projectId, job_ids: state.jobs, workspace }) });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || "저장 실패");
       state.projectId = result.project_id; editor.dataset.projectStatus = "saved"; message(editor, `프로젝트 저장 완료 · ${result.project_id}`);
       return true;
@@ -238,14 +243,20 @@
           message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);
         }
       }
+      const workspace=result.project.workspace;
       for(const kind of ['photo','video']) {
         const referenceJob=[...result.project.jobs].reverse().find(job=>job.lane===kind&&job.reference_urls?.length);
-        const files=[];for(const reference of referenceJob?.reference_urls||[]) {const r=await fetch(reference.url);if(!r.ok) throw new Error('저장된 참고 이미지를 읽을 수 없습니다.');const blob=await r.blob();files.push(new File([blob],reference.name,{type:blob.type}));}
+        const references=workspace ? workspace.references?.[kind]||[] : referenceJob?.reference_urls||[];
+        const files=[];for(const reference of references) {const r=await fetch(reference.url);if(!r.ok) throw new Error('저장된 참고 이미지를 읽을 수 없습니다.');const blob=await r.blob();files.push(new File([blob],reference.original_filename||reference.name,{type:reference.mime_type||blob.type}));}
         document.querySelector(`[data-editor="${kind}"]`).dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files}}));
+      }
+      if(workspace?.audio) {
+        const r=await fetch(workspace.audio.url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');
+        const blob=await r.blob();state.audio=new File([blob],workspace.audio.original_filename,{type:workspace.audio.mime_type||blob.type});
       }
       const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio' || job.operation==='transcribe');
       if (transcript) {
-        if(transcript.input_url) {const r=await fetch(transcript.input_url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');const blob=await r.blob();state.audio=new File([blob],transcript.input.file_name||'saved_audio.wav',{type:'audio/wav'});}
+        if(!workspace && transcript.input_url) {const r=await fetch(transcript.input_url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');const blob=await r.blob();state.audio=new File([blob],transcript.input.file_name||'saved_audio.wav',{type:'audio/wav'});}
         const editor = document.querySelector('[data-editor="video"]');
         if (editor) {
           editor.querySelector('.track.purple').textContent='Subtitle Track · '+transcript.runtime_result.text;
@@ -265,7 +276,10 @@
     video.querySelector('.track.purple').textContent='Subtitle Track · 자막 없음';
     video.querySelector('[data-video-time]').textContent='00:00:00';
     video.querySelector('[data-video-duration]').textContent='/ 00:00:00';
-    document.querySelectorAll('[data-editor]').forEach(editor=>message(editor,'새 프로젝트 · 원본을 불러오세요.'));
+    document.querySelectorAll('[data-editor]').forEach(editor=>{
+      editor.dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:[]}}));
+      message(editor,'새 프로젝트 · 원본을 불러오세요.');
+    });
   };
   restoreSavedProject();
 })();

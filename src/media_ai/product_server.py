@@ -199,6 +199,12 @@ class Handler(BaseHTTPRequestHandler):
                         source = Path(job['input']['path']).resolve()
                         job['input_url'] = '/files/' + source.relative_to(self.server.data_dir.resolve()).as_posix()
                         job['reference_urls']=[{'url':'/files/'+Path(ref['path']).resolve().relative_to(self.server.data_dir.resolve()).as_posix(),'name':ref.get('original_filename',ref['file_name'])} for ref in job.get('reference_artifacts',[])]
+                    workspace = project.get('workspace', {})
+                    assets = [ref for lane in ('photo', 'video') for ref in workspace.get('references', {}).get(lane, [])]
+                    if workspace.get('audio'):
+                        assets.append(workspace['audio'])
+                    for asset in assets:
+                        asset['url'] = '/files/' + Path(asset['path']).resolve().relative_to(self.server.data_dir).as_posix()
                 self._json(200, {'project': project}); return
             except (OSError, ValueError, KeyError, TypeError) as error:
                 self._json(422, {'error': '저장된 프로젝트를 불러올 수 없습니다.', 'status': 'PROJECT_REOPEN_FAILED'}); return

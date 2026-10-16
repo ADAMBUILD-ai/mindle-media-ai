@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import base64
 import hashlib
+import io
 import json
 import os
 import re
@@ -704,6 +705,62 @@ class ProductJobService:
         self.records[job_id] = record
         return record
 
+    def _save_workspace(self, project_id: str, workspace: dict) -> dict:
+        """Persist selected but not yet executed attachments without model inference."""
+        if not isinstance(workspace, dict):
+            raise ValueError('잘못된 작업공간 첨부 정보입니다.')
+        from PIL import Image
+        references = workspace.get('references', {})
+        if not isinstance(references, dict) or set(references) - {'photo', 'video'}:
+            raise ValueError('잘못된 참고 이미지 영역입니다.')
+        selected = []
+        for lane in ('photo', 'video'):
+            items = references.get(lane, [])
+            if not isinstance(items, list) or len(items) > 5:
+                raise ValueError('참고 이미지는 영역별 최대 5개까지 저장합니다.')
+            selected.extend((lane, item) for item in items)
+        audio = workspace.get('audio')
+        if audio is not None:
+            selected.append(('audio', audio))
+        validated = []
+        for lane, item in selected:
+            if not isinstance(item, dict):
+                raise ValueError('잘못된 첨부파일 정보입니다.')
+            name = str(item.get('filename', '')).replace(chr(92), '/').rsplit('/', 1)[-1]
+            if not name or name in {'.', '..'}:
+                raise ValueError('잘못된 첨부파일 이름입니다.')
+            content = base64.b64decode(item.get('content_base64', ''), validate=True)
+            if not content or len(content) > 32 * 1024 * 1024:
+                raise ValueError('첨부파일은 비어 있지 않은 32MB 이하 파일이어야 합니다.')
+            if lane != 'audio':
+                with Image.open(io.BytesIO(content)) as image:
+                    image.verify()
+            elif Path(name).suffix.lower() not in {'.wav', '.mp3', '.ogg', '.flac', '.m4a', '.aac', '.webm'}:
+                raise ValueError('지원하지 않는 음성 첨부 형식입니다.')
+            validated.append((lane, name, content, str(item.get('mime_type') or ('audio/wav' if lane == 'audio' else 'image/png'))))
+        assets = self.projects / (project_id + '_assets')
+        result = {'schema': 'MINDLE_WORKSPACE_ASSETS_V1', 'references': {'photo': [], 'video': []}, 'audio': None}
+        for lane, name, content, mime in validated:
+            assets.mkdir(exist_ok=True)
+            digest = hashlib.sha256(content).hexdigest()
+            path = assets / (digest + Path(name).suffix.lower())
+            if path.exists():
+                if sha256_file(path) != digest:
+                    raise ValueError('저장된 첨부파일의 무결성 확인에 실패했습니다.')
+            else:
+                pending = path.with_suffix(path.suffix + '.' + str(uuid4()) + '.tmp')
+                try:
+                    pending.write_bytes(content)
+                    os.replace(pending, path)
+                finally:
+                    pending.unlink(missing_ok=True)
+            record = file_record(path) | {'original_filename': name, 'mime_type': mime}
+            if lane == 'audio':
+                result['audio'] = record
+            else:
+                result['references'][lane].append(record)
+        return result
+
     def save_project(self, payload: dict) -> dict:
         job_ids = list(dict.fromkeys(payload.get("job_ids", [])))
         if any(job_id not in self.records for job_id in job_ids):
@@ -714,6 +771,12 @@ class ProductJobService:
         project_id = str(UUID(project_id))
         path = self.projects / f"{project_id}.json"
         record = {"project_id": project_id, "saved_at": now(), "job_ids": job_ids, "jobs": selected, "status": "SAVED"}
+        if 'workspace' in payload:
+            record['workspace'] = self._save_workspace(project_id, payload['workspace'])
+        elif path.is_file():
+            previous = json.loads(path.read_text(encoding='utf-8'))
+            if 'workspace' in previous:
+                record['workspace'] = previous['workspace']
         pending = path.with_suffix('.' + str(uuid4()) + '.tmp')
         try:
             pending.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -737,6 +800,14 @@ class ProductJobService:
                 artifacts.append(('input', job['job_id'], item, f"inputs/{job['job_id']}/{Path(item['path']).name}"))
             for index, item in enumerate(job.get('reference_artifacts', [])):
                 artifacts.append(('reference', job['job_id'], item, f"references/{job['job_id']}/{index:03d}_{Path(item['path']).name}"))
+        workspace = project.get('workspace', {})
+        for lane in ('photo', 'video'):
+            for index, item in enumerate(workspace.get('references', {}).get(lane, [])):
+                artifacts.append(('workspace_reference', 'workspace', item,
+                    f"workspace/references/{lane}/{index:03d}_{item['file_name']}"))
+        if workspace.get('audio'):
+            item = workspace['audio']
+            artifacts.append(('workspace_audio', 'workspace', item, f"workspace/audio/{item['file_name']}"))
         manifest_files = []
         names = set()
         for role, job_id, item, name in artifacts:

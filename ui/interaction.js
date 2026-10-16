@@ -122,5 +122,8 @@ function bindEditor(kind) {
   sync();
 }
 
-if (typeof document !== "undefined") ["video", "photo"].forEach(bindEditor);
+if (typeof document !== "undefined") {
+  window.mindleReferenceFiles = kind => (kind === 'photo' ? photoCommand : videoCommand).references.map(ref => ref.file).filter(Boolean);
+  ["video", "photo"].forEach(bindEditor);
+}
 if (typeof module !== "undefined") module.exports = { CommandPanelState, ShortformModeState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand, shortformMode };
