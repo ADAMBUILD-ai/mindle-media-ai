@@ -24,7 +24,7 @@ def main():
         result['host']={'hostname':socket.gethostname(),'user':os.environ.get('USERNAME'),'github_actions':os.environ.get('GITHUB_ACTIONS'),'profile':str(profile)}
         runtime_id='c37c7819b145-cfb26b181119'
         def processes():
-            command="[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new(); Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like '*employee_package_launcher.py*--server*' -and $_.CommandLine -like '*"+runtime_id+"*' -and $_.CommandLine -like '*"+profile.name+"*' } | Select-Object ProcessId,CommandLine | ConvertTo-Json -Compress"
+            command="[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new(); Get-CimInstance Win32_Process | Where-Object { $_.Name -eq 'python.exe' -and $_.CommandLine -like '*employee_package_launcher.py*--server*' -and $_.CommandLine -like '*"+runtime_id+"*' -and $_.CommandLine -like '*"+profile.name+"*' } | Select-Object ProcessId,CommandLine | ConvertTo-Json -Compress"
             raw=subprocess.check_output(['powershell.exe','-NoProfile','-NonInteractive','-Command',command],encoding='utf-8').strip()
             items=json.loads(raw) if raw else []
             return [items] if isinstance(items,dict) else items
@@ -47,7 +47,7 @@ def main():
                     base='http://127.0.0.1:'+str(port)
                     with urlopen(base+'/api/runtime-identity',timeout=2) as response:identity=json.load(response)
                     if identity.get('package_manifest_sha256')=='7a31da30969b9e7901da8f109c467f281e2550171c15e9ddf3a8ddf215ab3377' and identity.get('build_commit')=='c37c7819b1454996f3510f92184b1ef62faf3c78':
-                        found=processes();assert len(found)==1
+                        found=processes();result['identified_processes']=found;assert len(found)==1,repr(found)
                         return found[0],base
                 except OSError:pass
             raise RuntimeError('exact packaged runtime not found')

@@ -61,3 +61,5 @@ jobs:
           name: exact-delivered-workspace-runtime-and-approved-visual
           path: outputs/delivered-workspace
           retention-days: 30
+
+# Retry: exclude the PowerShell inventory process from server PID matching.
