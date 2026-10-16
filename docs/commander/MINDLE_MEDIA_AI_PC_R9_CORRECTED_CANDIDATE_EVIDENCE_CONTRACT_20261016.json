@@ -102,5 +102,18 @@
   "openai_connected": false,
   "external_marketing_avora": "DEFERRED_EXTERNAL",
   "pr23": "HOLD_DO_NOT_MERGE",
-  "validator_exit0_means": "EVIDENCE_COMPLETENESS_ONLY_NOT_RUNTIME_PASS"
+  "validator_exit0_means": "EVIDENCE_COMPLETENESS_ONLY_NOT_RUNTIME_PASS",
+  "known_candidate_limitations": [
+    {
+      "issue": "Pending reference images and STT input audio lost after Save/cold reopen",
+      "source_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
+      "verified_source_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+      "verification_run": 38838462732,
+      "artifact": 12020147459,
+      "status": "PASS_SOURCE_BROWSER_AND_EXPORT_NOT_IN_DELIVERED_CANDIDATE",
+      "delivered_candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+      "candidate_contains_fix": false,
+      "requires_future_candidate": true
+    }
+  ]
 }

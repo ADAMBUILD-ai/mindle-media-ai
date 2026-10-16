@@ -18,8 +18,8 @@
   "phase": "R9_CORRECTED_CANDIDATE_READY_FOR_PC_ACCEPTANCE",
   "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
   "package_workflow": ".github/workflows/pc-one-click-windows-build-e2e.yml",
-  "verified_core_source": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
-  "verified_core_run": 38801035307,
+  "verified_core_source": "b785b54cbf9452ffc7dbc0876254806e170a0380",
+  "verified_core_run": 38838236618,
   "pc_work_allowed": true,
   "candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
   "candidate_run": 38822776656,
@@ -48,5 +48,23 @@
   "candidate_runtime_id": "fef692312ae8-1261762e58ca",
   "candidate_ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
   "candidate_zip_bytes": 1913892012,
-  "candidate_contains_r9_repairs": true
+  "candidate_contains_r9_repairs": true,
+  "pending_source_repairs": [
+    {
+      "issue": "Pending reference images and STT input audio lost after Save/cold reopen",
+      "source_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
+      "verified_source_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+      "verification_run": 38838462732,
+      "artifact": 12020147459,
+      "status": "PASS_SOURCE_BROWSER_AND_EXPORT_NOT_IN_DELIVERED_CANDIDATE",
+      "delivered_candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+      "candidate_contains_fix": false,
+      "requires_future_candidate": true
+    }
+  ],
+  "candidate_contains_workspace_attachment_fix": false,
+  "previous_verified_core": {
+    "source": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
+    "run": 38801035307
+  }
 }

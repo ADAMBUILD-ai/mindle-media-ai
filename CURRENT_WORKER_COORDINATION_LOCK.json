@@ -9,7 +9,7 @@
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "R9 six source repairs included in independently verified candidate; preserve completed evidence; actual-PC and original-R9 causal correlation pending",
+      "current_assignment": "Pending workspace reference/audio persistence repaired and source-browser verified; delivered R9 candidate remains unchanged and requires future refresh",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -54,7 +54,7 @@
     },
     "local_pc_acceptance": {
       "role": "Final physical Windows acceptance",
-      "current_assignment": "R9 focused actual-PC acceptance using fef692312ae8-1261762e58ca; no repeated input8/button60 preparation or PHOTO model checks; Windows player/cold restart/R9 originals and approved comparison remain",
+      "current_assignment": "Preserve R9 progress; current candidate known to lose unexecuted workspace references/audio; original-data preservation and focused remaining PC gates only; do not claim source repair is packaged",
       "may_write": [],
       "may_not_change": [
         "remote work progress"

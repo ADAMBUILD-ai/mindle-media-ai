@@ -1,0 +1,40 @@
+{
+  "status": "PASS_INDEPENDENT_SOURCE_WORKSPACE_EXPORT_BYTES",
+  "sha256": "1639628c610a8e6d00d9de28e49021aaf36ef37f70331e727689096d717ef6a5",
+  "bytes": 3735,
+  "zip_crc": "PASS",
+  "files_verified": 6,
+  "roles": [
+    "input",
+    "output",
+    "workspace_audio",
+    "workspace_reference"
+  ],
+  "workspace_assets": [
+    {
+      "role": "workspace_reference",
+      "job_id": "workspace",
+      "archive_path": "workspace/references/photo/000_a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e.png",
+      "sha256": "a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e",
+      "bytes": 225
+    },
+    {
+      "role": "workspace_reference",
+      "job_id": "workspace",
+      "archive_path": "workspace/references/video/000_e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18.png",
+      "sha256": "e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18",
+      "bytes": 225
+    },
+    {
+      "role": "workspace_audio",
+      "job_id": "workspace",
+      "archive_path": "workspace/audio/2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd.wav",
+      "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd",
+      "bytes": 3244
+    }
+  ],
+  "model_inference": false,
+  "packaged_exe_pass": false,
+  "owner_pc_pass": false,
+  "full_product_pass": false
+}

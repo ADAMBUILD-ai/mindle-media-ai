@@ -1,10 +1,10 @@
 {
   "schema": "MINDLE_MEDIA_AI_GENERAL_SOURCE_CLOSEOUT_20261016",
-  "status": "PASS_R9_CORRECTED_WINDOWS_CANDIDATE_RUNTIME_AND_BYTES_LOCAL_PC_PENDING",
+  "status": "SOURCE_WORKSPACE_FIX_VERIFIED_DELIVERED_CANDIDATE_REFRESH_REQUIRED",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
-  "runtime_source_head": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
-  "evidence_head": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
+  "runtime_source_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+  "evidence_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
   "repairs": [
     {
       "item": "cloud routing",
@@ -26,9 +26,10 @@
   ],
   "verification": {
     "full_source_regression": {
-      "run": 38801035307,
-      "job": 116649810067,
-      "passed": 113,
+      "run": 38838236618,
+      "job": 116772063591,
+      "source": "b785b54cbf9452ffc7dbc0876254806e170a0380",
+      "passed": 122,
       "skipped": 4
     },
     "skipped_scope": "Linux skips three native Windows locking tests and one Windows 8.3 path test; these have scoped native Windows PASS evidence.",
@@ -303,6 +304,85 @@
       },
       "source_and_model_byte_preservation": "Verified frozen model archive reused; all manifest file SHA/size PASS; six repaired source files match repository content after Git checkout line-ending normalization",
       "new_model_inference": false
+    },
+    "pending_workspace_attachments": {
+      "issue": "Pending reference images and STT input audio lost after Save/cold reopen",
+      "source_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
+      "verified_source_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+      "verification_run": 38838462732,
+      "artifact": 12020147459,
+      "status": "PASS_SOURCE_BROWSER_AND_EXPORT_NOT_IN_DELIVERED_CANDIDATE",
+      "delivered_candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+      "candidate_contains_fix": false,
+      "requires_future_candidate": true,
+      "baseline": "CONFIRMED_BASELINE_DEFECT_PENDING_ATTACHMENTS_LOST",
+      "repair": "PASS_SOURCE_PENDING_REFERENCES_AUDIO_SAVE_COLD_REOPEN_UI_EXPORT",
+      "source_windows_pytest_passed": 22,
+      "node_ui_passed": 5,
+      "canonical_source_run": 38838236618,
+      "canonical_passed": 122,
+      "canonical_skipped": 4,
+      "restored_bytes_identical": true,
+      "source_export": {
+        "status": "PASS_INDEPENDENT_SOURCE_WORKSPACE_EXPORT_BYTES",
+        "sha256": "1639628c610a8e6d00d9de28e49021aaf36ef37f70331e727689096d717ef6a5",
+        "bytes": 3735,
+        "zip_crc": "PASS",
+        "files_verified": 6,
+        "roles": [
+          "input",
+          "output",
+          "workspace_audio",
+          "workspace_reference"
+        ],
+        "workspace_assets": [
+          {
+            "role": "workspace_reference",
+            "job_id": "workspace",
+            "archive_path": "workspace/references/photo/000_a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e.png",
+            "sha256": "a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e",
+            "bytes": 225
+          },
+          {
+            "role": "workspace_reference",
+            "job_id": "workspace",
+            "archive_path": "workspace/references/video/000_e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18.png",
+            "sha256": "e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18",
+            "bytes": 225
+          },
+          {
+            "role": "workspace_audio",
+            "job_id": "workspace",
+            "archive_path": "workspace/audio/2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd.wav",
+            "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd",
+            "bytes": 3244
+          }
+        ],
+        "model_inference": false,
+        "packaged_exe_pass": false,
+        "owner_pc_pass": false,
+        "full_product_pass": false
+      },
+      "frozen_ui_files_unchanged": [
+        "ui/index.html",
+        "ui/approved_visual.css",
+        "ui/interaction.css",
+        "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+        "ui/photo_workspace.js",
+        "ui/video_workspace.js",
+        "ui/workspace_shell.js"
+      ],
+      "behavior_files_changed": [
+        "ui/interaction.js",
+        "ui/product_integration.js"
+      ],
+      "new_model_inference": false
+    },
+    "prior_source_full_regression": {
+      "run": 38801035307,
+      "job": 116649810067,
+      "passed": 113,
+      "skipped": 4
     }
   },
   "preservation": {
@@ -318,7 +398,7 @@
     "full_approved_visual_comparison": "BLOCKED_ORIGINAL_APPROVED_ASSET_REQUIRED"
   },
   "next_candidate": {
-    "required": false,
+    "required": true,
     "package_build_allowed": false,
     "existing_candidate_contains_repairs": true,
     "source": "fef692312ae8d8e3070c97e013dacdd31a043172",
@@ -333,7 +413,19 @@
     "launcher_sha256": "dd3f485a13a869acac87c3094381c9b97f872e461044af685e768afe9cadbe5a",
     "runtime_id": "fef692312ae8-1261762e58ca",
     "ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
-    "manifest_files_verified": 19236
+    "manifest_files_verified": 19236,
+    "existing_candidate_contains_workspace_attachment_fix": false,
+    "pending_source_fix": {
+      "issue": "Pending reference images and STT input audio lost after Save/cold reopen",
+      "source_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
+      "verified_source_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+      "verification_run": 38838462732,
+      "artifact": 12020147459,
+      "status": "PASS_SOURCE_BROWSER_AND_EXPORT_NOT_IN_DELIVERED_CANDIDATE",
+      "delivered_candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+      "candidate_contains_fix": false,
+      "requires_future_candidate": true
+    }
   },
   "remaining_actual_pc": [
     "Read back original R9 report/CSV/approved comparison PNG/ZIP bytes",

@@ -48,3 +48,10 @@ owner_pc_runtime_pass=false, final_product_pass=false.
 Evidence Contract: docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_EVIDENCE_CONTRACT_20261016.json
 
 Active directive: docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md
+
+## 추가 소스 수정 — 2026-10-16
+현재 후보 fef692312ae8에는 실행 전 참고 이미지·STT 입력 음성의 저장 누락이 남아 있다.
+Save→서버 완전 재시작에서 참고 이미지2개와 음성이 사라짐을 실제 소스 브라우저로 재현했다.
+수정 4e20d02e601302cdebf56a131c1eb60cde0f19cb / 검증 38838462732는 소스에서 복원·Export를 통과했다.
+이 수정은 현재 배포 후보에 포함되지 않았다. 해당 항목을 현재 후보의 PASS로 처리하지 않는다.
+원본 자료는 보존하고 복제한 검수자료만 사용한다. 후속 후보 검수가 필요하며 build gate=false는 유지한다.
