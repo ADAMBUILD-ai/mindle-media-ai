@@ -22,7 +22,7 @@
   "work_must_continue": true,
   "product_changes_allowed": true,
   "allowed_product_change_scope": "Windows runtime/package/lifecycle fixes only, approved layout frozen",
-  "package_build_allowed": false,
+  "package_build_allowed": true,
   "package_build_location": "GITHUB_WINDOWS_RUNNER",
   "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
   "local_physical_acceptance_allowed": true,
@@ -33,12 +33,12 @@
   "normal_employee_action": "DOUBLE_CLICK_ONLY",
   "verified_core_source": "b785b54cbf9452ffc7dbc0876254806e170a0380",
   "verified_core_run": 38838236618,
-  "package_status": "R9_CORRECTED_CANDIDATE_VERIFIED_AND_DELIVERABLE",
+  "package_status": "R9_WORKSPACE_ASSET_REPAIR_CANDIDATE_BUILD_AUTHORIZED_NOT_FINAL",
   "owner_pc_runtime_pass": false,
   "final_product_pass": false,
   "openai_connected": false,
   "final_result": null,
-  "phase": "R9_CORRECTED_CANDIDATE_READY_FOR_PC_ACCEPTANCE",
+  "phase": "R9_WORKSPACE_ASSET_REPAIR_CANDIDATE_BUILD_AUTHORIZED",
   "candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
   "candidate_run": 38822776656,
   "candidate_zip_sha256": "79b8fc38a5dade14a5974b132f265ba52476058f574b9d6c1795aa000aed7fe6",
@@ -98,9 +98,9 @@
       "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38822776656/artifacts/12012804966"
     }
   ],
-  "candidate_build_authorized_parent": "ada81a9f60ca8f77d31743b8ae9947c6f8d8a480",
-  "candidate_build_scope": "ONE_R9_DEVELOPMENT_VERIFICATION_BUILD_NOT_EMPLOYEE_FINAL_RELEASE",
-  "candidate_build_authorization": "Completion retry of the owner-approved R9 development candidate; initial run blocked only by test-source cp1252 decode; product runtime/browser/cold restart passed; no new model inference",
+  "candidate_build_authorized_parent": "f63ca62058078854a3386a96d6e86d1af4e49569",
+  "candidate_build_scope": "ONE_R9_WORKSPACE_ASSET_PERSISTENCE_WINDOWS_DEVELOPMENT_VERIFICATION_BUILD_AND_INDEPENDENT_READBACK_ONLY_NOT_FINAL_EMPLOYEE_RELEASE",
+  "candidate_build_authorization": "Owner approval in current conversation, 2026-10-16 KST: authorize exactly one Windows development-verification candidate build and independent readback for the workspace-asset persistence repair. Not a final employee release; no main merge, force push, PR #23 merge, or final-product PASS.",
   "candidate_attempt_run": 38822776656,
   "candidate_attempt_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
   "previous_candidate_attempt": {
@@ -135,5 +135,7 @@
   "previous_verified_core": {
     "source": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
     "run": 38801035307
-  }
+  },
+  "authorized_repair_source": "f63ca62058078854a3386a96d6e86d1af4e49569",
+  "authorized_repair_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb"
 }
