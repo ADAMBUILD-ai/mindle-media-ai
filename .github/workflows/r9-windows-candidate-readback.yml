@@ -20,13 +20,13 @@ jobs:
         with:
           pattern: mindle-media-one-click-win-x64-part-*
           merge-multiple: true
-          run-id: 38822776656
+          run-id: 38845082039
           github-token: ${{ github.token }}
           path: candidate_readback/parts
       - uses: actions/download-artifact@v4
         with:
           name: mindle-media-one-click-windows-launcher-manifests
-          run-id: 38822776656
+          run-id: 38845082039
           github-token: ${{ github.token }}
           path: candidate_readback/metadata
       - run: python scripts/verify_r9_windows_candidate.py

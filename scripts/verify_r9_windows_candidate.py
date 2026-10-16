@@ -28,7 +28,7 @@ with zipfile.ZipFile(archive) as z:
     delivery=json.loads(z.read(prefix+'DELIVERY_MANIFEST.json'))
     manifest_bytes=z.read(prefix+'_payload/PACKAGE_MANIFEST.json')
     manifest=json.loads(manifest_bytes)
-    assert delivery['build_commit']==manifest['build_commit']=='fef692312ae8d8e3070c97e013dacdd31a043172'
+    assert delivery['build_commit']==manifest['build_commit']=='c37c7819b1454996f3510f92184b1ef62faf3c78'
     assert hashlib.sha256(manifest_bytes).hexdigest()==delivery['payload_manifest']['sha256']
     actual,size=hash_entry(z,prefix+delivery['launcher']['path'])
     assert actual==delivery['launcher']['sha256'] and size==delivery['launcher']['bytes']
@@ -48,6 +48,8 @@ with zipfile.ZipFile(archive) as z:
         'ui/index.html':'app/ui/index.html',
         'ui/workspace_shell.js':'app/ui/workspace_shell.js',
         'ui/interaction.css':'app/ui/interaction.css',
+        'ui/interaction.js':'app/ui/interaction.js',
+        'ui/product_integration.js':'app/ui/product_integration.js',
         'scripts/employee_package_launcher.py':'app/launcher/employee_package_launcher.py',
         'src/media_ai/product_runtime.py':'app/src/media_ai/product_runtime.py',
         'src/media_ai/product_server.py':'app/src/media_ai/product_server.py',
@@ -62,6 +64,6 @@ with zipfile.ZipFile(archive) as z:
     frozen_blob=hashlib.sha1(b'blob '+str(len(frozen_css)).encode()+b'\0'+frozen_css).hexdigest()
     assert frozen_blob=='3e1334c14b84fcbd5845a7a7a693c3f6bfe5a5da','approved CSS Git blob changed'
     repaired_sources['ui/approved_visual.css']['frozen_git_blob']=frozen_blob
-    result={'generated_bytecode_cache_files_not_in_source_manifest':extra_cache_hashes,'r9_sources_verified':repaired_sources,'status':'PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES','source_commit':manifest['build_commit'],'producer_run':38822776656,'verifier_source':os.environ['GITHUB_SHA'],'zip_name':name,'zip_sha256':digest.hexdigest(),'zip_bytes':archive.stat().st_size,'parts':len(parts),'crc':'PASS','payload_files_checked':checked,'payload_manifest_sha256':hashlib.sha256(manifest_bytes).hexdigest(),'launcher_sha256':delivery['launcher']['sha256'],'runtime_id':manifest['runtime_id'],'ui_fingerprint':manifest['ui_fingerprint'],'office_pc_pass':False,'full_product_pass':False,'scope':'CORRECTED_DEVELOPMENT_CANDIDATE_ONLY_NOT_FINAL_EMPLOYEE_RELEASE'}
+    result={'generated_bytecode_cache_files_not_in_source_manifest':extra_cache_hashes,'r9_sources_verified':repaired_sources,'status':'PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES','source_commit':manifest['build_commit'],'producer_run':38845082039,'verifier_source':os.environ['GITHUB_SHA'],'zip_name':name,'zip_sha256':digest.hexdigest(),'zip_bytes':archive.stat().st_size,'parts':len(parts),'crc':'PASS','payload_files_checked':checked,'payload_manifest_sha256':hashlib.sha256(manifest_bytes).hexdigest(),'launcher_sha256':delivery['launcher']['sha256'],'runtime_id':manifest['runtime_id'],'ui_fingerprint':manifest['ui_fingerprint'],'office_pc_pass':False,'full_product_pass':False,'scope':'CORRECTED_DEVELOPMENT_CANDIDATE_ONLY_NOT_FINAL_EMPLOYEE_RELEASE'}
 (out/'INDEPENDENT_CANDIDATE_READBACK.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps({k:v for k,v in result.items() if k not in {'generated_bytecode_cache_files_not_in_source_manifest','r9_sources_verified'}}))
