@@ -41,10 +41,10 @@
   "phase": "R9_WORKSPACE_ASSET_REPAIR_CANDIDATE_BUILT_READBACK_PASS_LOCAL_PC_PENDING",
   "candidate_source": "c37c7819b1454996f3510f92184b1ef62faf3c78",
   "candidate_run": 38845082039,
-  "candidate_zip_sha256": "79b8fc38a5dade14a5974b132f265ba52476058f574b9d6c1795aa000aed7fe6",
-  "candidate_payload_manifest_sha256": "3facd08b16aeae044af39755c2d0d9638af4fe3fa0fec317b2dbc0bd863f2c17",
-  "candidate_launcher_sha256": "dd3f485a13a869acac87c3094381c9b97f872e461044af685e768afe9cadbe5a",
-  "candidate_runtime_id": "fef692312ae8-1261762e58ca",
+  "candidate_zip_sha256": null,
+  "candidate_payload_manifest_sha256": null,
+  "candidate_launcher_sha256": null,
+  "candidate_runtime_id": null,
   "candidate_readback_run": 38846038527,
   "candidate_readback_status": "PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES",
   "candidate_artifacts": [
@@ -115,8 +115,8 @@
     "readback_run": 38499220659,
     "zip_sha256": "8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527"
   },
-  "candidate_ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
-  "candidate_zip_bytes": 1913892012,
+  "candidate_ui_fingerprint": null,
+  "candidate_zip_bytes": null,
   "candidate_contains_r9_repairs": true,
   "pending_source_repairs": [
     {
@@ -138,5 +138,17 @@
   },
   "authorized_repair_source": "d759fe4300a628e33c6908ab03e20099ef8cf46c",
   "authorized_repair_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
-  "candidate_build_completion": "One approved build consumed; independent readback passed; actual owner PC acceptance remains required."
+  "candidate_build_completion": "One approved build consumed; independent readback passed; actual owner PC acceptance remains required.",
+  "candidate_artifact_run": 38845082039,
+  "candidate_evidence_artifact": 12023241608,
+  "candidate_launcher_manifest_artifact": 12023231633,
+  "candidate_delivery_part_artifacts": [
+    12023206853,
+    12023620362,
+    12023236791,
+    12022993288,
+    12023018200
+  ],
+  "candidate_independent_readback_artifact": 12022943996,
+  "candidate_identity_status": "BUILD_AND_READBACK_PASS; exact ZIP/manifest/launcher values must be carried from candidate artifacts into the PC acceptance receipt before local execution."
 }
