@@ -12,3 +12,22 @@
 .final-guideline{max-width:1512px;margin:0 auto 16px;display:grid;grid-template-columns:1fr 1fr 1.35fr;gap:8px;padding:0 14px}.final-guideline>div{min-height:48px;padding:9px 12px;border:1px solid #18394f;border-radius:9px;background:#071622;display:flex;flex-direction:column;justify-content:center}.final-guideline strong{font-size:10px}.final-guideline span{font-size:8px;color:#829aae;margin-top:3px}.final-guideline .final-rule{font-size:11px;font-weight:800;color:#f1deff;border-color:#7c42aa;background:linear-gradient(100deg,#251334,#3a1850)}
 dialog{background:#071622;color:#eef7ff;border:1px solid #2a516b;border-radius:10px;max-width:700px}dialog button{display:block;margin:6px 0}
 @media(max-width:1380px){.editor-grid{grid-template-columns:118px minmax(0,1fr) 158px}.editor-header{align-items:flex-start;flex-direction:column}.editor-actions{justify-content:flex-start}.preview-stage{min-height:170px}.future-copy{display:none}}
+
+/* Restore PHOTO's approved preview / below-preview corrections / reference strip.
+   Existing VIDEO structure and every behavior data attribute remain intact. */
+.photo-card .editor-grid{grid-template-columns:178px minmax(0,1fr);grid-template-areas:"assets preview" "assets tools" "references references" "command command"}
+.photo-card .tool-panel{padding:7px}
+.photo-card .photo-adjust-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.photo-card .photo-adjust-grid .range-row{grid-template-columns:minmax(0,1fr) auto;border:1px solid #183b53;border-radius:5px;padding:5px 3px;margin:0;font-size:8px}
+.photo-card .photo-adjust-grid input{grid-column:1/-1;grid-row:2;min-width:0}
+.photo-card .photo-adjust-grid output{grid-column:2;grid-row:1}
+.photo-card .photo-tools{grid-template-columns:repeat(6,minmax(0,1fr))}
+.photo-reference-strip{grid-area:references;display:flex;align-items:center;gap:8px;min-width:0;border:1px solid #183b53;border-radius:7px;background:#071824;padding:7px}
+.photo-reference-strip>strong{font-size:10px;white-space:nowrap}
+.photo-reference-strip .reference-button{margin:0;flex-shrink:0}
+.photo-reference-strip [data-reference-list]{display:flex;gap:6px;overflow-x:auto;min-width:0;flex:1;margin:0;padding:0}
+.photo-reference-strip .reference-thumbnail{flex:0 0 90px;overflow:hidden;font-size:8px}
+.photo-reference-strip .reference-thumbnail img{display:block;width:80px;height:46px;object-fit:contain;object-position:center;background:#020913}
+.photo-reference-strip .reference-thumbnail button{font-size:8px;padding:2px 5px}
+@media(max-width:1380px){.photo-card .editor-grid{grid-template-columns:148px minmax(0,1fr)}}
+.photo-card .inline-controls[hidden]{display:none}

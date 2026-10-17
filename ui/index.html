@@ -52,8 +52,8 @@
         <div class="editor-title"><span class="editor-kicker photo-kicker">PHOTO</span><div><h1>사진 편집</h1><p>가로형 작업영역을 기본으로 사진 비율을 그대로 보존합니다.</p></div></div>
         <div class="editor-actions"><button type="button" data-action="load" class="outline-purple">＋ 사진 불러오기</button><input type="file" data-primary-input="photo" accept="image/*" hidden><button data-action="photo-auto" class="outline-purple">✦ AI 보정</button><button data-action="save" class="ghost-button">프로젝트 저장</button><button data-action="export" class="primary-pink">내보내기</button></div>
       </header>
-      <div data-layout="left-center-right" class="editor-grid">
-        <aside data-panel="photo-left" class="media-panel"><div class="panel-title">MEDIA</div><div class="asset-grid photo-assets"><span class="asset-photo-house">house.jpg</span><span class="asset-video-interior">interior.jpg</span><span class="asset-photo-landscape">landscape.jpg</span></div><div class="reference-strip"><strong>REFERENCE</strong><span>건축</span><span>인테리어</span><span>Landscape</span></div></aside>
+      <div data-layout="library-preview-below-tools" class="editor-grid">
+        <aside data-panel="photo-left" class="media-panel"><div class="panel-title">MEDIA</div><div class="asset-grid photo-assets"><span class="asset-photo-house">house.jpg</span><span class="asset-video-interior">interior.jpg</span><span class="asset-photo-landscape">landscape.jpg</span></div></aside>
         <section data-panel="photo-center" class="preview-column"><div data-preview="photo" class="preview-stage photo-stage" aria-label="사진 미리보기"><span class="preview-empty">PHOTO PREVIEW · LANDSCAPE FIRST</span></div><div class="photo-transport"><span class="fit-label">Auto Fit</span><span class="fit-label">Center</span><button data-photo-fullscreen>⛶</button><button data-action="photo-auto" class="outline-purple">✦ AI 보정</button></div></section>
         <aside data-panel="photo-right" class="tool-panel" aria-label="사진 편집 패널" data-tools="correction crop resize rotate flip segment upscale similar">
           <div class="panel-title">기본 보정</div><div class="photo-adjust-grid">
@@ -62,7 +62,8 @@
           <div data-crop-controls hidden class="inline-controls"><label>왼쪽 % <input data-crop="left" type="number" min="0" max="99" value="0"></label><label>위 % <input data-crop="top" type="number" min="0" max="99" value="0"></label><label>오른쪽 % <input data-crop="right" type="number" min="1" max="100" value="100"></label><label>아래 % <input data-crop="bottom" type="number" min="1" max="100" value="100"></label></div><div data-photo-resize-controls hidden class="inline-controls"><label>사진 폭 px <input data-photo-resize type="number" min="1" max="8000" value="512"></label><span>원본 비율 유지</span></div>
           <div class="panel-actions"><button data-photo-reset>↻ 초기화</button><button data-photo-apply class="apply-button">적용하기</button></div><p data-photo-status role="status"></p>
         </aside>
-        <div class="command-card" data-command-panel><div class="ai-label">✦ AI 대화 편집</div><div class="command-line"><input data-command="photo" aria-label="사진 AI 지시" placeholder="원하는 사진 보정을 자연어로 입력하세요"><button type="button" class="send-button">➤</button></div><button type="button" data-action="photo-reference" class="reference-button">＋ 참고 이미지 추가</button><input type="file" data-reference-input="photo" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list></ul><div class="command-chips"><button type="button">참고 이미지</button><button type="button">스타일</button><button type="button">톤 조정</button><button type="button">비율</button></div></div>
+        <section class="photo-reference-strip" aria-label="사진 참고 이미지"><strong>참고 이미지</strong><button type="button" data-action="photo-reference" class="reference-button">＋ 참고 이미지 추가</button><input type="file" data-reference-input="photo" accept="image/*" multiple hidden><ul data-reference-list aria-label="첨부한 사진 참고 이미지"></ul></section>
+        <div class="command-card" data-command-panel><div class="ai-label">✦ AI 대화 편집</div><div class="command-line"><input data-command="photo" aria-label="사진 AI 지시" placeholder="원하는 사진 보정을 자연어로 입력하세요"><button type="button" class="send-button">➤</button></div><p data-command-error role="alert"></p><div class="command-chips"><button type="button">참고 이미지</button><button type="button">스타일</button><button type="button">톤 조정</button><button type="button">비율</button></div></div>
       </div>
     </section>
   </main>
@@ -70,3 +71,4 @@
   <script src="interaction.js"></script><script src="product_integration.js"></script><script src="photo_workspace.js"></script><script src="video_workspace.js"></script><script src="workspace_shell.js"></script>
 </body>
 </html>
+

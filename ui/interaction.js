@@ -67,13 +67,14 @@ const videoCommand = new CommandPanelState("video");
 const photoCommand = new CommandPanelState("photo");
 const shortformMode = new ShortformModeState();
 
-function renderPanel(root, state) {
+function renderPanel(root, state, referenceRoot = root) {
   root.dataset.phase = state.phase;
   root.querySelector("[data-command]").value = state.text;
   root.querySelector("[data-command-error]").textContent = state.error || "";
-  const list = root.querySelector("[data-reference-list]");
+  const list = referenceRoot.querySelector("[data-reference-list]");
   list.replaceChildren(...state.references.map((ref, index) => {
     const item = document.createElement("li"); item.className = "reference-thumbnail"; item.textContent = ref.name;
+    if (ref.preview) { const image=document.createElement("img"); image.src=ref.preview; image.alt=ref.name; item.prepend(image); }
     const remove = document.createElement("button"); remove.type = "button"; remove.textContent = "제거"; remove.dataset.referenceRemove = String(index);
     item.append(" ", remove); return item;
   }));
@@ -83,7 +84,7 @@ function bindEditor(kind) {
   const editor = document.querySelector(`[data-editor="${kind}"]`); if (!editor) return;
   const state = kind === "video" ? videoCommand : photoCommand; const actions = new EditorActionState(kind);
   const command = editor.querySelector("[data-command]"); const fileInput = editor.querySelector("[data-reference-input]"); const panel = editor.querySelector("[data-command-panel]");
-  const sync = () => renderPanel(panel, state);
+  const sync = () => renderPanel(panel, state, editor);
   if (kind === "video") {
     const shortformButton = editor.querySelector("[data-action='shortform-mode']");
     if (shortformButton) shortformButton.addEventListener("click", () => {
@@ -116,7 +117,7 @@ function bindEditor(kind) {
   fileInput.addEventListener("change", (event) => {
     [...event.target.files].forEach((file) => {const preview=URL.createObjectURL(file);if(!state.attach({ name:file.name,type:file.type,preview,file })) URL.revokeObjectURL(preview);}); fileInput.value = ""; sync();
   });
-  panel.addEventListener("click", (event) => { const index = event.target.dataset.referenceRemove; if (index !== undefined) { state.remove(Number(index)); sync(); } });
+  editor.addEventListener("click", (event) => { const index = event.target.dataset.referenceRemove; if (index !== undefined) { state.remove(Number(index)); sync(); } });
   editor.querySelectorAll("[data-action='save']").forEach((button) => button.addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:save", { detail: actions.save() }))));
   editor.querySelector("[data-action='export']").addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:export", { detail: actions.export() })));
   sync();
@@ -127,3 +128,4 @@ if (typeof document !== "undefined") {
   ["video", "photo"].forEach(bindEditor);
 }
 if (typeof module !== "undefined") module.exports = { CommandPanelState, ShortformModeState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand, shortformMode };
+
