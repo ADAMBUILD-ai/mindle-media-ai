@@ -3,9 +3,16 @@
   const state = { video: null, photo: null, jobs: [], projectId: null, videoMode: "general", shortformContract: null, audio: null };
   const executing = new Set();
   const pending={photo:0,video:0};
+  let saving=false, restoring=false, exporting=false;
+  const projectBusy=()=>saving || restoring || exporting || executing.size || pending.photo || pending.video;
+  const projectChangeBlocked=()=>{
+    if(!projectBusy()) return false;
+    document.querySelectorAll('[data-editor]').forEach(editor=>message(editor,'진행 중인 편집·저장·불러오기를 완료한 뒤 프로젝트를 전환하세요.',true));
+    return true;
+  };
   window.mindleBeginEdit=kind=>{pending[kind]++;};
   window.mindleEndEdit=kind=>{pending[kind]=Math.max(0,pending[kind]-1);};
-  window.mindleEditPending=kind=>pending[kind]>0;
+  window.mindleEditPending=kind=>pending[kind]>0 || saving || restoring || exporting;
   window.mindleInputFor = kind => state[kind];
   const readFile = (file) => new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -87,7 +94,7 @@
     } catch (error) { message(editor, error.message, true); }
   }
   async function execute(editor, kind, detail) {
-    if (executing.has(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);return;}
+    if (executing.has(kind) || window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);return;}
     executing.add(kind);
     try {await executeReady(editor,kind,detail);} finally {executing.delete(kind);}
   }
@@ -132,8 +139,9 @@
     } catch (error) { message(editor, error.message, true); }
   }
   async function save(editor) {
+    if(projectBusy()) {message(editor,'진행 중인 편집·저장·불러오기를 완료한 뒤 저장하세요.',true);return false;}
+    saving=true;
     try {
-      if(executing.size || pending.photo || pending.video) throw new Error('진행 중인 편집을 완료한 뒤 저장하세요.');
       const serialize = async file => ({filename:file.name,mime_type:file.type,content_base64:await readFile(file)});
       const workspace = {references:{},audio:null};
       for(const kind of ['photo','video']) workspace.references[kind]=await Promise.all((window.mindleReferenceFiles?.(kind)||[]).map(serialize));
@@ -144,15 +152,19 @@
       state.projectId = result.project_id; editor.dataset.projectStatus = "saved"; message(editor, `프로젝트 저장 완료 · ${result.project_id}`);
       return true;
     } catch (error) { message(editor, error.message, true); return false; }
+    finally {saving=false;}
   }
   async function exportProject(editor) {
+    let ownsExport=false;
     try {
       if (!await save(editor) || !state.projectId) return;
+      exporting=true;ownsExport=true;
       const response = await fetch(`/api/projects/${state.projectId}/export`, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || "내보내기 실패");
       const link = document.createElement("a"); link.href = result.download_url; link.download = result.export.file_name; link.dataset.exportSha256 = result.export.sha256; document.body.append(link); link.click(); link.remove();
       editor.dataset.exportStatus = "exported"; editor.dataset.exportSha256 = result.export.sha256; message(editor, `내보내기 완료 · ${result.export.file_name}`);
     } catch (error) { message(editor, error.message, true); }
+    finally {if(ownsExport) exporting=false;}
   }
   window.mindleRefreshAssets = async () => {
     const response=await fetch('/api/assets');if(!response.ok) throw new Error('실제 원본 목록을 읽을 수 없습니다.');
@@ -164,7 +176,7 @@
         const tile=document.createElement('span');tile.textContent=name;tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',name+' 불러오기');
         if(kind==='photo') tile.style.backgroundImage=`url("${asset.preview_url}")`;
         const open=async()=>{
-          if(executing.size || pending.photo || pending.video) return;
+          if(projectBusy()) return;
           window.mindleBeginEdit(kind);
           try {await window.mindleAcceptResult(asset);} catch(error) {message(document.querySelector(`[data-editor="${kind}"]`),error.message,true);}
           finally {window.mindleEndEdit(kind);}
@@ -217,12 +229,14 @@
   });
   document.querySelectorAll('.asset-grid').forEach(grid=>grid.replaceChildren());
   async function restoreSavedProject(url='/api/projects/latest') {
+    if(projectChangeBlocked()) return false;
+    restoring=true;
     window.mindleRestoreReady=false;
     try {
       const response = await fetch(url);
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || '저장된 프로젝트를 불러올 수 없습니다.');
-      if (!result.project) return;
+      if (!result.project) return false;
       state.projectId = result.project.project_id;
       state.jobs = result.project.job_ids;
       state.photo=state.video=state.audio=null;
@@ -263,13 +277,16 @@
           message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId} · 한국어 자막: ${transcript.runtime_result.text}`);
         }
       }
+      return true;
     } catch (error) {
       const editor = document.querySelector('[data-editor="video"]');
       if (editor) message(editor, error.message, true);
-    } finally {try {await window.mindleRefreshAssets();} catch(error) {message(document.querySelector('[data-editor="video"]'),error.message,true);}window.mindleRestoreReady=true;}
+      return false;
+    } finally {try {await window.mindleRefreshAssets();} catch(error) {message(document.querySelector('[data-editor="video"]'),error.message,true);}restoring=false;window.mindleRestoreReady=true;}
   }
   window.mindleOpenProject = projectId => restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));
   window.mindleNewProject = () => {
+    if(projectChangeBlocked()) return false;
     state.projectId=null;state.jobs=[];state.photo=state.video=state.audio=null;
     document.querySelectorAll('[data-preview]').forEach(host=>{host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;});
     const video=document.querySelector('[data-editor="video"]');
@@ -280,6 +297,7 @@
       editor.dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:[]}}));
       message(editor,'새 프로젝트 · 원본을 불러오세요.');
     });
+    return true;
   };
   restoreSavedProject();
 })();

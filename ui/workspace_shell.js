@@ -6,10 +6,10 @@
     for(const item of items) {
       const row=document.createElement(projects?'button':'p');
       row.textContent=projects?`${item.project_id} · ${item.saved_at} · ${item.job_count} 작업`:item;
-      if(projects) row.addEventListener('click',async()=>{await window.mindleOpenProject(item.project_id);dialog.close();});
+      if(projects) row.addEventListener('click',async()=>{if(await window.mindleOpenProject(item.project_id)) dialog.close();});
       dialog.append(row);
     }
-    if(projects) {const fresh=document.createElement('button');fresh.textContent='새 프로젝트';fresh.addEventListener('click',()=>{window.mindleNewProject();dialog.close();});dialog.append(fresh);}
+    if(projects) {const fresh=document.createElement('button');fresh.textContent='새 프로젝트';fresh.addEventListener('click',()=>{if(window.mindleNewProject()) dialog.close();});dialog.append(fresh);}
     const close=document.createElement('button');close.textContent='닫기';close.addEventListener('click',()=>dialog.close());dialog.append(close);
     dialog.addEventListener('close',()=>dialog.remove());document.body.append(dialog);dialog.showModal();
   };
