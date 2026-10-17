@@ -1,0 +1,31 @@
+{
+  "at_utc": "2026-10-17T06:30:20.483627+00:00",
+  "remote_commit": "0656eb7efd42b721d7e4586de9133fcd567c4dd2",
+  "read_via": "fresh git fetch from canonical remote, then immutable commit blobs",
+  "objects_byte_hash_verified": 113,
+  "original_manifest_files_verified": 92,
+  "zip_reassembly_sha_and_crc": [
+    {
+      "path": "c37_runtime/C37_UI_EXPORT.zip",
+      "sha256": "c1c4f0a34bf4e58530e70f7fd46bec463887884b7267647f3aa28a1a93aaa993",
+      "crc": "PASS",
+      "bytes": 89168405
+    },
+    {
+      "path": "chrome_original/MINDLE_FINAL_ACCEPTANCE_20261017_R1.zip",
+      "sha256": "232d69cbb6e9a06d9281a5ba00a39903b477b4e1362f5891589edc16a32a1853",
+      "crc": "PASS",
+      "bytes": 43305442
+    },
+    {
+      "path": "chrome_original/source_browser/NORMAL_EXPORT.zip",
+      "sha256": "3664bee30cc90e7154514795f9f5588bde252902fa8c76cf936850e95578c4bc",
+      "crc": "PASS",
+      "bytes": 15196966
+    }
+  ],
+  "result": "PASS_EVIDENCE_TRANSPORT_ONLY",
+  "general_worker_independent_ack": false,
+  "product_runtime_pass": false,
+  "readback_root": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\WINDOWS_WORK_HANDOFF_20261017_R2\\remote_readback_0656eb7"
+}
