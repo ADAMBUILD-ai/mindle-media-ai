@@ -57,7 +57,16 @@
   "candidate_ui_fingerprint": "cfb26b1811196c1abd19d5e59d33c420647ca122c060c753a7391ff43a8f8c2f",
   "candidate_zip_bytes": 1913893429,
   "candidate_contains_r9_repairs": true,
-  "pending_source_repairs": [],
+  "pending_source_repairs": [
+    {
+      "issue": "New/Open races pending edit Save Reopen or Export",
+      "source_fix_commit": "84cf58014eafa2aabd5eed763881424ab3a70c1f",
+      "status": "PASS_SOURCE_CONTROLLER_5_REGRESSIONS_REQUIRES_BROWSER_AND_FUTURE_AUTHORIZED_CANDIDATE",
+      "candidate_contains_fix": false,
+      "requires_future_candidate": true,
+      "evidence": "docs/evidence/media-ai-final-closeout-20261017/NEW_SOURCE_FIX.json"
+    }
+  ],
   "candidate_contains_workspace_attachment_fix": true,
   "previous_verified_core": {
     "source": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
@@ -142,7 +151,11 @@
     "status": "PASS_EXACT_PACKAGED_EXE_PENDING_ATTACHMENTS_COLD_REOPEN_UI_EXPORT",
     "artifact": 12025910982
   },
-  "approved_ui_comparison_status": "FAIL_LAYOUT_MATCH_AGAINST_PINNED_F27E",
+  "approved_ui_comparison_status": "OWNER_DESKTOP_LAYOUT_DIRECTION_RECONCILED_EXACT_VISUAL_APPROVAL_PENDING",
   "approved_ui_original_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
-  "approved_ui_preserved_interpretation": "NO_UI_SOURCE_CHANGE_IN_THIS_CLOSEOUT; not a claim of F27E visual equality"
+  "approved_ui_preserved_interpretation": "NO_UI_SOURCE_CHANGE_IN_THIS_CLOSEOUT; not a claim of F27E visual equality",
+  "final_closeout_supplement": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md",
+  "previous_raw_f27e_comparison_status": "FAIL_LAYOUT_MATCH_AGAINST_PINNED_F27E",
+  "approved_ui_authority_resolution": "docs/evidence/media-ai-final-closeout-20261017/UI_AUTHORITY_RECONCILIATION.json",
+  "candidate_contains_project_transition_fix": false
 }

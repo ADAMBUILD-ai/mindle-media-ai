@@ -23,7 +23,7 @@ Phase: R9_CORRECTED_CANDIDATE_READY_FOR_PC_ACCEPTANCE
 1. 실제 사무실 PC의 기존 도움 도구/접속으로 위 identity를 확인한 뒤 EXE 실행, Save 응답·project_id·PID·명령행을 기록한다.
 2. 정상 종료 경로 우선. 확인한 제품 서버만 종료하고 PID 소멸과 endpoint 미응답을 모두 확인한다. EXE 재실행 후 새 PID·동일 프로젝트·사진/영상/자막/오디오/참조 복원·Export를 검수한다.
 3. 설치된 Windows 플레이어의 이름·버전·재생 진행·탐색·영상·실제 소리 청취를 각각 기록한다. 브라우저 디코딩이나 생성 무음 WAV로 청취 PASS를 내지 않는다.
-4. SHA f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541 승인 원본(1536×1024)과 같은 viewport/100% 배율에서 비교한다. R9 원본 TXT/CSV/PNG/ZIP의 크기·SHA·시각, 예외 전문·bootstrap/server log·lock 상태를 확보한다.
+4. 최신 Owner의 VIDEO 좌측·PHOTO 우측 지시를 우선한다. F27E(1536×1024)는 역사 원본으로 보존하며 상하/좌우 차이만으로 현재 승인 위반을 단정하지 않는다. 같은 viewport/100% 배율에서 현재 UI를 비교한다. R9 원본 TXT/CSV/PNG/ZIP의 크기·SHA·시각, 예외 전문·bootstrap/server log·lock 상태를 확보한다.
 
 ## 보존 및 제한
 백업/입력8/버튼60 준비와 완료 PHOTO 분할·4× 모델 검수를 반복하지 않는다.
@@ -38,6 +38,9 @@ General 활성 지시서: docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_
 
 ## 이번 원격 마감 결과
 실제 후보 EXE pending 첨부 저장→서버 완전 종료→새 PID 재실행→복원→UI Export: PASS (38851276116 / artifact12025910982). 참고2+입력음성 해시일치, ZIP CRC·6개 파일 SHA 확인. 사무실 PC PASS는 아니다.
-승인 F27E 원본과 1536×1024/DPR1/zoom1 실제 후보 비교: 상하/좌우 배치 및 전역 탐색 구조 불일치 FAIL. 임의 UI 수정 없음.
+역사 F27E 원본과 실제 후보 구조 차이는 존재한다. 2026-10-17 정정: 10월10일 Owner 좌우 지시가 우선이므로 이 차이 자체를 최신 승인 위반 FAIL로 확대하지 않는다. 임의 UI 수정 없음. 정확한 최종 시각 승인은 별도이다.
 사무실 PC 실제 실행·플레이어 청취, R9 원본·예외 로그: 미확보 BLOCKED.
 상세 결과: docs/evidence/media-ai-r9-followup-20261016/FOUR_ITEM_CLOSEOUT_KO.md
+
+## 2026-10-17 마감 보완
+docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md에 따라 완료 검수는 보존한다. 전환 경합 source fix 84cf58014eafa2aabd5eed763881424ab3a70c1f는 c37 후보에 미포함이며 실제 브라우저·후속 승인 후보 검증이 필요하다. Build Gate=false, 추가 제작 없음.

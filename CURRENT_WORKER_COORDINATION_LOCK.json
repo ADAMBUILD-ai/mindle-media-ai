@@ -9,7 +9,7 @@
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "Existing c37 follow-up candidate independently read back; exact packaged pending-attachment cold-reopen/export and approved-original visual comparison; no new build",
+      "current_assignment": "New project transition race fixed at 84cf58014eafa2aabd5eed763881424ab3a70c1f; latest Owner layout direction reconciled; no UI/model redesign. Source controller PASS, real browser and future authorized candidate pending.",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -54,7 +54,7 @@
     },
     "local_pc_acceptance": {
       "role": "Final physical Windows acceptance",
-      "current_assignment": "Actual office-PC EXE/cold restart/restore/export and installed Windows player with real hearing remain required; remote runner is not office PC",
+      "current_assignment": "Actual office PC cold restart/restore/export, installed player/hearing and R9 original logs pending. c37 does not contain newest transition fix; preserve exact candidate identity.",
       "may_write": [],
       "may_not_change": [
         "remote work progress"

@@ -1,0 +1,176 @@
+{
+  "baseline": "0d6c2a664296050ff35294e5d0cf70cd7c948177",
+  "source_fix_commit": "84cf58014eafa2aabd5eed763881424ab3a70c1f",
+  "evidence_reuse_policy": "Reuse validated results; do not repeat completed expensive models",
+  "new_model_inference_calls": 0,
+  "features": [
+    {
+      "feature": "PHOTO segmentation",
+      "status": "PASS",
+      "engine": "SAM 2.1 / PyTorch CPU",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "PHOTO 4x",
+      "status": "PASS",
+      "engine": "Intel SISR1032 / OpenVINO CPU",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "VIDEO full-frame tracking",
+      "status": "PASS",
+      "engine": "SAM2VideoModel memory / same pinned SAM weight",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "Korean STT",
+      "status": "PASS",
+      "engine": "Whisper-small local CPU",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "VIDEO edit/subtitles/BGM",
+      "status": "PASS",
+      "engine": "FFmpeg/OpenCV/Pillow",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "PHOTO seven corrections/tools",
+      "status": "PASS",
+      "engine": "canvas/Pillow",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "Reference binding",
+      "status": "PARTIAL",
+      "engine": "Crop template matching + RGB histogram",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Bytes connected; general semantic reference understanding not implemented"
+    },
+    {
+      "feature": "AI conversation",
+      "status": "PARTIAL",
+      "engine": "Fixed intent dispatcher + adopted operations",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Working dispatch; unrestricted generative planner not connected"
+    },
+    {
+      "feature": "Generative autonomous planner",
+      "status": "NOT_IMPLEMENTED",
+      "engine": "No authorized connected provider",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "No OpenAI connection/API call; not disguised as enabled agent"
+    },
+    {
+      "feature": "Durable queue/cancel/automatic retry",
+      "status": "NOT_IMPLEMENTED",
+      "engine": "Persisted task/job status exists",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "No durable multiagent queue; successful operation not full orchestration PASS"
+    },
+    {
+      "feature": "Task status and failed lifecycle",
+      "status": "PASS",
+      "engine": "ProductHttpServer/ProductJobService",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved lifecycle gates and failed job persistence; Node/Python coverage distinct from model inference"
+    },
+    {
+      "feature": "Cloud/local routing",
+      "status": "PASS",
+      "engine": "workspace_shell.js",
+      "evidence": "ui/cloud_navigation.test.js",
+      "scope": "Cloud explicitly unavailable notice; local storage route separate; no cloud connection PASS"
+    },
+    {
+      "feature": "VIDEO Preview/play/seek/decode",
+      "status": "PASS",
+      "engine": "H264/yuv420p/faststart",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/R9_PACKAGED_BROWSER_RECEIPT.json",
+      "scope": "Preserved remote Windows browser evidence, not Windows player/hearing"
+    },
+    {
+      "feature": "PHOTO portrait fit",
+      "status": "PASS",
+      "engine": "contain/center sizing",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/SHIPPED_PHOTO_GEOMETRY_MATRIX.json",
+      "scope": "Preserved measured geometry; no arbitrary visual redesign"
+    },
+    {
+      "feature": "Desktop UI direction",
+      "status": "PARTIAL",
+      "engine": "VIDEO left / PHOTO right",
+      "evidence": "docs/evidence/media-ai-final-closeout-20261017/UI_AUTHORITY_RECONCILIATION.json",
+      "scope": "Latest Owner layout precedence reconciled; final exact visual owner approval not claimed"
+    },
+    {
+      "feature": "Pending references/audio save-cold-reopen-export",
+      "status": "PASS",
+      "engine": "c37 packaged EXE",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/WORKSPACE_CANDIDATE_EXE_COLD_REOPEN_EXPORT.json",
+      "scope": "Remote EXE proof preserved; bytes/SHA same; WAV fixture is silent"
+    },
+    {
+      "feature": "Project transition concurrency",
+      "status": "PARTIAL",
+      "engine": "Production JS controller",
+      "evidence": "docs/evidence/media-ai-final-closeout-20261017/NEW_SOURCE_FIX.json",
+      "scope": "New source fix 5 regressions PASS; browser/candidate execution not yet verified"
+    },
+    {
+      "feature": "ZIP dependencies/integrity",
+      "status": "PASS",
+      "engine": "Project manifest / atomic export",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/WORKSPACE_CANDIDATE_INDEPENDENT_READBACK.json",
+      "scope": "Existing exact candidate and source regressions; no new-candidate claim"
+    },
+    {
+      "feature": "Launcher lock/lifecycle",
+      "status": "PARTIAL",
+      "engine": "Windows lock + EXE",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/R9_COLD_RESTART_RECEIPT.json",
+      "scope": "Remote EXE proof and Linux tests; actual R9 exception origin remains unconfirmed"
+    },
+    {
+      "feature": "Office PC cold restart/restore/export",
+      "status": "BLOCKED",
+      "engine": "Actual office Windows PC",
+      "evidence": "docs/evidence/media-ai-final-closeout-20261017/ENVIRONMENT_AND_R9_READBACK.json",
+      "scope": "No connected native PC execution surface; not a product failure assertion"
+    },
+    {
+      "feature": "Installed Windows player and hearing",
+      "status": "BLOCKED",
+      "engine": "Actual installed player",
+      "evidence": "docs/evidence/media-ai-final-closeout-20261017/ENVIRONMENT_AND_R9_READBACK.json",
+      "scope": "No player/version/progress/seek/hearing evidence"
+    },
+    {
+      "feature": "R9 original files/lock traceback",
+      "status": "BLOCKED",
+      "engine": "Original TXT/CSV/PNG/ZIP/logs",
+      "evidence": "docs/evidence/media-ai-final-closeout-20261017/ENVIRONMENT_AND_R9_READBACK.json",
+      "scope": "Exact originals not acquired; hashes/timestamps/cause not invented"
+    },
+    {
+      "feature": "Narration/TTS",
+      "status": "NOT_IMPLEMENTED",
+      "engine": "No TTS generation provider",
+      "evidence": "src/media_ai/product_runtime.py; ui/video_workspace.js",
+      "scope": "Audio import/BGM/STT do not imply generated narration; no new feature promised"
+    },
+    {
+      "feature": "Marketing HTTP/AVORA/ad MP4",
+      "status": "DEFERRED_EXTERNAL",
+      "engine": "Existing bridge preserved",
+      "evidence": "CURRENT_GENERAL_WORK_STATE.json",
+      "scope": "No external calls, unapproved asset, representative approval or live export claimed"
+    }
+  ]
+}

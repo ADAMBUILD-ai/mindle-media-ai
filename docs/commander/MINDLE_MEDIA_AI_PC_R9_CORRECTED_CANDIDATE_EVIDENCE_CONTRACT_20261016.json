@@ -105,15 +105,19 @@
   "validator_exit0_means": "EVIDENCE_COMPLETENESS_ONLY_NOT_RUNTIME_PASS",
   "known_candidate_limitations": [
     {
-      "issue": "Layout differs from pinned approved F27E original",
-      "status": "FAIL_F27E_VISUAL_MATCH",
-      "evidence": "docs/evidence/media-ai-r9-followup-20261016/APPROVED_F27E_VS_FOLLOWUP_CANDIDATE.json",
-      "requires_arbitrary_ui_redesign": false
+      "issue": "New/Open transition race discovered after candidate production",
+      "source_fix_commit": "84cf58014eafa2aabd5eed763881424ab3a70c1f",
+      "status": "SOURCE_FIXED_NOT_IN_C37_CANDIDATE",
+      "candidate_contains_fix": false
     },
     {
-      "issue": "Actual office-PC runtime/player and R9 original logs not acquired",
-      "status": "BLOCKED",
-      "must_not_expand_remote_pass": true
+      "issue": "Legacy F27E reference and later Owner desktop direction differ",
+      "status": "AUTHORITY_RECONCILED_NO_UI_CHANGE_EXACT_APPROVAL_PENDING",
+      "evidence": "docs/evidence/media-ai-final-closeout-20261017/UI_AUTHORITY_RECONCILIATION.json"
+    },
+    {
+      "issue": "Office PC/player/hearing/R9 original logs",
+      "status": "BLOCKED_NOT_ACQUIRED"
     }
   ],
   "previous_candidate": {
@@ -137,5 +141,6 @@
     "artifact": 12025910982,
     "status": "PASS",
     "owner_pc_pass": false
-  }
+  },
+  "final_closeout_supplement": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md"
 }
