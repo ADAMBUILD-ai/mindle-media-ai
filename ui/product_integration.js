@@ -237,6 +237,31 @@
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || '저장된 프로젝트를 불러올 수 없습니다.');
       if (!result.project) return false;
+      // Resolve every dependency before replacing the active workspace. A failed
+      // fetch must leave the previous project available for Save and retry.
+      const restoredFiles = new Map();
+      const restoredReferences = {};
+      const loadSavedFile = async (url, name, mime, failure) => {
+        const r=await fetch(url);if(!r.ok) throw new Error(failure);
+        const blob=await r.blob();return new File([blob],name,{type:mime||blob.type});
+      };
+      for(const job of result.project.jobs) {
+        if(job.preview_url && ['photo','video'].includes(job.lane) && job.operation!=='transcribe') {
+          const output=job.preview_output||job.primary_output||job.input;
+          const file=await loadSavedFile(job.preview_url,output.file_name||output.path.split(/[\\/]/).pop(),null,'저장된 편집 결과를 읽을 수 없습니다.');
+          file.mindleAudio=job.runtime_result.options||{};restoredFiles.set(job.job_id,file);
+        }
+      }
+      const workspace=result.project.workspace;
+      for(const kind of ['photo','video']) {
+        const referenceJob=[...result.project.jobs].reverse().find(job=>job.lane===kind&&job.reference_urls?.length);
+        const references=workspace ? workspace.references?.[kind]||[] : referenceJob?.reference_urls||[];
+        restoredReferences[kind]=await Promise.all(references.map(ref=>loadSavedFile(ref.url,ref.original_filename||ref.name,ref.mime_type,'저장된 참고 이미지를 읽을 수 없습니다.')));
+      }
+      const transcript=[...result.project.jobs].reverse().find(job=>job.lane==='korean_audio'||job.operation==='transcribe');
+      let restoredAudio=null;
+      if(workspace?.audio) restoredAudio=await loadSavedFile(workspace.audio.url,workspace.audio.original_filename,workspace.audio.mime_type,'저장된 음성을 읽을 수 없습니다.');
+      else if(!workspace && transcript?.input_url) restoredAudio=await loadSavedFile(transcript.input_url,transcript.input.file_name||'saved_audio.wav','audio/wav','저장된 음성을 읽을 수 없습니다.');
       state.projectId = result.project.project_id;
       state.jobs = result.project.job_ids;
       state.photo=state.video=state.audio=null;
@@ -249,28 +274,14 @@
         const editor = document.querySelector(`[data-editor="${kind}"]`);
         if (editor) {
           preview(editor, job);
-          if(job.preview_url && job.lane!=='korean_audio') {
-            const inputResponse=await fetch(job.preview_url);
-            if(inputResponse.ok) {const blob=await inputResponse.blob();state[kind]=new File([blob],job.input.file_name||job.input.path.split(/[\\/]/).pop(),{type:blob.type});state[kind].mindleAudio=job.runtime_result.options||{};}
-          }
+          if(restoredFiles.has(job.job_id)) state[kind]=restoredFiles.get(job.job_id);
           editor.dataset.projectStatus = 'reopened';
           message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);
         }
       }
-      const workspace=result.project.workspace;
-      for(const kind of ['photo','video']) {
-        const referenceJob=[...result.project.jobs].reverse().find(job=>job.lane===kind&&job.reference_urls?.length);
-        const references=workspace ? workspace.references?.[kind]||[] : referenceJob?.reference_urls||[];
-        const files=[];for(const reference of references) {const r=await fetch(reference.url);if(!r.ok) throw new Error('저장된 참고 이미지를 읽을 수 없습니다.');const blob=await r.blob();files.push(new File([blob],reference.original_filename||reference.name,{type:reference.mime_type||blob.type}));}
-        document.querySelector(`[data-editor="${kind}"]`).dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files}}));
-      }
-      if(workspace?.audio) {
-        const r=await fetch(workspace.audio.url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');
-        const blob=await r.blob();state.audio=new File([blob],workspace.audio.original_filename,{type:workspace.audio.mime_type||blob.type});
-      }
-      const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio' || job.operation==='transcribe');
+      for(const kind of ['photo','video']) document.querySelector(`[data-editor="${kind}"]`).dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:restoredReferences[kind]}}));
+      state.audio=restoredAudio;
       if (transcript) {
-        if(!workspace && transcript.input_url) {const r=await fetch(transcript.input_url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');const blob=await r.blob();state.audio=new File([blob],transcript.input.file_name||'saved_audio.wav',{type:'audio/wav'});}
         const editor = document.querySelector('[data-editor="video"]');
         if (editor) {
           editor.querySelector('.track.purple').textContent='Subtitle Track · '+transcript.runtime_result.text;

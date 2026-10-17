@@ -23,7 +23,7 @@ class Element {
   click() {}
   remove() {}
 }
-async function setup() {
+async function setup(routes = {}) {
   const editors = {video: new Element(), photo: new Element()};
   const calls = [];
   const pendingSave = deferred();
@@ -40,10 +40,11 @@ async function setup() {
   document.createElement = () => new Element();
   const response = data => ({ok: true, json: async () => data, blob: async () => new Blob(['photo'], {type: 'image/png'})});
   const window = {};
-  const context = vm.createContext({window, document, File, Blob, Set, FileReader: class {},
+  const context = vm.createContext({window, document, File, Blob, Set, FileReader: class { readAsDataURL() { this.result="data:image/png;base64,cGhvdG8=";this.onload(); } },
     CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options?.detail; } },
     fetch: async (url, options) => {
       calls.push({url, options});
+      if(routes[url]) return routes[url];
       if (url === '/api/projects/latest') return response({project: null});
       if (url === '/api/assets') return response({assets: []});
       if (url === '/api/projects/save') {
@@ -136,4 +137,41 @@ test('rejected duplicate export cannot release the first export transition guard
   pendingExport.resolve();
   await exporting;
   assert.equal(window.mindleNewProject(), true);
+});
+
+for(const dependency of ['preview','reference','audio']) {
+  test(`failed ${dependency} restore preserves the previous input, preview, project and jobs`, async () => {
+    const job={job_id:'replacement',lane:'photo',operation:'import',preview_url:'/replacement.png',
+      primary_output:{file_name:'replacement.png',sha256:'new'},runtime_result:{options:{}}};
+    const routes={
+      '/api/projects/broken':{ok:true,json:async()=>({project:{project_id:'broken',job_ids:['replacement'],jobs:[job],
+        workspace:{references:{photo:dependency==='reference'?[{url:'/missing',name:'ref.png'}]:[],video:[]},
+          audio:dependency==='audio'?{url:'/missing',original_filename:'voice.wav'}:null}}})},
+      '/missing':{ok:false},
+    };
+    if(dependency==='preview') routes['/replacement.png']={ok:false};
+    const {window,editors,calls}=await setup(routes);
+    await editors.photo.dispatchEvent({type:'mindle:save'});
+    const input=window.mindleInputFor('photo');
+    const preview=editors.photo.querySelector('[data-preview]').children[0];
+    assert.equal(await window.mindleOpenProject('broken'),false);
+    assert.equal(window.mindleInputFor('photo'),input);
+    assert.equal(editors.photo.querySelector('[data-preview]').children[0],preview);
+    await editors.photo.dispatchEvent({type:'mindle:save'});
+    const body=JSON.parse(calls.filter(c=>c.url==='/api/projects/save').at(-1).options.body);
+    assert.equal(body.project_id,'saved-project');
+    assert.deepEqual(body.job_ids,['existing-photo']);
+    assert.equal(window.mindleNewProject(),true,'failure releases transition guard');
+  });
+}
+
+test('successful staged restore uses the actual output filename', async () => {
+  const job={job_id:'replacement',lane:'photo',operation:'photo_edit',preview_url:'/output.png',
+    input:{file_name:'original.jpg'},primary_output:{file_name:'edited.png',sha256:'output'},runtime_result:{options:{}}};
+  const {window,editors}=await setup({'/api/projects/complete':{ok:true,json:async()=>({project:{
+    project_id:'complete',job_ids:['replacement'],jobs:[job],workspace:{references:{photo:[],video:[]},audio:null}}})}});
+  assert.equal(await window.mindleOpenProject('complete'),true);
+  assert.equal(window.mindleInputFor('photo').name,'edited.png');
+  assert.equal(window.mindleInputFor('video'),null);
+  assert.equal(editors.photo.dataset.projectStatus,'reopened');
 });

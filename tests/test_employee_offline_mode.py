@@ -33,7 +33,7 @@ def test_package_identity_requires_no_git(tmp_path, monkeypatch):
                         'ui_fingerprint': 'b' * 64, 'model_manifest_hash': 'c' * 64}))
     server = object.__new__(ProductHttpServer); server.data_dir = tmp_path / 'data'; server.root = tmp_path / 'app'
     with patch('media_ai.product_server.subprocess.check_output', side_effect=AssertionError('git forbidden')):
-        identity = server.runtime_identity()
+        identity = server._runtime_identity()
     assert identity['runtime_mode'] == 'LOCAL_OFFLINE_PACKAGE'
     assert identity['distribution'] == 'EMPLOYEE_WIN_X64'
     assert identity['install_root'] == str(tmp_path)
@@ -68,7 +68,7 @@ def test_development_identity_keeps_fingerprints_when_git_is_unavailable(tmp_pat
     server.root = tmp_path
     with patch('media_ai.product_server.subprocess.check_output',
                side_effect=subprocess.CalledProcessError(128, 'git')):
-        identity = server.runtime_identity()
+        identity = server._runtime_identity()
     assert identity['head'] is None and identity['branch'] is None
     assert identity['git_identity_status'] == 'UNAVAILABLE'
     assert len(identity['file_hashes']) == len(files)
