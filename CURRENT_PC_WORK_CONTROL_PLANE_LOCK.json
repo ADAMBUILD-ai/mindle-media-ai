@@ -1,6 +1,6 @@
 {
   "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
-  "date": "2026-10-16",
+  "date": "2026-10-17",
   "status": "READY_FOR_LOCAL_PC_ACCEPTANCE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
@@ -133,12 +133,18 @@
   "candidate_contains_r9_repairs": true,
   "pending_source_repairs": [
     {
-      "issue": "New/Open races pending edit Save Reopen or Export",
+      "issue": "Project transition concurrency",
       "source_fix_commit": "84cf58014eafa2aabd5eed763881424ab3a70c1f",
-      "status": "PASS_SOURCE_CONTROLLER_5_REGRESSIONS_REQUIRES_BROWSER_AND_FUTURE_AUTHORIZED_CANDIDATE",
+      "status": "PASS_ACTUAL_WINDOWS_CHROME_SOURCE_6_CASES_NOT_IN_C37",
       "candidate_contains_fix": false,
-      "requires_future_candidate": true,
-      "evidence": "docs/evidence/media-ai-final-closeout-20261017/NEW_SOURCE_FIX.json"
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/ACCEPTED_CHROME_SIX.json"
+    },
+    {
+      "issue": "Dense asset library expansion and runtime owner PID/graceful stop",
+      "source_fix_commit": "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
+      "status": "PASS_SOURCE_HTTP_LIFECYCLE_AND_LINUX_CHROMIUM_DENSITY_NOT_IN_C37",
+      "candidate_contains_fix": false,
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_VERDICT.json"
     }
   ],
   "candidate_contains_workspace_attachment_fix": true,
@@ -183,10 +189,20 @@
   "candidate_contains_project_transition_fix": false,
   "latest_pc_report": {
     "date": "2026-10-17",
-    "chrome_scenarios_reported_pass": 6,
-    "independent_original_readback": false,
-    "windows_exe": "BLOCKED_REPORTED_DEPLOY_LOCK_PERMISSION_ERROR",
-    "source": "docs/evidence/media-ai-final-closeout-20261017/PC_CHROME_REPORT_AND_DEPLOY_LOCK_TRIAGE.json",
-    "next_pc_directive": "docs/commander/MINDLE_MEDIA_AI_DEPLOY_LOCK_PC_TRIAGE_20261017.md"
-  }
+    "handoff_commit": "bfd08648213f79c980c6e749a990222c955645b5",
+    "independent_original_readback": true,
+    "transport_objects_verified": 109,
+    "original_manifest_verified": 92,
+    "zips_reconstructed_crc_sha": 3,
+    "chrome_six": "PASS_SOURCE_EVIDENCE_ACCEPTED",
+    "c37_exe_save_reopen_export": "PASS_BOUNDED_NOT_FULL_COLD_RESTART",
+    "potplayer_display_seek": "PASS",
+    "human_hearing": "UNCONFIRMED",
+    "windows_cold_restart": "BLOCKED_NO_IDENTIFIED_SERVER_PID_STOP_IN_C37",
+    "source": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md"
+  },
+  "followup_source": "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
+  "latest_source_requires_new_candidate": true,
+  "candidate_contains_runtime_owner_stop": false,
+  "candidate_contains_dense_library_fix": false
 }

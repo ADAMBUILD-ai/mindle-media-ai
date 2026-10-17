@@ -1,0 +1,148 @@
+{
+  "scope": "REAL_LINUX_CHROMIUM_PRODUCTION_HTML_CSS_SYNTHETIC_ASSET_DENSITY_NO_MODELS",
+  "browser": "138.0.7204.0",
+  "font": "NotoSansCJKkr-Regular; not Windows Malgun",
+  "results": [
+    {
+      "viewport": {
+        "width": 1536,
+        "height": 1024
+      },
+      "documentHeight": 1159,
+      "lanes": [
+        {
+          "kind": "video",
+          "cardHeight": 1008,
+          "bottom": 1086,
+          "commandBottom": 919,
+          "assetClientHeight": 436,
+          "assetScrollHeight": 436,
+          "assetOverflow": "visible",
+          "preview": {
+            "width": 408,
+            "height": 229.5
+          },
+          "media": {
+            "width": 406,
+            "height": 232,
+            "objectFit": "contain"
+          },
+          "sevenSliders": 0
+        },
+        {
+          "kind": "photo",
+          "cardHeight": 1008,
+          "bottom": 1086,
+          "commandBottom": 970,
+          "assetClientHeight": 595,
+          "assetScrollHeight": 595,
+          "assetOverflow": "visible",
+          "preview": {
+            "width": 408,
+            "height": 229.5
+          },
+          "media": {
+            "width": 406,
+            "height": 227.5,
+            "objectFit": "contain"
+          },
+          "sevenSliders": 7
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "documentHeight": 1159,
+      "lanes": [
+        {
+          "kind": "video",
+          "cardHeight": 1008,
+          "bottom": 1086,
+          "commandBottom": 919,
+          "assetClientHeight": 436,
+          "assetScrollHeight": 436,
+          "assetOverflow": "visible",
+          "preview": {
+            "width": 410,
+            "height": 230.625
+          },
+          "media": {
+            "width": 408,
+            "height": 233.140625,
+            "objectFit": "contain"
+          },
+          "sevenSliders": 0
+        },
+        {
+          "kind": "photo",
+          "cardHeight": 1008,
+          "bottom": 1086,
+          "commandBottom": 970,
+          "assetClientHeight": 595,
+          "assetScrollHeight": 595,
+          "assetOverflow": "visible",
+          "preview": {
+            "width": 410,
+            "height": 230.625
+          },
+          "media": {
+            "width": 408,
+            "height": 228.625,
+            "objectFit": "contain"
+          },
+          "sevenSliders": 7
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "documentHeight": 1187,
+      "lanes": [
+        {
+          "kind": "video",
+          "cardHeight": 1036,
+          "bottom": 1114,
+          "commandBottom": 947,
+          "assetClientHeight": 436,
+          "assetScrollHeight": 436,
+          "assetOverflow": "visible",
+          "preview": {
+            "width": 353,
+            "height": 198.5625
+          },
+          "media": {
+            "width": 351,
+            "height": 200.5625,
+            "objectFit": "contain"
+          },
+          "sevenSliders": 0
+        },
+        {
+          "kind": "photo",
+          "cardHeight": 1036,
+          "bottom": 1114,
+          "commandBottom": 998,
+          "assetClientHeight": 595,
+          "assetScrollHeight": 595,
+          "assetOverflow": "visible",
+          "preview": {
+            "width": 353,
+            "height": 198.5625
+          },
+          "media": {
+            "width": 351,
+            "height": 196.5625,
+            "objectFit": "contain"
+          },
+          "sevenSliders": 7
+        }
+      ]
+    }
+  ]
+}

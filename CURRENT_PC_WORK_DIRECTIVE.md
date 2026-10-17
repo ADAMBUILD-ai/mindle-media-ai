@@ -45,3 +45,8 @@ docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md에 따라 �
 
 ## PC 보고 접수 — 2026-10-17
 Chrome 전환 6개 시나리오 PASS 보고 접수(원본 bytes/source identity 독립 확인 전). 해당 완료 검사를 반복하지 않는다. c37 EXE는 deploy.lock 쓰기 열기 권한 오류 보고로 실제 Windows 최종 인수 BLOCKED. 모델/launch.lock 실패와 구분한다. 다음 PC 인계: docs/commander/MINDLE_MEDIA_AI_DEPLOY_LOCK_PC_TRIAGE_20261017.md. 추가 빌드·권한 우회 없음.
+
+## Windows R2 독립 인수 및 General 후속 — 2026-10-17
+원본 bfd08648의109전달객체·92원본파일·ZIP3개 및 c37 Export129파일 크기/SHA/CRC를 General이 별도로 확인했다. Chrome6 source PASS와 c37 기동/Save/Reopen/Export/PotPlayer 표시·탐색을 수용한다. 청취 미확인, c37 cold restart 미완료이다. CLI deploy.lock 접근과 native 중복 잠금은 분리하며 삭제/권한 우회 없이 보존한다.
+새 source 30203975e8fe8e6e3ee15dc1450a2486aa5e90e9는 밀집 자료 목록 내부 스크롤과 서버 자체 PID/인스턴스·진행 작업 거절·확인 토큰 정상 종료를 보완했다. Linux 실제 browser/HTTP 프로세스 검증이며 Windows 후보 PASS가 아니다. c37에 새 API/CSS/전환 수정이 없으므로 hot patch나 미지원 종료 API 재시도 금지. Gate=false; 후속 승인 후보로만 반영한다.
+검수: docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md. 후속 Windows 조건은 아래 NEXT_WINDOWS_SCOPE.md를 따른다.

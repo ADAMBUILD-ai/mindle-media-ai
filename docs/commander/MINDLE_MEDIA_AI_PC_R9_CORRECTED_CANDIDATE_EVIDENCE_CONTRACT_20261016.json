@@ -142,5 +142,15 @@
     "status": "PASS",
     "owner_pc_pass": false
   },
-  "final_closeout_supplement": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md"
+  "final_closeout_supplement": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md",
+  "latest_source": "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
+  "latest_source_is_packaged": false,
+  "latest_pc_independent_review": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_VERDICT.json",
+  "remaining_acceptance": [
+    "future_authorized_candidate_includes_transition_dense_ui_owner_stop_repairs",
+    "actual_Windows_full_server_stop_new_PID_same_project_export",
+    "actual_hearing",
+    "low_height_and_dense_data_UI_acceptance",
+    "historical_272MB_R9_ZIP_original_bytes"
+  ]
 }
