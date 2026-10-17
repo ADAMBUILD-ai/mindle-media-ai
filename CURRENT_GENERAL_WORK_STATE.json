@@ -149,5 +149,13 @@
   "final_closeout_supplement": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md",
   "previous_raw_f27e_comparison_status": "FAIL_LAYOUT_MATCH_AGAINST_PINNED_F27E",
   "approved_ui_authority_resolution": "docs/evidence/media-ai-final-closeout-20261017/UI_AUTHORITY_RECONCILIATION.json",
-  "candidate_contains_project_transition_fix": false
+  "candidate_contains_project_transition_fix": false,
+  "latest_pc_report": {
+    "date": "2026-10-17",
+    "chrome_scenarios_reported_pass": 6,
+    "independent_original_readback": false,
+    "windows_exe": "BLOCKED_REPORTED_DEPLOY_LOCK_PERMISSION_ERROR",
+    "source": "docs/evidence/media-ai-final-closeout-20261017/PC_CHROME_REPORT_AND_DEPLOY_LOCK_TRIAGE.json",
+    "next_pc_directive": "docs/commander/MINDLE_MEDIA_AI_DEPLOY_LOCK_PC_TRIAGE_20261017.md"
+  }
 }

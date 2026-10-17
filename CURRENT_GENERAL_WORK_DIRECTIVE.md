@@ -44,3 +44,6 @@ General 활성 지시서: docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_
 
 ## 2026-10-17 마감 보완
 docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md에 따라 완료 검수는 보존한다. 전환 경합 source fix 84cf58014eafa2aabd5eed763881424ab3a70c1f는 c37 후보에 미포함이며 실제 브라우저·후속 승인 후보 검증이 필요하다. Build Gate=false, 추가 제작 없음.
+
+## PC 보고 접수 — 2026-10-17
+Chrome 전환 6개 시나리오 PASS 보고 접수(원본 bytes/source identity 독립 확인 전). 해당 완료 검사를 반복하지 않는다. c37 EXE는 deploy.lock 쓰기 열기 권한 오류 보고로 실제 Windows 최종 인수 BLOCKED. 모델/launch.lock 실패와 구분한다. 다음 PC 인계: docs/commander/MINDLE_MEDIA_AI_DEPLOY_LOCK_PC_TRIAGE_20261017.md. 추가 빌드·권한 우회 없음.
