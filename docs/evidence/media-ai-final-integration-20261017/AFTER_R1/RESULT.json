@@ -1,0 +1,464 @@
+{
+  "source": "7116244481c8159fadaf45f6a6fcc20dededa876",
+  "browser": "155.0.8059.80",
+  "scope": "ISOLATED_SOURCE_REAL_CHROME_NOT_PACKAGED_PC_ACCEPTANCE",
+  "cases": [
+    {
+      "case": "open_photo_only_clears_video_state",
+      "before": {
+        "files": [
+          {
+            "name": "original_photo.png",
+            "size": 309254
+          },
+          {
+            "name": "edited_video.mp4",
+            "size": 210128
+          },
+          {
+            "name": "korean_original.wav",
+            "size": 798778
+          }
+        ],
+        "previews": [
+          {
+            "job": "657aa858-dbbf-44cf-a1aa-45c142f6ca71",
+            "operation": "video_edit",
+            "children": 1
+          },
+          {
+            "job": "8749f70d-ae96-48ea-9ad6-6e729fb9d585",
+            "operation": "import",
+            "children": 1
+          }
+        ],
+        "tracks": [
+          "영상 Track · 편집 결과",
+          "Subtitle Track · Boundary subtitle",
+          "Effect Track · 영상 효과",
+          "Audio Track · 원본 오디오"
+        ],
+        "time": "00:00:00",
+        "duration": "/ 00:00:02",
+        "ruler": "00:00:00　00:00:00　00:00:00　00:00:01　00:00:01　00:00:02",
+        "seek": "0",
+        "inputs": [
+          {
+            "key": "video",
+            "files": []
+          },
+          {
+            "key": null,
+            "files": []
+          },
+          {
+            "key": "video",
+            "files": []
+          },
+          {
+            "key": "photo",
+            "files": []
+          },
+          {
+            "key": "photo",
+            "files": []
+          }
+        ],
+        "refs": [
+          [
+            "reference_architecture_crop.png"
+          ],
+          []
+        ],
+        "projectStatus": [
+          null,
+          "saved"
+        ]
+      },
+      "after": {
+        "files": [
+          {
+            "name": "original_photo.png",
+            "size": 309254
+          },
+          null,
+          null
+        ],
+        "previews": [
+          {
+            "job": null,
+            "operation": null,
+            "children": 0
+          },
+          {
+            "job": "c8cc38c1-66da-4fc2-bf29-296b500126b0",
+            "operation": "import",
+            "children": 1
+          }
+        ],
+        "tracks": [
+          "영상 Track · 원본 영상",
+          "Subtitle Track · 자막 없음",
+          "Effect Track · 효과 없음",
+          "Audio Track · 원본 오디오"
+        ],
+        "time": "00:00:00",
+        "duration": "/ 00:00:00",
+        "ruler": "00:00　00:05　00:10　00:15　00:20　00:25",
+        "seek": "0",
+        "inputs": [
+          {
+            "key": "video",
+            "files": []
+          },
+          {
+            "key": null,
+            "files": []
+          },
+          {
+            "key": "video",
+            "files": []
+          },
+          {
+            "key": "photo",
+            "files": []
+          },
+          {
+            "key": "photo",
+            "files": []
+          }
+        ],
+        "refs": [
+          [],
+          []
+        ],
+        "projectStatus": [
+          null,
+          "reopened"
+        ]
+      },
+      "pass": true
+    },
+    {
+      "case": "new_clears_all_project_state",
+      "after": {
+        "files": [
+          null,
+          null,
+          null
+        ],
+        "previews": [
+          {
+            "job": null,
+            "operation": null,
+            "children": 0
+          },
+          {
+            "job": null,
+            "operation": null,
+            "children": 0
+          }
+        ],
+        "tracks": [
+          "영상 Track · 원본 영상",
+          "Subtitle Track · 자막 없음",
+          "Effect Track · 효과 없음",
+          "Audio Track · 원본 오디오"
+        ],
+        "time": "00:00:00",
+        "duration": "/ 00:00:00",
+        "ruler": "00:00　00:05　00:10　00:15　00:20　00:25",
+        "seek": "0",
+        "inputs": [
+          {
+            "key": "video",
+            "files": []
+          },
+          {
+            "key": null,
+            "files": []
+          },
+          {
+            "key": "video",
+            "files": []
+          },
+          {
+            "key": "photo",
+            "files": []
+          },
+          {
+            "key": "photo",
+            "files": []
+          }
+        ],
+        "refs": [
+          [],
+          []
+        ],
+        "projectStatus": [
+          null,
+          null
+        ]
+      },
+      "pass": true
+    },
+    {
+      "case": "restore_dependency_failure_preserves_save_export_retry",
+      "details": [
+        {
+          "dependency": "preview",
+          "open_return": false,
+          "preserved": true,
+          "saved_project_id": "9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+          "retry": true,
+          "pass": true
+        },
+        {
+          "dependency": "reference",
+          "open_return": false,
+          "preserved": true,
+          "saved_project_id": "9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+          "retry": true,
+          "pass": true
+        },
+        {
+          "dependency": "audio",
+          "open_return": false,
+          "preserved": true,
+          "saved_project_id": "9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+          "retry": true,
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "case": "dense_ui_1024",
+      "fixture": "DOM only added asset buttons to stress existing CSS; no production fixture/code",
+      "accessible": [
+        {
+          "selector": "[data-editor=\"photo\"] [data-command]",
+          "visible": true,
+          "box": {
+            "x": 791,
+            "y": 733,
+            "width": 675,
+            "height": 35
+          }
+        },
+        {
+          "selector": "[data-editor=\"video\"] [data-command]",
+          "visible": true,
+          "box": {
+            "x": 31,
+            "y": 702,
+            "width": 288,
+            "height": 35
+          }
+        },
+        {
+          "selector": "[data-editor=\"photo\"] [data-action=\"save\"]",
+          "visible": true,
+          "box": {
+            "x": 1365.25,
+            "y": 101.5,
+            "width": 80.75,
+            "height": 28
+          }
+        },
+        {
+          "selector": "[data-editor=\"video\"] [data-action=\"export\"]",
+          "visible": true,
+          "box": {
+            "x": 691,
+            "y": 101.5,
+            "width": 58,
+            "height": 28
+          }
+        }
+      ],
+      "geometry": {
+        "viewport": {
+          "width": 1536,
+          "height": 1024,
+          "dpr": 1,
+          "zoom": "1"
+        },
+        "grids": [
+          {
+            "height": 241,
+            "scrollHeight": 2599,
+            "overflow": "auto"
+          },
+          {
+            "height": 241,
+            "scrollHeight": 5135,
+            "overflow": "auto"
+          }
+        ],
+        "photo": {
+          "stage": {
+            "x": 923,
+            "y": 161,
+            "width": 408,
+            "height": 229.5,
+            "top": 161,
+            "right": 1331,
+            "bottom": 390.5,
+            "left": 923
+          },
+          "fit": "contain",
+          "position": "50% 50%"
+        }
+      },
+      "pass": true
+    },
+    {
+      "case": "dense_ui_720",
+      "fixture": "DOM only added asset buttons to stress existing CSS; no production fixture/code",
+      "accessible": [
+        {
+          "selector": "[data-editor=\"photo\"] [data-command]",
+          "visible": true,
+          "box": {
+            "x": 783.5,
+            "y": 515,
+            "width": 667.5,
+            "height": 35
+          }
+        },
+        {
+          "selector": "[data-editor=\"video\"] [data-command]",
+          "visible": true,
+          "box": {
+            "x": 31,
+            "y": 484,
+            "width": 288,
+            "height": 35
+          }
+        },
+        {
+          "selector": "[data-editor=\"photo\"] [data-action=\"save\"]",
+          "visible": true,
+          "box": {
+            "x": 1350.25,
+            "y": 101.5,
+            "width": 80.75,
+            "height": 28
+          }
+        },
+        {
+          "selector": "[data-editor=\"video\"] [data-action=\"export\"]",
+          "visible": true,
+          "box": {
+            "x": 683.5,
+            "y": 101.5,
+            "width": 58,
+            "height": 28
+          }
+        }
+      ],
+      "geometry": {
+        "viewport": {
+          "width": 1536,
+          "height": 720,
+          "dpr": 1,
+          "zoom": "1"
+        },
+        "grids": [
+          {
+            "height": 241,
+            "scrollHeight": 5119,
+            "overflow": "auto"
+          },
+          {
+            "height": 241,
+            "scrollHeight": 10175,
+            "overflow": "auto"
+          }
+        ],
+        "photo": {
+          "stage": {
+            "x": 915.5,
+            "y": 161,
+            "width": 400.5,
+            "height": 225.28125,
+            "top": 161,
+            "right": 1316,
+            "bottom": 386.28125,
+            "left": 915.5
+          },
+          "fit": "contain",
+          "position": "50% 50%"
+        }
+      },
+      "pass": true
+    }
+  ],
+  "exports": [
+    {
+      "ui_download": "BLOCKED",
+      "error": "Download.save_as: canceled",
+      "download_url": "http://127.0.0.1:10532/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip"
+    },
+    {
+      "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\FINAL_BOUNDARIES_20261017_AFTER_R1\\export_0.zip",
+      "sha256": "b66f770917329697a0ffdcfa5ba35eb756add2b14174c457ced6ba071dbbd328",
+      "crc": "PASS"
+    },
+    {
+      "ui_download": "BLOCKED",
+      "error": "Download.save_as: canceled",
+      "download_url": "http://127.0.0.1:10532/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip"
+    },
+    {
+      "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\FINAL_BOUNDARIES_20261017_AFTER_R1\\export_2.zip",
+      "sha256": "42978ca89ed41ba9b94a56b3a6f8b75a1a75d736ff07b91559cf6c71b8d2cea9",
+      "crc": "PASS"
+    },
+    {
+      "ui_download": "BLOCKED",
+      "error": "Download.save_as: canceled",
+      "download_url": "http://127.0.0.1:10532/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip"
+    },
+    {
+      "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\FINAL_BOUNDARIES_20261017_AFTER_R1\\export_4.zip",
+      "sha256": "25df60b2fa306fab4fdf7a10cd085475fe68a2b7e3584eb6b07490d64da6cdd1",
+      "crc": "PASS"
+    }
+  ],
+  "page_errors": [],
+  "identity": {
+    "repo_root": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\transition-browser-20261017\\source",
+    "branch": "",
+    "head": "7116244481c8159fadaf45f6a6fcc20dededa876",
+    "workspace_ui_fingerprint": "038531323379b333cf138b74d1c506a217cd463ac056c99ed16c1497925deaa5",
+    "file_hashes": {
+      "ui/index.html": "64abc36dfec2d45a052d6abd00e4a6680bdde01326dfc305319096aa5cde8398",
+      "ui/approved_visual.css": "23695715beb425b35580f2c56dc7e657e3a3538d714a8183f532f77a56b1ebc0",
+      "ui/interaction.css": "35f2bacd4c0de5733ae905abfe4c20188098274c6f4638f379f3860e9f29f261",
+      "ui/interaction.js": "df72202116df07de9e3c52ed4b9b4f23ebd8d40d2e32742aa26f98d187056e01",
+      "ui/product_integration.js": "6fd3a62fdfae49fe18d9dfca011746b7589b968a1ad905e9503321ca36c64e4c",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "8ea4fab024bd654e2b89472a00feb0a6f4349e8d2102e44be6d29c6c6d0e0330",
+      "ui/video_workspace.js": "4ff660178009e20e88f5a82d346f98305f0090a21c1c064db8ac42dfeabe848e",
+      "ui/workspace_shell.js": "8254c166773dd8049b6a2241bb77cd28b11167db7627c61fdc2afe18d195bb78"
+    },
+    "runtime_mode": "DEVELOPMENT_UI_WITH_PACKAGE_MODELS",
+    "model_root": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\candidate_38497304486_20261015\\fresh_candidate\\MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0\\_payload",
+    "git_identity_status": "AVAILABLE",
+    "server_pid": 31756,
+    "server_instance_id": "9994f6c8-1a39-4995-8d46-9eca3744cba4",
+    "server_started_at": "2026-10-17T07:42:49.676038+00:00",
+    "server_command": [
+      "C:\\Users\\R\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "work/transition-browser-20261017/final_boundaries.py",
+      "FINAL_BOUNDARIES_20261017_AFTER_R1"
+    ],
+    "owner_shutdown_supported": true
+  },
+  "models_executed": 0,
+  "preserved_original_project_sha_before": "de297d8205580e961d112894b0177a6288a17226eb33f70ee508ac3e34e0bcfd",
+  "full_product_pass": false,
+  "at": "2026-10-17T07:43:02.652183+00:00"
+}

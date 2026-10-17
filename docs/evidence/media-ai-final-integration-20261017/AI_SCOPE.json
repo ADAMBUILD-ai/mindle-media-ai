@@ -1,0 +1,35 @@
+{
+  "source": "c1956f48abdba52c55a20932dadad16d56bd672a",
+  "engine_receipts": {
+    "path": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+    "sha256": "b76d05ab7f3e0fd7094fccca9ffae5172889de8f9ca042eae3db31c1e72699cc",
+    "scope": "existing actual executions preserved; not a new model inference"
+  },
+  "current_call_path": [
+    "ui/product_integration.js operationFor/executeReady",
+    "POST /api/jobs -> ProductJobService.execute_isolated",
+    "ProductModelVault.sam / sam_video / realesrgan (legacy method name, actual IntelSISR1032VerifiedAdapter) / whisper -> pinned verified adapters"
+  ],
+  "engines": [
+    "SAM 2.1 photo segmentation",
+    "SAM2VideoModel full-frame memory tracking",
+    "Intel SISR1032 OpenVINO 4x",
+    "Whisper-small Korean STT"
+  ],
+  "runtime_files_unchanged_from_baseline": true,
+  "natural_language": {
+    "implementation": "fixed intent dispatcher and local measured scene analysis",
+    "generic_generative_agent": false
+  },
+  "deferred_implementation": {
+    "generative_planner": "not implemented or connected; additional feature scope requires owner decision and credential approval",
+    "persistent_queue": "not implemented in product; job_queue.py is standalone in-memory contract",
+    "cancel": "cancel_before_run contract exists; active product execution cancellation not wired",
+    "automatic_retry": "retry_eligible predicate exists; no product automatic scheduler",
+    "TTS": "not implemented; audio import/STT/BGM are different functions"
+  },
+  "new_features_authorized": false,
+  "openai_or_new_provider_connected": false,
+  "external_marketing_avora_ad_mp4": "DEFERRED_EXTERNAL",
+  "existing_office_model_evidence": "docs/evidence/windows-work-handoff-20261017-r2/chrome_original/MINDLE_FINAL_ACCEPTANCE_20261017_R1.zip.parts and historical R9 evidence; no re-inference"
+}

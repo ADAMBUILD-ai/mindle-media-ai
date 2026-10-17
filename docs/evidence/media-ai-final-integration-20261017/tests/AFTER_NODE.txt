@@ -1,0 +1,24 @@
+✔ cloud reports absent external integration without requesting local projects (1.9963ms)
+✔ local storage keeps its original project API route (0.7385ms)
+✔ approved cloud label remains and is routed separately from settings (0.6028ms)
+✔ work\transition-browser-20261017\source\ui\interaction.test.js (84.6188ms)
+✔ new/open project cannot clear an edit in progress or start a competing restore (7.5674ms)
+✔ save response cannot attach the old project to a new project (2.9744ms)
+✔ rejected duplicate save/export does not unlock the active save (1.6993ms)
+✔ in-flight restore excludes new/open/save and releases its guard when no project exists (1.6474ms)
+✔ rejected duplicate export cannot release the first export transition guard (1.3974ms)
+✔ failed preview restore preserves the previous input, preview, project and jobs (2.2876ms)
+✔ failed reference restore preserves the previous input, preview, project and jobs (1.5075ms)
+✔ failed audio restore preserves the previous input, preview, project and jobs (1.5017ms)
+✔ successful staged restore uses the actual output filename (1.705ms)
+✔ new clears previous video tracks, clock, preview metadata and project status (2.5394ms)
+✔ photo-only clears previous video tracks, clock, preview metadata and project status (1.4391ms)
+✔ work\transition-browser-20261017\source\ui\ssot_structure.test.js (77.1571ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130.0441
