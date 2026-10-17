@@ -228,6 +228,22 @@
     editor.addEventListener("mindle:export", () => exportProject(editor));
   });
   document.querySelectorAll('.asset-grid').forEach(grid=>grid.replaceChildren());
+  const clearWorkspacePresentation = () => {
+    document.querySelectorAll('[data-preview]').forEach(host=>{
+      host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;
+    });
+    document.querySelectorAll('[data-editor]').forEach(editor=>{
+      delete editor.dataset.projectStatus;delete editor.dataset.exportStatus;delete editor.dataset.exportSha256;
+    });
+    const video=document.querySelector('[data-editor="video"]');
+    for(const [selector,text] of [
+      ['.track.film','영상 Track · 원본 영상'],['.track.purple','Subtitle Track · 자막 없음'],
+      ['.track.cyan','Effect Track · 효과 없음'],['.track.green','Audio Track · 원본 오디오'],
+      ['[data-video-time]','00:00:00'],['[data-video-duration]','/ 00:00:00'],
+      ['.timeline-ruler','00:00　00:05　00:10　00:15　00:20　00:25']
+    ]) video.querySelector(selector).textContent=text;
+    video.querySelector('[data-video-seek]').value=0;
+  };
   async function restoreSavedProject(url='/api/projects/latest') {
     if(projectChangeBlocked()) return false;
     restoring=true;
@@ -265,7 +281,7 @@
       state.projectId = result.project.project_id;
       state.jobs = result.project.job_ids;
       state.photo=state.video=state.audio=null;
-      document.querySelectorAll('[data-preview]').forEach(host=>host.replaceChildren());
+      clearWorkspacePresentation();
       for (const storedJob of result.project.jobs) {
         const job=storedJob.operation==="transcribe"?{...storedJob,lane:"korean_audio"}:storedJob;
         // A saved transcript must not replace an available VIDEO result preview.
@@ -299,11 +315,7 @@
   window.mindleNewProject = () => {
     if(projectChangeBlocked()) return false;
     state.projectId=null;state.jobs=[];state.photo=state.video=state.audio=null;
-    document.querySelectorAll('[data-preview]').forEach(host=>{host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;});
-    const video=document.querySelector('[data-editor="video"]');
-    video.querySelector('.track.purple').textContent='Subtitle Track · 자막 없음';
-    video.querySelector('[data-video-time]').textContent='00:00:00';
-    video.querySelector('[data-video-duration]').textContent='/ 00:00:00';
+    clearWorkspacePresentation();
     document.querySelectorAll('[data-editor]').forEach(editor=>{
       editor.dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:[]}}));
       message(editor,'새 프로젝트 · 원본을 불러오세요.');

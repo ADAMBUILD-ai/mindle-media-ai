@@ -175,3 +175,29 @@ test('successful staged restore uses the actual output filename', async () => {
   assert.equal(window.mindleInputFor('video'),null);
   assert.equal(editors.photo.dataset.projectStatus,'reopened');
 });
+
+for (const transition of ['new', 'photo-only']) {
+  test(`${transition} clears previous video tracks, clock, preview metadata and project status`, async () => {
+    const photo={job_id:'photo-only',lane:'photo',operation:'import',preview_url:'/photo-only.png',
+      primary_output:{file_name:'photo-only.png',sha256:'photo'},runtime_result:{options:{}}};
+    const {window,editors}=await setup({'/api/projects/photo-only':{ok:true,json:async()=>({project:{
+      project_id:'photo-only',job_ids:['photo-only'],jobs:[photo],workspace:{references:{photo:[],video:[]},audio:null}}})}});
+    await window.mindleAcceptResult({job_id:'old-video',lane:'video',operation:'video_edit',preview_url:'/old.mp4',
+      primary_output:{file_name:'old.mp4',sha256:'video'},runtime_result:{options:{subtitle:'old subtitle',effect:true,backgroundVolume:.3}}});
+    const video=editors.video;
+    video.dataset.projectStatus='saved';
+    video.querySelector('[data-video-time]').textContent='00:00:03';
+    video.querySelector('[data-video-duration]').textContent='/ 00:00:12';
+    video.querySelector('[data-video-seek]').value=25;
+    assert.equal(transition==='new'?window.mindleNewProject():await window.mindleOpenProject('photo-only'),true);
+    assert.equal(window.mindleInputFor('video'),null);
+    assert.equal(video.querySelector('.track.purple').textContent,'Subtitle Track · 자막 없음');
+    assert.equal(video.querySelector('.track.cyan').textContent,'Effect Track · 효과 없음');
+    assert.equal(video.querySelector('.track.green').textContent,'Audio Track · 원본 오디오');
+    assert.equal(video.querySelector('[data-video-time]').textContent,'00:00:00');
+    assert.equal(video.querySelector('[data-video-duration]').textContent,'/ 00:00:00');
+    assert.equal(Number(video.querySelector('[data-video-seek]').value),0);
+    assert.equal(video.querySelector('[data-preview]').dataset.jobId,undefined);
+    assert.equal(video.dataset.projectStatus,undefined);
+  });
+}
