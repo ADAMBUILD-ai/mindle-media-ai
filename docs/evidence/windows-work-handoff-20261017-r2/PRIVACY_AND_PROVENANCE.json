@@ -1,0 +1,9 @@
+{
+  "destination": "Private authorized ADAMBUILD-ai/mindle-media-ai evidence-only path",
+  "secret_pattern_matches": [],
+  "originals_redacted": false,
+  "original_local_paths_and_identity": "Preserved as requested diagnostic evidence in authorized private repository; no API tokens, browsing history, unrelated files or unrelated process commands collected",
+  "new_diagnostics": "User/AppContainer SIDs will be represented by role labels in shared summary; full raw token evidence stays local",
+  "existing_zip": "Unmodified original byte-for-byte transfer, original SHA recorded",
+  "source_model_or_ui_change": false
+}

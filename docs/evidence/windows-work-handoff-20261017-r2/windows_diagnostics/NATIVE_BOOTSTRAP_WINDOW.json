@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-17T05:59:51.793Z",
+  "window": {
+    "app": "process:C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\c37-PC-20261017\\MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0\\MINDLE_MEDIA_AI_RUN.exe",
+    "id": 725218,
+    "title": "MINDLE MEDIA AI"
+  },
+  "accessibility": {
+    "tree": "Window: \"MINDLE MEDIA AI\", App: MINDLE_MEDIA_AI_RUN.exe.\n\t0 대화 상자 MINDLE MEDIA AI Secondary Actions: Raise\n\t\t1 단추 확인 ID: 2\n\t\t2 이미지 ID: 20\n\t\t3 텍스트 제품 준비 작업이 이미 진행 중입니다. 잠시 후 다시 실행하세요. ID: 65535\n\t\t4 제목 표시줄 (settable, string) Value: MINDLE MEDIA AI\n\t\t\t5 단추 닫기"
+  }
+}

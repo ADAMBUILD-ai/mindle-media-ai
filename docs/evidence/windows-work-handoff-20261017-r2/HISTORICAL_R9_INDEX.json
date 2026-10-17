@@ -1,0 +1,74 @@
+[
+  {
+    "path": "historical_r9/RESUMED_RESULT_KO.txt",
+    "bytes": 2556,
+    "sha256": "1f942f73a9ea43f337303d179cf7914e7553fb4b18017aa13e7e498115e7cf61",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\RESUMED_RESULT_KO.txt",
+    "source_mtime_utc": "2026-10-15T09:30:07.899732+00:00"
+  },
+  {
+    "path": "historical_r9/RESUMED_BUTTON_60.csv",
+    "bytes": 7616,
+    "sha256": "668fd01d36c6d4136288280229316fe39296716ab8cc6b3a3000cee4b88484d4",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\RESUMED_BUTTON_60.csv",
+    "source_mtime_utc": "2026-10-15T09:28:57.648499+00:00"
+  },
+  {
+    "path": "historical_r9/SSOT_VS_ACTUAL_CHROME.png",
+    "bytes": 2510819,
+    "sha256": "eb800999a7e3952cc960646663c88f81b5571f1ea5b87c6cbbcbc86b4cf17050",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\SSOT_VS_ACTUAL_CHROME.png",
+    "source_mtime_utc": "2026-10-15T09:28:58.017816+00:00"
+  },
+  {
+    "path": "historical_r9/FINAL_RESULT_KO.txt",
+    "bytes": 4384,
+    "sha256": "ac1eaebf6e6d2ca64c45f9ca604ad7744fc0f54e0497232437e789838706f4e6",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\FINAL_RESULT_KO.txt",
+    "source_mtime_utc": "2026-10-15T00:25:30.840432+00:00"
+  },
+  {
+    "path": "historical_r9/FAILURE_REPRODUCTION_KO.txt",
+    "bytes": 1099,
+    "sha256": "c19d915bd7e8cc5ca4260759e8686bd67e91585e1ca64ee4b5246293469d69e6",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\FAILURE_REPRODUCTION_KO.txt",
+    "source_mtime_utc": "2026-10-15T00:24:26.273196+00:00"
+  },
+  {
+    "path": "historical_r9/WINDOWS_CONTROL_BLOCK.json",
+    "bytes": 848,
+    "sha256": "7c743fe03b23dd501b4c8bcd7a3c5f14869825278a745b2c3091478d561b3b5c",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\WINDOWS_CONTROL_BLOCK.json",
+    "source_mtime_utc": "2026-10-15T00:22:02.497743+00:00"
+  },
+  {
+    "path": "historical_r9/resumed/BROWSER_ACCEPTANCE_20261015_R8/LAUNCHER_EXCEPTION.json",
+    "bytes": 2305,
+    "sha256": "be2158c5c66fb09ccf7e0816c65f0cdd6612c257077ad961da625b3b75ded56d",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\resumed\\BROWSER_ACCEPTANCE_20261015_R8\\LAUNCHER_EXCEPTION.json",
+    "source_mtime_utc": "2026-10-15T09:26:32.317689+00:00"
+  },
+  {
+    "path": "historical_r9/resumed/BROWSER_ACCEPTANCE_20261015_R8/LAUNCHER_EXCEPTION.jpg",
+    "bytes": 18699,
+    "sha256": "71d0806409da72265525f644651f2bd9a33aa9b6d0cb34a220c7f917a5cc428a",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\resumed\\BROWSER_ACCEPTANCE_20261015_R8\\LAUNCHER_EXCEPTION.jpg",
+    "source_mtime_utc": "2026-10-15T09:26:32.318690+00:00"
+  },
+  {
+    "path_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_MEDIA_AI_PC_EXECUTION_20261015_R9.zip",
+    "bytes": 272148747,
+    "sha256": "686d6d63f9c3761942cac39cae619425e6ceae24681e18d7faf5a5acb90a0a96",
+    "mtime_utc": "2026-10-15T09:30:16.311441+00:00",
+    "related_source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
+    "transfer": "local preserved; metadata only; not relabeled as c37"
+  },
+  {
+    "path_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R9\\LATEST_CHAT_UI_SSOT.png",
+    "bytes": 2021140,
+    "sha256": "cfeed43d4864dfe4cc1505dbb37d1ac44871d51cd10907f27cb2abe3694ae339",
+    "mtime_utc": "2026-10-10T00:23:44.080920+00:00",
+    "related_source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
+    "transfer": "local preserved; metadata only; not relabeled as c37"
+  }
+]

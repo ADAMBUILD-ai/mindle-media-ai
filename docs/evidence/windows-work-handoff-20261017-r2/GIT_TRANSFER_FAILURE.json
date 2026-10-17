@@ -1,0 +1,6 @@
+{
+  "returncode": 4294967295,
+  "stderr": "fatal: Failed to enumerate credentials. [0x5]\nfatal: 액세스가 거부되었습니다\n",
+  "credential_stdout_bytes": 0,
+  "stdout_preserved": false
+}

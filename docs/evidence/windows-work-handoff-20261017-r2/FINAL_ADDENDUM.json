@@ -1,0 +1,23 @@
+{
+  "recorded_utc": "2026-10-17T06:28:56.198658+00:00",
+  "human_reply": "청취 미확인",
+  "human_hearing": "BLOCKED_UNVERIFIED",
+  "witness": null,
+  "heard_at": null,
+  "player_visual_seek_pass_unchanged": true,
+  "netstat_probe": "netstat -ano -p tcp returned no :18768 line in restricted command context; HTTP endpoint still responds. This does not prove server stopped.",
+  "runtime_identity_after_evidence_upload": {
+    "product": "MINDLE MEDIA AI",
+    "distribution": "EMPLOYEE_WIN_X64",
+    "package_version": "ONE_CLICK_RUNTIME_R1",
+    "build_commit": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+    "package_manifest_sha256": "7a31da30969b9e7901da8f109c467f281e2550171c15e9ddf3a8ddf215ab3377",
+    "ui_fingerprint": "cfb26b1811196c1abd19d5e59d33c420647ca122c060c753a7391ff43a8f8c2f",
+    "model_manifest_hash": "2f2a3555b69639840f7efbd360063fc79c7a54b39f438b0af14d7c93455c5d6d",
+    "install_root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\c37c7819b145-cfb26b181119",
+    "data_root": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA",
+    "runtime_mode": "LOCAL_OFFLINE_PACKAGE"
+  },
+  "cold_restart_verified": false,
+  "transfer": "All 112 connector objects uploaded; tree/ref publication and independent readback follow. ZIP parts reconstruct original bytes; no product build."
+}

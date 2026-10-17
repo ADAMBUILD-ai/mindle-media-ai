@@ -1,0 +1,25 @@
+{
+  "previous_project": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+  "new_project": "f88b5ed9-bbd1-487b-a986-b48212e33799",
+  "first_save_request": {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:37:00.654546+09:00",
+    "project_id": null,
+    "job_ids": [
+      "33e169df-1eb8-4419-99c2-f938c4e726d4"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [],
+        "video": []
+      },
+      "audio": null
+    }
+  },
+  "old_file_sha256_before": "1730b3e8f66df5cb8fd20d8ec45fdecd7fcc6fbca7fba3c9d55f95a2ea6080c1",
+  "old_file_sha256_after": "1730b3e8f66df5cb8fd20d8ec45fdecd7fcc6fbca7fba3c9d55f95a2ea6080c1"
+}

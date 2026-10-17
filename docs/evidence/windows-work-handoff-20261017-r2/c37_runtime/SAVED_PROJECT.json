@@ -1,0 +1,3874 @@
+{
+  "project_id": "78a2aa14-15bb-4bf3-809d-8b27a85f11f9",
+  "saved_at": "2026-10-17T06:02:56.597135+00:00",
+  "job_ids": [
+    "c98a09ec-fd42-4172-b1be-5fe2a762581c",
+    "e77a2e3c-32c6-41c0-b6d1-92e88930a4e2",
+    "8654db74-0832-4103-be27-0cbf81e24cea",
+    "ffb13b7e-4e88-4b35-97c5-6c56b76d80f7",
+    "06c04488-be09-4e7b-bd28-0528e90f1dde",
+    "138c0fdf-0c31-4a8f-b96a-1b2fde02a2dd",
+    "7bb496b0-f0dc-4400-8785-eb14b2088d19",
+    "b9eef134-2467-4522-bf40-7518edbf50a1",
+    "0607f46b-f83c-4fda-a905-6037bd412b27",
+    "087a429b-c895-49a3-b098-935a10d55106",
+    "00c68540-9d5d-4c8d-9d22-4328599334f6",
+    "d5d9bf82-5de1-4480-9eea-5aa6567639f0",
+    "657b51d9-6c1b-4baf-9063-b33ad46463a0",
+    "db94484a-b730-458b-b8de-df0b478ce363",
+    "9f7e1489-0fd7-4f96-afc7-3e96f642fe9a",
+    "0d9b1ed6-1d05-4984-9497-9599ce5bbed9",
+    "ea50b06a-d0f1-44cf-a095-d681b397c2e8",
+    "f53fa80d-0392-488b-b16f-4d74f05a5444",
+    "932bb360-caa2-45ac-9ac4-256e79dbe6c3",
+    "007fd932-4fdb-4c49-a288-2063732177a6",
+    "d5edbdf0-edca-482f-9a59-3d83b360943b",
+    "5fd5817e-82b3-4294-ac70-b5858acc0a94",
+    "baa58d30-b13a-4717-b89b-bdc34f98d80d",
+    "76c46c29-711c-4c3a-8c4f-f9956653ca9c",
+    "f63070bc-1558-4955-914f-f7f1a4f82732",
+    "1af83dd3-de4b-45a9-a72b-8f3962782531",
+    "dcf70c92-3b21-4e59-a7f1-149290bf4b39",
+    "9453d366-a491-4608-90a1-f2b06e504b0f",
+    "11270e63-dfd9-4412-b386-06ac03b08855",
+    "636d5c77-2b19-453b-aee5-d0b49684c067",
+    "2f7eb002-8ae2-4ea0-adcf-3d9c621707cb",
+    "9bbc62bd-dbe8-48a8-afee-66a24585a1e9",
+    "90f5a249-3d13-47a7-a16e-749dee758f86",
+    "60c9ff3e-a7a8-4081-89cd-3d932271ab14",
+    "838f80d3-2aba-4a7f-8cfe-5994d30fc4b3",
+    "05eb1a94-135c-4fcc-bb55-526e48de7a5e",
+    "e16e96e0-855f-43f6-bb39-6b82c45889a0",
+    "896b5af2-cbe6-4307-b3b0-0d0416e5a4fd",
+    "8c0c5b44-51c1-469c-a4f6-5e57b3b7f847",
+    "8dd6c73c-23da-4691-8090-6ecf646c07d6",
+    "37cbb652-ef0e-46d4-9aa5-2f37dac71ebd",
+    "d3e7ad70-5108-4772-bdbd-c17da1a1cc59",
+    "1f59806e-5821-46dc-9aa5-3e71349833cb",
+    "4382a446-1ad4-4884-bb17-265464d33269",
+    "784c8709-9ecc-424e-a2bd-735c3c80033a",
+    "859ae5df-8f3f-4b48-bcd6-aa5af4ad74e9",
+    "aab56e8f-141c-4c8b-9e60-bfea9025415d",
+    "bc6e90d6-5381-4b71-b69d-ab7389841242"
+  ],
+  "jobs": [
+    {
+      "status": "TESTED_PASS",
+      "job_id": "c98a09ec-fd42-4172-b1be-5fe2a762581c",
+      "evidence_id": "1b077e6c-f969-4aaa-bce4-59ee40f0ccb5",
+      "lane": "photo",
+      "requested_lane": "photo",
+      "execution_lane": "photo",
+      "operation": "segment",
+      "command": "참고 이미지의 건축물 대상을 분할하고 배경 제거",
+      "request_id": "d2ac0b10-2cef-467f-8d59-34eb86995c4c",
+      "reference_artifacts": [
+        {
+          "file_name": "651ad6db-3ee0-4250-a38f-fd8e5ff465eb_reference_architecture_crop.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\references\\651ad6db-3ee0-4250-a38f-fd8e5ff465eb_reference_architecture_crop.png",
+          "bytes": 5207847,
+          "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce",
+          "original_filename": "reference_architecture_crop.png"
+        }
+      ],
+      "execution_started_at": "2026-10-15T00:12:01.866337+00:00",
+      "execution_finished_at": "2026-10-15T00:12:06.951716+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+          "license": "apache-2.0",
+          "weight_name": "model.safetensors",
+          "weight_size_bytes": 323476296,
+          "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+        },
+        "local_recovered_package": {
+          "root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\models\\sam21",
+          "read_only": true
+        }
+      },
+      "adapter": {
+        "id": "mindle.sam21.verified.cpu",
+        "version": "1.0.1",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "388374d7-9424-4fad-aeb2-03bffe29b0d7_landscape_architecture.jpg",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\388374d7-9424-4fad-aeb2-03bffe29b0d7_landscape_architecture.jpg",
+        "bytes": 8967798,
+        "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75"
+      },
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\388374d7-9424-4fad-aeb2-03bffe29b0d7_landscape_architecture.jpg",
+        "input_sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+        "prompt_point": [
+          320,
+          186
+        ],
+        "selected_mask_index": 2,
+        "foreground_fraction": 0.045840315013404825,
+        "elapsed_ms": 4013.83,
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_mask.png",
+            "sha256": "b15d228ed69ca7a52ca12927950d7f1534e6f2d9b4ce33c0e9db2d0fdd3ddd0c",
+            "bytes": 1530
+          },
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_overlay.png",
+            "sha256": "049671cc108476bac97de454d4b4b9eaf3b7f5eb237d0f3687a775e4a31d9703",
+            "bytes": 526624
+          }
+        ],
+        "reference_match": {
+          "engine": "OpenCV template matching",
+          "score": 0.9999991655349731,
+          "point": [
+            2298,
+            1338
+          ]
+        }
+      },
+      "primary_output": {
+        "file_name": "photo_overlay.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_overlay.png",
+        "bytes": 526624,
+        "sha256": "049671cc108476bac97de454d4b4b9eaf3b7f5eb237d0f3687a775e4a31d9703"
+      },
+      "outputs": [
+        {
+          "file_name": "651ad6db-3ee0-4250-a38f-fd8e5ff465eb_reference_architecture_crop.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\references\\651ad6db-3ee0-4250-a38f-fd8e5ff465eb_reference_architecture_crop.png",
+          "bytes": 5207847,
+          "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+        },
+        {
+          "file_name": "photo_mask.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_mask.png",
+          "bytes": 1530,
+          "sha256": "b15d228ed69ca7a52ca12927950d7f1534e6f2d9b4ce33c0e9db2d0fdd3ddd0c"
+        },
+        {
+          "file_name": "photo_overlay.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_overlay.png",
+          "bytes": 526624,
+          "sha256": "049671cc108476bac97de454d4b4b9eaf3b7f5eb237d0f3687a775e4a31d9703"
+        },
+        {
+          "file_name": "photo_foreground_rgba.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_foreground_rgba.png",
+          "bytes": 23234844,
+          "sha256": "9fb884996305aa2311994f443bc4cb9738147b4721fb373165f4a8ef199a6791"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "c98a09ec-fd42-4172-b1be-5fe2a762581c",
+          "evidence_id": "1b077e6c-f969-4aaa-bce4-59ee40f0ccb5",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T00:12:06.953717+00:00",
+          "started_at": "2026-10-15T00:12:01.865336+00:00",
+          "finished_at": "2026-10-15T00:12:06.953717+00:00",
+          "project_id": null,
+          "requested_operation": "segment",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\388374d7-9424-4fad-aeb2-03bffe29b0d7_landscape_architecture.jpg",
+            "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+            "ingress": "approved-ui"
+          },
+          "input_sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+          "reference_files": [
+            "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\references\\651ad6db-3ee0-4250-a38f-fd8e5ff465eb_reference_architecture_crop.png"
+          ],
+          "retry_provenance": {
+            "job_id": "c98a09ec-fd42-4172-b1be-5fe2a762581c",
+            "evidence_id": "1b077e6c-f969-4aaa-bce4-59ee40f0ccb5",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "mindle.sam21.verified.cpu",
+          "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+          "license_source": "apache-2.0",
+          "runtime_backend": "transformers-pytorch",
+          "device_requirement": "cpu",
+          "execution_context": {
+            "job_id": "c98a09ec-fd42-4172-b1be-5fe2a762581c",
+            "evidence_id": "1b077e6c-f969-4aaa-bce4-59ee40f0ccb5",
+            "lane": "photo",
+            "source_hashes": {
+              "source": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75"
+            },
+            "nl_instruction": "참고 이미지의 건축물 대상을 분할하고 배경 제거",
+            "reference_images": [
+              "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\references\\651ad6db-3ee0-4250-a38f-fd8e5ff465eb_reference_architecture_crop.png"
+            ],
+            "retry_provenance": {
+              "job_id": "c98a09ec-fd42-4172-b1be-5fe2a762581c",
+              "evidence_id": "1b077e6c-f969-4aaa-bce4-59ee40f0ccb5",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "mindle.sam21.verified.cpu",
+              "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+              "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_overlay.png",
+            "type": ".png",
+            "size_bytes": 526624,
+            "sha256": "049671cc108476bac97de454d4b4b9eaf3b7f5eb237d0f3687a775e4a31d9703",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-0afed1e3-1fad-4cb4-a773-3d0d8a4e51cf",
+            "input_sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+            "output_sha256": "049671cc108476bac97de454d4b4b9eaf3b7f5eb237d0f3687a775e4a31d9703",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_overlay.png",
+            "elapsed_ms": 4013.83
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_output": {
+        "file_name": "photo_foreground_rgba.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cd863bfc-e2e5-4242-b604-7fee07961667\\sam_photo\\photo_foreground_rgba.png",
+        "bytes": 23234844,
+        "sha256": "9fb884996305aa2311994f443bc4cb9738147b4721fb373165f4a8ef199a6791"
+      },
+      "background_removal": {
+        "engine": "Pillow_apply_verified_SAM_mask",
+        "model_rerun": false,
+        "source_sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+        "mask_sha256": "b15d228ed69ca7a52ca12927950d7f1534e6f2d9b4ce33c0e9db2d0fdd3ddd0c"
+      },
+      "preview_url": "/files/jobs/cd863bfc-e2e5-4242-b604-7fee07961667/sam_photo/photo_foreground_rgba.png",
+      "input_url": "/files/inputs/388374d7-9424-4fad-aeb2-03bffe29b0d7_landscape_architecture.jpg",
+      "reference_urls": [
+        {
+          "url": "/files/jobs/cd863bfc-e2e5-4242-b604-7fee07961667/references/651ad6db-3ee0-4250-a38f-fd8e5ff465eb_reference_architecture_crop.png",
+          "name": "reference_architecture_crop.png"
+        }
+      ]
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "e77a2e3c-32c6-41c0-b6d1-92e88930a4e2",
+      "evidence_id": "1d7e2260-4d8e-4ee4-b392-11bebfd723e0",
+      "lane": "video",
+      "requested_lane": "video",
+      "execution_lane": "video",
+      "operation": "tracking",
+      "command": "중앙 대상을 전체 프레임 연속 추적",
+      "request_id": "696fb6b3-65ec-4bcd-80b4-5c35e8c9769e",
+      "reference_artifacts": [],
+      "execution_started_at": "2026-10-15T00:12:25.679722+00:00",
+      "execution_finished_at": "2026-10-15T00:14:56.948611+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+          "license": "apache-2.0",
+          "weight_name": "model.safetensors",
+          "weight_size_bytes": 323476296,
+          "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+        },
+        "video_memory": true
+      },
+      "adapter": {
+        "id": "mindle.sam21.video.memory.cpu",
+        "version": "1.0.0",
+        "runtime_backend": "transformers-sam2-video-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "f614d730-7d91-4fab-9438-0debf8020eb6_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\f614d730-7d91-4fab-9438-0debf8020eb6_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "tracking_mode": "continuous_video_memory",
+        "sampled_frames": 125,
+        "tracked_frames": 125,
+        "fps": 24.0,
+        "elapsed_ms": 151188.68350000412,
+        "task_quality": "NOT_BENCHMARKED",
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays.mp4",
+            "sha256": "9dc45b1a0f34b1430b403fb7ff3c9a59218d6f70680a76a4ff31af2cec5add76",
+            "bytes": 242496
+          },
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\tracking.json",
+            "sha256": "33cf985dfea155d9c3124cd41439eadfeac0db9c846c4c9bb7d5cf0675b9756a",
+            "bytes": 8193
+          }
+        ]
+      },
+      "primary_output": {
+        "file_name": "track_1_overlays.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays.mp4",
+        "bytes": 242496,
+        "sha256": "9dc45b1a0f34b1430b403fb7ff3c9a59218d6f70680a76a4ff31af2cec5add76"
+      },
+      "outputs": [
+        {
+          "file_name": "track_1_overlays.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays.mp4",
+          "bytes": 242496,
+          "sha256": "9dc45b1a0f34b1430b403fb7ff3c9a59218d6f70680a76a4ff31af2cec5add76"
+        },
+        {
+          "file_name": "tracking.json",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\tracking.json",
+          "bytes": 8193,
+          "sha256": "33cf985dfea155d9c3124cd41439eadfeac0db9c846c4c9bb7d5cf0675b9756a"
+        },
+        {
+          "file_name": "tracking_frames.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\tracking_frames.mp4",
+          "bytes": 733853,
+          "sha256": "00754c01d4b91ea0a2835adc91a626dc4bc03aa4b88af7f8400008b9600e0783"
+        },
+        {
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays_browser_h264.mp4",
+          "file_name": "track_1_overlays_browser_h264.mp4",
+          "bytes": 215215,
+          "sha256": "d582f0f664a8e31b4b9ab316b5d5c86cd44ece68677cd339751cd7eb30a7c1e0"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "e77a2e3c-32c6-41c0-b6d1-92e88930a4e2",
+          "evidence_id": "1d7e2260-4d8e-4ee4-b392-11bebfd723e0",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T00:14:56.956610+00:00",
+          "started_at": "2026-10-15T00:12:25.679722+00:00",
+          "finished_at": "2026-10-15T00:14:56.956610+00:00",
+          "project_id": null,
+          "requested_operation": "tracking",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\f614d730-7d91-4fab-9438-0debf8020eb6_video_original.mp4",
+            "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+            "ingress": "approved-ui"
+          },
+          "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+          "reference_files": [],
+          "retry_provenance": {
+            "job_id": "e77a2e3c-32c6-41c0-b6d1-92e88930a4e2",
+            "evidence_id": "1d7e2260-4d8e-4ee4-b392-11bebfd723e0",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "mindle.sam21.video.memory.cpu",
+          "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+          "license_source": "apache-2.0",
+          "runtime_backend": "transformers-sam2-video-pytorch",
+          "device_requirement": "cpu",
+          "execution_context": {
+            "job_id": "e77a2e3c-32c6-41c0-b6d1-92e88930a4e2",
+            "evidence_id": "1d7e2260-4d8e-4ee4-b392-11bebfd723e0",
+            "lane": "video",
+            "source_hashes": {
+              "source": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+            },
+            "nl_instruction": "중앙 대상을 전체 프레임 연속 추적",
+            "reference_images": [],
+            "retry_provenance": {
+              "job_id": "e77a2e3c-32c6-41c0-b6d1-92e88930a4e2",
+              "evidence_id": "1d7e2260-4d8e-4ee4-b392-11bebfd723e0",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "mindle.sam21.video.memory.cpu",
+              "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+              "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays.mp4",
+            "type": ".mp4",
+            "size_bytes": 242496,
+            "sha256": "9dc45b1a0f34b1430b403fb7ff3c9a59218d6f70680a76a4ff31af2cec5add76",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-b449e109-feed-4311-a425-40d7dd9bd702",
+            "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+            "output_sha256": "9dc45b1a0f34b1430b403fb7ff3c9a59218d6f70680a76a4ff31af2cec5add76",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays.mp4",
+            "elapsed_ms": 151188.68350000412
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_output": {
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays_browser_h264.mp4",
+        "file_name": "track_1_overlays_browser_h264.mp4",
+        "bytes": 215215,
+        "sha256": "d582f0f664a8e31b4b9ab316b5d5c86cd44ece68677cd339751cd7eb30a7c1e0"
+      },
+      "preview_derivative": {
+        "status": "H264_PREVIEW_CREATED",
+        "model_output_preserved": true,
+        "ffmpeg_version": "ffmpeg version n8.1.3-18-g46d899d7a0-20261012 Copyright (c) 2000-2026 the FFmpeg developers",
+        "encoder": "h264_mf",
+        "command": [
+          "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\tools\\ffmpeg\\ffmpeg.exe",
+          "-y",
+          "-i",
+          "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays.mp4",
+          "-map",
+          "0:v:0",
+          "-map",
+          "0:a?",
+          "-vf",
+          "scale=trunc(iw/2)*2:trunc(ih/2)*2",
+          "-c:v",
+          "h264_mf",
+          "-pix_fmt",
+          "yuv420p",
+          "-c:a",
+          "aac",
+          "-movflags",
+          "+faststart",
+          "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays_browser_h264.mp4"
+        ],
+        "input": {
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays.mp4",
+          "sha256": "9dc45b1a0f34b1430b403fb7ff3c9a59218d6f70680a76a4ff31af2cec5add76"
+        },
+        "output": {
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bbf0e80-5d8a-474f-bec0-c79f7faa8879\\sam_video\\track_1_overlays_browser_h264.mp4",
+          "file_name": "track_1_overlays_browser_h264.mp4",
+          "bytes": 215215,
+          "sha256": "d582f0f664a8e31b4b9ab316b5d5c86cd44ece68677cd339751cd7eb30a7c1e0"
+        },
+        "ffprobe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "codec_tag_string": "avc1",
+              "width": 672,
+              "height": 384,
+              "pix_fmt": "yuv420p",
+              "duration": "5.208333"
+            }
+          ],
+          "format": {
+            "duration": "5.208333"
+          }
+        },
+        "faststart": true,
+        "gpu_used": false,
+        "paid_compute": false
+      },
+      "preview_url": "/files/jobs/7bbf0e80-5d8a-474f-bec0-c79f7faa8879/sam_video/track_1_overlays_browser_h264.mp4",
+      "input_url": "/files/inputs/f614d730-7d91-4fab-9438-0debf8020eb6_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "8654db74-0832-4103-be27-0cbf81e24cea",
+      "evidence_id": "37eb1319-6ba9-44e3-97be-c267dfe49367",
+      "lane": "korean_audio",
+      "requested_lane": "korean_audio",
+      "execution_lane": "korean_audio",
+      "operation": "transcribe",
+      "command": "한국어 전체 받아쓰기 및 자막",
+      "request_id": "0caf1d89-a682-441c-92ef-3e8ab8c1bde4",
+      "reference_artifacts": [],
+      "execution_started_at": "2026-10-15T00:15:11.432904+00:00",
+      "execution_finished_at": "2026-10-15T00:15:19.827706+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+          "license": "mit",
+          "weight_name": "model.safetensors",
+          "weight_size_bytes": 966995080,
+          "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+        },
+        "local_recovered_package": {
+          "root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\models\\whisper-small",
+          "read_only": true
+        }
+      },
+      "adapter": {
+        "id": "mindle.whisper.ko.verified.cpu",
+        "version": "1.0.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "subtitle_audio.wav",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\subtitle_audio.wav",
+        "bytes": 1198158,
+        "sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee"
+      },
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\subtitle_audio.wav",
+        "input_sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee",
+        "sample_rate": 16000,
+        "segments": [
+          {
+            "start_seconds": 0.0,
+            "end_seconds": 25.0,
+            "text": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+          },
+          {
+            "start_seconds": 25.0,
+            "end_seconds": 37.44,
+            "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+          }
+        ],
+        "full_input_samples_processed": 599040,
+        "duration_seconds": 37.44,
+        "reference": null,
+        "text": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+        "word_error_rate": null,
+        "elapsed_ms": 8384.26,
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\whisper\\korean_transcript.json",
+            "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "bytes": 550
+          }
+        ]
+      },
+      "primary_output": {
+        "file_name": "korean_transcript.json",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\whisper\\korean_transcript.json",
+        "bytes": 550,
+        "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84"
+      },
+      "outputs": [
+        {
+          "file_name": "subtitle_audio.wav",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\subtitle_audio.wav",
+          "bytes": 1198158,
+          "sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee"
+        },
+        {
+          "file_name": "korean_transcript.json",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\whisper\\korean_transcript.json",
+          "bytes": 550,
+          "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "8654db74-0832-4103-be27-0cbf81e24cea",
+          "evidence_id": "37eb1319-6ba9-44e3-97be-c267dfe49367",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T00:15:19.828706+00:00",
+          "started_at": "2026-10-15T00:15:11.431906+00:00",
+          "finished_at": "2026-10-15T00:15:19.828706+00:00",
+          "project_id": null,
+          "requested_operation": "transcribe",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\subtitle_audio.wav",
+            "sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee",
+            "ingress": "approved-ui-extracted-audio",
+            "derived_from": {
+              "file_name": "1218f3a0-41dc-474c-b2e6-48ca038d55cd_korean_repeated_37s_44100_stereo.wav",
+              "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\1218f3a0-41dc-474c-b2e6-48ca038d55cd_korean_repeated_37s_44100_stereo.wav",
+              "bytes": 6604494,
+              "sha256": "22776051165ae4b2c0193cf9db1b861ee2af9b93491ce2ff0de9097aea77beb6"
+            }
+          },
+          "input_sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee",
+          "reference_files": [],
+          "retry_provenance": {
+            "job_id": "8654db74-0832-4103-be27-0cbf81e24cea",
+            "evidence_id": "37eb1319-6ba9-44e3-97be-c267dfe49367",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "mindle.whisper.ko.verified.cpu",
+          "model_or_program_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+          "license_source": "mit",
+          "runtime_backend": "transformers-pytorch",
+          "device_requirement": "cpu",
+          "execution_context": {
+            "job_id": "8654db74-0832-4103-be27-0cbf81e24cea",
+            "evidence_id": "37eb1319-6ba9-44e3-97be-c267dfe49367",
+            "lane": "korean_audio",
+            "source_hashes": {
+              "source": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee"
+            },
+            "nl_instruction": "한국어 전체 받아쓰기 및 자막",
+            "reference_images": [],
+            "retry_provenance": {
+              "job_id": "8654db74-0832-4103-be27-0cbf81e24cea",
+              "evidence_id": "37eb1319-6ba9-44e3-97be-c267dfe49367",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "mindle.whisper.ko.verified.cpu",
+              "model_or_program_id": "openai/whisper-small",
+              "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\whisper\\korean_transcript.json",
+            "type": ".json",
+            "size_bytes": 550,
+            "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-a4d5c0ea-0fc9-45c2-a3fb-e8e3fcd200c1",
+            "input_sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee",
+            "output_sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0716b247-5e7a-4dc4-9ec4-a9d9d33accf1\\whisper\\korean_transcript.json",
+            "elapsed_ms": 8384.26
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_url": "/files/jobs/0716b247-5e7a-4dc4-9ec4-a9d9d33accf1/whisper/korean_transcript.json",
+      "input_url": "/files/jobs/0716b247-5e7a-4dc4-9ec4-a9d9d33accf1/subtitle_audio.wav",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "ffb13b7e-4e88-4b35-97c5-6c56b76d80f7",
+      "evidence_id": "e3951802-d831-403b-a9b9-495dabb2559d",
+      "lane": "korean_audio",
+      "requested_lane": "korean_audio",
+      "execution_lane": "korean_audio",
+      "operation": "transcribe",
+      "command": "한국어 원본 WAV 받아쓰기",
+      "request_id": "4957654b-60b5-427f-a4c5-9d8a652ca6d3",
+      "reference_artifacts": [],
+      "execution_started_at": "2026-10-15T00:15:53.278251+00:00",
+      "execution_finished_at": "2026-10-15T00:15:56.899609+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+          "license": "mit",
+          "weight_name": "model.safetensors",
+          "weight_size_bytes": 966995080,
+          "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+        },
+        "local_recovered_package": {
+          "root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\models\\whisper-small",
+          "read_only": true
+        }
+      },
+      "adapter": {
+        "id": "mindle.whisper.ko.verified.cpu",
+        "version": "1.0.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "subtitle_audio.wav",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\subtitle_audio.wav",
+        "bytes": 399438,
+        "sha256": "e4069d794355ec85378ebffbefeb2c441e42063378313716d241b04d09f33e50"
+      },
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\subtitle_audio.wav",
+        "input_sha256": "e4069d794355ec85378ebffbefeb2c441e42063378313716d241b04d09f33e50",
+        "sample_rate": 16000,
+        "segments": [
+          {
+            "start_seconds": 0.0,
+            "end_seconds": 12.48,
+            "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+          }
+        ],
+        "full_input_samples_processed": 199680,
+        "duration_seconds": 12.48,
+        "reference": null,
+        "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+        "word_error_rate": null,
+        "elapsed_ms": 3611.76,
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\whisper\\korean_transcript.json",
+            "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+            "bytes": 260
+          }
+        ]
+      },
+      "primary_output": {
+        "file_name": "korean_transcript.json",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\whisper\\korean_transcript.json",
+        "bytes": 260,
+        "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+      },
+      "outputs": [
+        {
+          "file_name": "subtitle_audio.wav",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\subtitle_audio.wav",
+          "bytes": 399438,
+          "sha256": "e4069d794355ec85378ebffbefeb2c441e42063378313716d241b04d09f33e50"
+        },
+        {
+          "file_name": "korean_transcript.json",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\whisper\\korean_transcript.json",
+          "bytes": 260,
+          "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "ffb13b7e-4e88-4b35-97c5-6c56b76d80f7",
+          "evidence_id": "e3951802-d831-403b-a9b9-495dabb2559d",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T00:15:56.900607+00:00",
+          "started_at": "2026-10-15T00:15:53.277245+00:00",
+          "finished_at": "2026-10-15T00:15:56.900607+00:00",
+          "project_id": null,
+          "requested_operation": "transcribe",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\subtitle_audio.wav",
+            "sha256": "e4069d794355ec85378ebffbefeb2c441e42063378313716d241b04d09f33e50",
+            "ingress": "approved-ui-extracted-audio",
+            "derived_from": {
+              "file_name": "0a009a77-8551-4912-8d3f-d594f8bef295_korean_original.wav",
+              "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\0a009a77-8551-4912-8d3f-d594f8bef295_korean_original.wav",
+              "bytes": 798778,
+              "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+            }
+          },
+          "input_sha256": "e4069d794355ec85378ebffbefeb2c441e42063378313716d241b04d09f33e50",
+          "reference_files": [],
+          "retry_provenance": {
+            "job_id": "ffb13b7e-4e88-4b35-97c5-6c56b76d80f7",
+            "evidence_id": "e3951802-d831-403b-a9b9-495dabb2559d",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "mindle.whisper.ko.verified.cpu",
+          "model_or_program_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+          "license_source": "mit",
+          "runtime_backend": "transformers-pytorch",
+          "device_requirement": "cpu",
+          "execution_context": {
+            "job_id": "ffb13b7e-4e88-4b35-97c5-6c56b76d80f7",
+            "evidence_id": "e3951802-d831-403b-a9b9-495dabb2559d",
+            "lane": "korean_audio",
+            "source_hashes": {
+              "source": "e4069d794355ec85378ebffbefeb2c441e42063378313716d241b04d09f33e50"
+            },
+            "nl_instruction": "한국어 원본 WAV 받아쓰기",
+            "reference_images": [],
+            "retry_provenance": {
+              "job_id": "ffb13b7e-4e88-4b35-97c5-6c56b76d80f7",
+              "evidence_id": "e3951802-d831-403b-a9b9-495dabb2559d",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "mindle.whisper.ko.verified.cpu",
+              "model_or_program_id": "openai/whisper-small",
+              "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\whisper\\korean_transcript.json",
+            "type": ".json",
+            "size_bytes": 260,
+            "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-1acaad00-8f6a-4f2d-9552-34a1f3a06047",
+            "input_sha256": "e4069d794355ec85378ebffbefeb2c441e42063378313716d241b04d09f33e50",
+            "output_sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\6cfdd04a-d9ff-4761-96bc-7b71befd161c\\whisper\\korean_transcript.json",
+            "elapsed_ms": 3611.76
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_url": "/files/jobs/6cfdd04a-d9ff-4761-96bc-7b71befd161c/whisper/korean_transcript.json",
+      "input_url": "/files/jobs/6cfdd04a-d9ff-4761-96bc-7b71befd161c/subtitle_audio.wav",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "06c04488-be09-4e7b-bd28-0528e90f1dde",
+      "evidence_id": "38f74057-8b59-465e-8786-51787c40fc98",
+      "lane": "korean_audio",
+      "requested_lane": "video",
+      "execution_lane": "korean_audio",
+      "operation": "transcribe",
+      "command": "영상 한국어 전체 자막",
+      "request_id": "93b382fd-b4ff-4bf2-ad04-1e52a5dbbb14",
+      "reference_artifacts": [],
+      "execution_started_at": "2026-10-15T00:15:32.976694+00:00",
+      "execution_finished_at": "2026-10-15T00:15:41.314765+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+          "license": "mit",
+          "weight_name": "model.safetensors",
+          "weight_size_bytes": 966995080,
+          "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+        },
+        "local_recovered_package": {
+          "root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\models\\whisper-small",
+          "read_only": true
+        }
+      },
+      "adapter": {
+        "id": "mindle.whisper.ko.verified.cpu",
+        "version": "1.0.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "subtitle_audio.wav",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\subtitle_audio.wav",
+        "bytes": 1198600,
+        "sha256": "69e701149cec28d0a411e2573fb5dbeec5d094049ffe298665ff342622b5c372"
+      },
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\subtitle_audio.wav",
+        "input_sha256": "69e701149cec28d0a411e2573fb5dbeec5d094049ffe298665ff342622b5c372",
+        "sample_rate": 16000,
+        "segments": [
+          {
+            "start_seconds": 0.0,
+            "end_seconds": 25.0,
+            "text": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+          },
+          {
+            "start_seconds": 25.0,
+            "end_seconds": 37.4538125,
+            "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+          }
+        ],
+        "full_input_samples_processed": 599261,
+        "duration_seconds": 37.4538125,
+        "reference": null,
+        "text": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+        "word_error_rate": null,
+        "elapsed_ms": 8332.47,
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\whisper\\korean_transcript.json",
+            "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "bytes": 550
+          }
+        ]
+      },
+      "primary_output": {
+        "file_name": "korean_transcript.json",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\whisper\\korean_transcript.json",
+        "bytes": 550,
+        "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84"
+      },
+      "outputs": [
+        {
+          "file_name": "subtitle_audio.wav",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\subtitle_audio.wav",
+          "bytes": 1198600,
+          "sha256": "69e701149cec28d0a411e2573fb5dbeec5d094049ffe298665ff342622b5c372"
+        },
+        {
+          "file_name": "korean_transcript.json",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\whisper\\korean_transcript.json",
+          "bytes": 550,
+          "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "06c04488-be09-4e7b-bd28-0528e90f1dde",
+          "evidence_id": "38f74057-8b59-465e-8786-51787c40fc98",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T00:15:41.315768+00:00",
+          "started_at": "2026-10-15T00:15:32.975694+00:00",
+          "finished_at": "2026-10-15T00:15:41.315768+00:00",
+          "project_id": null,
+          "requested_operation": "transcribe",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\subtitle_audio.wav",
+            "sha256": "69e701149cec28d0a411e2573fb5dbeec5d094049ffe298665ff342622b5c372",
+            "ingress": "approved-ui-extracted-audio",
+            "derived_from": {
+              "file_name": "1f49c6ff-1a2e-4f5b-bfb0-2604ea657a0a_video_with_korean_37s_44100_stereo.mp4",
+              "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\1f49c6ff-1a2e-4f5b-bfb0-2604ea657a0a_video_with_korean_37s_44100_stereo.mp4",
+              "bytes": 3393621,
+              "sha256": "decebbba07f82c3add8bc75d5bbb13434282c60e7893b62111a8448d927266e4"
+            }
+          },
+          "input_sha256": "69e701149cec28d0a411e2573fb5dbeec5d094049ffe298665ff342622b5c372",
+          "reference_files": [],
+          "retry_provenance": {
+            "job_id": "06c04488-be09-4e7b-bd28-0528e90f1dde",
+            "evidence_id": "38f74057-8b59-465e-8786-51787c40fc98",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "mindle.whisper.ko.verified.cpu",
+          "model_or_program_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+          "license_source": "mit",
+          "runtime_backend": "transformers-pytorch",
+          "device_requirement": "cpu",
+          "execution_context": {
+            "job_id": "06c04488-be09-4e7b-bd28-0528e90f1dde",
+            "evidence_id": "38f74057-8b59-465e-8786-51787c40fc98",
+            "lane": "korean_audio",
+            "source_hashes": {
+              "source": "69e701149cec28d0a411e2573fb5dbeec5d094049ffe298665ff342622b5c372"
+            },
+            "nl_instruction": "영상 한국어 전체 자막",
+            "reference_images": [],
+            "retry_provenance": {
+              "job_id": "06c04488-be09-4e7b-bd28-0528e90f1dde",
+              "evidence_id": "38f74057-8b59-465e-8786-51787c40fc98",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "mindle.whisper.ko.verified.cpu",
+              "model_or_program_id": "openai/whisper-small",
+              "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\whisper\\korean_transcript.json",
+            "type": ".json",
+            "size_bytes": 550,
+            "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-9b2f49ed-f70c-4377-a33d-0d005740e073",
+            "input_sha256": "69e701149cec28d0a411e2573fb5dbeec5d094049ffe298665ff342622b5c372",
+            "output_sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\171a3ab4-f59f-449e-8f74-402238b899ac\\whisper\\korean_transcript.json",
+            "elapsed_ms": 8332.47
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_url": "/files/jobs/171a3ab4-f59f-449e-8f74-402238b899ac/whisper/korean_transcript.json",
+      "input_url": "/files/jobs/171a3ab4-f59f-449e-8f74-402238b899ac/subtitle_audio.wav",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "138c0fdf-0c31-4a8f-b96a-1b2fde02a2dd",
+      "evidence_id": "fb2a3d3a-3d52-4ae7-b7ee-d98b744b4395",
+      "lane": "photo",
+      "requested_lane": "photo",
+      "execution_lane": "photo",
+      "operation": "upscale",
+      "command": "4배 고화질 업스케일",
+      "request_id": "a25bfce9-4781-441f-ac62-6a4e4c4358d5",
+      "reference_artifacts": [],
+      "execution_started_at": "2026-10-15T00:12:16.121218+00:00",
+      "execution_finished_at": "2026-10-15T00:12:17.273506+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "openvinotoolkit/open_model_zoo",
+          "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+          "license": "apache-2.0",
+          "weight_name": "single-image-super-resolution-1032.bin",
+          "weight_size_bytes": 119436,
+          "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+        },
+        "local_recovered_package": {
+          "root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+          "read_only": true,
+          "sha384_verified": true
+        }
+      },
+      "adapter": {
+        "id": "intel-open-model-zoo-sisr-1032",
+        "version": "1.1.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU"
+      },
+      "input": {
+        "file_name": "1f42a9c5-e26f-4fc9-8d2b-568508616926_portrait_autofit.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\1f42a9c5-e26f-4fc9-8d2b-568508616926_portrait_autofit.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "runtime_result": {
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cf8a1ae2-1441-4cae-8c49-c22a11140ec8\\intel_sisr_1032\\upscaled_4x.png",
+            "bytes": 3514505,
+            "sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d",
+            "dimensions": [
+              1920,
+              3840
+            ]
+          }
+        ],
+        "tiles": 10,
+        "scale": 4,
+        "elapsed_ms": 1156.0000000026776
+      },
+      "primary_output": {
+        "file_name": "upscaled_4x.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cf8a1ae2-1441-4cae-8c49-c22a11140ec8\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 3514505,
+        "sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d"
+      },
+      "outputs": [
+        {
+          "file_name": "upscaled_4x.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cf8a1ae2-1441-4cae-8c49-c22a11140ec8\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 3514505,
+          "sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "138c0fdf-0c31-4a8f-b96a-1b2fde02a2dd",
+          "evidence_id": "fb2a3d3a-3d52-4ae7-b7ee-d98b744b4395",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T00:12:17.289606+00:00",
+          "started_at": "2026-10-15T00:12:16.120217+00:00",
+          "finished_at": "2026-10-15T00:12:17.289606+00:00",
+          "project_id": null,
+          "requested_operation": "upscale",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\1f42a9c5-e26f-4fc9-8d2b-568508616926_portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+            "ingress": "approved-ui"
+          },
+          "input_sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+          "reference_files": [],
+          "retry_provenance": {
+            "job_id": "138c0fdf-0c31-4a8f-b96a-1b2fde02a2dd",
+            "evidence_id": "fb2a3d3a-3d52-4ae7-b7ee-d98b744b4395",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "intel-open-model-zoo-sisr-1032",
+          "model_or_program_id": "openvinotoolkit/open_model_zoo",
+          "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+          "license_source": "apache-2.0",
+          "runtime_backend": "openvino-cpu",
+          "device_requirement": "CPU",
+          "execution_context": {
+            "job_id": "138c0fdf-0c31-4a8f-b96a-1b2fde02a2dd",
+            "evidence_id": "fb2a3d3a-3d52-4ae7-b7ee-d98b744b4395",
+            "lane": "photo",
+            "source_hashes": {
+              "source": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+            },
+            "nl_instruction": "4배 고화질 업스케일",
+            "reference_images": [],
+            "retry_provenance": {
+              "job_id": "138c0fdf-0c31-4a8f-b96a-1b2fde02a2dd",
+              "evidence_id": "fb2a3d3a-3d52-4ae7-b7ee-d98b744b4395",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "intel-open-model-zoo-sisr-1032",
+              "model_or_program_id": "openvinotoolkit/open_model_zoo",
+              "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cf8a1ae2-1441-4cae-8c49-c22a11140ec8\\intel_sisr_1032\\upscaled_4x.png",
+            "type": ".png",
+            "size_bytes": 3514505,
+            "sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-11975bae-f357-4467-b733-9fa68995e130",
+            "input_sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+            "output_sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\cf8a1ae2-1441-4cae-8c49-c22a11140ec8\\intel_sisr_1032\\upscaled_4x.png",
+            "elapsed_ms": 1156.0000000026776
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_url": "/files/jobs/cf8a1ae2-1441-4cae-8c49-c22a11140ec8/intel_sisr_1032/upscaled_4x.png",
+      "input_url": "/files/inputs/1f42a9c5-e26f-4fc9-8d2b-568508616926_portrait_autofit.png",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "7bb496b0-f0dc-4400-8785-eb14b2088d19",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance trim",
+      "input": {
+        "file_name": "38ad03d7-e781-46eb-9216-945e761af310_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\38ad03d7-e781-46eb-9216-945e761af310_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bb496b0-f0dc-4400-8785-eb14b2088d19\\edited_video.mp4",
+        "bytes": 208255,
+        "sha256": "5e60be7ee4f84b05b641328bd4aeb67b96acc83bbb82ba6b94dd797d2802f280"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\7bb496b0-f0dc-4400-8785-eb14b2088d19\\edited_video.mp4",
+          "bytes": 208255,
+          "sha256": "5e60be7ee4f84b05b641328bd4aeb67b96acc83bbb82ba6b94dd797d2802f280"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "start": 0.5,
+          "duration": 2
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/7bb496b0-f0dc-4400-8785-eb14b2088d19/edited_video.mp4",
+      "input_url": "/files/inputs/38ad03d7-e781-46eb-9216-945e761af310_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "b9eef134-2467-4522-bf40-7518edbf50a1",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance split",
+      "input": {
+        "file_name": "9b7fab09-0d2e-4e44-9995-b88e15242707_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\9b7fab09-0d2e-4e44-9995-b88e15242707_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "split_1.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\b9eef134-2467-4522-bf40-7518edbf50a1\\split_1.mp4",
+        "bytes": 226654,
+        "sha256": "8900f41a33dd58913067d52b8f9328185642c366d838a0306400b0e9ccc08aae"
+      },
+      "outputs": [
+        {
+          "file_name": "split_1.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\b9eef134-2467-4522-bf40-7518edbf50a1\\split_1.mp4",
+          "bytes": 226654,
+          "sha256": "8900f41a33dd58913067d52b8f9328185642c366d838a0306400b0e9ccc08aae"
+        },
+        {
+          "file_name": "split_2.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\b9eef134-2467-4522-bf40-7518edbf50a1\\split_2.mp4",
+          "bytes": 174190,
+          "sha256": "289452b6a1dccd2f9274fd1b8a937058d20bd7c3c59865a1a188aa3b0922988d"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "start": 2,
+          "split": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/b9eef134-2467-4522-bf40-7518edbf50a1/split_1.mp4",
+      "input_url": "/files/inputs/9b7fab09-0d2e-4e44-9995-b88e15242707_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "0607f46b-f83c-4fda-a905-6037bd412b27",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance rotate",
+      "input": {
+        "file_name": "797ea0db-45ba-4b71-a32d-32ae76eab0ba_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\797ea0db-45ba-4b71-a32d-32ae76eab0ba_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0607f46b-f83c-4fda-a905-6037bd412b27\\edited_video.mp4",
+        "bytes": 268641,
+        "sha256": "3f53f807fc92bcfb4fbb6e8838a70484671c297d96b38956891c57f941f894e0"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0607f46b-f83c-4fda-a905-6037bd412b27\\edited_video.mp4",
+          "bytes": 268641,
+          "sha256": "3f53f807fc92bcfb4fbb6e8838a70484671c297d96b38956891c57f941f894e0"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "rotate": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/0607f46b-f83c-4fda-a905-6037bd412b27/edited_video.mp4",
+      "input_url": "/files/inputs/797ea0db-45ba-4b71-a32d-32ae76eab0ba_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "087a429b-c895-49a3-b098-935a10d55106",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance speed",
+      "input": {
+        "file_name": "2ca9a54a-88a5-40a6-89e0-d3c985fa92b1_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\2ca9a54a-88a5-40a6-89e0-d3c985fa92b1_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\087a429b-c895-49a3-b098-935a10d55106\\edited_video.mp4",
+        "bytes": 269477,
+        "sha256": "6b72afe46b78e8f8d9f55238304a6320d0dc7c827bc9e24cd6863be413833599"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\087a429b-c895-49a3-b098-935a10d55106\\edited_video.mp4",
+          "bytes": 269477,
+          "sha256": "6b72afe46b78e8f8d9f55238304a6320d0dc7c827bc9e24cd6863be413833599"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "speed": 1.25
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/087a429b-c895-49a3-b098-935a10d55106/edited_video.mp4",
+      "input_url": "/files/inputs/2ca9a54a-88a5-40a6-89e0-d3c985fa92b1_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "00c68540-9d5d-4c8d-9d22-4328599334f6",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance fade",
+      "input": {
+        "file_name": "a015e2a2-e381-4712-bae4-68e1440e2691_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\a015e2a2-e381-4712-bae4-68e1440e2691_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\00c68540-9d5d-4c8d-9d22-4328599334f6\\edited_video.mp4",
+        "bytes": 324639,
+        "sha256": "02f74ee67e2dc31d9ce871ac883e20c45a73adb165deb4df7a438f4baa1d088b"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\00c68540-9d5d-4c8d-9d22-4328599334f6\\edited_video.mp4",
+          "bytes": 324639,
+          "sha256": "02f74ee67e2dc31d9ce871ac883e20c45a73adb165deb4df7a438f4baa1d088b"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "fade": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/00c68540-9d5d-4c8d-9d22-4328599334f6/edited_video.mp4",
+      "input_url": "/files/inputs/a015e2a2-e381-4712-bae4-68e1440e2691_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "d5d9bf82-5de1-4480-9eea-5aa6567639f0",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance effect",
+      "input": {
+        "file_name": "9c4b33b9-486a-4df5-a93a-ac8216c2a8b1_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\9c4b33b9-486a-4df5-a93a-ac8216c2a8b1_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\d5d9bf82-5de1-4480-9eea-5aa6567639f0\\edited_video.mp4",
+        "bytes": 249789,
+        "sha256": "4f3d72010a6a2864b0946a7e75709a34aafb665ba20de9953c7b82648c2ab751"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\d5d9bf82-5de1-4480-9eea-5aa6567639f0\\edited_video.mp4",
+          "bytes": 249789,
+          "sha256": "4f3d72010a6a2864b0946a7e75709a34aafb665ba20de9953c7b82648c2ab751"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "effect": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/d5d9bf82-5de1-4480-9eea-5aa6567639f0/edited_video.mp4",
+      "input_url": "/files/inputs/9c4b33b9-486a-4df5-a93a-ac8216c2a8b1_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "657b51d9-6c1b-4baf-9063-b33ad46463a0",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance denoise_stabilize",
+      "input": {
+        "file_name": "56fbe6b1-240f-4c2a-bd49-85b50f9cc98d_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\56fbe6b1-240f-4c2a-bd49-85b50f9cc98d_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\657b51d9-6c1b-4baf-9063-b33ad46463a0\\edited_video.mp4",
+        "bytes": 312569,
+        "sha256": "75a6d44090919ae4ed52d674ceb28e4cf01322ba1bbb003006e4198742aa8826"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\657b51d9-6c1b-4baf-9063-b33ad46463a0\\edited_video.mp4",
+          "bytes": 312569,
+          "sha256": "75a6d44090919ae4ed52d674ceb28e4cf01322ba1bbb003006e4198742aa8826"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "denoise": true,
+          "stabilize": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/657b51d9-6c1b-4baf-9063-b33ad46463a0/edited_video.mp4",
+      "input_url": "/files/inputs/56fbe6b1-240f-4c2a-bd49-85b50f9cc98d_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "db94484a-b730-458b-b8de-df0b478ce363",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance shortform_9x16",
+      "input": {
+        "file_name": "987f2a03-656d-49a7-aa83-2faca22fb26a_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\987f2a03-656d-49a7-aa83-2faca22fb26a_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\db94484a-b730-458b-b8de-df0b478ce363\\edited_video.mp4",
+        "bytes": 126465,
+        "sha256": "f7688468ab5bf017b99b3b8619c7c6ad98855005eb91170d3570578af66f9cb1"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\db94484a-b730-458b-b8de-df0b478ce363\\edited_video.mp4",
+          "bytes": 126465,
+          "sha256": "f7688468ab5bf017b99b3b8619c7c6ad98855005eb91170d3570578af66f9cb1"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "aspect": "9:16",
+          "duration": 4
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/db94484a-b730-458b-b8de-df0b478ce363/edited_video.mp4",
+      "input_url": "/files/inputs/987f2a03-656d-49a7-aa83-2faca22fb26a_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "9f7e1489-0fd7-4f96-afc7-3e96f642fe9a",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance timed_korean_subtitles",
+      "input": {
+        "file_name": "509aaf06-33f7-465a-a6b1-d324089bc0a9_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\509aaf06-33f7-465a-a6b1-d324089bc0a9_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\9f7e1489-0fd7-4f96-afc7-3e96f642fe9a\\edited_video.mp4",
+        "bytes": 234852,
+        "sha256": "3802f9fb40b6a7948f2bac93713ae00ed378aa12a84a976f3cb861b8221456ff"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\9f7e1489-0fd7-4f96-afc7-3e96f642fe9a\\edited_video.mp4",
+          "bytes": 234852,
+          "sha256": "3802f9fb40b6a7948f2bac93713ae00ed378aa12a84a976f3cb861b8221456ff"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "subtitle": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+          "subtitleSegments": [
+            {
+              "start_seconds": 0.0,
+              "end_seconds": 25.0,
+              "text": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+            },
+            {
+              "start_seconds": 25.0,
+              "end_seconds": 37.44,
+              "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+            }
+          ]
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/9f7e1489-0fd7-4f96-afc7-3e96f642fe9a/edited_video.mp4",
+      "input_url": "/files/inputs/509aaf06-33f7-465a-a6b1-d324089bc0a9_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "0d9b1ed6-1d05-4984-9497-9599ce5bbed9",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance bgm",
+      "input": {
+        "file_name": "b0bdc440-bd93-4351-aeff-3e097f2028de_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\b0bdc440-bd93-4351-aeff-3e097f2028de_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0d9b1ed6-1d05-4984-9497-9599ce5bbed9\\edited_video.mp4",
+        "bytes": 355696,
+        "sha256": "2dc2984bb4aa0df17ff67b6945180962dab875e08fdcb684a8a7c3b0ba870f42"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\0d9b1ed6-1d05-4984-9497-9599ce5bbed9\\edited_video.mp4",
+          "bytes": 355696,
+          "sha256": "2dc2984bb4aa0df17ff67b6945180962dab875e08fdcb684a8a7c3b0ba870f42"
+        },
+        {
+          "file_name": "c9b21643-d276-44fe-9cce-4b2c9922d57e_bgm_test_tone.wav",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\c9b21643-d276-44fe-9cce-4b2c9922d57e_bgm_test_tone.wav",
+          "bytes": 1411244,
+          "sha256": "114cfc7b4a24a30bcb0bfef85472c41220915be6589c9ed34560b71443f1b112"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "backgroundVolume": 0.35
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/0d9b1ed6-1d05-4984-9497-9599ce5bbed9/edited_video.mp4",
+      "input_url": "/files/inputs/b0bdc440-bd93-4351-aeff-3e097f2028de_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "ea50b06a-d0f1-44cf-a095-d681b397c2e8",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "Office acceptance bgm_followup",
+      "input": {
+        "file_name": "73a5306c-f19b-4544-afae-c56297de2e24_edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\73a5306c-f19b-4544-afae-c56297de2e24_edited_video.mp4",
+        "bytes": 355696,
+        "sha256": "2dc2984bb4aa0df17ff67b6945180962dab875e08fdcb684a8a7c3b0ba870f42"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\ea50b06a-d0f1-44cf-a095-d681b397c2e8\\edited_video.mp4",
+        "bytes": 379712,
+        "sha256": "6ac7d7ab3a5767b25fcb59acce585741b33a2cca3e220b8b34a1c759ab1665f0"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\ea50b06a-d0f1-44cf-a095-d681b397c2e8\\edited_video.mp4",
+          "bytes": 379712,
+          "sha256": "6ac7d7ab3a5767b25fcb59acce585741b33a2cca3e220b8b34a1c759ab1665f0"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "fade": true,
+          "backgroundVolume": 0.35,
+          "backgroundAlreadyMixed": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/ea50b06a-d0f1-44cf-a095-d681b397c2e8/edited_video.mp4",
+      "input_url": "/files/inputs/73a5306c-f19b-4544-afae-c56297de2e24_edited_video.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "f53fa80d-0392-488b-b16f-4d74f05a5444",
+      "lane": "photo",
+      "operation": "import",
+      "original_filename": "portrait_autofit.png",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "507316a5-5a03-406a-9e0b-705329fd22bd_portrait_autofit.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\507316a5-5a03-406a-9e0b-705329fd22bd_portrait_autofit.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "primary_output": {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f53fa80d-0392-488b-b16f-4d74f05a5444\\original_photo.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "outputs": [
+        {
+          "file_name": "507316a5-5a03-406a-9e0b-705329fd22bd_portrait_autofit.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\507316a5-5a03-406a-9e0b-705329fd22bd_portrait_autofit.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+        },
+        {
+          "file_name": "original_photo.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f53fa80d-0392-488b-b16f-4d74f05a5444\\original_photo.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          480,
+          960
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/f53fa80d-0392-488b-b16f-4d74f05a5444/original_photo.png",
+      "input_url": "/files/inputs/507316a5-5a03-406a-9e0b-705329fd22bd_portrait_autofit.png",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "932bb360-caa2-45ac-9ac4-256e79dbe6c3",
+      "evidence_id": "9968d6f0-61ca-4245-b632-1d51cedadb73",
+      "lane": "photo",
+      "requested_lane": "photo",
+      "execution_lane": "photo",
+      "operation": "upscale",
+      "command": "4배 업스케일해줘",
+      "request_id": "7e911caf-d614-45c0-b284-e1340fca2e9c",
+      "reference_artifacts": [],
+      "execution_started_at": "2026-10-15T09:23:59.557715+00:00",
+      "execution_finished_at": "2026-10-15T09:24:00.789128+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "openvinotoolkit/open_model_zoo",
+          "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+          "license": "apache-2.0",
+          "weight_name": "single-image-super-resolution-1032.bin",
+          "weight_size_bytes": 119436,
+          "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+        },
+        "local_recovered_package": {
+          "root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+          "read_only": true,
+          "sha384_verified": true
+        }
+      },
+      "adapter": {
+        "id": "intel-open-model-zoo-sisr-1032",
+        "version": "1.1.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU"
+      },
+      "input": {
+        "file_name": "1f2e4625-2af6-4f02-a6a2-163044a6b883_original_photo.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\1f2e4625-2af6-4f02-a6a2-163044a6b883_original_photo.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "runtime_result": {
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f000356c-a43b-4176-8d51-ba4a9e1882ad\\intel_sisr_1032\\upscaled_4x.png",
+            "bytes": 3514505,
+            "sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d",
+            "dimensions": [
+              1920,
+              3840
+            ]
+          }
+        ],
+        "tiles": 10,
+        "scale": 4,
+        "elapsed_ms": 1235.000000000582
+      },
+      "primary_output": {
+        "file_name": "upscaled_4x.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f000356c-a43b-4176-8d51-ba4a9e1882ad\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 3514505,
+        "sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d"
+      },
+      "outputs": [
+        {
+          "file_name": "upscaled_4x.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f000356c-a43b-4176-8d51-ba4a9e1882ad\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 3514505,
+          "sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "932bb360-caa2-45ac-9ac4-256e79dbe6c3",
+          "evidence_id": "9968d6f0-61ca-4245-b632-1d51cedadb73",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T09:24:00.808636+00:00",
+          "started_at": "2026-10-15T09:23:59.556715+00:00",
+          "finished_at": "2026-10-15T09:24:00.808636+00:00",
+          "project_id": "e0d16a40-0ef1-4ec7-a478-489337cdcf4d",
+          "requested_operation": "upscale",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\1f2e4625-2af6-4f02-a6a2-163044a6b883_original_photo.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+            "ingress": "approved-ui"
+          },
+          "input_sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+          "reference_files": [],
+          "retry_provenance": {
+            "job_id": "932bb360-caa2-45ac-9ac4-256e79dbe6c3",
+            "evidence_id": "9968d6f0-61ca-4245-b632-1d51cedadb73",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "intel-open-model-zoo-sisr-1032",
+          "model_or_program_id": "openvinotoolkit/open_model_zoo",
+          "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+          "license_source": "apache-2.0",
+          "runtime_backend": "openvino-cpu",
+          "device_requirement": "CPU",
+          "execution_context": {
+            "job_id": "932bb360-caa2-45ac-9ac4-256e79dbe6c3",
+            "evidence_id": "9968d6f0-61ca-4245-b632-1d51cedadb73",
+            "lane": "photo",
+            "source_hashes": {
+              "source": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+            },
+            "nl_instruction": "4배 업스케일해줘",
+            "reference_images": [],
+            "retry_provenance": {
+              "job_id": "932bb360-caa2-45ac-9ac4-256e79dbe6c3",
+              "evidence_id": "9968d6f0-61ca-4245-b632-1d51cedadb73",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "intel-open-model-zoo-sisr-1032",
+              "model_or_program_id": "openvinotoolkit/open_model_zoo",
+              "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f000356c-a43b-4176-8d51-ba4a9e1882ad\\intel_sisr_1032\\upscaled_4x.png",
+            "type": ".png",
+            "size_bytes": 3514505,
+            "sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-01d58518-0eeb-4654-93b8-fe1ed9838f9d",
+            "input_sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+            "output_sha256": "e7b9e6e8d1f27d54ac434c7506d77ca0968dd6d2e1d8436adc9335d2e095ed4d",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f000356c-a43b-4176-8d51-ba4a9e1882ad\\intel_sisr_1032\\upscaled_4x.png",
+            "elapsed_ms": 1235.000000000582
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_url": "/files/jobs/f000356c-a43b-4176-8d51-ba4a9e1882ad/intel_sisr_1032/upscaled_4x.png",
+      "input_url": "/files/inputs/1f2e4625-2af6-4f02-a6a2-163044a6b883_original_photo.png",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "007fd932-4fdb-4c49-a288-2063732177a6",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "2c4c2f50-1629-4864-a9b3-64e77debe302_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\2c4c2f50-1629-4864-a9b3-64e77debe302_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\007fd932-4fdb-4c49-a288-2063732177a6\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "2c4c2f50-1629-4864-a9b3-64e77debe302_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\2c4c2f50-1629-4864-a9b3-64e77debe302_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\007fd932-4fdb-4c49-a288-2063732177a6\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/007fd932-4fdb-4c49-a288-2063732177a6/original_video_preview.mp4",
+      "input_url": "/files/inputs/2c4c2f50-1629-4864-a9b3-64e77debe302_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "d5edbdf0-edca-482f-9a59-3d83b360943b",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "영상 편집",
+      "input": {
+        "file_name": "58aa14c8-6398-4131-98a2-3fa875c2f9a3_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\58aa14c8-6398-4131-98a2-3fa875c2f9a3_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\d5edbdf0-edca-482f-9a59-3d83b360943b\\edited_video.mp4",
+        "bytes": 226902,
+        "sha256": "0662735dffd43b940b39a2183b65500a806b8cf7ab28ee89dee6cc69ddc9d64d"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\d5edbdf0-edca-482f-9a59-3d83b360943b\\edited_video.mp4",
+          "bytes": 226902,
+          "sha256": "0662735dffd43b940b39a2183b65500a806b8cf7ab28ee89dee6cc69ddc9d64d"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 3,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "subtitle": ""
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/d5edbdf0-edca-482f-9a59-3d83b360943b/edited_video.mp4",
+      "input_url": "/files/inputs/58aa14c8-6398-4131-98a2-3fa875c2f9a3_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "5fd5817e-82b3-4294-ac70-b5858acc0a94",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "b6262b68-f994-418a-89b6-34bd45ba8846_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\b6262b68-f994-418a-89b6-34bd45ba8846_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\5fd5817e-82b3-4294-ac70-b5858acc0a94\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "b6262b68-f994-418a-89b6-34bd45ba8846_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\b6262b68-f994-418a-89b6-34bd45ba8846_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\5fd5817e-82b3-4294-ac70-b5858acc0a94\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/5fd5817e-82b3-4294-ac70-b5858acc0a94/original_video_preview.mp4",
+      "input_url": "/files/inputs/b6262b68-f994-418a-89b6-34bd45ba8846_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "baa58d30-b13a-4717-b89b-bdc34f98d80d",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "영상 편집",
+      "input": {
+        "file_name": "04bb25f9-85a7-40a8-b146-5ec2dd9a651d_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\04bb25f9-85a7-40a8-b146-5ec2dd9a651d_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "split_1.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\baa58d30-b13a-4717-b89b-bdc34f98d80d\\split_1.mp4",
+        "bytes": 157213,
+        "sha256": "24d9300fa71e49298fcbd23ab028f378029cdddd685676084a226f02a6c62c91"
+      },
+      "outputs": [
+        {
+          "file_name": "split_1.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\baa58d30-b13a-4717-b89b-bdc34f98d80d\\split_1.mp4",
+          "bytes": 157213,
+          "sha256": "24d9300fa71e49298fcbd23ab028f378029cdddd685676084a226f02a6c62c91"
+        },
+        {
+          "file_name": "split_2.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\baa58d30-b13a-4717-b89b-bdc34f98d80d\\split_2.mp4",
+          "bytes": 208898,
+          "sha256": "7bee4a0c215653895390c3f69927a66e5933f5362a341d1c374a97096899f056"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": true,
+          "start": 1,
+          "duration": 3,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "subtitle": ""
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/baa58d30-b13a-4717-b89b-bdc34f98d80d/split_1.mp4",
+      "input_url": "/files/inputs/04bb25f9-85a7-40a8-b146-5ec2dd9a651d_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "76c46c29-711c-4c3a-8c4f-f9956653ca9c",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "2ce3a3d6-b62b-475e-8bb4-4a100b334c37_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\2ce3a3d6-b62b-475e-8bb4-4a100b334c37_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\76c46c29-711c-4c3a-8c4f-f9956653ca9c\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "2ce3a3d6-b62b-475e-8bb4-4a100b334c37_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\2ce3a3d6-b62b-475e-8bb4-4a100b334c37_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\76c46c29-711c-4c3a-8c4f-f9956653ca9c\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/76c46c29-711c-4c3a-8c4f-f9956653ca9c/original_video_preview.mp4",
+      "input_url": "/files/inputs/2ce3a3d6-b62b-475e-8bb4-4a100b334c37_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "f63070bc-1558-4955-914f-f7f1a4f82732",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "영상 편집",
+      "input": {
+        "file_name": "471a1c1b-c273-465b-ac2e-c4b8f91c0e37_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\471a1c1b-c273-465b-ac2e-c4b8f91c0e37_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f63070bc-1558-4955-914f-f7f1a4f82732\\edited_video.mp4",
+        "bytes": 226193,
+        "sha256": "721acc73ad78be94dcecbb6dc1ebefa25128ee2cf8cd888d904335790445cbe6"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\f63070bc-1558-4955-914f-f7f1a4f82732\\edited_video.mp4",
+          "bytes": 226193,
+          "sha256": "721acc73ad78be94dcecbb6dc1ebefa25128ee2cf8cd888d904335790445cbe6"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 3,
+          "speed": 1.2,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "subtitle": ""
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/f63070bc-1558-4955-914f-f7f1a4f82732/edited_video.mp4",
+      "input_url": "/files/inputs/471a1c1b-c273-465b-ac2e-c4b8f91c0e37_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "1af83dd3-de4b-45a9-a72b-8f3962782531",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "b3d7c15c-17f0-4f02-a189-f7c34736470c_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\b3d7c15c-17f0-4f02-a189-f7c34736470c_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\1af83dd3-de4b-45a9-a72b-8f3962782531\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "b3d7c15c-17f0-4f02-a189-f7c34736470c_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\b3d7c15c-17f0-4f02-a189-f7c34736470c_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\1af83dd3-de4b-45a9-a72b-8f3962782531\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/1af83dd3-de4b-45a9-a72b-8f3962782531/original_video_preview.mp4",
+      "input_url": "/files/inputs/b3d7c15c-17f0-4f02-a189-f7c34736470c_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "dcf70c92-3b21-4e59-a7f1-149290bf4b39",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "회전",
+      "input": {
+        "file_name": "1a5d0dea-61f4-4a62-9a8a-2d6c3dc3df20_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\1a5d0dea-61f4-4a62-9a8a-2d6c3dc3df20_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\dcf70c92-3b21-4e59-a7f1-149290bf4b39\\edited_video.mp4",
+        "bytes": 240521,
+        "sha256": "356379ce675b304375f563fb5ff033f051f1f0fcfbc591fd9beeb14b7cc71d40"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\dcf70c92-3b21-4e59-a7f1-149290bf4b39\\edited_video.mp4",
+          "bytes": 240521,
+          "sha256": "356379ce675b304375f563fb5ff033f051f1f0fcfbc591fd9beeb14b7cc71d40"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 0,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "rotate": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/dcf70c92-3b21-4e59-a7f1-149290bf4b39/edited_video.mp4",
+      "input_url": "/files/inputs/1a5d0dea-61f4-4a62-9a8a-2d6c3dc3df20_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "9453d366-a491-4608-90a1-f2b06e504b0f",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "acc024a4-2842-41c2-9618-bb16db4507fe_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\acc024a4-2842-41c2-9618-bb16db4507fe_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\9453d366-a491-4608-90a1-f2b06e504b0f\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "acc024a4-2842-41c2-9618-bb16db4507fe_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\acc024a4-2842-41c2-9618-bb16db4507fe_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\9453d366-a491-4608-90a1-f2b06e504b0f\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/9453d366-a491-4608-90a1-f2b06e504b0f/original_video_preview.mp4",
+      "input_url": "/files/inputs/acc024a4-2842-41c2-9618-bb16db4507fe_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "11270e63-dfd9-4412-b386-06ac03b08855",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "30초 숏폼 변환",
+      "input": {
+        "file_name": "2ef3e72b-5379-476f-9b26-55343387cf04_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\2ef3e72b-5379-476f-9b26-55343387cf04_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\11270e63-dfd9-4412-b386-06ac03b08855\\edited_video.mp4",
+        "bytes": 134225,
+        "sha256": "7c79ffbbffe32b3affd030de41fa470e209b77546f2806442947009fc0fd28d7"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\11270e63-dfd9-4412-b386-06ac03b08855\\edited_video.mp4",
+          "bytes": 134225,
+          "sha256": "7c79ffbbffe32b3affd030de41fa470e209b77546f2806442947009fc0fd28d7"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 30,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "aspect": "9:16"
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/11270e63-dfd9-4412-b386-06ac03b08855/edited_video.mp4",
+      "input_url": "/files/inputs/2ef3e72b-5379-476f-9b26-55343387cf04_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "636d5c77-2b19-453b-aee5-d0b49684c067",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "0e3cd019-9745-4428-9e00-1b22829852f3_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\0e3cd019-9745-4428-9e00-1b22829852f3_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\636d5c77-2b19-453b-aee5-d0b49684c067\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "0e3cd019-9745-4428-9e00-1b22829852f3_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\0e3cd019-9745-4428-9e00-1b22829852f3_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\636d5c77-2b19-453b-aee5-d0b49684c067\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/636d5c77-2b19-453b-aee5-d0b49684c067/original_video_preview.mp4",
+      "input_url": "/files/inputs/0e3cd019-9745-4428-9e00-1b22829852f3_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "2f7eb002-8ae2-4ea0-adcf-3d9c621707cb",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "장면 전환",
+      "input": {
+        "file_name": "630e0c97-0376-4c52-afc5-7e68de525fdc_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\630e0c97-0376-4c52-afc5-7e68de525fdc_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\2f7eb002-8ae2-4ea0-adcf-3d9c621707cb\\edited_video.mp4",
+        "bytes": 293012,
+        "sha256": "2d1529990a5376395f681a5082947c4e06d33b8429a9e218a04b592a6d2ed5ba"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\2f7eb002-8ae2-4ea0-adcf-3d9c621707cb\\edited_video.mp4",
+          "bytes": 293012,
+          "sha256": "2d1529990a5376395f681a5082947c4e06d33b8429a9e218a04b592a6d2ed5ba"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 0,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "fade": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/2f7eb002-8ae2-4ea0-adcf-3d9c621707cb/edited_video.mp4",
+      "input_url": "/files/inputs/630e0c97-0376-4c52-afc5-7e68de525fdc_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "9bbc62bd-dbe8-48a8-afee-66a24585a1e9",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "7bf3f301-ed84-4262-be18-edc061889bde_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\7bf3f301-ed84-4262-be18-edc061889bde_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\9bbc62bd-dbe8-48a8-afee-66a24585a1e9\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "7bf3f301-ed84-4262-be18-edc061889bde_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\7bf3f301-ed84-4262-be18-edc061889bde_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\9bbc62bd-dbe8-48a8-afee-66a24585a1e9\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/9bbc62bd-dbe8-48a8-afee-66a24585a1e9/original_video_preview.mp4",
+      "input_url": "/files/inputs/7bf3f301-ed84-4262-be18-edc061889bde_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "90f5a249-3d13-47a7-a16e-749dee758f86",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "영상 효과",
+      "input": {
+        "file_name": "664ab597-b748-4384-b9a1-87afea5f2a28_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\664ab597-b748-4384-b9a1-87afea5f2a28_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\90f5a249-3d13-47a7-a16e-749dee758f86\\edited_video.mp4",
+        "bytes": 224410,
+        "sha256": "c9116610aa826eb37b0fd3b8f6ed1e399cac2de8935ff584412c570bf9d9a7e5"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\90f5a249-3d13-47a7-a16e-749dee758f86\\edited_video.mp4",
+          "bytes": 224410,
+          "sha256": "c9116610aa826eb37b0fd3b8f6ed1e399cac2de8935ff584412c570bf9d9a7e5"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 0,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "effect": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/90f5a249-3d13-47a7-a16e-749dee758f86/edited_video.mp4",
+      "input_url": "/files/inputs/664ab597-b748-4384-b9a1-87afea5f2a28_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "60c9ff3e-a7a8-4081-89cd-3d932271ab14",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "eac73195-aa70-48e1-9fa5-27aa77544a99_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\eac73195-aa70-48e1-9fa5-27aa77544a99_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\60c9ff3e-a7a8-4081-89cd-3d932271ab14\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "eac73195-aa70-48e1-9fa5-27aa77544a99_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\eac73195-aa70-48e1-9fa5-27aa77544a99_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\60c9ff3e-a7a8-4081-89cd-3d932271ab14\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/60c9ff3e-a7a8-4081-89cd-3d932271ab14/original_video_preview.mp4",
+      "input_url": "/files/inputs/eac73195-aa70-48e1-9fa5-27aa77544a99_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "838f80d3-2aba-4a7f-8cfe-5994d30fc4b3",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "장면 변화 기반 하이라이트 추출",
+      "input": {
+        "file_name": "99f1f0d0-57b8-488d-ac2a-c05217d6f113_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\99f1f0d0-57b8-488d-ac2a-c05217d6f113_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\838f80d3-2aba-4a7f-8cfe-5994d30fc4b3\\edited_video.mp4",
+        "bytes": 241122,
+        "sha256": "37884cba39b58b6d6caa0862ca36e19b888300525378fa26cfd25194db896b7d"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\838f80d3-2aba-4a7f-8cfe-5994d30fc4b3\\edited_video.mp4",
+          "bytes": 241122,
+          "sha256": "37884cba39b58b6d6caa0862ca36e19b888300525378fa26cfd25194db896b7d"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0.0,
+          "duration": 5.208333333333333,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "highlight": true,
+          "highlight_method": "measured_scene_window_v1"
+        },
+        "model_inference": false,
+        "sampled_frames": 6,
+        "analysis": {
+          "method": "measured_scene_window_v1",
+          "model_inference": false,
+          "semantic_understanding": false,
+          "source_duration": 5.208333333333333,
+          "requested_duration": 30.0,
+          "start": 0.0,
+          "duration": 5.208333333333333,
+          "sample_count": 6,
+          "samples": [
+            {
+              "second": 0.0,
+              "motion": 0.0,
+              "exposure": 75.0551,
+              "sharpness": 5376.1085,
+              "score": 10.0,
+              "usable": true
+            },
+            {
+              "second": 1.0,
+              "motion": 10.2533,
+              "exposure": 75.1508,
+              "sharpness": 4236.9277,
+              "score": 20.2533,
+              "usable": true
+            },
+            {
+              "second": 2.0,
+              "motion": 15.074,
+              "exposure": 73.0503,
+              "sharpness": 1924.7227,
+              "score": 25.074,
+              "usable": true
+            },
+            {
+              "second": 3.0,
+              "motion": 16.055,
+              "exposure": 70.9515,
+              "sharpness": 3034.765,
+              "score": 26.055,
+              "usable": true
+            },
+            {
+              "second": 4.0,
+              "motion": 16.1397,
+              "exposure": 69.4827,
+              "sharpness": 2001.8821,
+              "score": 26.1397,
+              "usable": true
+            },
+            {
+              "second": 5.0,
+              "motion": 12.371,
+              "exposure": 71.0932,
+              "sharpness": 2520.8847,
+              "score": 22.371,
+              "usable": true
+            }
+          ],
+          "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+        }
+      },
+      "preview_url": "/files/jobs/838f80d3-2aba-4a7f-8cfe-5994d30fc4b3/edited_video.mp4",
+      "input_url": "/files/inputs/99f1f0d0-57b8-488d-ac2a-c05217d6f113_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "05eb1a94-135c-4fcc-bb55-526e48de7a5e",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "a811658d-26e9-494f-b5ec-003abc835f74_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\a811658d-26e9-494f-b5ec-003abc835f74_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\05eb1a94-135c-4fcc-bb55-526e48de7a5e\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "a811658d-26e9-494f-b5ec-003abc835f74_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\a811658d-26e9-494f-b5ec-003abc835f74_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\05eb1a94-135c-4fcc-bb55-526e48de7a5e\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/05eb1a94-135c-4fcc-bb55-526e48de7a5e/original_video_preview.mp4",
+      "input_url": "/files/inputs/a811658d-26e9-494f-b5ec-003abc835f74_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "e16e96e0-855f-43f6-bb39-6b82c45889a0",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "장면 분석 자동 편집",
+      "input": {
+        "file_name": "ff6ce2f5-bcfb-44d7-9fed-ca30d80886d4_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\ff6ce2f5-bcfb-44d7-9fed-ca30d80886d4_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\e16e96e0-855f-43f6-bb39-6b82c45889a0\\edited_video.mp4",
+        "bytes": 241122,
+        "sha256": "37884cba39b58b6d6caa0862ca36e19b888300525378fa26cfd25194db896b7d"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\e16e96e0-855f-43f6-bb39-6b82c45889a0\\edited_video.mp4",
+          "bytes": 241122,
+          "sha256": "37884cba39b58b6d6caa0862ca36e19b888300525378fa26cfd25194db896b7d"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0.0,
+          "duration": 5.208333333333333,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "auto_edit": true,
+          "highlight_method": "measured_scene_window_v1"
+        },
+        "model_inference": false,
+        "sampled_frames": 6,
+        "analysis": {
+          "method": "measured_scene_window_v1",
+          "model_inference": false,
+          "semantic_understanding": false,
+          "source_duration": 5.208333333333333,
+          "requested_duration": 30.0,
+          "start": 0.0,
+          "duration": 5.208333333333333,
+          "sample_count": 6,
+          "samples": [
+            {
+              "second": 0.0,
+              "motion": 0.0,
+              "exposure": 75.0551,
+              "sharpness": 5376.1085,
+              "score": 10.0,
+              "usable": true
+            },
+            {
+              "second": 1.0,
+              "motion": 10.2533,
+              "exposure": 75.1508,
+              "sharpness": 4236.9277,
+              "score": 20.2533,
+              "usable": true
+            },
+            {
+              "second": 2.0,
+              "motion": 15.074,
+              "exposure": 73.0503,
+              "sharpness": 1924.7227,
+              "score": 25.074,
+              "usable": true
+            },
+            {
+              "second": 3.0,
+              "motion": 16.055,
+              "exposure": 70.9515,
+              "sharpness": 3034.765,
+              "score": 26.055,
+              "usable": true
+            },
+            {
+              "second": 4.0,
+              "motion": 16.1397,
+              "exposure": 69.4827,
+              "sharpness": 2001.8821,
+              "score": 26.1397,
+              "usable": true
+            },
+            {
+              "second": 5.0,
+              "motion": 12.371,
+              "exposure": 71.0932,
+              "sharpness": 2520.8847,
+              "score": 22.371,
+              "usable": true
+            }
+          ],
+          "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+        }
+      },
+      "preview_url": "/files/jobs/e16e96e0-855f-43f6-bb39-6b82c45889a0/edited_video.mp4",
+      "input_url": "/files/inputs/ff6ce2f5-bcfb-44d7-9fed-ca30d80886d4_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "896b5af2-cbe6-4307-b3b0-0d0416e5a4fd",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "fdea11df-e19d-45c7-af73-4d7b75924fc3_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\fdea11df-e19d-45c7-af73-4d7b75924fc3_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\896b5af2-cbe6-4307-b3b0-0d0416e5a4fd\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "fdea11df-e19d-45c7-af73-4d7b75924fc3_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\fdea11df-e19d-45c7-af73-4d7b75924fc3_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\896b5af2-cbe6-4307-b3b0-0d0416e5a4fd\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/896b5af2-cbe6-4307-b3b0-0d0416e5a4fd/original_video_preview.mp4",
+      "input_url": "/files/inputs/fdea11df-e19d-45c7-af73-4d7b75924fc3_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "8c0c5b44-51c1-469c-a4f6-5e57b3b7f847",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "30초 숏폼 변환",
+      "input": {
+        "file_name": "99364384-60b7-4afc-83b2-d8e753be09c7_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\99364384-60b7-4afc-83b2-d8e753be09c7_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8c0c5b44-51c1-469c-a4f6-5e57b3b7f847\\edited_video.mp4",
+        "bytes": 134225,
+        "sha256": "7c79ffbbffe32b3affd030de41fa470e209b77546f2806442947009fc0fd28d7"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8c0c5b44-51c1-469c-a4f6-5e57b3b7f847\\edited_video.mp4",
+          "bytes": 134225,
+          "sha256": "7c79ffbbffe32b3affd030de41fa470e209b77546f2806442947009fc0fd28d7"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 30,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "aspect": "9:16"
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/8c0c5b44-51c1-469c-a4f6-5e57b3b7f847/edited_video.mp4",
+      "input_url": "/files/inputs/99364384-60b7-4afc-83b2-d8e753be09c7_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "8dd6c73c-23da-4691-8090-6ecf646c07d6",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "영상 편집",
+      "input": {
+        "file_name": "35c09a20-b57d-4b8a-b4d5-5e96f5ecda98_edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\35c09a20-b57d-4b8a-b4d5-5e96f5ecda98_edited_video.mp4",
+        "bytes": 134225,
+        "sha256": "7c79ffbbffe32b3affd030de41fa470e209b77546f2806442947009fc0fd28d7"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8dd6c73c-23da-4691-8090-6ecf646c07d6\\edited_video.mp4",
+        "bytes": 130400,
+        "sha256": "222f001081b7b21e808eb15f95f48d9232c86064aca21fd243096300e36daacc"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8dd6c73c-23da-4691-8090-6ecf646c07d6\\edited_video.mp4",
+          "bytes": 130400,
+          "sha256": "222f001081b7b21e808eb15f95f48d9232c86064aca21fd243096300e36daacc"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 0,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "subtitle": "사무실 Windows 한글 자막 검수"
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/8dd6c73c-23da-4691-8090-6ecf646c07d6/edited_video.mp4",
+      "input_url": "/files/inputs/35c09a20-b57d-4b8a-b4d5-5e96f5ecda98_edited_video.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "37cbb652-ef0e-46d4-9aa5-2f37dac71ebd",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "a68a19ee-afc8-4cb7-a589-d1b96b2e2490_video_original.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\a68a19ee-afc8-4cb7-a589-d1b96b2e2490_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\37cbb652-ef0e-46d4-9aa5-2f37dac71ebd\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "a68a19ee-afc8-4cb7-a589-d1b96b2e2490_video_original.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\a68a19ee-afc8-4cb7-a589-d1b96b2e2490_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\37cbb652-ef0e-46d4-9aa5-2f37dac71ebd\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/37cbb652-ef0e-46d4-9aa5-2f37dac71ebd/original_video_preview.mp4",
+      "input_url": "/files/inputs/a68a19ee-afc8-4cb7-a589-d1b96b2e2490_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "d3e7ad70-5108-4772-bdbd-c17da1a1cc59",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "배경음악 추가",
+      "input": {
+        "file_name": "2201b5c7-32ca-4680-aef9-5cf159c51fdd_original_video_preview.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\2201b5c7-32ca-4680-aef9-5cf159c51fdd_original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\d3e7ad70-5108-4772-bdbd-c17da1a1cc59\\edited_video.mp4",
+        "bytes": 327826,
+        "sha256": "eace929f73980cd9fa68174a7fc54a23aa65f6a3bf3d00efaf8798fe448ff997"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\d3e7ad70-5108-4772-bdbd-c17da1a1cc59\\edited_video.mp4",
+          "bytes": 327826,
+          "sha256": "eace929f73980cd9fa68174a7fc54a23aa65f6a3bf3d00efaf8798fe448ff997"
+        },
+        {
+          "file_name": "4bc55188-8c98-4573-b156-aa208c1fe3bf_bgm_test_tone.wav",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\4bc55188-8c98-4573-b156-aa208c1fe3bf_bgm_test_tone.wav",
+          "bytes": 1411244,
+          "sha256": "114cfc7b4a24a30bcb0bfef85472c41220915be6589c9ed34560b71443f1b112"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 0,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "backgroundVolume": 0.35
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/d3e7ad70-5108-4772-bdbd-c17da1a1cc59/edited_video.mp4",
+      "input_url": "/files/inputs/2201b5c7-32ca-4680-aef9-5cf159c51fdd_original_video_preview.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "1f59806e-5821-46dc-9aa5-3e71349833cb",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "AI 대화 편집 · 밝게 편집해줘",
+      "input": {
+        "file_name": "edbf1e8c-1e82-4547-bef7-e2b03496e7fb_edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\edbf1e8c-1e82-4547-bef7-e2b03496e7fb_edited_video.mp4",
+        "bytes": 327826,
+        "sha256": "eace929f73980cd9fa68174a7fc54a23aa65f6a3bf3d00efaf8798fe448ff997"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\1f59806e-5821-46dc-9aa5-3e71349833cb\\edited_video.mp4",
+        "bytes": 308432,
+        "sha256": "3bb0b0c1f483a02cf78023248dca0b9386724ae2a2660a704248d40295c0dd28"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\1f59806e-5821-46dc-9aa5-3e71349833cb\\edited_video.mp4",
+          "bytes": 308432,
+          "sha256": "3bb0b0c1f483a02cf78023248dca0b9386724ae2a2660a704248d40295c0dd28"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 0,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 15,
+          "contrast": 0,
+          "saturation": 0,
+          "backgroundVolume": 0.35,
+          "backgroundAlreadyMixed": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/1f59806e-5821-46dc-9aa5-3e71349833cb/edited_video.mp4",
+      "input_url": "/files/inputs/edbf1e8c-1e82-4547-bef7-e2b03496e7fb_edited_video.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "4382a446-1ad4-4884-bb17-265464d33269",
+      "evidence_id": "fcb2a60e-5698-45d5-80ab-dc49a8cbb39c",
+      "lane": "korean_audio",
+      "requested_lane": "korean_audio",
+      "execution_lane": "korean_audio",
+      "operation": "transcribe",
+      "command": "자동으로 자막 넣어줘",
+      "request_id": "d6fa6d96-5dc7-412b-8afd-3205469057a6",
+      "reference_artifacts": [],
+      "execution_started_at": "2026-10-15T09:24:47.675242+00:00",
+      "execution_finished_at": "2026-10-15T09:24:56.022828+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+          "license": "mit",
+          "weight_name": "model.safetensors",
+          "weight_size_bytes": 966995080,
+          "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+        },
+        "local_recovered_package": {
+          "root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\models\\whisper-small",
+          "read_only": true
+        }
+      },
+      "adapter": {
+        "id": "mindle.whisper.ko.verified.cpu",
+        "version": "1.0.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "subtitle_audio.wav",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\subtitle_audio.wav",
+        "bytes": 1198158,
+        "sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee"
+      },
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\subtitle_audio.wav",
+        "input_sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee",
+        "sample_rate": 16000,
+        "segments": [
+          {
+            "start_seconds": 0.0,
+            "end_seconds": 25.0,
+            "text": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+          },
+          {
+            "start_seconds": 25.0,
+            "end_seconds": 37.44,
+            "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+          }
+        ],
+        "full_input_samples_processed": 599040,
+        "duration_seconds": 37.44,
+        "reference": null,
+        "text": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+        "word_error_rate": null,
+        "elapsed_ms": 8337.63,
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\whisper\\korean_transcript.json",
+            "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "bytes": 550
+          }
+        ]
+      },
+      "primary_output": {
+        "file_name": "korean_transcript.json",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\whisper\\korean_transcript.json",
+        "bytes": 550,
+        "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84"
+      },
+      "outputs": [
+        {
+          "file_name": "subtitle_audio.wav",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\subtitle_audio.wav",
+          "bytes": 1198158,
+          "sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee"
+        },
+        {
+          "file_name": "korean_transcript.json",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\whisper\\korean_transcript.json",
+          "bytes": 550,
+          "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "4382a446-1ad4-4884-bb17-265464d33269",
+          "evidence_id": "fcb2a60e-5698-45d5-80ab-dc49a8cbb39c",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T09:24:56.023828+00:00",
+          "started_at": "2026-10-15T09:24:47.675242+00:00",
+          "finished_at": "2026-10-15T09:24:56.023828+00:00",
+          "project_id": "e0d16a40-0ef1-4ec7-a478-489337cdcf4d",
+          "requested_operation": "transcribe",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\subtitle_audio.wav",
+            "sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee",
+            "ingress": "approved-ui-extracted-audio",
+            "derived_from": {
+              "file_name": "21ffc196-960f-44ed-b9f0-f9f0d8216a36_korean_repeated_37s_44100_stereo.wav",
+              "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\21ffc196-960f-44ed-b9f0-f9f0d8216a36_korean_repeated_37s_44100_stereo.wav",
+              "bytes": 6604494,
+              "sha256": "22776051165ae4b2c0193cf9db1b861ee2af9b93491ce2ff0de9097aea77beb6"
+            }
+          },
+          "input_sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee",
+          "reference_files": [],
+          "retry_provenance": {
+            "job_id": "4382a446-1ad4-4884-bb17-265464d33269",
+            "evidence_id": "fcb2a60e-5698-45d5-80ab-dc49a8cbb39c",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "mindle.whisper.ko.verified.cpu",
+          "model_or_program_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+          "license_source": "mit",
+          "runtime_backend": "transformers-pytorch",
+          "device_requirement": "cpu",
+          "execution_context": {
+            "job_id": "4382a446-1ad4-4884-bb17-265464d33269",
+            "evidence_id": "fcb2a60e-5698-45d5-80ab-dc49a8cbb39c",
+            "lane": "korean_audio",
+            "source_hashes": {
+              "source": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee"
+            },
+            "nl_instruction": "자동으로 자막 넣어줘",
+            "reference_images": [],
+            "retry_provenance": {
+              "job_id": "4382a446-1ad4-4884-bb17-265464d33269",
+              "evidence_id": "fcb2a60e-5698-45d5-80ab-dc49a8cbb39c",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "mindle.whisper.ko.verified.cpu",
+              "model_or_program_id": "openai/whisper-small",
+              "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\whisper\\korean_transcript.json",
+            "type": ".json",
+            "size_bytes": 550,
+            "sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-93479fb4-c37e-427b-9449-56d53e378a1e",
+            "input_sha256": "5b23a25344b85581a16dab1d13ac833a9f13b8015fadb64738aa75326a07ceee",
+            "output_sha256": "ee5fdcd8cd602f431ff65df84e8c85e92f785cbeb5993b1be92f3be9982bce84",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\8bf0e230-652c-4487-a5e0-6e7da9395257\\whisper\\korean_transcript.json",
+            "elapsed_ms": 8337.63
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_url": "/files/jobs/8bf0e230-652c-4487-a5e0-6e7da9395257/whisper/korean_transcript.json",
+      "input_url": "/files/jobs/8bf0e230-652c-4487-a5e0-6e7da9395257/subtitle_audio.wav",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "784c8709-9ecc-424e-a2bd-735c3c80033a",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "자동 자막 적용",
+      "input": {
+        "file_name": "928ad84b-c2ff-431c-9356-7e6071b4b1cd_edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\928ad84b-c2ff-431c-9356-7e6071b4b1cd_edited_video.mp4",
+        "bytes": 308432,
+        "sha256": "3bb0b0c1f483a02cf78023248dca0b9386724ae2a2660a704248d40295c0dd28"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\784c8709-9ecc-424e-a2bd-735c3c80033a\\edited_video.mp4",
+        "bytes": 284879,
+        "sha256": "c8fb412095b59d9970e836a662ee92874197d1f3fe88f7b4eb448cf4ec86543b"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\784c8709-9ecc-424e-a2bd-735c3c80033a\\edited_video.mp4",
+          "bytes": 284879,
+          "sha256": "c8fb412095b59d9970e836a662ee92874197d1f3fe88f7b4eb448cf4ec86543b"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 0,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "subtitle": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+          "subtitleSegments": [
+            {
+              "start_seconds": 0,
+              "end_seconds": 25,
+              "text": "다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다. 다리미 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+            },
+            {
+              "start_seconds": 25,
+              "end_seconds": 37.44,
+              "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다."
+            }
+          ],
+          "backgroundVolume": 0.35,
+          "backgroundAlreadyMixed": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/784c8709-9ecc-424e-a2bd-735c3c80033a/edited_video.mp4",
+      "input_url": "/files/inputs/928ad84b-c2ff-431c-9356-7e6071b4b1cd_edited_video.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "859ae5df-8f3f-4b48-bcd6-aa5af4ad74e9",
+      "lane": "photo",
+      "operation": "import",
+      "original_filename": "portrait_autofit.png",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "c3998ab7-df85-4102-a9e3-b28bd82ed5df_portrait_autofit.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\c3998ab7-df85-4102-a9e3-b28bd82ed5df_portrait_autofit.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "primary_output": {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\859ae5df-8f3f-4b48-bcd6-aa5af4ad74e9\\original_photo.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "outputs": [
+        {
+          "file_name": "c3998ab7-df85-4102-a9e3-b28bd82ed5df_portrait_autofit.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\c3998ab7-df85-4102-a9e3-b28bd82ed5df_portrait_autofit.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+        },
+        {
+          "file_name": "original_photo.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\859ae5df-8f3f-4b48-bcd6-aa5af4ad74e9\\original_photo.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          480,
+          960
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/859ae5df-8f3f-4b48-bcd6-aa5af4ad74e9/original_photo.png",
+      "input_url": "/files/inputs/c3998ab7-df85-4102-a9e3-b28bd82ed5df_portrait_autofit.png",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "aab56e8f-141c-4c8b-9e60-bfea9025415d",
+      "evidence_id": "43265674-11e2-4760-8cf5-5bdec4b7b8a6",
+      "lane": "photo",
+      "requested_lane": "photo",
+      "execution_lane": "photo",
+      "operation": "segment",
+      "command": "배경을 제거해줘",
+      "request_id": "41dba244-2cf4-4db8-9cd3-c50c31b72fca",
+      "reference_artifacts": [],
+      "execution_started_at": "2026-10-15T09:26:09.402884+00:00",
+      "execution_finished_at": "2026-10-15T09:26:13.484809+00:00",
+      "quality_status": "TASK_QUALITY_NOT_BENCHMARKED",
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "model": {
+        "identity": {
+          "repo_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+          "license": "apache-2.0",
+          "weight_name": "model.safetensors",
+          "weight_size_bytes": 323476296,
+          "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+        },
+        "local_recovered_package": {
+          "root": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\runtime\\0e4e12a9e4c7-e533e9ff57d4\\models\\sam21",
+          "read_only": true
+        }
+      },
+      "adapter": {
+        "id": "mindle.sam21.verified.cpu",
+        "version": "1.0.1",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu"
+      },
+      "input": {
+        "file_name": "d5096ca8-8ae7-4ebe-8d20-24cc9d576c8c_original_photo.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\d5096ca8-8ae7-4ebe-8d20-24cc9d576c8c_original_photo.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "runtime_result": {
+        "status": "TESTED_PASS",
+        "input_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\d5096ca8-8ae7-4ebe-8d20-24cc9d576c8c_original_photo.png",
+        "input_sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+        "prompt_point": [
+          160,
+          320
+        ],
+        "selected_mask_index": 2,
+        "foreground_fraction": 0.0248193359375,
+        "elapsed_ms": 4020.97,
+        "outputs": [
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_mask.png",
+            "sha256": "16fb055e516b42244a53980c507c27ab34539c9c45f6fd4af85be0edc0acffe9",
+            "bytes": 1025
+          },
+          {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_overlay.png",
+            "sha256": "a676ded3d304f695e319704515f1248f94d2e6ec27c2e81dde2f641b501339c3",
+            "bytes": 141924
+          }
+        ],
+        "reference_match": null
+      },
+      "primary_output": {
+        "file_name": "photo_overlay.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_overlay.png",
+        "bytes": 141924,
+        "sha256": "a676ded3d304f695e319704515f1248f94d2e6ec27c2e81dde2f641b501339c3"
+      },
+      "outputs": [
+        {
+          "file_name": "photo_mask.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_mask.png",
+          "bytes": 1025,
+          "sha256": "16fb055e516b42244a53980c507c27ab34539c9c45f6fd4af85be0edc0acffe9"
+        },
+        {
+          "file_name": "photo_overlay.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_overlay.png",
+          "bytes": 141924,
+          "sha256": "a676ded3d304f695e319704515f1248f94d2e6ec27c2e81dde2f641b501339c3"
+        },
+        {
+          "file_name": "photo_foreground_rgba.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_foreground_rgba.png",
+          "bytes": 353847,
+          "sha256": "916588c0913a1d195c58a758dce3f366034cb3df0469af9805ded83d8c053ff6"
+        }
+      ],
+      "backend": {
+        "api_status": 201,
+        "delivery_gate": "DELIVERED",
+        "job_evidence": {
+          "job_id": "aab56e8f-141c-4c8b-9e60-bfea9025415d",
+          "evidence_id": "43265674-11e2-4760-8cf5-5bdec4b7b8a6",
+          "evidence_status": "VERIFY_REQUIRED",
+          "runtime_status": "OUTPUT_VALIDATED",
+          "terminal_state": "succeeded",
+          "recorded_at": "2026-10-15T09:26:13.485809+00:00",
+          "started_at": "2026-10-15T09:26:09.402884+00:00",
+          "finished_at": "2026-10-15T09:26:13.485809+00:00",
+          "project_id": "e0d16a40-0ef1-4ec7-a478-489337cdcf4d",
+          "requested_operation": "segment",
+          "source_provenance": {
+            "source_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\d5096ca8-8ae7-4ebe-8d20-24cc9d576c8c_original_photo.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+            "ingress": "approved-ui"
+          },
+          "input_sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+          "reference_files": [],
+          "retry_provenance": {
+            "job_id": "aab56e8f-141c-4c8b-9e60-bfea9025415d",
+            "evidence_id": "43265674-11e2-4760-8cf5-5bdec4b7b8a6",
+            "attempt": 1
+          },
+          "state_history": [
+            "queued",
+            "validating",
+            "preflight_ready",
+            "dispatched",
+            "running",
+            "output_validating",
+            "succeeded"
+          ],
+          "runtime": {
+            "platform": "Windows-10-10.0.26200-SP0",
+            "hardware": "AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD"
+          },
+          "adapter_id": "mindle.sam21.verified.cpu",
+          "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+          "license_source": "apache-2.0",
+          "runtime_backend": "transformers-pytorch",
+          "device_requirement": "cpu",
+          "execution_context": {
+            "job_id": "aab56e8f-141c-4c8b-9e60-bfea9025415d",
+            "evidence_id": "43265674-11e2-4760-8cf5-5bdec4b7b8a6",
+            "lane": "photo",
+            "source_hashes": {
+              "source": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+            },
+            "nl_instruction": "배경을 제거해줘",
+            "reference_images": [],
+            "retry_provenance": {
+              "job_id": "aab56e8f-141c-4c8b-9e60-bfea9025415d",
+              "evidence_id": "43265674-11e2-4760-8cf5-5bdec4b7b8a6",
+              "attempt": 0
+            },
+            "adapter_identity": {
+              "adapter_id": "mindle.sam21.verified.cpu",
+              "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+              "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+            }
+          },
+          "output_artifact": {
+            "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_overlay.png",
+            "type": ".png",
+            "size_bytes": 141924,
+            "sha256": "a676ded3d304f695e319704515f1248f94d2e6ec27c2e81dde2f641b501339c3",
+            "status": "validated"
+          },
+          "model_scout_delivery": {
+            "status": "DELIVERED",
+            "callback_id": "callback-f7acc0d9-7389-4656-b6ed-40578fe9818e",
+            "input_sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+            "output_sha256": "a676ded3d304f695e319704515f1248f94d2e6ec27c2e81dde2f641b501339c3",
+            "output_path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_overlay.png",
+            "elapsed_ms": 4020.97
+          }
+        }
+      },
+      "execution_environment": {
+        "hardware": "CPU",
+        "gpu_used": false,
+        "paid_compute": false,
+        "platform": "Windows-10-10.0.26200-SP0",
+        "python": "3.11.9",
+        "process": "3.11.9"
+      },
+      "preview_output": {
+        "file_name": "photo_foreground_rgba.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\04129caa-3743-4f3a-aca1-9d70b37c5f5d\\sam_photo\\photo_foreground_rgba.png",
+        "bytes": 353847,
+        "sha256": "916588c0913a1d195c58a758dce3f366034cb3df0469af9805ded83d8c053ff6"
+      },
+      "background_removal": {
+        "engine": "Pillow_apply_verified_SAM_mask",
+        "model_rerun": false,
+        "source_sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+        "mask_sha256": "16fb055e516b42244a53980c507c27ab34539c9c45f6fd4af85be0edc0acffe9"
+      },
+      "preview_url": "/files/jobs/04129caa-3743-4f3a-aca1-9d70b37c5f5d/sam_photo/photo_foreground_rgba.png",
+      "input_url": "/files/inputs/d5096ca8-8ae7-4ebe-8d20-24cc9d576c8c_original_photo.png",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "bc6e90d6-5381-4b71-b69d-ab7389841242",
+      "lane": "photo",
+      "operation": "photo_edit",
+      "command": "AI 대화 편집 · 밝게 보정해줘",
+      "input": {
+        "file_name": "52428fb7-ae41-48a9-acbb-7caf141d8e42_photo_edit.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\inputs\\52428fb7-ae41-48a9-acbb-7caf141d8e42_photo_edit.png",
+        "bytes": 48146,
+        "sha256": "78a6c3ab4640fdbfce45d9a78f8c90e4f93d7607c76ac975a82f11c18946acb6"
+      },
+      "primary_output": {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\bc6e90d6-5381-4b71-b69d-ab7389841242\\edited_photo.png",
+        "bytes": 33601,
+        "sha256": "1061a567670e3c01aa07055704f3a7ad6b21ad160808f9af069f07236e1af700"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_photo.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\jobs\\bc6e90d6-5381-4b71-b69d-ab7389841242\\edited_photo.png",
+          "bytes": 33601,
+          "sha256": "1061a567670e3c01aa07055704f3a7ad6b21ad160808f9af069f07236e1af700"
+        }
+      ],
+      "runtime_result": {
+        "engine": "browser_canvas_pixels_verified_by_Pillow",
+        "result_size": [
+          480,
+          960
+        ],
+        "options": {
+          "brightness": 15,
+          "contrast": 0,
+          "highlights": 0,
+          "shadows": 0,
+          "saturation": 0,
+          "temperature": 0,
+          "sharpness": 0,
+          "rotation": 0,
+          "flipH": false,
+          "flipV": false,
+          "style": "neutral",
+          "resizeWidth": null,
+          "crop": null,
+          "automaticAnalysis": null
+        },
+        "model_inference": false
+      },
+      "preview_url": "/files/jobs/bc6e90d6-5381-4b71-b69d-ab7389841242/edited_photo.png",
+      "input_url": "/files/inputs/52428fb7-ae41-48a9-acbb-7caf141d8e42_photo_edit.png",
+      "reference_urls": []
+    }
+  ],
+  "status": "SAVED",
+  "workspace": {
+    "schema": "MINDLE_WORKSPACE_ASSETS_V1",
+    "references": {
+      "photo": [
+        {
+          "file_name": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\projects\\78a2aa14-15bb-4bf3-809d-8b27a85f11f9_assets\\b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+          "original_filename": "portrait_autofit.png",
+          "mime_type": "image/png",
+          "url": "/files/projects/78a2aa14-15bb-4bf3-809d-8b27a85f11f9_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png"
+        },
+        {
+          "file_name": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+          "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\projects\\78a2aa14-15bb-4bf3-809d-8b27a85f11f9_assets\\8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+          "bytes": 5207847,
+          "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce",
+          "original_filename": "reference_architecture_crop.png",
+          "mime_type": "image/png",
+          "url": "/files/projects/78a2aa14-15bb-4bf3-809d-8b27a85f11f9_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png"
+        }
+      ],
+      "video": []
+    },
+    "audio": {
+      "file_name": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+      "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\projects\\78a2aa14-15bb-4bf3-809d-8b27a85f11f9_assets\\e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+      "bytes": 798778,
+      "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+      "original_filename": "korean_original.wav",
+      "mime_type": "audio/wav",
+      "url": "/files/projects/78a2aa14-15bb-4bf3-809d-8b27a85f11f9_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav"
+    }
+  }
+}
