@@ -1,0 +1,29 @@
+{
+  "source_fix_commit": "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
+  "identity": "GET /api/runtime-identity adds server_pid/server_instance_id/server_started_at/server_command; no control token in this response",
+  "normal_stop": [
+    "GET /api/runtime/control only for loopback Host and same Origin; no-store response",
+    "POST /api/runtime/shutdown requires X-Mindle-Control capability and matching instance/PID",
+    "403 invalid control;409 stale identity/busy;202 accepted",
+    "Every normal HTTP request tracked; busy work/download blocks stop; new requests rejected during draining",
+    "Server exits serve_forever then server_close; no OS process listing or process kill needed"
+  ],
+  "nonce_handling": "Per-instance memory only; not in evidence/logs/runtime identity",
+  "c37_support": "ABSENT; no hot patch or endpoint retry on c37",
+  "new_candidate_required": true,
+  "ui_fix": "Only interaction.css; asset grid max-block-size16rem with internal overflow auto; preserve all assets. Bound video replaced element to existing contain/center frame.",
+  "ui_verification_scope": "Actual source server + real Linux Chromium138 + deterministic density/image fixture and existing c37 exported MP4; no Windows or final visual approval claim",
+  "unchanged": [
+    "ui/index.html",
+    "ui/approved_visual.css",
+    "ui/product_integration.js",
+    "ui/workspace_shell.js",
+    "PHOTO algorithms/weights",
+    "adopted model adapters"
+  ],
+  "remaining": [
+    "Future authorized candidate Windows lifecycle and dense-UI regression",
+    "Actual hearing evidence",
+    "272MB historical R9 ZIP byte receipt"
+  ]
+}

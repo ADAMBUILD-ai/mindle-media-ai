@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RUN",
+  "scope": "One-click package UI export, media hashes and ZIP CRC",
+  "reason": "Local Windows executor initialization failed; no current one-click artifact exists.",
+  "passed": false,
+  "observations": null
+}

@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-10-17T14:36:42.098238+09:00",
+  "browser": "155.0.8059.80",
+  "actual_url": "http://127.0.0.1:18768/",
+  "identity": {
+    "repo_root": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\transition-browser-20261017\\source",
+    "branch": "feature/ad-shortform-bridge-p0-20260926",
+    "head": "ef56f956db5cdaf9e9dd455a5a8c065ce4f15a56",
+    "workspace_ui_fingerprint": "5e8901d3456d2f20de4094062b013fe051b3accfb246bd53eedf00f4806012e7",
+    "file_hashes": {
+      "ui/index.html": "64abc36dfec2d45a052d6abd00e4a6680bdde01326dfc305319096aa5cde8398",
+      "ui/approved_visual.css": "23695715beb425b35580f2c56dc7e657e3a3538d714a8183f532f77a56b1ebc0",
+      "ui/interaction.css": "8aa3983bf84ca7b004f3b1d6016ddaa6d48790236420a56a195c70defa57217f",
+      "ui/interaction.js": "df72202116df07de9e3c52ed4b9b4f23ebd8d40d2e32742aa26f98d187056e01",
+      "ui/product_integration.js": "9535a5c7c83ac52e39cf17fdd77a4178bd3c39fbc875212434c931fdbe3be4ad",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "8ea4fab024bd654e2b89472a00feb0a6f4349e8d2102e44be6d29c6c6d0e0330",
+      "ui/video_workspace.js": "4ff660178009e20e88f5a82d346f98305f0090a21c1c064db8ac42dfeabe848e",
+      "ui/workspace_shell.js": "8254c166773dd8049b6a2241bb77cd28b11167db7627c61fdc2afe18d195bb78"
+    },
+    "runtime_mode": "DEVELOPMENT_UI_WITH_PACKAGE_MODELS",
+    "model_root": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\candidate_38497304486_20261015\\fresh_candidate\\MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0\\_payload",
+    "git_identity_status": "AVAILABLE"
+  },
+  "scope": "SOURCE_REAL_SERVER_OFFICIAL_CHROME_NOT_C37_PACKAGE",
+  "models_executed": false
+}

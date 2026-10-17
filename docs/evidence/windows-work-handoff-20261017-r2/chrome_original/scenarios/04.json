@@ -1,0 +1,68 @@
+{
+  "case": "03_REOPEN_NEW_OPEN_SAVE_FAILURE_RETRY",
+  "started_at": "2026-10-17T14:37:00.682546+09:00",
+  "evidence": {
+    "blocked": {
+      "before": {
+        "previews": [
+          {
+            "kind": "video",
+            "job": null,
+            "src": null
+          },
+          {
+            "kind": "photo",
+            "job": "33e169df-1eb8-4419-99c2-f938c4e726d4",
+            "src": "/files/jobs/33e169df-1eb8-4419-99c2-f938c4e726d4/original_photo.png"
+          }
+        ],
+        "files": [
+          {
+            "kind": "photo",
+            "name": "original_photo.png",
+            "size": 309254
+          },
+          null
+        ],
+        "references": [
+          "",
+          ""
+        ]
+      },
+      "after": {
+        "previews": [
+          {
+            "kind": "video",
+            "job": null,
+            "src": null
+          },
+          {
+            "kind": "photo",
+            "job": "33e169df-1eb8-4419-99c2-f938c4e726d4",
+            "src": "/files/jobs/33e169df-1eb8-4419-99c2-f938c4e726d4/original_photo.png"
+          }
+        ],
+        "files": [
+          {
+            "kind": "photo",
+            "name": "original_photo.png",
+            "size": 309254
+          },
+          null
+        ],
+        "references": [
+          "",
+          ""
+        ]
+      },
+      "rejected_open_requests": 0,
+      "rejected_dialog_retained": true
+    },
+    "restore_calls_while_pending": 1,
+    "save_requests_while_pending": 0,
+    "failure_injected": 503,
+    "normal_retry_saved_project": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37"
+  },
+  "status": "PASS",
+  "finished_at": "2026-10-17T14:37:04.558265+09:00"
+}

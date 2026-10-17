@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_head": "d9da4919cb697b2db00d3c6007968189d3364d02",
+  "directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_PART01_V29_REASSEMBLY_PHOTO_CLOSEOUT_DIRECTIVE_v6.0_20261001.md",
+    "commit": "d9da4919cb697b2db00d3c6007968189d3364d02"
+  },
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO",
+    "EXACT_V29_PART01": "HUMAN_OR_AUTHENTICATED_TRANSFER_REQUIRED"
+  },
+  "required_part01": {
+    "artifact_id": 10797756522,
+    "expected_bytes": 418706393,
+    "expected_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128"
+  },
+  "local_candidate": {
+    "path": "C:\\Users\\PC\\Downloads\\mindle-media-verified-runtime-package-v28_1-part-01.zip",
+    "bytes": 418706255,
+    "sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3",
+    "accepted": false,
+    "reason": "bytes and SHA-256 do not match exact v29 part-01"
+  },
+  "routes": {
+    "gh_cli": "UNAVAILABLE_NOT_INSTALLED_OR_AUTHENTICATED",
+    "github_api": "UNAVAILABLE_WITHOUT_AUTHENTICATED_SESSION",
+    "browser": "TRANSFER_RUN_ACCESS_TIMEOUT_OR_INCOMPLETE_DOWNLOAD",
+    "workflow_rerun": "NOT_EXECUTED_CONTROL_SURFACE_UNAVAILABLE",
+    "direct_huggingface": "NOT_ATTEMPTED"
+  },
+  "reassembly": {
+    "attempted": false,
+    "reason": "exact part-01 missing; mixed generation prohibited",
+    "target_sha256": "93da2189fc37bb42cc60e8335131d2e533440a96c7c6c7e2535dea90834c8a4c"
+  },
+  "lanes": {
+    "photo_segmentation": "REWORK",
+    "photo_4x": "REWORK",
+    "preview": "VERIFY_REQUIRED",
+    "project_save": "VERIFY_REQUIRED",
+    "export": "VERIFY_REQUIRED",
+    "video_tracking": "VERIFY_REQUIRED",
+    "korean_stt": "VERIFY_REQUIRED",
+    "shortform": "VERIFY_REQUIRED"
+  },
+  "fabricated_assets_or_results": false,
+  "final_commit_sha": "5fe05edc6061cc900af5d42cd9710e0d51b66ea3"
+}

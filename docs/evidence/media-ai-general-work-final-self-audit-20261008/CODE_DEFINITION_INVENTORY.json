@@ -1,0 +1,1956 @@
+[
+  {
+    "path": "src/media_ai/verified_model_adapters.py",
+    "sha256": "c87f15eb89f9c3a6d84b12b1380e4eb2c726513039e84dc22884526b1db08d9b",
+    "definitions": [
+      {
+        "name": "sha256_file",
+        "line": 17,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "VerifiedModelIdentity",
+        "line": 26,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "Sam21VerifiedAdapter",
+        "line": 49,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "WhisperKoreanVerifiedAdapter",
+        "line": 261,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "verify_snapshot",
+        "line": 34,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "__init__",
+        "line": 61,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_mask",
+        "line": 79,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_overlay",
+        "line": 111,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "segment_photo",
+        "line": 120,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "track_video",
+        "line": 160,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "close",
+        "line": 255,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "__init__",
+        "line": 275,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "transcribe",
+        "line": 293,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "close",
+        "line": 377,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/router.py",
+    "sha256": "26cb9a808bea2ac676064356f53c749f69d9e28a414003bbe6b1ebcddd94913a",
+    "definitions": [
+      {
+        "name": "route",
+        "line": 7,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/realesrgan_verified_adapter.py",
+    "sha256": "90cfd56b431dc73da2f113726db919cf8d996d86853d43fcebec9f6b2f7529d8",
+    "definitions": [
+      {
+        "name": "sha256_file",
+        "line": 10,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "RealESRGANIdentity",
+        "line": 19,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "RealESRGANX4PlusVerifiedAdapter",
+        "line": 49,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "verify",
+        "line": 33,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "__init__",
+        "line": 56,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "upscale",
+        "line": 83,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/marketing_shortform_gateway.py",
+    "sha256": "c054818cbd571a12f67722962963e1131f4b0cb99e35642b54760305c7ee07f1",
+    "definitions": [
+      {
+        "name": "build_marketing_shortform_request",
+        "line": 5,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/contracts.py",
+    "sha256": "c6fbb7a43fd1007133d6eb28659f333d4a8e1e83416952ea7e75c5b53eacd5b5",
+    "definitions": [
+      {
+        "name": "MediaType",
+        "line": 8,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "JobState",
+        "line": 13,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "MediaJob",
+        "line": 28,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "__post_init__",
+        "line": 48,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "transition",
+        "line": 71,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/photo_adapters.py",
+    "sha256": "60a880d363fa3d45f9373b7ad4e2ccf50fbf65c55ab5181bccb50ed345ba8887",
+    "definitions": [
+      {
+        "name": "PhotoAdapter",
+        "line": 5,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "LocalEnhancementAdapter",
+        "line": 10,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "LocalMaskAdapter",
+        "line": 20,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "select_adapter",
+        "line": 45,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "apply",
+        "line": 8,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "apply",
+        "line": 12,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "apply",
+        "line": 23,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/cli.py",
+    "sha256": "97f6ec073d2048806a5c5dd0cb2b3c2428456b3eaeefa67a5d3223fd0c1e875f",
+    "definitions": [
+      {
+        "name": "main",
+        "line": 7,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/browser_preview.py",
+    "sha256": "2a0d3bbe9f1b0611f6545717b0df00f5a8dc1a7c03b62e6001ae2bab2fd429ee",
+    "definitions": [
+      {
+        "name": "digest",
+        "line": 9,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "tools",
+        "line": 15,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "probe",
+        "line": 20,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "faststart",
+        "line": 27,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "create_preview",
+        "line": 42,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/product_server.py",
+    "sha256": "f4e09e940fa35426f38e29bc733bf1a3853b396e1f25f20a991874478afc88ea",
+    "definitions": [
+      {
+        "name": "ProductHttpServer",
+        "line": 21,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "Handler",
+        "line": 81,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "create_server",
+        "line": 246,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 250,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "__init__",
+        "line": 22,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "run_once",
+        "line": 30,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "runtime_identity",
+        "line": 45,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "log_message",
+        "line": 84,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_json",
+        "line": 87,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_body",
+        "line": 91,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_file",
+        "line": 95,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_no_cache_headers",
+        "line": 134,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "do_GET",
+        "line": 139,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "do_POST",
+        "line": 179,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/__init__.py",
+    "sha256": "e9a5d1bac9397c42f014a49e84a08c01cfc45e7f76ab91fc9522a3c5f2876ef7",
+    "definitions": []
+  },
+  {
+    "path": "src/media_ai/shortform_bridge.py",
+    "sha256": "6ceb9cf75dd7087f438d92c1ad4176ce91c42dfe06f95c7664ef81613711c34a",
+    "definitions": [
+      {
+        "name": "ShortformScene",
+        "line": 19,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "ShortformProductionPlan",
+        "line": 28,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "ShortformContractError",
+        "line": 39,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "normalize_marketing_contract",
+        "line": 43,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_require",
+        "line": 78,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "read_shortform_contract",
+        "line": 82,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "authorize_export",
+        "line": 119,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/runtime_orchestration.py",
+    "sha256": "d3f88c56ff75e1059d50223b35fe5bc9f87e056d3e191551780c6808a3771c77",
+    "definitions": [
+      {
+        "name": "PreflightStatus",
+        "line": 21,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "AdapterSpec",
+        "line": 28,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "AdapterRegistry",
+        "line": 42,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "PreflightReceipt",
+        "line": 83,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "ExecutionContext",
+        "line": 92,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "OutputReceipt",
+        "line": 107,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "artifact_sha256",
+        "line": 113,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "validate_output",
+        "line": 121,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "RuntimeOrchestrator",
+        "line": 168,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "__init__",
+        "line": 43,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_default_adapters",
+        "line": 48,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "resolve",
+        "line": 66,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "register",
+        "line": 69,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "is_ready",
+        "line": 77,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "evidence_value",
+        "line": 102,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "__init__",
+        "line": 170,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "preflight_many",
+        "line": 177,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "preflight",
+        "line": 180,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "dispatch",
+        "line": 207,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "start",
+        "line": 232,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "cancel",
+        "line": 239,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "timeout",
+        "line": 247,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "retry",
+        "line": 255,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "complete",
+        "line": 262,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "accept_model_scout_callback",
+        "line": 278,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_input_requirements",
+        "line": 293,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_operation",
+        "line": 312,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_blocked_input",
+        "line": 321,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_model_unavailable",
+        "line": 330,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_context_value",
+        "line": 339,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/product_runtime.py",
+    "sha256": "3cfcf73bbd3d2b51eafb86b766ab3e4b4778d55708776b48448cb5a29f137db7",
+    "definitions": [
+      {
+        "name": "now",
+        "line": 77,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "file_record",
+        "line": 81,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "ProductModelVault",
+        "line": 85,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "ProductJobService",
+        "line": 206,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "__init__",
+        "line": 88,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "verify_local_models",
+        "line": 96,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_local_snapshot",
+        "line": 111,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_download_files",
+        "line": 124,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "sam",
+        "line": 139,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_alternatives",
+        "line": 147,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_alternative_files",
+        "line": 160,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "whisper",
+        "line": 170,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "realesrgan",
+        "line": 182,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "__init__",
+        "line": 207,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "prepare_browser_preview",
+        "line": 224,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "latest_project",
+        "line": 240,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "prepare_photo_background",
+        "line": 246,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_store_input",
+        "line": 273,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_handoff",
+        "line": 282,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_photo_target_point",
+        "line": 295,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "execute_isolated",
+        "line": 308,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "execute",
+        "line": 359,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "edit_video",
+        "line": 425,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "import_media",
+        "line": 523,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "store_photo_edit",
+        "line": 561,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "save_project",
+        "line": 586,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "export_project",
+        "line": 604,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/ui_contract.py",
+    "sha256": "41eb7bcbb309cfd4b82193e27d44a1a1394b993346096a6e7c3996869633a275",
+    "definitions": [
+      {
+        "name": "normalize_reference_files",
+        "line": 11,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "CommandPhase",
+        "line": 33,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "CommandState",
+        "line": 40,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "MediaUiContract",
+        "line": 78,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "focus",
+        "line": 46,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "attach_reference",
+        "line": 50,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "submit",
+        "line": 62,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "complete",
+        "line": 68,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "fail",
+        "line": 73,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/evidence.py",
+    "sha256": "69fc4e8586d2e02230503170cab7ae136c001ec1b48707b3fd604b4a16b7583e",
+    "definitions": [
+      {
+        "name": "runtime_environment",
+        "line": 10,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "blocked_evidence",
+        "line": 17,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "execution_evidence",
+        "line": 35,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "missing_execution_evidence_fields",
+        "line": 80,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "orchestration_evidence",
+        "line": 89,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/quality_engine.py",
+    "sha256": "4826520d69a62f0266b46700249585e3bdadafbaf1eab7e1aad8f997f8fba8bd",
+    "definitions": [
+      {
+        "name": "_cv",
+        "line": 7,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_pil",
+        "line": 9,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "straighten",
+        "line": 12,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "denoise_upscale",
+        "line": 27,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "inpaint",
+        "line": 34,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "foreground",
+        "line": 39,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/planner.py",
+    "sha256": "d6dbb8f1d6af4d3d10330e9cd7d69efbfc645b1cea1a6e6502180d3a685008b3",
+    "definitions": [
+      {
+        "name": "Step",
+        "line": 5,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "plan",
+        "line": 9,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/intel_sisr_verified_adapter.py",
+    "sha256": "9ebae8197a79b1df31bfb308864ee4060624f17f91a4dfb67a2e86a76d5b14cc",
+    "definitions": [
+      {
+        "name": "sha256_file",
+        "line": 12,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "IntelSISR1032VerifiedAdapter",
+        "line": 20,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "__init__",
+        "line": 28,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "upscale",
+        "line": 34,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "close",
+        "line": 78,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "infer",
+        "line": 44,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/photo.py",
+    "sha256": "0a9528c63a941cd15351b166b5f56e50c8b09d4b53389bc77ae72dc306855b53",
+    "definitions": [
+      {
+        "name": "process_photo",
+        "line": 12,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/job_pipeline.py",
+    "sha256": "6e65944036be7321a77ba5bc9f8f18d5b98e26b0f6240a226e1813d730f27bdb",
+    "definitions": [
+      {
+        "name": "BlockedInputError",
+        "line": 10,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "BlockedModelError",
+        "line": 14,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "ExecutionBoundary",
+        "line": 19,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "requested_operation",
+        "line": 41,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "validate_job",
+        "line": 62,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/marketing_shortform_client.py",
+    "sha256": "d55c19e32982358a6bb98ea90fadf15d120348ed02e0eafa51c8783b3eb05106",
+    "definitions": [
+      {
+        "name": "MarketingShortformClientError",
+        "line": 11,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "MarketingAuthRequired",
+        "line": 15,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "MarketingShortformClient",
+        "line": 20,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "from_env",
+        "line": 27,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_token",
+        "line": 34,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_request",
+        "line": 40,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "create_contract",
+        "line": 55,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "approved_contract",
+        "line": 58,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/ui_bridge.py",
+    "sha256": "0635c571bf6c073cc04df6be74c834ec73e26ab3de6cb895ccda2a697054a830",
+    "definitions": [
+      {
+        "name": "command_to_job",
+        "line": 9,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/job_queue.py",
+    "sha256": "e35b3fdbe48501b748a889db90acb9576ce8bab43289d509c0949c1db62b3657",
+    "definitions": [
+      {
+        "name": "JobQueue",
+        "line": 7,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "__init__",
+        "line": 8,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "enqueue",
+        "line": 12,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "dequeue",
+        "line": 20,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "cancel_before_run",
+        "line": 28,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "retry_eligible",
+        "line": 35,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/model_scout_integration.py",
+    "sha256": "b0270d6e149302e87db7a3bab6b50fbede509ed78676903cf690a91ebce0420b",
+    "definitions": [
+      {
+        "name": "IntegrationStatus",
+        "line": 12,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "HandoffValidationError",
+        "line": 22,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "ModelScoutHandoff",
+        "line": 27,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "InputArtifactManifest",
+        "line": 49,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "AdapterRegistration",
+        "line": 59,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "validate_handoff",
+        "line": 64,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "ModelScoutAdapterRegistry",
+        "line": 87,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "InputArtifactIntake",
+        "line": 126,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "RuntimeIntegrationGate",
+        "line": 148,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "__init__",
+        "line": 89,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "ingest",
+        "line": 93,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "get",
+        "line": 107,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "readiness",
+        "line": 110,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "__init__",
+        "line": 127,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "ingest",
+        "line": 130,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "get",
+        "line": 144,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "__init__",
+        "line": 149,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "readiness",
+        "line": 153,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "accept_callback",
+        "line": 164,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/runtime.py",
+    "sha256": "e171a19ed04e6c8d43bd743929b1e10abc3f3e2199c1a3b1d10feed5b20a0c0e",
+    "definitions": [
+      {
+        "name": "digest",
+        "line": 13,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "MediaRuntime",
+        "line": 19,
+        "kind": "ClassDef"
+      },
+      {
+        "name": "__init__",
+        "line": 20,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "submit",
+        "line": 24,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "retry",
+        "line": 93,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "_write_log",
+        "line": 99,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "submit_batch",
+        "line": 105,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "src/media_ai/video.py",
+    "sha256": "7d7be683ca040ce35daff47ebeb0a58f2cdd715f281659942ec0bcdea08c9a2e",
+    "definitions": [
+      {
+        "name": "process_video",
+        "line": 6,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "scripts/validate_pc_work_control_plane.py",
+    "sha256": "aba8a986adbc41c384d8526adee2ef79d848f96a417d9bafca3f1d75edd5cd7e",
+    "definitions": [
+      {
+        "name": "fail",
+        "line": 15,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "scripts/build_brand_icon.py",
+    "sha256": "ff9303607e28afb466ec3a74421d41aecefb971cca692594999aaf582e66336b",
+    "definitions": [
+      {
+        "name": "build",
+        "line": 8,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "s",
+        "line": 10,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "scripts/employee_installed_function_gate.py",
+    "sha256": "b85b3d6bd2c707c0b8904eb7b83a15b7773d329f13379e7fd4283fa864457c89",
+    "definitions": [
+      {
+        "name": "request",
+        "line": 17,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "digest",
+        "line": 24,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "checked_output",
+        "line": 32,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 41,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "save",
+        "line": 52,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "scripts/employee_package_launcher.py",
+    "sha256": "e5301a9328cfc252c9afb7d334a1642bb43c9088e8d91fc28f62614f70845149",
+    "definitions": [
+      {
+        "name": "sha256",
+        "line": 15,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "verify",
+        "line": 23,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "identity",
+        "line": 38,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 46,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "audit",
+        "line": 60,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "scripts/write_v20_2_4_evidence.py",
+    "sha256": "59c66348a7d4f34b6f1c25c6617e20bf3e2987c4c2e7b0a32bda2af180fb7229",
+    "definitions": [
+      {
+        "name": "write",
+        "line": 13,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "scripts/validate_workspace_mirror.py",
+    "sha256": "c296d7ece3f782a4ab5a9b296801da5d086bb53ccd00b11bf6deaf6134f388be",
+    "definitions": []
+  },
+  {
+    "path": "scripts/build_employee_distribution_package.py",
+    "sha256": "793f8445a569290985438466a686e080cbc60ca54d79b111efca54c5fb08fc16",
+    "definitions": [
+      {
+        "name": "digest",
+        "line": 24,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "write_json",
+        "line": 31,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 35,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "scripts/validate_general_work_control_plane.py",
+    "sha256": "6be78fca62f787906e9c0d001115bab08b50a82539c8e4efa5c3eaa80ceaac85",
+    "definitions": [
+      {
+        "name": "fail",
+        "line": 16,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/download_wikimedia_architecture_fixtures.py",
+    "sha256": "b7a80b2b1ba9e74bc9590021365f0d2a1a39bb1ae2f4a059f37879263046b04b",
+    "definitions": [
+      {
+        "name": "get",
+        "line": 10,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 14,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_verified_adapter_runtime.py",
+    "sha256": "1fba95c9b028525dcf4eb60e4e0eb1a6e92b4b93e6848c641e04d333faa6c9f1",
+    "definitions": [
+      {
+        "name": "utcnow",
+        "line": 98,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "card_license",
+        "line": 102,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "remote_identity",
+        "line": 118,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "choose_private_repo",
+        "line": 127,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "fetch_verified_snapshot",
+        "line": 142,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "assert_remote_baseline",
+        "line": 169,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "find_realesrgan_url",
+        "line": 186,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "acquire_realesrgan",
+        "line": 207,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "download_inputs",
+        "line": 322,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "integration_receipt",
+        "line": 396,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "upload_runtime_evidence",
+        "line": 474,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 524,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "walk",
+        "line": 189,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_product_e2e_continuation.py",
+    "sha256": "4a776294d2e20780048555fff6e3e029500fc7bb7e28f52c60caa90063677104",
+    "definitions": [
+      {
+        "name": "write",
+        "line": 38,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "file_info",
+        "line": 42,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "rebase",
+        "line": 46,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "checkpoint",
+        "line": 56,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "browser",
+        "line": 78,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "media_state",
+        "line": 88,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "photo_ready",
+        "line": 99,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "diagnose",
+        "line": 103,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "decode",
+        "line": 121,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "start_server",
+        "line": 136,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "stop",
+        "line": 144,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "external_dependencies",
+        "line": 147,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "receipt",
+        "line": 174,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 187,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "ready",
+        "line": 122,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "transcript_ready",
+        "line": 219,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_lama_revalidation.py",
+    "sha256": "57e5bfa0b3f2e7c332f36959cc669d2c1d90702108592abf02e35d0fba89004f",
+    "definitions": [
+      {
+        "name": "sha256",
+        "line": 18,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 26,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/validate_intake_manifests.py",
+    "sha256": "d936492fc72f540857c2b1284cfda51e89e262e02da1082202a005f4cc05e61c",
+    "definitions": [
+      {
+        "name": "main",
+        "line": 14,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/stage_perpetual_use_alternatives.py",
+    "sha256": "876bddad3962f7407524c8a8d4371f19caa0008e1a4824efdd3250e14b739a29",
+    "definitions": [
+      {
+        "name": "stamp",
+        "line": 29,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "sha256",
+        "line": 30,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "sha384",
+        "line": 35,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "rec",
+        "line": 40,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "http",
+        "line": 44,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "license_from_card",
+        "line": 47,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 53,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_realesrgan_verified_runtime.py",
+    "sha256": "1cdf8ccfed6803d065cb96479c9a3aa8bcd3998b92eaef4f4268615754a27910",
+    "definitions": [
+      {
+        "name": "utcnow",
+        "line": 60,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "remote_identity",
+        "line": 64,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "assert_prior_baseline",
+        "line": 73,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "fetch_verified_model",
+        "line": 95,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "integration_receipt",
+        "line": 138,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "persist",
+        "line": 208,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 246,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_realesrgan_qualcomm_benchmark.py",
+    "sha256": "d01f472e2974626f2108cb617b16f02b3058a1a890083186dd2b3904afdb0c58",
+    "definitions": [
+      {
+        "name": "sha",
+        "line": 8,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 9,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/import_human_review.py",
+    "sha256": "5c4135a3cd4c929a2a4c6beb6a1815db89643c794e550ad806f8c723dc8b7961",
+    "definitions": [
+      {
+        "name": "validate",
+        "line": 13,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 29,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_sam21_revalidation.py",
+    "sha256": "6b06ae616a494e86f114f2b620ce3983d871f34770f8f99922d81f1cc24d7a09",
+    "definitions": [
+      {
+        "name": "sha256",
+        "line": 18,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 26,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_product_e2e.py",
+    "sha256": "2268aefdd79913b7f635badf07c355d2cf7ce12fa69c68eaf8237fb968bd8b15",
+    "definitions": [
+      {
+        "name": "now",
+        "line": 43,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "record",
+        "line": 44,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "assert_baselines",
+        "line": 47,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "inputs",
+        "line": 57,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "wait_preview",
+        "line": 71,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "browser_e2e",
+        "line": 90,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "preserve_private",
+        "line": 140,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 153,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "completed",
+        "line": 72,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "transcript_ready",
+        "line": 109,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_lama_local_offline_smoke.py",
+    "sha256": "19dea2b70adac42ba23388e3d604142ca8775630d9c4fcefe5cd9d62b741a0b3",
+    "definitions": [
+      {
+        "name": "sha256",
+        "line": 23,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 31,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_shortform_external_closeout.py",
+    "sha256": "788f4242ccce980c914e4fe628e770b615e79f02aace36b48e1a47748d67b3be",
+    "definitions": [
+      {
+        "name": "write",
+        "line": 17,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 21,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_sam21_live_benchmark.py",
+    "sha256": "aed9779a9883378daeefed18668d42da0ea163e1d919cfc00512a41c3c613225",
+    "definitions": [
+      {
+        "name": "digest",
+        "line": 12,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 13,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/capture_pc_runtime.py",
+    "sha256": "0d571f069cc5d824ba0aab5ade5bace6286b7d7e4f0b418001d083beb13a190f",
+    "definitions": [
+      {
+        "name": "command_result",
+        "line": 14,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "module_result",
+        "line": 28,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "capture",
+        "line": 32,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 46,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_lama_live_benchmark.py",
+    "sha256": "f1b7d70354448e0b8fbe29c79cd6fcc731a71dd570fc98180c034e0ea8fdb885",
+    "definitions": [
+      {
+        "name": "sha",
+        "line": 9,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 10,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_license_gate.py",
+    "sha256": "9564daa1c7308652b6f8e7d73ddb585f17486beb13459db0b67cbcbd93f7630d",
+    "definitions": [
+      {
+        "name": "utc_now",
+        "line": 59,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "digest",
+        "line": 62,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "fetch_url",
+        "line": 69,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "license_identifier",
+        "line": 75,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "capture_model",
+        "line": 81,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "preserve_private",
+        "line": 96,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 107,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_whisper_revalidation.py",
+    "sha256": "d08cdafb566e17816a8f7a5f930aaff4b0de3fd5052c8ee1923033b9a1d93c14",
+    "definitions": [
+      {
+        "name": "sha256",
+        "line": 20,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 28,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/stage_verified_model.py",
+    "sha256": "cb3190c723cdb9b5f6f5615a68b3c2583eb6ac98ef297f53511776b2f0b48eeb",
+    "definitions": [
+      {
+        "name": "sha256",
+        "line": 38,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "safe_extract",
+        "line": 46,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "stage_snapshot",
+        "line": 55,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "stage_realesrgan",
+        "line": 79,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main",
+        "line": 105,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/validate_evidence_sync.py",
+    "sha256": "81d7a9b7113f9bf299b0c59f7bdf67c233fb5106e98504d8ee57b9eddc2ca3f0",
+    "definitions": [
+      {
+        "name": "main",
+        "line": 19,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/validate_package_manifest.py",
+    "sha256": "635a2a944e4593860d49b0c5749f2b290912c96068435afb57482a545dcdd4c6",
+    "definitions": [
+      {
+        "name": "validate",
+        "line": 24,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "validate_source_tree",
+        "line": 36,
+        "kind": "FunctionDef"
+      }
+    ]
+  },
+  {
+    "path": "model_scout/run_general_work_audit.py",
+    "sha256": "e5ae565f64452a65de59678f3b59c5c72345bf627e3226a894fa89a2859611ab",
+    "definitions": [
+      {
+        "name": "write",
+        "line": 43,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "passed",
+        "line": 47,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "freeze",
+        "line": 51,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "fixtures",
+        "line": 77,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "chrome",
+        "line": 89,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "start",
+        "line": 98,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "stop",
+        "line": 104,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "click",
+        "line": 109,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "set_value",
+        "line": 114,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "ready",
+        "line": 117,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "import_file",
+        "line": 133,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "job",
+        "line": 138,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "photo_edit",
+        "line": 141,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "video_edit",
+        "line": 157,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "command",
+        "line": 167,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "main_runtime",
+        "line": 172,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "finish",
+        "line": 442,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "rebase",
+        "line": 56,
+        "kind": "FunctionDef"
+      },
+      {
+        "name": "state",
+        "line": 118,
+        "kind": "FunctionDef"
+      }
+    ]
+  }
+]

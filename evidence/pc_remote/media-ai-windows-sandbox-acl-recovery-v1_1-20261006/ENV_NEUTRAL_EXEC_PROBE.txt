@@ -1,0 +1,17 @@
+ENV_NEUTRAL_EXEC_PROBE
+Date: 2026-10-06
+
+Command result:
+C:\MINDLE_WORK_TEST\acl_probe.txt
+
+Readback:
+MINDLE_PC_WORK_ACL_PROBE_PASS
+
+Result:
+PASS
+
+Verdict:
+HOST_SANDBOX_ACL_RECOVERY_PASS
+
+Next:
+Canonical repo read-only probe + control-plane validator.

@@ -1,0 +1,6 @@
+REMOTE_PUSH_VERIFY=PASS
+branch=feature/ad-shortform-bridge-p0-20260926
+local_commit=ccbeee1d9e4a319b14bba5f3149323cb30c8ed14
+remote_commit=ccbeee1d9e4a319b14bba5f3149323cb30c8ed14
+runtime=http://127.0.0.1:8768/
+

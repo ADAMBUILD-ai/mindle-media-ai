@@ -1,0 +1,196 @@
+{
+  "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
+  "date": "2026-10-17",
+  "status": "READY_FOR_LOCAL_PC_ACCEPTANCE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md",
+  "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_EVIDENCE_CONTRACT_20261016.json",
+  "execution_mode": "REMOTE_WINDOWS_CANDIDATE_THEN_LOCAL_ACCEPTANCE",
+  "local_helper_status": "USER_REPORTED_NORMAL_20261014",
+  "local_helper_error": null,
+  "environment_report_provenance": "Owner pasted PC Work report at 2026-10-14 09:17 KST; local C:/ evidence not accessible from General runtime; no independent byte readback claimed.",
+  "reported_environment": {
+    "cpu": "Ryzen 7 5800X",
+    "ram_gb_approx": 32,
+    "gpu": "RTX 3060 12GB",
+    "setup_refresh_error_this_run": false,
+    "prepared_inputs": 8,
+    "button_candidates": 60
+  },
+  "work_must_continue": true,
+  "product_changes_allowed": true,
+  "allowed_product_change_scope": "Windows runtime/package/lifecycle fixes only, approved layout frozen",
+  "package_build_allowed": false,
+  "package_build_location": "GITHUB_WINDOWS_RUNNER",
+  "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
+  "local_physical_acceptance_allowed": true,
+  "local_physical_acceptance_condition": "Only this R9 source/ZIP/manifest/runtime identity after readiness check; preserve completed preparations/models; focus remaining actual-PC evidence",
+  "external_marketing_avora_required": false,
+  "external_marketing_avora_status": "DEFERRED_EXTERNAL",
+  "employee_manual_install_steps_allowed": false,
+  "normal_employee_action": "DOUBLE_CLICK_ONLY",
+  "verified_core_source": "b785b54cbf9452ffc7dbc0876254806e170a0380",
+  "verified_core_run": 38838236618,
+  "package_status": "R9_CORRECTED_CANDIDATE_VERIFIED_AND_DELIVERABLE",
+  "owner_pc_runtime_pass": false,
+  "final_product_pass": false,
+  "openai_connected": false,
+  "final_result": null,
+  "phase": "R9_CORRECTED_CANDIDATE_READY_FOR_PC_ACCEPTANCE",
+  "candidate_source": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+  "candidate_run": 38845082039,
+  "candidate_zip_sha256": "5291760966d87089259de4d1030879fdf0a1a878d7b9f1fd12f7918f36656b30",
+  "candidate_payload_manifest_sha256": "7a31da30969b9e7901da8f109c467f281e2550171c15e9ddf3a8ddf215ab3377",
+  "candidate_launcher_sha256": "24fe0ad565a5568b392b32040d7789cbd8abce7b60e8dade97666bbd1ec2888c",
+  "candidate_runtime_id": "c37c7819b145-cfb26b181119",
+  "candidate_readback_run": 38846038527,
+  "candidate_readback_status": "PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES",
+  "candidate_artifacts": [
+    {
+      "id": 12023620362,
+      "name": "mindle-media-one-click-win-x64-part-01",
+      "bytes": 417639762,
+      "digest": "sha256:d0e4cfc58777409d4edadb899f34b3bfc7ad529592b8b7554d9faac09e945eea",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38845082039/artifacts/12023620362"
+    },
+    {
+      "id": 12023241608,
+      "name": "mindle-media-one-click-windows-evidence",
+      "bytes": 6655092,
+      "digest": "sha256:52a10403a592510c47273252d1823e44dbf0ea9911ffb9e2aeb3ccb04f829fa4",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38845082039/artifacts/12023241608"
+    },
+    {
+      "id": 12023236791,
+      "name": "mindle-media-one-click-win-x64-part-02",
+      "bytes": 414016390,
+      "digest": "sha256:797d6ac7da93bf7b31d1d628d55aefc3557f8b7a34281cdb3b5afec9a8a845c6",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38845082039/artifacts/12023236791"
+    },
+    {
+      "id": 12023231633,
+      "name": "mindle-media-one-click-windows-launcher-manifests",
+      "bytes": 7996433,
+      "digest": "sha256:346c1b92a6b118caa92db87fa1ae13b76c4839a349303147277d90284bc722f9",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38845082039/artifacts/12023231633"
+    },
+    {
+      "id": 12023206853,
+      "name": "mindle-media-one-click-win-x64-part-00",
+      "bytes": 419031793,
+      "digest": "sha256:27aaeb5d25ccad459c558c720031c7e69cd8ea742dbc63397782d5cea34f2bb9",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38845082039/artifacts/12023206853"
+    },
+    {
+      "id": 12023018200,
+      "name": "mindle-media-one-click-win-x64-part-04",
+      "bytes": 231463031,
+      "digest": "sha256:c2a62094521edd03a749a4ab50c55304564c46fb6d60d2d02fd8892848dcfba8",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38845082039/artifacts/12023018200"
+    },
+    {
+      "id": 12022993288,
+      "name": "mindle-media-one-click-win-x64-part-03",
+      "bytes": 411942905,
+      "digest": "sha256:80f46347817446a8340854cd4df3e14df5df924f1a2411c0eb43bbed23b4cce5",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38845082039/artifacts/12022993288"
+    }
+  ],
+  "candidate_build_authorized_parent": "d759fe4300a628e33c6908ab03e20099ef8cf46c",
+  "candidate_build_scope": "ONE_R9_WORKSPACE_ASSET_PERSISTENCE_WINDOWS_DEVELOPMENT_VERIFICATION_BUILD_AND_INDEPENDENT_READBACK_ONLY_NOT_FINAL_EMPLOYEE_RELEASE",
+  "candidate_build_authorization": "Owner approval in current conversation, 2026-10-16 KST: authorize exactly one Windows development-verification candidate build and independent readback for the workspace-asset persistence repair. Not a final employee release; no main merge, force push, PR #23 merge, or final-product PASS.",
+  "candidate_attempt_run": 38845082039,
+  "candidate_attempt_source": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+  "previous_candidate_attempt": {
+    "source": "a680477b4bb844691fd271b71d35d98f6d0315e4",
+    "run": 38821443702,
+    "status": "FAILED_REGRESSION_TEST_ENCODING_6_FAIL_110_PASS_1_SKIP",
+    "artifact": 12014036542
+  },
+  "previous_verified_candidate": {
+    "source": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
+    "run": 38497304486,
+    "readback_run": 38499220659,
+    "zip_sha256": "8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527"
+  },
+  "candidate_ui_fingerprint": "cfb26b1811196c1abd19d5e59d33c420647ca122c060c753a7391ff43a8f8c2f",
+  "candidate_zip_bytes": 1913893429,
+  "candidate_contains_r9_repairs": true,
+  "pending_source_repairs": [
+    {
+      "issue": "Project transition concurrency",
+      "source_fix_commit": "84cf58014eafa2aabd5eed763881424ab3a70c1f",
+      "status": "PASS_ACTUAL_WINDOWS_CHROME_SOURCE_6_CASES_NOT_IN_C37",
+      "candidate_contains_fix": false,
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/ACCEPTED_CHROME_SIX.json"
+    },
+    {
+      "issue": "Dense asset library expansion and runtime owner PID/graceful stop",
+      "source_fix_commit": "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
+      "status": "PASS_SOURCE_HTTP_LIFECYCLE_AND_LINUX_CHROMIUM_DENSITY_NOT_IN_C37",
+      "candidate_contains_fix": false,
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_VERDICT.json"
+    }
+  ],
+  "candidate_contains_workspace_attachment_fix": true,
+  "previous_verified_core": {
+    "source": "d227ada10072fe5629c88d4a5cc762f7bb065d2f",
+    "run": 38801035307
+  },
+  "authorized_repair_source": "d759fe4300a628e33c6908ab03e20099ef8cf46c",
+  "authorized_repair_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
+  "candidate_build_completion": "One approved build consumed; independent readback passed; actual owner PC acceptance remains required.",
+  "candidate_artifact_run": 38845082039,
+  "candidate_evidence_artifact": 12023241608,
+  "candidate_launcher_manifest_artifact": 12023231633,
+  "candidate_delivery_part_artifacts": [
+    12023206853,
+    12023620362,
+    12023236791,
+    12022993288,
+    12023018200
+  ],
+  "candidate_independent_readback_artifact": 12022943996,
+  "candidate_identity_status": "EXACT_ZIP_MANIFEST_LAUNCHER_SOURCE_READBACK_VERIFIED",
+  "previous_r9_candidate": {
+    "source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+    "producer_run": 38822776656,
+    "readback_run": 38824641294
+  },
+  "validator_required_result": "PC_WORK_CORRECTED_CANDIDATE_READY_FOR_LOCAL_ACCEPTANCE_PASS",
+  "workspace_attachment_source_receipt": {
+    "fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
+    "source_verification_run": 38838462732,
+    "included_in_candidate": true,
+    "packaged_browser_verification_run": 38851276116,
+    "status": "PASS_EXACT_PACKAGED_EXE_PENDING_ATTACHMENTS_COLD_REOPEN_UI_EXPORT",
+    "artifact": 12025910982
+  },
+  "approved_ui_comparison_status": "OWNER_DESKTOP_LAYOUT_DIRECTION_RECONCILED_EXACT_VISUAL_APPROVAL_PENDING",
+  "approved_ui_original_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "approved_ui_preserved_interpretation": "NO_UI_SOURCE_CHANGE_IN_THIS_CLOSEOUT; not a claim of F27E visual equality",
+  "final_closeout_supplement": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md",
+  "previous_raw_f27e_comparison_status": "FAIL_LAYOUT_MATCH_AGAINST_PINNED_F27E",
+  "approved_ui_authority_resolution": "docs/evidence/media-ai-final-closeout-20261017/UI_AUTHORITY_RECONCILIATION.json",
+  "candidate_contains_project_transition_fix": false,
+  "latest_pc_report": {
+    "date": "2026-10-17",
+    "handoff_commit": "bfd08648213f79c980c6e749a990222c955645b5",
+    "independent_original_readback": true,
+    "transport_objects_verified": 109,
+    "original_manifest_verified": 92,
+    "zips_reconstructed_crc_sha": 3,
+    "chrome_six": "PASS_SOURCE_EVIDENCE_ACCEPTED",
+    "c37_exe_save_reopen_export": "PASS_BOUNDED_NOT_FULL_COLD_RESTART",
+    "potplayer_display_seek": "PASS",
+    "human_hearing": "UNCONFIRMED",
+    "windows_cold_restart": "BLOCKED_NO_IDENTIFIED_SERVER_PID_STOP_IN_C37",
+    "source": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md"
+  },
+  "followup_source": "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
+  "latest_source_requires_new_candidate": true,
+  "candidate_contains_runtime_owner_stop": false,
+  "candidate_contains_dense_library_fix": false
+}

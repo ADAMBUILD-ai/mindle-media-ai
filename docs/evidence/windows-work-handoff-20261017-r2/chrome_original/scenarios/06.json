@@ -1,0 +1,140 @@
+{
+  "case": "06_NORMAL_IMPORT_ATTACH_SAVE_REOPEN_EXPORT_CLOUD_NL",
+  "started_at": "2026-10-17T14:37:09.179443+09:00",
+  "evidence": {
+    "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "restored": {
+      "previews": [
+        {
+          "kind": "video",
+          "job": "147dbb88-5b3d-455e-bb95-1d0f9dc81339",
+          "src": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4"
+        },
+        {
+          "kind": "photo",
+          "job": "37155182-1527-4152-8d07-7b0d01a1a5b8",
+          "src": "/files/jobs/37155182-1527-4152-8d07-7b0d01a1a5b8/edited_photo.png"
+        }
+      ],
+      "files": [
+        {
+          "kind": "photo",
+          "name": "2fd56656-55b4-452b-a117-77c81995d0f8_photo_edit.png",
+          "size": 298987
+        },
+        {
+          "kind": "video",
+          "name": "49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+          "size": 224410
+        }
+      ],
+      "references": [
+        "portrait_autofit.png 제거reference_architecture_crop.png 제거",
+        "portrait_autofit.png 제거reference_architecture_crop.png 제거"
+      ]
+    },
+    "reference_hashes": [
+      {
+        "lane": "photo",
+        "file": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      {
+        "lane": "photo",
+        "file": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+        "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+      },
+      {
+        "lane": "video",
+        "file": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      {
+        "lane": "video",
+        "file": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+        "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+      }
+    ],
+    "audio_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+    "cloud": "클라우드 연동 미완료\n\n현재 패키지에는 외부 클라우드 저장소가 연결되어 있지 않습니다.\n\n프로젝트 저장은 이 PC의 로컬 저장소를 사용합니다.\n\n닫기",
+    "storage": "저장소\n\nC:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\n\n저장된 프로젝트 3개\n\n닫기",
+    "zip_sha256": "3664bee30cc90e7154514795f9f5588bde252902fa8c76cf936850e95578c4bc",
+    "zip_bytes": 15196966,
+    "zip_crc": "PASS",
+    "names": [
+      "project.json",
+      "jobs/12dffbba-2a58-447a-84c2-ddeae063b656/f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+      "jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+      "inputs/12dffbba-2a58-447a-84c2-ddeae063b656/f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+      "jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+      "jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+      "inputs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+      "jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+      "inputs/196a52f5-caba-4c91-9def-f2db218ad591/5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+      "jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+      "inputs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+      "jobs/37155182-1527-4152-8d07-7b0d01a1a5b8/edited_photo.png",
+      "inputs/37155182-1527-4152-8d07-7b0d01a1a5b8/2fd56656-55b4-452b-a117-77c81995d0f8_photo_edit.png",
+      "workspace/references/photo/000_b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+      "workspace/references/photo/001_8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+      "workspace/references/video/000_b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+      "workspace/references/video/001_8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+      "workspace/audio/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+      "BUNDLE_MANIFEST.json"
+    ],
+    "natural_language_real_photo_edit": {
+      "status": "TESTED_PASS",
+      "job_id": "37155182-1527-4152-8d07-7b0d01a1a5b8",
+      "lane": "photo",
+      "operation": "photo_edit",
+      "command": "AI 대화 편집 · 따뜻하게 보정해줘",
+      "input": {
+        "file_name": "2fd56656-55b4-452b-a117-77c81995d0f8_photo_edit.png",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\2fd56656-55b4-452b-a117-77c81995d0f8_photo_edit.png",
+        "bytes": 351628,
+        "sha256": "8468418e8eee2ab5aa9f9f68f2e30aa76c25e5f87bd87c2aa8d2e7347bac984d"
+      },
+      "primary_output": {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\37155182-1527-4152-8d07-7b0d01a1a5b8\\edited_photo.png",
+        "bytes": 298987,
+        "sha256": "455e41715da6888ce20f20e9e2e3576cd936a8c484c17ab218a64ff3509e806f"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_photo.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\37155182-1527-4152-8d07-7b0d01a1a5b8\\edited_photo.png",
+          "bytes": 298987,
+          "sha256": "455e41715da6888ce20f20e9e2e3576cd936a8c484c17ab218a64ff3509e806f"
+        }
+      ],
+      "runtime_result": {
+        "engine": "browser_canvas_pixels_verified_by_Pillow",
+        "result_size": [
+          480,
+          960
+        ],
+        "options": {
+          "brightness": 0,
+          "contrast": 0,
+          "highlights": 0,
+          "shadows": 0,
+          "saturation": 0,
+          "temperature": 20,
+          "sharpness": 0,
+          "rotation": 0,
+          "flipH": false,
+          "flipV": false,
+          "style": "neutral",
+          "resizeWidth": null,
+          "crop": null,
+          "automaticAnalysis": null
+        },
+        "model_inference": false
+      },
+      "preview_url": "/files/jobs/37155182-1527-4152-8d07-7b0d01a1a5b8/edited_photo.png"
+    }
+  },
+  "status": "PASS",
+  "finished_at": "2026-10-17T14:37:15.123136+09:00"
+}

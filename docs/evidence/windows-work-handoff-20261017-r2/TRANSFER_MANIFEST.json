@@ -1,0 +1,467 @@
+{
+  "generated_utc": "2026-10-17T06:20:49.663830+00:00",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 9,
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+    },
+    {
+      "path": "c37_runtime/ACTUAL_C37_UI_GEOMETRY.json",
+      "bytes": 2530,
+      "sha256": "9c440adac39d1a6600e2087cfb8b4c2c9f5982301203f6f0901b9ba04415ea88"
+    },
+    {
+      "path": "c37_runtime/ACTUAL_UI_EXPORT.json",
+      "bytes": 12085,
+      "sha256": "faf68f812de1baecead7df66411e237a83ac63287fc51a0616abfd957b9307fb"
+    },
+    {
+      "path": "c37_runtime/ACTUAL_UI_SAVE.json",
+      "bytes": 754,
+      "sha256": "e11c3f7b444397eac8a0604361dfe94205601c8223e61757ec054dd6d7685b02"
+    },
+    {
+      "path": "c37_runtime/ATTACHMENT_HASHES.json",
+      "bytes": 694,
+      "sha256": "d9e581d1d98c3aaed00630f690904b599cbe9ee8900ee831abace6a6ad9768fa"
+    },
+    {
+      "path": "c37_runtime/C37_ACTUAL_EXPORTED_VIDEO.mp4",
+      "bytes": 284879,
+      "sha256": "c8fb412095b59d9970e836a662ee92874197d1f3fe88f7b4eb448cf4ec86543b"
+    },
+    {
+      "path": "c37_runtime/C37_ACTUAL_UI.png",
+      "bytes": 554609,
+      "sha256": "cd5418e288cb71f28b6a03cbd96f53cafc6ee81a931a2d26ff78c5f5cdeeafef"
+    },
+    {
+      "path": "c37_runtime/C37_UI_EXPORT.zip",
+      "bytes": 89168405,
+      "sha256": "c1c4f0a34bf4e58530e70f7fd46bec463887884b7267647f3aa28a1a93aaa993"
+    },
+    {
+      "path": "c37_runtime/CLONE_RECEIPT.json",
+      "bytes": 670,
+      "sha256": "0d4b732093c5e1226755373b85ba852e4a1272a5223d04dee7ceac3815452517"
+    },
+    {
+      "path": "c37_runtime/EXPORT_ALL_FILE_HASH_CHECK.json",
+      "bytes": 31444,
+      "sha256": "1f87a1b3253fe3afdd68f84a4790ebecd8093f5a8cecadbf972ed35bda136015"
+    },
+    {
+      "path": "c37_runtime/MP4_FFPROBE.json",
+      "bytes": 4551,
+      "sha256": "bb7ccc461c216be3b2146b7caf0241cb1637ce354267685f63ee4a3bcb061b44"
+    },
+    {
+      "path": "c37_runtime/ORIGINAL_PROJECT_UNCHANGED.json",
+      "bytes": 250,
+      "sha256": "7ed7b83d043726df9d4f28da19a8a406c1e4071fd8cd0c3ccc6ce3029c0c858d"
+    },
+    {
+      "path": "c37_runtime/SAVED_PROJECT.json",
+      "bytes": 174434,
+      "sha256": "0922f59631e763a195482cacf817e1f3dc144af09a0c36cda5466416d55eda3f"
+    },
+    {
+      "path": "c37_runtime/SESSION.json",
+      "bytes": 1028,
+      "sha256": "8ee37c899ae8675ae8f81ce91f88190492e8913744e607aeeb27a1414a83927d"
+    },
+    {
+      "path": "chrome_original/c37_office/EXE_EXCEPTION.json",
+      "bytes": 2288,
+      "sha256": "887aac8c711ed98ecc41a216005300f8204911d30d82045811c8fe74b09dca62"
+    },
+    {
+      "path": "chrome_original/c37_office/EXE_EXCEPTION_0.jpg",
+      "bytes": 32359,
+      "sha256": "7d7f89ebb06530a9c1d969d3f4bd828f743321e244e84f5942a096af25a3f7bd"
+    },
+    {
+      "path": "chrome_original/c37_office/LAUNCH.json",
+      "bytes": 423,
+      "sha256": "32d795223383829b4e3f393a91c221625e8969e8f417cd4bcbcbd5aafc0a073f"
+    },
+    {
+      "path": "chrome_original/c37_office/LOCAL_PACKAGE_RECEIPT.json",
+      "bytes": 415,
+      "sha256": "e243a80af354f0d747105a6e62773eb587657e915162556f9c0b217554b5a8f5"
+    },
+    {
+      "path": "chrome_original/c37_office/LOCK_ACL.json",
+      "bytes": 1485,
+      "sha256": "fb002f30ca6618347bcd82f6dc12264962cee693a423453de1ce4741139277b9"
+    },
+    {
+      "path": "chrome_original/c37_office/LOCK_OPEN_DIAGNOSTICS.json",
+      "bytes": 529,
+      "sha256": "9260fbeb8913be2a70d665833ed82c4e1881fa0ae8b15c45c1d8324ee39d6831"
+    },
+    {
+      "path": "chrome_original/earlier_attempts/TRANSITION_COMBINED_20261017_R6.log",
+      "bytes": 263,
+      "sha256": "20c21db74008cd23d23926cd325d3b95fb065f5202c07f7eb27651fc60f8bc38"
+    },
+    {
+      "path": "chrome_original/harness/browser_transitions.py",
+      "bytes": 14167,
+      "sha256": "15ce7507dac184301d14e5d96c2c74f933c3b57ae8bc833ac36c45d40d269a5a"
+    },
+    {
+      "path": "chrome_original/harness/launch_c37_office.py",
+      "bytes": 1787,
+      "sha256": "6a161508f851a07aab8eb114715c9fd86a94d09b629cc29cd48e4c566014fd84"
+    },
+    {
+      "path": "chrome_original/harness/run_combined.py",
+      "bytes": 1271,
+      "sha256": "e54bf45be348a336ce92013dbb88634f8e98b7b25ba9640eed0fa54c4018b80f"
+    },
+    {
+      "path": "chrome_original/MINDLE_FINAL_ACCEPTANCE_20261017_R1.zip",
+      "bytes": 43305442,
+      "sha256": "232d69cbb6e9a06d9281a5ba00a39903b477b4e1362f5891589edc16a32a1853"
+    },
+    {
+      "path": "chrome_original/receipt.json",
+      "bytes": 1654,
+      "sha256": "c91b564c7f3aaef1db72dc8d5f941ebd00b5218680ff09d859106373b037dc2e"
+    },
+    {
+      "path": "chrome_original/RESULT_KO.txt",
+      "bytes": 3594,
+      "sha256": "cdd51573b49e6f7e7d1c32f57efab25bdecd65762a4760fc94382ae55ebbe150"
+    },
+    {
+      "path": "chrome_original/scenarios/01.json",
+      "bytes": 4992,
+      "sha256": "fab207cec96c340bd704da6f6eda3450856fe4e48f7d806ed8a0bd4b448a65e3"
+    },
+    {
+      "path": "chrome_original/scenarios/02.json",
+      "bytes": 4886,
+      "sha256": "16c42844f89cbb886ab0c9deddd9fd7b52ff4fb0d02fdaf8f73395e2ea3c4dbb"
+    },
+    {
+      "path": "chrome_original/scenarios/03.json",
+      "bytes": 3291,
+      "sha256": "2da06086ba907e1f345cb96ae5775a31751f4888b2f8a865126f090a3b78169c"
+    },
+    {
+      "path": "chrome_original/scenarios/04.json",
+      "bytes": 1727,
+      "sha256": "e03486c8a2e0a6919e3da129d1de32410c9716db5e7dc82ecf773901e30fc6f4"
+    },
+    {
+      "path": "chrome_original/scenarios/05.json",
+      "bytes": 3373,
+      "sha256": "f9d71dcfef96e62973119fd5d29a11ca4a42c7daa20dbab87b6a51b7b0d13893"
+    },
+    {
+      "path": "chrome_original/scenarios/06.json",
+      "bytes": 6832,
+      "sha256": "587b520f520015819d24bb9436b70b3ad99e8ba47c74803cc0340a3132d5d268"
+    },
+    {
+      "path": "chrome_original/source_browser/BROWSER_SESSION.json",
+      "bytes": 1847,
+      "sha256": "8f647137aa24f22a1b35f1c6bc3845a78080c95a1875499956354122c96de4c7"
+    },
+    {
+      "path": "chrome_original/source_browser/CASES.json",
+      "bytes": 26424,
+      "sha256": "843e7a153cf8be28e7c086b722e6ccf8d3f74ad70ec93dc079ccd9acbe64fb52"
+    },
+    {
+      "path": "chrome_original/source_browser/FINAL_NORMAL_REOPEN_EXPORT.png",
+      "bytes": 492845,
+      "sha256": "52c664365e2f190e36538e8d7536d60f56068245c6f5507789affaa2eccf1b64"
+    },
+    {
+      "path": "chrome_original/source_browser/FINAL_SAVED_PROJECT.json",
+      "bytes": 15775,
+      "sha256": "b00894c3e709ccd0be04533ded39beefddf0f45442db9ced2b785b195c85b881"
+    },
+    {
+      "path": "chrome_original/source_browser/FIRST_SAVE_OLD_PROJECT_PRESERVED.json",
+      "bytes": 744,
+      "sha256": "e30a1a1b22a276eafa3b4b1e42cb6696f52660acc4f9dc8171d77980639fbab0"
+    },
+    {
+      "path": "chrome_original/source_browser/HTTP_REQUESTS.json",
+      "bytes": 51122,
+      "sha256": "4f4a83fcd2cbe2bfb0ca30807e20d9955edd0e14d28252b1912b576d848e0f14"
+    },
+    {
+      "path": "chrome_original/source_browser/NORMAL_EXPORT.zip",
+      "bytes": 15196966,
+      "sha256": "3664bee30cc90e7154514795f9f5588bde252902fa8c76cf936850e95578c4bc"
+    },
+    {
+      "path": "chrome_original/source_browser/PAGE_ERRORS.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "chrome_original/source_browser/SERVER.json",
+      "bytes": 1676,
+      "sha256": "d5394cdf5c1f8b1c38872e25932553c2905704db01adbf94002689e7178541f8"
+    },
+    {
+      "path": "chrome_original/source_browser/SERVER_REQUEST_LOG.json",
+      "bytes": 53901,
+      "sha256": "740a9242b1cecd8ced8feb6fcf6fae0672bbabd0d466a0370c43f3a7b20860bf"
+    },
+    {
+      "path": "chrome_original/source_browser/SUMMARY.json",
+      "bytes": 413,
+      "sha256": "da57962f75b0e24f07e85fcd1c09fce1a28e99c2b0e38a3020a0f394c68fa13d"
+    },
+    {
+      "path": "chrome_original/SOURCE_PRESERVATION.json",
+      "bytes": 430,
+      "sha256": "6b6de52739a63c2627b8add10eaa1af290ed77a812655d7abd272e5ad8238836"
+    },
+    {
+      "path": "CHROME_ORIGINAL_INDEX.json",
+      "bytes": 13215,
+      "sha256": "a6581dbf85d65e114aa0504329825a3a87f18958742ff29e6c8b67cfbeb57184"
+    },
+    {
+      "path": "executed_source/c37_reference_one_click_bootstrap.py",
+      "bytes": 10607,
+      "sha256": "93b0a279e4fb540680648130b32f557a3f62c29e24db4196afc67b39e0118aba"
+    },
+    {
+      "path": "executed_source/product_integration.js",
+      "bytes": 22890,
+      "sha256": "9535a5c7c83ac52e39cf17fdd77a4178bd3c39fbc875212434c931fdbe3be4ad"
+    },
+    {
+      "path": "executed_source/workspace_shell.js",
+      "bytes": 3998,
+      "sha256": "8254c166773dd8049b6a2241bb77cd28b11167db7627c61fdc2afe18d195bb78"
+    },
+    {
+      "path": "harness/c37_continue_export.py",
+      "bytes": 4400,
+      "sha256": "d656c3bd33eabb28ec121f298d52b7373dff93a652d0afb2c0cc288ee35f213f"
+    },
+    {
+      "path": "harness/c37_save_export.py",
+      "bytes": 6341,
+      "sha256": "6c200bd8155bbbaa1ae1ac6c4f5767894e2cbcc0006ad223d487e53bea89729c"
+    },
+    {
+      "path": "harness/collect_windows_readonly.py",
+      "bytes": 6687,
+      "sha256": "a60c07a22918ecccc5d10bb8b7b99c92eb17c9a6818fc9916c1e5747d8551c5d"
+    },
+    {
+      "path": "historical_r9/FAILURE_REPRODUCTION_KO.txt",
+      "bytes": 1099,
+      "sha256": "c19d915bd7e8cc5ca4260759e8686bd67e91585e1ca64ee4b5246293469d69e6"
+    },
+    {
+      "path": "historical_r9/FINAL_RESULT_KO.txt",
+      "bytes": 4384,
+      "sha256": "ac1eaebf6e6d2ca64c45f9ca604ad7744fc0f54e0497232437e789838706f4e6"
+    },
+    {
+      "path": "historical_r9/resumed/BROWSER_ACCEPTANCE_20261015_R8/LAUNCHER_EXCEPTION.jpg",
+      "bytes": 18699,
+      "sha256": "71d0806409da72265525f644651f2bd9a33aa9b6d0cb34a220c7f917a5cc428a"
+    },
+    {
+      "path": "historical_r9/resumed/BROWSER_ACCEPTANCE_20261015_R8/LAUNCHER_EXCEPTION.json",
+      "bytes": 2305,
+      "sha256": "be2158c5c66fb09ccf7e0816c65f0cdd6612c257077ad961da625b3b75ded56d"
+    },
+    {
+      "path": "historical_r9/RESUMED_BUTTON_60.csv",
+      "bytes": 7616,
+      "sha256": "668fd01d36c6d4136288280229316fe39296716ab8cc6b3a3000cee4b88484d4"
+    },
+    {
+      "path": "historical_r9/RESUMED_RESULT_KO.txt",
+      "bytes": 2556,
+      "sha256": "1f942f73a9ea43f337303d179cf7914e7553fb4b18017aa13e7e498115e7cf61"
+    },
+    {
+      "path": "historical_r9/SSOT_VS_ACTUAL_CHROME.png",
+      "bytes": 2510819,
+      "sha256": "eb800999a7e3952cc960646663c88f81b5571f1ea5b87c6cbbcbc86b4cf17050"
+    },
+    {
+      "path": "historical_r9/WINDOWS_CONTROL_BLOCK.json",
+      "bytes": 848,
+      "sha256": "7c743fe03b23dd501b4c8bcd7a3c5f14869825278a745b2c3091478d561b3b5c"
+    },
+    {
+      "path": "HISTORICAL_R9_INDEX.json",
+      "bytes": 4247,
+      "sha256": "f1905088a9d151787ab96ab67db3f27e1efe283a94cf80b42fee208b583a18bd"
+    },
+    {
+      "path": "PRIVACY_AND_PROVENANCE.json",
+      "bytes": 630,
+      "sha256": "67648bd74eaf9cdaca7e4624deb859c645980aa2383c360184d679c2f8eea9bf"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4958,
+      "sha256": "3e33f769c9fcbeac7860ae8acdb16168821a32441351106c754037549ead5997"
+    },
+    {
+      "path": "windows_diagnostics/BEFORE_CLONE_PROJECT.json",
+      "bytes": 179971,
+      "sha256": "3817d0a646d657ad7b64b132e33a2c0dae19ae957f2b6fea5b5b29ca58dd1b1c"
+    },
+    {
+      "path": "windows_diagnostics/C37_CONTINUE_EXPORT_RUN.log",
+      "bytes": 62,
+      "sha256": "a9898516d0f75fdf704e52468e44796ca03681d4d768e76e08da1edb033c6ed1"
+    },
+    {
+      "path": "windows_diagnostics/C37_SAVE_EXPORT_RUN.log",
+      "bytes": 1458,
+      "sha256": "3d4231ad14dd2ac386c133e16822626a48aecde5ca3329b55040e30ee855f120"
+    },
+    {
+      "path": "windows_diagnostics/ENDPOINTS_READONLY.json",
+      "bytes": 833,
+      "sha256": "24743a46c48f53008c51df56bb335476bc2d41798f33fe77fa139400c9398387"
+    },
+    {
+      "path": "windows_diagnostics/EXECUTION_CONTEXT_REDACTED.json",
+      "bytes": 859,
+      "sha256": "3169ccfb590a966e4b50c634088495ca782258fdbf4aadfa3183fd4d94014213"
+    },
+    {
+      "path": "windows_diagnostics/INSTALLED_PLAYER_COMPONENT_VERSIONS.json",
+      "bytes": 445,
+      "sha256": "5536545d091f9866992dd99f3a60ec3ef6dff0f9722a6bc2964d6973f3b9bec0"
+    },
+    {
+      "path": "windows_diagnostics/INSTALLED_PLAYER_VERSION.json",
+      "bytes": 103,
+      "sha256": "b3331abba06bc40cd24f59efaa4b6ffb745e665be71ca5297eb58058f7a63874"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_BOOTSTRAP_0.jpg",
+      "bytes": 11274,
+      "sha256": "0650f62db6eb265a18369c45f8e4a8e5eb7aac774c0bc0ca07b79053cd4361f3"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_BOOTSTRAP_WINDOW.json",
+      "bytes": 704,
+      "sha256": "899ff6f7b0acdeb7082eaf8bd0a98a2840a13f12798f0ece55cfc7dc0af70024"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_COORDINATE_DOUBLE_CLICK.json",
+      "bytes": 423,
+      "sha256": "78d8d395536f4529bd06dc42e2b868d2551918d80265593393fbbbf2c74c5e69"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_DOUBLE_CLICK.json",
+      "bytes": 409,
+      "sha256": "589f0a543c898f15cb4fb645ddf5121ab24412a17adad85414d978c0ab01ec2d"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_ENDPOINT_OBSERVATION.json",
+      "bytes": 1693,
+      "sha256": "988b64d7791509ceeb162a72a66cd6fbd1d1d640dad638746bc9a479c56d66d7"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_EXE_EXCEPTION.json",
+      "bytes": 2469,
+      "sha256": "440da003ff75bb30b2a5baddb6111097b35c8e8263b91abee73d0748a9aab400"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_EXE_EXCEPTION_0.jpg",
+      "bytes": 39993,
+      "sha256": "5d1fc8e6a9e91c9c6238e9011a1bf0ff998f46f67f9281f0d4a16f94d6aa0efa"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_EXPLORER_PRELAUNCH.json",
+      "bytes": 11042,
+      "sha256": "c2137881b970eebf9c7614c27381c45cf17a7c17d1439f0d8baedc1b12f47b21"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_FULL_PATH_LAUNCH.json",
+      "bytes": 380,
+      "sha256": "a7bcf72b21cbb8f31a377f1840a607f2258b5eb859029a0c46b04b01f5ec6a36"
+    },
+    {
+      "path": "windows_diagnostics/NATIVE_LAUNCH_WINDOW_OBSERVATION.json",
+      "bytes": 216,
+      "sha256": "d09a5cacbc44d4af705bb1b0fdf7a49811ed9193fb0f0561d075a5f26459dc4b"
+    },
+    {
+      "path": "windows_diagnostics/PATH_ACL_REDACTED.json",
+      "bytes": 5950,
+      "sha256": "626fea2d519962414bea6e76a68148226d17c9bdd6d07cad6cb8b733a36c9741"
+    },
+    {
+      "path": "windows_diagnostics/PATH_METADATA.json",
+      "bytes": 1466,
+      "sha256": "1225d4409f777f68b2aa1ddd4d279a2d08343965b3e877624d8683b84b8979c0"
+    },
+    {
+      "path": "windows_diagnostics/PLAYER_FRAME_A.jpg",
+      "bytes": 97722,
+      "sha256": "edbe960c87111524dbc123e99ecec2b31a733d1ceec7601d65fb0f2390bda62b"
+    },
+    {
+      "path": "windows_diagnostics/PLAYER_FRAME_A.json",
+      "bytes": 271,
+      "sha256": "3899f8851b46aa7bd336d0c56e06420c4761873b9950c493082b4d1ecb81beef"
+    },
+    {
+      "path": "windows_diagnostics/PLAYER_INPUT_FFPROBE.json",
+      "bytes": 2815,
+      "sha256": "5e89d0cd5bf12b70b3b3f1bfa335bc08be5b5c74e082654de86d0e4fc29d784d"
+    },
+    {
+      "path": "windows_diagnostics/PLAYER_INPUT_PROVENANCE.json",
+      "bytes": 839,
+      "sha256": "a34e96b61b5e43736737c569aecdff00a26842106c90c1e9f8cbf69523c04879"
+    },
+    {
+      "path": "windows_diagnostics/PLAYER_RESULT.json",
+      "bytes": 821,
+      "sha256": "a01738b20523d7b76d963060effafe240e8de7ebd9ef60cc331f71a08fc7d3a3"
+    },
+    {
+      "path": "windows_diagnostics/PLAYER_SEEK_BACKWARD.jpg",
+      "bytes": 100447,
+      "sha256": "0ca79404db2165223bf5260ca6392ef1dd441d04fce34d532f25b1debabeb692"
+    },
+    {
+      "path": "windows_diagnostics/PLAYER_SEEK_FORWARD.jpg",
+      "bytes": 83363,
+      "sha256": "ee5498f24f8cf5c5a8f63f9354f9ecab5524dde644f8145f8f96aaf64e1ea4c2"
+    },
+    {
+      "path": "windows_diagnostics/PRODUCT_CIM_PROCESS_QUERY.json",
+      "bytes": 346,
+      "sha256": "d955ace0f4e3d343ddb88dd139a69cda9ca11faec7319604b0a26fc3913452fa"
+    },
+    {
+      "path": "windows_diagnostics/RESTART_MANAGER_QUERY.json",
+      "bytes": 122,
+      "sha256": "75754efc4469c3995f31da5d3964e27a3742d12eafbfcff424c373c630886a05"
+    },
+    {
+      "path": "windows_diagnostics/VISIBLE_PROCESS_QUERY.json",
+      "bytes": 377,
+      "sha256": "d539d19bf9cc5824c25cd40cd3a3f430eee71deba6e8c33bc75528fd3c7f71cf"
+    }
+  ],
+  "scope": "Evidence only; original Chrome session and separate actual c37 office session",
+  "full_product_pass": false
+}

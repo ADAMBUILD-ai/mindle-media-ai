@@ -1,0 +1,132 @@
+{
+  "case": "01_PHOTO_EDIT_NEW_OPEN",
+  "started_at": "2026-10-17T14:36:46.182052+09:00",
+  "evidence": {
+    "retained": {
+      "before": {
+        "previews": [
+          {
+            "kind": "video",
+            "job": "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+            "src": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4"
+          },
+          {
+            "kind": "photo",
+            "job": "12dffbba-2a58-447a-84c2-ddeae063b656",
+            "src": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png"
+          }
+        ],
+        "files": [
+          {
+            "kind": "photo",
+            "name": "f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+            "size": 309254
+          },
+          {
+            "kind": "video",
+            "name": "fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+            "size": 268992
+          }
+        ],
+        "references": [
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거",
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거"
+        ]
+      },
+      "after": {
+        "previews": [
+          {
+            "kind": "video",
+            "job": "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+            "src": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4"
+          },
+          {
+            "kind": "photo",
+            "job": "12dffbba-2a58-447a-84c2-ddeae063b656",
+            "src": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png"
+          }
+        ],
+        "files": [
+          {
+            "kind": "photo",
+            "name": "f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+            "size": 309254
+          },
+          {
+            "kind": "video",
+            "name": "fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+            "size": 268992
+          }
+        ],
+        "references": [
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거",
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거"
+        ]
+      },
+      "rejected_open_requests": 0,
+      "rejected_dialog_retained": true
+    },
+    "save_project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "actual_backend_responses": [
+      {
+        "url": "http://127.0.0.1:18768/api/photo-edits",
+        "status": 201,
+        "body": {
+          "status": "TESTED_PASS",
+          "job_id": "196a52f5-caba-4c91-9def-f2db218ad591",
+          "lane": "photo",
+          "operation": "photo_edit",
+          "command": "사진 보정",
+          "input": {
+            "file_name": "5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+            "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+            "bytes": 351382,
+            "sha256": "7816db7a8f399ee05a6891942cda55f0b8dc75059a660196c5c22369a84170e3"
+          },
+          "primary_output": {
+            "file_name": "edited_photo.png",
+            "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\196a52f5-caba-4c91-9def-f2db218ad591\\edited_photo.png",
+            "bytes": 298684,
+            "sha256": "ea16044f0606f1a3db19b703babf0fa3aef07bac7c72f17631c14a266dacfa9e"
+          },
+          "outputs": [
+            {
+              "file_name": "edited_photo.png",
+              "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\196a52f5-caba-4c91-9def-f2db218ad591\\edited_photo.png",
+              "bytes": 298684,
+              "sha256": "ea16044f0606f1a3db19b703babf0fa3aef07bac7c72f17631c14a266dacfa9e"
+            }
+          ],
+          "runtime_result": {
+            "engine": "browser_canvas_pixels_verified_by_Pillow",
+            "result_size": [
+              480,
+              960
+            ],
+            "options": {
+              "brightness": 15,
+              "contrast": 0,
+              "highlights": 0,
+              "shadows": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "sharpness": 0,
+              "rotation": 0,
+              "flipH": false,
+              "flipV": false,
+              "style": "neutral",
+              "resizeWidth": null,
+              "crop": null,
+              "automaticAnalysis": null
+            },
+            "model_inference": false
+          },
+          "preview_url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png"
+        }
+      }
+    ],
+    "switch_after_completion": true
+  },
+  "status": "PASS",
+  "finished_at": "2026-10-17T14:36:51.399397+09:00"
+}

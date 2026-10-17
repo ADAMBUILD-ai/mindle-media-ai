@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RETRIEVED",
+  "endpoint": "http://127.0.0.1:4318/v1/shortform/e2e/approved-contract",
+  "reason": "provider unavailable and authentication environment absent",
+  "raw_contract_bytes_saved": false,
+  "fabricated_fixture_used": false
+}

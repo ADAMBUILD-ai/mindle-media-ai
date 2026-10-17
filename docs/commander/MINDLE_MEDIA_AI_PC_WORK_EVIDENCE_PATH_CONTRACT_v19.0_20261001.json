@@ -1,0 +1,38 @@
+{
+  "contract_version": "19.0",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_DIRECTIVE_v19.0_20261001.md",
+  "frozen_pass": {
+    "base_runtime": "v14",
+    "final_ui": "v18.1",
+    "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541"
+  },
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_REVIEW_v19.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_INTEGRATED_RELEASE_CANDIDATE_CLOSEOUT_EVIDENCE_v19_0_20261001.json",
+    "detail_directory": "evidence/pc_remote/media-ai-final-integrated-closeout-v19-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "BASE_PRODUCT_INTEGRITY_AUDIT.json",
+      "UI_SSOT_FINAL_AUDIT.json",
+      "MODEL_IDENTITY_FINAL_AUDIT.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "SHORTFORM_BRIDGE_AUDIT.json",
+      "SHORTFORM_LIVE_E2E_RESULT.json",
+      "PRIOR_EVIDENCE_CHAIN_READBACK.json",
+      "FINAL_RELEASE_CANDIDATE_STATUS.json",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "allowed_results": [
+    "FULL_TESTED_PASS",
+    "BASE_PRODUCT_TESTED_PASS_SHORTFORM_EXTERNAL_DEPENDENCY",
+    "FAIL"
+  ],
+  "required_detail_file_count": 11,
+  "remote_readback_required": true
+}

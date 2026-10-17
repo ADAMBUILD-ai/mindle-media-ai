@@ -1,0 +1,20 @@
+CONTROL_PLANE:
+scripts/validate_pc_work_control_plane.py -> CONTROL_PLANE_PASS
+
+PYTHON:
+pytest -q -> 51 passed in 3.07s
+
+UI:
+node --test ui/ssot_structure.test.js ui/interaction.test.js -> 2 passed, 0 failed
+
+LIVE UI:
+PASS http://127.0.0.1:8765/ rendered dark navy F27E UI.
+PASS AI 자동 편집 and 광고 숏폼 are distinct visible controls.
+PASS correct order, Save, Export, PHOTO area, and no independent shortform page.
+
+SHORTFORM STATIC:
+PASS bridge contract tests included in Python suite.
+PASS fail-closed approval policy and product-agnostic request construction.
+
+SHORTFORM LIVE:
+VERIFY_REQUIRED; approved Marketing AI SHORTFORM BRIDGE endpoint is unavailable.

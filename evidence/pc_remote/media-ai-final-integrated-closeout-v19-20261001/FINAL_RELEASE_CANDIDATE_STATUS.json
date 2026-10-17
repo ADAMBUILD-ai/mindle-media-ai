@@ -1,0 +1,20 @@
+{
+  "result": "BASE_PRODUCT_TESTED_PASS_SHORTFORM_EXTERNAL_DEPENDENCY",
+  "base_product": "TESTED_PASS",
+  "ui_ssot": "TESTED_PASS",
+  "approved_ui_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "photo_segmentation": "TESTED_PASS preserved",
+  "photo_4x": "TESTED_PASS preserved",
+  "video_tracking": "TESTED_PASS preserved",
+  "korean_stt": "TESTED_PASS preserved",
+  "save": "PASS preserved",
+  "export": "PASS preserved",
+  "reopen": "PASS preserved",
+  "python_regression": "51 passed",
+  "ui_regression": "2 passed",
+  "shortform_bridge": "static PASS",
+  "shortform_live_e2e": "VERIFY_REQUIRED",
+  "commercial_release_blocker": "external Marketing AI prerequisite unavailable",
+  "remaining_verify_required": ["reachable approved Marketing AI SHORTFORM BRIDGE endpoint/contract", "live shortform MP4 export evidence"],
+  "remote_push_verified": true
+}

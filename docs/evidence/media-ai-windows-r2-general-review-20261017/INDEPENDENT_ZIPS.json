@@ -1,0 +1,20 @@
+[
+  {
+    "path": "c37_runtime/C37_UI_EXPORT.zip",
+    "bytes": 89168405,
+    "sha256": "c1c4f0a34bf4e58530e70f7fd46bec463887884b7267647f3aa28a1a93aaa993",
+    "crc": "PASS"
+  },
+  {
+    "path": "chrome_original/MINDLE_FINAL_ACCEPTANCE_20261017_R1.zip",
+    "bytes": 43305442,
+    "sha256": "232d69cbb6e9a06d9281a5ba00a39903b477b4e1362f5891589edc16a32a1853",
+    "crc": "PASS"
+  },
+  {
+    "path": "chrome_original/source_browser/NORMAL_EXPORT.zip",
+    "bytes": 15196966,
+    "sha256": "3664bee30cc90e7154514795f9f5588bde252902fa8c76cf936850e95578c4bc",
+    "crc": "PASS"
+  }
+]

@@ -1,0 +1,38 @@
+name: R9 corrected Windows candidate independent readback
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths: [.github/workflows/r9-windows-candidate-readback.yml, scripts/verify_r9_windows_candidate.py]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify-delivery-bytes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: mindle-media-one-click-win-x64-part-*
+          merge-multiple: true
+          run-id: 38845082039
+          github-token: ${{ github.token }}
+          path: candidate_readback/parts
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-one-click-windows-launcher-manifests
+          run-id: 38845082039
+          github-token: ${{ github.token }}
+          path: candidate_readback/metadata
+      - run: python scripts/verify_r9_windows_candidate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mindle-corrected-windows-candidate-independent-readback-20261016
+          path: candidate_readback/evidence/**
+          retention-days: 90

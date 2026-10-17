@@ -1,0 +1,27 @@
+{
+  "status": "PASS_INSTALLED_HTTP_CONTENT_AND_DOWNLOAD_HASH",
+  "before_restart": {
+    "status": "EXPORTED",
+    "project_id": "1ef711bb-7fba-4f62-9365-d4acfc4dae73",
+    "export": {
+      "file_name": "1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\projects\\1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip",
+      "bytes": 3388676,
+      "sha256": "ab28b2a6d174eea106094b12659a7eb45a40daa55daa316f5e64218840fdface"
+    },
+    "download_url": "/files/projects/1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip"
+  },
+  "after_restart": {
+    "status": "EXPORTED",
+    "project_id": "1ef711bb-7fba-4f62-9365-d4acfc4dae73",
+    "export": {
+      "file_name": "1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\projects\\1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip",
+      "bytes": 3388676,
+      "sha256": "ab28b2a6d174eea106094b12659a7eb45a40daa55daa316f5e64218840fdface"
+    },
+    "download_url": "/files/projects/1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip"
+  },
+  "zip_crc_test": "PASS",
+  "project_json_present": true
+}

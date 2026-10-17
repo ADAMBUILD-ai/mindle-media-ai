@@ -1,0 +1,8 @@
+{
+  "status": "PASS_TEMPORARY_PROFILE_FROZEN_REUSE_DEFAULT_PENDING",
+  "previous_real_installer_reinstall_exit_code": 0,
+  "previous_package_hash_checks": "PASS_SOURCE_AND_INSTALLED",
+  "installer_and_uninstaller_source_changed_in_R2": false,
+  "new_R2_package_files_functionally_tested_from_installed_copy": true,
+  "final_default_profile_installer_test": "DEFAULT_PROFILE_HOST_GATE_PENDING"
+}

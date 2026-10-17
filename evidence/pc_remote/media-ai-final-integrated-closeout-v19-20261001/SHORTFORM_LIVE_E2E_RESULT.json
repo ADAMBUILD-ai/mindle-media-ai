@@ -1,0 +1,11 @@
+{
+  "status": "SHORTFORM_EXTERNAL_DEPENDENCY_VERIFY_REQUIRED",
+  "attempted_route": "POST /api/integrations/marketing/shortform",
+  "observed_http_status": 503,
+  "observed_status": "VERIFY_REQUIRED",
+  "error": "Marketing AI-approved SHORTFORM BRIDGE Contract v1 is unavailable",
+  "missing_dependency": "reachable approved Marketing AI endpoint/contract and approved bridge configuration",
+  "no_credentials_invented": true,
+  "no_unrelated_asset_used": true,
+  "base_media_ai_impact": "none; base product remains TESTED_PASS"
+}

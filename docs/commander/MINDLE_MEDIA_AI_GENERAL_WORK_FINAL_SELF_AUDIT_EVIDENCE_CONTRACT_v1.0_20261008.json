@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "status": "ACTIVE",
+  "date": "2026-10-08",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "decision_lock": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_DECISION_LOCK_v1.0_20261008.md",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md",
+  "required_final_result": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
+  "fail_result": "REWORK_GENERAL_WORK_GAPS_FOUND",
+  "external_integration_status": "DEFERRED_EXTERNAL",
+  "pc_work_status": "PAUSED_UNTIL_GENERAL_WORK_PASS",
+  "package_strategy_after_pass": "ONE_CLICK_RUNTIME_PACKAGE",
+  "ui_lock": {
+    "product_title": "MINDLE MEDIA AI",
+    "video_structure": "LOCKED_EXISTING_APPROVED",
+    "photo_preview_default": "LANDSCAPE_FIRST",
+    "aspect_ratio_preserve": true,
+    "portrait_auto_fit": true,
+    "photo_required_corrections": [
+      "brightness",
+      "contrast",
+      "highlights",
+      "shadows",
+      "saturation",
+      "temperature",
+      "sharpness"
+    ],
+    "shortform_entry_preserved": true,
+    "broad_redesign_forbidden": true
+  },
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md",
+    "evidence_json": "docs/evidence/media-ai-general-work-final-self-audit-20261008/EVIDENCE.json",
+    "feature_inventory": "docs/evidence/media-ai-general-work-final-self-audit-20261008/FEATURE_INVENTORY.json",
+    "gap_register": "docs/evidence/media-ai-general-work-final-self-audit-20261008/GAP_REGISTER.json",
+    "ui_audit": "docs/evidence/media-ai-general-work-final-self-audit-20261008/UI_RUNTIME_AUDIT.json",
+    "code_audit": "docs/evidence/media-ai-general-work-final-self-audit-20261008/CODE_AUDIT.json",
+    "runtime_receipt": "docs/evidence/media-ai-general-work-final-self-audit-20261008/RUNTIME_E2E_RECEIPT.json",
+    "regression": "docs/evidence/media-ai-general-work-final-self-audit-20261008/REGRESSION_RESULT.json",
+    "remote_readback": "docs/evidence/media-ai-general-work-final-self-audit-20261008/REMOTE_READBACK.txt"
+  },
+  "rules": {
+    "evidence_less_pass_forbidden": true,
+    "visible_dead_control_forbidden": true,
+    "mock_as_runtime_pass_forbidden": true,
+    "main_merge_forbidden": true,
+    "force_push_forbidden": true,
+    "new_repo_or_worktree_forbidden": true,
+    "employee_package_build_forbidden_in_general_work": true,
+    "external_marketing_avora_not_required_for_general_work_pass": true
+  }
+}

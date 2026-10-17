@@ -1,0 +1,196 @@
+{
+  "status": "PASS_MINDLE_MEDIA_AI_FINAL_UI_IMPLEMENTATION",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_commit": "eda5b83eaaba1fc74f4f99bc4cd7316f3f6e77fb",
+  "implementation_commit": "cd5f5a37018de52b994c7ea9b272be83afcda53a",
+  "final_implementation_and_evidence_commit": "7a1133e1bdb914fcb054fb3b2554a9428999586e",
+  "source_readback": [
+    {
+      "path": "ui/index.html",
+      "exact": true,
+      "blob_sha": "3d799d90ec4965b32fdcb88c9b62bbc6e9b532ad"
+    },
+    {
+      "path": "ui/approved_visual.css",
+      "exact": true,
+      "blob_sha": "d93985f69b412e3eac4bbbe53c5c1e6e9bf995d9"
+    },
+    {
+      "path": "ui/product_integration.js",
+      "exact": true,
+      "blob_sha": "966683d082b0c01132e96201059568f5be36760f"
+    },
+    {
+      "path": "ui/photo_workspace.js",
+      "exact": true,
+      "blob_sha": "f78890788a95518e9ac1daa3b1157ec7d14a3269"
+    },
+    {
+      "path": "ui/video_workspace.js",
+      "exact": true,
+      "blob_sha": "d6431a674ebd2f36d9afcd0855662ca8c7c03a1f"
+    },
+    {
+      "path": "src/media_ai/product_runtime.py",
+      "exact": true,
+      "blob_sha": "43dbc45e997de6df261883921606c8c582fa9577"
+    },
+    {
+      "path": "src/media_ai/product_server.py",
+      "exact": true,
+      "blob_sha": "13a350589c8d2ebc700f2deb207c6c8143b1eb69"
+    },
+    {
+      "path": "src/media_ai/intel_sisr_verified_adapter.py",
+      "exact": true,
+      "blob_sha": "4f0e3e484517a901d9bbab409db8d5a3991923e4"
+    },
+    {
+      "path": "tests/test_photo_edit_project.py",
+      "exact": true,
+      "blob_sha": "871ca3a85ae19d8c916d99f3b400f2c43bf34f0d"
+    },
+    {
+      "path": "tests/test_employee_offline_mode.py",
+      "exact": true,
+      "blob_sha": "4e1c237bcdcadb21a7210a2a7c1e0503408113c7"
+    }
+  ],
+  "evidence_readback": [
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/CHANGED_FILES.txt",
+      "exact": true,
+      "blob_sha": "d0ca2cdf0a2dfcd02d5c3e4a6744d9e1eb05c098"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_ALL_RUNTIME_JOBS.json",
+      "exact": true,
+      "blob_sha": "1f63b2b3aacd5ca1300b32433e5b2725b1459ac0"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_ALPHA_STABILIZE_TEST.json",
+      "exact": true,
+      "blob_sha": "1edcbe7ca7f5dd7cb94c2df7d2c5f094f52f2031"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_AUTOSUBTITLE_RESULT.json",
+      "exact": true,
+      "blob_sha": "d038acdba2937db2b54713085de98b5ebececc9f"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_FINAL_REOPEN_EXPORT.json",
+      "exact": true,
+      "blob_sha": "3351763bfa0e607f559dd816b375e39968ff7411"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_ISOLATED_MODEL_TEST.json",
+      "exact": true,
+      "blob_sha": "818d6e1da381635b76f5c26bb0f1155793232073"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_RUNTIME_FUNCTION_TEST.json",
+      "exact": true,
+      "blob_sha": "e2ccf3db41d5e0b94e3ff78e42e966cc18bb5fe0"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_RUNTIME_IDENTITY.json",
+      "exact": true,
+      "blob_sha": "f06dd9fbb7327f447de2b67078c10baa1ded3206"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_SOURCE_READBACK.json",
+      "exact": true,
+      "blob_sha": "a22410ad797b764e4cf7081bce6fb622dda992af"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_SPLIT_HIGHLIGHT_TEST.json",
+      "exact": true,
+      "blob_sha": "bedfab2df2e15511d5c7f50b7932627d977a793a"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_VIEWPORT_MATRIX.json",
+      "exact": true,
+      "blob_sha": "3f657446eef5a9becfdafe9fa6ee2da27bd42526"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_VISUAL_CASES.json",
+      "exact": true,
+      "blob_sha": "da4f5996c8b645b8e5ef25014b74b85e02637bc0"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FUNCTION_ACCESSIBILITY_CHECK.md",
+      "exact": true,
+      "blob_sha": "49c5d717be86fc5bd66ccb258db3412e91b02898"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/MINDLE_MEDIA_AI_FINAL_UI_IMPLEMENTATION_EVIDENCE_v1_0_20261007.json",
+      "exact": true,
+      "blob_sha": "04864750fdccb4871cbaa6ba3ed675c63d1c1d8e"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/MINDLE_MEDIA_AI_FINAL_UI_IMPLEMENTATION_REVIEW_v1.0_20261007.md",
+      "exact": true,
+      "blob_sha": "099dbf6d10e259172d3e9dfc30740377cd2aa0c6"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/UI_SSOT_COMPARISON.md",
+      "exact": true,
+      "blob_sha": "95aa1bc00701fcb50ab2e7226a11d23744f32a60"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_IMPLEMENTATION_REVIEW_v1.0_20261007.md",
+      "exact": true,
+      "blob_sha": "099dbf6d10e259172d3e9dfc30740377cd2aa0c6"
+    },
+    {
+      "path": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_UI_IMPLEMENTATION_EVIDENCE_v1_0_20261007.json",
+      "exact": true,
+      "blob_sha": "04864750fdccb4871cbaa6ba3ed675c63d1c1d8e"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_BURNED_CAPTION_FRAME.png",
+      "exact": true,
+      "blob_sha": "66d6f2398a8fd52eedffcfb177647828be061913"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_FINAL_SCREEN.jpg",
+      "exact": true,
+      "blob_sha": "5cc82752a0a5454d8a3204215d95206152956327"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_LANDSCAPE.jpg",
+      "exact": true,
+      "blob_sha": "fd0e1150e3a8d7b0d4253369fe89022b970d62e1"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_PORTRAIT_AUTO_FIT.jpg",
+      "exact": true,
+      "blob_sha": "75e1c5a84a6a2e0a6d71b760a9f7522810463a4f"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_REDUCED_HEIGHT.jpg",
+      "exact": true,
+      "blob_sha": "7de7a4e6c60228a8f4d97a6828079162bcf05032"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_SQUARE.jpg",
+      "exact": true,
+      "blob_sha": "f07bf4c999c4a5228ff8e2ca5329f4bc4d83d7d7"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_VIDEO_1x1.jpg",
+      "exact": true,
+      "blob_sha": "f88eafc0af41118683c00e83e0d9f9f7dfad4394"
+    },
+    {
+      "path": "evidence/pc_remote/media-ai-final-ui-implementation-v1-20261007/FINAL_UI_VIDEO_9x16.jpg",
+      "exact": true,
+      "blob_sha": "61cfea095c2696ff06aa49b342088af371f0e91d"
+    }
+  ],
+  "exact_source_files": 10,
+  "exact_evidence_files": 26,
+  "distribution_status": "R2_HELD_NOT_REBUILT_OR_APPROVED",
+  "local_git_head_synchronized": false
+}

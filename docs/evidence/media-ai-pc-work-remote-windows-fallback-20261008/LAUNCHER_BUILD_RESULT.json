@@ -1,0 +1,16 @@
+{
+  "status": "LAUNCHER_EXE_BUILD_PASS",
+  "final_product_pass": false,
+  "run_id": 37861051963,
+  "job_id": 113596576646,
+  "artifact_id": 11585344610,
+  "artifact_name": "MINDLE_MEDIA_AI_RUN_launcher_smoke",
+  "artifact_zip_bytes": 67490945,
+  "file": "MINDLE_MEDIA_AI_RUN.exe",
+  "bytes": 67490455,
+  "sha256": "f7d5144a3d05986d5ae4ffd7d90dcc163e7aadfadc0faa27d627983cb4486bcd",
+  "source_commit": "b0757ad749c99c2e88206cd800ed61eef38eaac6",
+  "scope": "Self-contained .NET win-x64 launcher compile only",
+  "package_runtime_status": "IN_PROGRESS",
+  "local_physical_acceptance": "PENDING_LOCAL_HELPER_RECOVERY"
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\R\Documents\Codex\2026-10-10\mindle-media-ai-ui-photo-video\work\transition-browser-20261017\c37_save_export.py", line 26, in <module>
+    assert sha(item['path'])==item['sha256']==sha(inp/item['file_name']);hashes.append({'filename':item['file_name'],'sha256':item['sha256'],'bytes':pathlib.Path(item['path']).stat().st_size})
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\R\Documents\Codex\2026-10-10\mindle-media-ai-ui-photo-video\work\transition-browser-20261017\c37_save_export.py", line 6, in sha
+    def sha(p):return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\EVIDENCE_20261015_CANDIDATE_R1\\inputs\\b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png'

@@ -1,0 +1,91 @@
+✔ new/open project cannot clear an edit in progress or start a competing restore (6.81531ms)
+✔ save response cannot attach the old project to a new project (2.795461ms)
+✔ rejected duplicate save/export does not unlock the active save (1.525043ms)
+✔ in-flight restore excludes new/open/save and releases its guard when no project exists (1.250078ms)
+✔ rejected duplicate export cannot release the first export transition guard (1.37737ms)
+✖ failed preview restore preserves the previous input, preview, project and jobs (2.122385ms)
+✖ failed reference restore preserves the previous input, preview, project and jobs (3.532504ms)
+✖ failed audio restore preserves the previous input, preview, project and jobs (1.86072ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 5
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.954693
+
+✖ failing tests:
+
+test at media-audit/ui/project_lifecycle.test.js:143:3
+✖ failed preview restore preserves the previous input, preview, project and jobs (2.122385ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (/workspace/scratch/b0ed3e0d34af/media-audit/ui/project_lifecycle.test.js:157:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at media-audit/ui/project_lifecycle.test.js:143:3
+✖ failed reference restore preserves the previous input, preview, project and jobs (3.532504ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + null
+  - File {
+  -   Symbol(kHandle): Blob {},
+  -   Symbol(kLength): 5,
+  -   Symbol(kType): 'image/png',
+  -   Symbol(state): FileState {
+  -     lastModified: 1792220398246,
+  -     name: 'photo.png'
+  -   },
+  -   mindleAudio: {}
+  - }
+  
+      at TestContext.<anonymous> (/workspace/scratch/b0ed3e0d34af/media-audit/ui/project_lifecycle.test.js:158:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: { mindleAudio: {} },
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at media-audit/ui/project_lifecycle.test.js:143:3
+✖ failed audio restore preserves the previous input, preview, project and jobs (1.86072ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + null
+  - File {
+  -   Symbol(kHandle): Blob {},
+  -   Symbol(kLength): 5,
+  -   Symbol(kType): 'image/png',
+  -   Symbol(state): FileState {
+  -     lastModified: 1792220398248,
+  -     name: 'photo.png'
+  -   },
+  -   mindleAudio: {}
+  - }
+  
+      at TestContext.<anonymous> (/workspace/scratch/b0ed3e0d34af/media-audit/ui/project_lifecycle.test.js:158:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: { mindleAudio: {} },
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

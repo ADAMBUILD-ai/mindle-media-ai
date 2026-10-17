@@ -1,0 +1,13 @@
+{
+  "visible_total": 4,
+  "matching": [
+    {
+      "pid": 15792,
+      "parent_pid": 3436,
+      "name": "python.exe",
+      "path": "C:\\Users\\R\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe"
+    }
+  ],
+  "command_line": "Collected independently via CIM if permitted",
+  "cannot_infer_global_absence_from_filtered_view": true
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_LINUX_SOURCE_HTTP_COLD_RESTART_PHOTO_VIDEO_EXPORT",
+  "first_pid": 3797,
+  "second_pid": 3852,
+  "old_endpoint_closed": true,
+  "project_id": "c3fc3ce1-3f53-420d-9998-546bfb9f6645",
+  "job_output_sha256": {
+    "cbca28f5-5479-477e-9192-7285e3155ae7": "cd91936cd51e024e221121f8b5486ca4a0789d461d8dcfbb1bb6118fb4e0da4e",
+    "4761f488-a1e4-4682-aecd-6f5fe0678e4c": "b94a60792f99aa656a3c11564bc8fbcaa822708b2a36fb73d906b6d4ca5e48d3"
+  },
+  "export_sha256": "4462e5c64c27a02497c7b4b499d3dc93c759cd9bc4256f96b29271543fa4a35a",
+  "zip_crc": "PASS",
+  "members": [
+    "project.json",
+    "jobs/cbca28f5-5479-477e-9192-7285e3155ae7/edited_photo.png",
+    "inputs/cbca28f5-5479-477e-9192-7285e3155ae7/1f9fdc4d-368d-41c9-9bbe-a0b8ac854ce5_photo_edit.png",
+    "jobs/4761f488-a1e4-4682-aecd-6f5fe0678e4c/edited_video.mp4",
+    "inputs/4761f488-a1e4-4682-aecd-6f5fe0678e4c/a5322e18-71f4-427c-9b9b-2523a1bbbf12_source.mp4",
+    "BUNDLE_MANIFEST.json"
+  ],
+  "bundle_files_verified": 4,
+  "model_inference": false,
+  "scope": "GENERATED_FIXTURES_LINUX_SOURCE_HTTP_ONLY",
+  "windows_exe_pass": false,
+  "owner_pc_pass": false,
+  "full_product_pass": false
+}

@@ -1,0 +1,9 @@
+{
+  "path": "incoming/commander/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+  "present": false,
+  "expected_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "actual_sha256": null,
+  "expected_dimensions": [1536, 1024],
+  "decoded_png": false,
+  "result": "ASSET_HANDOFF_REQUIRED"
+}

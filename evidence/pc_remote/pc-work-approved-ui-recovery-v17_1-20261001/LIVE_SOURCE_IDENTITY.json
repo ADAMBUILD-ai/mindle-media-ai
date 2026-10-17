@@ -1,0 +1,11 @@
+{
+  "server": "http://127.0.0.1:8765/",
+  "source_root": "canonical PC Work worktree",
+  "live_ui_screenshot_sha256": "44034d86208eda7dab773f1cba4237d104d87329ebd94e1cba0fc30bbf30cfca",
+  "live_ui_screenshot_dimensions": [1280, 720],
+  "dom_identity": "MINDLE MEDIA AI editor",
+  "observed_sections": ["영상 편집", "사진 편집"],
+  "observed_controls": ["Preview", "Timeline", "natural-language fields", "reference upload", "Project Save", "Export"],
+  "visual_state": "white/basic HTML styling; no dark-navy stylesheet loaded",
+  "capture_note": "LIVE_UI_AFTER.png is preserved diagnostic live state because visual repair was blocked by unavailable Library source."
+}

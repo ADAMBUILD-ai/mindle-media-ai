@@ -1,0 +1,257 @@
+[
+  {
+    "method": "GET",
+    "path": "/",
+    "message": "GET / HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/approved_visual.css",
+    "message": "GET /approved_visual.css HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/interaction.js",
+    "message": "GET /interaction.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/interaction.css",
+    "message": "GET /interaction.css HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/product_integration.js",
+    "message": "GET /product_integration.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/photo_workspace.js",
+    "message": "GET /photo_workspace.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/video_workspace.js",
+    "message": "GET /video_workspace.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/workspace_shell.js",
+    "message": "GET /workspace_shell.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/latest",
+    "message": "GET /api/projects/latest HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png",
+    "message": "GET /files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+    "message": "GET /assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png",
+    "message": "GET /files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/9bfc5843-8d22-40e4-91eb-183a9e11ea03/intel_sisr_1032/upscaled_4x.png",
+    "message": "GET /files/jobs/9bfc5843-8d22-40e4-91eb-183a9e11ea03/intel_sisr_1032/upscaled_4x.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/9bfc5843-8d22-40e4-91eb-183a9e11ea03/intel_sisr_1032/upscaled_4x.png",
+    "message": "GET /files/jobs/9bfc5843-8d22-40e4-91eb-183a9e11ea03/intel_sisr_1032/upscaled_4x.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4",
+    "message": "GET /files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4",
+    "message": "GET /files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4 HTTP/1.1 206 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/latest",
+    "message": "GET /api/projects/latest HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/c276f6a4-4849-4f64-9661-57ec00f4c2cc/export",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/c276f6a4-4849-4f64-9661-57ec00f4c2cc/export",
+    "message": "POST /api/projects/c276f6a4-4849-4f64-9661-57ec00f4c2cc/export HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/c276f6a4-4849-4f64-9661-57ec00f4c2cc_export.zip",
+    "message": "GET /files/projects/c276f6a4-4849-4f64-9661-57ec00f4c2cc_export.zip HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 422 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/photo-edits",
+    "lane": null,
+    "operation": null,
+    "request_id": "69982ff2-36e2-4c40-8eb7-9b9c3070eb20"
+  },
+  {
+    "method": "POST",
+    "path": "/api/photo-edits",
+    "message": "POST /api/photo-edits HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/photo-edits",
+    "lane": null,
+    "operation": null,
+    "request_id": "69982ff2-36e2-4c40-8eb7-9b9c3070eb20"
+  },
+  {
+    "method": "POST",
+    "path": "/api/photo-edits",
+    "message": "POST /api/photo-edits HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/photo-edits",
+    "lane": null,
+    "operation": null,
+    "request_id": "69982ff2-36e2-4c40-8eb7-9b9c3070eb20"
+  },
+  {
+    "method": "POST",
+    "path": "/api/photo-edits",
+    "message": "POST /api/photo-edits HTTP/1.1 422 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "message": "GET /api/projects HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/evidence",
+    "message": "GET /api/evidence HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "message": "GET /api/projects HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "message": "GET /api/projects HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects",
+    "message": "GET /api/projects HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/c276f6a4-4849-4f64-9661-57ec00f4c2cc",
+    "message": "GET /api/projects/c276f6a4-4849-4f64-9661-57ec00f4c2cc HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png",
+    "message": "GET /files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/9bfc5843-8d22-40e4-91eb-183a9e11ea03/intel_sisr_1032/upscaled_4x.png",
+    "message": "GET /files/jobs/9bfc5843-8d22-40e4-91eb-183a9e11ea03/intel_sisr_1032/upscaled_4x.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4",
+    "message": "GET /files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/integrations/marketing/shortform",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/integrations/marketing/shortform",
+    "message": "POST /api/integrations/marketing/shortform HTTP/1.1 503 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/jobs",
+    "lane": "video",
+    "operation": "tracking",
+    "request_id": "bc7f4dcd-a5c9-4d37-8ce5-84ddd8d978e4"
+  },
+  {
+    "method": "POST",
+    "path": "/api/jobs",
+    "message": "POST /api/jobs HTTP/1.1 422 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/jobs",
+    "lane": "korean_audio",
+    "operation": "transcribe",
+    "request_id": "befc4e26-62c7-410b-be28-7d8bcbe5a022"
+  },
+  {
+    "method": "POST",
+    "path": "/api/jobs",
+    "message": "POST /api/jobs HTTP/1.1 422 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/jobs",
+    "lane": "photo",
+    "operation": "upscale",
+    "request_id": "81d4bb64-439e-40b9-b2e4-f6eca02cd0c7"
+  },
+  {
+    "method": "POST",
+    "path": "/api/jobs",
+    "message": "POST /api/jobs HTTP/1.1 422 -"
+  }
+]

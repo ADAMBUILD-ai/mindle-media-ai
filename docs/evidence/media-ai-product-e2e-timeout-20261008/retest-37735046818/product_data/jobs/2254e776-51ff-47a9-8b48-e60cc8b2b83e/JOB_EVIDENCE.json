@@ -1,0 +1,304 @@
+{
+  "status": "TESTED_PASS",
+  "job_id": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+  "evidence_id": "bcbcf4c3-f1f3-475b-adbe-2f3c6cd2bb49",
+  "lane": "video",
+  "operation": "tracking",
+  "command": "대상을 실제 추적해줘",
+  "state_history": [
+    "queued",
+    "validating",
+    "preflight_ready",
+    "dispatched",
+    "running",
+    "output_validating",
+    "succeeded"
+  ],
+  "model": {
+    "identity": {
+      "repo_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license": "apache-2.0",
+      "weight_name": "model.safetensors",
+      "weight_size_bytes": 323476296,
+      "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+    },
+    "private_cache": {
+      "repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+      "revision": "ad63c52a4b9a3db7eaec9c5058c94ee1422757dd",
+      "path": "VERIFIED_MODEL_CACHE/sam21",
+      "read_only": true
+    }
+  },
+  "adapter": {
+    "id": "mindle.sam21.verified.cpu",
+    "version": "1.0.1",
+    "runtime_backend": "transformers-pytorch",
+    "device_requirement": "cpu"
+  },
+  "input": {
+    "file_name": "448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+    "bytes": 315058,
+    "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+  },
+  "runtime_result": {
+    "status": "TESTED_PASS",
+    "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+    "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+    "track_id": 1,
+    "sampled_frames": 4,
+    "samples": [
+      {
+        "track_id": 1,
+        "source_frame_index": 0,
+        "prompt_point": [
+          256,
+          146
+        ],
+        "centroid": [
+          253,
+          142
+        ],
+        "selected_mask_index": 0,
+        "foreground_fraction": 0.1444112627986348,
+        "iou_with_previous_sample": null,
+        "elapsed_ms": 4713.16,
+        "mask_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_00_mask.png",
+        "mask_sha256": "f089e4041e23a692d75785f4e56974b73628cd152ed68f5ab99a4b13e8ee5715",
+        "overlay_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_00_overlay.png",
+        "overlay_sha256": "15fd44088b8da7b193aeaaf18898da95ab903380f186e60008437e80988fe871"
+      },
+      {
+        "track_id": 1,
+        "source_frame_index": 41,
+        "prompt_point": [
+          253,
+          142
+        ],
+        "centroid": [
+          249,
+          137
+        ],
+        "selected_mask_index": 2,
+        "foreground_fraction": 0.003339643771331058,
+        "iou_with_previous_sample": 0.02312592319054653,
+        "elapsed_ms": 4610.8,
+        "mask_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_01_mask.png",
+        "mask_sha256": "bc0152ef3a47226958c2ee35762e35de1dbe53a699bbff2ad593e4b1c0a15e8f",
+        "overlay_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_01_overlay.png",
+        "overlay_sha256": "831eeab36dcdf158a86812c31470ba1bf85ad66d116c309459689aa08e74c18d"
+      },
+      {
+        "track_id": 1,
+        "source_frame_index": 83,
+        "prompt_point": [
+          249,
+          137
+        ],
+        "centroid": [
+          240,
+          182
+        ],
+        "selected_mask_index": 0,
+        "foreground_fraction": 0.13637878626279865,
+        "iou_with_previous_sample": 0.024488000391025954,
+        "elapsed_ms": 4679.2,
+        "mask_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_02_mask.png",
+        "mask_sha256": "da616f9e93f730a8a153597a7d34a82411caafe91bb21c47b5ad1ceb98e1a876",
+        "overlay_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_02_overlay.png",
+        "overlay_sha256": "776e2bd3fb8053c4c95f1b3b69a56a5ecc6c72078a999e1bdf6c340a037cde37"
+      },
+      {
+        "track_id": 1,
+        "source_frame_index": 124,
+        "prompt_point": [
+          240,
+          182
+        ],
+        "centroid": [
+          251,
+          178
+        ],
+        "selected_mask_index": 0,
+        "foreground_fraction": 0.12659982935153583,
+        "iou_with_previous_sample": 0.7164549251653324,
+        "elapsed_ms": 4682.27,
+        "mask_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_03_mask.png",
+        "mask_sha256": "97acdff85378790fff5e157843a34e2eb21d819e609dca0ed7f8fff918e3d2a5",
+        "overlay_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_03_overlay.png",
+        "overlay_sha256": "ba1875623ce135c5bde8a0653dcd2a2c04d9e615e69aa760b33d84117357af10"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+        "sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69",
+        "bytes": 96034
+      },
+      {
+        "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/tracking.json",
+        "sha256": "8cef0d4e30d5b3b9e47835f1bc92f34e272fa7e332f7cdcc8d2e9fefe7463dc2",
+        "bytes": 3614
+      }
+    ]
+  },
+  "primary_output": {
+    "file_name": "track_1_overlays.mp4",
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+    "bytes": 96034,
+    "sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69"
+  },
+  "outputs": [
+    {
+      "file_name": "track_1_frame_00_mask.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_00_mask.png",
+      "bytes": 1740,
+      "sha256": "f089e4041e23a692d75785f4e56974b73628cd152ed68f5ab99a4b13e8ee5715"
+    },
+    {
+      "file_name": "track_1_frame_00_overlay.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_00_overlay.png",
+      "bytes": 219817,
+      "sha256": "15fd44088b8da7b193aeaaf18898da95ab903380f186e60008437e80988fe871"
+    },
+    {
+      "file_name": "track_1_frame_01_mask.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_01_mask.png",
+      "bytes": 382,
+      "sha256": "bc0152ef3a47226958c2ee35762e35de1dbe53a699bbff2ad593e4b1c0a15e8f"
+    },
+    {
+      "file_name": "track_1_frame_01_overlay.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_01_overlay.png",
+      "bytes": 153192,
+      "sha256": "831eeab36dcdf158a86812c31470ba1bf85ad66d116c309459689aa08e74c18d"
+    },
+    {
+      "file_name": "track_1_frame_02_mask.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_02_mask.png",
+      "bytes": 2194,
+      "sha256": "da616f9e93f730a8a153597a7d34a82411caafe91bb21c47b5ad1ceb98e1a876"
+    },
+    {
+      "file_name": "track_1_frame_02_overlay.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_02_overlay.png",
+      "bytes": 150397,
+      "sha256": "776e2bd3fb8053c4c95f1b3b69a56a5ecc6c72078a999e1bdf6c340a037cde37"
+    },
+    {
+      "file_name": "track_1_frame_03_mask.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_03_mask.png",
+      "bytes": 1525,
+      "sha256": "97acdff85378790fff5e157843a34e2eb21d819e609dca0ed7f8fff918e3d2a5"
+    },
+    {
+      "file_name": "track_1_frame_03_overlay.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_frame_03_overlay.png",
+      "bytes": 179972,
+      "sha256": "ba1875623ce135c5bde8a0653dcd2a2c04d9e615e69aa760b33d84117357af10"
+    },
+    {
+      "file_name": "track_1_overlays.mp4",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+      "bytes": 96034,
+      "sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69"
+    },
+    {
+      "file_name": "tracking.json",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/tracking.json",
+      "bytes": 3614,
+      "sha256": "8cef0d4e30d5b3b9e47835f1bc92f34e272fa7e332f7cdcc8d2e9fefe7463dc2"
+    }
+  ],
+  "backend": {
+    "api_status": 201,
+    "delivery_gate": "DELIVERED",
+    "job_evidence": {
+      "job_id": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+      "evidence_id": "bcbcf4c3-f1f3-475b-adbe-2f3c6cd2bb49",
+      "evidence_status": "VERIFY_REQUIRED",
+      "runtime_status": "OUTPUT_VALIDATED",
+      "terminal_state": "succeeded",
+      "recorded_at": "2026-10-08T06:00:46.889320+00:00",
+      "started_at": "2026-10-08T06:00:46.888221+00:00",
+      "finished_at": "2026-10-08T06:00:46.889330+00:00",
+      "project_id": null,
+      "requested_operation": "tracking",
+      "source_provenance": {
+        "source_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+        "ingress": "approved-ui"
+      },
+      "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+      "reference_files": [],
+      "retry_provenance": {
+        "job_id": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+        "evidence_id": "bcbcf4c3-f1f3-475b-adbe-2f3c6cd2bb49",
+        "attempt": 1
+      },
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "runtime": {
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "hardware": "x86_64"
+      },
+      "adapter_id": "mindle.sam21.verified.cpu",
+      "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license_source": "apache-2.0",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu",
+      "execution_context": {
+        "job_id": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+        "evidence_id": "bcbcf4c3-f1f3-475b-adbe-2f3c6cd2bb49",
+        "lane": "video",
+        "source_hashes": {
+          "source": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        "nl_instruction": "대상을 실제 추적해줘",
+        "reference_images": [],
+        "retry_provenance": {
+          "job_id": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+          "evidence_id": "bcbcf4c3-f1f3-475b-adbe-2f3c6cd2bb49",
+          "attempt": 0
+        },
+        "adapter_identity": {
+          "adapter_id": "mindle.sam21.verified.cpu",
+          "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+        }
+      },
+      "output_artifact": {
+        "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+        "type": ".mp4",
+        "size_bytes": 96034,
+        "sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69",
+        "status": "validated"
+      },
+      "model_scout_delivery": {
+        "status": "DELIVERED",
+        "callback_id": "callback-e8c502fb-c1ee-4c91-b0f4-084f1762b9e8",
+        "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+        "output_sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69",
+        "output_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+        "elapsed_ms": 0.0
+      }
+    }
+  },
+  "execution_environment": {
+    "hardware": "CPU",
+    "gpu_used": false,
+    "paid_compute": false,
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "python": "3.11.16",
+    "process": "3.11.16"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "verified_evidence_commit": "1ecc0bf6749e63ae3c2636fbf8ed63534ae401e3",
+  "verified_source_commit": "1493cb5e6886dc2b6c35252fff246ad6eb48ebe9",
+  "text_files": [
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/RUNTIME_RECEIPT.json",
+      "sha": "bdecfb202e9072d0eb42c30b9071ce62de5236d4",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/HISTORICAL_WINDOWS_RUNTIME_RECEIPT.json",
+      "sha": "479375ff4eb3741dd56c0f77569c277d0d26b0db",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/EVIDENCE.json",
+      "sha": "67a5533920ef73881bda2c48043f17223ace3e53",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/CANONICAL_BASELINE.log",
+      "sha": "e9bb39ce58f7cab1bf197099691216c3e1871ae7",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/HISTORICAL_WINDOWS_MODEL_READBACK.json",
+      "sha": "cc609a774e32e2a10bc9d1397ec8d27cf6439ee2",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/INDEPENDENT_DOWNLOAD_VERIFICATION.json",
+      "sha": "e4e83045a3e3e7cea526d8a10b789512627bee22",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/REGRESSION.log",
+      "sha": "6531739c2f68bac153718484ab19f4399ea921ff",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/PREVIOUS_CANONICAL_FAILURE.log",
+      "sha": "19a1263f7cbaa52e62832b3f378211c84db33384",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/FUNCTION_BINDING_AUDIT.json",
+      "sha": "fad820a56e1b83a1729583d6255a5cb73c6a106d",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/ACTIONS_RUN.log",
+      "sha": "ffa4336476adff91780607df60a24b01a22a474a",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-runtime-recovery-20261013/PROTECTED_SOURCE_READBACK.json",
+      "sha": "ec492451472974cf4e3827a5ac684d53ecd2143f",
+      "content_match": true
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_REVIEW_v1.0_20261013.md",
+      "sha": "e6f8275c2c039baaa39662a02542489eddc6933b",
+      "content_match": true
+    }
+  ],
+  "screenshot_blob": "3a2d144a6c445f2c9594c7796050b16de1ab2f1b",
+  "all_source_unchanged": true,
+  "protected_approved_paths": 26,
+  "pr23": {
+    "head": "1ecc0bf6749e63ae3c2636fbf8ed63534ae401e3",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "instruction": "HOLD / DO NOT MERGE"
+  },
+  "main_head": "797da297f588780ad2d608deea3b5af8f05af450",
+  "main_merge_performed": false,
+  "force_push": false,
+  "full_product_pass": false,
+  "owner_pc_runtime_pass": false
+}

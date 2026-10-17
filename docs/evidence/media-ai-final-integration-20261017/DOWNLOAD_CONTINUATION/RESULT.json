@@ -1,0 +1,38 @@
+{
+  "browser": "155.0.8059.80",
+  "scope": "SAME_SAVED_SOURCE_PROJECT_CONTINUATION_NOT_PC_PACKAGE",
+  "changed_test_condition": "Playwright downloads_path explicitly set to permitted evidence workspace; product unmodified",
+  "identity": {
+    "repo_root": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\transition-browser-20261017\\source",
+    "branch": "",
+    "head": "7116244481c8159fadaf45f6a6fcc20dededa876",
+    "workspace_ui_fingerprint": "038531323379b333cf138b74d1c506a217cd463ac056c99ed16c1497925deaa5",
+    "file_hashes": {
+      "ui/index.html": "64abc36dfec2d45a052d6abd00e4a6680bdde01326dfc305319096aa5cde8398",
+      "ui/approved_visual.css": "23695715beb425b35580f2c56dc7e657e3a3538d714a8183f532f77a56b1ebc0",
+      "ui/interaction.css": "35f2bacd4c0de5733ae905abfe4c20188098274c6f4638f379f3860e9f29f261",
+      "ui/interaction.js": "df72202116df07de9e3c52ed4b9b4f23ebd8d40d2e32742aa26f98d187056e01",
+      "ui/product_integration.js": "6fd3a62fdfae49fe18d9dfca011746b7589b968a1ad905e9503321ca36c64e4c",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "8ea4fab024bd654e2b89472a00feb0a6f4349e8d2102e44be6d29c6c6d0e0330",
+      "ui/video_workspace.js": "4ff660178009e20e88f5a82d346f98305f0090a21c1c064db8ac42dfeabe848e",
+      "ui/workspace_shell.js": "8254c166773dd8049b6a2241bb77cd28b11167db7627c61fdc2afe18d195bb78"
+    },
+    "runtime_mode": "DEVELOPMENT_UI",
+    "model_root": null,
+    "git_identity_status": "AVAILABLE",
+    "server_pid": 27260,
+    "server_instance_id": "39a57ac0-7d6c-41a9-8163-518ac81b4458",
+    "server_started_at": "2026-10-17T07:45:15.440877+00:00",
+    "server_command": [
+      "C:\\Users\\R\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "work/transition-browser-20261017/download_continuation.py"
+    ],
+    "owner_shutdown_supported": true
+  },
+  "url": "http://127.0.0.1:2791/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip",
+  "suggested_filename": "9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip",
+  "status": "BLOCKED",
+  "error": "Download.save_as: canceled",
+  "failure": "canceled"
+}

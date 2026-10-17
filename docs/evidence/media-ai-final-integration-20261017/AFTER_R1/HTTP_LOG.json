@@ -1,0 +1,722 @@
+[
+  {
+    "method": "GET",
+    "path": "/",
+    "message": "GET / HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/approved_visual.css",
+    "message": "GET /approved_visual.css HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/interaction.css",
+    "message": "GET /interaction.css HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/interaction.js",
+    "message": "GET /interaction.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/product_integration.js",
+    "message": "GET /product_integration.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/photo_workspace.js",
+    "message": "GET /photo_workspace.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/video_workspace.js",
+    "message": "GET /video_workspace.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/workspace_shell.js",
+    "message": "GET /workspace_shell.js HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/latest",
+    "message": "GET /api/projects/latest HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/assets/demo/video-preview.png",
+    "message": "GET /assets/demo/video-preview.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/assets/demo/photo-preview.png",
+    "message": "GET /assets/demo/photo-preview.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+    "message": "GET /assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/media/import",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/media/import",
+    "message": "POST /api/media/import HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/c8cc38c1-66da-4fc2-bf29-296b500126b0/original_photo.png",
+    "message": "GET /files/jobs/c8cc38c1-66da-4fc2-bf29-296b500126b0/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/c8cc38c1-66da-4fc2-bf29-296b500126b0/original_photo.png",
+    "message": "GET /files/jobs/c8cc38c1-66da-4fc2-bf29-296b500126b0/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/media/import",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/media/import",
+    "message": "POST /api/media/import HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/media/import",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/media/import",
+    "message": "POST /api/media/import HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 206 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/video-edits",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/video-edits",
+    "message": "POST /api/video-edits HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 206 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/f8452973-9585-4b7a-9d1e-43e157d086fd",
+    "message": "GET /api/projects/f8452973-9585-4b7a-9d1e-43e157d086fd HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/c8cc38c1-66da-4fc2-bf29-296b500126b0/original_photo.png",
+    "message": "GET /files/jobs/c8cc38c1-66da-4fc2-bf29-296b500126b0/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/c8cc38c1-66da-4fc2-bf29-296b500126b0/original_photo.png",
+    "message": "GET /files/jobs/c8cc38c1-66da-4fc2-bf29-296b500126b0/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 206 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export",
+    "message": "POST /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export",
+    "message": "POST /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/save",
+    "message": "POST /api/projects/save HTTP/1.1 201 -"
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export",
+    "lane": null,
+    "operation": null,
+    "request_id": null
+  },
+  {
+    "method": "POST",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export",
+    "message": "POST /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3/export HTTP/1.1 201 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_export.zip HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3",
+    "message": "GET /api/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4",
+    "message": "GET /files/jobs/00ffe30a-2f12-4cd8-b68b-9e68ff8976d6/original_video_preview.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4",
+    "message": "GET /files/jobs/657aa858-dbbf-44cf-a1aa-45c142f6ca71/edited_video.mp4 HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "message": "GET /files/projects/9d9a515b-055c-4d4a-9796-66b8ea4505a3_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png",
+    "message": "GET /files/jobs/8749f70d-ae96-48ea-9ad6-6e729fb9d585/original_photo.png HTTP/1.1 200 -"
+  },
+  {
+    "method": "GET",
+    "path": "/api/assets",
+    "message": "GET /api/assets HTTP/1.1 200 -"
+  }
+]

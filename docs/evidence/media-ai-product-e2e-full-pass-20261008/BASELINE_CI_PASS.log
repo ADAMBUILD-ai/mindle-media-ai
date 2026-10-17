@@ -1,0 +1,28 @@
+CONTROL_PLANE_PASS
+EPOCH=MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1
+DIRECTIVE=docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_DIRECTIVE_v1.0_20261008.md
+CONTRACT=docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_EVIDENCE_CONTRACT_v1.0_20261008.json
+..................................................................       [100%]
+66 passed in 3.05s
+TAP version 13
+# Subtest: ui/interaction.test.js
+ok 1 - ui/interaction.test.js
+  ---
+  duration_ms: 43.619813
+  type: 'test'
+  ...
+# Subtest: ui/ssot_structure.test.js
+ok 2 - ui/ssot_structure.test.js
+  ---
+  duration_ms: 38.571437
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 65.796399

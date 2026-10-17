@@ -1,26 +1,74 @@
 <!doctype html>
 <html lang="ko">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MINDLE MEDIA AI</title><link rel="stylesheet" href="interaction.css"></head>
-  <body data-ui-contract="01_UI_SSOT_FINAL.md">
-    <main aria-label="MINDLE MEDIA AI editor">
-      <section data-editor="video" aria-label="영상 편집">
-        <header><h1>영상 편집</h1><button type="button" data-action="load">영상 불러오기</button><input type="file" data-primary-input="video" accept="video/*,audio/wav,audio/mpeg,audio/flac,audio/ogg" hidden><button data-action="save">프로젝트 저장</button><button data-action="export">내보내기</button></header>
-        <div data-layout="left-center-right">
-          <aside data-panel="video-left" data-command-panel><label>영상 AI 지시 <input data-command="video" aria-label="영상 AI 지시" placeholder="영상 편집을 지시하세요"></label><button type="button" data-action="video-reference">+ 참고 이미지 추가</button><input type="file" data-reference-input="video" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list aria-label="영상 참고 이미지"></ul></aside>
-          <section data-panel="video-center"><div data-preview="video" aria-label="영상 미리보기"></div><div data-timeline="video" data-tracks="multi" data-actions="clip-context split range-delete keyframe mask background" aria-label="영상 타임라인"></div></section>
-          <aside data-panel="video-right" aria-label="영상 편집 패널" data-tools="clip-context split range-delete multi-track keyframe mask background"></aside>
-        </div>
-      </section>
-      <section data-editor="photo" aria-label="사진 편집">
-        <header><h1>사진 편집</h1><button type="button" data-action="load">사진 불러오기</button><input type="file" data-primary-input="photo" accept="image/*" hidden><button data-action="save">프로젝트 저장</button><button data-action="export">내보내기</button></header>
-        <div data-layout="left-center-right">
-          <aside data-panel="photo-left" data-command-panel><label>사진 AI 지시 <input data-command="photo" aria-label="사진 AI 지시" placeholder="사진 편집을 지시하세요"></label><button type="button" data-action="photo-reference">+ 참고 이미지 추가</button><input type="file" data-reference-input="photo" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list aria-label="사진 참고 이미지"></ul></aside>
-          <section data-panel="photo-center" data-before-after="enabled" data-batch="enabled"><div data-preview="photo" aria-label="사진 미리보기"></div></section>
-          <aside data-panel="photo-right" aria-label="사진 편집 패널" data-tools="before-after batch correction"></aside>
-        </div>
-      </section>
-    </main>
-    <script src="interaction.js"></script>
-    <script src="product_integration.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MINDLE MEDIA AI</title>
+  <link rel="icon" type="image/x-icon" href="assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico">
+  <link rel="stylesheet" href="approved_visual.css">
+  <link rel="stylesheet" href="interaction.css">
+</head>
+<body data-ui-contract="FINAL_UI_20261013">
+  <header class="app-topbar">
+    <div class="brand-lockup"><div class="brand">MINDLE MEDIA <strong>AI</strong></div><div class="tagline">Create. Edit. Together.</div></div>
+    <nav class="mode-tabs" aria-label="편집 모드"><a href="#videoWorkspace">VIDEO</a><a href="#photoWorkspace">PHOTO</a></nav>
+    <div class="future-copy"><strong>AI가 만드는 더 큰 가능성</strong><span>for a better tomorrow</span></div>
+    <nav class="top-actions" aria-label="앱 메뉴"><button type="button" data-shell="projects">⌕</button><button type="button" data-shell="history">◌</button><button type="button" data-shell="storage">⚙</button><span class="avatar">S</span><span class="owner-name">신작가님</span></nav>
+  </header>
+  <main class="dual-workspace" aria-label="MINDLE MEDIA AI editor">
+    <section id="videoWorkspace" data-editor="video" class="editor-card video-card" aria-label="VIDEO">
+      <header class="editor-header">
+        <div class="editor-title"><span class="editor-kicker"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M14 9v22l19-11z"/></svg></span><span class="editor-banner-label">VIDEO</span><div><h1>VIDEO</h1><p>AI와 함께, 영상을 더 특별하게</p></div></div>
+        
+      </header>
+      <div data-layout="left-center-right" class="editor-grid">
+        <aside data-panel="video-left" class="media-panel">
+          <div class="panel-title">MEDIA</div><div class="library-actions"><button type="button" data-action="load" class="outline-cyan">＋ 영상 불러오기</button><input type="file" data-primary-input="video" accept="video/*,audio/wav,audio/mpeg,audio/flac,audio/ogg" hidden></div>
+          <div class="asset-grid video-assets"><span class="asset-video-city">video_01.mp4<small>00:12</small></span><span class="asset-video-beach">travel.mp4<small>00:28</small></span><span class="asset-video-interior">interior.mp4<small>01:15</small></span><span class="asset-video-beach">drone.mp4<small>00:34</small></span></div>
+          <div class="mini-nav"><button type="button" data-shell="cloud">☁ 클라우드</button><button type="button" data-shell="projects">▣ 프로젝트</button><button type="button" data-shell="history">♲ 작업기록</button></div>
+        </aside>
+        <section data-panel="video-center" class="preview-column">
+          <div data-preview="video" class="preview-stage video-stage" aria-label="영상 미리보기"><span class="preview-empty">VIDEO PREVIEW</span></div>
+          <div class="transport"><button data-video-start>◀</button><button data-video-play>▶</button><button data-video-end>▶|</button><b data-video-time>00:00:00</b><em data-video-duration>/ 00:00:00</em><input data-video-seek type="range" min="0" max="100" value="0" step="0.1"><button data-video-mute>🔊</button><button data-video-fullscreen>⛶</button></div>
+        </section>
+        <aside data-panel="video-right" class="tool-panel" aria-label="영상 편집 패널" data-tools="trim split rotate speed corrections subtitles bgm">
+          <div class="panel-title">EDIT</div><div class="tool-grid compact"><button data-video-tool="trim">자르기</button><button data-video-tool="split">분할</button><button data-video-tool="rotate">회전</button><button data-video-tool="speed">속도</button></div>
+          <label class="range-row">밝기<input type="range" data-video-option="brightness" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">대비<input type="range" data-video-option="contrast" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">채도<input type="range" data-video-option="saturation" min="-100" max="100" value="0"><output>0</output></label>
+          <label class="toggle-row">흔들림 보정 <input type="checkbox" data-video-toggle="stabilize"></label><label class="toggle-row">노이즈 제거 <input type="checkbox" data-video-toggle="denoise"></label>
+          <div data-video-controls hidden class="inline-controls"><label>시작 <input type="number" data-video-option="start" min="0" value="0"></label><label>길이 <input type="number" data-video-option="duration" min="0" value="0"></label><label>속도 <input type="number" data-video-option="speed" min="0.5" max="2" step="0.1" value="1"></label><label>음량 <input type="number" data-video-option="volume" min="0" max="2" step="0.1" value="1"></label></div>
+          <div class="tool-grid compact video-extended"><button data-video-tool="shortform">숏폼</button><button data-video-tool="fade">전환</button><button data-video-tool="effect">AI 효과</button><button data-video-tool="subtitle">자막</button><button data-video-tool="auto-subtitle">자동 자막</button><button data-video-tool="highlight">하이라이트</button><button data-video-tool="bgm">배경음악</button></div>
+          <div data-subtitle-controls hidden><label>자막 <input data-video-subtitle placeholder="표시할 자막"></label></div><input type="file" data-bgm-input accept="audio/*" hidden><button data-video-apply class="apply-button">영상 편집 적용</button>
+        <div class="editor-actions">
+          
+          <button type="button" data-action="ai-auto-edit" class="outline-cyan">✦ AI 자동 편집</button><button type="button" data-action="shortform-mode" aria-pressed="false" class="outline-purple">✦ 광고 숏폼</button>
+          <button data-action="save" class="ghost-button">프로젝트 저장</button><button data-action="export" class="primary-blue">내보내기</button>
+        </div></aside>
+        <div data-timeline="video" class="timeline-panel" data-tracks="read-only-status" data-actions="seek-via-transport"><div class="timeline-ruler">00:00　00:05　00:10　00:15　00:20　00:25</div><div class="track film">영상 Track · 원본 영상</div><div class="track purple">Subtitle Track · 자막 없음</div><div class="track cyan">Effect Track · 효과 없음</div><div class="track green">Audio Track · 원본 오디오</div></div>
+        <div class="command-card" data-command-panel><div class="ai-label">✦ AI 대화 편집</div><div class="command-line"><input data-command="video" aria-label="영상 AI 지시" placeholder="원하는 영상 편집을 자연어로 입력하세요"><button type="button" class="send-button">➤</button></div><button type="button" data-action="video-reference" class="reference-button">＋ 참고 이미지 추가</button><input type="file" data-reference-input="video" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list></ul><div class="command-chips"><button type="button">참고 이미지</button><button type="button">스타일</button><button type="button">길이</button><button type="button">비율</button></div></div>
+      </div>
+    </section>
+    <section id="photoWorkspace" data-editor="photo" class="editor-card photo-card" aria-label="PHOTO">
+      <header class="editor-header">
+        <div class="editor-title"><span class="editor-kicker photo-kicker"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="26" rx="2"/><path d="m7 29 10-12 7 8 5-5 5 9"/><circle cx="27" cy="14" r="3"/></svg></span><span class="editor-banner-label">PHOTO</span><div><h1>PHOTO</h1><p>AI와 함께, 사진을 더 아름답게</p></div></div>
+        
+      </header>
+      <div data-layout="library-preview-below-tools" class="editor-grid">
+        <aside data-panel="photo-left" class="media-panel"><div class="panel-title">MEDIA</div><div class="library-actions"><button type="button" data-action="load" class="outline-purple">＋ 사진 불러오기</button><input type="file" data-primary-input="photo" accept="image/*" hidden></div><div class="asset-grid photo-assets"><span class="asset-photo-house">house.jpg</span><span class="asset-video-interior">interior.jpg</span><span class="asset-photo-landscape">landscape.jpg</span></div></aside>
+        <section data-panel="photo-center" class="preview-column"><div data-preview="photo" class="preview-stage photo-stage" aria-label="사진 미리보기"><span class="preview-empty">PHOTO PREVIEW · LANDSCAPE FIRST</span></div><div class="photo-transport"><span class="fit-label">Auto Fit</span><span class="fit-label">Center</span><button data-photo-fullscreen>⛶</button><button data-action="photo-auto" class="outline-purple">✦ AI 보정</button></div></section>
+        <aside data-panel="photo-right" class="tool-panel" aria-label="사진 편집 패널" data-tools="correction crop resize rotate flip segment upscale similar">
+          <div class="panel-title">기본 보정</div><div class="photo-adjust-grid">
+            <label class="range-row">밝기<input type="range" data-photo-adjust="brightness" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">대비<input type="range" data-photo-adjust="contrast" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">하이라이트<input type="range" data-photo-adjust="highlights" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">그림자<input type="range" data-photo-adjust="shadows" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">채도<input type="range" data-photo-adjust="saturation" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">색온도<input type="range" data-photo-adjust="temperature" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">선명도<input type="range" data-photo-adjust="sharpness" min="-100" max="100" value="0"><output>0</output></label>
+          </div><div class="panel-title detail-title">세부 기능</div><div class="tool-grid compact photo-tools"><button data-photo-tool="auto">AI 보정</button><button data-photo-tool="segment">배경 제거</button><button data-photo-tool="color">색감 보정</button><button data-photo-tool="style">스타일 변환</button><button data-photo-tool="portrait">인물 보정</button><button data-photo-tool="similar">유사 이미지</button><button data-photo-tool="crop">크롭</button><button data-photo-tool="resize">크기 조절</button><button data-photo-tool="rotate">회전</button><button data-photo-tool="flip-h">좌우 반전</button><button data-photo-tool="flip-v">상하 반전</button><button data-photo-tool="upscale">해상도 향상</button></div>
+          <div data-crop-controls hidden class="inline-controls"><label>왼쪽 % <input data-crop="left" type="number" min="0" max="99" value="0"></label><label>위 % <input data-crop="top" type="number" min="0" max="99" value="0"></label><label>오른쪽 % <input data-crop="right" type="number" min="1" max="100" value="100"></label><label>아래 % <input data-crop="bottom" type="number" min="1" max="100" value="100"></label></div><div data-photo-resize-controls hidden class="inline-controls"><label>사진 폭 px <input data-photo-resize type="number" min="1" max="8000" value="512"></label><span>원본 비율 유지</span></div>
+          <div class="panel-actions"><button data-photo-reset>↻ 초기화</button><button data-photo-apply class="apply-button">적용하기</button></div><p data-photo-status role="status"></p>
+        <div class="editor-actions"><button data-action="photo-auto" class="outline-purple">✦ AI 보정</button><button data-action="save" class="ghost-button">프로젝트 저장</button><button data-action="export" class="primary-pink">내보내기</button></div></aside>
+        <section class="photo-reference-strip" aria-label="사진 참고 이미지"><strong>참고 이미지</strong><button type="button" data-action="photo-reference" class="reference-button">＋ 참고 이미지 추가</button><input type="file" data-reference-input="photo" accept="image/*" multiple hidden><ul data-reference-list aria-label="첨부한 사진 참고 이미지"></ul></section>
+        <div class="command-card" data-command-panel><div class="ai-label">✦ AI 대화 편집</div><div class="command-line"><input data-command="photo" aria-label="사진 AI 지시" placeholder="원하는 사진 보정을 자연어로 입력하세요"><button type="button" class="send-button">➤</button></div><p data-command-error role="alert"></p><div class="command-chips"><button type="button">참고 이미지</button><button type="button">스타일</button><button type="button">톤 조정</button><button type="button">비율</button></div></div>
+      </div>
+    </section>
+  </main>
+  <section class="final-guideline"><div><strong>PHOTO 가로형 기본</strong><span>가로 사진은 작업영역을 넓게 사용</span></div><div><strong>세로 사진 자동 대응</strong><span>Auto Fit + 중앙 배치 · 비율 유지 · 여백은 다크 네이비</span></div><div class="final-rule">최종 확정 기준 PHOTO = 가로 기본 + 세로 사진 자동 대응</div></section>
+  <script src="interaction.js"></script><script src="timeline_preview.js"></script><script src="product_integration.js"></script><script src="photo_workspace.js"></script><script src="video_workspace.js"></script><script src="workspace_shell.js"></script>
+</body>
 </html>
+

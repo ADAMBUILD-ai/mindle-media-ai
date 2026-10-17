@@ -1,0 +1,8 @@
+{
+  "status": "NOT_APPLIED",
+  "visual_stylesheet_added": false,
+  "dom_markup_changed": false,
+  "backend_changed": false,
+  "model_changed": false,
+  "reason": "Implementation is gated on the exact commander handoff file."
+}

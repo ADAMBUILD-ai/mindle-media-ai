@@ -1,0 +1,25 @@
+{
+  "id": "PROJECT_TRANSITION_RACE",
+  "source_fix_commit": "84cf58014eafa2aabd5eed763881424ab3a70c1f",
+  "reproduction": [
+    "Pending edit followed by New clears current file",
+    "Save await followed by New allows old response to attach old project ID"
+  ],
+  "fix": [
+    "Block New/Open while editing/saving/restoring/exporting",
+    "Block imports and controller dispatch while project transitions are pending",
+    "Keep rejected duplicate Save/Export from releasing another operation guard",
+    "Keep project dialog open on rejected/failed transition"
+  ],
+  "source_files": [
+    "ui/product_integration.js",
+    "ui/workspace_shell.js"
+  ],
+  "test": "ui/project_lifecycle.test.js",
+  "source_status": "PASS_5_CONTROLLER_REGRESSIONS",
+  "candidate_contains_fix": false,
+  "candidate_source": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+  "packaged_browser_status": "NOT_EXECUTED_FOR_NEW_FIX",
+  "package_build_allowed": false,
+  "requires_future_authorized_candidate": true
+}

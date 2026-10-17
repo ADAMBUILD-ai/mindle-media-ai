@@ -1,0 +1,12 @@
+{
+  "file": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\WINDOWS_WORK_HANDOFF_20261017_R2\\player\\SOURCE_EF56_EXPORTED_EDITED_VIDEO.mp4",
+  "bytes": 224410,
+  "sha256": "c9116610aa826eb37b0fd3b8f6ed1e399cac2de8935ff584412c570bf9d9a7e5",
+  "source_zip": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\NORMAL_EXPORT.zip",
+  "source_zip_sha256": "3664bee30cc90e7154514795f9f5588bde252902fa8c76cf936850e95578c4bc",
+  "entry": "jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+  "source_head": "ef56f956db5cdaf9e9dd455a5a8c065ce4f15a56",
+  "session": "Chrome actual source verification 2026-10-17; NOT c37 office Export",
+  "arbitrary_substitution": false,
+  "c37_export_exists": false
+}

@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+import json,pathlib
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+def require(value,message):
+    if not value:raise SystemExit('PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: '+message)
+def read(name):return json.loads((ROOT/name).read_text(encoding='utf-8'))
+p=read('CURRENT_PC_WORK_STATE.json');l=read('CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json');g=read('CURRENT_GENERAL_WORK_STATE.json');gl=read('CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json');w=read('CURRENT_WORKER_COORDINATION_LOCK.json')
+epoch='MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1'
+require(p.get('control_plane_epoch')==l.get('epoch')==g.get('control_plane_epoch')==gl.get('epoch')==w.get('active_control_plane_epoch')==epoch,'epoch mismatch')
+r9=p.get('active_directive')=='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md'
+expected_directive='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md' if r9 else 'docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_DIRECTIVE_v1.0_20261014.md'
+expected_contract='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_EVIDENCE_CONTRACT_20261016.json' if r9 else 'docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_EVIDENCE_CONTRACT_v1.0_20261014.json'
+require(p.get('active_directive')==l.get('active_directive')==expected_directive,'directive mismatch')
+require(p.get('evidence_contract')==l.get('evidence_contract')==expected_contract,'contract mismatch')
+require((ROOT/p['active_directive']).is_file() and (ROOT/p['evidence_contract']).is_file(),'missing active files')
+require(json.loads((ROOT/p['evidence_contract']).read_text(encoding='utf-8'))['epoch']==epoch,'contract epoch mismatch')
+phase=g.get('phase')
+require(phase==p.get('phase')==gl.get('phase')==l.get('phase'),'phase mismatch')
+if phase in {'R9_CORRECTED_CANDIDATE_BUILD_IN_PROGRESS','R9_CORRECTED_CANDIDATE_REVIEW_REQUIRED','R9_CORRECTED_CANDIDATE_READY_FOR_PC_ACCEPTANCE'}:
+    for state in (p,l,g,gl):
+        require(state.get('package_build_allowed') is False,'R9 one-attempt build gate must be closed')
+        require(state.get('candidate_attempt_run')==p.get('candidate_attempt_run') and state.get('candidate_attempt_source')==p.get('candidate_attempt_source'),'R9 attempt identity mismatch')
+    require(p.get('candidate_attempt_run') and p.get('candidate_attempt_source'),'R9 attempt missing')
+    if phase=='R9_CORRECTED_CANDIDATE_READY_FOR_PC_ACCEPTANCE':
+        for state in (p,l,g,gl):
+            require(state.get('candidate_source')==p.get('candidate_source')==p.get('candidate_attempt_source'),'R9 source identity mismatch')
+            require(state.get('candidate_run')==p.get('candidate_run')==p.get('candidate_attempt_run'),'R9 producer mismatch')
+            for key in ('candidate_zip_sha256','candidate_payload_manifest_sha256','candidate_launcher_sha256','candidate_readback_run','candidate_runtime_id'):
+                require(state.get(key)==p.get(key) and state.get(key),'R9 readback identity mismatch: '+key)
+        require(p.get('local_physical_acceptance_allowed') is True and p.get('package_status')=='R9_CORRECTED_CANDIDATE_VERIFIED_AND_DELIVERABLE','R9 local acceptance release missing')
+elif phase=='VERIFIED_WINDOWS_CANDIDATE_READY_FOR_PC_ACCEPTANCE':
+    for state in (p,l,g,gl):
+        require(state.get('package_build_allowed') is False,'repeat build gate must be closed')
+        require(state.get('candidate_source')=='0e4e12a9e4c758f202c6ebb5085df5a542bb6314' and state.get('candidate_run')==38497304486,'candidate source/run mismatch')
+        require(state.get('candidate_zip_sha256')=='8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527' and state.get('candidate_readback_run')==38499220659,'candidate byte readback mismatch')
+    require(p.get('local_physical_acceptance_allowed') is True and p.get('package_status')=='CORRECTED_CANDIDATE_VERIFIED_AND_DELIVERABLE','local acceptance release missing')
+else:
+    require(phase=='VERIFIED_CORE_WINDOWS_CANDIDATE_BUILD','unknown phase')
+    require(p.get('package_build_allowed') is True and g.get('package_build_allowed') is True,'build gate not released')
+require(p.get('verified_core_source')==g.get('verified_core_source') and p.get('verified_core_run')==g.get('verified_core_run'),'core mismatch')
+for state in (p,l,g,gl):
+    require(state.get('owner_pc_runtime_pass') is False and state.get('final_product_pass') is False and state.get('openai_connected') is False,'unsupported final PASS')
+require(p.get('employee_manual_install_steps_allowed') is False and p.get('external_marketing_avora_status')=='DEFERRED_EXTERNAL','scope mismatch')
+require(w.get('pr23_hold_do_not_merge') is True and w.get('merge_main_forbidden') is True and w.get('force_push_forbidden') is True,'invariant mismatch')
+for inv in ('main_merge_forbidden','force_push_forbidden','pr23_hold_do_not_merge','approved_ui_preserved'):
+    require(l['invariants'].get(inv) is True,inv)
+require(epoch in (ROOT/'CURRENT_PC_WORK_DIRECTIVE.md').read_text(encoding='utf-8'),'current epoch missing')
+print('PC_WORK_CORRECTED_CANDIDATE_READY_FOR_LOCAL_ACCEPTANCE_PASS' if phase.endswith('PC_ACCEPTANCE') else 'PC_WORK_CORRECTED_WINDOWS_CANDIDATE_GATE_PASS')
+print('OWNER_PC_PASS=false; FULL_PRODUCT_PASS=false; OPENAI_CONNECTED=false')

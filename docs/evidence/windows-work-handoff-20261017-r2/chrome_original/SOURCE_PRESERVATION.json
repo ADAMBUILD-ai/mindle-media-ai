@@ -1,0 +1,9 @@
+{
+  "source_sha": "ef56f956db5cdaf9e9dd455a5a8c065ce4f15a56",
+  "source_worktree_status": "",
+  "original_ui_model_product_changed": false,
+  "high_cost_inference_repeated": false,
+  "package_build_performed": false,
+  "read_only_runtime_dependency": "Existing pinned 0e4e12a9 payload used by unchanged source for h264_mf FFmpeg; no model inference",
+  "remote_head_rechecked": "ef56f956db5cdaf9e9dd455a5a8c065ce4f15a56"
+}

@@ -1,0 +1,11 @@
+{
+  "time": "2026-10-15T09:26:32.316Z",
+  "window": {
+    "app": "process:C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\candidate_38497304486_20261015\\fresh_candidate\\MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0\\MINDLE_MEDIA_AI_RUN.exe",
+    "id": 395772,
+    "title": "Unhandled exception in script"
+  },
+  "accessibility": {
+    "tree": "Window: \"Unhandled exception in script\", App: MINDLE_MEDIA_AI_RUN.exe.\n\t0 대화 상자 Unhandled exception in script Secondary Actions: Raise\n\t\t1 이미지\n\t\t2 텍스트 Failed to execute script 'one_click_bootstrap' due to unhandled exception: 제품 준비 작업이 이미 진행 중입니다. 잠시 후 다시 실행하세요.\n\t\t3 편집 Failed to execute script 'one_click_bootstrap' due to unhandled exception: 제품 준비 작업이 이미 진행 중입니다. 잠시 후 다시 실행하세요. Value: Traceback (most recent call last): File \"one_click_bootstrap.py\", line 68, in __init__ PermissionError: [Errno 13] Permission denied During handling of the above exception, another exception occurred: Traceback (most recent call last): File \"one_click_bootstrap.py\", line 270, in <module> File \"one_click_bootstrap.py\", line 229, in main File \"one_click_bootstrap.py\", line 73, in __init__ RuntimeError: 제품 준비 작업이 이미 진행 중입니다. 잠시 후 다시 실행하세요.\n\t\t\t4 스크롤 막대 (settable, float) 세로 Value: 0 ID: NonClientVerticalScrollBar\n\t\t\t\t5 단추 위쪽 스크롤 화살표 ID: UpButton\n\t\t\t\t6 위치 조정 위치 ID: ScrollbarThumb\n\t\t\t\t7 단추 페이지 아래로 ID: DownPageButton\n\t\t\t\t8 단추 아래쪽 스크롤 화살표 ID: DownButton\n\t\t\t9 스크롤 막대 (settable, float) 가로 Value: 0 ID: NonClientHorizontalScrollBar\n\t\t\t\t10 단추 왼쪽 스크롤 화살표 ID: UpButton\n\t\t\t\t11 위치 조정 위치 ID: ScrollbarThumb\n\t\t\t\t12 단추 페이지 오른쪽으로 ID: DownPageButton\n\t\t\t\t13 단추 오른쪽 스크롤 화살표 ID: DownButton\n\t\t\t14 위치 조정 (disabled)\n\t\t15 단추 Close ID: 1\n\t\t16 제목 표시줄 (settable, string) Value: Unhandled exception in script\n\t\t\t17 메뉴 모음 시스템 ID: MenuBar\n\t\t\t\t18 메뉴 항목 시스템\n\t\t\t19 단추 닫기"
+  }
+}

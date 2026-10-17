@@ -1,0 +1,17 @@
+{
+  "status": "PASS_RESTART_REOPEN_EXPORT",
+  "project_id": "08f4d43a-8fdb-483d-9019-b73c85412d56",
+  "jobs": 2,
+  "export": {
+    "status": "EXPORTED",
+    "project_id": "08f4d43a-8fdb-483d-9019-b73c85412d56",
+    "export": {
+      "file_name": "08f4d43a-8fdb-483d-9019-b73c85412d56_export.zip",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\projects\\08f4d43a-8fdb-483d-9019-b73c85412d56_export.zip",
+      "bytes": 588227,
+      "sha256": "eb490d7a75755107ce811c937c302604e51d26f8bc57fdbb7a7d222ca5677d1f"
+    },
+    "download_url": "/files/projects/08f4d43a-8fdb-483d-9019-b73c85412d56_export.zip"
+  },
+  "zip_crc": "PASS"
+}

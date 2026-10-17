@@ -1,0 +1,11 @@
+{
+  "epoch": "MEDIA-AI-20261002-V20.2.2",
+  "status": "LEFT_PANEL_READY_FOR_REPRESENTATIVE",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "scope": ["video_left", "photo_left"],
+  "frozen_areas_preserved": ["video_center", "video_right", "photo_center", "photo_right", "color_hierarchy", "shortform_header"],
+  "runtime_url": "http://127.0.0.1:8768/",
+  "browser_visual_recheck": true,
+  "icon_phase": "BLOCKED_PENDING_UI_APPROVAL"
+}
+

@@ -1,0 +1,15 @@
+{
+  "prior_causes": [
+    "max-width responsive rules reduced preview and timeline heights",
+    "photo center used space-between with a small preview",
+    "right controls were top-packed"
+  ],
+  "corrections": [
+    "proportional three-column layout",
+    "video center flex fill",
+    "photo center column flow",
+    "right-panel vertical distribution"
+  ],
+  "source": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_SPACEFILL_COLOR_CORRECTION_DIRECTIVE_v20.2.1_20261002.md"
+}
+

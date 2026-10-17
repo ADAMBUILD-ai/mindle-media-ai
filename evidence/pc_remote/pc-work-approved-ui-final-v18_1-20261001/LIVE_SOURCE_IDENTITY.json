@@ -1,0 +1,10 @@
+{
+  "server": "http://127.0.0.1:8765/",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "head_at_capture": "working tree after F27E install and CSS implementation",
+  "screenshot_dimensions": [1265, 712],
+  "screenshot_sha256": "aa8d298a191f706504e7c1c1ab21a7455b4f5831d1968a675cd2356a36e87eaf",
+  "served_root": "canonical current worktree",
+  "css_loaded": ["approved_visual.css", "interaction.css"],
+  "dom_controls_verified": ["video command", "photo command", "reference upload", "Preview", "Timeline", "Project Save", "Export"]
+}

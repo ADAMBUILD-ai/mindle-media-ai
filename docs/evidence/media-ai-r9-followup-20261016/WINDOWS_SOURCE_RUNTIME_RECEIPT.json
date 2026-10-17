@@ -1,0 +1,76 @@
+{
+  "status": "PASS_WINDOWS_SOURCE_HTTP_COLD_RESTART_PHOTO_VIDEO_EXPORT",
+  "first_pid": 2124,
+  "second_pid": 6120,
+  "old_endpoint_closed": true,
+  "project_id": "68a3eb52-4d38-488e-a983-9cd070d1c464",
+  "path_diagnostics": {
+    "data_root_supplied": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmp8ofstj_4\\data",
+    "data_root_resolved": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp8ofstj_4\\data"
+  },
+  "job_output_sha256": {
+    "654b4457-0fb2-4b81-be4b-64f42527b071": "6a3a4cbccfe5a887a9db513e85c8e0398cd0a98486e47133e46ca7e6a6a4bfb7",
+    "b9f95591-e950-499d-956b-e1edca6e8118": "7ace013e83fef117e922c1477cff5b3fc083268f6bd8719b490225651f8ef8dc"
+  },
+  "export_sha256": "b66b0c495aa45abc4380441ae4d2bf528c88249b45b2740b5e4d0a87494ce5ee",
+  "zip_crc": "PASS",
+  "members": [
+    "project.json",
+    "jobs/654b4457-0fb2-4b81-be4b-64f42527b071/edited_photo.png",
+    "inputs/654b4457-0fb2-4b81-be4b-64f42527b071/0dbf1561-3b56-49cb-bb4c-73e2320aa975_photo_edit.png",
+    "jobs/b9f95591-e950-499d-956b-e1edca6e8118/edited_video.mp4",
+    "inputs/b9f95591-e950-499d-956b-e1edca6e8118/aef1b27e-41e0-4454-9aea-4b2e71e4aaab_source.mp4",
+    "BUNDLE_MANIFEST.json"
+  ],
+  "bundle_files_verified": 4,
+  "model_inference": false,
+  "scope": "GENERATED_FIXTURES_WINDOWS_SOURCE_HTTP_ONLY",
+  "source_browser": {
+    "status": "PASS_SOURCE_BROWSER_RESTORE_PLAY_AUDIO_DECODE_PHOTO_FIT_EXPORT_CLICK",
+    "browser": "155.0.8059.40",
+    "media_before": {
+      "MediaError_code": null,
+      "readyState": 4,
+      "videoWidth": 160,
+      "currentSrc": "http://127.0.0.1:50058/files/jobs/b9f95591-e950-499d-956b-e1edca6e8118/edited_video.mp4",
+      "currentTime": 0
+    },
+    "media_after": {
+      "MediaError_code": null,
+      "readyState": 4,
+      "videoWidth": 160,
+      "currentSrc": "http://127.0.0.1:50058/files/jobs/b9f95591-e950-499d-956b-e1edca6e8118/edited_video.mp4",
+      "currentTime": 0.065131
+    },
+    "audio_decode": {
+      "channels": 1,
+      "samples": 45026,
+      "sampleRate": 44100
+    },
+    "actual_audio_hearing_verified": false,
+    "photo": {
+      "host": {
+        "x": 923,
+        "y": 161,
+        "width": 408,
+        "height": 229.5
+      },
+      "image": {
+        "x": 924,
+        "y": 162,
+        "width": 406,
+        "height": 227.5
+      },
+      "natural": [
+        90,
+        160
+      ],
+      "objectFit": "contain"
+    },
+    "ui_export_sha256": "b66b0c495aa45abc4380441ae4d2bf528c88249b45b2740b5e4d0a87494ce5ee"
+  },
+  "windows_exe_pass": false,
+  "owner_pc_pass": false,
+  "full_product_pass": false
+}
+
