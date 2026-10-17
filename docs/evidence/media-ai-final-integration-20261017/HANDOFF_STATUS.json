@@ -40,5 +40,13 @@
     "no rebuild/employee package regeneration",
     "no OpenAI connection",
     "no final product PASS"
-  ]
+  ],
+  "approved_image_match": "FAIL_APPROVED_IMAGE_MATCH",
+  "ui_comparison": "UI_IMAGE_COMPARISON_FINAL_KO.md; latest original 1536x1024 vs actual source Chrome baseline, not historical F27E",
+  "remaining_ui": {
+    "status": "FAIL",
+    "evidence": "UI_IMAGE_COMPARISON_FINAL_KO.md",
+    "owner": "GENERAL / approved UI restoration",
+    "entry": "Preserve connected features and restore latest approved structure; no new design or fabricated Timeline functionality"
+  }
 }

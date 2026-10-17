@@ -1,6 +1,6 @@
 # 최종 수정 통합 및 후보 인수 경계 — 2026-10-17 KST
 
-최종 판정 PARTIAL. 소스 수정 및 독립 개발 검수는 마감했다. Build Gate=false이며 새 후보를 제작하지 않았다. 최신 수정 포함 후보가 정식 인계되지 않아 EXE 완전 재시작 인수는 BLOCKED이다. c37의 기존 성과를 승격하지 않는다.
+최종 판정 PARTIAL. 이번 프로젝트 전환 표시 수정 및 관련 회귀를 마감했다. 최신 승인 원본과 직접 비교한 전체 UI 일치는 FAIL이며 복원 수정은 남아 있다(UI_IMAGE_COMPARISON_FINAL_KO.md). Build Gate=false이며 새 후보를 제작하지 않았다. 최신 수정 포함 후보가 정식 인계되지 않아 EXE 완전 재시작 인수는 BLOCKED이다. c37의 기존 성과를 승격하지 않는다.
 
 ## 고정 소스와 수정
 
@@ -25,7 +25,7 @@
 |Export 서버·ZIP|PASS 소스 HTTP|실제 UI가 Save/Export201을 받았고 파일 GET200, 직접 HTTP 수신 ZIP CRC 정상. 각 ZIP 원본 포함|
 |현재 브라우저 UI 다운로드|BLOCKED|Download.save_as canceled. 허용된 workspace downloads_path에서도 동일, 단순 TXT 대조 파일도 canceled. 제품 ZIP 결함으로 확정하지 않음. 서버 생성/전달과 브라우저 다운로드를 분리|
 |밀집 자산 목록·도구 접근|PASS 범위 제한|1536×1024 및1536×720, zoom1. 기존 CSS에 목록 버튼을 추가한 검수 DOM으로 스크롤·편집·자연어·Save/Export 접근 확인. 실제60개 새 자산을 import한 검사는 아님|
-|승인 UI 전체 시각 일치|PARTIAL|VIDEO 좌/PHOTO 우, 가로 PHOTO와 세로 contain/center 보존. 실제 화면을 제공하되 전체 이미지 픽셀 일치·소리·새 후보 인수 PASS로 확대하지 않음|
+|승인 UI 전체 시각 일치|FAIL|VIDEO 좌/PHOTO 우, 가로 PHOTO와 세로 contain/center는 보존됐지만 최신 승인 원본의 PHOTO 아래 보정/참고 Strip·헤더·Timeline 표현과 다름. UI_IMAGE_COMPARISON_FINAL_KO.md와 COMPARE.html 참조|
 
 브라우저 시험은 커밋 전 `7116244 + FIX.diff` 작업 파일에서 수행했다. 이후 원격 통합 소스를 다시 fetch했고 시험 당시 모든 제품 UI 파일 SHA256이 불변 커밋 c1956f4와 동일함을 확인했다. SOURCE_INTEGRATION.json에 파일별 해시를 제공한다.
 
@@ -39,7 +39,7 @@
 
 ## 다음 수행 주체와 진입 조건
 
-- GENERAL/승인자: 별도 유효한 후보 빌드 승인 전에는 제작하지 않는다. 승인 시 c1956f4 및 세 선행 수정군을 포함하고 source·manifest·EXE·ZIP 크기/SHA를 독립 readback한다. c37 payload 및 직원 최종 패키지 재생성 금지.
+- GENERAL/승인자: 승인 이미지와 다른 UI 구조의 복원·회귀가 남아 있다. 이를 해결하고 정확한 source를 다시 고정해야 한다. 별도 유효한 후보 빌드 승인 전에는 제작하지 않는다. 이후 승인 범위의 후보에는 c1956f4 및 세 선행 수정군을 포함하고 source·manifest·EXE·ZIP 크기/SHA를 독립 readback한다. c37 payload 및 직원 최종 패키지 재생성 금지.
 - WINDOWS: 정식 후보 수령 후 SHA/identity 확인 → 자료가 있는 프로젝트 Save → PID/instance/명령행 → 정상 종료 → PID 소멸·endpoint 미응답 → EXE 더블클릭 → 새 PID/instance → 같은 프로젝트 복원 → Export. 브라우저 종료만으로 완전 재시작 PASS 금지.
 - WINDOWS 브라우저 환경: TXT도 취소되는 현재 다운로드 조건을 진단하되 기존 다운로드 실패를 숨기거나 제품 검증을 약화하지 않는다.
 - 사무실 확인자: 설치 플레이어의 실제 후보 Export 소리 청취와 확인자/시각 기록. 기존 PotPlayer 표시·탐색 PASS 및 사용자의 ‘청취 미확인’ 응답 보존.

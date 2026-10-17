@@ -80,6 +80,12 @@
       "blob_sha": "9b09a19c7f8207429a54d7c3f6449573e409f89b"
     },
     {
+      "path": "APPROVED_REFERENCE.png",
+      "bytes": 2021140,
+      "sha256": "cfeed43d4864dfe4cc1505dbb37d1ac44871d51cd10907f27cb2abe3694ae339",
+      "blob_sha": "eeef63c12db0abb7c7fa81fc10f27cabea400720"
+    },
+    {
       "path": "BEFORE_R3/BASELINE.png",
       "bytes": 482980,
       "sha256": "988ac6672af332b566007ccf533359ab3875e4fae72294134ad3a6c0eb65ff89",
@@ -146,6 +152,12 @@
       "blob_sha": "1f19c595c8f38d86def49a141ccf9e512e486897"
     },
     {
+      "path": "COMPARE.html",
+      "bytes": 850,
+      "sha256": "f56c09003074334b50fc793a2d6e2543d054d0d6c8e1f81139cc4913c0058d9e",
+      "blob_sha": "a8fcbd73e8d6f1acf349f181a8b7da88ec131434"
+    },
+    {
       "path": "DOWNLOAD_CONTINUATION/RESULT.json",
       "bytes": 2277,
       "sha256": "8a875275f5f5f5a2819ce6a5ee5c098a89210c26efd0c7077981813c25971d09",
@@ -171,9 +183,9 @@
     },
     {
       "path": "HANDOFF_STATUS.json",
-      "bytes": 1745,
-      "sha256": "1cf7af580301ca7f3652df773837e6d8aee2080beb3cb02bca5695415b71200a",
-      "blob_sha": "b38d0d0acaa5cb3a574ea3cbc938dcd097d1229d"
+      "bytes": 2224,
+      "sha256": "77822a85b83193dd6359cf568229ff696e99ebbba5d95c85dd737c7a17575d18",
+      "blob_sha": "b70559662efbc2994aed24d458c92b8545bda0c3"
     },
     {
       "path": "harness/download_continuation.py",
@@ -189,9 +201,9 @@
     },
     {
       "path": "RESULT_KO.md",
-      "bytes": 6789,
-      "sha256": "e4383d281905d712e551bbe0f727d06ed3d7394d9014da26fdbd085640175444",
-      "blob_sha": "5e562b9aa707a1addecf607c836677175219fd9a"
+      "bytes": 7153,
+      "sha256": "d167cb8d198c03958bee015b111ea054ab23a031c071a6f90323be46f86b9e84",
+      "blob_sha": "ae32966ac498bc529856c237f38df5f51761f17b"
     },
     {
       "path": "SOURCE_INTEGRATION.json",
@@ -222,6 +234,12 @@
       "bytes": 101,
       "sha256": "369853fdc7cf6182e5c62cc7e49d9ff7f0594c9ab908dcf9be80837c049a8262",
       "blob_sha": "f48b7d00fec7662fa70e98514f3acd912ae399a1"
+    },
+    {
+      "path": "UI_IMAGE_COMPARISON_FINAL_KO.md",
+      "bytes": 2998,
+      "sha256": "f45e651d59b374a3069caa53de98061667319c199c8d7597b5581295723d55e8",
+      "blob_sha": "8cc0628f5e134b37b4bc4341194041c55617e7df"
     },
     {
       "path": "VIEWPORT_BOUNDS_REVIEW.json",
