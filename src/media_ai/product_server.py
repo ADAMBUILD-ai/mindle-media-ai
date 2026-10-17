@@ -6,8 +6,12 @@ import hashlib
 import json
 import mimetypes
 import os
+import secrets
 import subprocess
+import sys
 import threading
+from datetime import datetime, timezone
+from uuid import uuid4
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -28,6 +32,23 @@ class ProductHttpServer(ThreadingHTTPServer):
         self.requests: list[dict] = []
         self.job_lock = threading.Lock()
         self.completed_requests: dict[str, tuple[str, dict]] = {}
+        self.instance_id = str(uuid4())
+        self.started_at = datetime.now(timezone.utc).isoformat()
+        self.control_nonce = secrets.token_urlsafe(32)
+        self.lifecycle_lock = threading.Lock()
+        self.active_requests = 0
+        self.stopping = False
+
+    def begin_request(self) -> bool:
+        with self.lifecycle_lock:
+            if self.stopping:
+                return False
+            self.active_requests += 1
+            return True
+
+    def end_request(self) -> None:
+        with self.lifecycle_lock:
+            self.active_requests -= 1
 
     def run_once(self, route: str, body: dict, action) -> dict:
         """Serialize mutations; replay only an identical successful request in this session."""
@@ -45,6 +66,14 @@ class ProductHttpServer(ThreadingHTTPServer):
             return result
 
     def runtime_identity(self) -> dict:
+        return self._runtime_identity() | {
+            'server_pid': os.getpid(), 'server_instance_id': self.instance_id,
+            'server_started_at': self.started_at,
+            'server_command': [sys.executable, *sys.argv],
+            'owner_shutdown_supported': True,
+        }
+
+    def _runtime_identity(self) -> dict:
         package_root = os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip()
         if package_root and self.root.resolve() == (Path(package_root) / 'app').resolve() and (Path(package_root) / "PACKAGE_MANIFEST.json").is_file():
             manifest_path = Path(package_root) / "PACKAGE_MANIFEST.json"
@@ -88,7 +117,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def _json(self, code: int, payload: dict) -> None:
         encoded = json.dumps(payload, ensure_ascii=False).encode("utf-8")
-        self.send_response(code); self.send_header("Content-Type", "application/json; charset=utf-8"); self.send_header("Content-Length", str(len(encoded))); self.end_headers(); self.wfile.write(encoded)
+        self.send_response(code); self._no_cache_headers(); self.send_header("Content-Type", "application/json; charset=utf-8"); self.send_header("Content-Length", str(len(encoded))); self.end_headers(); self.wfile.write(encoded)
 
     def _body(self) -> dict:
         length = int(self.headers.get("Content-Length", "0"))
@@ -138,8 +167,29 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Pragma", "no-cache")
         self.send_header("Expires", "0")
 
+    def _local_control_request(self) -> bool:
+        hosts = {f'127.0.0.1:{self.server.server_port}', f'localhost:{self.server.server_port}'}
+        host = self.headers.get('Host', '')
+        origin = self.headers.get('Origin')
+        return (self.client_address[0] == '127.0.0.1' and host in hosts
+                and (origin is None or origin == 'http://' + host)
+                and self.headers.get('Sec-Fetch-Site') != 'cross-site')
+
     def do_GET(self) -> None:
+        if not self.server.begin_request():
+            self._json(503, {'status': 'RUNTIME_STOPPING'}); return
+        try:
+            self._do_GET()
+        finally:
+            self.server.end_request()
+
+    def _do_GET(self) -> None:
         route = unquote(urlparse(self.path).path)
+        if route == '/api/runtime/control':
+            if not self._local_control_request():
+                self._json(403, {'status': 'LOCAL_CONTROL_REQUIRED'}); return
+            self._json(200, {'server_pid': os.getpid(), 'server_instance_id': self.server.instance_id,
+                             'control_nonce': self.server.control_nonce}); return
         if route == "/api/runtime-identity":
             self._json(200, self.server.runtime_identity()); return
         if route == '/api/runtime-readiness':
@@ -216,7 +266,40 @@ class Handler(BaseHTTPRequestHandler):
         content = path.read_bytes()
         self.send_response(200); self._no_cache_headers(); self.send_header("Content-Type", mimetypes.guess_type(path.name)[0] or "text/plain"); self.send_header("Content-Length", str(len(content))); self.end_headers(); self.wfile.write(content)
 
+    def _owner_shutdown(self) -> None:
+        if (not self._local_control_request() or not secrets.compare_digest(
+                self.headers.get('X-Mindle-Control', '').encode('utf-8'), self.server.control_nonce.encode('utf-8'))):
+            self._json(403, {'status': 'LOCAL_CONTROL_REQUIRED'}); return
+        try:
+            body = self._body()
+        except Exception:
+            self._json(400, {'status': 'INVALID_CONTROL_REQUEST'}); return
+        if not isinstance(body, dict):
+            self._json(400, {'status': 'INVALID_CONTROL_REQUEST'}); return
+        if body.get('server_pid') != os.getpid() or body.get('server_instance_id') != self.server.instance_id:
+            self._json(409, {'status': 'RUNTIME_IDENTITY_MISMATCH'}); return
+        with self.server.lifecycle_lock:
+            if self.server.active_requests or self.server.stopping:
+                self._json(409, {'status': 'RUNTIME_BUSY'}); return
+            self.server.stopping = True
+        try:
+            self._json(202, {'status': 'RUNTIME_STOPPING', 'server_pid': os.getpid(),
+                             'server_instance_id': self.server.instance_id})
+        finally:
+            # An owner disconnect after acceptance must not strand a draining server.
+            threading.Thread(target=self.server.shutdown, daemon=True).start()
+
     def do_POST(self) -> None:
+        if unquote(urlparse(self.path).path) == '/api/runtime/shutdown':
+            self._owner_shutdown(); return
+        if not self.server.begin_request():
+            self._json(503, {'status': 'RUNTIME_STOPPING'}); return
+        try:
+            self._do_POST()
+        finally:
+            self.server.end_request()
+
+    def _do_POST(self) -> None:
         try:
             route = unquote(urlparse(self.path).path); body = self._body()
             self.server.requests.append({'method':'POST','path':route,'lane':body.get('lane'),

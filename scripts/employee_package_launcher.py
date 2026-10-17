@@ -128,7 +128,10 @@ def main():
     if args.server:
         from media_ai.product_server import create_server
         server = create_server(root / 'app', data, '', args.port)
-        server.serve_forever()
+        try:
+            server.serve_forever()
+        finally:
+            server.server_close()
         return
     with launch_request_lock(data / 'launch.lock'):
         expected = sha256(root / 'PACKAGE_MANIFEST.json')
