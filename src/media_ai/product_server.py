@@ -92,7 +92,7 @@ class ProductHttpServer(ThreadingHTTPServer):
             "ui/product_integration.js",
             "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
         ]
-        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js', 'ui/workspace_shell.js') if (self.root / relative).is_file())
+        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js', 'ui/workspace_shell.js', 'ui/timeline_preview.js') if (self.root / relative).is_file())
         hashes = {relative: hashlib.sha256((self.root / relative).read_bytes()).hexdigest() for relative in files}
         fingerprint = hashlib.sha256("\n".join(f"{key}:{hashes[key]}" for key in files).encode("utf-8")).hexdigest()
         branch = head = None
@@ -382,4 +382,5 @@ def main() -> None:
 
 
 if __name__ == "__main__": main()
+
 

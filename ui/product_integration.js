@@ -67,6 +67,7 @@
     }
     host.dataset.operation = result.operation; host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
     if (result.lane === "video") { const track = editor.querySelector(".track.film"); if (track) track.textContent = result.operation === "tracking" ? (result.runtime_result.tracking_mode==='continuous_video_memory'?`영상 Track · 전체 ${result.runtime_result.tracked_frames}프레임 연속 추적`:`영상 Track · SAM tracking · ${result.runtime_result.sampled_frames} samples`) : "영상 Track · "+(result.operation === "import" ? "원본 영상" : "편집 결과"); }
+    if(result.lane==='video') window.mindleRenderTimeline?.(element,result.runtime_result.options||{});
   };
   async function executeShortform(editor, detail) {
     try {
@@ -229,6 +230,7 @@
   });
   document.querySelectorAll('.asset-grid').forEach(grid=>grid.replaceChildren());
   const clearWorkspacePresentation = () => {
+    window.mindleClearTimeline?.();
     document.querySelectorAll('[data-preview]').forEach(host=>{
       host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;
     });
@@ -324,3 +326,4 @@
   };
   restoreSavedProject();
 })();
+

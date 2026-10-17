@@ -156,7 +156,7 @@ def main():
     write_json(notices / 'MODEL_LICENSE_MANIFEST.json', {'sam21': 'Apache-2.0', 'whisper-small': 'MIT', 'intel-sisr-1032': 'Apache-2.0'})
     (notices / 'THIRD_PARTY_NOTICES.txt').write_text('Python, PyTorch, Transformers, OpenVINO and transitive libraries: see retained LICENSES and runtime dist-info notices. FFmpeg: see tools/ffmpeg/LICENSES. Models: see MODEL_LICENSE_MANIFEST.json and model source licenses.\n', encoding='utf-8')
     files = [{'path': p.relative_to(root).as_posix(), 'bytes': p.stat().st_size, 'sha256': digest(p)} for p in sorted(root.rglob('*')) if p.is_file()]
-    ui_names = ['index.html', 'approved_visual.css', 'interaction.css', 'interaction.js', 'product_integration.js', 'assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico']
+    ui_names = ['index.html', 'approved_visual.css', 'interaction.css', 'interaction.js', 'product_integration.js', 'timeline_preview.js', 'assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico']
     ui_hash = hashlib.sha256('\n'.join('ui/' + n + ':' + digest(root / 'app/ui' / n) for n in ui_names).encode()).hexdigest()
     commit = args.build_commit or subprocess.check_output(['git', '-c', 'safe.directory=' + repo.as_posix(), '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
     if len(commit) != 40 or any(c not in '0123456789abcdef' for c in commit):
@@ -176,3 +176,4 @@ def main():
 
 
 if __name__ == '__main__': raise SystemExit(main())
+
