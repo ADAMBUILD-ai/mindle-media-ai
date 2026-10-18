@@ -33,8 +33,42 @@ def engines_config(root):
             config[kind][field]=str(resolved)
     return config
 
+def narrate_neural(service,text,settings):
+    """Pinned offline neural Korean synthesis. This does not certify human quality."""
+    import numpy as np
+    import sherpa_onnx
+    data=Path(settings.get('data_path',''))
+    library=Path(sherpa_onnx.__file__).parent/'lib'
+    if not data.is_dir() or tree_sha(data)!=settings.get('data_sha256') or tree_sha(library)!=settings.get('runtime_sha256'):
+        raise ValueError('TTS_ENGINE_IDENTITY_MISMATCH')
+    if sherpa_onnx.__version__!=settings.get('runtime_version') or not settings.get('license') or not settings.get('model_revision'):
+        raise ValueError('TTS_MODEL_IDENTITY_REQUIRED')
+    model=sherpa_onnx.OfflineTtsSupertonicModelConfig(
+        duration_predictor=str(data/'duration_predictor.int8.onnx'),
+        text_encoder=str(data/'text_encoder.int8.onnx'),
+        vector_estimator=str(data/'vector_estimator.int8.onnx'),
+        vocoder=str(data/'vocoder.int8.onnx'),tts_json=str(data/'tts.json'),
+        unicode_indexer=str(data/'unicode_indexer.bin'),voice_style=str(data/'voice.bin'))
+    engine=sherpa_onnx.OfflineTts(sherpa_onnx.OfflineTtsConfig(model=sherpa_onnx.OfflineTtsModelConfig(supertonic=model,num_threads=2,provider='cpu')))
+    generation=sherpa_onnx.GenerationConfig();generation.sid=0;generation.num_steps=8;generation.speed=1.;generation.extra['lang']='ko'
+    audio=engine.generate(text,generation)
+    samples=np.asarray(audio.samples)
+    if samples.size==0 or not np.isfinite(samples).all() or not np.any(samples):raise ValueError('TTS_OUTPUT_INVALID')
+    identifier=str(uuid4());folder=service.jobs/identifier;folder.mkdir();script=folder/'narration.txt';script.write_text(text,encoding='utf-8');output=folder/'narration.wav'
+    with wave.open(str(output),'wb') as stream:
+        stream.setnchannels(1);stream.setsampwidth(2);stream.setframerate(audio.sample_rate)
+        stream.writeframes((np.clip(samples,-1,1)*32767).astype('<i2').tobytes())
+    return {'status':'TESTED_PASS','job_id':identifier,'lane':'korean_audio','operation':'narration','command':'한국어 신경망 나레이션 생성',
+      'primary_output':file_record(output),'input':file_record(script),'outputs':[file_record(output),file_record(script)],
+      'runtime_result':{'engine':'sherpa-onnx / Supertonic 3','engine_version':sherpa_onnx.__version__,'engine_license':'Apache-2.0','model_license':settings['license'],
+        'model_revision':settings['model_revision'],'model_archive_sha256':settings.get('archive_sha256'),'voice_data_sha256':settings['data_sha256'],'runtime_sha256':settings['runtime_sha256'],
+        'model_inference':True,'synthesis':'local neural ONNX inference','text':text,'voice':'ko/sid0','sample_rate':audio.sample_rate,'channels':1,'duration_seconds':len(samples)/audio.sample_rate,
+        'human_hearing':'NOT_VERIFIED','naturalness':'NOT_BENCHMARKED'}}
+
+
 def narrate(service,text,config):
     settings=config.get('tts',{})
+    if settings.get('engine')=='sherpa-supertonic':return narrate_neural(service,text,settings)
     executable=Path(settings.get('executable',''))
     data=Path(settings.get('data_path',''))
     if settings.get('engine')!='espeak-ng' or not executable.is_file() or not (data/'espeak-ng-data').is_dir():raise ValueError('TTS_ENGINE_UNAVAILABLE: 검증된 로컬 한국어 TTS가 필요합니다.')
