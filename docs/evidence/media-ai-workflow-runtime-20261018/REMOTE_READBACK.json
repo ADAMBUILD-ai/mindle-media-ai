@@ -1,0 +1,42 @@
+{
+  "commit": "89ef4b9ab6ddf05b36061e67ec6a13ef0ec61e01",
+  "results": [
+    {
+      "file": "KOREAN_NARRATION.wav",
+      "bytes": 137700,
+      "sha256": "6c825f21d64f099b63367bb5e5bc6dd32c7a941d0a1bdefcdf0ccdbca2a0e3ed",
+      "match": true
+    },
+    {
+      "file": "NARRATED_EXPORT.mp4",
+      "bytes": 115850,
+      "sha256": "fd0c328cbdd84b7dffcc4e50563b1b9c58bf5705e71225898e56e774a837d179",
+      "match": true
+    },
+    {
+      "file": "PROJECT_EXPORT.zip",
+      "bytes": 1320427,
+      "sha256": "3a4af46d0fa13ed1545658af5eaeaf2a9847b38c8828fdf2b030032d2745df7e",
+      "match": true,
+      "crc": "PASS"
+    },
+    {
+      "file": "BROWSER_COMPLETED.png",
+      "bytes": 373770,
+      "sha256": "78302486931e20643689546476184ee2fb61997ccb84126e49dbe4b278cb2e14",
+      "match": true
+    }
+  ],
+  "source_commit": "4bc645f4026ea8d0f1af4bfb09d614ac1166de58",
+  "evidence_commit": "89ef4b9ab6ddf05b36061e67ec6a13ef0ec61e01",
+  "text_files_verified": 44,
+  "pr23": {
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "hold": true
+  },
+  "main_unchanged": "797da297f588780ad2d608deea3b5af8f05af450",
+  "owner_pc_pass": false,
+  "final_product_pass": false
+}
