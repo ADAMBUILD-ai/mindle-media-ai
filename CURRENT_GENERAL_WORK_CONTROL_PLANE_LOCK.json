@@ -216,5 +216,30 @@
     "candidate_contains_changes": false,
     "evidence": "docs/evidence/media-ai-workflow-runtime-20261018/RESULT_KO.md",
     "source_commit": "4bc645f4026ea8d0f1af4bfb09d614ac1166de58"
+  },
+  "owner_windows_candidate_20261018": {
+    "status": "ASSEMBLED_ZIP_ALL_PAYLOAD_HASHES_CRC_VERIFIED_NATIVE_WINDOWS_PENDING",
+    "source_commit": "e00e6e0b82994fca628d6ca3cf039f7dc43c15c6",
+    "scope": "ONE_OWNER_DEVELOPMENT_TEST_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
+    "owner_authorization_20261018": "노트북 또는 데스크톱에서 더블클릭해 실행할 수 있게 만들어 보내 달라는 현재 대화의 명시 요청",
+    "authorization_consumed": true,
+    "additional_package_builds_allowed": false,
+    "archive_name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip",
+    "archive_bytes": 3177192286,
+    "archive_sha256": "715c351a3733aea2ffd87fa0113cc6e554920faabe430c74f941b7b6e5feac8c",
+    "payload_files_verified": 20440,
+    "base_source": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+    "base_files_preserved": 19236,
+    "bootstrap_launcher_reused_unchanged": true,
+    "data_directory_name": "MEDIA_AI_CANDIDATE_20261018_R1",
+    "windows_python_abi": "cp311-win_amd64",
+    "planner": "Qwen2.5-1.5B-Instruct-GGUF + pinned Windows llama.cpp b11716",
+    "neural_tts": "Supertonic 3 + sherpa-onnx/core 1.13.8 Windows",
+    "native_windows_exe_verified": false,
+    "real_hearing_verified": false,
+    "approved_ui_exact_match": false,
+    "full_product_pass": false,
+    "delivery": "512 MiB per-file service limit; seven <=500 MiB binary parts plus small automatic merge/extract/start installer ZIP",
+    "evidence": "docs/evidence/windows-oneclick-candidate-20261018-r1/RESULT_KO.md"
   }
 }

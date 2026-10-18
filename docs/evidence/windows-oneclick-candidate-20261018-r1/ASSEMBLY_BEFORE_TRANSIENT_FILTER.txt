@@ -1,0 +1,10 @@
+CANONICAL SOURCE/UI VERIFIED 72
+CANDIDATE ASSEMBLED 20469
+Traceback (most recent call last):
+  File "/workspace/scratch/b0ed3e0d34af/product/docs/evidence/windows-oneclick-candidate-20261018-r1/assemble_candidate.py", line 87, in <module>
+    p=P/item['path'];assert p.stat().st_size==item['bytes'] and sha(p)==item['sha256'],item['path']
+                            ^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 840, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/b0ed3e0d34af/delivery/MINDLE_MEDIA_AI_PC_TEST_20261018_R1/_payload/models/qwen2.5-1.5b-instruct/.model.gguf.keHPHK.DwulMu'
