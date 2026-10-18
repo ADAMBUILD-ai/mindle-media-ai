@@ -86,7 +86,7 @@ def make_plan(root,request):
     prompt='<|im_start|>system\n'+instructions+'<|im_end|>\n'
     for question,answer in examples:prompt+='<|im_start|>user\n'+question+'<|im_end|>\n<|im_start|>assistant\n'+json.dumps(answer,ensure_ascii=False)+'<|im_end|>\n'
     prompt+='<|im_start|>user\n'+command+'<|im_end|>\n<|im_start|>assistant\n' 
-    output=subprocess.check_output([str(executable),'-m',str(model),'-p',prompt,'-n','768','--no-display-prompt','--no-conversation','--simple-io','--temp','0','-t','2','--json-schema',json.dumps(schema)],text=True,timeout=120)
+    output=subprocess.check_output([str(executable),'-m',str(model),'-p',prompt,'-n','768','--no-display-prompt','--no-conversation','--simple-io','--temp','0','-t','2','--json-schema',json.dumps(schema)],text=True,encoding='utf-8',timeout=120)
     diagnostic=Path(root)/'workflows/planner-responses';diagnostic.mkdir(parents=True,exist_ok=True)
     (diagnostic/(str(uuid4())+'.txt')).write_text(output,encoding='utf-8')
     start=output.find('{')

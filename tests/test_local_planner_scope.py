@@ -21,3 +21,25 @@ def test_neural_model_identity_checked_before_construction(tmp_path):
     from media_ai.workflow_worker import narrate_neural
     with pytest.raises(ValueError,match='TTS_ENGINE_IDENTITY_MISMATCH'):
         narrate_neural(None,'안녕하세요',{'data_path':str(tmp_path),'data_sha256':'incorrect'})
+
+def test_engine_tree_digest_has_case_sensitive_portable_order(tmp_path):
+    import hashlib
+    from media_ai.workflow_worker import tree_sha
+    for name,content in [('a.txt',b'lower'),('Z.txt',b'upper'),('A.txt',b'first')]:
+        (tmp_path/name).write_bytes(content)
+    rows=[name+':'+hashlib.sha256(content).hexdigest() for name,content in [('A.txt',b'first'),('Z.txt',b'upper'),('a.txt',b'lower')]]
+    assert tree_sha(tmp_path)==hashlib.sha256('\n'.join(rows).encode()).hexdigest()
+
+def test_local_planner_decodes_korean_as_utf8(tmp_path,monkeypatch):
+    import hashlib,json
+    from media_ai import workflow_planner as planner
+    executable=tmp_path/'executor.exe';executable.write_bytes(b'fixture-not-executed')
+    model=tmp_path/'model.gguf';model.write_bytes(b'fixture-not-a-model')
+    settings={'executable':str(executable),'executable_sha256':hashlib.sha256(executable.read_bytes()).hexdigest(),'model_path':str(model),'model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),'license':'fixture','revision':'a'*40}
+    monkeypatch.setattr(planner,'engines_config',lambda root:{'planner':settings})
+    def output(args,**kwargs):
+        assert kwargs['encoding']=='utf-8'
+        return json.dumps({'steps':[{'operation':'narrate','text':'한국어 원고'},{'operation':'mix_narration','length_policy':'reject'}]},ensure_ascii=False)
+    monkeypatch.setattr(planner.subprocess,'check_output',output)
+    result=planner.make_plan(tmp_path,{'command':'"한국어 원고" 나레이션 추가'})
+    assert result['steps'][0]['text']=='한국어 원고'

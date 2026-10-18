@@ -6,6 +6,7 @@ import hashlib
 import json
 import msvcrt
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -79,6 +80,16 @@ def launch_request_lock(path):
             lock.close()
 
 
+def package_data_root(manifest, explicit=None):
+    """A reviewed candidate can isolate its data from an existing installation."""
+    if explicit is not None:
+        return Path(explicit)
+    name=manifest.get('data_directory_name','MEDIA_AI_DATA')
+    if not isinstance(name,str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,64}',name):
+        raise RuntimeError('패키지 데이터 폴더 이름이 올바르지 않습니다.')
+    return Path(os.environ['LOCALAPPDATA']) / 'MINDLE' / name
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--verify-only', action='store_true')
@@ -116,7 +127,7 @@ def main():
     if args.verify_only:
         print('PACKAGE_HASH_VERIFICATION_PASS')
         return
-    data = args.data_root or (Path(os.environ['LOCALAPPDATA']) / 'MINDLE/MEDIA_AI_DATA')
+    data = package_data_root(manifest, args.data_root)
     data.mkdir(parents=True, exist_ok=True)
     (data / 'logs').mkdir(exist_ok=True)
     for key in list(os.environ):
@@ -189,4 +200,5 @@ if __name__ == '__main__':
         import ctypes
         ctypes.windll.user32.MessageBoxW(None, str(error), 'MINDLE MEDIA AI', 0x10)
         raise
+
 

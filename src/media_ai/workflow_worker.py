@@ -14,7 +14,7 @@ from .product_runtime import ProductJobService, file_record, h264_encoder_args
 
 
 def tree_sha(root):
-    return hashlib.sha256('\n'.join(f'{p.relative_to(root).as_posix()}:{hashlib.sha256(p.read_bytes()).hexdigest()}' for p in sorted(root.rglob('*')) if p.is_file()).encode()).hexdigest()
+    return hashlib.sha256('\n'.join(f'{p.relative_to(root).as_posix()}:{hashlib.sha256(p.read_bytes()).hexdigest()}' for p in sorted(root.rglob('*'),key=lambda p:p.relative_to(root).as_posix()) if p.is_file()).encode()).hexdigest()
 
 def engines_config(root):
     path=Path(root)/'runtime-engines.json';bundled=False
@@ -90,7 +90,7 @@ def narrate(service,text,config):
 def probe(path):
     package=os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT')
     exe=str(Path(package)/'tools/ffmpeg/ffprobe.exe') if package else 'ffprobe'
-    return json.loads(subprocess.check_output([exe,'-v','error','-show_streams','-show_format','-of','json',str(path)],timeout=30))
+    return json.loads(subprocess.check_output([exe,'-v','error','-show_streams','-show_format','-of','json',str(path)],encoding='utf-8',timeout=30))
 
 def mix_narration(service,video,voice,step,background=None):
     if video.get('runtime_result',{}).get('options',{}).get('narration_job_id'):raise ValueError('이미 나레이션이 합성된 영상입니다. 원본 영상을 선택해 중복 믹싱을 피하세요.')
