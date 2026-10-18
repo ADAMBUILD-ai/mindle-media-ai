@@ -1,0 +1,2 @@
+actual product browser workflow PASS
+PASS real product browser -> TTS -> MP4 -> save -> own process shutdown -> new PID -> reopen -> export/CRC/hashes

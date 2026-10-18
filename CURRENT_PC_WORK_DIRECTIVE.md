@@ -58,3 +58,8 @@ Chrome 전환 6개 시나리오 PASS 보고 접수(원본 bytes/source identity 
 새 보충 지시: docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md
 증거: docs/evidence/media-ai-workflow-runtime-20261018/RESULT_KO.md
 영속 큐·취소·재시도·로컬 한국어 음성·MP4의 소스 검증과 Windows 실기를 구분한다. 생성형 모델 미확보를 분류기로 대체하지 않는다. 현재 c37에는 새 수정이 없다. Build Gate=false·PR23 HOLD·main/force push 금지·직원 최종 패키지 재생성 금지·Marketing/AVORA DEFERRED를 유지한다.
+
+
+## 2026-10-18 local engine closeout supplement
+
+Source 3a889d9af5e0e91b4efc8132eb86e11251f1ced5. Actual pinned Qwen 1.5B inference and Supertonic 3 Korean neural speech passed the Linux source product browser workflow, own-server cold restart and MP4/ZIP export. This supersedes the prior local-model-absent statement only for this configured development runtime. No latest Windows EXE acceptance, human hearing, exact approved UI match or whole-product PASS is claimed. Build Gate remains false; c37 contains none of these changes. Evidence: docs/evidence/media-ai-local-engines-closeout-20261018/RESULT_KO.md

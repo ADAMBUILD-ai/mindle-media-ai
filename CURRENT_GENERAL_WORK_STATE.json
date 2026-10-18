@@ -176,6 +176,30 @@
   "candidate_contains_dense_library_fix": false,
   "workflow_runtime_supplement": "docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md",
   "workflow_runtime": {
+    "source": "pinned local engines closeout",
+    "status": "PASS_BOUNDED_SOURCE_PRODUCT_RUNTIME_NOT_WINDOWS",
+    "generative_planner": "PASS_ACTUAL_LOCAL_QWEN_1_5B_INFERENCE_BOUNDED_CASES",
+    "tts_engine": "sherpa-onnx 1.13.8 / Supertonic 3 Korean neural ONNX; human hearing NOT_VERIFIED",
+    "windows_native_verified": false,
+    "candidate_contains_changes": false,
+    "evidence": "docs/evidence/media-ai-local-engines-closeout-20261018/RESULT_KO.md",
+    "source_commit": "3a889d9af5e0e91b4efc8132eb86e11251f1ced5"
+  },
+  "candidate_contains_workflow_runtime": false,
+  "local_engine_closeout_20261018": {
+    "source_commit": "3a889d9af5e0e91b4efc8132eb86e11251f1ced5",
+    "evidence": "docs/evidence/media-ai-local-engines-closeout-20261018/RESULT_KO.md",
+    "planner": "PASS_ACTUAL_QWEN_1_5B_KOREAN_INFERENCE_AND_PRODUCT_QUEUE",
+    "neural_tts": "PASS_ACTUAL_SUPERTONIC_3_KOREAN_WAV_AND_MP4",
+    "scope": "LINUX_SOURCE_BROWSER_NOT_WINDOWS_EXE",
+    "human_hearing": "NOT_VERIFIED",
+    "approved_ui": "FAIL_EXACT_MATCH",
+    "raw_intermediate_writer": "UNRESOLVED_HISTORICAL_WRITER_SEALED_OUTPUT_PROTECTION_PASS",
+    "candidate_contains_fix": false,
+    "package_build_allowed": false,
+    "full_product_pass": false
+  },
+  "previous_workflow_runtime_20261018": {
     "source": "same commit as supplement",
     "status": "PASS_BOUNDED_SOURCE_PRODUCT_RUNTIME_NOT_WINDOWS",
     "generative_planner": "BLOCKED_LOCAL_MODEL_ABSENT",
@@ -184,6 +208,5 @@
     "candidate_contains_changes": false,
     "evidence": "docs/evidence/media-ai-workflow-runtime-20261018/RESULT_KO.md",
     "source_commit": "4bc645f4026ea8d0f1af4bfb09d614ac1166de58"
-  },
-  "candidate_contains_workflow_runtime": false
+  }
 }

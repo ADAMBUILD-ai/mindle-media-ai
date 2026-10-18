@@ -9,7 +9,7 @@
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "Durable workflows / cancellation / bounded retry / local Korean TTS / MP4 source verification; generative engine unavailable; no Windows candidate build",
+      "current_assignment": "Pinned local Qwen generative planning and Supertonic Korean neural narration verified in source product browser; approved UI exact match and latest Windows candidate acceptance pending; build gate CLOSED",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -73,5 +73,18 @@
   "merge_main_forbidden": true,
   "new_repo_or_worktree_forbidden": true,
   "pr23_hold_do_not_merge": true,
-  "workflow_runtime_supplement": "docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md"
+  "workflow_runtime_supplement": "docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md",
+  "local_engine_closeout_20261018": {
+    "source_commit": "3a889d9af5e0e91b4efc8132eb86e11251f1ced5",
+    "evidence": "docs/evidence/media-ai-local-engines-closeout-20261018/RESULT_KO.md",
+    "planner": "PASS_ACTUAL_QWEN_1_5B_KOREAN_INFERENCE_AND_PRODUCT_QUEUE",
+    "neural_tts": "PASS_ACTUAL_SUPERTONIC_3_KOREAN_WAV_AND_MP4",
+    "scope": "LINUX_SOURCE_BROWSER_NOT_WINDOWS_EXE",
+    "human_hearing": "NOT_VERIFIED",
+    "approved_ui": "FAIL_EXACT_MATCH",
+    "raw_intermediate_writer": "UNRESOLVED_HISTORICAL_WRITER_SEALED_OUTPUT_PROTECTION_PASS",
+    "candidate_contains_fix": false,
+    "package_build_allowed": false,
+    "full_product_pass": false
+  }
 }
