@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-18",
+  "source_commit": "4bc645f4026ea8d0f1af4bfb09d614ac1166de58",
+  "baseline": "21f7d1217be582fbfa851d74c11f814bda997a52",
+  "general_runtime": "PASS_BOUNDED_SOURCE_PRODUCT_RUNTIME",
+  "generative_inference": "BLOCKED_LOCAL_MODEL_ABSENT",
+  "tts_engine": "eSpeak NG Korean formant, non-neural",
+  "human_hearing": false,
+  "windows_exe_executed": false,
+  "package_build_allowed": false,
+  "final_product_pass": false,
+  "pr23_hold": true,
+  "source_report": "docs/evidence/media-ai-workflow-runtime-20261018/RESULT_KO.md",
+  "windows_required": [
+    "candidate source/EXE/manifest/ZIP SHA",
+    "Windows engine DLL/data SHA and relative runtime manifest",
+    "own-process cancellation and bounded retry",
+    "WAV synthesis/remix and MP4 mix",
+    "Save/full EXE restart/new PID/Reopen/Export",
+    "original and sealed file hash preservation",
+    "player display/seek/actual human hearing",
+    "approved visual comparison"
+  ]
+}

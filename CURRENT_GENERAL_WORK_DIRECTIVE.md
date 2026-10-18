@@ -52,3 +52,11 @@ Chrome 전환 6개 시나리오 PASS 보고 접수(원본 bytes/source identity 
 원본 bfd08648의109전달객체·92원본파일·ZIP3개 및 c37 Export129파일 크기/SHA/CRC를 General이 별도로 확인했다. Chrome6 source PASS와 c37 기동/Save/Reopen/Export/PotPlayer 표시·탐색을 수용한다. 청취 미확인, c37 cold restart 미완료이다. CLI deploy.lock 접근과 native 중복 잠금은 분리하며 삭제/권한 우회 없이 보존한다.
 새 source 30203975e8fe8e6e3ee15dc1450a2486aa5e90e9는 밀집 자료 목록 내부 스크롤과 서버 자체 PID/인스턴스·진행 작업 거절·확인 토큰 정상 종료를 보완했다. Linux 실제 browser/HTTP 프로세스 검증이며 Windows 후보 PASS가 아니다. c37에 새 API/CSS/전환 수정이 없으므로 hot patch나 미지원 종료 API 재시도 금지. Gate=false; 후속 승인 후보로만 반영한다.
 검수: docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md. 후속 Windows 조건은 아래 NEXT_WINDOWS_SCOPE.md를 따른다.
+
+
+
+## 2026-10-18 AI 작업·음성·MP4 통합 보충
+
+새 보충 지시: docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md
+증거: docs/evidence/media-ai-workflow-runtime-20261018/RESULT_KO.md
+영속 큐·취소·재시도·로컬 한국어 음성·MP4의 소스 검증과 Windows 실기를 구분한다. 생성형 모델 미확보를 분류기로 대체하지 않는다. 현재 c37에는 새 수정이 없다. Build Gate=false·PR23 HOLD·main/force push 금지·직원 최종 패키지 재생성 금지·Marketing/AVORA DEFERRED를 유지한다.

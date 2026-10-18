@@ -1,0 +1,19 @@
+{
+  "browser": "138.0.7204.0",
+  "projectId": "88c01c49-cb5c-47b7-b169-a70c8f096faa",
+  "media": {
+    "error": 0,
+    "readyState": 4,
+    "videoWidth": 320,
+    "currentSrc": "http://127.0.0.1:35307/files/workflows/a95261f9-83bf-4008-86c4-175a1c749023/00-1/sealed/591eb16c-8fa4-4b49-bad7-63b62be8ef8f/narrated_video.mp4",
+    "duration": 4.04
+  },
+  "referenceCount": 1,
+  "narrationPreview": true,
+  "history": true,
+  "voiceRemixVolume": 0.5,
+  "voiceRegenerated": false,
+  "errors": [],
+  "planSource": "STRUCTURED_USER_PLAN_NOT_GENERATIVE",
+  "actualHumanHearing": false
+}

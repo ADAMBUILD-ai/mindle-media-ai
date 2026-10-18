@@ -1,6 +1,6 @@
 {
   "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "status": "READY_FOR_LOCAL_PC_ACCEPTANCE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
@@ -204,5 +204,17 @@
   "followup_source": "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
   "latest_source_requires_new_candidate": true,
   "candidate_contains_runtime_owner_stop": false,
-  "candidate_contains_dense_library_fix": false
+  "candidate_contains_dense_library_fix": false,
+  "workflow_runtime_supplement": "docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md",
+  "workflow_runtime": {
+    "source": "same commit as supplement",
+    "status": "PASS_BOUNDED_SOURCE_PRODUCT_RUNTIME_NOT_WINDOWS",
+    "generative_planner": "BLOCKED_LOCAL_MODEL_ABSENT",
+    "tts_engine": "eSpeak NG Korean formant synthesis, not neural TTS",
+    "windows_native_verified": false,
+    "candidate_contains_changes": false,
+    "evidence": "docs/evidence/media-ai-workflow-runtime-20261018/RESULT_KO.md",
+    "source_commit": "4bc645f4026ea8d0f1af4bfb09d614ac1166de58"
+  },
+  "candidate_contains_workflow_runtime": false
 }

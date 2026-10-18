@@ -1,7 +1,7 @@
 {
   "schema_version": "PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
   "status": "ACTIVE",
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
   "active_control_plane_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
@@ -9,7 +9,7 @@
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "R2 original independent readback complete; dense asset CSS and authenticated owner PID/stop source repaired at 30203975e8fe8e6e3ee15dc1450a2486aa5e90e9; no new build",
+      "current_assignment": "Durable workflows / cancellation / bounded retry / local Korean TTS / MP4 source verification; generative engine unavailable; no Windows candidate build",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -72,5 +72,6 @@
   "force_push_forbidden": true,
   "merge_main_forbidden": true,
   "new_repo_or_worktree_forbidden": true,
-  "pr23_hold_do_not_merge": true
+  "pr23_hold_do_not_merge": true,
+  "workflow_runtime_supplement": "docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md"
 }

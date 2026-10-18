@@ -1,0 +1,22 @@
+{
+  "KOREAN_NARRATION.wav": {
+    "bytes": 137700,
+    "sha256": "6c825f21d64f099b63367bb5e5bc6dd32c7a941d0a1bdefcdf0ccdbca2a0e3ed",
+    "git_blob_sha": "1b244eeb4955b194322ec65b1f3ab8d85e6a82c3"
+  },
+  "NARRATED_EXPORT.mp4": {
+    "bytes": 115850,
+    "sha256": "fd0c328cbdd84b7dffcc4e50563b1b9c58bf5705e71225898e56e774a837d179",
+    "git_blob_sha": "83180d6f31b4166628978b5d4342c5209e6cea34"
+  },
+  "PROJECT_EXPORT.zip": {
+    "bytes": 1320427,
+    "sha256": "3a4af46d0fa13ed1545658af5eaeaf2a9847b38c8828fdf2b030032d2745df7e",
+    "git_blob_sha": "32591c1be12c990c56418f393761c767db8f68ae"
+  },
+  "BROWSER_COMPLETED.png": {
+    "bytes": 373770,
+    "sha256": "78302486931e20643689546476184ee2fb61997ccb84126e49dbe4b278cb2e14",
+    "git_blob_sha": "70bd132f0843c9d8c03f9311fd5ace5ef10ce8dc"
+  }
+}
