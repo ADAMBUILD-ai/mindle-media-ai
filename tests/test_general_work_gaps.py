@@ -55,6 +55,7 @@ def test_same_request_replayed_and_conflict_rejected(tmp_path):
     import threading
     server = object.__new__(ProductHttpServer)
     server.job_lock = threading.Lock()
+    server.workflows = None
     server.completed_requests = {}
     service = ProductJobService(tmp_path, '')
     payload = {**photo_payload(), 'request_id': str(uuid4())}
@@ -69,6 +70,7 @@ def test_failed_request_is_retryable(tmp_path):
     import threading
     server = object.__new__(ProductHttpServer)
     server.job_lock = threading.Lock()
+    server.workflows = None
     server.completed_requests = {}
     service = ProductJobService(tmp_path, '')
     payload = {**photo_payload(), 'request_id': str(uuid4())}
@@ -171,3 +173,4 @@ def test_actual_http_byte_ranges_allow_browser_seek(tmp_path):
         assert requests.get(url,timeout=5).content==payload
     finally:
         server.shutdown();thread.join(5);server.server_close()
+

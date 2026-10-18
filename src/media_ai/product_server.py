@@ -38,6 +38,23 @@ class ProductHttpServer(ThreadingHTTPServer):
         self.lifecycle_lock = threading.Lock()
         self.active_requests = 0
         self.stopping = False
+        self.workflows = None
+        self.workflow_init_lock = threading.Lock()
+        if (self.data_dir/'workflows/queue.sqlite3').is_file():
+            try:self.workflow_queue()
+            except Exception:
+                self.server_close();raise
+
+    def workflow_queue(self):
+        from .durable_workflows import DurableWorkflows
+        with self.workflow_init_lock:
+            if self.workflows is None:self.workflows=DurableWorkflows(self.service)
+            return self.workflows
+
+    def server_close(self):
+        try:
+            if self.workflows is not None:self.workflows.close()
+        finally:super().server_close()
 
     def begin_request(self) -> bool:
         with self.lifecycle_lock:
@@ -55,6 +72,7 @@ class ProductHttpServer(ThreadingHTTPServer):
         request_id = str(body.get('request_id', ''))
         fingerprint = hashlib.sha256((route + json.dumps(body, sort_keys=True)).encode()).hexdigest()
         with self.job_lock:
+            if self.workflows is not None and self.workflows.busy():raise ValueError('순차 작업이 진행 중입니다. 완료하거나 취소한 뒤 편집·저장하세요.')
             previous = self.completed_requests.get(request_id) if request_id else None
             if previous:
                 if previous[0] != fingerprint:
@@ -92,7 +110,7 @@ class ProductHttpServer(ThreadingHTTPServer):
             "ui/product_integration.js",
             "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
         ]
-        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js', 'ui/workspace_shell.js', 'ui/timeline_preview.js') if (self.root / relative).is_file())
+        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js', 'ui/workspace_shell.js', 'ui/timeline_preview.js', 'ui/workflow_execution.js') if (self.root / relative).is_file())
         hashes = {relative: hashlib.sha256((self.root / relative).read_bytes()).hexdigest() for relative in files}
         fingerprint = hashlib.sha256("\n".join(f"{key}:{hashes[key]}" for key in files).encode("utf-8")).hexdigest()
         branch = head = None
@@ -190,6 +208,25 @@ class Handler(BaseHTTPRequestHandler):
                 self._json(403, {'status': 'LOCAL_CONTROL_REQUIRED'}); return
             self._json(200, {'server_pid': os.getpid(), 'server_instance_id': self.server.instance_id,
                              'control_nonce': self.server.control_nonce}); return
+        if route == '/api/workflows/capabilities':
+            from .workflow_planner import capabilities
+            self._json(200,capabilities(self.server.data_dir));return
+        if route == '/api/workflows':
+            self._json(200,{'workflows':self.server.workflow_queue().list()});return
+        if route.startswith('/api/workflows/'):
+            try:
+                value=self.server.workflow_queue().get(route.rsplit('/',1)[1])
+                if value['state']=='SUCCEEDED':
+                    value['result']['preview_url']='/files/'+Path(value['result']['primary_output']['path']).relative_to(self.server.data_dir).as_posix()
+                    if value.get('export'):value['export']['download_url']='/files/'+Path(value['export']['export']['path']).relative_to(self.server.data_dir).as_posix()
+                self._json(200,value)
+            except ValueError as error:self._json(404,{'error':str(error)})
+            return
+        if route.startswith('/files/workflows/'):
+            try:
+                value=self.server.workflow_queue().get(route.split('/')[3])
+                if value['state']!='SUCCEEDED' or not self.server.workflow_queue().published_file(value['workflow_id'],self.server.data_dir/route.removeprefix('/files/')):self._json(403,{'status':'WORKFLOW_OUTPUT_NOT_PUBLISHED'});return
+            except ValueError:self._json(404,{'status':'NOT_FOUND'});return
         if route == "/api/runtime-identity":
             self._json(200, self.server.runtime_identity()); return
         if route == '/api/runtime-readiness':
@@ -230,6 +267,8 @@ class Handler(BaseHTTPRequestHandler):
             for path in sorted(self.server.service.projects.glob('*.json'), key=lambda p:p.stat().st_mtime, reverse=True):
                 try:
                     project = json.loads(path.read_text(encoding='utf-8'))
+                    from .durable_workflows import is_published
+                    if not is_published(self.server.data_dir,project.get('workflow_id')):continue
                     projects.append({'project_id':project['project_id'], 'saved_at':project['saved_at'], 'job_count':len(project['job_ids'])})
                 except (OSError, ValueError, KeyError, TypeError):
                     continue
@@ -243,6 +282,8 @@ class Handler(BaseHTTPRequestHandler):
                     project_id = str(UUID(route.rsplit('/', 1)[1]))
                     project = json.loads((self.server.service.projects / (project_id+'.json')).read_text(encoding='utf-8'))
                 if project:
+                    from .durable_workflows import is_published
+                    if not is_published(self.server.data_dir,project.get('workflow_id')):raise ValueError('미완료 작업')
                     for job in project['jobs']:
                         primary = Path(job.get('preview_output', job['primary_output'])['path']).resolve()
                         job['preview_url'] = '/files/' + primary.relative_to(self.server.data_dir.resolve()).as_posix()
@@ -279,7 +320,7 @@ class Handler(BaseHTTPRequestHandler):
         if body.get('server_pid') != os.getpid() or body.get('server_instance_id') != self.server.instance_id:
             self._json(409, {'status': 'RUNTIME_IDENTITY_MISMATCH'}); return
         with self.server.lifecycle_lock:
-            if self.server.active_requests or self.server.stopping:
+            if self.server.active_requests or self.server.stopping or (self.server.workflows is not None and self.server.workflows.busy()):
                 self._json(409, {'status': 'RUNTIME_BUSY'}); return
             self.server.stopping = True
         try:
@@ -304,6 +345,17 @@ class Handler(BaseHTTPRequestHandler):
             route = unquote(urlparse(self.path).path); body = self._body()
             self.server.requests.append({'method':'POST','path':route,'lane':body.get('lane'),
                                          'operation':body.get('operation'),'request_id':body.get('request_id')})
+            if route.startswith('/api/workflows'):
+                if not self._local_control_request():self._json(403,{'status':'LOCAL_CONTROL_REQUIRED'});return
+                if route == '/api/workflows/plan':
+                    from .workflow_planner import make_plan
+                    self._json(200,make_plan(self.server.data_dir,body));return
+                if route == '/api/workflows':
+                    with self.server.job_lock:value=self.server.workflow_queue().submit(body)
+                    self._json(202,value);return
+                if route.endswith('/cancel'):
+                    self._json(200,self.server.workflow_queue().cancel(route.split('/')[3]));return
+                self.send_error(404);return
             if route == "/api/integrations/marketing/shortform":
                 if os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT") or os.environ.get('MINDLE_DEFER_EXTERNAL_SHORTFORM') == '1':
                     self._json(503, {"status": "MARKETING_PROVIDER_UNAVAILABLE", "error": "마케팅 AI 연결이 필요합니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다."}); return
@@ -356,9 +408,9 @@ class Handler(BaseHTTPRequestHandler):
                 primary = Path(result.get("preview_output", result["primary_output"])["path"]).relative_to(self.server.data_dir)
                 result["preview_url"] = "/files/" + primary.as_posix()
                 self._json(201, result); return
-            if route == "/api/projects/save": self._json(201, self.server.service.save_project(body)); return
+            if route == "/api/projects/save": self._json(201, self.server.run_once(route,body,self.server.service.save_project)); return
             if route.startswith("/api/projects/") and route.endswith("/export"):
-                result = self.server.service.export_project(route.split("/")[3])
+                result = self.server.run_once(route,body,lambda _body:self.server.service.export_project(route.split("/")[3]))
                 relative = Path(result["export"]["path"]).relative_to(self.server.data_dir)
                 result["download_url"] = "/files/" + relative.as_posix(); self._json(201, result); return
             self.send_error(HTTPStatus.NOT_FOUND)
@@ -382,5 +434,6 @@ def main() -> None:
 
 
 if __name__ == "__main__": main()
+
 
 

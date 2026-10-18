@@ -63,7 +63,7 @@
       const options=result.runtime_result.options||{};
       editor.querySelector('.track.purple').textContent='Subtitle Track · '+(options.subtitle||'자막 없음');
       editor.querySelector('.track.cyan').textContent='Effect Track · '+(options.effect?'영상 효과':options.fade?'장면 전환':'효과 없음');
-      editor.querySelector('.track.green').textContent='Audio Track · '+(options.backgroundVolume!=null?'추가한 배경음악':'원본 오디오');
+      editor.querySelector('.track.green').textContent='Audio Track · '+(options.narration_job_id?['나레이션',options.backgroundVolume!=null?'배경음악':null,options.originalAudioIncluded?'원본 오디오':null].filter(Boolean).join(' · '):(options.backgroundVolume!=null?'추가한 배경음악':'원본 오디오'));
     }
     host.dataset.operation = result.operation; host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
     if (result.lane === "video") { const track = editor.querySelector(".track.film"); if (track) track.textContent = result.operation === "tracking" ? (result.runtime_result.tracking_mode==='continuous_video_memory'?`영상 Track · 전체 ${result.runtime_result.tracked_frames}프레임 연속 추적`:`영상 Track · SAM tracking · ${result.runtime_result.sampled_frames} samples`) : "영상 Track · "+(result.operation === "import" ? "원본 영상" : "편집 결과"); }
@@ -100,6 +100,7 @@
     try {await executeReady(editor,kind,detail);} finally {executing.delete(kind);}
   }
   async function executeReady(editor, kind, detail) {
+    if(window.mindleWorkflowCommand && await window.mindleWorkflowCommand(editor,kind,detail)) return;
     if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
     const file = kind==='video' && /자막|STT|받아쓰기/.test(detail.command) && state.audio ? state.audio : state[kind];
     if (!file) { message(editor, "먼저 실제 원본 파일을 불러오세요.", true); return; }
@@ -231,6 +232,7 @@
   document.querySelectorAll('.asset-grid').forEach(grid=>grid.replaceChildren());
   const clearWorkspacePresentation = () => {
     window.mindleClearTimeline?.();
+    window.mindleShowNarrations?.([]);
     document.querySelectorAll('[data-preview]').forEach(host=>{
       host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;
     });
@@ -276,7 +278,7 @@
         const references=workspace ? workspace.references?.[kind]||[] : referenceJob?.reference_urls||[];
         restoredReferences[kind]=await Promise.all(references.map(ref=>loadSavedFile(ref.url,ref.original_filename||ref.name,ref.mime_type,'저장된 참고 이미지를 읽을 수 없습니다.')));
       }
-      const transcript=[...result.project.jobs].reverse().find(job=>job.lane==='korean_audio'||job.operation==='transcribe');
+      const transcript=[...result.project.jobs].reverse().find(job=>(job.lane==='korean_audio'&&job.operation!=='narration')||job.operation==='transcribe');
       let restoredAudio=null;
       if(workspace?.audio) restoredAudio=await loadSavedFile(workspace.audio.url,workspace.audio.original_filename,workspace.audio.mime_type,'저장된 음성을 읽을 수 없습니다.');
       else if(!workspace && transcript?.input_url) restoredAudio=await loadSavedFile(transcript.input_url,transcript.input.file_name||'saved_audio.wav','audio/wav','저장된 음성을 읽을 수 없습니다.');
@@ -306,6 +308,7 @@
           message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId} · 한국어 자막: ${transcript.runtime_result.text}`);
         }
       }
+      window.mindleShowNarrations?.(result.project.jobs);
       return true;
     } catch (error) {
       const editor = document.querySelector('[data-editor="video"]');
@@ -313,6 +316,15 @@
       return false;
     } finally {try {await window.mindleRefreshAssets();} catch(error) {message(document.querySelector('[data-editor="video"]'),error.message,true);}restoring=false;window.mindleRestoreReady=true;}
   }
+  window.mindleWorkflowContext=async()=>{
+    const serialize=async file=>({filename:file.name,mime_type:file.type,content_base64:await readFile(file)});
+    const workspace={references:{},audio:state.audio?await serialize(state.audio):null};
+    for(const kind of ['photo','video'])workspace.references[kind]=await Promise.all((window.mindleReferenceFiles?.(kind)||[]).map(serialize));
+    return {project_id:state.projectId,job_ids:[...state.jobs],workspace};
+  };
+  window.mindleCurrentProjectId=()=>state.projectId;
+  window.mindleRemoveNarration=id=>{if(projectBusy())return false;state.jobs=state.jobs.filter(job=>job!==id);return true;};
+  window.mindleWorkflowRestore=projectId=>{executing.delete('video');return restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));};
   window.mindleOpenProject = projectId => restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));
   window.mindleNewProject = () => {
     if(projectChangeBlocked()) return false;
@@ -326,4 +338,5 @@
   };
   restoreSavedProject();
 })();
+
 

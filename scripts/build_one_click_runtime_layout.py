@@ -147,6 +147,7 @@ def main() -> int:
         "video_workspace.js",
         "workspace_shell.js",
         "timeline_preview.js",
+        "workflow_execution.js",
         "assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
     ]
     ui_hash = hashlib.sha256(
@@ -202,4 +203,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 

@@ -24,6 +24,7 @@ from uuid import uuid4, UUID
 from huggingface_hub import HfApi, hf_hub_download
 
 from .contracts import MediaJob, MediaType, JobState
+from .durable_workflows import is_published
 from .model_scout_integration import (
     InputArtifactIntake,
     IntegrationStatus,
@@ -245,11 +246,13 @@ class ProductJobService:
         for path in self.jobs.glob('*/JOB_EVIDENCE.json'):
             try:
                 record=json.loads(path.read_text(encoding='utf-8'))
-                self.records[record['job_id']]=record
+                
+                if is_published(self.root,record.get('workflow_id')):self.records[record['job_id']]=record
             except (OSError,ValueError,KeyError,TypeError):pass
         for saved in self.projects.glob('*.json'):
             try:
                 record = json.loads(saved.read_text(encoding='utf-8'))
+                if not is_published(self.root,record.get('workflow_id')):continue
                 for job in record.get('jobs', []):
                     if job.get('status') == 'TESTED_PASS':
                         self.records[job['job_id']] = job
@@ -274,9 +277,10 @@ class ProductJobService:
 
     def latest_project(self) -> dict | None:
         saved = sorted(self.projects.glob('*.json'), key=lambda p: p.stat().st_mtime, reverse=True)
-        if not saved:
-            return None
-        return json.loads(saved[0].read_text(encoding='utf-8'))
+        for path in saved:
+            record=json.loads(path.read_text(encoding='utf-8'))
+            if is_published(self.root,record.get('workflow_id')):return record
+        return None
 
     def prepare_photo_background(self, job_id: str) -> dict:
         """Apply the verified SAM mask as alpha; keep original mask/overlay evidence intact."""
@@ -551,8 +555,9 @@ class ProductJobService:
         vf = ['scale=trunc(iw/2)*2:trunc(ih/2)*2']
         if options.get('rotate'): vf.append('transpose=1')
         if speed != 1: vf.append(f'setpts=PTS/{speed}')
-        if options.get('aspect') == '9:16':
-            vf.append('scale=360:640:force_original_aspect_ratio=decrease,pad=360:640:(ow-iw)/2:(oh-ih)/2,setsar=1')
+        if options.get('aspect') in {'9:16','16:9'}:
+            target_width,target_height=(360,640) if options['aspect']=='9:16' else (640,360)
+            vf.append(f'scale={target_width}:{target_height}:force_original_aspect_ratio=decrease,pad={target_width}:{target_height}:(ow-iw)/2:(oh-ih)/2,setsar=1')
         brightness=float(options.get('brightness',0))/100
         contrast=1+float(options.get('contrast',0))/100
         saturation=1+float(options.get('saturation',0))/100
@@ -566,7 +571,7 @@ class ProductJobService:
         subtitle = str(options.get('subtitle', '')).strip()
         if subtitle:
             escape = lambda path: Path(path).as_posix().replace(':','\\:').replace("'", "\\'")
-            font = Path(os.environ.get('SystemRoot', 'C:/Windows')) / 'Fonts/malgun.ttf'
+            font = Path(os.environ['MINDLE_SUBTITLE_FONT']) if os.environ.get('MINDLE_SUBTITLE_FONT') else Path(os.environ.get('SystemRoot', 'C:/Windows')) / 'Fonts/malgun.ttf'
             if not font.is_file():
                 fonts = sorted(Path('/usr/share/fonts').rglob('*CJK*'))
                 font = next((path for path in fonts if path.suffix.lower() in {'.ttf', '.ttc', '.otf'}), None)
@@ -577,6 +582,7 @@ class ProductJobService:
             width,height=info['width'],info['height']
             if options.get('rotate'):width,height=height,width
             if options.get('aspect')=='9:16':width,height=360,640
+            elif options.get('aspect')=='16:9':width,height=640,360
             from PIL import ImageFont
             fontsize=max(12,min(24,height//10))
             font_metrics=ImageFont.truetype(str(font),fontsize)
@@ -845,4 +851,5 @@ class ProductJobService:
         finally:
             pending.unlink(missing_ok=True)
         return {"status": "EXPORTED", "project_id": project_id, "export": file_record(export)}
+
 
