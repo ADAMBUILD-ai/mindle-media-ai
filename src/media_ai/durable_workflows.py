@@ -159,7 +159,7 @@ class DurableWorkflows:
             except Exception as error:
                 with self.lock:
                     value=self.get(row[0]);self._rollback(value);value.update(state='INTERRUPTED' if self.closed else 'FAILED',error=str(error));self._put(value)
-    def _command(self,path):return [sys.executable,'-X','utf8','-m','media_ai.workflow_worker',str(path)]
+    def _command(self,path):return [sys.executable,'-B','-X','utf8','-m','media_ai.workflow_worker',str(path)]
     def _run(self,identifier):
         with self.lock:
             value=self.get(identifier)

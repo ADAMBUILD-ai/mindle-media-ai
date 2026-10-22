@@ -80,7 +80,7 @@
       const rendered=await renderPhoto();
       const response=await fetch('/api/photo-edits',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:'photo_edit.png',content_base64:rendered.base64,command:label,options:rendered.options})});
       const result=await response.json();if(!response.ok) throw new Error(result.error||'사진 보정 저장 실패');
-      await window.mindleAcceptResult(result);reset();say('보정 적용 완료 · 프로젝트 저장으로 보관할 수 있습니다.');
+      await window.mindleAcceptResult(result);reset();say((rendered.options.automaticAnalysis?'픽셀 통계 자동 보정 완료 · 모델 추론 아님':'사진 보정 완료 · 픽셀 편집')+' · 프로젝트 저장으로 보관할 수 있습니다.');
     } catch(error) {say(error.message);} finally {busy=false;window.mindleEndEdit('photo');}
   }
   const adjust=(key,value)=>{const input=editor.querySelector(`[data-photo-adjust="${key}"]`);input.value=value;input.nextElementSibling.value=value;};
@@ -143,7 +143,7 @@
     if(/선명/.test(text)) {adjust('sharpness',25);known=true;}
     if(/흑백/.test(text)) {style='mono';known=true;}
     if(/보정/.test(text) && !known) {adjust('contrast',8);adjust('shadows',12);known=true;}
-    if(known) await apply('AI 대화 편집 · '+text);
+    if(known) await apply('키워드 사진 보정 · '+text);
     else say('지원하는 사진 지시: 따뜻하게·차갑게·밝게·어둡게·선명하게·흑백·배경 제거·4배 업스케일');
     return true;
   };

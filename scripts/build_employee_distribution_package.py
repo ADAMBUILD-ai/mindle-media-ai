@@ -155,7 +155,7 @@ def main():
     # Retain the model source licenses checked by the preflight.
     write_json(notices / 'MODEL_LICENSE_MANIFEST.json', {'sam21': 'Apache-2.0', 'whisper-small': 'MIT', 'intel-sisr-1032': 'Apache-2.0'})
     (notices / 'THIRD_PARTY_NOTICES.txt').write_text('Python, PyTorch, Transformers, OpenVINO and transitive libraries: see retained LICENSES and runtime dist-info notices. FFmpeg: see tools/ffmpeg/LICENSES. Models: see MODEL_LICENSE_MANIFEST.json and model source licenses.\n', encoding='utf-8')
-    files = [{'path': p.relative_to(root).as_posix(), 'bytes': p.stat().st_size, 'sha256': digest(p)} for p in sorted(root.rglob('*')) if p.is_file()]
+    files = [{'path': p.relative_to(root).as_posix(), 'bytes': p.stat().st_size, 'sha256': digest(p)} for p in sorted(root.rglob('*')) if p.is_file() and '__pycache__' not in p.relative_to(root).parts and p.suffix != '.pyc']
     ui_names = ['index.html', 'approved_visual.css', 'interaction.css', 'interaction.js', 'product_integration.js', 'timeline_preview.js', 'workflow_execution.js', 'assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico']
     ui_hash = hashlib.sha256('\n'.join('ui/' + n + ':' + digest(root / 'app/ui' / n) for n in ui_names).encode()).hexdigest()
     commit = args.build_commit or subprocess.check_output(['git', '-c', 'safe.directory=' + repo.as_posix(), '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
@@ -165,11 +165,11 @@ def main():
                 'model_manifest_hash': digest(root / 'MODEL_MANIFEST.json'), 'files': files, 'release_gate': 'CLEAN_WINDOWS_TEST_REQUIRED'}
     write_json(root / 'PACKAGE_MANIFEST.json', manifest)
     (root / 'PACKAGE_SHA256SUMS.txt').write_text('\n'.join(f'{entry["sha256"]}  {entry["path"]}' for entry in files) + '\n', encoding='utf-8')
-    subprocess.run([str(py / 'python.exe'), str(root / 'app/launcher/employee_package_launcher.py'), '--verify-only'], check=True)
+    subprocess.run([str(py / 'python.exe'), '-B', str(root / 'app/launcher/employee_package_launcher.py'), '--verify-only'], check=True)
     archive = root.parent / (root.name + '.zip')
     with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=1, allowZip64=True) as output:
         for path in root.rglob('*'):
-            if path.is_file(): output.write(path, NAME + '/' + path.relative_to(root).as_posix())
+            if path.is_file() and '__pycache__' not in path.relative_to(root).parts and path.suffix != '.pyc': output.write(path, NAME + '/' + path.relative_to(root).as_posix())
     write_json(detail / 'PACKAGE_BUILD_MANIFEST.json', {'status': 'PACKAGE_BUILD_PARTIAL', 'zip_sha256': digest(archive), 'zip_bytes': archive.stat().st_size, 'manifest': manifest})
     print('PACKAGE_BUILT_CLEAN_WINDOWS_TEST_REQUIRED')
     return 0

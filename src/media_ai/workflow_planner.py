@@ -27,9 +27,9 @@ def persist_plan(root,value,request):
 def validate_plan_scope(command,steps):
     """Reject model-invented actions; this gate never generates a plan."""
     text=command.casefold()
-    fields={'brightness':('밝기','brightness'),'contrast':('대비','contrast'),'saturation':('채도','saturation')}
+    fields={'brightness':('밝기','밝게','brightness'),'contrast':('대비','contrast'),'saturation':('채도','saturation')}
     narration=any(word in text for word in ('나레이션','내레이션','narration','tts'))
-    subtitles=any(word in text for word in ('받아쓰','자막','transcrib','subtitle'))
+    subtitles=any(word in text for word in ('받아쓰','자막','stt','transcrib','subtitle'))
     for step in steps:
         op=step['operation']
         if op=='video_edit':
@@ -42,6 +42,18 @@ def validate_plan_scope(command,steps):
             raise ValueError('PLANNER_SCOPE_MISMATCH: 요청하지 않은 나레이션입니다.')
         if op=='narrate' and step['text'] not in command:
             raise ValueError('PLANNER_SCRIPT_NOT_IN_REQUEST: 명시한 원고만 합성할 수 있습니다.')
+    # A valid subset is not a completed plan: reject silently dropped requests.
+    actual_fields={key for step in steps if step['operation']=='video_edit' for key in step.get('options',{})}
+    expected_fields={key for key,words in fields.items() if any(word in text for word in words)}
+    operations={step['operation'] for step in steps}
+    if not expected_fields.issubset(actual_fields):
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 보정이 누락됐습니다.')
+    if narration and not {'narrate','mix_narration'}.issubset(operations):
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 나레이션 생성·합성이 누락됐습니다.')
+    if subtitles and 'transcribe' not in operations:
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 받아쓰기가 누락됐습니다.')
+    if any(word in text for word in ('자막','subtitle')) and 'apply_subtitles' not in operations:
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 자막 적용이 누락됐습니다.')
     return steps
 
 
@@ -50,6 +62,8 @@ def make_plan(root,request):
         return persist_plan(root,{'plan_source':'STRUCTURED_USER_PLAN_NOT_GENERATIVE','steps':validate_steps(request['steps'])},request)
     command=str(request.get('command','')).strip()
     if not command or len(command)>4000:raise ValueError('편집 지시는1~4000자입니다.')
+    if re.search(r'속도|자르|회전|전환|효과|배경음악|숏폼|추적|삭제|제거',re.sub(r'["“][^"”]*["”]', '', command)):
+        raise ValueError('PLANNER_UNSUPPORTED: 대화 계획기는 밝기·대비·채도·받아쓰기·자막·명시 원고 나레이션을 지원합니다. 그 밖의 편집은 해당 도구를 사용하세요.')
     settings=engines_config(root).get('planner',{})
     model=Path(settings.get('model_path',''));executable=Path(settings.get('executable',''))
     if not model.is_file() or not executable.is_file() or not settings.get('license') or not re.fullmatch(r'[0-9a-f]{40}',str(settings.get('revision',''))):

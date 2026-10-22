@@ -248,7 +248,7 @@ def main() -> int:
     if not executable.is_file() or not launcher.is_file():
         raise RuntimeError("패키지 내부 실행 파일이 누락되었습니다.")
 
-    command = [str(executable), str(launcher)]
+    command = [str(executable), "-B", str(launcher)]
     if args.no_browser:
         command.append("--no-browser")
         completed = subprocess.run(command, cwd=target, check=False)

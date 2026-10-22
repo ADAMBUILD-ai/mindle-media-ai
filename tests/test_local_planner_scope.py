@@ -43,3 +43,12 @@ def test_local_planner_decodes_korean_as_utf8(tmp_path,monkeypatch):
     monkeypatch.setattr(planner.subprocess,'check_output',output)
     result=planner.make_plan(tmp_path,{'command':'"한국어 원고" 나레이션 추가'})
     assert result['steps'][0]['text']=='한국어 원고'
+
+@pytest.mark.parametrize('command,steps',[
+ ('밝기 5와 대비 9를 높여 줘.',[{'operation':'video_edit','options':{'brightness':5}}]),
+ ('밝기 5와 "안녕" 나레이션 넣어 줘.',[{'operation':'video_edit','options':{'brightness':5}}]),
+ ('자막을 넣어 줘.',[{'operation':'transcribe'}]),
+])
+def test_generated_partial_plan_is_not_success(command,steps):
+    with pytest.raises(ValueError,match='PLANNER_INCOMPLETE_PLAN'):
+        validate_plan_scope(command,steps)

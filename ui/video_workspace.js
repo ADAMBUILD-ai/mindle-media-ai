@@ -62,7 +62,7 @@
       const extra={};if(/숏폼/.test(text)) extra.aspect='9:16';const sec=text.match(/(\d+)\s*초/);if(sec) extra.duration=Number(sec[1]);
       if(/전환/.test(text)) extra.fade=true;if(/효과/.test(text)) extra.effect=true;if(/밝게/.test(text)) extra.brightness=15;
       const speed=text.match(/([\d.]+)\s*배/);if(speed) extra.speed=Number(speed[1]);
-      await apply(extra,'AI 대화 편집 · '+text);return true;
+      await apply(extra,'명시적 영상 편집 · '+text);return true;
     }
     if(/배경음악|잔잔/.test(text)) {if(editor.querySelector('[data-bgm-input]').files[0]) await apply({backgroundVolume:.2},'잔잔한 배경음악');else {editor.querySelector('[data-command-error]').textContent='배경음악 추가 버튼에서 사용할 음악을 선택하세요.';editor.querySelector('[data-command-error]').style.display='block';}return true;}
     return false;

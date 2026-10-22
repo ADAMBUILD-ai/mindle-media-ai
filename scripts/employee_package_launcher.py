@@ -1,5 +1,8 @@
 """Package-only entry point; stdlib bootstrap, no Git or user Python lookup."""
 from __future__ import annotations
+import sys
+# Payload files are sealed; imports must never rewrite manifest-pinned bytecode.
+sys.dont_write_bytecode = True
 import argparse
 from contextlib import contextmanager
 import hashlib
@@ -9,7 +12,6 @@ import os
 import re
 from pathlib import Path
 import subprocess
-import sys
 import time
 from urllib.request import urlopen
 
@@ -161,7 +163,7 @@ def main():
                     server_env = dict(os.environ)
                     server_env.update(LOCALAPPDATA=str(data), APPDATA=str(data / 'appdata'),
                                       HF_HUB_DISABLE_TELEMETRY='1')
-                    process = subprocess.Popen([sys.executable, str(Path(__file__)), '--server', '--port', str(candidate), '--data-root', str(data)],
+                    process = subprocess.Popen([sys.executable, "-B", str(Path(__file__)), '--server', '--port', str(candidate), '--data-root', str(data)],
                                                cwd=root, env=server_env, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW)
                     log.close()
                     # Full model/runtime integrity checks can exceed 90s on a cold disk.

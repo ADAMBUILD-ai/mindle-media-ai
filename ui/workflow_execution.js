@@ -22,15 +22,19 @@
     if(kind!=='video')return false;
     let steps=detail.steps;
     if(!steps && /^계획 JSON\s*:/i.test(detail.command)){try{steps=JSON.parse(detail.command.replace(/^계획 JSON\s*:/i,'')).steps;}catch(_){show('실행 계획 JSON을 확인하세요.',true);return true;}}
-    const narration=detail.command.match(/^나레이션\s*["“]([\s\S]+)["”]\s*(?:추가|생성)?$/);
-    if(narration)steps=[{operation:'narrate',text:narration[1]},{operation:'mix_narration',length_policy:'reject'}];
-    if(!steps && !/나레이션|순차|순서대로|실행 계획/.test(detail.command))return false;
+    // Explicit toolbar actions retain their deterministic processing. Free-form
+    // supported requests and unknown requests reach the model, never a silent
+    // keyword fallback that executes only part of the user's instruction.
+    const text=detail.command.trim();
+    const modelIntent=/밝기|밝게|대비|채도|자막|STT|받아쓰|나레이션|내레이션|narration|tts|순차|순서대로|실행 계획/i.test(text);
+    const manualIntent=/추적|tracking|숏폼|속도|자르|전환|효과|오디오|배경음악|잔잔|자동.*편집|하이라이트/i.test(text);
+    if(!steps && !modelIntent && manualIntent)return false;
     const input=detail.input_job_id||editor.querySelector('[data-preview]').dataset.jobId;
     if(!input){show('먼저 실제 원본 영상을 불러오세요.',true);return true;}
     window.mindleBeginEdit('video');let ownsPending=true;
     try{
       const planResponse=await fetch('/api/workflows/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:detail.command,...(steps?{steps}:{})})});const plan=await planResponse.json();if(!planResponse.ok)throw new Error(plan.error||'계획 생성 실패');
-      show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획':'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → '));
+      show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획 · '+(plan.model_id||'모델 정보 없음'):'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → '));
       let background=null;const bgm=editor.querySelector('[data-bgm-input]').files[0];
       if(bgm){background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.readAsDataURL(bgm);})};}
       const response=await fetch('/api/workflows',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:crypto.randomUUID(),plan_id:plan.plan_id,input_job_id:input,...await window.mindleWorkflowContext(),steps:plan.steps.map(({step_id,...step})=>step),background,export:true})});let task=await response.json();if(!response.ok)throw new Error(task.error||'작업 요청 실패');

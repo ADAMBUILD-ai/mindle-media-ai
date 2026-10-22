@@ -100,8 +100,8 @@
     try {await executeReady(editor,kind,detail);} finally {executing.delete(kind);}
   }
   async function executeReady(editor, kind, detail) {
-    if(window.mindleWorkflowCommand && await window.mindleWorkflowCommand(editor,kind,detail)) return;
     if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
+    if(window.mindleWorkflowCommand && await window.mindleWorkflowCommand(editor,kind,detail)) return;
     const file = kind==='video' && /자막|STT|받아쓰기/.test(detail.command) && state.audio ? state.audio : state[kind];
     if (!file) { message(editor, "먼저 실제 원본 파일을 불러오세요.", true); return; }
     try {
