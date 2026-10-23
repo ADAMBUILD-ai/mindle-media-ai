@@ -241,5 +241,16 @@
     "full_product_pass": false,
     "delivery": "512 MiB per-file service limit; seven <=500 MiB binary parts plus small automatic merge/extract/start installer ZIP",
     "evidence": "docs/evidence/windows-oneclick-candidate-20261018-r1/RESULT_KO.md"
+  },
+  "owner_windows_candidate_20261024": {
+    "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-CANDIDATE-R1",
+    "status": "AUTHORIZED_ONE_ATTEMPT_NOT_BUILT",
+    "authorized_parent": "8b694818c3bd401194695e427ae410dc7c04cb72",
+    "workflow": ".github/workflows/windows-ai-candidate-20261024.yml",
+    "scope": "ONE_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
+    "source_acceptance": false,
+    "office_pc_acceptance": false,
+    "human_hearing": false,
+    "full_product_pass": false
   }
 }
