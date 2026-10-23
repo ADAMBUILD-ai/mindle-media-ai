@@ -114,7 +114,7 @@
   },
   "owner_windows_candidate_20261024": {
     "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-CANDIDATE-R1",
-    "status": "REMOTE_WINDOWS_RUNTIME_PASS_DELIVERY_FINALIZING",
+    "status": "DELIVERED_REMOTE_VERIFIED_OWNER_PC_PENDING",
     "workflow": ".github/workflows/windows-ai-candidate-20261024.yml",
     "global_package_build_allowed": false,
     "scope": "ONE_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
@@ -126,6 +126,11 @@
     "manifest_sha256": "2c6c3345539473e77cab56b10105448d0c23b651875dca45e8d49217b781dc07",
     "runtime_id": "2e5e9197d78c-473763a9ef2d-ai-r2",
     "remote_windows_acceptance": true,
-    "human_hearing": false
-  }
+    "human_hearing": false,
+    "producer_run": 39985471598,
+    "readback_run": 39987617196,
+    "transport_run": 39989419656,
+    "zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606"
+  },
+  "active_candidate_directive": "docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md"
 }

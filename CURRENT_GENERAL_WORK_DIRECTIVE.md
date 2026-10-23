@@ -1,3 +1,15 @@
+# 2026-10-24 최신 후보 갱신 / TEST R2
+
+Epoch: MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1.
+현재 인수 대상은 **TEST R2**다. 아래 보존된 R9/c37 기록을 최신 실행 대상으로 사용하지 않는다.
+현재 지시서: docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md
+현재 계약: docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_EVIDENCE_CONTRACT_20261024.json
+제품 source: 2e5e9197d78c9b975686c1e419d2b68ce5f65226. Producer 39985471598, readback 39987617196.
+원격 Windows 실행·Qwen/TTS·재시작·Export 및 모든 payload 해시 PASS. 사무실 PC·청취·승인 UI 전체 일치는 미완료다.
+Build Gate=false / PR23 HOLD / main 병합 금지 / 직원 최종 배포 금지 유지.
+
+---
+
 # MINDLE MEDIA AI — 저장 수정 후속 후보 검증 마감
 기준일: 2026-10-16
 Epoch: MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1
@@ -65,3 +77,4 @@ Chrome 전환 6개 시나리오 PASS 보고 접수(원본 bytes/source identity 
 ## 2026-10-18 local engine closeout supplement
 
 Source 3a889d9af5e0e91b4efc8132eb86e11251f1ced5. Actual pinned Qwen 1.5B inference and Supertonic 3 Korean neural speech passed the Linux source product browser workflow, own-server cold restart and MP4/ZIP export. This supersedes the prior local-model-absent statement only for this configured development runtime. No latest Windows EXE acceptance, human hearing, exact approved UI match or whole-product PASS is claimed. Build Gate remains false; c37 contains none of these changes. Evidence: docs/evidence/media-ai-local-engines-closeout-20261018/RESULT_KO.md
+
