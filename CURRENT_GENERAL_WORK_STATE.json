@@ -236,13 +236,19 @@
   },
   "owner_windows_candidate_20261024": {
     "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-CANDIDATE-R1",
-    "status": "AUTHORIZED_ONE_ATTEMPT_NOT_BUILT",
+    "status": "REMOTE_WINDOWS_RUNTIME_PASS_DELIVERY_FINALIZING",
     "authorized_parent": "8b694818c3bd401194695e427ae410dc7c04cb72",
     "workflow": ".github/workflows/windows-ai-candidate-20261024.yml",
     "scope": "ONE_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
     "source_acceptance": false,
     "office_pc_acceptance": false,
     "human_hearing": false,
-    "full_product_pass": false
+    "full_product_pass": false,
+    "source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+    "run": 39985471598,
+    "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+    "manifest_sha256": "2c6c3345539473e77cab56b10105448d0c23b651875dca45e8d49217b781dc07",
+    "runtime_id": "2e5e9197d78c-473763a9ef2d-ai-r2",
+    "remote_windows_acceptance": true
   }
 }

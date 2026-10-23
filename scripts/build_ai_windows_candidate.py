@@ -110,6 +110,7 @@ def assemble(args):
     manifest['files']=[record(payload,p) for p in files(payload) if p!=payload/'PACKAGE_MANIFEST.json']
     write(payload/'PACKAGE_MANIFEST.json',manifest)
     write(output/'DELIVERY_MANIFEST.json',{'source':os.environ['GITHUB_SHA'],'base_source':'c37c7819b1454996f3510f92184b1ef62faf3c78','runtime_id':manifest['runtime_id'],'exe_sha256':sha(output/'MINDLE_MEDIA_AI_RUN.exe'),'manifest_sha256':sha(payload/'PACKAGE_MANIFEST.json'),'files':len(manifest['files']),'office_pc_acceptance':False,'human_hearing':False,'full_product_pass':False})
+    (output/'DELIVERY_ARTIFACT_SHA256.txt').write_text(sha(output/'MINDLE_MEDIA_AI_RUN.exe')+'  MINDLE_MEDIA_AI_RUN.exe\n'+sha(payload/'PACKAGE_MANIFEST.json')+'  _payload/PACKAGE_MANIFEST.json\n',encoding='ascii')
     write(evidence/'ASSEMBLY.json',json.loads((output/'DELIVERY_MANIFEST.json').read_text()))
     write(evidence/'ACQUISITIONS.json',receipts);write(evidence/'EXCLUDED_CACHES.json',removed)
     shutil.rmtree(downloads)
@@ -133,6 +134,11 @@ def seal(args):
         while b:=f.read(500*1024*1024):
             p=archive.with_name(archive.name+f'.part-{index:02}');p.write_bytes(b);parts.append(record(archive.parent,p));index+=1
     write(evidence/'DELIVERY.json',{'name':archive.name,'bytes':archive.stat().st_size,'sha256':digest,'parts':parts,'payload_files':len(manifest['files']),'post_runtime_hashes':'PASS','zip_crc':'PASS','source':manifest['build_commit'],'office_pc_acceptance':False,'human_hearing':False})
+    starter=make_starter(archive,parts,digest,sha(output/'MINDLE_MEDIA_AI_RUN.exe'))
+    write(evidence/'INSTALLER.json',record(archive.parent,starter))
+    print('SEALED',digest,flush=True)
+
+def make_starter(archive,parts,digest,exe_sha):
     starter=archive.parent/'MINDLE_MEDIA_AI_START_20261024_R1.zip'
     ps=r"""$ErrorActionPreference='Stop'
 $parts=Get-ChildItem -LiteralPath $env:MINDLE_PARTS_DIR -Filter 'MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-*' | Sort-Object Name
@@ -152,15 +158,14 @@ $shell=New-Object -ComObject WScript.Shell
 $link=$shell.CreateShortcut((Join-Path ([Environment]::GetFolderPath('Desktop')) 'MINDLE MEDIA AI TEST R2.lnk'))
 $link.TargetPath=$exe;$link.WorkingDirectory=$folder;$link.IconLocation=$exe;$link.Save()
 Start-Process -FilePath $exe -WorkingDirectory $folder
-""".replace('PART_COUNT',str(len(parts))).replace('ARCHIVE_SHA',digest).replace('EXE_SHA',sha(output/'MINDLE_MEDIA_AI_RUN.exe'))
+""".replace('PART_COUNT',str(len(parts))).replace('ARCHIVE_SHA',digest).replace('EXE_SHA',exe_sha)
     cmd='@echo off\r\nsetlocal\r\nset "MINDLE_INSTALLER_DIR=%~dp0"\r\nset "MINDLE_PARTS_DIR=%~dp0"\r\nif not exist "%MINDLE_PARTS_DIR%MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-00" set "MINDLE_PARTS_DIR=%~dp0.."\r\npowershell.exe -NoProfile -Command "& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $env:MINDLE_INSTALLER_DIR \'INSTALL_COMMAND.txt\'))))"\r\nif errorlevel 1 echo Installation failed. Keep this window for PC Work.\r\npause\r\n'
     with zipfile.ZipFile(starter,'w',zipfile.ZIP_DEFLATED) as z:
         z.writestr('START_MINDLE_MEDIA_AI.cmd',cmd.encode('ascii'))
         z.writestr('INSTALL_COMMAND.txt',ps.encode('utf-8-sig'))
         z.writestr('DELIVERY_PARTS.json',json.dumps({'sha256':digest,'parts':parts},indent=2))
         z.writestr('README_KO.txt','모든 part 파일과 이 ZIP을 같은 폴더에 두고, 이 ZIP만 압축 해제한 뒤 START_MINDLE_MEDIA_AI.cmd를 두 번 클릭하세요. 기존 TEST R1·자료는 보존됩니다. 새 바탕화면 TEST R2로 실행합니다. 원격 Windows 검수는 사무실 PC 인수·사람 청취·승인 UI 전체 일치와 다릅니다. 기존 프로젝트를 자동 이전하지 않습니다.')
-    write(evidence/'INSTALLER.json',record(archive.parent,starter))
-    print('SEALED',digest,flush=True)
+    return starter
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['assemble','seal']);p.add_argument('--output',default='build/'+NAME);p.add_argument('--evidence',default='evidence-new');p.add_argument('--repo',default='.');p.add_argument('--parts',default='build/base-parts');p.add_argument('--exe',default='dist/MINDLE_MEDIA_AI_RUN.exe');args=p.parse_args()

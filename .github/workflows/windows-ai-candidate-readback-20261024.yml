@@ -1,0 +1,96 @@
+name: Independent candidate readback and bounded delivery 20261024
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths: [.github/workflows/windows-ai-candidate-readback-20261024.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-delivery
+          run-id: 39985471598
+          github-token: ${{ github.token }}
+          path: producer-delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-evidence
+          run-id: 39985471598
+          github-token: ${{ github.token }}
+          path: producer-evidence
+      - name: Independently verify every payload and finalize exterior checksum metadata
+        run: python -B scripts/finalize_ai_candidate_delivery.py
+      - name: Upload readback and installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-readback
+          path: |
+            readback-evidence/**
+            final-delivery/MINDLE_MEDIA_AI_START_20261024_R1.zip
+          if-no-files-found: error
+          retention-days: 90
+      - name: Upload bounded delivery part 00
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-part-00
+          path: final-delivery/MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-00
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload bounded delivery part 01
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-part-01
+          path: final-delivery/MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-01
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload bounded delivery part 02
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-part-02
+          path: final-delivery/MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-02
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload bounded delivery part 03
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-part-03
+          path: final-delivery/MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-03
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload bounded delivery part 04
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-part-04
+          path: final-delivery/MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-04
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload bounded delivery part 05
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-part-05
+          path: final-delivery/MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-05
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload bounded delivery part 06
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-part-06
+          path: final-delivery/MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-06
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
