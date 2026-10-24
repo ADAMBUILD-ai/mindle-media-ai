@@ -5,22 +5,35 @@ def require(value,message):
     if not value:raise SystemExit('PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: '+message)
 def read(name):return json.loads((ROOT/name).read_text(encoding='utf-8'))
 p=read('CURRENT_PC_WORK_STATE.json');l=read('CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json');g=read('CURRENT_GENERAL_WORK_STATE.json');gl=read('CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json');w=read('CURRENT_WORKER_COORDINATION_LOCK.json')
-epoch='MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1'
+epoch='MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3'
 require(p.get('control_plane_epoch')==l.get('epoch')==g.get('control_plane_epoch')==gl.get('epoch')==w.get('active_control_plane_epoch')==epoch,'epoch mismatch')
 r2=p.get('active_directive')=='docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md'
 r9=p.get('active_directive')=='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md'
+successor=p.get('active_directive')=='docs/commander/MINDLE_MEDIA_AI_WINDOWS_AI_SUCCESSOR_R3_DIRECTIVE_20261024.md'
 expected_directive='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md' if r9 else 'docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_DIRECTIVE_v1.0_20261014.md'
 expected_contract='docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_EVIDENCE_CONTRACT_20261016.json' if r9 else 'docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_EVIDENCE_CONTRACT_v1.0_20261014.json'
 if r2:
     expected_directive='docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md'
     expected_contract='docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_EVIDENCE_CONTRACT_20261024.json'
+if successor:
+    expected_directive='docs/commander/MINDLE_MEDIA_AI_WINDOWS_AI_SUCCESSOR_R3_DIRECTIVE_20261024.md'
+    expected_contract='docs/commander/MINDLE_MEDIA_AI_WINDOWS_AI_SUCCESSOR_R3_EVIDENCE_CONTRACT_20261024.json'
 require(p.get('active_directive')==l.get('active_directive')==expected_directive,'directive mismatch')
 require(p.get('evidence_contract')==l.get('evidence_contract')==expected_contract,'contract mismatch')
 require((ROOT/p['active_directive']).is_file() and (ROOT/p['evidence_contract']).is_file(),'missing active files')
 require(json.loads((ROOT/p['evidence_contract']).read_text(encoding='utf-8'))['epoch']==epoch,'contract epoch mismatch')
 phase=g.get('phase')
 require(phase==p.get('phase')==gl.get('phase')==l.get('phase'),'phase mismatch')
-if phase=='OWNER_WINDOWS_AI_CANDIDATE_READY_FOR_PC_ACCEPTANCE':
+if phase=='WINDOWS_AI_SUCCESSOR_R3_SINGLE_ATTEMPT_AUTHORIZED':
+    require(successor,'R3 successor directive missing')
+    authorization=read('docs/commander/WINDOWS_AI_SUCCESSOR_20261024_AUTHORIZATION.json')
+    require(authorization['attempts_allowed']==1 and authorization['package_build_allowed'] is True,'R3 authorization invalid')
+    for state in (p,l,g,gl):
+        owner=state.get('owner_windows_ai_successor_20261024',{})
+        require(state.get('package_build_allowed') is True,'R3 build gate not released')
+        require(owner.get('authorization')==authorization['id'] and owner.get('authorized_parent')==authorization['authorized_parent'],'R3 authorization mismatch')
+        require(owner.get('engine_bytes')=='REUSE_VERIFIED_NO_DOWNLOAD_NO_REBUILD','R3 engine reuse contract missing')
+elif phase=='OWNER_WINDOWS_AI_CANDIDATE_READY_FOR_PC_ACCEPTANCE':
     require(r2,'TEST R2 directive missing')
     contract=read(p['evidence_contract'])
     accepted=read('docs/evidence/windows-ai-candidate-20261024-r1/ACCEPTANCE.json')

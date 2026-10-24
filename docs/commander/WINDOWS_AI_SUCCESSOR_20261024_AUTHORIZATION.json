@@ -1,0 +1,19 @@
+{
+  "id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3",
+  "authorized_parent": "86fcdf9d58172f77b7d1133b7968be67b68e030b",
+  "scope": "ONE_SUCCESSOR_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
+  "owner_instruction": "저 작업 진행해 바로 작업 진행해 우리가 만들면 돼.",
+  "authorization_source": "Current owner conversation, 2026-10-24 KST",
+  "attempts_allowed": 1,
+  "workflow": ".github/workflows/windows-ai-successor-20261024.yml",
+  "reuse_base_candidate": "TEST_R2",
+  "reuse_base_zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
+  "package_build_allowed": true,
+  "engine_download_allowed": false,
+  "engine_rebuild_allowed": false,
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "main_merge_forbidden": true,
+  "pr23_hold_do_not_merge": true,
+  "employee_final_release_forbidden": true
+}

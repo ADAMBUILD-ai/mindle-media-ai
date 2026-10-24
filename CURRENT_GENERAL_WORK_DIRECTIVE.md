@@ -1,3 +1,14 @@
+# 2026-10-24 Windows AI Successor R3 단일 제작 승인
+
+Epoch: MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3.
+현재 지시서: docs/commander/MINDLE_MEDIA_AI_WINDOWS_AI_SUCCESSOR_R3_DIRECTIVE_20261024.md
+현재 계약: docs/commander/MINDLE_MEDIA_AI_WINDOWS_AI_SUCCESSOR_R3_EVIDENCE_CONTRACT_20261024.json
+승인 ID: MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3.
+TEST R2의 검증된 Qwen·llama.cpp·Supertonic·sherpa-onnx·FFmpeg bytes를 재사용하며 엔진 재다운로드·재빌드를 금지한다. 최신 AI 소스만 R3 격리 payload에 반영한다.
+Build Gate=true for exactly one successor attempt / PR23 HOLD / main 병합 금지 / 직원 최종 배포 금지.
+
+---
+
 # 2026-10-24 최신 후보 갱신 / TEST R2
 
 Epoch: MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1.

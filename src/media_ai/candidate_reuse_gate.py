@@ -115,4 +115,6 @@ def evaluate_rebuild_request(root: Path, request: dict[str, Any]) -> CandidateRe
     reasons = request["unresolved_by_test_r2"]
     if not isinstance(changed, list) or not changed or not isinstance(reasons, dict) or any(not reasons.get(path) for path in changed):
         return CandidateReuseDecision("REBUILD_REJECTED_MISSING_SCOPE", current.candidate, ("every changed file needs a TEST R2 insufficiency reason",), current.stages)
+    if any(not isinstance(path,str) or Path(path).is_absolute() or ".." in Path(path).parts or not (root.resolve()/path).is_file() for path in changed):
+        return CandidateReuseDecision("REBUILD_REJECTED_MISSING_SCOPE", current.candidate, ("changed_files must be existing repository files",), current.stages)
     return CandidateReuseDecision("REBUILD_AUTHORIZATION_CONTRACT_COMPLETE", current.candidate, (), current.stages)

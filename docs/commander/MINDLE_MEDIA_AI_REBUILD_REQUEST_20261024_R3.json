@@ -1,0 +1,34 @@
+{
+  "approval_id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3",
+  "authorized_parent": "86fcdf9d58172f77b7d1133b7968be67b68e030b",
+  "attempts_allowed": 1,
+  "changed_files": [
+    "external_assets/media-production/ASSET_REGISTRY.json",
+    "external_assets/media-production/README.md",
+    "external_assets/media-production/blender/media_ai_blender_camera_render.py",
+    "src/media_ai/architectural_video_pipeline.py",
+    "src/media_ai/architecture_agent.py",
+    "src/media_ai/candidate_reuse_gate.py",
+    "src/media_ai/external_media_assets.py",
+    "src/media_ai/planner_constraints.py",
+    "src/media_ai/product_server.py",
+    "src/media_ai/workflow_planner.py",
+    "ui/workflow_execution.js",
+    "ui/workflow_routing.test.js"
+  ],
+  "unresolved_by_test_r2": {
+    "external_assets/media-production/ASSET_REGISTRY.json": "TEST R2 has no owned architecture production registry.",
+    "external_assets/media-production/README.md": "TEST R2 has no architecture asset activation contract.",
+    "external_assets/media-production/blender/media_ai_blender_camera_render.py": "TEST R2 has no bounded owned Blender driver contract.",
+    "src/media_ai/architectural_video_pipeline.py": "TEST R2 cannot assemble measured multi-scene source ranges.",
+    "src/media_ai/architecture_agent.py": "TEST R2 cannot run the asset-bound Qwen architecture agent.",
+    "src/media_ai/candidate_reuse_gate.py": "TEST R2 predates the enforced reuse and successor authorization policy.",
+    "src/media_ai/external_media_assets.py": "TEST R2 cannot validate owned external production assets.",
+    "src/media_ai/planner_constraints.py": "TEST R2 does not reject Qwen numeric and direction drift.",
+    "src/media_ai/product_server.py": "TEST R2 does not expose architecture-agent routes and measured readiness.",
+    "src/media_ai/workflow_planner.py": "TEST R2 predates the shared pinned local JSON inference boundary.",
+    "ui/workflow_execution.js": "TEST R2 cannot route, reconnect, cancel and reopen architecture AI work.",
+    "ui/workflow_routing.test.js": "TEST R2 lacks regression coverage for the new AI browser route."
+  },
+  "package_build_allowed": true
+}

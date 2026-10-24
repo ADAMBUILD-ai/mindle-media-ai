@@ -14,6 +14,7 @@ from typing import Any
 from uuid import UUID, uuid4
 
 from .external_media_assets import ExternalAsset, file_sha256
+from .product_runtime import h264_encoder_args
 
 
 class ProductionStatus(StrEnum):
@@ -142,7 +143,7 @@ class FFmpegDeliveryAdapter:
             str(self.ffmpeg), "-y", "-i", str(source),
             "-map", "0:v:0", "-map", "0:a:0?",
             "-vf", "scale=trunc(iw/2)*2:trunc(ih/2)*2,setsar=1",
-            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "medium", "-crf", "18",
+            *h264_encoder_args(os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT")),
             "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "192k",
             "-movflags", "+faststart", str(output),
         ]
@@ -205,7 +206,7 @@ class FFmpegDeliveryAdapter:
         output.parent.mkdir(parents=True, exist_ok=True)
         command += [
             "-filter_complex", ";".join(filters), "-map", "[vout]", "-map", "[aout]",
-            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "medium", "-crf", "18",
+            *h264_encoder_args(os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT")),
             "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "192k",
             "-movflags", "+faststart", str(output),
         ]
