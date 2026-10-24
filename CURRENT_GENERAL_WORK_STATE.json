@@ -15,7 +15,7 @@
   "owner_pc_runtime_pass": false,
   "final_product_pass": false,
   "openai_connected": false,
-  "phase": "WINDOWS_AI_SUCCESSOR_R3_SINGLE_ATTEMPT_AUTHORIZED",
+  "phase": "WINDOWS_AI_SUCCESSOR_R3_CROSSPLATFORM_FIX_SINGLE_ATTEMPT_AUTHORIZED",
   "package_build_scope": "LATEST_CORRECTED_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
   "package_workflow": ".github/workflows/pc-one-click-windows-build-e2e.yml",
   "verified_core_source": "b785b54cbf9452ffc7dbc0876254806e170a0380",
@@ -357,16 +357,22 @@
   "candidate_build_consumed": true,
   "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_AI_SUCCESSOR_R3_EVIDENCE_CONTRACT_20261024.json",
   "owner_windows_ai_successor_20261024": {
-    "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3",
-    "authorized_parent": "86fcdf9d58172f77b7d1133b7968be67b68e030b",
+    "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-CROSSPLATFORM-FIX",
+    "authorized_parent": "85664285d921c565c2126e90f7f6e6ef31b20944",
     "attempts_allowed": 1,
     "workflow": ".github/workflows/windows-ai-successor-20261024.yml",
     "base_candidate": "TEST_R2",
     "base_zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
     "engine_bytes": "REUSE_VERIFIED_NO_DOWNLOAD_NO_REBUILD",
-    "status": "AUTHORIZED_NOT_YET_EXECUTED",
+    "status": "CORRECTIVE_ATTEMPT_AUTHORIZED_AFTER_WINDOWS_CRLF_ASSET_SHA_FAILURE",
     "office_pc_acceptance": false,
     "human_hearing": false,
-    "full_product_pass": false
+    "full_product_pass": false,
+    "previous_attempt": {
+      "source": "85664285d921c565c2126e90f7f6e6ef31b20944",
+      "run": 40077165558,
+      "status": "FAILED_WINDOWS_CRLF_ASSET_SHA_MISMATCH_AFTER_QWEN_SUPERTONIC_BROWSER_PASS",
+      "evidence_artifact": 12554315219
+    }
   }
 }

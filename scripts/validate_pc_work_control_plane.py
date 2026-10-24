@@ -24,7 +24,7 @@ require((ROOT/p['active_directive']).is_file() and (ROOT/p['evidence_contract'])
 require(json.loads((ROOT/p['evidence_contract']).read_text(encoding='utf-8'))['epoch']==epoch,'contract epoch mismatch')
 phase=g.get('phase')
 require(phase==p.get('phase')==gl.get('phase')==l.get('phase'),'phase mismatch')
-if phase=='WINDOWS_AI_SUCCESSOR_R3_SINGLE_ATTEMPT_AUTHORIZED':
+if phase in {'WINDOWS_AI_SUCCESSOR_R3_SINGLE_ATTEMPT_AUTHORIZED','WINDOWS_AI_SUCCESSOR_R3_CROSSPLATFORM_FIX_SINGLE_ATTEMPT_AUTHORIZED'}:
     require(successor,'R3 successor directive missing')
     authorization=read('docs/commander/WINDOWS_AI_SUCCESSOR_20261024_AUTHORIZATION.json')
     require(authorization['attempts_allowed']==1 and authorization['package_build_allowed'] is True,'R3 authorization invalid')

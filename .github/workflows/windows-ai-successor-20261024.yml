@@ -1,4 +1,4 @@
-name: Owner authorized Windows AI successor 20261024 R3
+name: Owner authorized Windows AI successor 20261024 R3 cross-platform fix
 on:
   push:
     branches: [feature/ad-shortform-bridge-p0-20260926]
