@@ -39,6 +39,7 @@ class ProductHttpServer(ThreadingHTTPServer):
         self.active_requests = 0
         self.stopping = False
         self.workflows = None
+        self.architecture_agent = None
         self.workflow_init_lock = threading.Lock()
         if (self.data_dir/'workflows/queue.sqlite3').is_file():
             try:self.workflow_queue()
@@ -51,9 +52,16 @@ class ProductHttpServer(ThreadingHTTPServer):
             if self.workflows is None:self.workflows=DurableWorkflows(self.service)
             return self.workflows
 
+    def architecture_queue(self):
+        from .architecture_agent import ArchitectureAgentRuntime
+        with self.workflow_init_lock:
+            if self.architecture_agent is None:self.architecture_agent=ArchitectureAgentRuntime(self.service,self.root)
+            return self.architecture_agent
+
     def server_close(self):
         try:
             if self.workflows is not None:self.workflows.close()
+            if self.architecture_agent is not None:self.architecture_agent.close()
         finally:super().server_close()
 
     def begin_request(self) -> bool:
@@ -72,7 +80,9 @@ class ProductHttpServer(ThreadingHTTPServer):
         request_id = str(body.get('request_id', ''))
         fingerprint = hashlib.sha256((route + json.dumps(body, sort_keys=True)).encode()).hexdigest()
         with self.job_lock:
-            if self.workflows is not None and self.workflows.busy():raise ValueError('순차 작업이 진행 중입니다. 완료하거나 취소한 뒤 편집·저장하세요.')
+            if ((self.workflows is not None and self.workflows.busy()) or
+                    (getattr(self,'architecture_agent',None) is not None and self.architecture_agent.busy())):
+                raise ValueError('AI 작업이 진행 중입니다. 완료하거나 취소한 뒤 편집·저장하세요.')
             previous = self.completed_requests.get(request_id) if request_id else None
             if previous:
                 if previous[0] != fingerprint:
@@ -211,6 +221,18 @@ class Handler(BaseHTTPRequestHandler):
         if route == '/api/workflows/capabilities':
             from .workflow_planner import capabilities
             self._json(200,capabilities(self.server.data_dir));return
+        if route == '/api/architecture-agent/capabilities':
+            from .workflow_planner import capabilities
+            base=capabilities(self.server.data_dir)
+            self._json(200,{"architecture_planner":base["generative_planner"],"existing_clip_assembly":True,
+                            "generated_scene_engines":"PREFLIGHT_ONLY_PENDING_MATERIALIZATION",
+                            "external_provider_connected":False});return
+        if route == '/api/architecture-agent/productions':
+            self._json(200,{"productions":self.server.architecture_queue().list()});return
+        if route.startswith('/api/architecture-agent/productions/'):
+            try:self._json(200,self.server.architecture_queue().get(route.rsplit('/',1)[1]))
+            except ValueError as error:self._json(404,{"error":str(error)})
+            return
         if route == '/api/workflows':
             self._json(200,{'workflows':self.server.workflow_queue().list()});return
         if route.startswith('/api/workflows/'):
@@ -231,12 +253,21 @@ class Handler(BaseHTTPRequestHandler):
             self._json(200, self.server.runtime_identity()); return
         if route == '/api/runtime-readiness':
             import shutil
+            from .workflow_planner import capabilities
             package = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', '').strip()
             ffmpeg = str(Path(package)/'tools/ffmpeg/ffmpeg.exe') if package else shutil.which('ffmpeg')
+            ai=capabilities(self.server.data_dir)
             self._json(200, {'product':'MINDLE MEDIA AI', 'models': self.server.service.model_readiness,
                              'video_tool_present': bool(ffmpeg and Path(ffmpeg).is_file()),
                              'auto_edit_engine':'OpenCV measured scene window + FFmpeg',
-                             'auto_edit_model_inference':False, 'generative_provider':'NOT_CONNECTED',
+                             'auto_edit_model_inference':False,
+                             'local_generative_planner':ai['generative_planner'],
+                             'local_tts':ai['tts'],
+                             'architecture_agent':{'planner':'LOCAL_GENERATIVE_MODEL_REQUIRED',
+                                 'existing_clip_assembly':bool(ffmpeg and Path(ffmpeg).is_file()),
+                                 'generated_scene_engines':'PREFLIGHT_ONLY_PENDING_MATERIALIZATION'},
+                             'generative_provider':'LOCAL_OFFLINE_ONLY' if ai['generative_planner']!='LOCAL_GENERATIVE_MODEL_UNAVAILABLE' else 'NOT_CONNECTED',
+                             'external_generative_provider':'NOT_CONNECTED',
                              'physical_owner_acceptance':'NOT_VERIFIED'}); return
         if route == "/api/evidence":
             self._json(200, {"jobs": self.server.service.records, "requests": self.server.requests}); return
@@ -320,7 +351,9 @@ class Handler(BaseHTTPRequestHandler):
         if body.get('server_pid') != os.getpid() or body.get('server_instance_id') != self.server.instance_id:
             self._json(409, {'status': 'RUNTIME_IDENTITY_MISMATCH'}); return
         with self.server.lifecycle_lock:
-            if self.server.active_requests or self.server.stopping or (self.server.workflows is not None and self.server.workflows.busy()):
+            if (self.server.active_requests or self.server.stopping or
+                    (self.server.workflows is not None and self.server.workflows.busy()) or
+                    (self.server.architecture_agent is not None and self.server.architecture_agent.busy())):
                 self._json(409, {'status': 'RUNTIME_BUSY'}); return
             self.server.stopping = True
         try:
@@ -355,6 +388,17 @@ class Handler(BaseHTTPRequestHandler):
                     self._json(202,value);return
                 if route.endswith('/cancel'):
                     self._json(200,self.server.workflow_queue().cancel(route.split('/')[3]));return
+                self.send_error(404);return
+            if route.startswith('/api/architecture-agent'):
+                if not self._local_control_request():self._json(403,{'status':'LOCAL_CONTROL_REQUIRED'});return
+                agent=self.server.architecture_queue()
+                if route == '/api/architecture-agent/plan':
+                    self._json(200,agent.plan(body));return
+                if route == '/api/architecture-agent/productions':
+                    with self.server.job_lock:value=agent.submit(body)
+                    self._json(202,value);return
+                if route.endswith('/cancel'):
+                    self._json(200,agent.cancel(route.split('/')[4]));return
                 self.send_error(404);return
             if route == "/api/integrations/marketing/shortform":
                 if os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT") or os.environ.get('MINDLE_DEFER_EXTERNAL_SHORTFORM') == '1':

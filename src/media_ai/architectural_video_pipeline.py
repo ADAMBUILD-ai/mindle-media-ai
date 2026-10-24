@@ -4,6 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import StrEnum
 import json
+import os
 from pathlib import Path
 import sqlite3
 import subprocess
@@ -19,6 +20,10 @@ class ProductionStatus(StrEnum):
     READY = "READY"
     BLOCKED_INPUT = "BLOCKED_INPUT"
     BLOCKED_ASSET = "BLOCKED_ASSET"
+
+
+class ProductionCancelled(RuntimeError):
+    pass
 
 
 @dataclass(frozen=True)
@@ -147,7 +152,8 @@ class FFmpegDeliveryAdapter:
         return self._validate_receipt(output, ((source, before),), 1)
 
     def assemble_existing_clips(self, scenes: tuple[ArchitectureScene, ...], output: Path,
-                                aspect: str, width: int, height: int, timeout: int = 900) -> dict[str, Any]:
+                                aspect: str, width: int, height: int, timeout: int = 900,
+                                cancel_check=None) -> dict[str, Any]:
         if not 1 <= len(scenes) <= 12 or any(scene.engine != "existing_clip" for scene in scenes):
             raise ValueError("assembly accepts 1 to 12 existing clips")
         if not (64 <= width <= 3840 and 64 <= height <= 3840 and width % 2 == height % 2 == 0):
@@ -161,7 +167,7 @@ class FFmpegDeliveryAdapter:
         output = output.resolve()
         if not output.is_relative_to(self.owned_root) or output.suffix.lower() != ".mp4":
             raise ValueError("assembly output must stay inside the owned root")
-        command = [str(self.ffmpeg), "-y"]
+        command = [str(self.ffmpeg), "-v", "error", "-y"]
         filters, concat_inputs, hashes = [], [], []
         for index, scene in enumerate(scenes):
             source = scene.source.resolve()
@@ -196,9 +202,29 @@ class FFmpegDeliveryAdapter:
             "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "192k",
             "-movflags", "+faststart", str(output),
         ]
-        completed = subprocess.run(command, capture_output=True, text=True, timeout=timeout, check=False)
-        if completed.returncode != 0:
-            raise RuntimeError(f"FFmpeg scene assembly failed: {completed.stderr[-2000:]}")
+        if cancel_check and cancel_check():
+            raise ProductionCancelled("architecture production cancelled before FFmpeg start")
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+                                   start_new_session=(os.name != 'nt'))
+        deadline = time.monotonic() + timeout
+        while process.poll() is None:
+            if cancel_check and cancel_check():
+                process.terminate()
+                try:process.wait(timeout=5)
+                except subprocess.TimeoutExpired:process.kill();process.wait(timeout=5)
+                output.unlink(missing_ok=True)
+                raise ProductionCancelled("architecture production cancelled during FFmpeg assembly")
+            if time.monotonic() >= deadline:
+                process.kill();process.wait(timeout=5);output.unlink(missing_ok=True)
+                raise TimeoutError("FFmpeg scene assembly timed out")
+            time.sleep(.05)
+        stdout, stderr = process.communicate()
+        if process.returncode != 0:
+            output.unlink(missing_ok=True)
+            raise RuntimeError(f"FFmpeg scene assembly failed: {stderr[-2000:]}")
+        if cancel_check and cancel_check():
+            output.unlink(missing_ok=True)
+            raise ProductionCancelled("architecture production cancelled before publication")
         if any(file_sha256(path) != digest for path, digest in hashes):
             output.unlink(missing_ok=True)
             raise ValueError("a scene source changed during assembly")
@@ -259,6 +285,8 @@ class ArchitectureProductionLedger:
         rows = self.db.execute("SELECT id, body FROM productions WHERE state IN ('RUNNING','CANCEL_REQUESTED')").fetchall()
         for identifier, raw in rows:
             value = json.loads(raw)
+            output=value.get("plan", {}).get("output")
+            if output:Path(output).unlink(missing_ok=True)
             value.update(state="INTERRUPTED", error="서버 중단. 외부 엔진 결과를 재검증한 뒤 새 작업으로 실행해야 합니다.", updated_at=time.time())
             self._put(value)
 
@@ -301,6 +329,12 @@ class ArchitectureProductionLedger:
                 raise ValueError("architecture production was not found")
             return json.loads(row[0])
 
+    def list(self) -> list[dict[str, Any]]:
+        with self.lock:
+            return [json.loads(row[0]) for row in self.db.execute(
+                "SELECT body FROM productions ORDER BY updated DESC LIMIT 100"
+            ).fetchall()]
+
     def start(self, identifier: str) -> dict[str, Any]:
         with self.lock:
             value = self.get(identifier)
@@ -334,6 +368,27 @@ class ArchitectureProductionLedger:
             if not output.is_file() or recorded.get("sha256") != file_sha256(output) or recorded.get("bytes") != output.stat().st_size:
                 raise ValueError("delivery output identity mismatch")
             value.update(state="SUCCEEDED", receipt=receipt, finished_at=time.time())
+            self._put(value)
+            return value
+
+    def finish_cancel(self, identifier: str) -> dict[str, Any]:
+        with self.lock:
+            value = self.get(identifier)
+            if value["state"] not in {"RUNNING", "CANCEL_REQUESTED"}:
+                raise ValueError("only a running production can acknowledge cancellation")
+            output = Path(value["plan"]["output"])
+            output.unlink(missing_ok=True)
+            value.update(state="CANCELLED", finished_at=time.time())
+            self._put(value)
+            return value
+
+    def fail(self, identifier: str, error: str) -> dict[str, Any]:
+        with self.lock:
+            value = self.get(identifier)
+            if value["state"] not in {"RUNNING", "CANCEL_REQUESTED"}:
+                raise ValueError("only a running production can fail")
+            Path(value["plan"]["output"]).unlink(missing_ok=True)
+            value.update(state="FAILED", error=str(error)[:2000], finished_at=time.time())
             self._put(value)
             return value
 

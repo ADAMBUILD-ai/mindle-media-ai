@@ -26,6 +26,29 @@
     // supported requests and unknown requests reach the model, never a silent
     // keyword fallback that executes only part of the user's instruction.
     const text=detail.command.trim();
+    const architectureIntent=/건축.*(?:홍보|소개|영상)|(?:홍보|소개).*건축|장면.*(?:조립|구성)|클립.*(?:이어|조립|구성)/i.test(text);
+    if(!steps && architectureIntent){
+      window.mindleBeginEdit('video');let ownsPending=true;
+      try{
+        const context=await window.mindleWorkflowContext();
+        if(!context.job_ids?.length)throw new Error('먼저 실제 영상 자료를 불러오고 저장하세요.');
+        const planResponse=await fetch('/api/architecture-agent/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:text,project_id:context.project_id,job_ids:context.job_ids})});
+        const plan=await planResponse.json();if(!planResponse.ok)throw new Error(plan.error||'건축 영상 계획 생성 실패');
+        show('건축 AI 계획 · '+(plan.model_id||'로컬 모델')+' · '+plan.aspect+' · '+plan.scenes.map(s=>s.source_id+' '+s.duration_seconds+'초').join(' → ')+' · 합계 '+plan.total_duration_seconds+'초');
+        const response=await fetch('/api/architecture-agent/productions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:crypto.randomUUID(),plan_id:plan.plan_id})});
+        let task=await response.json();if(!response.ok)throw new Error(task.error||'건축 영상 작업 등록 실패');
+        while(!['SUCCEEDED','FAILED','CANCELLED','INTERRUPTED','BLOCKED_INPUT','BLOCKED_ASSET'].includes(task.state)){
+          const node=show('건축 영상 AI · '+task.state+' · '+task.production_id);const cancel=document.createElement('button');cancel.type='button';cancel.textContent='작업 취소';
+          cancel.addEventListener('click',async()=>{cancel.disabled=true;await fetch('/api/architecture-agent/productions/'+task.production_id+'/cancel',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});});node.append(cancel);
+          await new Promise(r=>setTimeout(r,350));const status=await fetch('/api/architecture-agent/productions/'+task.production_id);if(!status.ok)throw new Error('건축 영상 작업 상태를 읽을 수 없습니다.');task=await status.json();
+        }
+        if(task.state!=='SUCCEEDED')throw new Error(task.state+' · '+(task.error||task.missing?.join(', ')||'기존 결과는 보존했습니다.'));
+        window.mindleEndEdit('video');ownsPending=false;
+        if(!await window.mindleWorkflowRestore(task.receipt.project_id))throw new Error('건축 영상은 완료됐지만 프로젝트를 다시 열지 못했습니다.');
+        show('건축 AI 장면 계획·MP4 조립·프로젝트 저장 완료 · '+task.production_id);
+      }catch(error){show(error.message,true);}finally{if(ownsPending)window.mindleEndEdit('video');}
+      return true;
+    }
     const modelIntent=/밝기|밝게|대비|채도|자막|STT|받아쓰|나레이션|내레이션|narration|tts|순차|순서대로|실행 계획/i.test(text);
     const manualIntent=/추적|tracking|숏폼|속도|자르|전환|효과|오디오|배경음악|잔잔|자동.*편집|하이라이트/i.test(text);
     if(!steps && !modelIntent && manualIntent)return false;

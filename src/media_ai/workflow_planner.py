@@ -11,6 +11,33 @@ from .planner_constraints import instruction_text, validate_edit_values, request
 from .workflow_worker import engines_config, tree_sha
 
 
+def invoke_local_json_plan(root, prompt, schema, *, max_tokens=768, timeout=120):
+    """Run the pinned local planner and return parsed JSON plus an identity receipt.
+
+    This is the single product boundary for generative planning. Callers supply a
+    constrained schema and must still validate the returned domain semantics.
+    """
+    settings=engines_config(root).get('planner',{})
+    model=Path(settings.get('model_path',''));executable=Path(settings.get('executable',''))
+    if not model.is_file() or not executable.is_file() or not settings.get('license') or not re.fullmatch(r'[0-9a-f]{40}',str(settings.get('revision',''))):
+        raise ValueError('LOCAL_GENERATIVE_MODEL_UNAVAILABLE: 로컬 생성형 모델·고정 revision·라이선스·llama-cli가 필요합니다. 분류기를 생성형 계획기로 대체하지 않습니다.')
+    for path,key in [(model,'model_sha256'),(executable,'executable_sha256')]:
+        with path.open('rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
+        if digest!=settings.get(key):raise ValueError('PLANNER_IDENTITY_MISMATCH')
+    if settings.get('runtime_sha256') and tree_sha(executable.parent)!=settings['runtime_sha256']:
+        raise ValueError('PLANNER_RUNTIME_IDENTITY_MISMATCH')
+    output=subprocess.check_output([
+        str(executable),'-m',str(model),'-p',prompt,'-n',str(max_tokens),
+        '--no-display-prompt','--no-conversation','--simple-io','--temp','0','-t','2',
+        '--json-schema',json.dumps(schema),
+    ],text=True,encoding='utf-8',timeout=timeout)
+    start=output.find('{')
+    if start < 0:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획이 JSON을 반환하지 않았습니다.')
+    try:parsed,_=json.JSONDecoder().raw_decode(output[start:])
+    except json.JSONDecodeError as error:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획 JSON을 해석할 수 없습니다.') from error
+    return parsed,output,settings
+
+
 def capabilities(root):
     config=engines_config(root)
     planner=config.get('planner',{});tts=config.get('tts',{})
@@ -68,15 +95,6 @@ def make_plan(root,request):
     if not command or len(command)>4000:raise ValueError('편집 지시는1~4000자입니다.')
     if re.search(r'속도|자르|회전|전환|효과|배경음악|숏폼|추적|삭제|제거',re.sub(r'["“][^"”]*["”]', '', command)):
         raise ValueError('PLANNER_UNSUPPORTED: 대화 계획기는 밝기·대비·채도·받아쓰기·자막·명시 원고 나레이션을 지원합니다. 그 밖의 편집은 해당 도구를 사용하세요.')
-    settings=engines_config(root).get('planner',{})
-    model=Path(settings.get('model_path',''));executable=Path(settings.get('executable',''))
-    if not model.is_file() or not executable.is_file() or not settings.get('license') or not re.fullmatch(r'[0-9a-f]{40}',str(settings.get('revision',''))):
-        raise ValueError('LOCAL_GENERATIVE_MODEL_UNAVAILABLE: 로컬 생성형 모델·고정 revision·라이선스·llama-cli가 필요합니다. 분류기를 생성형 계획기로 대체하지 않습니다.')
-    for path,key in [(model,'model_sha256'),(executable,'executable_sha256')]:
-        with path.open('rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
-        if digest!=settings.get(key):raise ValueError('PLANNER_IDENTITY_MISMATCH')
-    if settings.get('runtime_sha256') and tree_sha(executable.parent)!=settings['runtime_sha256']:
-        raise ValueError('PLANNER_RUNTIME_IDENTITY_MISMATCH')
     # Completion mode prevents interactive banners/prompt echoes contaminating JSON.
     # The model still chooses the operations and values; the grammar only constrains
     # the product's allowlisted wire format, never substitutes an intent classifier.
@@ -108,11 +126,9 @@ def make_plan(root,request):
     prompt='<|im_start|>system\n'+instructions+'<|im_end|>\n'
     for question,answer in examples:prompt+='<|im_start|>user\n'+question+'<|im_end|>\n<|im_start|>assistant\n'+json.dumps(answer,ensure_ascii=False)+'<|im_end|>\n'
     prompt+='<|im_start|>user\n'+command+'<|im_end|>\n<|im_start|>assistant\n' 
-    output=subprocess.check_output([str(executable),'-m',str(model),'-p',prompt,'-n','768','--no-display-prompt','--no-conversation','--simple-io','--temp','0','-t','2','--json-schema',json.dumps(schema)],text=True,encoding='utf-8',timeout=120)
+    parsed,output,settings=invoke_local_json_plan(root,prompt,schema)
     diagnostic=Path(root)/'workflows/planner-responses';diagnostic.mkdir(parents=True,exist_ok=True)
     (diagnostic/(str(uuid4())+'.txt')).write_text(output,encoding='utf-8')
-    start=output.find('{')
-    parsed,_=json.JSONDecoder().raw_decode(output[start:])
     if parsed.get('error'):raise ValueError('PLANNER_UNSUPPORTED: '+str(parsed['error']))
     steps=validate_steps(parsed['steps'])
     validate_plan_scope(command,steps)
