@@ -7,6 +7,7 @@ import subprocess
 import re
 from uuid import uuid4
 from .durable_workflows import validate_steps
+from .planner_constraints import instruction_text, validate_edit_values, requested_edit_fields
 from .workflow_worker import engines_config, tree_sha
 
 
@@ -26,7 +27,9 @@ def persist_plan(root,value,request):
 
 def validate_plan_scope(command,steps):
     """Reject model-invented actions; this gate never generates a plan."""
-    text=command.casefold()
+    text=instruction_text(command)
+    if re.search(r'자막|받아쓰|stt|subtitle|transcrib|나레이션|내레이션|narration|tts',text) and re.search(r'지\s*마|말|않|금지|하지|없이|제외|빼고|do not|don.t|never|without',text):
+        raise ValueError('PLANNER_AMBIGUOUS_NEGATION: 음성·자막 부정 지시를 실행하지 않습니다. 수행할 작업만 명시하세요.')
     fields={'brightness':('밝기','밝게','brightness'),'contrast':('대비','contrast'),'saturation':('채도','saturation')}
     narration=any(word in text for word in ('나레이션','내레이션','narration','tts'))
     subtitles=any(word in text for word in ('받아쓰','자막','stt','transcrib','subtitle'))
@@ -44,7 +47,7 @@ def validate_plan_scope(command,steps):
             raise ValueError('PLANNER_SCRIPT_NOT_IN_REQUEST: 명시한 원고만 합성할 수 있습니다.')
     # A valid subset is not a completed plan: reject silently dropped requests.
     actual_fields={key for step in steps if step['operation']=='video_edit' for key in step.get('options',{})}
-    expected_fields={key for key,words in fields.items() if any(word in text for word in words)}
+    expected_fields=requested_edit_fields(command)
     operations={step['operation'] for step in steps}
     if not expected_fields.issubset(actual_fields):
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 보정이 누락됐습니다.')
@@ -54,6 +57,7 @@ def validate_plan_scope(command,steps):
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 받아쓰기가 누락됐습니다.')
     if any(word in text for word in ('자막','subtitle')) and 'apply_subtitles' not in operations:
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 자막 적용이 누락됐습니다.')
+    validate_edit_values(command,steps)
     return steps
 
 
@@ -90,6 +94,10 @@ def make_plan(root,request):
       '{"operation":"mix_narration","length_policy":"reject"}. '
       'Choose ONLY the requested steps; numeric values above are examples, use actual user values. '
       '밝기=brightness, 대비=contrast, 채도=saturation. '
+      'Edit values are signed relative correction points, not absolute settings or percentages. '
+      'For an explicit magnitude 0 to 100 use positive for 높이기/increase and negative for 낮추기/decrease. '
+      'Omit controls the user says to preserve; never repeat the same control. '
+      'Ambiguous magnitudes, absolute settings, unsupported units or negated speech/subtitle requests: return an error. '
       'Speech to subtitles: transcribe THEN apply_subtitles. Narration: narrate THEN mix_narration. '
       'If video extension requested use length_policy extend_video. Never invent a narration script. '
       'Unsupported request: {"error":"unsupported request"}. Do not output paths, commands or network actions.')
@@ -110,6 +118,6 @@ def make_plan(root,request):
     validate_plan_scope(command,steps)
     if any(s['operation']=='narrate' for s in steps) and not any(s['operation']=='mix_narration' for s in steps):
         raise ValueError('PLANNER_INCOMPLETE_NARRATION_PLAN: 음성 생성 후 합성 단계가 필요합니다.')
-    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps},request)
+    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps,'validated_edit_values':validate_edit_values(command,steps)},request)
     (Path(root)/'workflows/plans'/(value['plan_id']+'.response.txt')).write_text(output,encoding='utf-8')
     return value

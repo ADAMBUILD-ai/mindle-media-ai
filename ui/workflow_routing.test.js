@@ -12,3 +12,18 @@ for(const command of ['대비를 13 높여 줘','밝기를 7 낮추고 자막을
 }
 test('manual scene analysis and tracking stay in existing path',async()=>{for(const command of ['자동 편집','객체 추적','속도 2배']){const s=setup();assert.equal(await s.window.mindleWorkflowCommand(s.editor,'video',{command}),false);assert.equal(s.calls.length,0);}});
 test('PHOTO does not silently enter VIDEO model plan',async()=>{const s=setup();assert.equal(await s.window.mindleWorkflowCommand(s.editor,'photo',{command:'사진 분할'}),false);assert.equal(s.calls.length,0);});
+test('verified values and model provenance are shown before queue submission',async()=>{
+ const messages=[],status={style:{},dataset:{},replaceChildren(text){messages.push(text);}};
+ const editor={querySelector:selector=>selector==='[data-bgm-input]'?{files:[]}:selector==='[data-preview]'?{dataset:{jobId:'video'}}:status};
+ const document={querySelector:()=>editor,createTextNode:x=>x,addEventListener(){}};
+ const window={mindleBeginEdit(){},mindleEndEdit(){},mindleWorkflowContext:async()=>({})};
+ let submitted=false;
+ const fetch=async url=>{
+  if(url==='/api/workflows/plan')return {ok:true,json:async()=>({plan_source:'LOCAL_GENERATIVE_INFERENCE',model_id:'fixture-model',plan_id:'fixture-plan',steps:[{operation:'video_edit',options:{brightness:-3}}],validated_edit_values:{brightness:-3}})};
+  assert.ok(messages.some(x=>x.includes('fixture-model')&&x.includes('밝기 -3 포인트')));
+  submitted=true;return {ok:false,json:async()=>({error:'fixture: stop before execution'})};
+ };
+ vm.runInNewContext(fs.readFileSync(__dirname+'/workflow_execution.js','utf8'),{window,document,fetch,crypto:{randomUUID:()=> 'fixture-request'}});
+ await window.mindleWorkflowCommand(editor,'video',{command:'밝기 3 낮춰 줘'});
+ assert.equal(submitted,true);
+});
