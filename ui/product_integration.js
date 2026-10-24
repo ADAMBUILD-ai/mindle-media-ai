@@ -175,8 +175,10 @@
       const grid=document.querySelector(`[data-editor="${kind}"] .asset-grid`);grid.replaceChildren();
       for(const asset of assets.filter(item=>item.lane===kind)) {
         const name=asset.original_filename||asset.input.file_name.replace(/^[0-9a-f-]{36}_/i,'');
-        const tile=document.createElement('span');tile.textContent=name;tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',name+' 불러오기');
-        if(kind==='photo') tile.style.backgroundImage=`url("${asset.preview_url}")`;
+        const tile=document.createElement('span');tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',name+' 불러오기');
+        const thumb=document.createElement(kind==='photo'?'img':'video');thumb.className='asset-thumb';thumb.src=asset.preview_url;thumb.setAttribute('aria-hidden','true');
+        if(kind==='video'){thumb.muted=true;thumb.preload='metadata';thumb.playsInline=true;thumb.addEventListener('loadedmetadata',()=>{try{thumb.currentTime=Math.min(.25,thumb.duration/2);}catch(_){}});}
+        const label=document.createElement('span');label.className='asset-name';label.textContent=name;tile.append(thumb,label);
         const open=async()=>{
           if(projectBusy()) return;
           window.mindleBeginEdit(kind);

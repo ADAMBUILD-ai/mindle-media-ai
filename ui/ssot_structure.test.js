@@ -11,3 +11,4 @@ assert.match(css,/\[data-preview\] img[^}]*object-fit:contain/s);
 const videoStart=html.indexOf('<section id="videoWorkspace"'), photoStart=html.indexOf('<section id="photoWorkspace"');
 assert.ok(videoStart>=0&&photoStart>videoStart);
 for (const slider of ["brightness","contrast","highlights","shadows","saturation","temperature","sharpness"]) assert.ok(html.includes('data-photo-adjust="'+slider+'"'));
+for (const required of ['.editor-header::after','PHOTO CREATIVE','.asset-thumb','.asset-name']) assert.ok(css.includes(required),"missing current approved visual treatment: "+required);
