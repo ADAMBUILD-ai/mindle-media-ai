@@ -141,3 +141,16 @@ API workflow, target-PC hardware evidence, a real generated clip, and human
 quality review. LTX Desktop remains hardware-deferred. None of these pending
 assets may replace the existing FFmpeg edit/export path or appear as successful
 AI generation in the UI.
+
+Architecture-video production plans contain one to twelve ordered scenes. Each
+scene fixes its engine (`existing_clip`, `blender`, or `wan22`), source SHA-256,
+bounded duration, and engine-specific camera or prompt. The output must remain
+an MP4 under the owned job root. Preflight returns `BLOCKED_INPUT` for an invalid
+or changed source and `BLOCKED_ASSET` when any exact runtime is disabled.
+
+Only a ready plan may enter delivery. The delivery adapter rechecks pinned
+FFmpeg and FFprobe executable hashes, source hash stability, and output path
+containment; it invokes a fixed argument vector without a shell. Published MP4
+must decode as H.264/yuv420p, use AAC when an audio stream exists, and place the
+`moov` atom before `mdat` for browser preview. This technical receipt does not
+certify generated-scene quality or human hearing.
