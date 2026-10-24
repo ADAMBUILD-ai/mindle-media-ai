@@ -1,0 +1,420 @@
+{
+  "source": "cce3431c9a32687f0e3adc62f8ebefd5d944bd10",
+  "files": [
+    {
+      "path": "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json",
+      "bytes": 18759,
+      "git_blob_sha": "87e2ec804b63772942c4a0c7a5f4ce43a0b8e4fd",
+      "sha256": "7ca7f5186d793ceb1403b31becf15d2bfc2c592f1a0a849a0a2bfb0ddd171932"
+    },
+    {
+      "path": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+      "bytes": 19934,
+      "git_blob_sha": "2f7647f1979c1837566c537bc28edd7e56219410",
+      "sha256": "f37426f78eb26d7d08568c50e3b6e2253ea533a7cadd47cfa5879457f5565ce0"
+    },
+    {
+      "path": "CURRENT_WORKER_COORDINATION_LOCK.json",
+      "bytes": 6650,
+      "git_blob_sha": "2dc12eff47cd394c31eef4449ba00076de956558",
+      "sha256": "ef9658c57ec2a56d732f71a9102485a9f1fd5d5e343fd0495c5560dc1444b0ab"
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_STATE.json",
+      "bytes": 18521,
+      "git_blob_sha": "98ac295211ba2250dda83e178d175daeb47a5167",
+      "sha256": "b0873a225d87425be885aafb0fe4257938d843f0a8fd3ad8951126bed8b59c62"
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_DIRECTIVE.md",
+      "bytes": 7731,
+      "git_blob_sha": "1be7ad532be6a1c2f73e4c87b98da2cd2abb8642",
+      "sha256": "cae9235f201c9052f3b6b63f4051f64f2bff1a240aec40c7234ab6700b5b4d8c"
+    },
+    {
+      "path": "CURRENT_PC_WORK_STATE.json",
+      "bytes": 19496,
+      "git_blob_sha": "4c790fb6f6c946f0c2eb281b56e960f43cecd475",
+      "sha256": "1d6138788e0920b8558747857d0e04ca8220d9877eab118952f713a651202edc"
+    },
+    {
+      "path": "CURRENT_PC_WORK_DIRECTIVE.md",
+      "bytes": 7616,
+      "git_blob_sha": "9210136c0956d5986c03ce99c340734baf469738",
+      "sha256": "0b376d8185336e98feacdb277a117338a8e730509f5729f0e597a2989e352485"
+    },
+    {
+      "path": "scripts/validate_pc_work_control_plane.py",
+      "bytes": 7215,
+      "git_blob_sha": "7eb58a6b6d6375b9f1ffca4e05d8db967ab553ed",
+      "sha256": "494440cc91fb99be2ded9194b50046694c2991a7d41afc1c753e72440f6fab4c"
+    },
+    {
+      "path": "scripts/employee_package_launcher.py",
+      "bytes": 9476,
+      "git_blob_sha": "216143b86281b02a24941ecfe9ccc59c44e5500d",
+      "sha256": "8fca79018433dab7d0e7879a7dac0e17ceb3d93ac80bf996ecbee7eb42afef35"
+    },
+    {
+      "path": "scripts/finalize_ai_candidate_delivery.py",
+      "bytes": 4357,
+      "git_blob_sha": "5d752131431c80bc5fdc403a2e1349f054850f4d",
+      "sha256": "9f00d666619af067820a07c90c0bed55320dbee623045625a30be9ad6864936e"
+    },
+    {
+      "path": "scripts/accept_ai_windows_candidate.py",
+      "bytes": 9692,
+      "git_blob_sha": "879a85ee8e5a9a9890ba3d07b28abf1d392ca8cc",
+      "sha256": "b82c7959d9eacefbc1e1bc40656cbbf311054734fd75b007c7115b55e2540adf"
+    },
+    {
+      "path": "scripts/chunk_verified_candidate_transport.py",
+      "bytes": 1444,
+      "git_blob_sha": "ba8bbf55fe49d8a0ed7e9438e3def8b21e1990c3",
+      "sha256": "b592039be02a149d30da90a48dd779f2ffafb7e0bdf1e4db27d878ce2293c842"
+    },
+    {
+      "path": "scripts/one_click_bootstrap.py",
+      "bytes": 10339,
+      "git_blob_sha": "7f4001893ea2a03d19eaa8210b6a4a211612f7c5",
+      "sha256": "c52bb0b35ef43bffed7488a85c7892f16d27013151fd81fd9686d630e12f848b"
+    },
+    {
+      "path": "scripts/build_ai_windows_candidate.py",
+      "bytes": 14609,
+      "git_blob_sha": "6a71d65efea92a347c0509caad4c126dd36f0209",
+      "sha256": "ff9328b550582bfe996c2f0d624b429ff181bbd6274afaef32f8e5b04a48a6a3"
+    },
+    {
+      "path": "scripts/validate_general_work_control_plane.py",
+      "bytes": 2522,
+      "git_blob_sha": "cfb67c326a1278d7867d93aa000da06cb7829d57",
+      "sha256": "c4ff13f09e59ee53fb391ea95c27b47e5a7dc33836adb981ed1f40ee928f83b4"
+    },
+    {
+      "path": "ui/workflow_execution.js",
+      "bytes": 10405,
+      "git_blob_sha": "86a9eab55b24294ce9399ee716cdbd20bcffe681",
+      "sha256": "e4a44281f978407c8057c8d1ae42bac9241012cdf360f35e68742533247c1891"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_DIRECTIVE_v1.0_20261013.md",
+      "bytes": 2178,
+      "git_blob_sha": "0c0335a58069d7e1ab589b01c3b2fdfd869839fb",
+      "sha256": "7e6036e90383cb2482580c1c7cd25d894130f2c94368146955854f129f149b5f"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_DIRECTIVE_v1.0_20261008.md",
+      "bytes": 6899,
+      "git_blob_sha": "6fc82198706ebe07124bd6ca867d735bbf3fb2dc",
+      "sha256": "aaa4d84365bb478815cd1db0915fd6d2407d802ff3450b071c9ba292bc4c21f9"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_DIRECTIVE_v1.0_20261008.md",
+      "bytes": 8632,
+      "git_blob_sha": "5e0ca73708503c04b6360dfd71c807b299a7cd13",
+      "sha256": "7fad6ebb0e0cacbd587a7582e03cd1ce4005532376b4dd1bc162c9ffcbfc2df4"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_EVIDENCE_CONTRACT_v1.0_20261008.json",
+      "bytes": 1698,
+      "git_blob_sha": "b76bc0a33702624dd8fc06dc2b9e2b0d408472bf",
+      "sha256": "9f460b8cff2ad0bc1edce32d49b2437c946d6812a34dff36db58deab3c17cad4"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md",
+      "bytes": 12308,
+      "git_blob_sha": "619867eede1bb668dc40434974d2025259b64044",
+      "sha256": "35add6ed6d1f50a3f6457c06464a86609ac1b90453ef0c501142a96852f18257"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_REVIEW_v1.0_20261013.md",
+      "bytes": 7170,
+      "git_blob_sha": "e6f8275c2c039baaa39662a02542489eddc6933b",
+      "sha256": "820b67cdf94b58663f842b8ab8b21ec1cc266e92af5a6918091caa0b03171bb2"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_DIRECTIVE_v1.0_20261008.md",
+      "bytes": 9377,
+      "git_blob_sha": "851f970ff3f9c9adc0ac4a160c7bb7f242ef5c0a",
+      "sha256": "9a9dd1e4b042d94f96bba7109659bf48e198a28e87e5756dbad185e845c3e483"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_EVIDENCE_CONTRACT_v1.0_20261008.json",
+      "bytes": 1892,
+      "git_blob_sha": "c29b37d8554976e133943c16cc821a132564a43a",
+      "sha256": "c3cd94e9479e0c4e3a5e5be96d0893b11cb44daf652babb5a3f347bd45d14108"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_EVIDENCE_CONTRACT_20261016.json",
+      "bytes": 6653,
+      "git_blob_sha": "be6da61a367b1b793b35f1f39b43bdc83b727208",
+      "sha256": "5a0f630f75f445bc992356720f7e9a6b68ab39e9a63b1deb9b80087d9c310765"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_EVIDENCE_CONTRACT_20261024.json",
+      "bytes": 1226,
+      "git_blob_sha": "ad3d1d447e23f1aabc5f9259a7a0fbdf116c3062",
+      "sha256": "748e4045ab27ddb7bcac2bc5b856b3d30e29cda5d6d95f083b0b73832e4227e4"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_REVIEW_v1.0_20261008.md",
+      "bytes": 6313,
+      "git_blob_sha": "36cc2b2d3b62a64227598225f0221e526bff5d8e",
+      "sha256": "ddedb3de285cc54cab374200d8919ade63577ce9572a97281b2d3ac8768c52df"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_EVIDENCE_CONTRACT_v1.0_20261008.json",
+      "bytes": 2646,
+      "git_blob_sha": "da1b2529fecebc22f5bd51be0deaf025d75595a9",
+      "sha256": "4915fcbbe90febc0ab52eec21e6c737441f7366c8c8d445e3a30575a90d5bcba"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261013.json",
+      "bytes": 415,
+      "git_blob_sha": "c55a9f3a8bb7bed4af092832d9c9823e2088acb6",
+      "sha256": "a1e6346b18a2d9f62077fe3d50a684e5b903506a8ec6a7b7c714ae9a6e77db99"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_FINAL_CLOSEOUT_EXECUTION_20261017.md",
+      "bytes": 6752,
+      "git_blob_sha": "4e59752cbe456c716b412ce6d9e2a681f9136380",
+      "sha256": "dad30dc88fb92118829b8ec8dd38ebcc5a148a41b93c904de4c0db80d795b5c0"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md",
+      "bytes": 1999,
+      "git_blob_sha": "ec0afa2229b67b6bf96be01e32a8d04f7ccac2ce",
+      "sha256": "8af842c50753b993900d53063647ee9671a738306d4da979212dc247fcbe87aa"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_REVIEW_v1.0_20261008.md",
+      "bytes": 8897,
+      "git_blob_sha": "fa6a704e8a384d542ab66ffb63817b376663e0fb",
+      "sha256": "fcd9e9fb2283cc074a31e341c1fc11b7d35024e02801d8af00aa489c61b89d58"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md",
+      "bytes": 3954,
+      "git_blob_sha": "de066a2262cb4efcb8e42be7575ca80aaa0327e5",
+      "sha256": "30126d774bc08cc45327511cb748547e36e9a883ae363594d4dfffabaf6e3af9"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_PC_R9_CORRECTED_CANDIDATE_ACCEPTANCE_20261016.md",
+      "bytes": 5246,
+      "git_blob_sha": "85cfc43cd0306aa89a7d0e594fbd3e0258091dde",
+      "sha256": "74a4f6ca665a7add2f07616625f900aa6923825be7b45b56b192d083e37df0ea"
+    },
+    {
+      "path": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_VERDICT.json",
+      "bytes": 2664,
+      "git_blob_sha": "48b4565add4175b29889be833853e23e9fe14646",
+      "sha256": "d382fd8fbc1f28a10ea14a5bc2487bd641196583d9f3a0a373ab9a7d75d841b0"
+    },
+    {
+      "path": "docs/evidence/media-ai-windows-r2-general-review-20261017/ACCEPTED_CHROME_SIX.json",
+      "bytes": 661,
+      "git_blob_sha": "a933ba447173cc95a52a1572f603cfe8929f98c1",
+      "sha256": "92d4fdec079501f9711580e962d6568d70e3aac08647368e9db42f73e8ba183a"
+    },
+    {
+      "path": "docs/evidence/media-ai-final-ui-runtime-20261017/RESULT_KO.md",
+      "bytes": 6430,
+      "git_blob_sha": "eaace589174183956b7a41417a120efd51290723",
+      "sha256": "43f2ae70952ef265f5814c3add37d41a2ac691df85f6e02017ea9ea1d5bd9e75"
+    },
+    {
+      "path": "docs/evidence/windows-work-handoff-20261017-r2/FINAL_RESULT_KO.md",
+      "bytes": 3680,
+      "git_blob_sha": "207adf4f5e57dd79433878d4a46242e477fa5ec4",
+      "sha256": "11c76678607df26053562cbfa58e066440659ad5999af7bac247afa875c5df25"
+    },
+    {
+      "path": "docs/evidence/media-ai-startup-ai-audit-20261022/RESULT_KO.md",
+      "bytes": 8969,
+      "git_blob_sha": "5031105f677b6e98c7a833e41e95d6bca1fd241a",
+      "sha256": "7d2cf7ea47b417c916f4bfbc21b26e6f31dffa79091f2b5d951af84b670b5c49"
+    },
+    {
+      "path": "docs/evidence/media-ai-photo-approved-structure-20261017/RESULT_KO.md",
+      "bytes": 4269,
+      "git_blob_sha": "cc00400da00e3905dd60db61172e771ec3fcee85",
+      "sha256": "abd4e79fe5eab04151d425aab50e41a7afc75861060a5b9afb347371bfc2a8af"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/RESULT_KO.md",
+      "bytes": 7042,
+      "git_blob_sha": "81aa75ffc47907eedee5fe680a1e059ce9f5391e",
+      "sha256": "6fe2c4c6d2709c2c20d57a8312dfc817526e7c7b7a806c49845846e9d6bc8fee"
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/RESULT_KO.md",
+      "bytes": 4659,
+      "git_blob_sha": "67685f6f7de9a91f07755e32b66ceece63c02db3",
+      "sha256": "4a00afe1a594744230c99015432007d817650b054964b597f3ea2294d8e6bee2"
+    },
+    {
+      "path": "docs/evidence/media-ai-final-integration-20261017/RESULT_KO.md",
+      "bytes": 7153,
+      "git_blob_sha": "ae32966ac498bc529856c237f38df5f51761f17b",
+      "sha256": "d167cb8d198c03958bee015b111ea054ab23a031c071a6f90323be46f86b9e84"
+    },
+    {
+      "path": "docs/evidence/media-ai-final-integration-20261017/UI_IMAGE_COMPARISON_FINAL_KO.md",
+      "bytes": 2998,
+      "git_blob_sha": "8cc0628f5e134b37b4bc4341194041c55617e7df",
+      "sha256": "f45e651d59b374a3069caa53de98061667319c199c8d7597b5581295723d55e8"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/ORIGINAL_EXTERIOR_CHECKSUM.txt",
+      "bytes": 187,
+      "git_blob_sha": "d02d2e70401d66c9961e3e82ea279c8023346bb4",
+      "sha256": "60a2aa6edbedbcac817bb5220a35d62932430fa7c54ae8c940bae3c2e45153dd"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/FINAL_RESULT_KO.md",
+      "bytes": 5703,
+      "git_blob_sha": "14cabe1e2937cc9e816434e1aea4319447bce075",
+      "sha256": "d455c285db5d080283ecf4218db999c43002be79427d22ad0750966cd9fa51e7"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/BUILD_SCOPE_KO.md",
+      "bytes": 2301,
+      "git_blob_sha": "8c15e22d56c586d5263f21c4124cea2de4c042fb",
+      "sha256": "327878c005b489e94dc8726f2546a4dbe40062b35f947f8f29ed5b10a5da7273"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/ASSEMBLY.json",
+      "bytes": 451,
+      "git_blob_sha": "84374e80ce4d347a25e420c960389b52078f82b0",
+      "sha256": "dac7a2c106382acd2ce96b4784daf14c22fe8a952b26a2511d4479df366e70ac"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/NATIVE_RESULT_KO.md",
+      "bytes": 2126,
+      "git_blob_sha": "99c0bf446d116304d0a0b70a68369d0454a6d136",
+      "sha256": "2341ced3cd4acd477d4aee716a478862da50f718d93a92ae3be9af436aeb1a4c"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/ACCEPTANCE.json",
+      "bytes": 617,
+      "git_blob_sha": "3e353d4cd19c3c060a6e8d136a9ec833076e2170",
+      "sha256": "d88cb299a99afc1602e03d5968d534dec8db0e5c0a63657682c2384bd88c88f2"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/BROWSER_REOPEN.json",
+      "bytes": 390,
+      "git_blob_sha": "b74fd4842e43019b590c23b716a9315efb489e9e",
+      "sha256": "14c5f3e2c2890681daf8ffa4b2d89d5ce44c033a3a36491f0da902575397a1c6"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/FINAL_DELIVERY.json",
+      "bytes": 2221,
+      "git_blob_sha": "b8b5174f512ab91ec9497e7ee99556b808111bb7",
+      "sha256": "b617aebec02d87d5962ce054690cc58e43c473e9b40dcb14cfb6b16995ed86ae"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/ACTUAL_GENERATIVE_PLAN.json",
+      "bytes": 1130,
+      "git_blob_sha": "0db546ccfd6d35dc6dffd1b81ef05c53c017797b",
+      "sha256": "a1ad503f65d2077de16ce8746d2c78b75f2376688d335320b24624cd333c8251"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/LOCAL_DELIVERY_VERIFIED.json",
+      "bytes": 309,
+      "git_blob_sha": "653734ecc6f5a8f9e3a84fb68d17a1e529ce1fe9",
+      "sha256": "5379dc3f5352e760f8b527d0994ae674326e892242e632be3a874d81410a6512"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/CONTROL_NEGATIVE_TEST.txt",
+      "bytes": 130,
+      "git_blob_sha": "5be92e3526613c422c0ffdcef074f55fe6043bd7",
+      "sha256": "64b5e06f1c3af8bb70d37b856893d5a8a454d6635a2823aadc2adcf4c5d38360"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/REMOTE_ATTEMPT.json",
+      "bytes": 265,
+      "git_blob_sha": "8680b46daad4267bd8ea852eea83417bbc288206",
+      "sha256": "515247a35b2f59053eaa7860de2a2f27ab87c31c819a40fa0d2fc6649fd138de"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/CONTROL_VALIDATION.txt",
+      "bytes": 172,
+      "git_blob_sha": "56cf77ae4071edba60348bc65407907dc3d229b9",
+      "sha256": "d4c6300dc088e5b16ef6f514b91fa6bd32774581a4575d185dec7083c67d5f51"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/SOURCE_READBACK.json",
+      "bytes": 426,
+      "git_blob_sha": "573da3d91ea7a72af646cc938a5fb4e01ee38a04",
+      "sha256": "28de24b462a59ae1543ba6b996eccc67cc49156ca0a4fdf0c2fa4da685310c8b"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/BROWSER_MEDIA.json",
+      "bytes": 368,
+      "git_blob_sha": "6e23a9474cea43851da6718aad189367da8a2da6",
+      "sha256": "476ebae714de2ff3d3602fa2a4a38f710aee42d357ca4292cb14057ac1b77724"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/PACKAGING_TESTS.txt",
+      "bytes": 911,
+      "git_blob_sha": "4c78e4ec35f3a7f3d14c7475d4a4fa4243189198",
+      "sha256": "0db58097b4817ae30e713a5d449a475675ee62d7768f116458d92450d7cf601d"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/BASE_READBACK.json",
+      "bytes": 323,
+      "git_blob_sha": "9c1bd858ba056d560215061ce3ada718109cb8d9",
+      "sha256": "60ad8e717eeb0d50bc684240d6d704fa11fa212cdaf0cab230d0a53ee62e95bf"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/ACTUAL_NEURAL_VOICE.json",
+      "bytes": 3030,
+      "git_blob_sha": "469fa56e72ecd6c54669316f13b9e0c88a263700",
+      "sha256": "691d69a80e34184f849acff3591764e509d2d5d530e762bbe37c866f7af0e33b"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/LOCAL_MEDIA_READBACK.json",
+      "bytes": 869,
+      "git_blob_sha": "0c6cd7d0b40f57e75a7ca6124283a65e1f555345",
+      "sha256": "80050b9a20c69282d58a31eadd271335e362dc838e994d314c1c26f0d20ef3d0"
+    },
+    {
+      "path": "docs/evidence/windows-ai-candidate-20261024-r1/FINAL_ARTIFACTS.json",
+      "bytes": 1467,
+      "git_blob_sha": "4ee2a121a02dc5709b3469352020ff3f3f36ad33",
+      "sha256": "2b66b45bf28a42ddd578f23d2c0c98b51d2447091d2c3669504c718d04158c77"
+    },
+    {
+      "path": "docs/evidence/media-ai-workflow-runtime-20261018/RESULT_KO.md",
+      "bytes": 9319,
+      "git_blob_sha": "1499eeede883688495ce36592077cb896f9300c1",
+      "sha256": "867968dd3a84de6b89630ddcb326324efb578ce4ba6c92d76204c9e56f823598"
+    },
+    {
+      "path": "docs/evidence/media-ai-final-closeout-20261017/UI_AUTHORITY_RECONCILIATION.json",
+      "bytes": 955,
+      "git_blob_sha": "66996a37d09036a2fd06f79479db3dc30eaaebd1",
+      "sha256": "484e73b88757f3f909b224f3343e355838c2349caff1890dd14a530372533ada"
+    },
+    {
+      "path": "src/media_ai/workflow_planner.py",
+      "bytes": 9511,
+      "git_blob_sha": "b1ecbf57c0f801657a1912eb6e3d7e7e5535260e",
+      "sha256": "a292c67a7fdde66b185075f55ba718f05911be529e0f2aa10f78e2fa151a1391"
+    },
+    {
+      "path": "src/media_ai/durable_workflows.py",
+      "bytes": 23487,
+      "git_blob_sha": "2bd7677fa3b69eb2a864d35db1ffd060eed6d52c",
+      "sha256": "d6c06c2c1001a42dfa0aace597b65ef8c613c857da12be1c8e9c83a3f23afaef"
+    },
+    {
+      "path": "src/media_ai/workflow_worker.py",
+      "bytes": 15094,
+      "git_blob_sha": "fd414d50316fc23c560253820e05b7423b9b9cd6",
+      "sha256": "fb30eb942e19ca13a01edb53898e16f30d8c04392d16414dc6a16ab7e3b927c7"
+    }
+  ],
+  "all_git_blob_matches": true
+}
