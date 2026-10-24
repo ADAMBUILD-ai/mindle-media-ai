@@ -10,7 +10,7 @@
 
 ## 실행
 
-R3가 설치된 PC에서 저장소의 `scripts/START_R3_OWNER_PC_ACCEPTANCE.cmd`를 두 번 클릭한다. 화면의 안내에 따라 사진·영상·자막·나레이션·참고 이미지가 포함된 프로젝트를 저장하고 Export한다. Windows 플레이어에서 자동으로 열린 MP4를 재생하고 앞뒤 탐색하며 실제 소리를 듣는다. 서버 재실행 뒤 동일 프로젝트를 Reopen하고 다시 Export한다.
+`docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261024.zip`을 압축 해제하고 R3가 설치된 PC에서 `START_R3_OWNER_PC_ACCEPTANCE.cmd`를 두 번 클릭한다. 화면의 안내에 따라 사진·영상·자막·나레이션·참고 이미지가 포함된 프로젝트를 저장하고 Export한다. Windows 플레이어에서 자동으로 열린 MP4를 재생하고 앞뒤 탐색하며 실제 소리를 듣는다. 서버 재실행 뒤 동일 프로젝트를 Reopen하고 다시 Export한다.
 
 실행기는 다음 항목을 자동 검증한다.
 

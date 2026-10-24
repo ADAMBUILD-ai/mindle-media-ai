@@ -1,4 +1,6 @@
 from pathlib import Path
+import hashlib
+import zipfile
 
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -25,3 +27,13 @@ def test_r3_owner_pc_acceptance_has_double_click_entrypoint():
     command=(ROOT/'scripts/START_R3_OWNER_PC_ACCEPTANCE.cmd').read_text(encoding='utf-8')
     assert 'accept_r3_on_owner_pc.ps1' in command
     assert '-ExecutionPolicy Bypass' in command
+
+
+def test_r3_owner_pc_acceptance_download_bundle_is_exact_and_complete():
+    bundle=ROOT/'docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261024.zip'
+    assert hashlib.sha256(bundle.read_bytes()).hexdigest()=='9c058c27669f9ea2141903f477b9dac8c201f2e7501fc5944b1379b9f55fdda8'
+    with zipfile.ZipFile(bundle) as archive:
+        assert archive.testzip() is None
+        assert set(archive.namelist())=={'START_R3_OWNER_PC_ACCEPTANCE.cmd','accept_r3_on_owner_pc.ps1','README_KO.txt'}
+        assert archive.read('START_R3_OWNER_PC_ACCEPTANCE.cmd')==(ROOT/'scripts/START_R3_OWNER_PC_ACCEPTANCE.cmd').read_bytes()
+        assert archive.read('accept_r3_on_owner_pc.ps1')==(ROOT/'scripts/accept_r3_on_owner_pc.ps1').read_bytes()
