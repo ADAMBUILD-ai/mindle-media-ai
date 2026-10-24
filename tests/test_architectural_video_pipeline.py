@@ -126,6 +126,22 @@ def test_real_two_scene_assembly_preserves_order_and_supplies_silent_audio(tmp_p
     ledger.close()
 
 
+@pytest.mark.skipif(not shutil.which("ffmpeg") or not shutil.which("ffprobe"), reason="local FFmpeg tools unavailable")
+def test_measured_scene_range_uses_selected_source_window(tmp_path):
+    owned=tmp_path/"owned";owned.mkdir();source=owned/"two-colors.mp4"
+    subprocess.run([shutil.which("ffmpeg"),"-v","error","-y","-f","lavfi","-i","color=c=blue:s=160x90:r=20:d=0.5",
+                    "-f","lavfi","-i","color=c=red:s=160x90:r=20:d=0.5","-filter_complex","[0:v][1:v]concat=n=2:v=1:a=0[v]",
+                    "-map","[v]","-c:v","libx264","-pix_fmt","yuv420p",str(source)],check=True,timeout=30)
+    scene=ArchitectureScene("selected-red","existing_clip",source,.4,file_sha256(source),start_seconds=.55)
+    ffmpeg,ffprobe=Path(shutil.which("ffmpeg")),Path(shutil.which("ffprobe"));output=owned/"selected.mp4"
+    receipt=FFmpegDeliveryAdapter(ffmpeg,ffprobe,owned,file_sha256(ffmpeg),file_sha256(ffprobe)).assemble_existing_clips(
+        (scene,),output,"16:9",160,90,timeout=30)
+    import cv2
+    capture=cv2.VideoCapture(str(output));ok,frame=capture.read();capture.release()
+    assert ok and frame[:,:,2].mean()>frame[:,:,0].mean()
+    assert receipt["scene_ranges"]==[{"scene_id":"selected-red","start_seconds":.55,"duration_seconds":.4}]
+
+
 def test_production_ledger_is_idempotent_and_recovers_running_as_interrupted(tmp_path):
     owned = tmp_path / "owned"
     owned.mkdir()

@@ -34,7 +34,7 @@
         if(!context.job_ids?.length)throw new Error('먼저 실제 영상 자료를 불러오고 저장하세요.');
         const planResponse=await fetch('/api/architecture-agent/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:text,project_id:context.project_id,job_ids:context.job_ids})});
         const plan=await planResponse.json();if(!planResponse.ok)throw new Error(plan.error||'건축 영상 계획 생성 실패');
-        show('건축 AI 계획 · '+(plan.model_id||'로컬 모델')+' · '+plan.aspect+' · '+plan.scenes.map(s=>s.source_id+' '+s.duration_seconds+'초').join(' → ')+' · 합계 '+plan.total_duration_seconds+'초');
+        show('건축 AI 계획 · '+(plan.model_id||'로컬 모델')+' · 실제 프레임 측정 기반 · '+plan.aspect+' · '+plan.scenes.map(s=>s.source_id+' '+s.start_seconds+'초부터 '+s.duration_seconds+'초').join(' → ')+' · 합계 '+plan.total_duration_seconds+'초');
         const response=await fetch('/api/architecture-agent/productions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:crypto.randomUUID(),plan_id:plan.plan_id})});
         let task=await response.json();if(!response.ok)throw new Error(task.error||'건축 영상 작업 등록 실패');
         while(!['SUCCEEDED','FAILED','CANCELLED','INTERRUPTED','BLOCKED_INPUT','BLOCKED_ASSET'].includes(task.state)){
@@ -77,6 +77,16 @@
   document.addEventListener('DOMContentLoaded',async()=>{
     window.mindleBeginEdit('video');let ownsReconnect=true;
     try{
+      const architectureResponse=await fetch('/api/architecture-agent/productions');
+      if(architectureResponse.ok){const {productions}=await architectureResponse.json();let production=productions.find(t=>['QUEUED','RUNNING','CANCEL_REQUESTED'].includes(t.state));
+        if(production){while(!['SUCCEEDED','FAILED','CANCELLED','INTERRUPTED','BLOCKED_INPUT','BLOCKED_ASSET'].includes(production.state)){
+          const node=show('건축 AI 작업 다시 연결 · '+production.production_id+' · '+production.state);const cancel=document.createElement('button');cancel.textContent='작업 취소';cancel.addEventListener('click',()=>fetch('/api/architecture-agent/productions/'+production.production_id+'/cancel',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}));node.append(cancel);
+          await new Promise(r=>setTimeout(r,350));const status=await fetch('/api/architecture-agent/productions/'+production.production_id);if(!status.ok)throw new Error('건축 AI 작업 연결이 끊겼습니다.');production=await status.json();}
+          window.mindleEndEdit('video');ownsReconnect=false;
+          if(production.state==='SUCCEEDED'){if(!await window.mindleWorkflowRestore(production.receipt.project_id))throw new Error('완료된 건축 AI 프로젝트를 다시 열지 못했습니다.');show('건축 AI 작업 복원 완료 · '+production.production_id);}
+          else show(production.state+' · '+(production.error||production.missing?.join(', ')||'기존 결과를 보존했습니다.'),true);
+          return;
+        }}
       const response=await fetch('/api/workflows');if(!response.ok)throw new Error('저장된 작업 이력을 읽을 수 없습니다.');
       const {workflows}=await response.json();let task=workflows.find(t=>['QUEUED','RUNNING','RETRY_WAIT','CANCEL_REQUESTED'].includes(t.state));
       if(!task)return;
@@ -93,7 +103,16 @@
 // The existing history action also exposes durable attempts after a browser/server restart.
 window.mindleOpenWorkflowHistory=async()=>{
   const response=await fetch('/api/workflows');if(!response.ok)throw new Error('순차 작업 이력을 읽을 수 없습니다.');
-  const {workflows}=await response.json();const dialog=document.createElement('dialog');const title=document.createElement('h2');title.textContent='순차 작업 이력';dialog.append(title);
+  const {workflows}=await response.json();let productions=[];const architectureResponse=await fetch('/api/architecture-agent/productions');
+  if(architectureResponse.ok)({productions=[]}=await architectureResponse.json());
+  const dialog=document.createElement('dialog');const title=document.createElement('h2');title.textContent='AI 작업 이력';dialog.append(title);
+  if(productions.length){const architectureTitle=document.createElement('h3');architectureTitle.textContent='건축 AI 영상';dialog.append(architectureTitle);}
+  for(const task of productions){const row=document.createElement('div');const text=document.createElement('p');const planner=task.planner_receipt||{};const ranges=(planner.scenes||[]).map(scene=>scene.start_seconds+'초→'+scene.duration_seconds+'초').join(', ');
+    text.textContent=`${task.production_id} · ${task.state} · ${planner.model_id||'모델 정보 없음'} · ${ranges||'측정 구간 없음'} · ${task.error||''}`;row.append(text);
+    if(['QUEUED','RUNNING','CANCEL_REQUESTED'].includes(task.state)){const cancel=document.createElement('button');cancel.textContent='작업 취소';cancel.addEventListener('click',async()=>{const r=await fetch('/api/architecture-agent/productions/'+task.production_id+'/cancel',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});const value=await r.json();text.textContent=task.production_id+' · '+value.state;cancel.disabled=r.ok;});row.append(cancel);}
+    if(task.state==='SUCCEEDED'&&task.receipt?.project_id){const reopen=document.createElement('button');reopen.textContent='완료 프로젝트 열기';reopen.addEventListener('click',async()=>{if(await window.mindleOpenProject(task.receipt.project_id))dialog.close();});row.append(reopen);}
+    dialog.append(row);}
+  if(workflows.length){const workflowTitle=document.createElement('h3');workflowTitle.textContent='편집·자막·나레이션';dialog.append(workflowTitle);}
   for(const task of workflows){const row=document.createElement('div');const text=document.createElement('p');text.textContent=`${task.workflow_id} · ${task.state} · ${task.attempts.length}회 시도 · ${task.error||''}`;row.append(text);
     if(['QUEUED','RUNNING','RETRY_WAIT','CANCEL_REQUESTED'].includes(task.state)){const cancel=document.createElement('button');cancel.textContent='작업 취소';cancel.addEventListener('click',async()=>{const r=await fetch('/api/workflows/'+task.workflow_id+'/cancel',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});const value=await r.json();text.textContent=task.workflow_id+' · '+value.state;cancel.disabled=r.ok;});row.append(cancel);}
     if(task.state==='SUCCEEDED'){const reopen=document.createElement('button');reopen.textContent='완료 프로젝트 열기';reopen.addEventListener('click',async()=>{if(await window.mindleOpenProject(task.project_id))dialog.close();});row.append(reopen);}

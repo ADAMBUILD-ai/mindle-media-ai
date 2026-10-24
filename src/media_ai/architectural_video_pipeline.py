@@ -35,6 +35,7 @@ class ArchitectureScene:
     source_sha256: str
     prompt: str | None = None
     camera: str | None = None
+    start_seconds: float = 0.0
 
 
 @dataclass(frozen=True)
@@ -81,6 +82,8 @@ def validate_production_plan(plan: ArchitectureVideoPlan, owned_root: Path) -> A
             raise ValueError(f"scene source identity mismatch: {scene.scene_id}")
         if not 0.25 <= float(scene.duration_seconds) <= 30:
             raise ValueError("each scene duration must be between 0.25 and 30 seconds")
+        if not 0 <= float(scene.start_seconds):
+            raise ValueError("scene start must be zero or greater")
         if scene.prompt is not None and (not scene.prompt.strip() or len(scene.prompt) > 2000):
             raise ValueError("generation prompt must contain 1 to 2000 characters")
         if scene.engine == "blender":
@@ -184,13 +187,17 @@ class FFmpegDeliveryAdapter:
             hashes.append((source, actual_hash))
             command += ["-i", str(source)]
             duration = float(scene.duration_seconds)
+            start = float(scene.start_seconds)
+            source_duration = float(info.get("format", {}).get("duration", 0))
+            if start + duration > source_duration + .05:
+                raise ValueError(f"scene range exceeds source duration: {scene.scene_id}")
             filters.append(
                 f"[{index}:v:0]fps=24,scale={width}:{height}:force_original_aspect_ratio=decrease,"
                 f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:black,setsar=1,"
-                f"tpad=stop_mode=clone:stop_duration=30,trim=duration={duration},setpts=PTS-STARTPTS[v{index}]"
+                f"trim=start={start}:duration={duration},setpts=PTS-STARTPTS[v{index}]"
             )
             if any(stream.get("codec_type") == "audio" for stream in info["streams"]):
-                filters.append(f"[{index}:a:0]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,apad,atrim=duration={duration},asetpts=PTS-STARTPTS[a{index}]")
+                filters.append(f"[{index}:a:0]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,atrim=start={start}:duration={duration},apad,atrim=duration={duration},asetpts=PTS-STARTPTS[a{index}]")
             else:
                 filters.append(f"anullsrc=r=48000:cl=stereo,atrim=duration={duration},asetpts=PTS-STARTPTS[a{index}]")
             concat_inputs.extend((f"[v{index}]", f"[a{index}]"))
@@ -233,6 +240,8 @@ class FFmpegDeliveryAdapter:
         if abs(receipt["runtime"]["duration_seconds"] - expected_duration) > 0.15:
             raise ValueError("assembled duration differs from the scene plan")
         receipt["scene_order"] = [scene.scene_id for scene in scenes]
+        receipt["scene_ranges"] = [{"scene_id":scene.scene_id,"start_seconds":scene.start_seconds,
+                                     "duration_seconds":scene.duration_seconds} for scene in scenes]
         receipt["aspect"] = aspect
         receipt["resolution"] = {"width": width, "height": height}
         return receipt
@@ -297,7 +306,7 @@ class ArchitectureProductionLedger:
             "scenes": [{
                 "scene_id": scene.scene_id, "engine": scene.engine, "source": str(scene.source.resolve()),
                 "source_sha256": scene.source_sha256, "duration_seconds": scene.duration_seconds,
-                "prompt": scene.prompt, "camera": scene.camera,
+                "prompt": scene.prompt, "camera": scene.camera, "start_seconds": scene.start_seconds,
             } for scene in plan.scenes],
         }
 

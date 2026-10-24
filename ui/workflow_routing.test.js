@@ -36,3 +36,37 @@ test('verified values and model provenance are shown before queue submission',as
  await window.mindleWorkflowCommand(editor,'video',{command:'밝기 3 낮춰 줘'});
  assert.equal(submitted,true);
 });
+test('browser refresh reconnects the same architecture production and restores its project',async()=>{
+ const messages=[],listeners={},status={style:{},dataset:{},replaceChildren(value){messages.push(value);},append(){}};
+ const editor={querySelector:()=>status};
+ const document={querySelector:()=>editor,createTextNode:x=>x,createElement:()=>({addEventListener(){},append(){}}),addEventListener:(name,callback)=>{listeners[name]=callback;}};
+ const edits=[];let restored=null;
+ const window={mindleBeginEdit:kind=>edits.push('begin:'+kind),mindleEndEdit:kind=>edits.push('end:'+kind),mindleWorkflowRestore:async project=>{restored=project;return true;}};
+ const calls=[];const fetch=async(url,opts)=>{calls.push({url,method:opts?.method||'GET'});
+  if(url==='/api/architecture-agent/productions')return {ok:true,json:async()=>({productions:[{production_id:'production-1',state:'RUNNING'}]})};
+  if(url==='/api/architecture-agent/productions/production-1')return {ok:true,json:async()=>({production_id:'production-1',state:'SUCCEEDED',receipt:{project_id:'project-1'}})};
+  throw new Error('unexpected '+url);
+ };
+ vm.runInNewContext(fs.readFileSync(__dirname+'/workflow_execution.js','utf8'),{window,document,fetch,setTimeout:callback=>callback(),crypto:{randomUUID:()=> 'request'}});
+ await listeners.DOMContentLoaded();
+ assert.equal(restored,'project-1');
+ assert.deepEqual(calls.map(x=>x.url),['/api/architecture-agent/productions','/api/architecture-agent/productions/production-1']);
+ assert.equal(calls.some(x=>x.method==='POST'),false);
+ assert.ok(messages.some(x=>String(x).includes('건축 AI 작업 복원 완료')));
+ assert.deepEqual(edits,['begin:video','end:video']);
+});
+test('AI history exposes a completed architecture production without creating new work',async()=>{
+ const listeners={};const created=[];const makeElement=tag=>{const node={tag,children:[],listeners:{},append(...items){this.children.push(...items);},addEventListener(name,callback){this.listeners[name]=callback;},showModal(){this.open=true;},close(){this.open=false;this.listeners.close?.();},remove(){this.removed=true;}};created.push(node);return node;};
+ const status={style:{},dataset:{},replaceChildren(){}};const document={querySelector:()=>({querySelector:()=>status}),createTextNode:x=>x,createElement:makeElement,addEventListener:(name,callback)=>{listeners[name]=callback;},body:{append(){}}};
+ let opened=null;const window={mindleBeginEdit(){},mindleEndEdit(){},mindleOpenProject:async project=>{opened=project;return true;}};const calls=[];
+ const fetch=async(url,opts)=>{calls.push({url,method:opts?.method||'GET'});
+  if(url==='/api/workflows')return {ok:true,json:async()=>({workflows:[]})};
+  if(url==='/api/architecture-agent/productions')return {ok:true,json:async()=>({productions:[{production_id:'production-2',state:'SUCCEEDED',planner_receipt:{model_id:'qwen-fixture',scenes:[{start_seconds:.5,duration_seconds:1}]},receipt:{project_id:'project-2'}}]})};
+  throw new Error('unexpected '+url);
+ };
+ vm.runInNewContext(fs.readFileSync(__dirname+'/workflow_execution.js','utf8'),{window,document,fetch,crypto:{randomUUID:()=> 'request'}});
+ await window.mindleOpenWorkflowHistory();
+ const reopen=created.find(node=>node.tag==='button'&&node.textContent==='완료 프로젝트 열기');assert.ok(reopen);await reopen.listeners.click();
+ assert.equal(opened,'project-2');assert.equal(calls.some(call=>call.method==='POST'),false);
+ assert.ok(created.some(node=>node.tag==='p'&&node.textContent.includes('qwen-fixture')&&node.textContent.includes('0.5초→1초')));
+});

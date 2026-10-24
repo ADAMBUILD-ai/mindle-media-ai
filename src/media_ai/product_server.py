@@ -225,6 +225,7 @@ class Handler(BaseHTTPRequestHandler):
             from .workflow_planner import capabilities
             base=capabilities(self.server.data_dir)
             self._json(200,{"architecture_planner":base["generative_planner"],"existing_clip_assembly":True,
+                            "measured_scene_grounding":True,"semantic_vision_model":False,
                             "generated_scene_engines":"PREFLIGHT_ONLY_PENDING_MATERIALIZATION",
                             "external_provider_connected":False});return
         if route == '/api/architecture-agent/productions':
@@ -265,6 +266,7 @@ class Handler(BaseHTTPRequestHandler):
                              'local_tts':ai['tts'],
                              'architecture_agent':{'planner':'LOCAL_GENERATIVE_MODEL_REQUIRED',
                                  'existing_clip_assembly':bool(ffmpeg and Path(ffmpeg).is_file()),
+                                 'measured_scene_grounding':True,'semantic_vision_model':False,
                                  'generated_scene_engines':'PREFLIGHT_ONLY_PENDING_MATERIALIZATION'},
                              'generative_provider':'LOCAL_OFFLINE_ONLY' if ai['generative_planner']!='LOCAL_GENERATIVE_MODEL_UNAVAILABLE' else 'NOT_CONNECTED',
                              'external_generative_provider':'NOT_CONNECTED',

@@ -62,14 +62,20 @@ def test_local_model_plan_to_durable_mp4_and_project(monkeypatch,tmp_path):
               "executable_sha256":"c"*64,"runtime_sha256":"d"*64}
     raw='{"aspect":"16:9","scenes":[{"source_id":"input-02","duration_seconds":0.5},{"source_id":"input-01","duration_seconds":0.5}]}'
     monkeypatch.setattr(architecture_agent,"invoke_local_json_plan",lambda *args,**kw:(__import__("json").loads(raw),raw,settings))
+    real_analyze=architecture_agent.analyze_video;analysis_calls=[]
+    monkeypatch.setattr(architecture_agent,"analyze_video",lambda source,duration:(analysis_calls.append((str(source),duration)) or real_analyze(source,duration)))
     runtime=ArchitectureAgentRuntime(service,Path(__file__).resolve().parents[1])
     try:
         context_ids=[photo_job["job_id"],*[x["job_id"] for x in jobs]]
         plan=runtime.plan({"command":"두 영상으로 1초 16:9 건축 홍보 영상","job_ids":context_ids})
         assert plan["plan_source"]=="LOCAL_GENERATIVE_INFERENCE"
         assert [x["source_id"] for x in plan["scenes"]]==["input-02","input-01"]
+        assert all(x["selection"]["model_inference"] is False for x in plan["scenes"])
+        assert all(x["start_seconds"]>=0 for x in plan["scenes"])
+        assert all(x["visual_profile"]["semantic_understanding"] is False for x in plan["catalog"])
         task=runtime.submit({"request_id":"architecture-real-assembly","plan_id":plan["plan_id"]})
         assert runtime.submit({"request_id":"browser-retry-new-id","plan_id":plan["plan_id"]})["production_id"]==task["production_id"]
+        assert len(analysis_calls)==4
         end=time.monotonic()+30
         while time.monotonic()<end:
             task=runtime.get(task["production_id"])
@@ -86,6 +92,12 @@ def test_local_model_plan_to_durable_mp4_and_project(monkeypatch,tmp_path):
         assert record["runtime_result"]["model_inference"] is True
         assert record["runtime_result"]["assembly_model_inference"] is False
     finally:runtime.close()
+    assert len(list((service.root/"architecture-agent/analysis").glob("*.json")))==2
+    reopened_service=ProductJobService(service.root,"");reopened=ArchitectureAgentRuntime(reopened_service,Path(__file__).resolve().parents[1])
+    try:
+        reopened.catalog([x["job_id"] for x in jobs])
+        assert len(analysis_calls)==4
+    finally:reopened.close()
 
 
 @pytest.mark.skipif(not shutil.which("ffmpeg") or not shutil.which("ffprobe"),reason="FFmpeg unavailable")

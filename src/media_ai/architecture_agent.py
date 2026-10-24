@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -23,6 +24,7 @@ from .architectural_video_pipeline import (
 from .external_media_assets import file_sha256, load_asset_registry
 from .product_runtime import file_record
 from .workflow_planner import invoke_local_json_plan
+from .video_analysis import analyze_video
 
 
 def _programs() -> tuple[Path, Path]:
@@ -55,6 +57,47 @@ def _requested_contract(command: str) -> dict[str, Any]:
     if aspect:aspect = aspect.replace(" ", "")
     elif "원본 비율" in text or "원본비율" in text:aspect = "original"
     return {"duration_seconds": duration, "aspect": aspect}
+
+
+def _visual_profile(source: Path, duration: float) -> dict[str, Any]:
+    """Summarize decoded pixels for the planner without claiming semantic vision."""
+    measured=analyze_video(source,min(3.0,duration))
+    samples=measured["samples"]
+    usable=[item for item in samples if item["usable"]]
+    selected=usable or samples
+    mean=lambda key:round(sum(float(item[key]) for item in selected)/len(selected),4)
+    return {
+        "method":measured["method"],"model_inference":False,"semantic_understanding":False,
+        "sample_count":measured["sample_count"],"usable_ratio":round(len(usable)/len(samples),4),
+        "mean_exposure":mean("exposure"),"mean_motion":mean("motion"),
+        "mean_sharpness":mean("sharpness"),"measured_best_start":round(float(measured["start"]),3),
+        "measured_window_seconds":round(float(measured["duration"]),3),
+    }
+
+
+def _measured_range(source: Path, duration: float) -> dict[str, Any]:
+    measured=analyze_video(source,duration)
+    start=round(float(measured["start"]),3)
+    selected=[x for x in measured["samples"] if start<=float(x["second"])<start+duration]
+    return {"start_seconds":start,"selection":{
+        "method":measured["method"],"model_inference":False,"semantic_understanding":False,
+        "sample_count":measured["sample_count"],"selected_sample_count":len(selected),
+        "mean_score":round(sum(float(x["score"]) for x in selected)/len(selected),4) if selected else 0.0,
+        "reason":measured["reason"],
+    }}
+
+
+def _add_measured_ranges(plan: dict[str, Any], catalog: list[dict[str, Any]], provider=None) -> dict[str, Any]:
+    sources={item["source_id"]:item for item in catalog};provider=provider or (lambda source,duration,_sha:_measured_range(source,duration))
+    enriched=[]
+    for scene in plan["scenes"]:
+        source=sources[scene["source_id"]]
+        measured=provider(Path(source["path"]),scene["duration_seconds"],source["sha256"])
+        start=float(measured["start_seconds"])
+        if not math.isfinite(start) or start<0 or start+scene["duration_seconds"]>float(source["duration_seconds"])+.05:
+            raise ValueError("ARCHITECTURE_MEASURED_RANGE_INVALID")
+        enriched.append({**scene,**measured})
+    return {**plan,"scenes":enriched}
 
 
 def validate_generated_architecture_plan(command: str, parsed: dict[str, Any], catalog: list[dict[str, Any]]) -> dict[str, Any]:
@@ -96,7 +139,8 @@ def validate_generated_architecture_plan(command: str, parsed: dict[str, Any], c
             "validated_request": requested}
 
 
-def make_architecture_plan(data_root: Path, command: str, catalog: list[dict[str, Any]], project_id: str) -> dict[str, Any]:
+def make_architecture_plan(data_root: Path, command: str, catalog: list[dict[str, Any]], project_id: str,
+                           range_provider=None) -> dict[str, Any]:
     command = str(command).strip()
     if not 1 <= len(command) <= 4000:
         raise ValueError("건축 영상 지시는 1~4000자입니다.")
@@ -113,19 +157,21 @@ def make_architecture_plan(data_root: Path, command: str, catalog: list[dict[str
             "required":["source_id","duration_seconds"],"additionalProperties":False}},
         "error":{"type":"string"}},"required":["aspect","scenes"],"additionalProperties":False}
     catalog_prompt=[{"source_id":x["source_id"],"filename":x["filename"],"duration_seconds":x["duration_seconds"],
-                     "width":x["width"],"height":x["height"]} for x in catalog]
+                     "width":x["width"],"height":x["height"],"orientation":x["orientation"],
+                     "visual_profile":x["visual_profile"]} for x in catalog]
     instructions=("You are the local MINDLE architecture video planner. Return JSON only. "
       "Arrange every supplied source exactly once into a concise architecture promotion. "
       "Use only source_id values in the catalog. Never emit paths, tools, shell commands, prompts, or new media. "
       "Each duration must be 0.25 to 30 seconds and cannot exceed that source duration. "
       "Honor an explicit total duration and aspect exactly. If no aspect is explicit choose 16:9. "
+      "Use the measured visual_profile to choose a deliberate order; it is numeric evidence, not semantic recognition. "
       "This plan edits existing clips only; it does not claim image/video generation. "
       "Unsupported or contradictory requests should use error.")
     prompt=("<|im_start|>system\n"+instructions+"<|im_end|>\n<|im_start|>user\nCATALOG="+
             json.dumps(catalog_prompt,ensure_ascii=False)+"\nREQUEST="+command+
             "<|im_end|>\n<|im_start|>assistant\n")
     parsed, raw, settings = invoke_local_json_plan(data_root, prompt, schema, max_tokens=1024, timeout=120)
-    validated = validate_generated_architecture_plan(command, parsed, catalog)
+    validated = _add_measured_ranges(validate_generated_architecture_plan(command, parsed, catalog),catalog,range_provider)
     plan_id=str(uuid4());folder=Path(data_root)/"architecture-agent/plans";folder.mkdir(parents=True,exist_ok=True)
     receipt={"plan_id":plan_id,"project_id":project_id,"plan_source":"LOCAL_GENERATIVE_INFERENCE",
              "command_sha256":hashlib.sha256(command.encode()).hexdigest(),"model_id":settings.get("model_id"),
@@ -144,8 +190,39 @@ class ArchitectureAgentRuntime:
         self.root=(self.service.root/"architecture-agent").resolve();self.root.mkdir(parents=True,exist_ok=True)
         self.registry=load_asset_registry(self.repo_root/"external_assets/media-production/ASSET_REGISTRY.json")
         self.ledger=ArchitectureProductionLedger(self.root)
-        self.wake=threading.Event();self.closed=False
+        self.analysis_lock=threading.RLock();self.wake=threading.Event();self.closed=False
         self.thread=threading.Thread(target=self._loop,name="mindle-architecture-agent",daemon=True);self.thread.start()
+
+    def _analysis_cache(self, digest: str) -> tuple[Path, dict[str, Any]]:
+        folder=self.root/"analysis";folder.mkdir(exist_ok=True);path=folder/(digest+".json")
+        value={"schema":"MINDLE_ARCHITECTURE_MEASURED_ANALYSIS_V1","source_sha256":digest,"profile":None,"ranges":{}}
+        if path.is_file():
+            try:
+                loaded=json.loads(path.read_text(encoding="utf-8"))
+                if loaded.get("schema")==value["schema"] and loaded.get("source_sha256")==digest and isinstance(loaded.get("ranges"),dict):value=loaded
+            except (OSError,ValueError,TypeError):pass
+        return path,value
+
+    @staticmethod
+    def _write_analysis_cache(path: Path, value: dict[str, Any]) -> None:
+        pending=path.with_suffix("."+str(uuid4())+".tmp")
+        try:pending.write_text(json.dumps(value,ensure_ascii=False,indent=2)+"\n",encoding="utf-8");os.replace(pending,path)
+        finally:pending.unlink(missing_ok=True)
+
+    def _cached_profile(self, source: Path, duration: float, digest: str) -> dict[str, Any]:
+        with self.analysis_lock:
+            path,value=self._analysis_cache(digest)
+            if not isinstance(value.get("profile"),dict):
+                value["profile"]=_visual_profile(source,duration);self._write_analysis_cache(path,value)
+            return value["profile"]
+
+    def _cached_range(self, source: Path, duration: float, digest: str) -> dict[str, Any]:
+        key=f"{float(duration):.6f}"
+        with self.analysis_lock:
+            path,value=self._analysis_cache(digest)
+            if not isinstance(value["ranges"].get(key),dict):
+                value["ranges"][key]=_measured_range(source,duration);self._write_analysis_cache(path,value)
+            return value["ranges"][key]
 
     def catalog(self, job_ids: list[str]) -> list[dict[str, Any]]:
         if not isinstance(job_ids,list) or not job_ids or len(job_ids)>100 or len(set(job_ids)) != len(job_ids):
@@ -164,14 +241,16 @@ class ArchitectureAgentRuntime:
             if not video or duration < .25:raise ValueError("유효한 영상 스트림과 길이가 필요합니다.")
             result.append({"source_id":f"input-{len(result)+1:02d}","job_id":record["job_id"],"filename":source.name,
                            "path":str(source),"sha256":artifact["sha256"],"duration_seconds":duration,
-                           "width":int(video["width"]),"height":int(video["height"])})
+                           "width":int(video["width"]),"height":int(video["height"]),
+                           "orientation":"landscape" if int(video["width"])>int(video["height"]) else "portrait" if int(video["height"])>int(video["width"]) else "square",
+                           "visual_profile":self._cached_profile(source,duration,artifact["sha256"])})
         if not 1 <= len(result) <= 12:raise ValueError("1~12개의 완료 영상이 필요합니다.")
         return result
 
     def plan(self, body: dict[str, Any]) -> dict[str, Any]:
         project_id=str(body.get("project_id") or uuid4());UUID(project_id)
         job_ids=list(dict.fromkeys(body.get("job_ids",[])))
-        receipt=make_architecture_plan(self.service.root,str(body.get("command","")),self.catalog(job_ids),project_id)
+        receipt=make_architecture_plan(self.service.root,str(body.get("command","")),self.catalog(job_ids),project_id,self._cached_range)
         receipt["project_job_ids"]=job_ids
         path=self.root/"plans"/(receipt["plan_id"]+".json")
         path.write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
@@ -193,14 +272,14 @@ class ArchitectureAgentRuntime:
         catalog={x["source_id"]:x for x in current}
         if any(current[index] != saved for index,saved in enumerate(receipt.get("catalog",[]))):
             raise ValueError("건축 영상 자료가 계획 이후 변경됐습니다.")
-        checked=validate_generated_architecture_plan("",{"aspect":receipt.get("aspect"),"scenes":[
-            {"source_id":x.get("source_id"),"duration_seconds":x.get("duration_seconds")} for x in receipt.get("scenes",[])]},current)
+        checked=_add_measured_ranges(validate_generated_architecture_plan("",{"aspect":receipt.get("aspect"),"scenes":[
+            {"source_id":x.get("source_id"),"duration_seconds":x.get("duration_seconds")} for x in receipt.get("scenes",[])]},current),current,self._cached_range)
         if checked["scenes"]!=receipt.get("scenes") or abs(checked["total_duration_seconds"]-receipt.get("total_duration_seconds",-1))>.001:
             raise ValueError("저장된 건축 영상 계획 의미 계약이 일치하지 않습니다.")
         if any(job_id not in self.service.records for job_id in receipt.get("project_job_ids",[])):
             raise ValueError("건축 영상 프로젝트 자료가 누락됐습니다.")
         scenes=tuple(ArchitectureScene(item["scene_id"],"existing_clip",Path(catalog[item["source_id"]]["path"]),
-                    item["duration_seconds"],catalog[item["source_id"]]["sha256"]) for item in receipt["scenes"])
+                    item["duration_seconds"],catalog[item["source_id"]]["sha256"],start_seconds=item["start_seconds"]) for item in receipt["scenes"])
         output=self.root/"outputs"/(plan_id+".mp4")
         plan=ArchitectureVideoPlan(receipt["project_id"],receipt["aspect"],scenes,output)
         preflight=preflight_production(plan,self.registry,self.root.parent)
@@ -228,7 +307,7 @@ class ArchitectureAgentRuntime:
         try:
             value=self.ledger.start(identifier);plan_value=value["plan"]
             scenes=tuple(ArchitectureScene(x["scene_id"],x["engine"],Path(x["source"]),x["duration_seconds"],
-                        x["source_sha256"],x.get("prompt"),x.get("camera")) for x in plan_value["scenes"])
+                        x["source_sha256"],x.get("prompt"),x.get("camera"),x.get("start_seconds",0)) for x in plan_value["scenes"])
             ffmpeg,ffprobe=_programs();adapter=FFmpegDeliveryAdapter(ffmpeg,ffprobe,self.service.root,file_sha256(ffmpeg),file_sha256(ffprobe))
             aspect=plan_value["aspect"]
             if aspect=="9:16":width,height=720,1280
