@@ -1,6 +1,6 @@
 """Real remote Windows/Chrome/engine acceptance; never certifies office PC/hearing."""
 from __future__ import annotations
-import base64,csv,hashlib,json,os,subprocess,time,urllib.request,uuid,zipfile
+import base64,csv,hashlib,json,os,subprocess,time,urllib.error,urllib.request,uuid,zipfile
 from pathlib import Path
 
 E=Path('evidence-r3');E.mkdir(exist_ok=True)
@@ -10,7 +10,12 @@ M=json.loads((ROOT/'_payload/PACKAGE_MANIFEST.json').read_text());RUNTIME=Path(o
 def write(name,value):(E/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def request(base,path,body=None,headers=None):
     req=urllib.request.Request(base+path,data=None if body is None else json.dumps(body,ensure_ascii=False).encode(),headers={'Content-Type':'application/json',**(headers or {})})
-    with urllib.request.urlopen(req,timeout=180) as r:return json.load(r)
+    try:
+        with urllib.request.urlopen(req,timeout=180) as r:return json.load(r)
+    except urllib.error.HTTPError as error:
+        payload=error.read().decode('utf-8','replace')
+        write('LAST_HTTP_ERROR.json',{'path':path,'code':error.code,'body':payload})
+        raise RuntimeError(f'HTTP {error.code} {path}: {payload}') from error
 def launch(label):
     with (E/(label+'.log')).open('wb') as log:subprocess.run([str(EXE),'--no-browser'],stdout=log,stderr=subprocess.STDOUT,timeout=1200,check=True)
     for port in range(18768,18778):

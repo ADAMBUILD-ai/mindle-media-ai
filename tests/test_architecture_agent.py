@@ -31,6 +31,24 @@ def test_generated_architecture_plan_binds_every_source_and_explicit_contract():
     assert result["total_duration_seconds"]==3
 
 
+def test_model_prompt_contains_machine_readable_exact_contract(monkeypatch,tmp_path):
+    from media_ai import architecture_agent
+    captured={}
+    raw='{"aspect":"16:9","scenes":[{"source_id":"input-01","duration_seconds":1},{"source_id":"input-02","duration_seconds":1}]}'
+    settings={"model_id":"fixture-qwen","model_sha256":"a"*64,"revision":"b"*40,"license":"Apache-2.0",
+              "executable_sha256":"c"*64,"runtime_sha256":"d"*64}
+    def invoke(_root,prompt,_schema,**_kwargs):
+        captured["prompt"]=prompt
+        return json.loads(raw),raw,settings
+    monkeypatch.setattr(architecture_agent,"invoke_local_json_plan",invoke)
+    monkeypatch.setattr(architecture_agent,"_add_measured_ranges",lambda plan,_catalog,_provider=None:plan)
+    catalog=[{**item,"orientation":"landscape","visual_profile":{"mean_motion":0.0}} for item in _catalog()]
+    value=architecture_agent.make_architecture_plan(tmp_path,"두 영상으로 2초 16:9 건축 홍보 영상",catalog,"00000000-0000-0000-0000-000000000001")
+    assert value["total_duration_seconds"]==2
+    exact=captured["prompt"].split("EXACT_CONTRACT=",1)[1].split("\n",1)[0]
+    assert json.loads(exact)=={"required_source_ids":["input-01","input-02"],"duration_seconds":2.0,"aspect":"16:9"}
+
+
 @pytest.mark.parametrize("parsed,error",[
     ({"aspect":"16:9","scenes":[{"source_id":"invented","duration_seconds":1},{"source_id":"input-02","duration_seconds":2}]},"SOURCE_MISMATCH"),
     ({"aspect":"16:9","scenes":[{"source_id":"input-01","duration_seconds":3},{"source_id":"input-02","duration_seconds":1}]},"DURATION_EXCEEDS"),

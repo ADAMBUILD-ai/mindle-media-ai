@@ -1,9 +1,9 @@
 {
-  "id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-CROSSPLATFORM-FIX",
-  "authorized_parent": "85664285d921c565c2126e90f7f6e6ef31b20944",
+  "id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-PLANNER-CONTRACT-FIX",
+  "authorized_parent": "e0574b4a6e3d2970bc9ab444b559b8f26d468023",
   "scope": "ONE_SUCCESSOR_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
-  "owner_instruction": "이 세계를 실행할 수 있는 공간을 만들자. 검증 실패 원인을 고쳐 실제로 작동하게 진행한다.",
-  "authorization_source": "Current owner conversation, 2026-10-24 KST; corrective successor after run 40077165558 packaging-only failure",
+  "owner_instruction": "이 세계를 실행할 수 있는 공간을 만들자. 실제 모델이 정확한 계약으로 끝까지 실행되게 한다.",
+  "authorization_source": "Current owner conversation, 2026-10-24 KST; corrective successor after runs 40077165558 and 40077847820",
   "attempts_allowed": 1,
   "workflow": ".github/workflows/windows-ai-successor-20261024.yml",
   "reuse_base_candidate": "TEST_R2",
@@ -21,5 +21,19 @@
     "run": 40077165558,
     "status": "FAILED_WINDOWS_CRLF_ASSET_SHA_MISMATCH_AFTER_QWEN_SUPERTONIC_BROWSER_PASS",
     "evidence_artifact": 12554315219
-  }
+  },
+  "previous_attempts": [
+    {
+      "source": "85664285d921c565c2126e90f7f6e6ef31b20944",
+      "run": 40077165558,
+      "status": "FAILED_WINDOWS_CRLF_ASSET_SHA_AFTER_QWEN_SUPERTONIC_BROWSER_PASS",
+      "evidence_artifact": 12554315219
+    },
+    {
+      "source": "e0574b4a6e3d2970bc9ab444b559b8f26d468023",
+      "run": 40077847820,
+      "status": "FAILED_GENERATIVE_ARCHITECTURE_PLAN_422_AFTER_ASSET_FIX_AND_QWEN_SUPERTONIC_BROWSER_PASS",
+      "evidence_artifact": 12554211730
+    }
+  ]
 }

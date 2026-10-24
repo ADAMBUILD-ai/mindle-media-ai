@@ -167,8 +167,12 @@ def make_architecture_plan(data_root: Path, command: str, catalog: list[dict[str
       "Use the measured visual_profile to choose a deliberate order; it is numeric evidence, not semantic recognition. "
       "This plan edits existing clips only; it does not claim image/video generation. "
       "Unsupported or contradictory requests should use error.")
+    exact_contract={"required_source_ids":[x["source_id"] for x in catalog],**requested}
     prompt=("<|im_start|>system\n"+instructions+"<|im_end|>\n<|im_start|>user\nCATALOG="+
-            json.dumps(catalog_prompt,ensure_ascii=False)+"\nREQUEST="+command+
+            json.dumps(catalog_prompt,ensure_ascii=False)+"\nEXACT_CONTRACT="+
+            json.dumps(exact_contract,ensure_ascii=False)+
+            "\nEvery required_source_id must appear exactly once. When duration_seconds is set, "
+            "the scene duration_seconds values must sum to it exactly.\nREQUEST="+command+
             "<|im_end|>\n<|im_start|>assistant\n")
     parsed, raw, settings = invoke_local_json_plan(data_root, prompt, schema, max_tokens=1024, timeout=120)
     validated = _add_measured_ranges(validate_generated_architecture_plan(command, parsed, catalog),catalog,range_provider)
