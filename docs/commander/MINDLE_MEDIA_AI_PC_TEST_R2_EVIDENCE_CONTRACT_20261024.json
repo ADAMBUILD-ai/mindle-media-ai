@@ -1,0 +1,32 @@
+{
+  "epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
+  "id": "MEDIA-AI-20261024-TEST-R2-PC-ACCEPTANCE",
+  "source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+  "producer_run": 39985471598,
+  "readback_run": 39987617196,
+  "zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
+  "manifest_sha256": "2c6c3345539473e77cab56b10105448d0c23b651875dca45e8d49217b781dc07",
+  "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+  "runtime_id": "2e5e9197d78c-473763a9ef2d-ai-r2",
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "full_product_pass": false,
+  "required": [
+    "source manifest EXE ZIP hashes",
+    "office PC EXE start and own server PID",
+    "Qwen plan and actual neural Korean TTS",
+    "photo video subtitle narration references audio Save",
+    "normal own server shutdown PID exit endpoint closed",
+    "new EXE PID and project restore Export",
+    "installed player video seek and actual human hearing",
+    "approved UI 1536x1024 100 percent comparison"
+  ],
+  "prohibitions": [
+    "PR23 merge",
+    "main merge",
+    "force push",
+    "unapproved API key",
+    "employee final release",
+    "unsupported whole-product PASS"
+  ]
+}

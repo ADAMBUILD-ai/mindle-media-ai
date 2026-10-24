@@ -1,0 +1,4 @@
+CONTROL_PLANE_PASS
+node --test ui/ssot_structure.test.js ui/interaction.test.js: 2 passed
+pytest -q tests/test_ui_contract.py tests/test_ui_bridge.py tests/test_shortform_bridge.py: 17 passed
+Browser visual recheck: PASS

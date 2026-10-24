@@ -1,0 +1,5 @@
+{
+  "video": {"columns": "29% / flexible / 26%", "center": "preview + transport + expanding timeline", "right": "full-height distributed controls"},
+  "photo": {"columns": "29% / flexible / 26%", "center": "expanding preview + direct transport", "right": "full-height controls with bottom actions"}
+}
+

@@ -1,0 +1,303 @@
+/* Behaviour layer for the approved layout.  It never selects or substitutes a model. */
+(() => {
+  const state = { video: null, photo: null, jobs: [], projectId: null, videoMode: "general", shortformContract: null, audio: null };
+  const executing = new Set();
+  const pending={photo:0,video:0};
+  let saving=false, restoring=false, exporting=false;
+  const projectBusy=()=>saving || restoring || exporting || executing.size || pending.photo || pending.video;
+  const projectChangeBlocked=()=>{
+    if(!projectBusy()) return false;
+    document.querySelectorAll('[data-editor]').forEach(editor=>message(editor,'진행 중인 편집·저장·불러오기를 완료한 뒤 프로젝트를 전환하세요.',true));
+    return true;
+  };
+  window.mindleBeginEdit=kind=>{pending[kind]++;};
+  window.mindleEndEdit=kind=>{pending[kind]=Math.max(0,pending[kind]-1);};
+  window.mindleEditPending=kind=>pending[kind]>0 || saving || restoring || exporting;
+  window.mindleInputFor = kind => state[kind];
+  const readFile = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("파일을 읽을 수 없습니다."));
+    reader.onload = () => resolve(String(reader.result).split(",", 2)[1]);
+    reader.readAsDataURL(file);
+  });
+  const operationFor = (kind, file, command) => {
+    if (file.type.startsWith("audio/")) return { lane: "korean_audio", operation: "transcribe" };
+    if (kind === "video" && /자막|STT|받아쓰기/.test(command)) return {lane:"korean_audio",operation:"transcribe"};
+    if (kind === "video") return { lane: "video", operation: "tracking" };
+    return { lane: "photo", operation: /업스케일|고화질|해상도|4x|4배|upscale/i.test(command) ? "upscale" : "segment" };
+  };
+  const message = (editor, text, error = false) => {
+    const node = editor.querySelector("[data-command-error]");
+    node.textContent = text; node.dataset.result = error ? "error" : "ok";
+    node.style.display = text ? "block" : "none";
+  };
+  const rememberResult = async result => {
+    if(result.lane!=='photo' && result.lane!=='video') return;
+    const response=await fetch(result.preview_url);
+    if(!response.ok) throw new Error('편집 결과 파일을 읽을 수 없습니다.');
+    const blob=await response.blob();state[result.lane]=new File([blob],result.primary_output.file_name||result.primary_output.path.split(/[\\/]/).pop(),{type:blob.type});
+    state[result.lane].mindleAudio=result.runtime_result.options||{};
+  };
+  const preview = (editor, result) => {
+    if(result.operation==="transcribe") result={...result,lane:"korean_audio"};
+    const host = editor.querySelector("[data-preview]"); host.replaceChildren();
+    const output = result.preview_output || result.primary_output;
+    let element;
+    if (result.lane === "photo") { element = document.createElement("img"); element.alt = result.operation === "photo_edit" ? "보정 결과" : result.operation === "import" ? "원본 사진" : "AI 편집 결과"; element.src = result.preview_url; }
+    else if (result.lane === "video") { element = document.createElement("video"); element.controls = false; element.src = result.preview_url; }
+    else { element = document.createElement("pre"); element.textContent = result.runtime_result.text; }
+    element.dataset.jobId = result.job_id; element.dataset.outputSha256 = output.sha256; host.append(element);
+    if(result.lane==='video') {
+      const clock=seconds=>new Date(Math.max(0,seconds||0)*1000).toISOString().slice(11,19);
+      element.addEventListener('error',()=>{ if(!host.contains(element)) return;host.dataset.previewStatus='media-error'; message(editor, '영상 미리보기를 재생할 수 없습니다 · MediaError '+(element.error?.code || 0), true); });
+      element.addEventListener('loadedmetadata',()=>{
+        if(!host.contains(element)) return;
+        editor.querySelector('[data-video-duration]').textContent='/ '+clock(element.duration);
+        editor.querySelector('.timeline-ruler').textContent=Array.from({length:6},(_,i)=>clock(element.duration*i/5)).join('　');
+      });
+      element.addEventListener('timeupdate',()=>{
+        if(!host.contains(element)) return;
+        editor.querySelector('[data-video-time]').textContent=clock(element.currentTime);
+        editor.querySelector('[data-video-seek]').value=element.duration?element.currentTime/element.duration*100:0;
+      });
+      const options=result.runtime_result.options||{};
+      editor.querySelector('.track.purple').textContent='Subtitle Track · '+(options.subtitle||'자막 없음');
+      editor.querySelector('.track.cyan').textContent='Effect Track · '+(options.effect?'영상 효과':options.fade?'장면 전환':'효과 없음');
+      editor.querySelector('.track.green').textContent='Audio Track · '+(options.backgroundVolume!=null?'추가한 배경음악':'원본 오디오');
+    }
+    host.dataset.operation = result.operation; host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
+    if (result.lane === "video") { const track = editor.querySelector(".track.film"); if (track) track.textContent = result.operation === "tracking" ? (result.runtime_result.tracking_mode==='continuous_video_memory'?`영상 Track · 전체 ${result.runtime_result.tracked_frames}프레임 연속 추적`:`영상 Track · SAM tracking · ${result.runtime_result.sampled_frames} samples`) : "영상 Track · "+(result.operation === "import" ? "원본 영상" : "편집 결과"); }
+  };
+  async function executeShortform(editor, detail) {
+    try {
+      message(editor, "Marketing AI에 광고 기획을 요청 중입니다.");
+      const response = await fetch("/api/integrations/marketing/shortform", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ command: detail.command, entrypoint: "media_ai", project_id: state.projectId })
+      });
+      const result = await response.json();
+      if (!response.ok || result.status !== "bridge_contract_ready") throw new Error(result.error || "광고 제작지시 수신 실패");
+      state.shortformContract = result.contract;
+      const timeline = editor.querySelector("[data-timeline]");
+      timeline.replaceChildren(...result.contract.scenes.map((scene) => {
+        const item = document.createElement("span");
+        item.dataset.sceneId = scene.id;
+        item.dataset.startSec = String(scene.start_sec);
+        item.dataset.endSec = String(scene.end_sec);
+        item.textContent = `${scene.start_sec}–${scene.end_sec}초 · ${scene.subtitle}`;
+        return item;
+      }));
+      editor.dataset.shortformStatus = "contract-ready";
+      editor.dataset.aspectRatio = result.contract.aspect_ratio;
+      message(editor, `광고 제작지시 준비 완료 · ${result.contract.duration}초 · Preview 전 검수 필요`);
+    } catch (error) { message(editor, error.message, true); }
+  }
+  async function execute(editor, kind, detail) {
+    if (executing.has(kind) || window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);return;}
+    executing.add(kind);
+    try {await executeReady(editor,kind,detail);} finally {executing.delete(kind);}
+  }
+  async function executeReady(editor, kind, detail) {
+    if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
+    const file = kind==='video' && /자막|STT|받아쓰기/.test(detail.command) && state.audio ? state.audio : state[kind];
+    if (!file) { message(editor, "먼저 실제 원본 파일을 불러오세요.", true); return; }
+    try {
+      const command = detail.command;
+      if (kind === "video" && window.mindleVideoCommand && await window.mindleVideoCommand(command)) return;
+      if (kind === "photo" && window.mindlePhotoCommand && await window.mindlePhotoCommand(command)) return;
+      if(kind==='photo' && /배경/.test(command)) {
+        const host=editor.querySelector('[data-preview]');
+        if(host.dataset.operation==='segment' && host.dataset.jobId) {
+          const response=await fetch('/api/jobs/'+encodeURIComponent(host.dataset.jobId)+'/background',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+          const result=await response.json();if(!response.ok) throw new Error(result.error||'배경 제거 실패');
+          await window.mindleAcceptResult(result);message(editor,'배경 제거 완료 · 원본 비율과 투명 배경을 보존했습니다.');return;
+        }
+      }
+      if (kind === 'video' && !file.type.startsWith('audio/') && !/추적|tracking|자막|STT|받아쓰기/i.test(command)) {
+        throw new Error('지원하는 영상 지시: 추적·자막·밝게·속도·자르기·전환·효과·숏폼');
+      }
+      message(editor, "AI 편집을 실행하고 있습니다.");
+      const choice = operationFor(kind, file, command);
+      const body = { ...choice, request_id:crypto.randomUUID(), command, filename: file.name, content_base64: await readFile(file), project_id: state.projectId };
+      body.references=await Promise.all((detail.references||[]).filter(ref=>ref.file).map(async ref=>({filename:ref.name,content_base64:await readFile(ref.file)})));
+      if (file.datasetReference) body.reference = file.datasetReference;
+      const monitor=setInterval(async()=>{
+        try {const r=await fetch('/api/tasks/'+encodeURIComponent(body.request_id));if(r.ok) {const task=await r.json();if(task.status==='RUNNING') message(editor,'AI 처리 중 · '+task.operation+' · '+task.state);}} catch(_) {}
+      },1000);
+      let response;
+      try {response=await fetch('/api/jobs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});} finally {clearInterval(monitor);}
+      const result = await response.json(); if (!response.ok || result.status !== "TESTED_PASS") throw new Error(result.error || "실제 모델 Job 실패");
+      if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
+      if(result.lane==='korean_audio' && editor.querySelector('[data-preview] video')) {
+        editor.querySelector('.track.purple').textContent='Subtitle Track · '+result.runtime_result.text;
+        message(editor,result.runtime_result.text);
+        if(/자막/.test(command) && window.mindleApplyVideoSubtitle) await window.mindleApplyVideoSubtitle(result.runtime_result.text,result.runtime_result.segments||[]);
+        return;
+      } else {preview(editor, result);await rememberResult(result);}
+      message(editor, "편집 완료");
+    } catch (error) { message(editor, error.message, true); }
+  }
+  async function save(editor) {
+    if(projectBusy()) {message(editor,'진행 중인 편집·저장·불러오기를 완료한 뒤 저장하세요.',true);return false;}
+    saving=true;
+    try {
+      const serialize = async file => ({filename:file.name,mime_type:file.type,content_base64:await readFile(file)});
+      const workspace = {references:{},audio:null};
+      for(const kind of ['photo','video']) workspace.references[kind]=await Promise.all((window.mindleReferenceFiles?.(kind)||[]).map(serialize));
+      const audio=state.audio;
+      if(audio) workspace.audio=await serialize(audio);
+      const response = await fetch("/api/projects/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ project_id: state.projectId, job_ids: state.jobs, workspace }) });
+      const result = await response.json(); if (!response.ok) throw new Error(result.error || "저장 실패");
+      state.projectId = result.project_id; editor.dataset.projectStatus = "saved"; message(editor, `프로젝트 저장 완료 · ${result.project_id}`);
+      return true;
+    } catch (error) { message(editor, error.message, true); return false; }
+    finally {saving=false;}
+  }
+  async function exportProject(editor) {
+    let ownsExport=false;
+    try {
+      if (!await save(editor) || !state.projectId) return;
+      exporting=true;ownsExport=true;
+      const response = await fetch(`/api/projects/${state.projectId}/export`, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+      const result = await response.json(); if (!response.ok) throw new Error(result.error || "내보내기 실패");
+      const link = document.createElement("a"); link.href = result.download_url; link.download = result.export.file_name; link.dataset.exportSha256 = result.export.sha256; document.body.append(link); link.click(); link.remove();
+      editor.dataset.exportStatus = "exported"; editor.dataset.exportSha256 = result.export.sha256; message(editor, `내보내기 완료 · ${result.export.file_name}`);
+    } catch (error) { message(editor, error.message, true); }
+    finally {if(ownsExport) exporting=false;}
+  }
+  window.mindleRefreshAssets = async () => {
+    const response=await fetch('/api/assets');if(!response.ok) throw new Error('실제 원본 목록을 읽을 수 없습니다.');
+    const {assets}=await response.json();
+    for(const kind of ['video','photo']) {
+      const grid=document.querySelector(`[data-editor="${kind}"] .asset-grid`);grid.replaceChildren();
+      for(const asset of assets.filter(item=>item.lane===kind)) {
+        const name=asset.original_filename||asset.input.file_name.replace(/^[0-9a-f-]{36}_/i,'');
+        const tile=document.createElement('span');tile.textContent=name;tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',name+' 불러오기');
+        if(kind==='photo') tile.style.backgroundImage=`url("${asset.preview_url}")`;
+        const open=async()=>{
+          if(projectBusy()) return;
+          window.mindleBeginEdit(kind);
+          try {await window.mindleAcceptResult(asset);} catch(error) {message(document.querySelector(`[data-editor="${kind}"]`),error.message,true);}
+          finally {window.mindleEndEdit(kind);}
+        };
+        tile.addEventListener('click',open);tile.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' ') {event.preventDefault();open();}});grid.append(tile);
+      }
+    }
+  };
+  window.mindleAcceptResult = async result => {
+    state.jobs=state.jobs.filter(id=>id!==result.job_id);state.jobs.push(result.job_id);
+    await rememberResult(result);
+    preview(document.querySelector(`[data-editor="${result.lane}"]`),result);
+    await window.mindleRefreshAssets();
+  };
+  document.addEventListener('mindle:video-result', async (event) => { await window.mindleAcceptResult(event.detail); });
+  document.addEventListener('mindle:photo-result', async (event) => {
+    const result = event.detail; if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
+    preview(document.querySelector('[data-editor="photo"]'), result);await rememberResult(result);
+  });
+  ["video", "photo"].forEach((kind) => {
+    const editor = document.querySelector(`[data-editor="${kind}"]`); if (!editor) return;
+    const input = editor.querySelector("[data-primary-input]");
+    editor.querySelector("[data-action='load']").addEventListener("click", () => input.click());
+    input.addEventListener("change", async () => {
+      const original = state[kind];
+      const selected = input.files[0];
+      if (!selected) return;
+      if(window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);input.value='';return;}
+      if (kind==='photo' && !selected.type.startsWith('image/') || kind==='video' && !/^(video|audio)\//.test(selected.type)) {message(editor,'지원하지 않는 입력 파일입니다.',true);input.value='';return;}
+      if(kind==='video' && selected.type.startsWith('audio/')) {state.audio=selected;message(editor,'음성 입력 준비 · '+selected.name);input.value='';return;}
+      if(kind==='video') state.audio=null;
+      state[kind] = selected;
+      message(editor, `입력 준비 · ${state[kind].name}`);
+      if (state[kind].type.startsWith('audio/')) {input.value='';return;}
+      window.mindleBeginEdit(kind);
+      try {
+        message(editor,'원본을 불러오고 있습니다.');
+        const response=await fetch('/api/media/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,filename:state[kind].name,content_base64:await readFile(state[kind])})});
+        const result=await response.json();if(!response.ok) throw new Error(result.error||'원본 불러오기 실패');
+        await window.mindleAcceptResult(result);message(editor,'원본 불러오기 완료');
+      } catch(error) {state[kind]=original;input.value='';message(editor,error.message,true);}
+      finally {input.value='';window.mindleEndEdit(kind);}
+
+    });
+    editor.addEventListener("mindle:mode", (event) => { state.videoMode = event.detail.mode; message(editor, state.videoMode === "ad_shortform" ? "광고 숏폼 모드 · 자연어로 제품·대상·길이를 지시하세요." : "일반 영상 편집 모드"); });
+    editor.querySelector("[data-action='ai-auto-edit']")?.addEventListener("click", () => execute(editor, kind, {command:"자동 편집"}));
+    editor.addEventListener("mindle:command", (event) => execute(editor, kind, event.detail));
+    editor.addEventListener("mindle:save", () => save(editor));
+    editor.addEventListener("mindle:export", () => exportProject(editor));
+  });
+  document.querySelectorAll('.asset-grid').forEach(grid=>grid.replaceChildren());
+  async function restoreSavedProject(url='/api/projects/latest') {
+    if(projectChangeBlocked()) return false;
+    restoring=true;
+    window.mindleRestoreReady=false;
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || '저장된 프로젝트를 불러올 수 없습니다.');
+      if (!result.project) return false;
+      state.projectId = result.project.project_id;
+      state.jobs = result.project.job_ids;
+      state.photo=state.video=state.audio=null;
+      document.querySelectorAll('[data-preview]').forEach(host=>host.replaceChildren());
+      for (const storedJob of result.project.jobs) {
+        const job=storedJob.operation==="transcribe"?{...storedJob,lane:"korean_audio"}:storedJob;
+        // A saved transcript must not replace an available VIDEO result preview.
+        if (job.lane === 'korean_audio' && result.project.jobs.some((item) => item.lane === 'video' && item.operation!=='transcribe')) continue;
+        const kind = job.lane === 'photo' ? 'photo' : 'video';
+        const editor = document.querySelector(`[data-editor="${kind}"]`);
+        if (editor) {
+          preview(editor, job);
+          if(job.preview_url && job.lane!=='korean_audio') {
+            const inputResponse=await fetch(job.preview_url);
+            if(inputResponse.ok) {const blob=await inputResponse.blob();state[kind]=new File([blob],job.input.file_name||job.input.path.split(/[\\/]/).pop(),{type:blob.type});state[kind].mindleAudio=job.runtime_result.options||{};}
+          }
+          editor.dataset.projectStatus = 'reopened';
+          message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);
+        }
+      }
+      const workspace=result.project.workspace;
+      for(const kind of ['photo','video']) {
+        const referenceJob=[...result.project.jobs].reverse().find(job=>job.lane===kind&&job.reference_urls?.length);
+        const references=workspace ? workspace.references?.[kind]||[] : referenceJob?.reference_urls||[];
+        const files=[];for(const reference of references) {const r=await fetch(reference.url);if(!r.ok) throw new Error('저장된 참고 이미지를 읽을 수 없습니다.');const blob=await r.blob();files.push(new File([blob],reference.original_filename||reference.name,{type:reference.mime_type||blob.type}));}
+        document.querySelector(`[data-editor="${kind}"]`).dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files}}));
+      }
+      if(workspace?.audio) {
+        const r=await fetch(workspace.audio.url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');
+        const blob=await r.blob();state.audio=new File([blob],workspace.audio.original_filename,{type:workspace.audio.mime_type||blob.type});
+      }
+      const transcript = [...result.project.jobs].reverse().find((job) => job.lane === 'korean_audio' || job.operation==='transcribe');
+      if (transcript) {
+        if(!workspace && transcript.input_url) {const r=await fetch(transcript.input_url);if(!r.ok) throw new Error('저장된 음성을 읽을 수 없습니다.');const blob=await r.blob();state.audio=new File([blob],transcript.input.file_name||'saved_audio.wav',{type:'audio/wav'});}
+        const editor = document.querySelector('[data-editor="video"]');
+        if (editor) {
+          editor.querySelector('.track.purple').textContent='Subtitle Track · '+transcript.runtime_result.text;
+          message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId} · 한국어 자막: ${transcript.runtime_result.text}`);
+        }
+      }
+      return true;
+    } catch (error) {
+      const editor = document.querySelector('[data-editor="video"]');
+      if (editor) message(editor, error.message, true);
+      return false;
+    } finally {try {await window.mindleRefreshAssets();} catch(error) {message(document.querySelector('[data-editor="video"]'),error.message,true);}restoring=false;window.mindleRestoreReady=true;}
+  }
+  window.mindleOpenProject = projectId => restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));
+  window.mindleNewProject = () => {
+    if(projectChangeBlocked()) return false;
+    state.projectId=null;state.jobs=[];state.photo=state.video=state.audio=null;
+    document.querySelectorAll('[data-preview]').forEach(host=>{host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;});
+    const video=document.querySelector('[data-editor="video"]');
+    video.querySelector('.track.purple').textContent='Subtitle Track · 자막 없음';
+    video.querySelector('[data-video-time]').textContent='00:00:00';
+    video.querySelector('[data-video-duration]').textContent='/ 00:00:00';
+    document.querySelectorAll('[data-editor]').forEach(editor=>{
+      editor.dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:[]}}));
+      message(editor,'새 프로젝트 · 원본을 불러오세요.');
+    });
+    return true;
+  };
+  restoreSavedProject();
+})();

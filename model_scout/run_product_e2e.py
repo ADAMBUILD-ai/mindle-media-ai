@@ -68,15 +68,23 @@ def inputs() -> dict:
     return {"photo": record(photo) | {"license": "CC BY-SA 4.0"}, "video": record(video) | {"source_revision": "9c5eefa1ef66cbeecc9a3d38e1c5308c22ebe830", "license": "CC BY 3.0"}, "audio": record(audio) | {"source_revision": FLEURS_REVISION, "license": "CC-BY-4.0", "reference": row["transcription"]}}
 
 
-def wait_preview(driver, editor, expected: str, previous_job_id: str | None = None):
-    host = editor.find_element(By.CSS_SELECTOR, "[data-preview]")
-    WebDriverWait(driver, 300).until(
-        lambda _: host.get_attribute("data-preview-status") == "actual-output"
-        and host.get_attribute("data-job-id") != previous_job_id
-    )
-    element = host.find_element(By.CSS_SELECTOR, ":scope > *")
-    if element.tag_name != expected: raise RuntimeError(f"preview type mismatch: expected {expected}, got {element.tag_name}")
-    return {"tag": element.tag_name, "job_id": element.get_attribute("data-job-id"), "output_sha256": element.get_attribute("data-output-sha256"), "text": element.text}
+def wait_preview(driver, editor, expected: str, previous_job_id: str | None = None, expected_operation: str | None = None):
+    def completed(_):
+        error = editor.find_element(By.CSS_SELECTOR, "[data-command-error]")
+        if error.get_attribute("data-result") == "error":
+            raise RuntimeError(f"product job failed: {error.text}")
+        host = editor.find_element(By.CSS_SELECTOR, "[data-preview]")
+        if host.get_attribute("data-preview-status") != "actual-output": return False
+        job_id = host.get_attribute("data-job-id")
+        if not job_id or job_id == previous_job_id: return False
+        if expected_operation and host.get_attribute("data-operation") != expected_operation: return False
+        element = host.find_element(By.CSS_SELECTOR, ":scope > *")
+        if element.tag_name != expected: return False
+        if expected == "img" and not driver.execute_script("return arguments[0].complete && arguments[0].naturalWidth > 0", element): return False
+        if expected == "video" and not driver.execute_script("return arguments[0].readyState >= 2 && arguments[0].videoWidth > 0", element): return False
+        if element.get_attribute("data-job-id") != job_id: return False
+        return {"tag": element.tag_name, "job_id": job_id, "operation": host.get_attribute("data-operation"), "output_sha256": element.get_attribute("data-output-sha256"), "text": element.text}
+    return WebDriverWait(driver, 300).until(completed)
 
 
 def browser_e2e(base_url: str, values: dict) -> dict:
@@ -87,21 +95,44 @@ def browser_e2e(base_url: str, values: dict) -> dict:
         driver.set_window_size(1600, 1100); driver.get(base_url)
         photo = driver.find_element(By.CSS_SELECTOR, '[data-editor="photo"]'); video = driver.find_element(By.CSS_SELECTOR, '[data-editor="video"]')
         photo.find_element(By.CSS_SELECTOR, '[data-primary-input="photo"]').send_keys(values["photo"]["path"])
+        wait_preview(driver, photo, "img", expected_operation="import")
         pc = photo.find_element(By.CSS_SELECTOR, '[data-command="photo"]'); pc.send_keys("왼쪽 인물을 실제로 분할해줘", Keys.ENTER)
-        photo_segment = wait_preview(driver, photo, "img")
+        photo_segment = wait_preview(driver, photo, "img", expected_operation="segment")
         pc.send_keys("사진을 실제 4배 업스케일해줘", Keys.ENTER)
-        photo_upscale = wait_preview(driver, photo, "img", photo_segment["job_id"])
+        photo_upscale = wait_preview(driver, photo, "img", photo_segment["job_id"], "upscale")
         video.find_element(By.CSS_SELECTOR, '[data-primary-input="video"]').send_keys(values["video"]["path"])
+        wait_preview(driver, video, "video", expected_operation="import")
         vc = video.find_element(By.CSS_SELECTOR, '[data-command="video"]'); vc.send_keys("대상을 실제 추적해줘", Keys.ENTER)
-        video_tracking = wait_preview(driver, video, "video")
+        video_tracking = wait_preview(driver, video, "video", expected_operation="tracking")
         video.find_element(By.CSS_SELECTOR, '[data-primary-input="video"]').send_keys(values["audio"]["path"])
         vc.send_keys("한국어 음성을 실제 텍스트로 변환해줘", Keys.ENTER)
-        whisper = wait_preview(driver, video, "pre", video_tracking["job_id"])
-        if not whisper["text"].strip(): raise RuntimeError("empty transcript displayed in UI")
+        def transcript_ready(_):
+            error = video.find_element(By.CSS_SELECTOR, "[data-command-error]")
+            if error.get_attribute("data-result") == "error": raise RuntimeError(error.text)
+            response = requests.get(base_url + "/api/evidence", timeout=30)
+            response.raise_for_status()
+            jobs = response.json()["jobs"].values()
+            result = next((job for job in jobs if job.get("operation") == "transcribe" and job.get("status") == "TESTED_PASS"), None)
+            if not result or not result["runtime_result"]["text"].strip(): return False
+            text = result["runtime_result"]["text"]
+            if text not in error.text: return False
+            return {"job_id": result["job_id"], "text": text, "output_sha256": result["primary_output"]["sha256"], "video_preserved": bool(video.find_elements(By.CSS_SELECTOR, "[data-preview] video"))}
+        whisper = WebDriverWait(driver, 300).until(transcript_ready)
+        if not whisper["text"].strip() or not whisper["video_preserved"]: raise RuntimeError("transcript missing or approved video preview lost")
         photo.find_element(By.CSS_SELECTOR, '[data-action="save"]').click(); WebDriverWait(driver, 30).until(lambda _: photo.get_attribute("data-project-status") == "saved")
         photo.find_element(By.CSS_SELECTOR, '[data-action="export"]').click(); WebDriverWait(driver, 30).until(lambda _: photo.get_attribute("data-export-status") == "exported")
         driver.save_screenshot(str(LOGS / "approved_ui_e2e.png"))
         return {"photo_segment_preview": photo_segment, "photo_upscale_preview": photo_upscale, "video_tracking_preview": video_tracking, "whisper_preview": whisper, "project_status": photo.get_attribute("data-project-status"), "export_status": photo.get_attribute("data-export-status"), "export_sha256": photo.get_attribute("data-export-sha256"), "screenshot": record(LOGS / "approved_ui_e2e.png")}
+    except Exception:
+        driver.save_screenshot(str(LOGS / "failed_ui_e2e.png"))
+        (LOGS / "failed_ui_dom.html").write_text(driver.page_source, encoding="utf-8")
+        try:
+            response = requests.get(base_url + "/api/evidence", timeout=30)
+            response.raise_for_status()
+            (LOGS / "failed_api_evidence.json").write_text(json.dumps(response.json(), ensure_ascii=False, indent=2), encoding="utf-8")
+        except requests.RequestException as diagnostic_error:
+            (LOGS / "diagnostic_error.txt").write_text(str(diagnostic_error), encoding="utf-8")
+        raise
     finally:
         driver.quit()
 
@@ -131,10 +162,10 @@ def main() -> None:
         response = requests.get(f"http://127.0.0.1:{server.server_port}/api/evidence", timeout=30); response.raise_for_status(); api_evidence = response.json()
     finally:
         server.shutdown(); thread.join(timeout=30); server.server_close()
-    models = {item["operation"]: item for item in api_evidence["jobs"].values()}
+    models = {item["operation"]: item for item in api_evidence["jobs"].values() if item["operation"] in {"segment", "upscale", "tracking", "transcribe"}}
     required = {"segment", "upscale", "tracking", "transcribe"}
     if set(models) != required or any(item["status"] != "TESTED_PASS" for item in models.values()): raise RuntimeError("not every real product job reached TESTED_PASS")
-    evidence = {"schema_version": "1.0", "captured_at": now(), "status": "FINAL_PASS", "scope": "APPROVED_UI_REAL_BACKEND_CPU_E2E", "UI_SSOT_CHANGED": "NO", "production_changed": False, "github": {"repository": os.environ.get("GITHUB_REPOSITORY"), "source_commit": os.environ.get("GITHUB_SHA"), "run_id": os.environ.get("GITHUB_RUN_ID"), "pull_request": 10}, "execution_environment": {"provider": "GitHub Actions public standard hosted runner", "hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version()}, "immutable_baseline": baseline, "actual_inputs": fixture, "backend_jobs": models, "ui_preview": ui, "save_export": {"project_status": ui["project_status"], "export_status": ui["export_status"], "export_sha256": ui["export_sha256"]}, "server_requests": api_evidence["requests"]}
+    evidence = {"schema_version": "1.0", "captured_at": now(), "status": "FINAL_PASS", "scope": "APPROVED_UI_REAL_BACKEND_CPU_E2E", "UI_SSOT_CHANGED": "NO", "production_changed": False, "github": {"repository": os.environ.get("GITHUB_REPOSITORY"), "source_commit": os.environ.get("GITHUB_SHA"), "run_id": os.environ.get("GITHUB_RUN_ID"), "pull_request": json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text()).get("number") if os.environ.get("GITHUB_EVENT_PATH") else None}, "execution_environment": {"provider": "GitHub Actions public standard hosted runner", "hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version()}, "immutable_baseline": baseline, "actual_inputs": fixture, "backend_jobs": models, "ui_preview": ui, "save_export": {"project_status": ui["project_status"], "export_status": ui["export_status"], "export_sha256": ui["export_sha256"]}, "server_requests": api_evidence["requests"]}
     path = WORK / "PRODUCT_E2E_EVIDENCE.json"; path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     evidence["persistence"] = preserve_private(token, path)
     path.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -143,3 +174,4 @@ def main() -> None:
 
 
 if __name__ == "__main__": main()
+

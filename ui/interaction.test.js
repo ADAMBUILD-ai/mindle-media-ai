@@ -1,5 +1,5 @@
 const assert = require("node:assert/strict");
-const { CommandPanelState, EditorActionState, AdapterFeatureState, MAX_REFERENCES } = require("./interaction.js");
+const { CommandPanelState, ShortformModeState, EditorActionState, AdapterFeatureState, MAX_REFERENCES } = require("./interaction.js");
 
 const command = new CommandPanelState("video");
 command.focus();
@@ -37,3 +37,10 @@ const upscale = new AdapterFeatureState("high resolution", "OpenCV Lanczos4");
 assert.deepEqual(upscale.requestExecution(), { capability: "high resolution", executed: false, fallback_used: "OpenCV Lanczos4", status: "VERIFY_REQUIRED" });
 assert.equal(upscale.adapterEnabled, false);
 assert.deepEqual(upscale.fail("timeout", "timeout"), { capability: "high resolution", executed: false, error: "timeout", fallback_used: "OpenCV Lanczos4", status: "VERIFY_REQUIRED" });
+
+
+const shortform = new ShortformModeState();
+assert.equal(shortform.mode, "general");
+assert.equal(shortform.toggle(), "ad_shortform");
+assert.equal(shortform.isShortform(), true);
+assert.equal(shortform.toggle(), "general");

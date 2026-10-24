@@ -1,0 +1,166 @@
+{
+  "status": "TESTED_PASS",
+  "job_id": "bac1b3c4-bf22-413e-a445-e330c12fb64a",
+  "evidence_id": "f2b5f36f-1078-4512-869e-2dadd3a34306",
+  "lane": "korean_audio",
+  "operation": "transcribe",
+  "command": "한국어 음성을 텍스트로 변환해줘",
+  "state_history": [
+    "queued",
+    "validating",
+    "preflight_ready",
+    "dispatched",
+    "running",
+    "output_validating",
+    "succeeded"
+  ],
+  "model": {
+    "identity": {
+      "repo_id": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "license": "mit",
+      "weight_name": "model.safetensors",
+      "weight_size_bytes": 966995080,
+      "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+    },
+    "local_recovered_package": {
+      "root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package\\models\\whisper-small",
+      "read_only": true
+    }
+  },
+  "adapter": {
+    "id": "mindle.whisper.ko.verified.cpu",
+    "version": "1.0.0",
+    "runtime_backend": "transformers-pytorch",
+    "device_requirement": "cpu"
+  },
+  "input": {
+    "file_name": "38c46b9d-dd4e-4f87-aa96-bde1f88ad1d1_fleurs_ko_kr_test_row0.wav",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\38c46b9d-dd4e-4f87-aa96-bde1f88ad1d1_fleurs_ko_kr_test_row0.wav",
+    "bytes": 798778,
+    "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+  },
+  "runtime_result": {
+    "status": "TESTED_PASS",
+    "input_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\38c46b9d-dd4e-4f87-aa96-bde1f88ad1d1_fleurs_ko_kr_test_row0.wav",
+    "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+    "sample_rate": 16000,
+    "duration_seconds": 12.48,
+    "reference": null,
+    "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+    "word_error_rate": null,
+    "elapsed_ms": 38749.09,
+    "outputs": [
+      {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\e90c6285-d01c-42a8-a3a3-7b90bd22b1bd\\whisper\\korean_transcript.json",
+        "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+        "bytes": 260
+      }
+    ]
+  },
+  "primary_output": {
+    "file_name": "korean_transcript.json",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\e90c6285-d01c-42a8-a3a3-7b90bd22b1bd\\whisper\\korean_transcript.json",
+    "bytes": 260,
+    "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+  },
+  "outputs": [
+    {
+      "file_name": "korean_transcript.json",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\e90c6285-d01c-42a8-a3a3-7b90bd22b1bd\\whisper\\korean_transcript.json",
+      "bytes": 260,
+      "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+    }
+  ],
+  "backend": {
+    "api_status": 201,
+    "delivery_gate": "DELIVERED",
+    "job_evidence": {
+      "job_id": "bac1b3c4-bf22-413e-a445-e330c12fb64a",
+      "evidence_id": "f2b5f36f-1078-4512-869e-2dadd3a34306",
+      "evidence_status": "VERIFY_REQUIRED",
+      "runtime_status": "OUTPUT_VALIDATED",
+      "terminal_state": "succeeded",
+      "recorded_at": "2026-10-01T04:05:47.565101+00:00",
+      "started_at": "2026-10-01T04:05:47.565101+00:00",
+      "finished_at": "2026-10-01T04:05:47.565101+00:00",
+      "project_id": null,
+      "requested_operation": "transcribe",
+      "source_provenance": {
+        "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\38c46b9d-dd4e-4f87-aa96-bde1f88ad1d1_fleurs_ko_kr_test_row0.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+        "ingress": "approved-ui"
+      },
+      "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+      "reference_files": [],
+      "retry_provenance": {
+        "job_id": "bac1b3c4-bf22-413e-a445-e330c12fb64a",
+        "evidence_id": "f2b5f36f-1078-4512-869e-2dadd3a34306",
+        "attempt": 1
+      },
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "runtime": {
+        "platform": "Windows-10-10.0.19045-SP0",
+        "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+      },
+      "adapter_id": "mindle.whisper.ko.verified.cpu",
+      "model_or_program_id": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "license_source": "mit",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu",
+      "execution_context": {
+        "job_id": "bac1b3c4-bf22-413e-a445-e330c12fb64a",
+        "evidence_id": "f2b5f36f-1078-4512-869e-2dadd3a34306",
+        "lane": "korean_audio",
+        "source_hashes": {
+          "source": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+        },
+        "nl_instruction": "한국어 음성을 텍스트로 변환해줘",
+        "reference_images": [],
+        "retry_provenance": {
+          "job_id": "bac1b3c4-bf22-413e-a445-e330c12fb64a",
+          "evidence_id": "f2b5f36f-1078-4512-869e-2dadd3a34306",
+          "attempt": 0
+        },
+        "adapter_identity": {
+          "adapter_id": "mindle.whisper.ko.verified.cpu",
+          "model_or_program_id": "openai/whisper-small",
+          "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+        }
+      },
+      "output_artifact": {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\e90c6285-d01c-42a8-a3a3-7b90bd22b1bd\\whisper\\korean_transcript.json",
+        "type": ".json",
+        "size_bytes": 260,
+        "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+        "status": "validated"
+      },
+      "model_scout_delivery": {
+        "status": "DELIVERED",
+        "callback_id": "callback-35b89ffd-51de-46df-934c-b2fa319671b9",
+        "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+        "output_sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+        "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\e90c6285-d01c-42a8-a3a3-7b90bd22b1bd\\whisper\\korean_transcript.json",
+        "elapsed_ms": 38749.09
+      }
+    }
+  },
+  "execution_environment": {
+    "hardware": "CPU",
+    "gpu_used": false,
+    "paid_compute": false,
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.11.9",
+    "process": "3.11.9"
+  }
+}

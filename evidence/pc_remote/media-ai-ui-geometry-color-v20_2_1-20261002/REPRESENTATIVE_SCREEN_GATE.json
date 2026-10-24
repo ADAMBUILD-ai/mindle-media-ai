@@ -1,0 +1,6 @@
+{
+  "status": "WAITING_FOR_EXPLICIT_UI_OK",
+  "instruction": "Do not start icon phase until representative accepts the corrected UI.",
+  "icon_phase": false
+}
+

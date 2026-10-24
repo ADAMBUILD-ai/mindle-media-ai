@@ -1,0 +1,87 @@
+{
+  "status": "PASS_SPLIT_BOTH_CLIPS_AND_HIGHLIGHT_DECODED",
+  "results": [
+    {
+      "status": "TESTED_PASS",
+      "job_id": "d0304c89-ab31-459a-80c7-f6ab1a7f5347",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "split/highlight verification",
+      "input": {
+        "file_name": "cee8634a-d832-4217-92ef-59aec2271091_video_16x9.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\cee8634a-d832-4217-92ef-59aec2271091_video_16x9.mp4",
+        "bytes": 287597,
+        "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+      },
+      "primary_output": {
+        "file_name": "split_1.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\d0304c89-ab31-459a-80c7-f6ab1a7f5347\\split_1.mp4",
+        "bytes": 131846,
+        "sha256": "965dcdb509e32cbe5062b54fd444664092af037a5b826178d7dd34c6686fba74"
+      },
+      "outputs": [
+        {
+          "file_name": "split_1.mp4",
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\d0304c89-ab31-459a-80c7-f6ab1a7f5347\\split_1.mp4",
+          "bytes": 131846,
+          "sha256": "965dcdb509e32cbe5062b54fd444664092af037a5b826178d7dd34c6686fba74"
+        },
+        {
+          "file_name": "split_2.mp4",
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\d0304c89-ab31-459a-80c7-f6ab1a7f5347\\split_2.mp4",
+          "bytes": 120760,
+          "sha256": "cb1cbe36569407564f18c856749b777e413f00a1e1ac233829f9c7f9f41b3984"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "split": true,
+          "start": 1
+        },
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/d0304c89-ab31-459a-80c7-f6ab1a7f5347/split_1.mp4"
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "b7799b36-8ff4-4b04-ab52-b5c9bd8f3ba3",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "split/highlight verification",
+      "input": {
+        "file_name": "c825b0b7-59f3-42cc-92ff-9f1818032021_video_16x9.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\c825b0b7-59f3-42cc-92ff-9f1818032021_video_16x9.mp4",
+        "bytes": 287597,
+        "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b7799b36-8ff4-4b04-ab52-b5c9bd8f3ba3\\edited_video.mp4",
+        "bytes": 242806,
+        "sha256": "76646857227ba34993ca142f54cb7b19ab4d2bd2fe2b84e43911544ea7fb5e06"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b7799b36-8ff4-4b04-ab52-b5c9bd8f3ba3\\edited_video.mp4",
+          "bytes": 242806,
+          "sha256": "76646857227ba34993ca142f54cb7b19ab4d2bd2fe2b84e43911544ea7fb5e06"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "highlight": true,
+          "start": 0,
+          "duration": 2.0,
+          "highlight_method": "frame_difference"
+        },
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/b7799b36-8ff4-4b04-ab52-b5c9bd8f3ba3/edited_video.mp4"
+    }
+  ]
+}

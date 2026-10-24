@@ -1,0 +1,2 @@
+PASS: tampered candidate ZIP SHA rejected
+PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: TEST R2 identity mismatch: candidate_zip_sha256

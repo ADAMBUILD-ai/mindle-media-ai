@@ -1,0 +1,101 @@
+name: MINDLE actual runtime recovery
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths:
+      - .github/workflows/runtime-recovery.yml
+      - .github/workflows/canonical-baseline.yml
+      - src/media_ai/**
+      - ui/**
+      - model_scout/run_runtime_recovery_browser.py
+      - model_scout/run_live_agent_engines.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src
+      HF_HUB_OFFLINE: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      MINDLE_DEFER_EXTERNAL_SHORTFORM: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-cjk
+      - name: Verify actual LGPL-compatible edit filters before browser regression
+        run: |
+          python - <<'PY'
+          import subprocess
+          output = subprocess.check_output(['ffmpeg','-hide_banner','-filters'],text=True,stderr=subprocess.STDOUT)
+          names = {parts[1] for line in output.splitlines() if len(parts:=line.split()) >= 2}
+          assert {'lutyuv','atadenoise'}.issubset(names), 'Required video correction or denoise filter unavailable'
+          print('ACTUAL_VIDEO_FILTER_PREFLIGHT_PASS')
+          PY
+      - run: python -m pip install '.[dev]' selenium==4.35.0
+      - name: Full regression
+        run: |
+          mkdir -p docs/evidence/media-ai-runtime-recovery-20261013
+          set -o pipefail
+          python scripts/validate_general_work_control_plane.py
+          python -m pytest -q 2>&1 | tee docs/evidence/media-ai-runtime-recovery-20261013/REGRESSION.log
+          node --test ui/interaction.test.js ui/ssot_structure.test.js
+          python -m compileall -q src model_scout/run_runtime_recovery_browser.py
+          python -m pip check
+      - name: Actual full editor feature regression and selected asset persistence
+        run: python model_scout/run_runtime_recovery_browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mindle-runtime-recovery-20261013
+          retention-days: 90
+          path: |
+            docs/evidence/media-ai-runtime-recovery-20261013/**
+            runtime_recovery_data/**
+  adopted-real-engines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      HF_TOKEN: ${{ secrets.MINDLE_MEDIA_HF_WRITE_TOKEN }}
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      HF_HUB_DISABLE_XET: '1'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      CUDA_VISIBLE_DEVICES: ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-cjk
+      - run: python -m pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: python -m pip install . transformers==4.57.3 openvino==2025.3.0 soundfile==0.13.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-product-e2e-full-pass-evidence
+          run-id: 37738880868
+          github-token: ${{ github.token }}
+          path: engine_fixtures
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-live-agent-engines-20261014
+          run-id: 38425586338
+          github-token: ${{ github.token }}
+          path: engine_resume
+      - name: Verify guarded engine dispatch and persisted reference-guided segmentation
+        run: python model_scout/run_live_agent_engines.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mindle-live-agent-engines-20261014
+          retention-days: 90
+          path: |
+            docs/evidence/media-ai-agent-engine-repair-20261014/**
+            live_agent_engine_data/jobs/**
+            live_agent_engine_data/projects/**
+            live_agent_engine_data/projects/**

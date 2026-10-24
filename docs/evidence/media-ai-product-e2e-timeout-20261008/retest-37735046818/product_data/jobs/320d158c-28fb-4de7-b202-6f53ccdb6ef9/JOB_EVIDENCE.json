@@ -1,0 +1,179 @@
+{
+  "status": "TESTED_PASS",
+  "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+  "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+  "lane": "photo",
+  "operation": "segment",
+  "command": "왼쪽 인물을 실제로 분할해줘",
+  "state_history": [
+    "queued",
+    "validating",
+    "preflight_ready",
+    "dispatched",
+    "running",
+    "output_validating",
+    "succeeded"
+  ],
+  "model": {
+    "identity": {
+      "repo_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license": "apache-2.0",
+      "weight_name": "model.safetensors",
+      "weight_size_bytes": 323476296,
+      "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+    },
+    "private_cache": {
+      "repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+      "revision": "ad63c52a4b9a3db7eaec9c5058c94ee1422757dd",
+      "path": "VERIFIED_MODEL_CACHE/sam21",
+      "read_only": true
+    }
+  },
+  "adapter": {
+    "id": "mindle.sam21.verified.cpu",
+    "version": "1.0.1",
+    "runtime_backend": "transformers-pytorch",
+    "device_requirement": "cpu"
+  },
+  "input": {
+    "file_name": "36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+    "bytes": 189281,
+    "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+  },
+  "runtime_result": {
+    "status": "TESTED_PASS",
+    "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+    "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+    "prompt_point": [
+      125,
+      146
+    ],
+    "selected_mask_index": 1,
+    "foreground_fraction": 0.016520061728395062,
+    "elapsed_ms": 4633.18,
+    "outputs": [
+      {
+        "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_mask.png",
+        "sha256": "8274d35d4ad0cd7dbcc0e8aa7c298cd46f55a772e53f5050e1cdb354cbe10379",
+        "bytes": 708
+      },
+      {
+        "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+        "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+        "bytes": 172645
+      }
+    ]
+  },
+  "primary_output": {
+    "file_name": "photo_overlay.png",
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+    "bytes": 172645,
+    "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f"
+  },
+  "outputs": [
+    {
+      "file_name": "photo_mask.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_mask.png",
+      "bytes": 708,
+      "sha256": "8274d35d4ad0cd7dbcc0e8aa7c298cd46f55a772e53f5050e1cdb354cbe10379"
+    },
+    {
+      "file_name": "photo_overlay.png",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+      "bytes": 172645,
+      "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f"
+    }
+  ],
+  "backend": {
+    "api_status": 201,
+    "delivery_gate": "DELIVERED",
+    "job_evidence": {
+      "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+      "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+      "evidence_status": "VERIFY_REQUIRED",
+      "runtime_status": "OUTPUT_VALIDATED",
+      "terminal_state": "succeeded",
+      "recorded_at": "2026-10-08T06:00:18.153165+00:00",
+      "started_at": "2026-10-08T06:00:18.152626+00:00",
+      "finished_at": "2026-10-08T06:00:18.153173+00:00",
+      "project_id": null,
+      "requested_operation": "segment",
+      "source_provenance": {
+        "source_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+        "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+        "ingress": "approved-ui"
+      },
+      "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+      "reference_files": [],
+      "retry_provenance": {
+        "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+        "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+        "attempt": 1
+      },
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "runtime": {
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "hardware": "x86_64"
+      },
+      "adapter_id": "mindle.sam21.verified.cpu",
+      "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license_source": "apache-2.0",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu",
+      "execution_context": {
+        "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+        "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+        "lane": "photo",
+        "source_hashes": {
+          "source": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+        },
+        "nl_instruction": "왼쪽 인물을 실제로 분할해줘",
+        "reference_images": [],
+        "retry_provenance": {
+          "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+          "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+          "attempt": 0
+        },
+        "adapter_identity": {
+          "adapter_id": "mindle.sam21.verified.cpu",
+          "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+        }
+      },
+      "output_artifact": {
+        "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+        "type": ".png",
+        "size_bytes": 172645,
+        "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+        "status": "validated"
+      },
+      "model_scout_delivery": {
+        "status": "DELIVERED",
+        "callback_id": "callback-ca5376bf-b8d2-4d44-8783-50f46182232c",
+        "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+        "output_sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+        "output_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+        "elapsed_ms": 4633.18
+      }
+    }
+  },
+  "execution_environment": {
+    "hardware": "CPU",
+    "gpu_used": false,
+    "paid_compute": false,
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "python": "3.11.16",
+    "process": "3.11.16"
+  }
+}

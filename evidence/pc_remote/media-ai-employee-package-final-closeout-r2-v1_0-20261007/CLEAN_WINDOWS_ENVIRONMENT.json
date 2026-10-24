@@ -1,0 +1,31 @@
+{
+  "status": "ISOLATED_INSTALLED_TEMPORARY_PROFILE_DEFAULT_HOST_PENDING",
+  "identity": {
+    "product": "MINDLE MEDIA AI",
+    "distribution": "EMPLOYEE_WIN_X64",
+    "package_version": "1.0",
+    "build_commit": "0371cb72ee00802b5b9bd17bd05c809858cba813",
+    "package_manifest_sha256": "74e9855398cf2340d9a4eff0125bd9a55c4ba8fadf4ddefa00acb2498aeea44c",
+    "ui_fingerprint": "aee47baa8996af1905b8a7609d260548a8bb2b22afd2c6cc564d49cdc5d408cf",
+    "model_manifest_hash": "a8340b0fc7a58863ef975f558365bbedc6d6402dfe37263de3b9a32fa718397b",
+    "install_root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+    "data_root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA",
+    "runtime_mode": "LOCAL_OFFLINE_PACKAGE"
+  },
+  "runtime_executable": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\python.exe",
+  "python_search_paths": [
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\Lib",
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs",
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python",
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages",
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\app\\src"
+  ],
+  "denied_paths": [
+    "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai",
+    "C:/Users/PC/.cache/huggingface",
+    "C:/Users/PC/AppData/Local/Programs/Python"
+  ],
+  "network": "Server Python audit hook denies non-loopback socket.connect",
+  "machine_msvc_dependency": "CONFIRMED_BY_DYNAMIC_MODULE_TRACE",
+  "full_clean_offline_windows_pass": false
+}

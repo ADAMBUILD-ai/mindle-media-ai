@@ -1,0 +1,35 @@
+{
+  "source_fix_commit": "84cf58014eafa2aabd5eed763881424ab3a70c1f",
+  "baseline_reproduction": {
+    "command": "node --test --test-name-pattern=new/open project|save response <baseline test>",
+    "result": "FAIL_2_REPRODUCED",
+    "baseline_commit": "0d6c2a664296050ff35294e5d0cf70cd7c948177",
+    "log": "PROJECT_TRANSITION_BASELINE.log"
+  },
+  "fixed_controller_regression": {
+    "passed": 5,
+    "failed": 0,
+    "log": "PROJECT_TRANSITION_FIXED.log",
+    "scope": "Production controller executed in Node VM; DOM/network fixtures, not real browser"
+  },
+  "all_node_tests": {
+    "passed": 10,
+    "failed": 0,
+    "command": "node --test ui/*.test.js"
+  },
+  "target_python_regression": {
+    "passed": 30,
+    "skipped": 1,
+    "failed": 0,
+    "command": "pytest -q tests/test_workspace_assets.py tests/test_export_project_dependencies.py tests/test_export_atomicity.py tests/test_agent_execution_order.py tests/test_launcher_lock_lifecycle.py tests/test_product_server_paths.py",
+    "scope": "Linux generated fixtures, no model inference; native Windows skip"
+  },
+  "syntax": "PASS_NODE_CHECK_BOTH_CHANGED_RUNTIME_FILES",
+  "control_plane_pc": "PASS",
+  "control_plane_general": "PASS",
+  "actual_new_source_browser": "BLOCKED_LOCAL_CHROMIUM_DOWNLOAD_RETURNED_INCOMPLETE_ARCHIVE; no screenshot fabricated",
+  "model_inference_calls": 0,
+  "new_windows_builds": 0,
+  "office_pc_pass": false,
+  "windows_player_hearing_pass": false
+}

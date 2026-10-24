@@ -1,0 +1,303 @@
+{
+  "status": "TESTED_PASS",
+  "job_id": "6b3976de-90eb-44d1-9c34-ff41e2e230e4",
+  "evidence_id": "2358a502-2740-42aa-9bf8-27506def8ea2",
+  "lane": "video",
+  "operation": "tracking",
+  "command": "영상의 중앙 대상을 추적해줘",
+  "state_history": [
+    "queued",
+    "validating",
+    "preflight_ready",
+    "dispatched",
+    "running",
+    "output_validating",
+    "succeeded"
+  ],
+  "model": {
+    "identity": {
+      "repo_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license": "apache-2.0",
+      "weight_name": "model.safetensors",
+      "weight_size_bytes": 323476296,
+      "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+    },
+    "local_recovered_package": {
+      "root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package\\models\\sam21",
+      "read_only": true
+    }
+  },
+  "adapter": {
+    "id": "mindle.sam21.verified.cpu",
+    "version": "1.0.1",
+    "runtime_backend": "transformers-pytorch",
+    "device_requirement": "cpu"
+  },
+  "input": {
+    "file_name": "5cd8b33d-1af9-445b-96e6-ca9782584638_big_buck_bunny.mp4",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\inputs\\5cd8b33d-1af9-445b-96e6-ca9782584638_big_buck_bunny.mp4",
+    "bytes": 315058,
+    "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+  },
+  "runtime_result": {
+    "status": "TESTED_PASS",
+    "input_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\inputs\\5cd8b33d-1af9-445b-96e6-ca9782584638_big_buck_bunny.mp4",
+    "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+    "track_id": 1,
+    "sampled_frames": 4,
+    "samples": [
+      {
+        "track_id": 1,
+        "source_frame_index": 0,
+        "prompt_point": [
+          256,
+          146
+        ],
+        "centroid": [
+          253,
+          142
+        ],
+        "selected_mask_index": 0,
+        "foreground_fraction": 0.14438459897610922,
+        "iou_with_previous_sample": null,
+        "elapsed_ms": 74833.55,
+        "mask_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_00_mask.png",
+        "mask_sha256": "91a5ce305327e84d97cac73bd642c47e33e111629a6335e831eb34be19c34097",
+        "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_00_overlay.png",
+        "overlay_sha256": "b86c5b3ba304b28f0431ade64cf3de9fbe14068d172dc021726a3db47c89c6a8"
+      },
+      {
+        "track_id": 1,
+        "source_frame_index": 41,
+        "prompt_point": [
+          253,
+          142
+        ],
+        "centroid": [
+          249,
+          136
+        ],
+        "selected_mask_index": 2,
+        "foreground_fraction": 0.003359641638225256,
+        "iou_with_previous_sample": 0.02326869806094183,
+        "elapsed_ms": 52413.57,
+        "mask_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_01_mask.png",
+        "mask_sha256": "616102c3bb9f897f426b91a3064a3b971857f8951a1cb7d3214283d11e73f6e1",
+        "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_01_overlay.png",
+        "overlay_sha256": "941f07b78dd30f7c944aaf307ce70418d47ee6063c621885ec547742c6456bf7"
+      },
+      {
+        "track_id": 1,
+        "source_frame_index": 83,
+        "prompt_point": [
+          249,
+          136
+        ],
+        "centroid": [
+          240,
+          182
+        ],
+        "selected_mask_index": 0,
+        "foreground_fraction": 0.13604548848122866,
+        "iou_with_previous_sample": 0.024694987505512273,
+        "elapsed_ms": 59597.39,
+        "mask_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_02_mask.png",
+        "mask_sha256": "8afcc5cdcde310cfda670cb37c6b3dd52bb0f2e26b502226a2f89aceedd91b31",
+        "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_02_overlay.png",
+        "overlay_sha256": "f04596078cb24e4fa2b42b1bd68268a2c0f7d7ebff588f7195e379a866aad1fb"
+      },
+      {
+        "track_id": 1,
+        "source_frame_index": 124,
+        "prompt_point": [
+          240,
+          182
+        ],
+        "centroid": [
+          251,
+          178
+        ],
+        "selected_mask_index": 0,
+        "foreground_fraction": 0.12669981868600683,
+        "iou_with_previous_sample": 0.716052070181549,
+        "elapsed_ms": 78829.71,
+        "mask_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_03_mask.png",
+        "mask_sha256": "86c2c012b939da00b6e5e9a8bdd116c44aa46da2070325db7c31b2d5f2f60479",
+        "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_03_overlay.png",
+        "overlay_sha256": "f537579790ff69dd46973720983fbda32411fd2d114f39cbafc43d685821af3b"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_overlays.mp4",
+        "sha256": "94fa81fb2b1b4eb872e5abc56aa58a04a9273f1d5ce04fbaf8beef7a8a64d30a",
+        "bytes": 95927
+      },
+      {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\tracking.json",
+        "sha256": "ad47051dd097787320be8a2db4d6fb2e65a956bbc69ba019658be62b865e1db1",
+        "bytes": 3425
+      }
+    ]
+  },
+  "primary_output": {
+    "file_name": "track_1_overlays.mp4",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_overlays.mp4",
+    "bytes": 95927,
+    "sha256": "94fa81fb2b1b4eb872e5abc56aa58a04a9273f1d5ce04fbaf8beef7a8a64d30a"
+  },
+  "outputs": [
+    {
+      "file_name": "track_1_frame_00_mask.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_00_mask.png",
+      "bytes": 1594,
+      "sha256": "91a5ce305327e84d97cac73bd642c47e33e111629a6335e831eb34be19c34097"
+    },
+    {
+      "file_name": "track_1_frame_00_overlay.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_00_overlay.png",
+      "bytes": 223743,
+      "sha256": "b86c5b3ba304b28f0431ade64cf3de9fbe14068d172dc021726a3db47c89c6a8"
+    },
+    {
+      "file_name": "track_1_frame_01_mask.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_01_mask.png",
+      "bytes": 364,
+      "sha256": "616102c3bb9f897f426b91a3064a3b971857f8951a1cb7d3214283d11e73f6e1"
+    },
+    {
+      "file_name": "track_1_frame_01_overlay.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_01_overlay.png",
+      "bytes": 154419,
+      "sha256": "941f07b78dd30f7c944aaf307ce70418d47ee6063c621885ec547742c6456bf7"
+    },
+    {
+      "file_name": "track_1_frame_02_mask.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_02_mask.png",
+      "bytes": 2067,
+      "sha256": "8afcc5cdcde310cfda670cb37c6b3dd52bb0f2e26b502226a2f89aceedd91b31"
+    },
+    {
+      "file_name": "track_1_frame_02_overlay.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_02_overlay.png",
+      "bytes": 152029,
+      "sha256": "f04596078cb24e4fa2b42b1bd68268a2c0f7d7ebff588f7195e379a866aad1fb"
+    },
+    {
+      "file_name": "track_1_frame_03_mask.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_03_mask.png",
+      "bytes": 1406,
+      "sha256": "86c2c012b939da00b6e5e9a8bdd116c44aa46da2070325db7c31b2d5f2f60479"
+    },
+    {
+      "file_name": "track_1_frame_03_overlay.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_frame_03_overlay.png",
+      "bytes": 181931,
+      "sha256": "f537579790ff69dd46973720983fbda32411fd2d114f39cbafc43d685821af3b"
+    },
+    {
+      "file_name": "track_1_overlays.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_overlays.mp4",
+      "bytes": 95927,
+      "sha256": "94fa81fb2b1b4eb872e5abc56aa58a04a9273f1d5ce04fbaf8beef7a8a64d30a"
+    },
+    {
+      "file_name": "tracking.json",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\tracking.json",
+      "bytes": 3425,
+      "sha256": "ad47051dd097787320be8a2db4d6fb2e65a956bbc69ba019658be62b865e1db1"
+    }
+  ],
+  "backend": {
+    "api_status": 201,
+    "delivery_gate": "DELIVERED",
+    "job_evidence": {
+      "job_id": "6b3976de-90eb-44d1-9c34-ff41e2e230e4",
+      "evidence_id": "2358a502-2740-42aa-9bf8-27506def8ea2",
+      "evidence_status": "VERIFY_REQUIRED",
+      "runtime_status": "OUTPUT_VALIDATED",
+      "terminal_state": "succeeded",
+      "recorded_at": "2026-10-01T04:20:49.042839+00:00",
+      "started_at": "2026-10-01T04:20:49.024217+00:00",
+      "finished_at": "2026-10-01T04:20:49.042839+00:00",
+      "project_id": null,
+      "requested_operation": "tracking",
+      "source_provenance": {
+        "source_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\inputs\\5cd8b33d-1af9-445b-96e6-ca9782584638_big_buck_bunny.mp4",
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+        "ingress": "approved-ui"
+      },
+      "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+      "reference_files": [],
+      "retry_provenance": {
+        "job_id": "6b3976de-90eb-44d1-9c34-ff41e2e230e4",
+        "evidence_id": "2358a502-2740-42aa-9bf8-27506def8ea2",
+        "attempt": 1
+      },
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "runtime": {
+        "platform": "Windows-10-10.0.19045-SP0",
+        "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+      },
+      "adapter_id": "mindle.sam21.verified.cpu",
+      "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license_source": "apache-2.0",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu",
+      "execution_context": {
+        "job_id": "6b3976de-90eb-44d1-9c34-ff41e2e230e4",
+        "evidence_id": "2358a502-2740-42aa-9bf8-27506def8ea2",
+        "lane": "video",
+        "source_hashes": {
+          "source": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        "nl_instruction": "영상의 중앙 대상을 추적해줘",
+        "reference_images": [],
+        "retry_provenance": {
+          "job_id": "6b3976de-90eb-44d1-9c34-ff41e2e230e4",
+          "evidence_id": "2358a502-2740-42aa-9bf8-27506def8ea2",
+          "attempt": 0
+        },
+        "adapter_identity": {
+          "adapter_id": "mindle.sam21.verified.cpu",
+          "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+        }
+      },
+      "output_artifact": {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_overlays.mp4",
+        "type": ".mp4",
+        "size_bytes": 95927,
+        "sha256": "94fa81fb2b1b4eb872e5abc56aa58a04a9273f1d5ce04fbaf8beef7a8a64d30a",
+        "status": "validated"
+      },
+      "model_scout_delivery": {
+        "status": "DELIVERED",
+        "callback_id": "callback-e4ec545b-206e-4c09-b56c-afcd78c62f52",
+        "input_sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238",
+        "output_sha256": "94fa81fb2b1b4eb872e5abc56aa58a04a9273f1d5ce04fbaf8beef7a8a64d30a",
+        "output_path": "C:\\Users\\PC\\Documents\\Codex\\v14-runtime\\jobs\\3c1287ad-f018-444b-b78a-4c683cb5f567\\sam_video\\track_1_overlays.mp4",
+        "elapsed_ms": 0.0
+      }
+    }
+  },
+  "execution_environment": {
+    "hardware": "CPU",
+    "gpu_used": false,
+    "paid_compute": false,
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.11.9",
+    "process": "3.11.9"
+  }
+}

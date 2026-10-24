@@ -1,0 +1,50 @@
+{
+  "browser": "138.0.7204.0",
+  "projectId": "4de7ad5d-b91f-4e8e-b232-e32d7515c900",
+  "media": {
+    "error": 0,
+    "readyState": 4,
+    "videoWidth": 320,
+    "currentSrc": "http://127.0.0.1:36049/files/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/narrated_video.mp4",
+    "duration": 4.04
+  },
+  "referenceCount": 1,
+  "narrationPreview": true,
+  "history": true,
+  "voiceRemixVolume": 0.5,
+  "voiceRegenerated": false,
+  "errors": [],
+  "planSource": "LOCAL_GENERATIVE_INFERENCE",
+  "generativePlan": {
+    "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+    "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "license": "Apache-2.0",
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "raw_response_sha256": "a324c6bb66871ca4ceaac06085bcda726be2af3aa5af8b8c34d2f44180207c89",
+    "steps": [
+      {
+        "operation": "video_edit",
+        "options": {
+          "brightness": 10
+        },
+        "step_id": "7cb146f4-2d92-4cc8-858c-f6a3d7daaa44"
+      },
+      {
+        "operation": "narrate",
+        "text": "안녕하세요. 민들레 미디어입니다.",
+        "step_id": "eca46333-fc0e-4ac2-833d-06e6f714a66c"
+      },
+      {
+        "operation": "mix_narration",
+        "length_policy": "extend_video",
+        "step_id": "2df2c03c-adc0-4fa7-ab7b-e7cfe8cc3597"
+      }
+    ],
+    "plan_id": "00a8d0ad-9e95-4b87-96f8-a76fffbe6b33",
+    "command_sha256": "932c79b7b6d45a570de8671b34bca567113fdc6f6d5bf071d839de84e8a293ee"
+  },
+  "actualHumanHearing": false
+}

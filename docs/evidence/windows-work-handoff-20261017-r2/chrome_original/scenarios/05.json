@@ -1,0 +1,92 @@
+{
+  "case": "04_EXPORT_NEW_OPEN_DUPLICATE_GUARD",
+  "started_at": "2026-10-17T14:37:04.559265+09:00",
+  "evidence": {
+    "retained": {
+      "before": {
+        "previews": [
+          {
+            "kind": "video",
+            "job": "147dbb88-5b3d-455e-bb95-1d0f9dc81339",
+            "src": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4"
+          },
+          {
+            "kind": "photo",
+            "job": "196a52f5-caba-4c91-9def-f2db218ad591",
+            "src": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png"
+          }
+        ],
+        "files": [
+          {
+            "kind": "photo",
+            "name": "5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+            "size": 298684
+          },
+          {
+            "kind": "video",
+            "name": "49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+            "size": 224410
+          }
+        ],
+        "references": [
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거",
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거"
+        ]
+      },
+      "after": {
+        "previews": [
+          {
+            "kind": "video",
+            "job": "147dbb88-5b3d-455e-bb95-1d0f9dc81339",
+            "src": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4"
+          },
+          {
+            "kind": "photo",
+            "job": "196a52f5-caba-4c91-9def-f2db218ad591",
+            "src": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png"
+          }
+        ],
+        "files": [
+          {
+            "kind": "photo",
+            "name": "5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+            "size": 298684
+          },
+          {
+            "kind": "video",
+            "name": "49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+            "size": 224410
+          }
+        ],
+        "references": [
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거",
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거"
+        ]
+      },
+      "rejected_open_requests": 0,
+      "rejected_dialog_retained": true
+    },
+    "actual_export_calls": 1,
+    "duplicate_export_guard_retained": true,
+    "normal_transition_after": true,
+    "response": [
+      {
+        "url": "http://127.0.0.1:18768/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37/export",
+        "status": 201,
+        "body": {
+          "status": "EXPORTED",
+          "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+          "export": {
+            "file_name": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_export.zip",
+            "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\projects\\5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_export.zip",
+            "bytes": 14555646,
+            "sha256": "2fa17ee0478674d5ab313d07ce55b0ada6ebef8671efb59cf51ef332201649a7"
+          },
+          "download_url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_export.zip"
+        }
+      }
+    ]
+  },
+  "status": "PASS",
+  "finished_at": "2026-10-17T14:37:09.178441+09:00"
+}

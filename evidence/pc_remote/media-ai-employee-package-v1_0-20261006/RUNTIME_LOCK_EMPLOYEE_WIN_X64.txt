@@ -1,0 +1,11 @@
+# OBSERVED DEVELOPMENT RUNTIME ONLY. NOT APPROVED OR COMPLETE EMPLOYEE RUNTIME.
+# CPU-only torch and OpenVINO are not present in this interpreter.
+Python==3.11.9
+torch==2.14.0+cu126
+transformers==4.56.2
+safetensors==0.8.0
+huggingface-hub==0.34.4
+numpy==2.4.6
+Pillow==12.3.0
+opencv-python-headless==5.0.0.93
+tokenizers==0.22.2

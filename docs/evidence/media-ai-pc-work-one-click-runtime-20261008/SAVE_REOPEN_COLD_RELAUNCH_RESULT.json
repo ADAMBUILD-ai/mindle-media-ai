@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RUN",
+  "scope": "Save, product close, cold relaunch and data preservation",
+  "reason": "Local Windows executor initialization failed; no current one-click artifact exists.",
+  "passed": false,
+  "observations": null
+}

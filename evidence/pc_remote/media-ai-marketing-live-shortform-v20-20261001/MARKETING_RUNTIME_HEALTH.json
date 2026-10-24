@@ -1,0 +1,8 @@
+{
+  "base_url": "http://127.0.0.1:4318",
+  "endpoint": "/v1/shortform/health",
+  "status": "UNREACHABLE",
+  "observed_error": "connection refused",
+  "health_http": null,
+  "live_e2e_allowed": false
+}

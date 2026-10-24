@@ -1,0 +1,32 @@
+{
+  "contract_version": "17.0",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_SOURCE_RECOVERY_AND_PIXEL_IMPLEMENTATION_REPAIR_DIRECTIVE_v17.0_20261001.md",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_RECOVERY_PIXEL_REPAIR_REVIEW_v17.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_RECOVERY_PIXEL_REPAIR_EVIDENCE_v17_0_20261001.json",
+    "detail_directory": "evidence/pc_remote/pc-work-approved-ui-recovery-v17-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "APPROVED_VISUAL_SOURCE_SEARCH.txt",
+      "HISTORICAL_VISUAL_SOURCE_MATRIX.json",
+      "HISTORICAL_CSS_SOURCE_MATRIX.json",
+      "APPROVED_REFERENCE_PROVENANCE.json",
+      "VISUAL_IMPLEMENTATION_CHANGESET.json",
+      "LIVE_UI_AFTER_REPAIR.png",
+      "APPROVED_REFERENCE_USED.png",
+      "LIVE_VS_APPROVED_AFTER_REPAIR.png",
+      "VISUAL_COMPLIANCE_AFTER_REPAIR.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "V14_PASS_PRESERVATION_CHECK.json",
+      "SSOT_METADATA_DECISION.json",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "remote_readback_required": true,
+  "alternate_filenames_forbidden": true
+}

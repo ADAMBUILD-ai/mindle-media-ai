@@ -1,0 +1,22 @@
+{
+  "runtime": "Linux; no native Windows desktop control exposed",
+  "office_pc_status": "BLOCKED_NO_CONNECTED_NATIVE_EXECUTION_SURFACE",
+  "office_helper_failure_claimed": false,
+  "r9_original_exact_names": [
+    "RESUMED_RESULT_KO.txt",
+    "RESUMED_BUTTON_60.csv",
+    "SSOT_VS_ACTUAL_CHROME.png",
+    "MINDLE_MEDIA_AI_PC_EXECUTION_20261015_R9.zip"
+  ],
+  "library_search": "0 exact matching titles; unrelated fuzzy candidate excluded",
+  "repository_tree": "0 exact original basenames at baseline HEAD",
+  "source_failure_log": "R9 original exception/traceback/bootstrap/server log not acquired",
+  "new_runner_log_is_r9_original": false,
+  "earlier_ci_preflight_failure": {
+    "run": 38851275995,
+    "reason": "PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: unknown phase",
+    "current_same_validator": "PASS_AFTER_PREVIOUS_IDENTITY_AND_PHASE_RECONCILIATION",
+    "product_runtime_failure": false
+  },
+  "prior_failed_controller_baseline_harness": "All-test baseline replay waited on intentionally delayed unsupported restore; interrupted and restricted to two original reproducible cases. Product baseline timeout not inferred."
+}

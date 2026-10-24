@@ -1,0 +1,63 @@
+{
+  "status": "REWORK_AGENT_RUNTIME_CONTROL_AND_SEMANTIC_BINDING_REQUIRED",
+  "findings": [
+    {
+      "id": "A01",
+      "severity": "P0",
+      "finding": "Inference occurs before handoff/readiness/preflight/dispatch/start",
+      "status": "REPRODUCED_CONTROL_FLOW",
+      "source": "src/media_ai/product_runtime.py:ProductJobService.execute",
+      "fix": "Move identity/input/handoff readiness and job RUNNING before invoking adapter methods; keep verification fail-closed."
+    },
+    {
+      "id": "A02",
+      "severity": "P0",
+      "finding": "Model failure may be recorded as status FAILED with state queued; isolated worker only returns successful records",
+      "status": "REPRODUCED_FAILURE_STATE",
+      "source": "src/media_ai/product_runtime.py:execute/execute_isolated",
+      "fix": "Persist real failed job state and return correlated error receipt; preserve operation/input identity and actual start/end times."
+    },
+    {
+      "id": "A03",
+      "severity": "P1",
+      "finding": "No generative planner or semantic decision agent in active browser path; planner.py is static option-to-step builder used by legacy CLI",
+      "status": "SOURCE_CONFIRMED",
+      "fix": "Bind a real instruction/planning provider to validated executable operations; authorized key connection is a separate gate."
+    },
+    {
+      "id": "A04",
+      "severity": "P1",
+      "finding": "Right person text maps to left point because person condition precedes right condition",
+      "status": "REPRODUCED_100x60_RIGHT_PERSON_X26",
+      "fix": "Resolve explicit spatial instructions before generic nouns; semantic object grounding needs actual model and reference binding."
+    },
+    {
+      "id": "A05",
+      "severity": "P1",
+      "finding": "SAM video tracking is four independent sampled image masks, seeded by previous centroid; output is four overlay frames at2fps; IoU reported but not a passing threshold",
+      "status": "SOURCE_AND_HISTORICAL_RECEIPT_CONFIRMED",
+      "fix": "Separate sampled-mask demo from production temporal tracking; validate identity continuity/full clip coverage and preservation before claiming full tracking."
+    },
+    {
+      "id": "A06",
+      "severity": "P1",
+      "finding": "UI reference images not forwarded into model job; MediaJob reference_files remains unset in ProductJobService.execute",
+      "status": "SOURCE_CONFIRMED",
+      "fix": "Bind uploaded reference artifact IDs/hashes to job and pass them to a provider that actually uses them; do not silently ignore them."
+    },
+    {
+      "id": "A07",
+      "severity": "P1",
+      "finding": "Generic model TESTED_PASS validates byte identity/parseability, not subject correctness, tracking accuracy or STT WER without reference",
+      "status": "SOURCE_AND_RECEIPT_CONFIRMED",
+      "fix": "Separate execution success and task quality success; require per-operation task-quality evidence."
+    },
+    {
+      "id": "A08",
+      "severity": "P2",
+      "finding": "Model Scout callback created and accepted in same ProductJobService call; issue_id fixed PR-10; not external agent callback transport",
+      "status": "SOURCE_CONFIRMED",
+      "fix": "Identify this as local validation receipt; bind real request/project/PR identities and verify actual receiver when claiming cross-agent delivery."
+    }
+  ]
+}

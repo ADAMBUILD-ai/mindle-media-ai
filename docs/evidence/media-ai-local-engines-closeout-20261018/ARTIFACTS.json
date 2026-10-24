@@ -1,0 +1,41 @@
+{
+  "source_commit": "3a889d9af5e0e91b4efc8132eb86e11251f1ced5",
+  "artifacts": [
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/KOREAN_NARRATION.wav",
+      "bytes": 249568,
+      "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9",
+      "git_blob_sha": "f01393dda80739fa01b28de8dca22662216df81e"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/NARRATED_EXPORT.mp4",
+      "bytes": 110561,
+      "sha256": "7b6f79bcf5c050f80ac3cb01a815a2b463123598ef4b8127574d4f60f191f3f4",
+      "git_blob_sha": "2ea8906c7023211bd7b450ebb5809fc4abb417d6"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PROJECT_EXPORT.zip",
+      "bytes": 1455512,
+      "sha256": "b389915329aa7d51bf2ef679024daef471f48ea0b9e00e482f839ee88c2eaf5c",
+      "git_blob_sha": "1ea529a845b0a9a19304d2c0ec4afedb916b2bd0"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/BROWSER_COMPLETED.png",
+      "bytes": 354257,
+      "sha256": "c55fb781b3de09bea928f267e5a8b899b0ee4646b9b61b485400685c5e1f9f6f",
+      "git_blob_sha": "0a62690b413e3e98e5666cabb17bb57728e9f096"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/BROWSER_REOPEN_FONT_READY.png",
+      "bytes": 400283,
+      "sha256": "40d6e5bfd68a28c1c12c8f44b909759185dd7f54052633a6f8c762940918cdaf",
+      "git_blob_sha": "aeb736f59d2b037ef61ea1e6509ce344c9032475"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/UI_AUTORESTORED_1536.png",
+      "bytes": 419429,
+      "sha256": "9b85d243d790d3f3b188fac62ec173c31d6c2b7acc2549f46e902a8478357048",
+      "git_blob_sha": "6f328dd551ebf65ca8b89aa8e2da87227ceb57ae"
+    }
+  ]
+}

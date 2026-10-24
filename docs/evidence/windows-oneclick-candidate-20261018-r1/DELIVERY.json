@@ -1,0 +1,13 @@
+{
+  "file": "/workspace/scratch/b0ed3e0d34af/delivery/MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip",
+  "bytes": 3177192286,
+  "sha256": "715c351a3733aea2ffd87fa0113cc6e554920faabe430c74f941b7b6e5feac8c",
+  "zip_crc": "PASS_ALL_ENTRIES",
+  "zip_manifest_hashes": "PASS_ALL_PAYLOAD_FILES",
+  "engine_tree_pins": "PASS_ARCHIVE_CONTENTS",
+  "source": "e00e6e0b82994fca628d6ca3cf039f7dc43c15c6",
+  "manifest_files_verified": 20440,
+  "base_files_preserved": 19236,
+  "native_windows_acceptance": "PENDING",
+  "full_product_pass": false
+}

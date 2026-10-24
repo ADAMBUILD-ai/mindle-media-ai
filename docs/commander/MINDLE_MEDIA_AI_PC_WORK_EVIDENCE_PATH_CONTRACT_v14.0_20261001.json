@@ -1,0 +1,43 @@
+{
+  "contract_version": "14.0",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_REVIEW_v14.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_EVIDENCE_v14_0_20261001.json",
+    "detail_directory": "evidence/pc_remote/pc-work-v32-asset-recovery-ui-ssot-v14-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "LOCAL_LINEAGE_SEARCH.txt",
+      "MODEL_ASSET_RECOVERY.json",
+      "V32_INPUT_RECOVERY.json",
+      "UI_SSOT_LINEAGE_AND_HASH_RECOVERY.json",
+      "RUNTIME_DEPENDENCY_RECOVERY.json",
+      "PHOTO_SEGMENTATION_RUN.json",
+      "PHOTO_4X_RUN.json",
+      "VIDEO_TRACKING_RUN.json",
+      "KOREAN_STT_RUN.json",
+      "PROJECT_SAVE_EXPORT_RUN.json",
+      "TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "hard_gate": {
+    "exact_review_path_remote": true,
+    "exact_evidence_json_path_remote": true,
+    "exact_detail_directory_remote": true,
+    "all_14_detail_files_remote": true,
+    "remote_push_verified": true
+  },
+  "forbidden": {
+    "alternate_filenames": true,
+    "local_only_evidence": true,
+    "chat_only_evidence": true,
+    "v13_output_paths_as_v14_completion": true
+  },
+  "completion_allowed_only_when_all_hard_gate_fields_true": true
+}

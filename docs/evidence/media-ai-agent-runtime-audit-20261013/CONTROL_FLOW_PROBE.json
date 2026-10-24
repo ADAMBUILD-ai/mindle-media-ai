@@ -1,0 +1,19 @@
+{
+  "probe_type": "INJECTED_ADAPTER_CONTROL_FLOW_ONLY",
+  "real_model_calls": 0,
+  "events": [
+    "injected_adapter_called",
+    "handoff_gate_rejected",
+    "adapter_closed"
+  ],
+  "inference_entry_precedes_handoff_and_preflight": true,
+  "failed_job_status": "FAILED",
+  "failed_job_state": "queued",
+  "right_person_command_actual_point": [
+    26,
+    32
+  ],
+  "right_person_selected_left": true,
+  "ui_attached_references_forwarded_to_model_job": false,
+  "limitations": "No SAM/SISR/Whisper inference was run; probe proves code order and command routing only."
+}

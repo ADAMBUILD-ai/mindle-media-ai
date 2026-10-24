@@ -1,0 +1,23 @@
+{
+  "status": "PASS_LINUX_SOURCE_HTTP_COLD_RESTART_PHOTO_VIDEO_EXPORT",
+  "first_pid": 4092,
+  "second_pid": 4147,
+  "old_endpoint_closed": true,
+  "project_id": "82f951c0-892c-4ee4-a198-036d2a599b71",
+  "job_output_sha256": {
+    "070d502a-59f3-485a-bd22-d920e45a848b": "cd91936cd51e024e221121f8b5486ca4a0789d461d8dcfbb1bb6118fb4e0da4e",
+    "d86e238f-e1da-42ed-83d6-f9762e912072": "b94a60792f99aa656a3c11564bc8fbcaa822708b2a36fb73d906b6d4ca5e48d3"
+  },
+  "export_sha256": "2e1cb3f35a399832cee8f7507e10960091c5d97846091e307ddec7cb1f70e890",
+  "zip_crc": "PASS",
+  "members": [
+    "project.json",
+    "jobs/070d502a-59f3-485a-bd22-d920e45a848b/edited_photo.png",
+    "jobs/d86e238f-e1da-42ed-83d6-f9762e912072/edited_video.mp4"
+  ],
+  "model_inference": false,
+  "scope": "GENERATED_FIXTURES_LINUX_SOURCE_HTTP_ONLY",
+  "windows_exe_pass": false,
+  "owner_pc_pass": false,
+  "full_product_pass": false
+}

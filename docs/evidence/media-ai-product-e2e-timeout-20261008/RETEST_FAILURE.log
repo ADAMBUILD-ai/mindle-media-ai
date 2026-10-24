@@ -1,0 +1,168 @@
+ensions
+2026-10-08T05:59:12.3217233Z     Found existing installation: typing_extensions 4.16.0
+2026-10-08T05:59:12.3232517Z     Uninstalling typing_extensions-4.16.0:
+2026-10-08T05:59:12.5078961Z       Successfully uninstalled typing_extensions-4.16.0
+2026-10-08T05:59:13.9976699Z   Attempting uninstall: Pillow
+2026-10-08T05:59:13.9992965Z     Found existing installation: pillow 12.3.0
+2026-10-08T05:59:14.0073078Z     Uninstalling pillow-12.3.0:
+2026-10-08T05:59:14.0089853Z       Successfully uninstalled pillow-12.3.0
+2026-10-08T05:59:14.3758549Z   Attempting uninstall: numpy
+2026-10-08T05:59:14.3777132Z     Found existing installation: numpy 2.4.6
+2026-10-08T05:59:14.4255680Z     Uninstalling numpy-2.4.6:
+2026-10-08T05:59:14.4342145Z       Successfully uninstalled numpy-2.4.6
+2026-10-08T05:59:26.9732938Z 
+2026-10-08T05:59:26.9739632Z ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+2026-10-08T05:59:26.9741047Z mindle-media-ai 0.1.0 requires opencv-python-headless>=5.0, but you have opencv-python-headless 4.12.0.88 which is incompatible.
+2026-10-08T05:59:26.9762115Z Successfully installed Pillow-11.3.0 attrs-26.1.0 certifi-2026.7.22 cffi-2.1.1 charset_normalizer-3.5.2 click-8.5.0 flatbuffers-25.12.19 h11-0.16.0 hf-xet-1.7.0 huggingface_hub-0.36.0 idna-3.20 jiwer-4.0.0 numpy-2.2.6 onnxruntime-1.30.0 opencv-python-headless-4.12.0.88 openvino-2025.3.0 openvino-telemetry-2025.2.0 outcome-1.3.0.post0 packaging-26.3 protobuf-7.36.2 pyarrow-21.0.0 pycparser-3.0 pysocks-1.7.1 pyyaml-6.0.3 rapidfuzz-3.14.6 regex-2026.9.29 requests-2.32.5 safetensors-0.6.2 selenium-4.35.0 sniffio-1.3.1 sortedcontainers-2.4.0 soundfile-0.13.1 tokenizers-0.22.2 tqdm-4.70.1 transformers-4.57.3 trio-0.30.0 trio-websocket-0.12.2 typing-extensions-4.14.1 urllib3-2.8.0 websocket-client-1.8.0 wsproto-1.3.2
+2026-10-08T05:59:27.1362763Z ##[group]Run python model_scout/stage_perpetual_use_alternatives.py
+2026-10-08T05:59:27.1363647Z [36;1mpython model_scout/stage_perpetual_use_alternatives.py[0m
+2026-10-08T05:59:27.1429541Z shell: /usr/bin/bash -e {0}
+2026-10-08T05:59:27.1429796Z env:
+2026-10-08T05:59:27.1430129Z   HF_TOKEN: ***
+2026-10-08T05:59:27.1430342Z   HF_HUB_DISABLE_TELEMETRY: 1
+2026-10-08T05:59:27.1430587Z   HF_HUB_DISABLE_XET: 1
+2026-10-08T05:59:27.1430810Z   CUDA_VISIBLE_DEVICES: 
+2026-10-08T05:59:27.1431035Z   PYTHONPATH: src
+2026-10-08T05:59:27.1431258Z   TOKENIZERS_PARALLELISM: false
+2026-10-08T05:59:27.1431511Z   OMP_NUM_THREADS: 2
+2026-10-08T05:59:27.1431713Z   MKL_NUM_THREADS: 2
+2026-10-08T05:59:27.1431981Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T05:59:27.1432424Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-10-08T05:59:27.1433096Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T05:59:27.1433739Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T05:59:27.1434135Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T05:59:27.1434521Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-10-08T05:59:27.1434847Z ##[endgroup]
+2026-10-08T05:59:38.9642973Z 
+2026-10-08T05:59:38.9643955Z Upload 0 LFS files: 0it [00:00, ?it/s]
+2026-10-08T05:59:38.9644434Z Upload 0 LFS files: 0it [00:00, ?it/s]
+2026-10-08T05:59:40.2019345Z alternative models staged; cache revision exported to subsequent steps; gate=PERPETUAL_USE_EVIDENCE_READY
+2026-10-08T05:59:40.2376310Z ##[group]Run python model_scout/run_product_e2e.py
+2026-10-08T05:59:40.2376708Z [36;1mpython model_scout/run_product_e2e.py[0m
+2026-10-08T05:59:40.2441185Z shell: /usr/bin/bash -e {0}
+2026-10-08T05:59:40.2441631Z env:
+2026-10-08T05:59:40.2442031Z   HF_TOKEN: ***
+2026-10-08T05:59:40.2442251Z   HF_HUB_DISABLE_TELEMETRY: 1
+2026-10-08T05:59:40.2442504Z   HF_HUB_DISABLE_XET: 1
+2026-10-08T05:59:40.2442744Z   CUDA_VISIBLE_DEVICES: 
+2026-10-08T05:59:40.2443208Z   PYTHONPATH: src
+2026-10-08T05:59:40.2443434Z   TOKENIZERS_PARALLELISM: false
+2026-10-08T05:59:40.2443687Z   OMP_NUM_THREADS: 2
+2026-10-08T05:59:40.2443893Z   MKL_NUM_THREADS: 2
+2026-10-08T05:59:40.2444167Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T05:59:40.2444600Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-10-08T05:59:40.2445026Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T05:59:40.2445438Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T05:59:40.2445831Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T05:59:40.2446215Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-10-08T05:59:40.2446668Z   MINDLE_ALTERNATIVE_CACHE_REVISION: 9c5bbc87c0ea872b59f48d877d19280c10802814
+2026-10-08T05:59:40.2447054Z ##[endgroup]
+2026-10-08T06:05:24.2606195Z Traceback (most recent call last):
+2026-10-08T06:05:24.2617712Z   File "/home/runner/work/mindle-media-ai/mindle-media-ai/model_scout/run_product_e2e.py", line 176, in <module>
+2026-10-08T06:05:24.2618409Z     if __name__ == "__main__": main()
+2026-10-08T06:05:24.2618733Z                                ^^^^^^
+2026-10-08T06:05:24.2619288Z   File "/home/runner/work/mindle-media-ai/mindle-media-ai/model_scout/run_product_e2e.py", line 161, in main
+2026-10-08T06:05:24.2619932Z     ui = browser_e2e(f"http://127.0.0.1:{server.server_port}", fixture)
+2026-10-08T06:05:24.2620338Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-08T06:05:24.2620944Z   File "/home/runner/work/mindle-media-ai/mindle-media-ai/model_scout/run_product_e2e.py", line 106, in browser_e2e
+2026-10-08T06:05:24.2621633Z     video_tracking = wait_preview(driver, video, "video", expected_operation="tracking")
+2026-10-08T06:05:24.2622095Z                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-08T06:05:24.2622682Z   File "/home/runner/work/mindle-media-ai/mindle-media-ai/model_scout/run_product_e2e.py", line 87, in wait_preview
+2026-10-08T06:05:24.2623549Z     return WebDriverWait(driver, 300).until(completed)
+2026-10-08T06:05:24.2623867Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-08T06:05:24.2624492Z   File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 138, in until
+2026-10-08T06:05:24.2625166Z     raise TimeoutException(message, screen, stacktrace)
+2026-10-08T06:05:24.2625546Z selenium.common.exceptions.TimeoutException: Message: 
+2026-10-08T06:05:24.2625797Z 
+2026-10-08T06:05:24.3135997Z ##[error]Process completed with exit code 1.
+2026-10-08T06:05:24.3224402Z ##[group]Run actions/upload-artifact@v4
+2026-10-08T06:05:24.3224718Z with:
+2026-10-08T06:05:24.3224988Z   name: mindle-media-approved-ui-product-e2e-evidence
+2026-10-08T06:05:24.3225319Z   retention-days: 90
+2026-10-08T06:05:24.3225546Z   if-no-files-found: warn
+2026-10-08T06:05:24.3226662Z   path: product_e2e_evidence/inputs/**
+product_e2e_evidence/product_data/inputs/**
+product_e2e_evidence/product_data/jobs/**
+product_e2e_evidence/product_data/projects/**
+product_e2e_evidence/logs/**
+product_e2e_evidence/PRODUCT_E2E_EVIDENCE.json
+
+2026-10-08T06:05:24.3227623Z   compression-level: 6
+2026-10-08T06:05:24.3227850Z   overwrite: false
+2026-10-08T06:05:24.3228069Z   include-hidden-files: false
+2026-10-08T06:05:24.3228304Z env:
+2026-10-08T06:05:24.3228627Z   HF_TOKEN: ***
+2026-10-08T06:05:24.3228840Z   HF_HUB_DISABLE_TELEMETRY: 1
+2026-10-08T06:05:24.3229080Z   HF_HUB_DISABLE_XET: 1
+2026-10-08T06:05:24.3229307Z   CUDA_VISIBLE_DEVICES: 
+2026-10-08T06:05:24.3229539Z   PYTHONPATH: src
+2026-10-08T06:05:24.3229782Z   TOKENIZERS_PARALLELISM: false
+2026-10-08T06:05:24.3230027Z   OMP_NUM_THREADS: 2
+2026-10-08T06:05:24.3230232Z   MKL_NUM_THREADS: 2
+2026-10-08T06:05:24.3230515Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T06:05:24.3230954Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-10-08T06:05:24.3231390Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T06:05:24.3231783Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T06:05:24.3232203Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-10-08T06:05:24.3232598Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-10-08T06:05:24.3233340Z   MINDLE_ALTERNATIVE_CACHE_REVISION: 9c5bbc87c0ea872b59f48d877d19280c10802814
+2026-10-08T06:05:24.3233734Z ##[endgroup]
+2026-10-08T06:05:24.4888517Z (node:4224) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T06:05:24.4889731Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T06:05:24.5079814Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-08T06:05:24.5083393Z The least common ancestor is /home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence. This will be the root directory of the artifact
+2026-10-08T06:05:24.5084404Z With the provided path, there will be 32 files uploaded
+2026-10-08T06:05:24.5089291Z Artifact name is valid!
+2026-10-08T06:05:24.5089766Z Root directory input is valid!
+2026-10-08T06:05:24.8811799Z Beginning upload of artifact content to blob storage
+2026-10-08T06:05:25.2860797Z (node:4224) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T06:05:26.2198356Z Uploaded bytes 8388608
+2026-10-08T06:05:26.5080877Z Uploaded bytes 16777216
+2026-10-08T06:05:26.6283336Z Uploaded bytes 25165824
+2026-10-08T06:05:26.9831551Z Uploaded bytes 33554432
+2026-10-08T06:05:27.0694685Z Uploaded bytes 41943040
+2026-10-08T06:05:27.3740550Z Uploaded bytes 50331648
+2026-10-08T06:05:27.7690866Z Uploaded bytes 58720256
+2026-10-08T06:05:28.0911275Z Uploaded bytes 67108864
+2026-10-08T06:05:28.4113082Z Uploaded bytes 75497472
+2026-10-08T06:05:28.7581434Z Uploaded bytes 83886080
+2026-10-08T06:05:29.1279494Z Uploaded bytes 92274688
+2026-10-08T06:05:29.4827531Z Uploaded bytes 100663296
+2026-10-08T06:05:29.8156709Z Uploaded bytes 109051904
+2026-10-08T06:05:30.1490694Z Uploaded bytes 117440512
+2026-10-08T06:05:30.5423777Z Uploaded bytes 125829120
+2026-10-08T06:05:30.9123794Z Uploaded bytes 134217728
+2026-10-08T06:05:31.2148403Z Uploaded bytes 142606336
+2026-10-08T06:05:31.6252302Z Uploaded bytes 150994944
+2026-10-08T06:05:32.2509787Z Uploaded bytes 159383552
+2026-10-08T06:05:32.3416022Z Uploaded bytes 167772160
+2026-10-08T06:05:32.5580260Z Uploaded bytes 176160768
+2026-10-08T06:05:32.9653987Z Uploaded bytes 184549376
+2026-10-08T06:05:33.3541829Z Uploaded bytes 192937984
+2026-10-08T06:05:33.6296303Z Uploaded bytes 201326592
+2026-10-08T06:05:34.0191288Z Uploaded bytes 209715200
+2026-10-08T06:05:34.3950771Z Uploaded bytes 218103808
+2026-10-08T06:05:34.7384808Z Uploaded bytes 226492416
+2026-10-08T06:05:34.9046520Z Uploaded bytes 230499426
+2026-10-08T06:05:35.0188235Z Finished uploading artifact content to blob storage!
+2026-10-08T06:05:35.0192168Z SHA256 digest of uploaded artifact zip is a5899732ca87c5a0362f4b4d1ad8e3aa76c21992abc11827419a4cc861852efc
+2026-10-08T06:05:35.0194438Z Finalizing artifact upload
+2026-10-08T06:05:35.4158514Z Artifact mindle-media-approved-ui-product-e2e-evidence.zip successfully finalized. Artifact ID 11531386885
+2026-10-08T06:05:35.4160309Z Artifact mindle-media-approved-ui-product-e2e-evidence has been successfully uploaded! Final size is 230499426 bytes. Artifact ID is 11531386885
+2026-10-08T06:05:35.4167057Z Artifact download URL: https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/37735046818/artifacts/11531386885
+2026-10-08T06:05:35.4390306Z Post job cleanup.
+2026-10-08T06:05:35.5219584Z [command]/usr/bin/git version
+2026-10-08T06:05:35.5264437Z git version 2.55.0
+2026-10-08T06:05:35.5302626Z Temporarily overriding HOME='/home/runner/work/_temp/97c50a97-d324-41fb-8661-5983b611e218' before making global git config changes
+2026-10-08T06:05:35.5304110Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T06:05:35.5308721Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mindle-media-ai/mindle-media-ai
+2026-10-08T06:05:35.5348038Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T06:05:35.5384987Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T06:05:35.5649155Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T06:05:35.5680801Z http.https://github.com/.extraheader
+2026-10-08T06:05:35.5692452Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T06:05:35.5732380Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T06:05:35.6031261Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T06:05:35.6070816Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T06:05:35.6512693Z Cleaning up orphan processes
+2026-10-08T06:05:35.6810144Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

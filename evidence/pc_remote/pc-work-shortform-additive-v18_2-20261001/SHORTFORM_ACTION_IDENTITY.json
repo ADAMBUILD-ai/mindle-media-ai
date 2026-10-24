@@ -1,0 +1,6 @@
+{
+  "ai_auto_edit": {"visible_label": "AI 자동 편집", "data_action": "ai-auto-edit", "count": 1},
+  "advertising_shortform": {"visible_label": "광고 숏폼", "data_action": "shortform-mode", "count": 1},
+  "distinct_dom_elements": true,
+  "independent_shortform_editor": false
+}

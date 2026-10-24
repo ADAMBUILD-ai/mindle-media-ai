@@ -1,0 +1,52 @@
+{
+  "status": "INSTALLED_FUNCTION_GATE_PASS",
+  "method": "INSTALLED_PRODUCT_HTTP",
+  "executable": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\python.exe",
+  "python_search_paths": [
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\Lib",
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python\\DLLs",
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\python",
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\runtime\\site-packages",
+    "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\app\\src"
+  ],
+  "checks": {
+    "identity": "PASS",
+    "save_close_reopen": "PASS_SERVER_RESTART",
+    "export": "PASS_CONTENT_AND_DOWNLOAD_HASH",
+    "shortform_and_base_continuation": "PASS"
+  },
+  "jobs": [],
+  "started_at": 1791334358.9405968,
+  "identity": {
+    "product": "MINDLE MEDIA AI",
+    "distribution": "EMPLOYEE_WIN_X64",
+    "package_version": "1.0",
+    "build_commit": "0371cb72ee00802b5b9bd17bd05c809858cba813",
+    "package_manifest_sha256": "74e9855398cf2340d9a4eff0125bd9a55c4ba8fadf4ddefa00acb2498aeea44c",
+    "ui_fingerprint": "aee47baa8996af1905b8a7609d260548a8bb2b22afd2c6cc564d49cdc5d408cf",
+    "model_manifest_hash": "a8340b0fc7a58863ef975f558365bbedc6d6402dfe37263de3b9a32fa718397b",
+    "install_root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+    "data_root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA",
+    "runtime_mode": "LOCAL_OFFLINE_PACKAGE"
+  },
+  "project_id": "1ef711bb-7fba-4f62-9365-d4acfc4dae73",
+  "export": {
+    "status": "EXPORTED",
+    "project_id": "1ef711bb-7fba-4f62-9365-d4acfc4dae73",
+    "export": {
+      "file_name": "1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA\\projects\\1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip",
+      "bytes": 3388676,
+      "sha256": "ab28b2a6d174eea106094b12659a7eb45a40daa55daa316f5e64218840fdface"
+    },
+    "download_url": "/files/projects/1ef711bb-7fba-4f62-9365-d4acfc4dae73_export.zip"
+  },
+  "shortform": {
+    "http_status": 503,
+    "body": {
+      "status": "MARKETING_PROVIDER_UNAVAILABLE",
+      "error": "마케팅 AI 연결이 필요합니다. 기본 사진/영상 편집은 계속 사용할 수 있습니다."
+    }
+  },
+  "full_offline_distribution_pass": false
+}

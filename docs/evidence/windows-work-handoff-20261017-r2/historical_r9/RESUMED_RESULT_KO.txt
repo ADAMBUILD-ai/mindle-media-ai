@@ -1,0 +1,27 @@
+MINDLE MEDIA AI Windows PC 검수 재개 결과
+후보 source: 0e4e12a9e4c758f202c6ebb5085df5a542bb6314 / run 38497304486
+이전 R1 증거와 ZIP은 보존. R9는 동일 실행의 브라우저 검수 재개 증거다.
+
+PASS: 18768 LOCAL_OFFLINE_PACKAGE identity 일치. 공식 Chrome 155.0.8059.40 직접 제어 및 기존 영상 재생.
+60개 후보 모두 실제 클릭: active 48 / status-only 12 / disabled 0 / unsupported 0.
+버튼별 역할 판정 59 PASS / 1 FAIL. status-only 12개는 모델·생성 기능 성공으로 계산하지 않는다.
+FAIL 버튼: 클라우드가 로컬 저장소 dialog로 연결됨.
+PASS: 사진 7개 보정 각각 저장 출력 픽셀 변화. 편집 출력, 실제 모델 UI 응답, 한국어 STT 및 영상 보존.
+PASS: Save → 격리 검수 Chrome 완전 종료 → 새 Chrome 프로필 → 동일 사진/영상/참고/자막 복원.
+위 종료는 검수 브라우저만 해당하며 서버/기존 자동 창/EXE의 완전 종료는 아니다.
+PASS: 브라우저 ZIP 다운로드 CRC 정상. MP4 H.264/AAC, 실제 Chrome 재생/seek/오디오 decode 및 HTTP206.
+스피커 청취와 Windows 플레이어 재생은 미확인.
+
+FAIL: PHOTO 세로 Auto Fit 실제 화면 잘림(Stage 높이229.5, 이미지 박스512). 이미지 원본 파일 픽셀은 보존됨.
+FAIL: 최신 채팅 승인 UI와 실제 UI 구조 불일치. SSOT_VS_ACTUAL_CHROME.png 참조.
+관찰된 런처 오류: one_click_bootstrap PermissionError → 제품 준비 작업이 이미 진행 중입니다.
+오류 발생 최초 시각·중복 실행과 잠금 원인은 미확정. 제품 초기 실행 전체 실패로 확대하지 않음.
+BLOCKED: 소유자 서버 PID 조회가 제한돼 해당 서버 완전 종료/EXE cold restart 미검증. 런처 확인/소유자 프로세스 식별이 재개 조건.
+BLOCKED: 자동 실행 일반 창 내용 Screenshot과 Windows 플레이어/스피커 청취.
+DEFERRED_EXTERNAL: OpenAI 생성형 계획·Marketing HTTP·승인 AVORA·승인 광고 Export.
+기존 모델 알고리즘·가중치·제품 UI·패키지 변경 없음. 개발 도구만 work/browser-control-probe/venv에 설치.
+PR23 HOLD / DO NOT MERGE / 재빌드 금지 유지.
+검수기 exit0 = 증거 완전성만 확인. owner_pc_pass=false / full_product_pass=false.
+
+초기 검사 실패(의존성 누락, 전체화면 Escape 대기, 모델 응답 조기 판정)는 원본 로그에 보존했다.
+R8 실제 응답과 R7 늦은 HTTP 응답으로 재판정한 항목은 button_reviews에 근거를 연결했다.

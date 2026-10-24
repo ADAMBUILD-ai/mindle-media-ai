@@ -1,0 +1,49 @@
+{
+  "plans": [
+    {
+      "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+      "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "license": "Apache-2.0",
+      "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+      "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "raw_response_sha256": "059bfa9c20e446b7eb51870b505a4c807101ef5e50fb74c72903add5f4c7f4cc",
+      "steps": [
+        {
+          "operation": "video_edit",
+          "options": {
+            "contrast": 7
+          },
+          "step_id": "afb2081e-5729-4048-8b4f-4c446f6816c5"
+        }
+      ],
+      "plan_id": "d6c5c3f4-e942-4838-b009-e82e34e47c87",
+      "command_sha256": "5beab0e6549e9f5d2dbcf033edad92a3c7c7f09b48f3685d0dddee32f3eff47b"
+    },
+    {
+      "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+      "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "license": "Apache-2.0",
+      "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+      "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "raw_response_sha256": "f9c59b86987e1d702b5e6f6a3b4f3bcb380b6785922a818df800d10b64be5d62",
+      "steps": [
+        {
+          "operation": "transcribe",
+          "step_id": "bd5b15f6-3479-4ea1-8082-4a0cdd7d4043"
+        },
+        {
+          "operation": "apply_subtitles",
+          "step_id": "121a6b33-c4c7-45f3-8cee-648ee29528ab"
+        }
+      ],
+      "plan_id": "1a95793a-533f-416d-8211-921266438bfc",
+      "command_sha256": "d71720983a715da989f1974d13c710776f4e9998b376ff93381b34428ab3701f"
+    }
+  ],
+  "unsupported": "REJECTED_HTTP_422",
+  "stt_model_execution": "NOT_REPEATED"
+}

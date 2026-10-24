@@ -1,0 +1,12 @@
+{
+  "llama_release": "b11716",
+  "llama_commit": "797de63b2fa7396dcc8caca76834c699ac84e1c3",
+  "downloads": {
+    "llama.tar.gz": "https://github.com/ggml-org/llama.cpp/releases/download/b11716/llama-b11716-bin-ubuntu-x64.tar.gz",
+    "qwen.gguf": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/9217f5db79a29953eb74d5343926648285ec7e67/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+    "QWEN_LICENSE": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/9217f5db79a29953eb74d5343926648285ec7e67/LICENSE",
+    "QWEN_README.md": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/9217f5db79a29953eb74d5343926648285ec7e67/README.md",
+    "MELO_MODEL.json": "https://huggingface.co/api/models/myshell-ai/MeloTTS-Korean",
+    "MELO_SETUP.py": "https://raw.githubusercontent.com/myshell-ai/MeloTTS/main/setup.py"
+  }
+}

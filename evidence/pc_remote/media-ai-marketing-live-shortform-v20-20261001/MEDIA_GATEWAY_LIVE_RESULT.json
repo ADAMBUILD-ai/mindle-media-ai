@@ -1,0 +1,10 @@
+{
+  "status": "IMPLEMENTED_FAIL_CLOSED",
+  "route": "POST /api/integrations/marketing/shortform",
+  "old_stub_removed": true,
+  "client": "stdlib urllib with explicit timeout and Bearer auth",
+  "observed_status_without_token": "MARKETING_AUTH_ENV_REQUIRED",
+  "observed_http": 503,
+  "token_logged": false,
+  "credential_hardcoded": false
+}

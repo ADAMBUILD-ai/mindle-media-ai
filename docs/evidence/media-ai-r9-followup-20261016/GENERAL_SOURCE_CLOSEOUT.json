@@ -1,0 +1,445 @@
+{
+  "schema": "MINDLE_MEDIA_AI_GENERAL_SOURCE_CLOSEOUT_20261016",
+  "status": "SOURCE_WORKSPACE_FIX_VERIFIED_DELIVERED_CANDIDATE_REFRESH_REQUIRED",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "runtime_source_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+  "evidence_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+  "repairs": [
+    {
+      "item": "cloud routing",
+      "commit": "38bed49a46d46788f53f664a0f41c28b47466530",
+      "scope": "Separate absent external cloud from actual local storage; external cloud remains deferred"
+    },
+    {
+      "item": "PHOTO clipping / launcher resource cleanup / atomic export",
+      "commit": "d3c88ea13af7f924dfbcba6f22c691a91b73d8da"
+    },
+    {
+      "item": "verified recorded inputs and references in Export",
+      "commit": "4f1d9e818811d5622722ceec4fd4404b32a9c2e1"
+    },
+    {
+      "item": "Canonical server roots for relative and Windows 8.3 file delivery",
+      "commit": "1fc6c9c851f8d71314158b4121a768379907fe76"
+    }
+  ],
+  "verification": {
+    "full_source_regression": {
+      "run": 38838236618,
+      "job": 116772063591,
+      "source": "b785b54cbf9452ffc7dbc0876254806e170a0380",
+      "passed": 122,
+      "skipped": 4
+    },
+    "skipped_scope": "Linux skips three native Windows locking tests and one Windows 8.3 path test; these have scoped native Windows PASS evidence.",
+    "photo_geometry": {
+      "run": 38790535399,
+      "official_chrome_combinations": 6,
+      "passed": 6,
+      "baseline_clipping_reproduced": 4,
+      "scope": "source HTML/CSS only"
+    },
+    "native_windows_lock": {
+      "run": 38790535399,
+      "passed": 3,
+      "scope": "actual msvcrt source helper; not packaged EXE or owner PC"
+    },
+    "latest_dependency_regression": {
+      "run": 38791557820,
+      "passed": 13
+    },
+    "http_cold_restart": {
+      "run": 38791557820,
+      "first_pid": 3797,
+      "second_pid": 3852,
+      "old_endpoint_closed": true,
+      "photo_video_outputs_restored": true,
+      "zip_crc": "PASS",
+      "scope": "Linux source HTTP with generated fixtures"
+    },
+    "independent_export_bytes": {
+      "artifact": 12000626976,
+      "files_checked": 4,
+      "sha256": "4462e5c64c27a02497c7b4b499d3dc93c759cd9bc4256f96b29271543fa4a35a"
+    },
+    "new_model_inference": false,
+    "previous_full_source_regression": {
+      "run": 38791565780,
+      "job": 116617159645,
+      "passed": 110,
+      "skipped": 3,
+      "ui_node_passed": 2,
+      "evidence_sync": "PASS",
+      "source_completeness": "PASS"
+    },
+    "windows_source_http_browser": {
+      "run": 38801025886,
+      "job": 116649777832,
+      "source_tests_passed": 17,
+      "http_cold_restart": "PASS",
+      "official_chrome": "155.0.8059.40",
+      "browser_restore_play_audio_decode_photo_fit_export_click": "PASS",
+      "independent_ui_and_http_zip_crc_hash": "PASS",
+      "artifact": 12004616213,
+      "packaged_exe_pass": false,
+      "actual_sound_hearing_verified": false
+    },
+    "r9_corrected_windows_candidate": {
+      "source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+      "producer_run": 38822776656,
+      "readback_run": 38824641294,
+      "readback_artifact": 12014421906,
+      "zip": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip",
+      "zip_bytes": 1913892012,
+      "parts": 5,
+      "zip_sha256": "79b8fc38a5dade14a5974b132f265ba52476058f574b9d6c1795aa000aed7fe6",
+      "payload_manifest_sha256": "3facd08b16aeae044af39755c2d0d9638af4fe3fa0fec317b2dbc0bd863f2c17",
+      "launcher_sha256": "dd3f485a13a869acac87c3094381c9b97f872e461044af685e768afe9cadbe5a",
+      "runtime_id": "fef692312ae8-1261762e58ca",
+      "ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
+      "manifest_files_verified": 19236,
+      "pytest_passed": 116,
+      "pytest_skipped": 1,
+      "skip_reason": "Linux /usr/share/fonts CJK fixture lookup is unavailable on Windows",
+      "ui_node_passed": 5,
+      "single_instance": {
+        "status": "SINGLE_INSTANCE_PASS",
+        "first_pids": [
+          5220
+        ],
+        "second_pids": [
+          5220
+        ],
+        "duplicate_server_count": 0
+      },
+      "cold_restart": {
+        "status": "SAVE_REOPEN_COLD_RELAUNCH_EXPORT_PASS",
+        "first_pid": 5220,
+        "first_command_line": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca\\runtime\\python\\python.exe D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca\\app\\launcher\\employee_package_launcher.py --server --port 18768 --data-root D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA",
+        "second_pid": 1780,
+        "second_command_line": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca\\runtime\\python\\python.exe D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca\\app\\launcher\\employee_package_launcher.py --server --port 18768 --data-root D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA",
+        "old_endpoint_closed": true,
+        "project_id": "9200506f-96a8-482a-8612-1cf0b60a4fdb",
+        "restored_jobs": 3,
+        "export_sha256": "751a30205435d17efa44892363c5760a3161384d4edc63218d1107a384d41042",
+        "base_url": "http://127.0.0.1:18768",
+        "owner_pc_pass": false
+      },
+      "browser": {
+        "status": "FINAL_UI_BROWSER_FUNCTION_PASS",
+        "base_url": "http://127.0.0.1:18768",
+        "checks": {
+          "final_ui_geometry": "PASS",
+          "photo_live_and_apply": "PASS",
+          "video_play_and_edit": "PASS",
+          "portrait_auto_fit": "PASS"
+        },
+        "browser": {
+          "channel": "chrome",
+          "version": "155.0.8059.40"
+        },
+        "codec_capability": {
+          "h264": "probably",
+          "aac": "probably",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+        },
+        "media_before_play": {
+          "MediaError_code": null,
+          "readyState": 4,
+          "videoWidth": 320,
+          "currentSrc": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+          "currentTime": 0
+        },
+        "media_after_play": {
+          "MediaError_code": null,
+          "readyState": 4,
+          "videoWidth": 320,
+          "currentSrc": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+          "currentTime": 1.54611
+        },
+        "portrait_geometry": {
+          "host": {
+            "x": 923,
+            "y": 161,
+            "width": 408,
+            "height": 229.5
+          },
+          "image": {
+            "x": 924,
+            "y": 162,
+            "width": 406,
+            "height": 227.5
+          },
+          "objectFit": "contain",
+          "objectPosition": "50% 50%",
+          "natural": [
+            90,
+            160
+          ]
+        },
+        "http_responses": [
+          {
+            "url": "http://127.0.0.1:18768/api/projects/latest",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/ff7d8b44-f7d9-4f20-8404-7076c4c144a6/original_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/ff7d8b44-f7d9-4f20-8404-7076c4c144a6/original_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4",
+            "status": 206
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/0dcf8199-6011-4451-8ff6-6bad9964cb26/edited_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4",
+            "status": 206
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/0dcf8199-6011-4451-8ff6-6bad9964cb26/edited_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/assets",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/media/import",
+            "status": 201
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/0b8d63ec-99c4-4dc9-94c2-de53125eebc0/original_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/0b8d63ec-99c4-4dc9-94c2-de53125eebc0/original_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/assets",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/photo-edits",
+            "status": 201
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/4634053d-039a-48ef-ad70-ab0df727f0e0/edited_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/4634053d-039a-48ef-ad70-ab0df727f0e0/edited_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/assets",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/media/import",
+            "status": 201
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+            "status": 206
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/assets",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+            "status": 206
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/video-edits",
+            "status": 201
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/1d2a11ca-66e4-4c07-9d95-b1e433ade09b/edited_video.mp4",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/1d2a11ca-66e4-4c07-9d95-b1e433ade09b/edited_video.mp4",
+            "status": 206
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/assets",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/media/import",
+            "status": 201
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/2dca33bc-2d2e-4ee2-9c21-37777766007c/original_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/files/jobs/2dca33bc-2d2e-4ee2-9c21-37777766007c/original_photo.png",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:18768/api/assets",
+            "status": 200
+          }
+        ],
+        "page_errors": []
+      },
+      "source_and_model_byte_preservation": "Verified frozen model archive reused; all manifest file SHA/size PASS; six repaired source files match repository content after Git checkout line-ending normalization",
+      "new_model_inference": false
+    },
+    "pending_workspace_attachments": {
+      "issue": "Pending reference images and STT input audio lost after Save/cold reopen",
+      "source_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
+      "verified_source_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+      "verification_run": 38838462732,
+      "artifact": 12020147459,
+      "status": "PASS_SOURCE_BROWSER_AND_EXPORT_NOT_IN_DELIVERED_CANDIDATE",
+      "delivered_candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+      "candidate_contains_fix": false,
+      "requires_future_candidate": true,
+      "baseline": "CONFIRMED_BASELINE_DEFECT_PENDING_ATTACHMENTS_LOST",
+      "repair": "PASS_SOURCE_PENDING_REFERENCES_AUDIO_SAVE_COLD_REOPEN_UI_EXPORT",
+      "source_windows_pytest_passed": 22,
+      "node_ui_passed": 5,
+      "canonical_source_run": 38838236618,
+      "canonical_passed": 122,
+      "canonical_skipped": 4,
+      "restored_bytes_identical": true,
+      "source_export": {
+        "status": "PASS_INDEPENDENT_SOURCE_WORKSPACE_EXPORT_BYTES",
+        "sha256": "1639628c610a8e6d00d9de28e49021aaf36ef37f70331e727689096d717ef6a5",
+        "bytes": 3735,
+        "zip_crc": "PASS",
+        "files_verified": 6,
+        "roles": [
+          "input",
+          "output",
+          "workspace_audio",
+          "workspace_reference"
+        ],
+        "workspace_assets": [
+          {
+            "role": "workspace_reference",
+            "job_id": "workspace",
+            "archive_path": "workspace/references/photo/000_a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e.png",
+            "sha256": "a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e",
+            "bytes": 225
+          },
+          {
+            "role": "workspace_reference",
+            "job_id": "workspace",
+            "archive_path": "workspace/references/video/000_e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18.png",
+            "sha256": "e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18",
+            "bytes": 225
+          },
+          {
+            "role": "workspace_audio",
+            "job_id": "workspace",
+            "archive_path": "workspace/audio/2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd.wav",
+            "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd",
+            "bytes": 3244
+          }
+        ],
+        "model_inference": false,
+        "packaged_exe_pass": false,
+        "owner_pc_pass": false,
+        "full_product_pass": false
+      },
+      "frozen_ui_files_unchanged": [
+        "ui/index.html",
+        "ui/approved_visual.css",
+        "ui/interaction.css",
+        "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+        "ui/photo_workspace.js",
+        "ui/video_workspace.js",
+        "ui/workspace_shell.js"
+      ],
+      "behavior_files_changed": [
+        "ui/interaction.js",
+        "ui/product_integration.js"
+      ],
+      "new_model_inference": false
+    },
+    "prior_source_full_regression": {
+      "run": 38801035307,
+      "job": 116649810067,
+      "passed": 113,
+      "skipped": 4
+    }
+  },
+  "preservation": {
+    "approved_outer_ui_layout": true,
+    "approved_colors": true,
+    "photo_model_adapters_and_weights": true,
+    "historical_pass_receipts": true,
+    "main_expected_sha": "797da297f588780ad2d608deea3b5af8f05af450",
+    "force_push": false,
+    "package_rebuilt": true,
+    "package_rebuild_scope": "Owner-authorized R9 corrected development verification candidate; not employee final release; initial test-encoding failure preserved, completion retry succeeded",
+    "approved_visual_git_blob": "3e1334c14b84fcbd5845a7a7a693c3f6bfe5a5da",
+    "full_approved_visual_comparison": "BLOCKED_ORIGINAL_APPROVED_ASSET_REQUIRED"
+  },
+  "next_candidate": {
+    "required": true,
+    "package_build_allowed": false,
+    "existing_candidate_contains_repairs": true,
+    "source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+    "producer_run": 38822776656,
+    "readback_run": 38824641294,
+    "readback_artifact": 12014421906,
+    "zip": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip",
+    "zip_bytes": 1913892012,
+    "parts": 5,
+    "zip_sha256": "79b8fc38a5dade14a5974b132f265ba52476058f574b9d6c1795aa000aed7fe6",
+    "payload_manifest_sha256": "3facd08b16aeae044af39755c2d0d9638af4fe3fa0fec317b2dbc0bd863f2c17",
+    "launcher_sha256": "dd3f485a13a869acac87c3094381c9b97f872e461044af685e768afe9cadbe5a",
+    "runtime_id": "fef692312ae8-1261762e58ca",
+    "ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
+    "manifest_files_verified": 19236,
+    "existing_candidate_contains_workspace_attachment_fix": false,
+    "pending_source_fix": {
+      "issue": "Pending reference images and STT input audio lost after Save/cold reopen",
+      "source_fix_commit": "4e20d02e601302cdebf56a131c1eb60cde0f19cb",
+      "verified_source_head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+      "verification_run": 38838462732,
+      "artifact": 12020147459,
+      "status": "PASS_SOURCE_BROWSER_AND_EXPORT_NOT_IN_DELIVERED_CANDIDATE",
+      "delivered_candidate_source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+      "candidate_contains_fix": false,
+      "requires_future_candidate": true
+    }
+  },
+  "remaining_actual_pc": [
+    "Read back original R9 report/CSV/approved comparison PNG/ZIP bytes",
+    "Compare full approved UI using same viewport and original approved asset",
+    "Correlate actual R9 launcher exception with source fixes",
+    "Packaged EXE full server stop / relaunch / project restore / Export",
+    "Windows player playback / seek / actual audio"
+  ],
+  "external": {
+    "openai": "NOT_APPROVED_NOT_CONNECTED",
+    "marketing": "DEFERRED",
+    "avora": "DEFERRED"
+  },
+  "pr23": "OPEN_DRAFT_HOLD_DO_NOT_MERGE",
+  "owner_pc_runtime_pass": false,
+  "final_product_pass": false
+}

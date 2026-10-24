@@ -1,0 +1,7 @@
+MINDLE MEDIA AI employee candidate — redistribution approval pending.
+See MODEL_LICENSE_MANIFEST.json for SAM 2.1 Apache-2.0, Whisper-small MIT and Intel SISR Apache-2.0.
+See RUNTIME_REDISTRIBUTION_MANIFEST.json and retained upstream notices for all bundled runtime distributions/native binaries.
+Microsoft v14 installer is NOT bundled. Online bootstrap requires explicit INSTALL consent and verified Microsoft signature.
+Owner Visual Studio redistribution entitlement is not verified. Existing Microsoft DLLs inside upstream Python/NumPy remain an unresolved gate.
+FFmpeg/ffprobe Gyan 6.1.1 GPL-3.0; source reference e38092ef93. Complete corresponding source for static third-party libraries is not yet verified.
+This notice is an audit, not a legal approval or an offline package PASS.

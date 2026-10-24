@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "status": "ACTIVE",
+  "date": "2026-10-08",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261008-PRODUCT-E2E-VIDEO-PREVIEW-TO-FULL-PASS-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_DIRECTIVE_v1.0_20261008.md",
+  "required_final_result": "PASS_MINDLE_MEDIA_AI_FULL_PRODUCT_E2E_RUNTIME_VERIFIED",
+  "starting_checkpoint": "PASS_PHOTO_UPSCALE_PREVIEW_FIX_FULL_E2E_FAIL_VIDEO_PREVIEW",
+  "frozen_pass": [
+    "PHOTO_SEGMENT_REAL_MODEL_AND_BROWSER_DECODE",
+    "PHOTO_4X_REAL_MODEL_AND_BROWSER_DECODE",
+    "VIDEO_TRACKING_BACKEND_TESTED_PASS",
+    "BASELINE_CI_PYTHON_64_UI_2"
+  ],
+  "gates": [
+    "VIDEO_BROWSER_DIAGNOSTICS",
+    "H264_BROWSER_PREVIEW_DECODE",
+    "KOREAN_STT_UI_E2E",
+    "SAVE_CLOSE_REOPEN",
+    "EXPORT",
+    "MARKETING_HTTP",
+    "APPROVED_AVORA_ASSET",
+    "SHORTFORM_9X16_PREVIEW",
+    "APPROVED_MP4_EXPORT",
+    "REMOTE_READBACK"
+  ],
+  "exact_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PRODUCT_E2E_VIDEO_PREVIEW_TO_FULL_PASS_REVIEW_v1.0_20261008.md",
+    "evidence_json": "docs/evidence/media-ai-product-e2e-full-pass-20261008/EVIDENCE.json",
+    "detail_dir": "docs/evidence/media-ai-product-e2e-full-pass-20261008/"
+  },
+  "ui_lock": {
+    "visual_redesign_allowed": false,
+    "layout_change_allowed": false,
+    "defect_required_state_instrumentation_only": true
+  },
+  "repository_rules": {
+    "main_merge_forbidden": true,
+    "force_push_forbidden": true,
+    "new_repo_forbidden": true,
+    "new_worktree_forbidden": true,
+    "pr23_hold_do_not_merge": true
+  }
+}

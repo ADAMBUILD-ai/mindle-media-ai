@@ -1,0 +1,9 @@
+{
+  "purpose": "Template only. This file is not a build authorization.",
+  "approval_id": "",
+  "authorized_parent": "",
+  "attempts_allowed": 1,
+  "changed_files": [],
+  "unresolved_by_test_r2": {},
+  "package_build_allowed": false
+}

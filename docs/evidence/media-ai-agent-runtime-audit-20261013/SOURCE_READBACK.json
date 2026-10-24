@@ -1,0 +1,50 @@
+{
+  "source_commit": "733e1bf1a47236d9b83000974cf4d10845e0264f",
+  "files": [
+    {
+      "path": "src/media_ai/product_runtime.py",
+      "sha": "fa7b161bdefd4f667f8245f02e2167969281c2d9"
+    },
+    {
+      "path": "src/media_ai/product_server.py",
+      "sha": "b1590caf7e420c475cadc14aa1a2df3ad821c242"
+    },
+    {
+      "path": "src/media_ai/verified_model_adapters.py",
+      "sha": "9a56bfa18cd997e53f19ec284dfc43579a07c945"
+    },
+    {
+      "path": "src/media_ai/intel_sisr_verified_adapter.py",
+      "sha": "4f0e3e484517a901d9bbab409db8d5a3991923e4"
+    },
+    {
+      "path": "src/media_ai/planner.py",
+      "sha": "95dba7e4227586bac3fac08a3bf28edd7832ae44"
+    },
+    {
+      "path": "src/media_ai/runtime_orchestration.py",
+      "sha": "529ac07147973200923df4a236b6a45914183596"
+    },
+    {
+      "path": "src/media_ai/model_scout_integration.py",
+      "sha": "600d90a05548a750b33aaa441ff9462751a9d57c"
+    },
+    {
+      "path": "src/media_ai/quality_engine.py",
+      "sha": "a81b485fafa84a45a136701b322c903af6b3b1b3"
+    },
+    {
+      "path": "ui/product_integration.js",
+      "sha": "dfb3d9498645a2124de83a4c4f040577a5f350ce"
+    },
+    {
+      "path": "ui/photo_workspace.js",
+      "sha": "ba2162c8f095cb4fd8522bcdbb9517ae848039f3"
+    },
+    {
+      "path": "ui/video_workspace.js",
+      "sha": "3628fee1f434b613ce75813fa3fb6db7e81c418d"
+    }
+  ],
+  "match": "EXACT_GIT_BLOB_SHA1"
+}

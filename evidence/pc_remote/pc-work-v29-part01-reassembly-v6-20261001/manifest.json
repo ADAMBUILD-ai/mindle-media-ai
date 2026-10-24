@@ -1,0 +1,15 @@
+{
+  "cycle": "pc-work-v29-part01-reassembly-v6-20261001",
+  "required_artifact_id": 10797756522,
+  "required_part": "v29 part-01",
+  "required_bytes": 418706393,
+  "required_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128",
+  "local_candidate_bytes": 418706255,
+  "local_candidate_sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3",
+  "local_candidate_accepted": false,
+  "reassembly": "NOT_RUN",
+  "runtime_extraction": "NOT_RUN",
+  "photo_outputs": [],
+  "human_gate": "AUTHENTICATED_GITHUB_TRANSFER_OR_HUMAN_BROWSER_DOWNLOAD_REQUIRED",
+  "final_commit_sha": "5fe05edc6061cc900af5d42cd9710e0d51b66ea3"
+}

@@ -1,0 +1,11 @@
+{
+  "media": {
+    "error": 0,
+    "readyState": 4,
+    "videoWidth": 1280,
+    "currentSrc": "http://127.0.0.1:18768/files/architecture-agent/outputs/720db184-9d33-4625-a1a4-22ad68a4e976.mp4",
+    "currentTime": 0.870974
+  },
+  "ui_export_sha256": "3b2ac44918d6b8d58f218277f4125bc16197d7b58eb88a003982835b84ab7c75",
+  "human_hearing": false
+}

@@ -1,0 +1,127 @@
+{
+  "case": "01_VIDEO_EDIT_NEW_OPEN",
+  "started_at": "2026-10-17T14:36:51.401397+09:00",
+  "evidence": {
+    "retained": {
+      "before": {
+        "previews": [
+          {
+            "kind": "video",
+            "job": "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+            "src": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4"
+          },
+          {
+            "kind": "photo",
+            "job": "196a52f5-caba-4c91-9def-f2db218ad591",
+            "src": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png"
+          }
+        ],
+        "files": [
+          {
+            "kind": "photo",
+            "name": "5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+            "size": 298684
+          },
+          {
+            "kind": "video",
+            "name": "fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+            "size": 268992
+          }
+        ],
+        "references": [
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거",
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거"
+        ]
+      },
+      "after": {
+        "previews": [
+          {
+            "kind": "video",
+            "job": "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+            "src": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4"
+          },
+          {
+            "kind": "photo",
+            "job": "196a52f5-caba-4c91-9def-f2db218ad591",
+            "src": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png"
+          }
+        ],
+        "files": [
+          {
+            "kind": "photo",
+            "name": "5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+            "size": 298684
+          },
+          {
+            "kind": "video",
+            "name": "fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+            "size": 268992
+          }
+        ],
+        "references": [
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거",
+          "portrait_autofit.png 제거reference_architecture_crop.png 제거"
+        ]
+      },
+      "rejected_open_requests": 0,
+      "rejected_dialog_retained": true
+    },
+    "save_project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "actual_backend_responses": [
+      {
+        "url": "http://127.0.0.1:18768/api/video-edits",
+        "status": 201,
+        "body": {
+          "status": "TESTED_PASS",
+          "job_id": "147dbb88-5b3d-455e-bb95-1d0f9dc81339",
+          "lane": "video",
+          "operation": "video_edit",
+          "command": "영상 효과",
+          "input": {
+            "file_name": "49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+            "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+            "bytes": 268992,
+            "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+          },
+          "primary_output": {
+            "file_name": "edited_video.mp4",
+            "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\147dbb88-5b3d-455e-bb95-1d0f9dc81339\\edited_video.mp4",
+            "bytes": 224410,
+            "sha256": "c9116610aa826eb37b0fd3b8f6ed1e399cac2de8935ff584412c570bf9d9a7e5"
+          },
+          "outputs": [
+            {
+              "file_name": "edited_video.mp4",
+              "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\147dbb88-5b3d-455e-bb95-1d0f9dc81339\\edited_video.mp4",
+              "bytes": 224410,
+              "sha256": "c9116610aa826eb37b0fd3b8f6ed1e399cac2de8935ff584412c570bf9d9a7e5"
+            }
+          ],
+          "runtime_result": {
+            "engine": "FFmpeg",
+            "options": {
+              "stabilize": false,
+              "denoise": false,
+              "split": false,
+              "start": 0,
+              "duration": 0,
+              "speed": 1,
+              "volume": 1,
+              "brightness": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "effect": true
+            },
+            "model_inference": false,
+            "sampled_frames": 0,
+            "analysis": null
+          },
+          "preview_url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4"
+        }
+      }
+    ],
+    "switch_after_completion": true
+  },
+  "status": "PASS",
+  "finished_at": "2026-10-17T14:36:55.997225+09:00"
+}

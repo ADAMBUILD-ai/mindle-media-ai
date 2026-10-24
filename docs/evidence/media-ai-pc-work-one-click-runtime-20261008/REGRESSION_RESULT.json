@@ -1,0 +1,14 @@
+{
+  "status": "NOT_RUN_FOR_PC_WORK",
+  "current_local_validator": "NOT_EXECUTED",
+  "current_local_python_tests": null,
+  "current_local_ui_tests": null,
+  "general_work_baseline_reference": {
+    "commit": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
+    "python_pass": 77,
+    "ui_pass": 2,
+    "actual_browser_checks": 75,
+    "source": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md"
+  },
+  "baseline_results_rerun_or_promoted_to_pc_e2e": false
+}

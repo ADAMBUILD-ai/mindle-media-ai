@@ -1,0 +1,10 @@
+{
+  "current_ssot_png_reference": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\ui\\assets\\ssot\\MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+  "current_ssot_png_sha256": "9aaf05be17a3b851717a8bcdbeaf9c589812cb02f4807e3e2c9d10e75709ad3d",
+  "expected_manifest_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "live_ui_url": "http://127.0.0.1:8765/",
+  "live_ui_screenshot_captured": true,
+  "live_ui_screenshot_reference": "CURRENT_UI_SCREENSHOT_REFERENCE.txt",
+  "question_for_representative": "현재 저장소의 9aaf... PNG가 최종 승인 UI 원본과 시각적으로 동일한가?",
+  "manifest_update_authorized": false
+}

@@ -1,0 +1,249 @@
+{
+  "source_commit": "1493cb5e6886dc2b6c35252fff246ad6eb48ebe9",
+  "status": "PASS_RUNTIME_RECOVERY_SCENE_EDIT_BROWSER_GATE",
+  "owner_pc_runtime_pass": false,
+  "generative_ai_connected": false,
+  "fresh_model_inference": false,
+  "checks": [
+    {
+      "check": "actual_import_media_diagnostics",
+      "status": "PASS",
+      "detail": {
+        "currentSrc": "http://127.0.0.1:36561/files/jobs/8ee89655-00fc-4cd0-93a6-f94d89c36dcf/original_video_preview.mp4",
+        "currentTime": 0,
+        "error": null,
+        "paused": true,
+        "readyState": 4,
+        "videoWidth": 160
+      }
+    },
+    {
+      "check": "actual_media_library_contains_user_import",
+      "status": "PASS",
+      "detail": "SOURCE.mp4"
+    },
+    {
+      "check": "auto_edit_actual_button_analysis_not_tracking",
+      "status": "PASS",
+      "detail": {
+        "command": "장면 분석 자동 편집",
+        "input": {
+          "bytes": 55711,
+          "file_name": "17ef23a1-2894-489d-9049-8695f78c52f8_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_recovery_data/inputs/17ef23a1-2894-489d-9049-8695f78c52f8_original_video_preview.mp4",
+          "sha256": "8b4f14f9e9d33dca71ab9da46dc7c4ed376bd55dfd97ec49f02daaf5265dc59a"
+        },
+        "job_id": "4c1c5a90-3c51-466c-bbe6-4b9d9539f6ef",
+        "lane": "video",
+        "operation": "video_edit",
+        "outputs": [
+          {
+            "bytes": 53798,
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_recovery_data/jobs/4c1c5a90-3c51-466c-bbe6-4b9d9539f6ef/edited_video.mp4",
+            "sha256": "c3b07f0e3f4a0fa0602c156947e7758a23d8f69a426e113228e1430a73a65a25"
+          }
+        ],
+        "preview_url": "/files/jobs/4c1c5a90-3c51-466c-bbe6-4b9d9539f6ef/edited_video.mp4",
+        "primary_output": {
+          "bytes": 53798,
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_recovery_data/jobs/4c1c5a90-3c51-466c-bbe6-4b9d9539f6ef/edited_video.mp4",
+          "sha256": "c3b07f0e3f4a0fa0602c156947e7758a23d8f69a426e113228e1430a73a65a25"
+        },
+        "runtime_result": {
+          "analysis": {
+            "duration": 5,
+            "method": "measured_scene_window_v1",
+            "model_inference": false,
+            "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score.",
+            "requested_duration": 30,
+            "sample_count": 5,
+            "samples": [
+              {
+                "exposure": 104.4217,
+                "motion": 0,
+                "score": 10,
+                "second": 0,
+                "sharpness": 3015.5037,
+                "usable": true
+              },
+              {
+                "exposure": 106.941,
+                "motion": 18.3975,
+                "score": 28.3975,
+                "second": 1,
+                "sharpness": 3168.959,
+                "usable": true
+              },
+              {
+                "exposure": 107.5703,
+                "motion": 19.5019,
+                "score": 29.5019,
+                "second": 2,
+                "sharpness": 3273.46,
+                "usable": true
+              },
+              {
+                "exposure": 109.9947,
+                "motion": 17.9337,
+                "score": 27.9337,
+                "second": 3,
+                "sharpness": 3205.4311,
+                "usable": true
+              },
+              {
+                "exposure": 108.2235,
+                "motion": 11.8633,
+                "score": 21.8633,
+                "second": 4,
+                "sharpness": 3178.0171,
+                "usable": true
+              }
+            ],
+            "semantic_understanding": false,
+            "source_duration": 5,
+            "start": 0
+          },
+          "engine": "FFmpeg",
+          "model_inference": false,
+          "options": {
+            "auto_edit": true,
+            "brightness": 0,
+            "contrast": 0,
+            "denoise": false,
+            "duration": 5,
+            "highlight_method": "measured_scene_window_v1",
+            "saturation": 0,
+            "speed": 1,
+            "split": false,
+            "stabilize": false,
+            "start": 0,
+            "volume": 1
+          },
+          "sampled_frames": 5
+        },
+        "status": "TESTED_PASS"
+      }
+    },
+    {
+      "check": "actual_h264_playback",
+      "status": "PASS",
+      "detail": {
+        "currentSrc": "http://127.0.0.1:36561/files/jobs/4c1c5a90-3c51-466c-bbe6-4b9d9539f6ef/edited_video.mp4",
+        "currentTime": 0.534015,
+        "error": null,
+        "paused": false,
+        "readyState": 4,
+        "videoWidth": 160
+      }
+    },
+    {
+      "check": "actual_photo_auto_measured_pixels_not_preset",
+      "status": "PASS",
+      "detail": {
+        "command": "자동 사진 보정",
+        "input": {
+          "bytes": 1266,
+          "file_name": "30a06f03-9f03-4038-9a4f-07acb563d9da_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_recovery_data/inputs/30a06f03-9f03-4038-9a4f-07acb563d9da_photo_edit.png",
+          "sha256": "48457c4bad1df021aa2d1b2c0f1e657068482d9e2dfe6935d060ee7ebef1d1ae"
+        },
+        "job_id": "7ada275a-9cd9-4b89-a13c-ea0abbdf98af",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "outputs": [
+          {
+            "bytes": 632,
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_recovery_data/jobs/7ada275a-9cd9-4b89-a13c-ea0abbdf98af/edited_photo.png",
+            "sha256": "2b4ff75788c557cde1c254d02aad9cac93075d5ea54792b7659b3943131bd340"
+          }
+        ],
+        "preview_url": "/files/jobs/7ada275a-9cd9-4b89-a13c-ea0abbdf98af/edited_photo.png",
+        "primary_output": {
+          "bytes": 632,
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/runtime_recovery_data/jobs/7ada275a-9cd9-4b89-a13c-ea0abbdf98af/edited_photo.png",
+          "sha256": "2b4ff75788c557cde1c254d02aad9cac93075d5ea54792b7659b3943131bd340"
+        },
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "model_inference": false,
+          "options": {
+            "automaticAnalysis": {
+              "method": "decoded_pixel_percentiles_v1",
+              "model_inference": false,
+              "p10": 97.192,
+              "p50": 97.192,
+              "p90": 97.192,
+              "sample_pixels": 28800
+            },
+            "brightness": 35,
+            "contrast": 0,
+            "crop": null,
+            "flipH": false,
+            "flipV": false,
+            "highlights": 0,
+            "resizeWidth": null,
+            "rotation": 0,
+            "saturation": 0,
+            "shadows": 0,
+            "sharpness": 0,
+            "style": "neutral",
+            "temperature": 16
+          },
+          "result_size": [
+            120,
+            240
+          ]
+        },
+        "status": "TESTED_PASS"
+      }
+    },
+    {
+      "check": "actual_portrait_correction",
+      "status": "PASS",
+      "detail": {
+        "height": 240,
+        "width": 120
+      }
+    },
+    {
+      "check": "actual_original_selection_changes_current_result",
+      "status": "PASS",
+      "detail": {
+        "job_id": "74b46cc0-22f9-4bd1-ad03-2090039fa803"
+      }
+    },
+    {
+      "check": "actual_asset_library_survives_restart",
+      "status": "PASS",
+      "detail": {
+        "assets": 2
+      }
+    },
+    {
+      "check": "full_server_browser_restart_identical_saved_analysis",
+      "status": "PASS",
+      "detail": {
+        "project_id": "98f90dcf-6580-4706-b8a8-dacd2e28855c",
+        "job_ids": [
+          "8ee89655-00fc-4cd0-93a6-f94d89c36dcf",
+          "4c1c5a90-3c51-466c-bbe6-4b9d9539f6ef",
+          "7ada275a-9cd9-4b89-a13c-ea0abbdf98af",
+          "c4145d99-b4c9-4d97-a67c-cfa6069ac2cc",
+          "74b46cc0-22f9-4bd1-ad03-2090039fa803"
+        ]
+      }
+    },
+    {
+      "check": "actual_browser_download_export_crc_and_media_hashes",
+      "status": "PASS",
+      "detail": {
+        "file": "98f90dcf-6580-4706-b8a8-dacd2e28855c_export.zip",
+        "sha256": "b998233b518c79225b4381ff846be0910ca700dc8436ec0be96645ba15186a11"
+      }
+    }
+  ]
+}

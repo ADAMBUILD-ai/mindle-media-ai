@@ -1,0 +1,57 @@
+{
+  "contract_version": "20.2.4",
+  "date": "2026-10-02",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261002-V20.2.4",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_DIRECTIVE_v20.2.4_20261002.md",
+  "scope": [
+    "launcher_parity",
+    "brand_icon",
+    "final_closeout"
+  ],
+  "frozen_ui_baseline": "v20.2.2 current good UI",
+  "final_icon_required": true,
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_REVIEW_v20.2.4_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FINAL_WINDOWS_LAUNCHER_BRAND_ICON_CLOSEOUT_EVIDENCE_v20_2_4_20261002.json",
+    "detail_directory": "evidence/pc_remote/media-ai-final-launcher-icon-v20_2_4-20261002/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CONTROL_PLANE_VALIDATION.txt",
+      "DESKTOP_SHORTCUT_BEFORE.json",
+      "LAUNCH_PARITY_ROOT_CAUSE.json",
+      "CANONICAL_LAUNCHER_VERIFY.json",
+      "SERVER_CACHE_POLICY_VERIFY.json",
+      "DESKTOP_SHORTCUT_AFTER.json",
+      "ICON_DESIGN_SPEC.json",
+      "ICON_ASSET_HASHES.json",
+      "ICON_MULTI_SIZE_QA.json",
+      "DESKTOP_BEFORE.png",
+      "DESKTOP_AFTER_BRANDED_ICON.png",
+      "ICON_FINAL_1024_PREVIEW.png",
+      "ICON_MULTI_SIZE_PREVIEW.png",
+      "DESKTOP_ICON_SELECTED.png",
+      "ICON_LAUNCH_UI_FIRST.png",
+      "ICON_LAUNCH_UI_SECOND.png",
+      "LAUNCH_VIEWPORT_PARITY.json",
+      "BOTTOM_CLIPPING_AUDIT.json",
+      "FAVICON_VERIFY.json",
+      "FUNCTION_SMOKE_CHECK.json",
+      "V20_2_2_UI_PRESERVATION.json",
+      "SHORTFORM_PRESERVATION.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 26,
+  "allowed_results": [
+    "FINAL_CLOSEOUT_READY_FOR_COMMANDER",
+    "LAUNCHER_CORRECTION_REQUIRED",
+    "ICON_CORRECTION_REQUIRED",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}

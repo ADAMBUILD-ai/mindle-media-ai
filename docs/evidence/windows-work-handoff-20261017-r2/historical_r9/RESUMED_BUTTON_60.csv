@@ -1,0 +1,61 @@
+﻿id,label,disposition,result,actual_click,reason
+BUTTON_001,⌕,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_002,◌,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_003,⚙,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_009,☁ 클라우드,active,FAIL,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_010,▣ 프로젝트,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_011,♲ 작업기록,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_004,＋ 영상 불러오기,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_035,＋ 사진 불러오기,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_030,＋ 참고 이미지 추가,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_031,참고 이미지,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_056,＋ 참고 이미지 추가,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_057,참고 이미지,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_032,스타일,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_058,스타일,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_059,톤 조정,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_033,길이,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_060,비율,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_012,◀,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_013,▶,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_014,▶|,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_015,🔊,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_016,⛶,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_039,⛶,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_006,✦ 광고 숏폼,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_054,적용하기,active,PASS,True,7개 슬라이더 각각 적용하기를 실제 클릭. 별도 픽셀 차이 검증 파일 참조.
+BUTTON_036,✦ AI 보정,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_040,✦ AI 보정,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_041,AI 보정,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_043,색감 보정,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_044,스타일 변환,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_045,인물 보정,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_049,회전,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_050,좌우 반전,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_051,상하 반전,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_046,유사 이미지,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_047,크롭,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_048,크기 조절,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_053,↻ 초기화,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_042,배경 제거,active,PASS,True,초기 검수기 대기 판정 보존. 후속 실제 클릭과 HTTP 완료 응답으로 재판정.
+BUTTON_052,해상도 향상,active,PASS,True,초기 검수기 조기 판정 보존. 동일 클릭의 뒤늦은 실제 모델 HTTP 201 응답 확인.
+BUTTON_055,➤,active,PASS,True,초기 검수기 대기 판정 보존. 후속 실제 클릭과 HTTP 완료 응답으로 재판정.
+BUTTON_017,자르기,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_018,분할,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_020,속도,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_019,회전,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_021,숏폼,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_022,전환,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_023,AI 효과,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_026,하이라이트,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_005,✦ AI 자동 편집,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_034,비율,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_024,자막,status-only,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_028,영상 편집 적용,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_027,배경음악,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_029,➤,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_025,자동 자막,active,PASS,True,초기 검수기 조기 판정 보존. 동일 클릭의 뒤늦은 실제 모델 HTTP 201 응답 확인.
+BUTTON_007,프로젝트 저장,active,PASS,True,초기 검수기 대기 판정 보존. 후속 실제 클릭과 HTTP 완료 응답으로 재판정.
+BUTTON_037,프로젝트 저장,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_008,내보내기,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.
+BUTTON_038,내보내기,active,PASS,True,공식 Chrome 실제 클릭 결과. PASS는 기록된 버튼 역할에만 한정.

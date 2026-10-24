@@ -1,0 +1,164 @@
+{
+  "verified_publication_commit": "73fe0f131081cda35f82b2e104ae6bfdede0866a",
+  "tested_source_commit": "92897f4ff943d30d788416dbb10324f3df2b9427",
+  "text_files_matched": 23,
+  "binary_blobs_matched": 6,
+  "all_prior_source_blobs_unchanged": 899,
+  "protected_paths_matched": 73,
+  "main": "797da297f588780ad2d608deea3b5af8f05af450",
+  "pr23": {
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "instruction": "HOLD / DO NOT MERGE"
+  },
+  "readback": [
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/UI_CONTROLS.json",
+      "sha": "02eb1a919034e56ab30c9a8d050a0df67ea7fce7",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/REGRESSION.log",
+      "sha": "8a5b01fc09dec6ef97a0f73159f491a2190681b6",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/ARTIFACT_INDEPENDENT_VERIFICATION.json",
+      "sha": "db68951356539143e806e10c95a2580529971541",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/FINAL_DOM.html",
+      "sha": "bc3a6fe1e3324db0a7ef3039c8af6a5fc4685278",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/ACTIONS_RUN.log",
+      "sha": "e0356884c4d7561682497c3bc903aa9370439c7e",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/RAW_RUNTIME_EVIDENCE.json",
+      "sha": "fc5b2bf7cd84e470de1ef81a2f84e0639dba60a0",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/CANONICAL_BASELINE.log",
+      "sha": "8e4e09f37ff54e54c83cfed4a26404bf0266a319",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/REGRESSION_RESULT.json",
+      "sha": "43a6ae8a2fb24c731b9c61ac4047dcca7780209f",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/CODE_DEFINITION_INVENTORY.json",
+      "sha": "396a071817348b1488172c9fbbe1b0985dd020a5",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/PREVIOUS_ATTEMPTS.json",
+      "sha": "b3d4aca9aa27151215f4785bb45d9f1a870fd603",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/FEATURE_INVENTORY.json",
+      "sha": "aa262a3739e22a8dbafa74df0e781c81c3d56538",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/RUNTIME_E2E_RECEIPT.json",
+      "sha": "073b47c8e9b241716ab96eae87f2a584630ffd02",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/SERVER_REQUESTS.json",
+      "sha": "949e388ad432fbf8379c18820f323c074b769db3",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/CODE_AUDIT.json",
+      "sha": "f20ad3f88f5ae538ee2abfaef3a5cfd6f6420a73",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/BROWSER_CONSOLE.json",
+      "sha": "0bf84805bd2722b76c6c09cb5db0e4908dab41d0",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/AUDIT_FINDINGS.json",
+      "sha": "8035021502d344577b2d47d1e0f991df676dc029",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/GAP_REGISTER.json",
+      "sha": "57986a7cf982344c36cfb1d2456cd867dd1f7e9f",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/EVIDENCE.json",
+      "sha": "b689c82448765e6bc0c8f1321135f71ed036be04",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/FEATURE_INVENTORY.md",
+      "sha": "d84593dca0fd4dca4ac9c7437518942892c002fc",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/UI_RUNTIME_AUDIT.json",
+      "sha": "d3170f821b67b491fb5ed8dec640f44396e83003",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/FROZEN_PASS_REUSE.json",
+      "sha": "f8db98d3264714e3026d4b7667ce3354b95d4c27",
+      "content_match": true
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_REVIEW_v1.0_20261008.md",
+      "sha": "619867eede1bb668dc40434974d2025259b64044",
+      "content_match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/SOURCE_READBACK.json",
+      "sha": "593dfd37f667e8fb947461969d76b3a2b263134b",
+      "content_match": true
+    }
+  ],
+  "binary": [
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/KOREAN_SUBTITLE_ACTUAL.mp4",
+      "bytes": 130275,
+      "sha": "4d676c69a9d8f4b908d206a8959a47f63b29bb42"
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/APPROVED_UI_HEADER.png",
+      "bytes": 962616,
+      "sha": "613b3a2d30ddfbe1ddaed1f5470537be828941f8"
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/PHOTO_FOREGROUND_RGBA.png",
+      "bytes": 193445,
+      "sha": "a1ae3d2961e93a32799d95bbfa35baab8160888c"
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/PORTRAIT_AUTO_FIT.png",
+      "bytes": 32004,
+      "sha": "e453edc47ccb32b1341cd7a5456e7ad38c9643c7"
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/BGM_FOLLOWUP_ACTUAL.mp4",
+      "bytes": 116363,
+      "sha": "3b135d5c71cab9ad695e04022a7747a0b5c95c49"
+    },
+    {
+      "path": "docs/evidence/media-ai-general-work-final-self-audit-20261008/KOREAN_SUBTITLE.png",
+      "bytes": 91761,
+      "sha": "742df74263028650c0c1f4c51f2e76d45f4f598c"
+    }
+  ]
+}

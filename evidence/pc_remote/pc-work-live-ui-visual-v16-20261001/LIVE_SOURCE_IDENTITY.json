@@ -1,0 +1,20 @@
+{
+  "repository_root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "head": "16e2fd4fee014ca3bb288850a80ac18db6c94ce6",
+  "product_server_command": "python -m media_ai.product_server --root <canonical-worktree> --data-dir C:\\Users\\PC\\Documents\\Codex\\v15-ui-runtime --port 8765",
+  "served_static_root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\ui",
+  "index_html": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\ui\\index.html",
+  "css_paths": [
+    "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\ui\\interaction.css"
+  ],
+  "url": "http://127.0.0.1:8765/",
+  "screenshot_sha256": "44034d86208eda7dab773f1cba4237d104d87329ebd94e1cba0fc30bbf30cfca",
+  "screenshot_bytes": 23714,
+  "screenshot_dimensions": [
+    1280,
+    720
+  ],
+  "captured_utc_date": "2026-10-01",
+  "canonical_root_verified": true
+}

@@ -1,0 +1,16 @@
+[MINDLE MEDIA AI 다음 창 작업 재개]
+첨부 인수인계 ZIP을 풀고 MINDLE_MEDIA_AI_FULL_HANDOVER_20261024_KO.md를 먼저 읽어라.
+이 창은 MINDLE MEDIA AI만 담당한다. 완료 작업을 반복하거나 AURA/AKI/AVORA 업무로 확대하지 마라.
+현재 기준은 TEST R2. 제품 source=2e5e9197d78c9b975686c1e419d2b68ce5f65226, 인계 직전 HEAD=cce3431c9a32687f0e3adc62f8ebefd5d944bd10.
+저장소 ADAMBUILD-ai/mindle-media-ai, 브랜치 feature/ad-shortform-bridge-p0-20260926.
+현재 지시서 docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md 및 같은 날짜 TEST_R2_EVIDENCE_CONTRACT를 확인해라.
+후속 후보 제작·원격 Windows EXE/Chrome/Qwen/Supertonic/정상 종료/새 PID/복원/UI Export·19333파일 SHA·CRC·전달은 완료됐다.
+프로그램·모델·3GB ZIP·입력8·버튼60을 다시 만들거나 고비용 PHOTO 분할/4배 검수를 이유 없이 반복하지 마라.
+남은 것은 실제 사무실 PC 인수, 설치 플레이어/사람 청취, 승인 UI 최종 대조다. R9 lock 원본조사와 구형 SSOT 잔여 필드는 별도 이력이다.
+우선 실제 PC 연결 가능 여부를 확인해라. 채팅/PC Work 연결 장애와 MEDIA 제품 서버 오류를 섞지 마라. 연결 불가를 제품 실패로 추정하거나 사용자에게 과거 ZIP/로그를 찾아 올리라고 떠넘기지 마라.
+연결되면 기존 TEST R2 identity를 대조한 후 소유 서버 PID/정상 종료/endpoint 닫힘/새 PID/동일 프로젝트와 참조복원/Export를 검수해라. 타앱 일괄 종료·lock삭제 금지.
+파일은 이미 9개가 보존돼 있다. 필요하면 PRIVATE_FILE_LOCATORS.json 또는 정확한 파일명으로 복구해라. 설치 필수는 설치기 1개+part00~06 7개다. 구형 TEST R1과 사용자자료는 보존하고 자동이전했다고 주장하지 마라.
+신규 모델/Blender/생성영상 연동은 현재 구현·실행 승인으로 간주하지 말고 향후 계획으로만 보존해라.
+PR23 HOLD/DO NOT MERGE, main/forcepush 금지, Build Gate=false, 직원 최종 패키지 생성 금지, 승인없는 외부키 연결 금지, Marketing/AVORA DEFERRED_EXTERNAL 유지.
+검증기 exit0/원격 runner PASS를 물리 PC·사람청취·UI전체일치·전체제품 PASS로 확대하지 마라.
+진행 여부를 다시 묻지 말고 실행 가능한 남은 작업을 진행하고 실제 결과와 근거만 보고해라.

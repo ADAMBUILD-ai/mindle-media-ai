@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-30",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "directive_commit": "d75513ce7bd652e7baec841b2600450a2ddc1523",
+  "pr": 23,
+  "execution_surface": "Windows browser static UI preview",
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO"
+  },
+  "ui_observed": ["영상 편집", "사진 편집", "광고 숏폼 신규", "영상 불러오기", "사진 불러오기", "Korean instruction fields", "프로젝트 저장", "내보내기", "영상 미리보기", "영상 타임라인"],
+  "lane_results": {
+    "ui_shell": "PASS",
+    "korean_instruction_entry": "PASS",
+    "ad_shortform_entry": "PASS",
+    "native_file_chooser": "REWORK",
+    "photo_segmentation": "REWORK",
+    "photo_4x_upscale": "REWORK",
+    "video_tracking": "REWORK",
+    "korean_stt": "REWORK",
+    "preview": "REWORK",
+    "project_save": "REWORK",
+    "export": "REWORK"
+  },
+  "observed_blocker": "Clicking 프로젝트 저장 surfaced Failed to fetch; no playable preview or verifiable MP4 was produced.",
+  "shortform_contract": "UNAVAILABLE",
+  "shortform_assets": "UNAVAILABLE",
+  "shortform_result": "VERIFY_REQUIRED",
+  "fabrication": false,
+  "next_action": "Provide reachable local integration/native chooser path and approved test media; rerun only UI activation and downstream dependent lanes."
+}

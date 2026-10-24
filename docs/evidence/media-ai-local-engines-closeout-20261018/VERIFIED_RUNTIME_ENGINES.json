@@ -1,0 +1,22 @@
+{
+  "planner": {
+    "executable": "/workspace/scratch/b0ed3e0d34af/local-engines/llama/llama-b11716/llama-completion",
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "model_path": "/workspace/scratch/b0ed3e0d34af/local-engines/qwen15.gguf",
+    "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "license": "Apache-2.0",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3"
+  },
+  "tts": {
+    "engine": "sherpa-supertonic",
+    "data_path": "/workspace/scratch/b0ed3e0d34af/local-engines/supertonic-verified/sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+    "data_sha256": "56dd586123097a75024c304de344513e72100c967d66b71670ca3bceff1af130",
+    "runtime_version": "1.13.8",
+    "runtime_sha256": "1c686b41ae4a423909e31e9c1303adda8d8c06615cfc09c8636cf6c4a00c6028",
+    "model_revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+    "archive_sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427",
+    "license": "OpenRAIL-M (model); MIT (upstream code)"
+  }
+}

@@ -1,0 +1,31 @@
+✔ cloud reports absent external integration without requesting local projects (2.404415ms)
+✔ local storage keeps its original project API route (0.786519ms)
+✔ approved cloud label remains and is routed separately from settings (0.282754ms)
+✔ ui/interaction.test.js (69.847309ms)
+✔ new/open project cannot clear an edit in progress or start a competing restore (9.023863ms)
+✔ save response cannot attach the old project to a new project (2.412932ms)
+✔ rejected duplicate save/export does not unlock the active save (1.543654ms)
+✔ in-flight restore excludes new/open/save and releases its guard when no project exists (1.319048ms)
+✔ rejected duplicate export cannot release the first export transition guard (6.200566ms)
+✔ failed preview restore preserves the previous input, preview, project and jobs (2.272887ms)
+✔ failed reference restore preserves the previous input, preview, project and jobs (1.46098ms)
+✔ failed audio restore preserves the previous input, preview, project and jobs (1.145267ms)
+✔ successful staged restore uses the actual output filename (1.315892ms)
+✔ new clears previous video tracks, clock, preview metadata and project status (1.386489ms)
+✔ photo-only clears previous video tracks, clock, preview metadata and project status (1.485777ms)
+✔ ui/ssot_structure.test.js (71.074853ms)
+✔ 대비를 13 높여 줘 reaches plan API without injected steps (3.440147ms)
+✔ 밝기를 7 낮추고 자막을 넣어줘 reaches plan API without injected steps (0.74075ms)
+✔ "안녕하세요" 나레이션 추가 reaches plan API without injected steps (0.653029ms)
+✔ 내레이션을 넣어 줘 reaches plan API without injected steps (0.792988ms)
+✔ 할 수 없는 요청을 정직하게 거절해 줘 reaches plan API without injected steps (0.760199ms)
+✔ manual scene analysis and tracking stay in existing path (2.248691ms)
+✔ PHOTO does not silently enter VIDEO model plan (0.758517ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.792716

@@ -1,0 +1,25 @@
+실패/차단 재현 목록
+
+PC-UI-CONTROL-01 [BLOCKED]
+Native control could not verify current browser URL and stopped Computer Use
+증거: WINDOWS_CONTROL_BLOCK.json, BUTTON_60_DISPOSITIONS.csv
+
+PC-BUTTON-09 [FAIL]
+Opens local storage path/project count dialog
+증거: buttons/BUTTON_009.json
+
+PC-UI-BASELINE-02 [FAIL_AGAINST_LAST_CHAT_IMAGE]
+Photo editing tools remain in a tall right sidebar; reference/timeline/banner arrangement differs
+증거: UI_COMPARISON_FINDING.json
+
+PC-EXPORT-03 [FAIL_PORTABILITY_FINDING]
+14 saved-job original input paths are absent from ZIP; output and reference hashes otherwise match
+증거: EXPORT_INPUT_REFERENCE_AUDIT.json, EXPORT_CRC_HASH_VALIDATION.json
+
+PC-QUALITY-04 [BLOCKED]
+Model engines ran, but no approved segmentation/tracking annotations or STT reference transcript supplied; engine success is not quality PASS
+증거: MODEL_ENGINE_AND_QUALITY_REVIEW.json
+
+PC-PHOTO-05 [BLOCKED]
+Seven slider pixel-output differences and crop/rotate/style UI behavior not exercised after control-policy block
+증거: BUTTON_60_DISPOSITIONS.csv

@@ -1,0 +1,3 @@
+{"steps": [{"operation": "video_edit", "options": {"contrast": 7}}]} [end of text]
+
+

@@ -1,0 +1,65 @@
+name: Exact delivered workspace candidate runtime closeout
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths: [.github/workflows/delivered-workspace-candidate-closeout.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact-existing-exe:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+      HF_HUB_OFFLINE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: mindle-media-one-click-win-x64-part-*
+          run-id: 38845082039
+          github-token: ${{ github.token }}
+          merge-multiple: true
+          path: build/verified-parts
+      - name: Verify and extract the already built candidate without changing payload
+        shell: python
+        run: |
+          import hashlib,json,zipfile
+          from pathlib import Path
+          out=Path('outputs/delivered-workspace');out.mkdir(parents=True,exist_ok=True)
+          parts=sorted(Path('build/verified-parts').glob('*.part-*'))
+          assert len(parts)==5
+          archive=Path('build/exact-candidate.zip')
+          h=hashlib.sha256()
+          with archive.open('wb') as target:
+              for i,part in enumerate(parts):
+                  assert part.name.endswith(f'.part-{i:02d}')
+                  with part.open('rb') as source:
+                      for chunk in iter(lambda:source.read(1024*1024),b''):target.write(chunk);h.update(chunk)
+                  part.unlink()
+          assert h.hexdigest()=='5291760966d87089259de4d1030879fdf0a1a878d7b9f1fd12f7918f36656b30'
+          assert archive.stat().st_size==1913893429
+          with zipfile.ZipFile(archive) as z:
+              assert all('..' not in Path(n).parts and not n.startswith('/') for n in z.namelist())
+              z.extractall('build/exact')
+          archive.unlink()
+          root=Path('build/exact/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0')
+          assert hashlib.sha256((root/'MINDLE_MEDIA_AI_RUN.exe').read_bytes()).hexdigest()=='24fe0ad565a5568b392b32040d7789cbd8abce7b60e8dade97666bbd1ec2888c'
+          assert hashlib.sha256((root/'_payload/PACKAGE_MANIFEST.json').read_bytes()).hexdigest()=='7a31da30969b9e7901da8f109c467f281e2550171c15e9ddf3a8ddf215ab3377'
+          (out/'EXACT_DELIVERY_BYTES.json').write_text(json.dumps({'producer_run':38845082039,'source':'c37c7819b1454996f3510f92184b1ef62faf3c78','zip_sha256':h.hexdigest(),'zip_bytes':1913893429,'package_rebuilt':False,'payload_modified':False},indent=2))
+      - run: python -m pip install Pillow==11.3.0 playwright==1.55.0
+      - name: Actual EXE pending-reference audio Save stop relaunch Reopen and UI Export
+        run: python scripts/check_delivered_workspace_candidate.py --root build/exact/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0 --out outputs/delivered-workspace
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: exact-delivered-workspace-runtime-and-approved-visual
+          path: outputs/delivered-workspace
+          retention-days: 30
+
+# Retry: exclude the PowerShell inventory process from server PID matching.

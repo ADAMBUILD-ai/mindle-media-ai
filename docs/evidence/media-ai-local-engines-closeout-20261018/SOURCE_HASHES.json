@@ -1,0 +1,60 @@
+{
+  "source_commit": "3a889d9af5e0e91b4efc8132eb86e11251f1ced5",
+  "files": [
+    {
+      "path": "src/media_ai/workflow_planner.py",
+      "bytes": 8085,
+      "sha256": "3faa775a5189f7f538be7ee41285a2d8e7bcceb15f0f19678607347d25d9c5d0"
+    },
+    {
+      "path": "src/media_ai/workflow_worker.py",
+      "bytes": 15033,
+      "sha256": "04b025ba294f773010d5e37654ef3242accf4d5e245e2a42adcc33328f66115a"
+    },
+    {
+      "path": "src/media_ai/durable_workflows.py",
+      "bytes": 23482,
+      "sha256": "0fe38018a670bccaaac7c5d51abe764b440f09baf96f69a1080bb11f187b74d3"
+    },
+    {
+      "path": "src/media_ai/product_runtime.py",
+      "bytes": 57965,
+      "sha256": "da9731278a0b8f9fc978d509ced26f41aaf6ec56e7df0a510c2416a8402e6776"
+    },
+    {
+      "path": "src/media_ai/product_server.py",
+      "bytes": 26693,
+      "sha256": "9256a6d721a4472b2932739412b4b83d8403fd7b426f517fa9cd60a075e8b8d3"
+    },
+    {
+      "path": "ui/index.html",
+      "bytes": 13667,
+      "sha256": "a75ecaaf69f9a2b38c3979ccb7679d8dd68612234cf84eb2f607b54f0af28e6c"
+    },
+    {
+      "path": "ui/product_integration.js",
+      "bytes": 24936,
+      "sha256": "4288afadd5ffd9bcec640782ef508636ede02e61ca36f9a9836c5e1f4b933cce"
+    },
+    {
+      "path": "ui/workspace_shell.js",
+      "bytes": 4072,
+      "sha256": "978845f44af3d1e879bd03f9828d1e4f9a05a415d62fc41bef9545252ff76c8b"
+    },
+    {
+      "path": "ui/workflow_execution.js",
+      "bytes": 10042,
+      "sha256": "4755c7429d3ee036f0be90bab189a57da662d023e09d567522574c1d46bb2a62"
+    },
+    {
+      "path": "ui/approved_visual.css",
+      "bytes": 14875,
+      "sha256": "feace453fe83f9baa5f8aad3ae73561709ec59c7ea1e25d379d8f80c0087c31e"
+    },
+    {
+      "path": "tests/test_local_planner_scope.py",
+      "bytes": 1395,
+      "sha256": "e6ee4da6d0d3749b521c073db9b6c59e7147419d17941b60f490bc0f4ee322e9"
+    }
+  ]
+}

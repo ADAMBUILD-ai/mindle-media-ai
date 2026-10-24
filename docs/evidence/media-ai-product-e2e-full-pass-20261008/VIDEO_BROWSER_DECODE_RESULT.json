@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "browser": {
+    "MediaError": {
+      "code": null,
+      "message": null
+    },
+    "canPlayType": {
+      "h264": "probably",
+      "mp4": "maybe",
+      "mp4v": ""
+    },
+    "currentSrc": "http://127.0.0.1:36741/files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4",
+    "currentTime": 0.531419,
+    "duration": 2,
+    "jobId": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+    "networkState": 1,
+    "operation": "tracking",
+    "paused": false,
+    "readyState": 4,
+    "videoHeight": 292,
+    "videoWidth": 512
+  },
+  "actual_playback": true,
+  "http_status": 200,
+  "preview_sha256": "451e9c9dd51a9e3f01412873b8293a9a0d60af542f7a971dd09529fc8de5ad4e"
+}

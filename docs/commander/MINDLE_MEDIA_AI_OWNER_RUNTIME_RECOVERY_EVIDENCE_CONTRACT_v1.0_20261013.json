@@ -1,0 +1,18 @@
+{
+  "epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
+  "required": [
+    "RUNTIME_RECEIPT.json",
+    "REGRESSION.log",
+    "FUNCTION_BINDING_AUDIT.json",
+    "REMOTE_READBACK.json"
+  ],
+  "final_product_pass": false,
+  "owner_pc_runtime_pass": false,
+  "openai_connected": false,
+  "forbidden": [
+    "main_merge",
+    "force_push",
+    "false_model_inference_claim",
+    "old_package_as_new_delivery"
+  ]
+}

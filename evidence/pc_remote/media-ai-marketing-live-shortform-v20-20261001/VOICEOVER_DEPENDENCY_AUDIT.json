@@ -1,0 +1,7 @@
+{
+  "status": "VOICE_AUDIO_DEPENDENCY_VERIFY_REQUIRED",
+  "contract_voiceover_text_is_audio": false,
+  "approved_tts_in_media_model_manifest": false,
+  "new_tts_added": false,
+  "audio_voiceover_verified": false
+}

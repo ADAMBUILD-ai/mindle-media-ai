@@ -1,0 +1,1110 @@
+[
+  {
+    "attributes": {
+      "data-shell": "projects",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 0,
+    "tag": "BUTTON",
+    "text": "▣ 프로젝트"
+  },
+  {
+    "attributes": {
+      "data-unimplemented": "settings",
+      "disabled": "",
+      "title": "설정 기능 미구현",
+      "type": "button"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 1,
+    "tag": "BUTTON",
+    "text": "⚙ 설정"
+  },
+  {
+    "attributes": {
+      "class": "avatar",
+      "data-unimplemented": "account",
+      "disabled": "",
+      "title": "계정 기능 미구현",
+      "type": "button"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 2,
+    "tag": "BUTTON",
+    "text": "●"
+  },
+  {
+    "attributes": {
+      "aria-label": "최소화",
+      "data-unimplemented": "native-minimize",
+      "disabled": "",
+      "title": "PC Work에서 검증할 창 제어",
+      "type": "button"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 3,
+    "tag": "BUTTON",
+    "text": "—"
+  },
+  {
+    "attributes": {
+      "aria-label": "닫기",
+      "data-unimplemented": "native-close",
+      "disabled": "",
+      "title": "PC Work에서 검증할 종료 기능",
+      "type": "button"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 4,
+    "tag": "BUTTON",
+    "text": "×"
+  },
+  {
+    "attributes": {
+      "class": "sidebar-active",
+      "data-shell": "home"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 5,
+    "tag": "BUTTON",
+    "text": "⌂ 홈"
+  },
+  {
+    "attributes": {
+      "data-shell": "history"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 6,
+    "tag": "BUTTON",
+    "text": "◔ 작업 내역"
+  },
+  {
+    "attributes": {
+      "data-shell": "storage"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 7,
+    "tag": "BUTTON",
+    "text": "▣ 저장소"
+  },
+  {
+    "attributes": {
+      "data-unimplemented": "templates",
+      "disabled": "",
+      "title": "템플릿 Runtime 미구현"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 8,
+    "tag": "BUTTON",
+    "text": "▦ 템플릿"
+  },
+  {
+    "attributes": {
+      "class": "sidebar-help",
+      "data-shell": "help"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 9,
+    "tag": "BUTTON",
+    "text": "? 도움말"
+  },
+  {
+    "attributes": {
+      "class": "outline-purple",
+      "data-action": "load",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 10,
+    "tag": "BUTTON",
+    "text": "＋ 영상 불러오기"
+  },
+  {
+    "attributes": {
+      "class": "outline-blue",
+      "data-action": "ai-auto-edit",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 11,
+    "tag": "BUTTON",
+    "text": "✦ AI 자동 편집"
+  },
+  {
+    "attributes": {
+      "aria-pressed": "false",
+      "class": "outline-purple",
+      "data-action": "shortform-mode",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 12,
+    "tag": "BUTTON",
+    "text": "✦ 광고 숏폼 NEW"
+  },
+  {
+    "attributes": {
+      "class": "outline-blue",
+      "data-action": "save"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 13,
+    "tag": "BUTTON",
+    "text": "▣ 프로젝트 저장"
+  },
+  {
+    "attributes": {
+      "class": "primary-blue",
+      "data-action": "export"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 14,
+    "tag": "BUTTON",
+    "text": "⇧ 내보내기"
+  },
+  {
+    "attributes": {
+      "aria-label": "영상 AI 지시",
+      "data-command": "video",
+      "placeholder": "(예) 여행 브이로그 느낌으로 편집해줘"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 15,
+    "tag": "INPUT",
+    "text": "영상 AI 지시"
+  },
+  {
+    "attributes": {
+      "data-action": "video-reference",
+      "data-unimplemented": "video-reference-guidance",
+      "disabled": "",
+      "title": "영상 참고 이미지 기반 편집 미구현",
+      "type": "button"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 16,
+    "tag": "BUTTON",
+    "text": "＋ 참고 이미지 추가"
+  },
+  {
+    "attributes": {
+      "data-unimplemented": "video-reference-guidance",
+      "disabled": "",
+      "title": "영상 참고 이미지 기반 편집 미구현",
+      "type": "button"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 17,
+    "tag": "BUTTON",
+    "text": "참고 이미지"
+  },
+  {
+    "attributes": {
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 18,
+    "tag": "BUTTON",
+    "text": "스타일"
+  },
+  {
+    "attributes": {
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 19,
+    "tag": "BUTTON",
+    "text": "길이"
+  },
+  {
+    "attributes": {
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 20,
+    "tag": "BUTTON",
+    "text": "비율"
+  },
+  {
+    "attributes": {
+      "aria-label": "전송",
+      "class": "send-button",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 21,
+    "tag": "BUTTON",
+    "text": "➤"
+  },
+  {
+    "attributes": {
+      "aria-label": "영상 처음으로",
+      "data-video-start": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 22,
+    "tag": "BUTTON",
+    "text": "◀"
+  },
+  {
+    "attributes": {
+      "aria-label": "영상 재생 일시정지",
+      "data-video-play": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 23,
+    "tag": "BUTTON",
+    "text": "▶"
+  },
+  {
+    "attributes": {
+      "aria-label": "영상 끝으로",
+      "data-video-end": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 24,
+    "tag": "BUTTON",
+    "text": "▶|"
+  },
+  {
+    "attributes": {
+      "aria-label": "영상 재생 위치",
+      "data-video-seek": "",
+      "max": "100",
+      "min": "0",
+      "step": "0.1",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 25,
+    "tag": "INPUT",
+    "text": "영상 재생 위치"
+  },
+  {
+    "attributes": {
+      "aria-label": "영상 음소거",
+      "data-video-mute": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 26,
+    "tag": "BUTTON",
+    "text": "🔊"
+  },
+  {
+    "attributes": {
+      "aria-label": "영상 전체 화면",
+      "data-video-fullscreen": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 27,
+    "tag": "BUTTON",
+    "text": "⛶"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "trim"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 28,
+    "tag": "BUTTON",
+    "text": "자르기"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "split"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 29,
+    "tag": "BUTTON",
+    "text": "분할"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "rotate"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 30,
+    "tag": "BUTTON",
+    "text": "회전"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "speed"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 31,
+    "tag": "BUTTON",
+    "text": "속도"
+  },
+  {
+    "attributes": {
+      "data-video-option": "brightness",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 32,
+    "tag": "INPUT",
+    "text": "brightness"
+  },
+  {
+    "attributes": {
+      "data-video-option": "contrast",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 33,
+    "tag": "INPUT",
+    "text": "contrast"
+  },
+  {
+    "attributes": {
+      "data-video-option": "saturation",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 34,
+    "tag": "INPUT",
+    "text": "saturation"
+  },
+  {
+    "attributes": {
+      "data-video-toggle": "stabilize",
+      "type": "checkbox"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 35,
+    "tag": "INPUT",
+    "text": "checkbox"
+  },
+  {
+    "attributes": {
+      "data-video-toggle": "denoise",
+      "type": "checkbox"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 36,
+    "tag": "INPUT",
+    "text": "checkbox"
+  },
+  {
+    "attributes": {
+      "data-video-option": "start",
+      "min": "0",
+      "type": "number",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 37,
+    "tag": "INPUT",
+    "text": "start"
+  },
+  {
+    "attributes": {
+      "data-video-option": "duration",
+      "min": "0",
+      "type": "number",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 38,
+    "tag": "INPUT",
+    "text": "duration"
+  },
+  {
+    "attributes": {
+      "data-video-option": "speed",
+      "max": "2",
+      "min": "0.5",
+      "step": "0.1",
+      "type": "number",
+      "value": "1"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 39,
+    "tag": "INPUT",
+    "text": "speed"
+  },
+  {
+    "attributes": {
+      "data-video-option": "volume",
+      "max": "2",
+      "min": "0",
+      "step": "0.1",
+      "type": "number",
+      "value": "1"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 40,
+    "tag": "INPUT",
+    "text": "volume"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "shortform"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 41,
+    "tag": "BUTTON",
+    "text": "숏폼 변환"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "fade"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 42,
+    "tag": "BUTTON",
+    "text": "장면 전환"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "effect"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 43,
+    "tag": "BUTTON",
+    "text": "AI 효과"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "subtitle"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 44,
+    "tag": "BUTTON",
+    "text": "자막"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "auto-subtitle"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 45,
+    "tag": "BUTTON",
+    "text": "자동 자막 생성"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "highlight"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 46,
+    "tag": "BUTTON",
+    "text": "하이라이트 추출"
+  },
+  {
+    "attributes": {
+      "data-video-tool": "bgm"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 47,
+    "tag": "BUTTON",
+    "text": "배경음악 추가"
+  },
+  {
+    "attributes": {
+      "data-video-subtitle": "",
+      "placeholder": "표시할 자막"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 48,
+    "tag": "INPUT",
+    "text": "text"
+  },
+  {
+    "attributes": {
+      "data-video-apply": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 49,
+    "tag": "BUTTON",
+    "text": "영상 편집 적용"
+  },
+  {
+    "attributes": {
+      "class": "outline-pink",
+      "data-action": "load",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 50,
+    "tag": "BUTTON",
+    "text": "＋ 사진 불러오기"
+  },
+  {
+    "attributes": {
+      "class": "outline-purple",
+      "data-action": "photo-generate",
+      "data-unimplemented": "image-generation",
+      "disabled": "",
+      "title": "이미지 생성 모델 미포함"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 51,
+    "tag": "BUTTON",
+    "text": "✦ AI 이미지 생성"
+  },
+  {
+    "attributes": {
+      "class": "outline-purple",
+      "data-action": "photo-auto"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 52,
+    "tag": "BUTTON",
+    "text": "✦ AI 보정"
+  },
+  {
+    "attributes": {
+      "class": "outline-blue",
+      "data-action": "save"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 53,
+    "tag": "BUTTON",
+    "text": "▣ 프로젝트 저장"
+  },
+  {
+    "attributes": {
+      "class": "primary-pink",
+      "data-action": "export"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 54,
+    "tag": "BUTTON",
+    "text": "⇧ 내보내기"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 AI 지시",
+      "data-command": "photo",
+      "placeholder": "(예) 노을 분위기로 보정해줘"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 55,
+    "tag": "INPUT",
+    "text": "사진 AI 지시"
+  },
+  {
+    "attributes": {
+      "data-action": "photo-reference",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 56,
+    "tag": "BUTTON",
+    "text": "＋ 참고 이미지 추가"
+  },
+  {
+    "attributes": {
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 57,
+    "tag": "BUTTON",
+    "text": "참고 이미지"
+  },
+  {
+    "attributes": {
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 58,
+    "tag": "BUTTON",
+    "text": "스타일"
+  },
+  {
+    "attributes": {
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 59,
+    "tag": "BUTTON",
+    "text": "톤 조정"
+  },
+  {
+    "attributes": {
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 60,
+    "tag": "BUTTON",
+    "text": "비율"
+  },
+  {
+    "attributes": {
+      "class": "send-button",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 61,
+    "tag": "BUTTON",
+    "text": "➤"
+  },
+  {
+    "attributes": {
+      "data-unimplemented": "photo-pan",
+      "disabled": "",
+      "title": "현재 Auto Fit 미리보기는 이동 기능을 지원하지 않습니다."
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 62,
+    "tag": "BUTTON",
+    "text": "✋"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 전체 화면",
+      "data-photo-fullscreen": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 63,
+    "tag": "BUTTON",
+    "text": "⛶"
+  },
+  {
+    "attributes": {
+      "data-unimplemented": "photo-undo",
+      "disabled": "",
+      "title": "편집 되돌리기 미구현"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 64,
+    "tag": "BUTTON",
+    "text": "↶"
+  },
+  {
+    "attributes": {
+      "data-unimplemented": "photo-redo",
+      "disabled": "",
+      "title": "편집 다시 적용 미구현"
+    },
+    "disabled": true,
+    "hidden": false,
+    "index": 65,
+    "tag": "BUTTON",
+    "text": "↷"
+  },
+  {
+    "attributes": {
+      "class": "outline-purple",
+      "data-action": "photo-auto"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 66,
+    "tag": "BUTTON",
+    "text": "✦ AI 보정"
+  },
+  {
+    "attributes": {},
+    "disabled": false,
+    "hidden": false,
+    "index": 67,
+    "tag": "SUMMARY",
+    "text": "기본 보정"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 밝기",
+      "data-photo-adjust": "brightness",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 68,
+    "tag": "INPUT",
+    "text": "사진 밝기"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 대비",
+      "data-photo-adjust": "contrast",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 69,
+    "tag": "INPUT",
+    "text": "사진 대비"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 하이라이트",
+      "data-photo-adjust": "highlights",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 70,
+    "tag": "INPUT",
+    "text": "사진 하이라이트"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 그림자",
+      "data-photo-adjust": "shadows",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 71,
+    "tag": "INPUT",
+    "text": "사진 그림자"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 채도",
+      "data-photo-adjust": "saturation",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 72,
+    "tag": "INPUT",
+    "text": "사진 채도"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 색온도",
+      "data-photo-adjust": "temperature",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 73,
+    "tag": "INPUT",
+    "text": "사진 색온도"
+  },
+  {
+    "attributes": {
+      "aria-label": "사진 선명도",
+      "data-photo-adjust": "sharpness",
+      "max": "100",
+      "min": "-100",
+      "type": "range",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 74,
+    "tag": "INPUT",
+    "text": "사진 선명도"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "crop",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 75,
+    "tag": "BUTTON",
+    "text": "크롭"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "resize",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 76,
+    "tag": "BUTTON",
+    "text": "크기 조절"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "rotate",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 77,
+    "tag": "BUTTON",
+    "text": "회전"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "flip-h",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 78,
+    "tag": "BUTTON",
+    "text": "좌우 반전"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "flip-v",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 79,
+    "tag": "BUTTON",
+    "text": "상하 반전"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "auto",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 80,
+    "tag": "BUTTON",
+    "text": "AI 보정"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "segment",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 81,
+    "tag": "BUTTON",
+    "text": "배경 제거"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "color",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 82,
+    "tag": "BUTTON",
+    "text": "색감 보정"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "style",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 83,
+    "tag": "BUTTON",
+    "text": "스타일 변환"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "portrait",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 84,
+    "tag": "BUTTON",
+    "text": "인물 보정"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "upscale",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 85,
+    "tag": "BUTTON",
+    "text": "해상도 향상"
+  },
+  {
+    "attributes": {
+      "data-photo-tool": "similar",
+      "type": "button"
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 86,
+    "tag": "BUTTON",
+    "text": "유사 이미지 검색"
+  },
+  {
+    "attributes": {
+      "data-crop": "left",
+      "max": "99",
+      "min": "0",
+      "type": "number",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 87,
+    "tag": "INPUT",
+    "text": "number"
+  },
+  {
+    "attributes": {
+      "data-crop": "top",
+      "max": "99",
+      "min": "0",
+      "type": "number",
+      "value": "0"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 88,
+    "tag": "INPUT",
+    "text": "number"
+  },
+  {
+    "attributes": {
+      "data-crop": "right",
+      "max": "100",
+      "min": "1",
+      "type": "number",
+      "value": "100"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 89,
+    "tag": "INPUT",
+    "text": "number"
+  },
+  {
+    "attributes": {
+      "data-crop": "bottom",
+      "max": "100",
+      "min": "1",
+      "type": "number",
+      "value": "100"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 90,
+    "tag": "INPUT",
+    "text": "number"
+  },
+  {
+    "attributes": {
+      "data-photo-resize": "",
+      "max": "8000",
+      "min": "1",
+      "type": "number",
+      "value": "512"
+    },
+    "disabled": false,
+    "hidden": true,
+    "index": 91,
+    "tag": "INPUT",
+    "text": "number"
+  },
+  {
+    "attributes": {
+      "data-photo-reset": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 92,
+    "tag": "BUTTON",
+    "text": "↻ 초기화"
+  },
+  {
+    "attributes": {
+      "data-photo-apply": ""
+    },
+    "disabled": false,
+    "hidden": false,
+    "index": 93,
+    "tag": "BUTTON",
+    "text": "적용하기"
+  }
+]
