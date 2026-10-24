@@ -8,6 +8,7 @@ import pytest
 
 from media_ai.architectural_video_pipeline import (
     ArchitectureScene,
+    ArchitectureProductionLedger,
     ArchitectureVideoPlan,
     FFmpegDeliveryAdapter,
     ProductionStatus,
@@ -78,3 +79,81 @@ def test_real_ffmpeg_delivery_has_h264_yuv420p_faststart_and_aac(tmp_path):
     assert receipt["runtime"]["audio_codec"] == "aac"
     assert receipt["runtime"]["faststart"] is True
     assert receipt["source_sha256"] == file_sha256(source)
+
+
+@pytest.mark.skipif(not shutil.which("ffmpeg") or not shutil.which("ffprobe"), reason="local FFmpeg tools unavailable")
+def test_real_two_scene_assembly_preserves_order_and_supplies_silent_audio(tmp_path):
+    owned = tmp_path / "owned"
+    owned.mkdir()
+    first, second = owned / "first.mkv", owned / "second.mp4"
+    subprocess.run([
+        shutil.which("ffmpeg"), "-y", "-f", "lavfi", "-i", "color=c=blue:size=320x180:rate=24",
+        "-f", "lavfi", "-i", "sine=frequency=330:sample_rate=44100", "-t", "0.5",
+        "-c:v", "mpeg4", "-c:a", "pcm_s16le", str(first),
+    ], check=True, capture_output=True, timeout=30)
+    subprocess.run([
+        shutil.which("ffmpeg"), "-y", "-f", "lavfi", "-i", "color=c=red:size=180x320:rate=24",
+        "-t", "0.5", "-c:v", "mpeg4", str(second),
+    ], check=True, capture_output=True, timeout=30)
+    scenes = (
+        ArchitectureScene("arrival", "existing_clip", first, .5, file_sha256(first)),
+        ArchitectureScene("villa", "existing_clip", second, .5, file_sha256(second)),
+    )
+    ffmpeg, ffprobe = Path(shutil.which("ffmpeg")), Path(shutil.which("ffprobe"))
+    adapter = FFmpegDeliveryAdapter(ffmpeg, ffprobe, owned, file_sha256(ffmpeg), file_sha256(ffprobe))
+    output = owned / "assembled.mp4"
+    receipt = adapter.assemble_existing_clips(scenes, output, "16:9", 320, 180, timeout=60)
+    assert receipt["scene_order"] == ["arrival", "villa"]
+    assert receipt["scene_count"] == 2
+    assert receipt["runtime"]["audio_codec"] == "aac"
+    assert receipt["runtime"]["duration_seconds"] == pytest.approx(1, abs=.15)
+    import cv2
+    capture = cv2.VideoCapture(str(output))
+    capture.set(cv2.CAP_PROP_POS_MSEC, 250)
+    ok_first, frame_first = capture.read()
+    capture.set(cv2.CAP_PROP_POS_MSEC, 750)
+    ok_second, frame_second = capture.read()
+    capture.release()
+    assert ok_first and ok_second
+    assert frame_first[:, :, 0].mean() > frame_first[:, :, 2].mean()
+    assert frame_second[:, :, 2].mean() > frame_second[:, :, 0].mean()
+    plan = ArchitectureVideoPlan(str(uuid4()), "16:9", scenes, output)
+    registry = load_asset_registry(ROOT / "external_assets/media-production/ASSET_REGISTRY.json")
+    ledger = ArchitectureProductionLedger(tmp_path / "ledger-success")
+    task = ledger.submit("two-scene", plan, preflight_production(plan, registry, owned))
+    ledger.start(task["production_id"])
+    assert ledger.complete(task["production_id"], receipt)["state"] == "SUCCEEDED"
+    ledger.close()
+
+
+def test_production_ledger_is_idempotent_and_recovers_running_as_interrupted(tmp_path):
+    owned = tmp_path / "owned"
+    owned.mkdir()
+    clip = owned / "clip.mp4"
+    clip.write_bytes(b"fixture")
+    plan = _plan(tmp_path, "existing_clip", clip)
+    registry = load_asset_registry(ROOT / "external_assets/media-production/ASSET_REGISTRY.json")
+    preflight = preflight_production(plan, registry, owned)
+    ledger = ArchitectureProductionLedger(tmp_path / "ledger")
+    first = ledger.submit("request-1", plan, preflight)
+    assert ledger.submit("request-1", plan, preflight)["production_id"] == first["production_id"]
+    ledger.start(first["production_id"])
+    ledger.close()
+    recovered = ArchitectureProductionLedger(tmp_path / "ledger")
+    assert recovered.get(first["production_id"])["state"] == "INTERRUPTED"
+    recovered.close()
+
+
+def test_production_ledger_does_not_publish_cancelled_or_mismatched_output(tmp_path):
+    owned = tmp_path / "owned"
+    owned.mkdir()
+    clip = owned / "clip.mp4"
+    clip.write_bytes(b"fixture")
+    plan = _plan(tmp_path, "existing_clip", clip)
+    registry = load_asset_registry(ROOT / "external_assets/media-production/ASSET_REGISTRY.json")
+    ledger = ArchitectureProductionLedger(tmp_path / "ledger")
+    queued = ledger.submit("cancel-me", plan, preflight_production(plan, registry, owned))
+    assert ledger.cancel(queued["production_id"])["state"] == "CANCELLED"
+    with pytest.raises(ValueError, match="only a running"):
+        ledger.complete(queued["production_id"], {"status": "TESTED_PASS", "output": {}})
+    ledger.close()

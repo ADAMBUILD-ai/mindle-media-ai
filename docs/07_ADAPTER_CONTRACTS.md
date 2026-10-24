@@ -154,3 +154,16 @@ containment; it invokes a fixed argument vector without a shell. Published MP4
 must decode as H.264/yuv420p, use AAC when an audio stream exists, and place the
 `moov` atom before `mdat` for browser preview. This technical receipt does not
 certify generated-scene quality or human hearing.
+
+Multi-scene delivery normalizes ordered clips to a bounded even resolution and
+24 fps, preserves aspect ratio with centered padding, supplies silence for a
+clip without audio, and concatenates paired video/audio streams in plan order.
+The output cannot reuse any source path. Its receipt includes the ordered scene
+IDs and every source hash, and the measured duration must match the planned sum.
+
+The architecture-production ledger persists request fingerprint, plan, asset
+requirements, state, and final receipt in SQLite with full synchronous writes.
+Identical request keys replay the same record; a different plan under the same
+key is rejected. A process restart converts `RUNNING` and `CANCEL_REQUESTED` to
+`INTERRUPTED`, never success. Completion is allowed only from `RUNNING` after
+the published output path, size, and SHA-256 match the delivery receipt.

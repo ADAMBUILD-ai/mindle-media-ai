@@ -5,9 +5,12 @@ from dataclasses import dataclass
 from enum import StrEnum
 import json
 from pathlib import Path
+import sqlite3
 import subprocess
+import threading
+import time
 from typing import Any
-from uuid import UUID
+from uuid import UUID, uuid4
 
 from .external_media_assets import ExternalAsset, file_sha256
 
@@ -141,6 +144,74 @@ class FFmpegDeliveryAdapter:
         if file_sha256(source) != before:
             output.unlink(missing_ok=True)
             raise ValueError("source changed during FFmpeg delivery")
+        return self._validate_receipt(output, ((source, before),), 1)
+
+    def assemble_existing_clips(self, scenes: tuple[ArchitectureScene, ...], output: Path,
+                                aspect: str, width: int, height: int, timeout: int = 900) -> dict[str, Any]:
+        if not 1 <= len(scenes) <= 12 or any(scene.engine != "existing_clip" for scene in scenes):
+            raise ValueError("assembly accepts 1 to 12 existing clips")
+        if not (64 <= width <= 3840 and 64 <= height <= 3840 and width % 2 == height % 2 == 0):
+            raise ValueError("assembly resolution must use bounded even dimensions")
+        if aspect == "16:9" and width * 9 != height * 16:
+            raise ValueError("16:9 output dimensions do not match")
+        if aspect == "9:16" and width * 16 != height * 9:
+            raise ValueError("9:16 output dimensions do not match")
+        if aspect not in {"original", "16:9", "9:16"}:
+            raise ValueError("unsupported assembly aspect")
+        output = output.resolve()
+        if not output.is_relative_to(self.owned_root) or output.suffix.lower() != ".mp4":
+            raise ValueError("assembly output must stay inside the owned root")
+        command = [str(self.ffmpeg), "-y"]
+        filters, concat_inputs, hashes = [], [], []
+        for index, scene in enumerate(scenes):
+            source = scene.source.resolve()
+            if not source.is_relative_to(self.owned_root) or not source.is_file():
+                raise ValueError("assembly source must stay inside the owned root")
+            if source == output:
+                raise ValueError("assembly output must differ from every scene source")
+            actual_hash = file_sha256(source)
+            if actual_hash != scene.source_sha256:
+                raise ValueError(f"scene source identity mismatch: {scene.scene_id}")
+            info = self.probe(source)
+            if not any(stream.get("codec_type") == "video" for stream in info.get("streams", [])):
+                raise ValueError(f"scene has no video stream: {scene.scene_id}")
+            hashes.append((source, actual_hash))
+            command += ["-i", str(source)]
+            duration = float(scene.duration_seconds)
+            filters.append(
+                f"[{index}:v:0]fps=24,scale={width}:{height}:force_original_aspect_ratio=decrease,"
+                f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:black,setsar=1,"
+                f"tpad=stop_mode=clone:stop_duration=30,trim=duration={duration},setpts=PTS-STARTPTS[v{index}]"
+            )
+            if any(stream.get("codec_type") == "audio" for stream in info["streams"]):
+                filters.append(f"[{index}:a:0]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,apad,atrim=duration={duration},asetpts=PTS-STARTPTS[a{index}]")
+            else:
+                filters.append(f"anullsrc=r=48000:cl=stereo,atrim=duration={duration},asetpts=PTS-STARTPTS[a{index}]")
+            concat_inputs.extend((f"[v{index}]", f"[a{index}]"))
+        filters.append("".join(concat_inputs) + f"concat=n={len(scenes)}:v=1:a=1[vout][aout]")
+        output.parent.mkdir(parents=True, exist_ok=True)
+        command += [
+            "-filter_complex", ";".join(filters), "-map", "[vout]", "-map", "[aout]",
+            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "medium", "-crf", "18",
+            "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "192k",
+            "-movflags", "+faststart", str(output),
+        ]
+        completed = subprocess.run(command, capture_output=True, text=True, timeout=timeout, check=False)
+        if completed.returncode != 0:
+            raise RuntimeError(f"FFmpeg scene assembly failed: {completed.stderr[-2000:]}")
+        if any(file_sha256(path) != digest for path, digest in hashes):
+            output.unlink(missing_ok=True)
+            raise ValueError("a scene source changed during assembly")
+        receipt = self._validate_receipt(output, hashes, len(scenes))
+        expected_duration = sum(float(scene.duration_seconds) for scene in scenes)
+        if abs(receipt["runtime"]["duration_seconds"] - expected_duration) > 0.15:
+            raise ValueError("assembled duration differs from the scene plan")
+        receipt["scene_order"] = [scene.scene_id for scene in scenes]
+        receipt["aspect"] = aspect
+        receipt["resolution"] = {"width": width, "height": height}
+        return receipt
+
+    def _validate_receipt(self, output: Path, source_hashes: tuple[tuple[Path, str], ...] | list[tuple[Path, str]], scene_count: int) -> dict[str, Any]:
         info = self.probe(output)
         video = next((s for s in info["streams"] if s.get("codec_type") == "video"), None)
         audio = next((s for s in info["streams"] if s.get("codec_type") == "audio"), None)
@@ -155,7 +226,9 @@ class FFmpegDeliveryAdapter:
         return {
             "status": "TESTED_PASS",
             "model_inference": False,
-            "source_sha256": before,
+            "source_sha256": source_hashes[0][1] if len(source_hashes) == 1 else None,
+            "scene_source_sha256s": [digest for _path, digest in source_hashes],
+            "scene_count": scene_count,
             "output": {"path": str(output), "bytes": len(content), "sha256": file_sha256(output)},
             "runtime": {
                 "ffmpeg_sha256": file_sha256(self.ffmpeg),
@@ -167,3 +240,114 @@ class FFmpegDeliveryAdapter:
                 "faststart": True,
             },
         }
+
+
+class ArchitectureProductionLedger:
+    """Persistent state ledger; engine execution remains in an owned worker."""
+
+    ACTIVE = {"QUEUED", "RUNNING", "CANCEL_REQUESTED"}
+    TERMINAL = {"SUCCEEDED", "FAILED", "CANCELLED", "INTERRUPTED", "BLOCKED_INPUT", "BLOCKED_ASSET"}
+
+    def __init__(self, root: Path) -> None:
+        self.root = root.resolve()
+        self.root.mkdir(parents=True, exist_ok=True)
+        self.lock = threading.RLock()
+        self.db = sqlite3.connect(self.root / "architecture-productions.sqlite3", check_same_thread=False)
+        self.db.execute("PRAGMA journal_mode=WAL")
+        self.db.execute("PRAGMA synchronous=FULL")
+        self.db.execute("CREATE TABLE IF NOT EXISTS productions (id TEXT PRIMARY KEY, request_key TEXT UNIQUE, fingerprint TEXT, state TEXT, body TEXT, updated REAL)")
+        rows = self.db.execute("SELECT id, body FROM productions WHERE state IN ('RUNNING','CANCEL_REQUESTED')").fetchall()
+        for identifier, raw in rows:
+            value = json.loads(raw)
+            value.update(state="INTERRUPTED", error="서버 중단. 외부 엔진 결과를 재검증한 뒤 새 작업으로 실행해야 합니다.", updated_at=time.time())
+            self._put(value)
+
+    @staticmethod
+    def _plan_value(plan: ArchitectureVideoPlan) -> dict[str, Any]:
+        return {
+            "project_id": plan.project_id, "aspect": plan.aspect, "output": str(plan.output.resolve()),
+            "scenes": [{
+                "scene_id": scene.scene_id, "engine": scene.engine, "source": str(scene.source.resolve()),
+                "source_sha256": scene.source_sha256, "duration_seconds": scene.duration_seconds,
+                "prompt": scene.prompt, "camera": scene.camera,
+            } for scene in plan.scenes],
+        }
+
+    def submit(self, request_key: str, plan: ArchitectureVideoPlan, preflight: ProductionPreflight) -> dict[str, Any]:
+        if not request_key or len(request_key) > 128:
+            raise ValueError("a bounded request key is required")
+        plan_value = self._plan_value(plan)
+        fingerprint = file_sha256_bytes(json.dumps(plan_value, sort_keys=True, ensure_ascii=False).encode())
+        with self.lock:
+            row = self.db.execute("SELECT fingerprint, body FROM productions WHERE request_key=?", (request_key,)).fetchone()
+            if row:
+                if row[0] != fingerprint:
+                    raise ValueError("the request key already identifies another production")
+                return json.loads(row[1])
+            state = "QUEUED" if preflight.status is ProductionStatus.READY else preflight.status.value
+            value = {
+                "production_id": str(uuid4()), "request_key": request_key, "fingerprint": fingerprint,
+                "state": state, "plan": plan_value, "required_assets": list(preflight.required_assets),
+                "missing": list(preflight.missing), "created_at": time.time(), "updated_at": time.time(),
+            }
+            self.db.execute("INSERT INTO productions VALUES(?,?,?,?,?,?)", (value["production_id"], request_key, fingerprint, state, json.dumps(value, ensure_ascii=False), value["updated_at"]))
+            self.db.commit()
+            return value
+
+    def get(self, identifier: str) -> dict[str, Any]:
+        with self.lock:
+            row = self.db.execute("SELECT body FROM productions WHERE id=?", (str(UUID(identifier)),)).fetchone()
+            if not row:
+                raise ValueError("architecture production was not found")
+            return json.loads(row[0])
+
+    def start(self, identifier: str) -> dict[str, Any]:
+        with self.lock:
+            value = self.get(identifier)
+            if value["state"] != "QUEUED":
+                raise ValueError("only a queued production can start")
+            value.update(state="RUNNING", started_at=time.time())
+            self._put(value)
+            return value
+
+    def cancel(self, identifier: str) -> dict[str, Any]:
+        with self.lock:
+            value = self.get(identifier)
+            if value["state"] == "QUEUED":
+                value["state"] = "CANCELLED"
+            elif value["state"] == "RUNNING":
+                value["state"] = "CANCEL_REQUESTED"
+            elif value["state"] not in self.TERMINAL:
+                raise ValueError("production cannot be cancelled from its current state")
+            self._put(value)
+            return value
+
+    def complete(self, identifier: str, receipt: dict[str, Any]) -> dict[str, Any]:
+        with self.lock:
+            value = self.get(identifier)
+            if value["state"] != "RUNNING":
+                raise ValueError("only a running production can complete")
+            output = Path(value["plan"]["output"]).resolve()
+            recorded = receipt.get("output", {})
+            if receipt.get("status") != "TESTED_PASS" or Path(recorded.get("path", "")).resolve() != output:
+                raise ValueError("delivery receipt does not match the production output")
+            if not output.is_file() or recorded.get("sha256") != file_sha256(output) or recorded.get("bytes") != output.stat().st_size:
+                raise ValueError("delivery output identity mismatch")
+            value.update(state="SUCCEEDED", receipt=receipt, finished_at=time.time())
+            self._put(value)
+            return value
+
+    def _put(self, value: dict[str, Any]) -> None:
+        with self.lock:
+            value["updated_at"] = time.time()
+            self.db.execute("UPDATE productions SET state=?, body=?, updated=? WHERE id=?", (value["state"], json.dumps(value, ensure_ascii=False), value["updated_at"], value["production_id"]))
+            self.db.commit()
+
+    def close(self) -> None:
+        with self.lock:
+            self.db.close()
+
+
+def file_sha256_bytes(content: bytes) -> str:
+    from hashlib import sha256
+    return sha256(content).hexdigest()
