@@ -217,7 +217,9 @@ def make_architecture_plan(data_root: Path, command: str, catalog: list[dict[str
              "raw_response_sha256":hashlib.sha256(raw.encode()).hexdigest(),"catalog":catalog,
              "constraint_adjustments":adjustments,**validated}
     (folder/(plan_id+".json")).write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    (folder/(plan_id+".response.txt")).write_text(raw,encoding="utf-8")
+    # Preserve the exact inference bytes on every OS. Text-mode writes turn LF
+    # into CRLF on Windows and would invalidate the recorded response digest.
+    (folder/(plan_id+".response.txt")).write_bytes(raw.encode("utf-8"))
     return receipt
 
 

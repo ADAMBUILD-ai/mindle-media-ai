@@ -34,7 +34,7 @@ def test_generated_architecture_plan_binds_every_source_and_explicit_contract():
 def test_model_prompt_contains_machine_readable_exact_contract(monkeypatch,tmp_path):
     from media_ai import architecture_agent
     captured={}
-    raw='{"aspect":"16:9","scenes":[{"source_id":"input-01","duration_seconds":1},{"source_id":"input-02","duration_seconds":1}]}'
+    raw='{"aspect":"16:9","scenes":[{"source_id":"input-01","duration_seconds":1},{"source_id":"input-02","duration_seconds":1}]}\n'
     settings={"model_id":"fixture-qwen","model_sha256":"a"*64,"revision":"b"*40,"license":"Apache-2.0",
               "executable_sha256":"c"*64,"runtime_sha256":"d"*64}
     def invoke(_root,prompt,_schema,**_kwargs):
@@ -47,6 +47,9 @@ def test_model_prompt_contains_machine_readable_exact_contract(monkeypatch,tmp_p
     assert value["total_duration_seconds"]==2
     exact=captured["prompt"].split("EXACT_CONTRACT=",1)[1].split("\n",1)[0]
     assert json.loads(exact)=={"required_source_ids":["input-01","input-02"],"duration_seconds":2.0,"aspect":"16:9"}
+    response=tmp_path/"architecture-agent/plans"/(value["plan_id"]+".response.txt")
+    assert response.read_bytes()==raw.encode("utf-8")
+    assert hashlib.sha256(response.read_bytes()).hexdigest()==value["raw_response_sha256"]
 
 
 @pytest.mark.parametrize("parsed,error",[

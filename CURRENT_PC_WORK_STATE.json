@@ -375,14 +375,14 @@
   "candidate_attempt_status": "NATIVE_WINDOWS_RUNTIME_PASS_DELIVERED_OWNER_PC_PENDING",
   "candidate_build_consumed": true,
   "owner_windows_ai_successor_20261024": {
-    "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-EXECUTION-GUARDRAIL",
-    "authorized_parent": "150146746a55c267ecd920357abc0d50271a9880",
+    "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-INFERENCE-BYTE-FIX",
+    "authorized_parent": "e8ac66a9be3e3aacfefd3d7e98aec06034c1d77a",
     "attempts_allowed": 1,
     "workflow": ".github/workflows/windows-ai-successor-20261024.yml",
     "base_candidate": "TEST_R2",
     "base_zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
     "engine_bytes": "REUSE_VERIFIED_NO_DOWNLOAD_NO_REBUILD",
-    "status": "QWEN_EXECUTION_GUARDRAIL_CORRECTIVE_ATTEMPT_AUTHORIZED",
+    "status": "INFERENCE_BYTE_INTEGRITY_CORRECTIVE_ATTEMPT_AUTHORIZED",
     "office_pc_acceptance": false,
     "human_hearing": false,
     "full_product_pass": false,
@@ -411,6 +411,13 @@
         "status": "FAILED_QWEN_EXPLICIT_TOTAL_DURATION_GUARDRAIL_BLOCKED",
         "evidence_artifact": 12554890413,
         "error": "ARCHITECTURE_PLAN_TOTAL_DURATION_MISMATCH"
+      },
+      {
+        "source": "e8ac66a9be3e3aacfefd3d7e98aec06034c1d77a",
+        "run": 40079150015,
+        "status": "FAILED_WINDOWS_TEXT_MODE_INFERENCE_RECEIPT_SHA_AFTER_ARCHITECTURE_PLAN_PASS",
+        "evidence_artifact": 12554721546,
+        "error": "architecture inference response byte integrity mismatch"
       }
     ]
   }

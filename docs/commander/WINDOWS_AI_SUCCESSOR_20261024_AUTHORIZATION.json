@@ -1,9 +1,9 @@
 {
-  "id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-EXECUTION-GUARDRAIL",
-  "authorized_parent": "150146746a55c267ecd920357abc0d50271a9880",
+  "id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-INFERENCE-BYTE-FIX",
+  "authorized_parent": "e8ac66a9be3e3aacfefd3d7e98aec06034c1d77a",
   "scope": "ONE_SUCCESSOR_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
-  "owner_instruction": "Qwen 계획을 실제 실행 가능한 우리 제품 계약으로 보강해 끝까지 실행한다.",
-  "authorization_source": "Current owner conversation, 2026-10-24 KST; corrective successor with transparent numeric execution guardrail",
+  "owner_instruction": "실행 공간의 실제 모델 원문과 증거 바이트가 Windows에서도 일치하게 고쳐 끝까지 검증한다.",
+  "authorization_source": "Current owner conversation, 2026-10-24 KST; corrective successor for Windows text-mode inference receipt bytes",
   "attempts_allowed": 1,
   "workflow": ".github/workflows/windows-ai-successor-20261024.yml",
   "reuse_base_candidate": "TEST_R2",
@@ -41,6 +41,13 @@
       "status": "FAILED_QWEN_EXPLICIT_TOTAL_DURATION_GUARDRAIL_BLOCKED",
       "evidence_artifact": 12554890413,
       "error": "ARCHITECTURE_PLAN_TOTAL_DURATION_MISMATCH"
+    },
+    {
+      "source": "e8ac66a9be3e3aacfefd3d7e98aec06034c1d77a",
+      "run": 40079150015,
+      "status": "FAILED_WINDOWS_TEXT_MODE_INFERENCE_RECEIPT_SHA_AFTER_ARCHITECTURE_PLAN_PASS",
+      "evidence_artifact": 12554721546,
+      "error": "architecture inference response byte integrity mismatch"
     }
   ]
 }
