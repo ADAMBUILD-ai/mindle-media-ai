@@ -9,7 +9,7 @@ import json
 
 import pytest
 
-from media_ai.architecture_agent import ArchitectureAgentRuntime, validate_generated_architecture_plan
+from media_ai.architecture_agent import ArchitectureAgentRuntime, apply_explicit_duration_guardrail, validate_generated_architecture_plan
 from media_ai.architectural_video_pipeline import ProductionCancelled
 from media_ai.product_runtime import ProductJobService
 
@@ -59,6 +59,19 @@ def test_model_prompt_contains_machine_readable_exact_contract(monkeypatch,tmp_p
 def test_generated_architecture_plan_rejects_model_drift(parsed,error):
     with pytest.raises(ValueError,match=error):
         validate_generated_architecture_plan("3초 16:9 건축 홍보 영상",parsed,_catalog())
+
+
+def test_explicit_duration_guardrail_preserves_model_order_and_fits_total():
+    parsed={"aspect":"16:9","scenes":[
+        {"source_id":"input-02","duration_seconds":3},
+        {"source_id":"input-01","duration_seconds":2},
+    ]}
+    adjusted,receipt=apply_explicit_duration_guardrail("두 영상으로 2초 16:9 건축 홍보 영상",parsed,_catalog())
+    assert [x["source_id"] for x in adjusted["scenes"]]==["input-02","input-01"]
+    assert sum(x["duration_seconds"] for x in adjusted["scenes"])==2
+    assert receipt==[{"field":"scene.duration_seconds","reason":"EXPLICIT_TOTAL_DURATION",
+                      "model_total_seconds":5.0,"applied_total_seconds":2.0,
+                      "method":"PROPORTIONAL_WITH_SOURCE_CAPS"}]
 
 
 @pytest.mark.skipif(not shutil.which("ffmpeg") or not shutil.which("ffprobe"),reason="FFmpeg unavailable")

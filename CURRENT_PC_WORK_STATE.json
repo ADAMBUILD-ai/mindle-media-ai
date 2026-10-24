@@ -375,14 +375,14 @@
   "candidate_attempt_status": "NATIVE_WINDOWS_RUNTIME_PASS_DELIVERED_OWNER_PC_PENDING",
   "candidate_build_consumed": true,
   "owner_windows_ai_successor_20261024": {
-    "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-PLANNER-CONTRACT-FIX",
-    "authorized_parent": "e0574b4a6e3d2970bc9ab444b559b8f26d468023",
+    "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-EXECUTION-GUARDRAIL",
+    "authorized_parent": "150146746a55c267ecd920357abc0d50271a9880",
     "attempts_allowed": 1,
     "workflow": ".github/workflows/windows-ai-successor-20261024.yml",
     "base_candidate": "TEST_R2",
     "base_zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
     "engine_bytes": "REUSE_VERIFIED_NO_DOWNLOAD_NO_REBUILD",
-    "status": "PLANNER_EXACT_CONTRACT_CORRECTIVE_ATTEMPT_AUTHORIZED",
+    "status": "QWEN_EXECUTION_GUARDRAIL_CORRECTIVE_ATTEMPT_AUTHORIZED",
     "office_pc_acceptance": false,
     "human_hearing": false,
     "full_product_pass": false,
@@ -404,6 +404,13 @@
         "run": 40077847820,
         "status": "FAILED_GENERATIVE_ARCHITECTURE_PLAN_422_AFTER_ASSET_FIX_AND_QWEN_SUPERTONIC_BROWSER_PASS",
         "evidence_artifact": 12554211730
+      },
+      {
+        "source": "150146746a55c267ecd920357abc0d50271a9880",
+        "run": 40078457178,
+        "status": "FAILED_QWEN_EXPLICIT_TOTAL_DURATION_GUARDRAIL_BLOCKED",
+        "evidence_artifact": 12554890413,
+        "error": "ARCHITECTURE_PLAN_TOTAL_DURATION_MISMATCH"
       }
     ]
   }
