@@ -116,3 +116,28 @@ recommendation never turns on production automatically.
 The UI uses capability names, not model names. Any execution error, timeout,
 or memory shortage must surface the selected fallback and preserve the command
 text for retry; it must not appear as a successful model result.
+
+## Owned external production asset boundary
+
+Blender, ComfyUI, and local video-generation models enter MEDIA through the
+registry in `external_assets/media-production/ASSET_REGISTRY.json`. A registry
+entry is evidence of identity and policy only. It cannot become enabled unless
+its state is `RUNTIME_READY` or `PRODUCT_RUNTIME_VERIFIED`; model and program
+downloads remain a separate, reviewed materialization step.
+
+Blender receives only a structured request through the hash-pinned MEDIA camera
+render driver. User text cannot select another Python script or a Python/shell
+expression. The driver selects an existing camera, applies bounded frame and
+resolution values, renders, and hashes its output receipt.
+
+ComfyUI must listen on an explicit loopback address and isolated MEDIA-owned
+port. Its API workflow bytes are hash-pinned and only named node inputs may be
+overridden. Because ComfyUI's interrupt endpoint affects global execution, the
+adapter rejects cancellation unless MEDIA owns that isolated process and the
+prompt identifier. Output paths must resolve inside the owned output root.
+
+Wan activation additionally requires pinned model bytes, an official exported
+API workflow, target-PC hardware evidence, a real generated clip, and human
+quality review. LTX Desktop remains hardware-deferred. None of these pending
+assets may replace the existing FFmpeg edit/export path or appear as successful
+AI generation in the UI.
