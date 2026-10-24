@@ -33,6 +33,19 @@ if phase in {'WINDOWS_AI_SUCCESSOR_R3_SINGLE_ATTEMPT_AUTHORIZED','WINDOWS_AI_SUC
         require(state.get('package_build_allowed') is True,'R3 build gate not released')
         require(owner.get('authorization')==authorization['id'] and owner.get('authorized_parent')==authorization['authorized_parent'],'R3 authorization mismatch')
         require(owner.get('engine_bytes')=='REUSE_VERIFIED_NO_DOWNLOAD_NO_REBUILD','R3 engine reuse contract missing')
+elif phase=='WINDOWS_AI_SUCCESSOR_R3_REMOTE_VERIFIED_OWNER_PC_PENDING':
+    require(successor,'R3 successor directive missing')
+    accepted=read('docs/evidence/windows-ai-successor-20261024-r3/ACCEPTANCE.json')
+    final=read('docs/evidence/windows-ai-successor-20261024-r3/FINAL_DELIVERY.json')
+    require(accepted['status']=='REMOTE_WINDOWS_EXE_QWEN_SUPERTONIC_MEASURED_ARCHITECTURE_RESTART_EXPORT_PASS','R3 native acceptance missing')
+    require(final['source']==accepted['source'] and final['actual_qwen'] is True and final['actual_supertonic'] is True and final['actual_measured_architecture_agent'] is True,'R3 engine evidence missing')
+    require(final['independent_all_payload_hashes']=='PASS' and final['independent_zip_crc']=='PASS','R3 independent readback missing')
+    for state in (p,l,g,gl):
+        owner=state.get('owner_windows_ai_successor_20261024',{})
+        require(state.get('package_build_allowed') is False,'R3 repeat build forbidden')
+        require(owner.get('source')==final['source'] and owner.get('run')==40079944004,'R3 source/run mismatch')
+        require(owner.get('zip_sha256')==final['sha256'] and owner.get('manifest_sha256')==final['manifest_sha256'],'R3 delivery identity mismatch')
+        require(owner.get('office_pc_acceptance') is False and owner.get('human_hearing') is False and owner.get('full_product_pass') is False,'R3 unsupported scope expansion')
 elif phase=='OWNER_WINDOWS_AI_CANDIDATE_READY_FOR_PC_ACCEPTANCE':
     require(r2,'TEST R2 directive missing')
     contract=read(p['evidence_contract'])

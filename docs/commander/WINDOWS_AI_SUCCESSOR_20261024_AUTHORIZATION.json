@@ -8,7 +8,7 @@
   "workflow": ".github/workflows/windows-ai-successor-20261024.yml",
   "reuse_base_candidate": "TEST_R2",
   "reuse_base_zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
-  "package_build_allowed": true,
+  "package_build_allowed": false,
   "engine_download_allowed": false,
   "engine_rebuild_allowed": false,
   "office_pc_acceptance": false,
@@ -49,5 +49,9 @@
       "evidence_artifact": 12554721546,
       "error": "architecture inference response byte integrity mismatch"
     }
-  ]
+  ],
+  "authorization_consumed": true,
+  "consumed_source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "consumed_run": 40079944004,
+  "result": "REMOTE_WINDOWS_PASS_INDEPENDENT_READBACK_PASS_OWNER_PC_PENDING"
 }

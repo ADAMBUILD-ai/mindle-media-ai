@@ -44,20 +44,26 @@ def test_tampered_candidate_hash_is_rejected(tmp_path):
         validate_test_r2_reuse(copied)
 
 
-def test_connection_problem_cannot_authorize_rebuild_even_with_open_gate():
+def test_connection_problem_cannot_authorize_rebuild_even_with_open_gate(tmp_path):
+    copied = tmp_path / "repo"
+    _copy_gate_fixture(copied)
+    for name in ("CURRENT_PC_WORK_STATE.json", "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+                 "CURRENT_GENERAL_WORK_STATE.json", "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json"):
+        path=copied/name; value=json.loads(path.read_text()); value["package_build_allowed"]=True
+        path.write_text(json.dumps(value))
     request = {
         "approval_id": "NEW-APPROVAL", "authorized_parent": "a" * 40, "attempts_allowed": 1,
         "changed_files": ["work-window-connection"],
         "unresolved_by_test_r2": {"work-window-connection": "window disconnected"},
         "package_build_allowed": True,
     }
-    decision = evaluate_rebuild_request(ROOT, request)
+    decision = evaluate_rebuild_request(copied, request)
     assert decision.status == "REBUILD_REJECTED_MISSING_SCOPE"
 
 
-def test_current_successor_authorization_is_complete():
+def test_consumed_successor_authorization_closes_rebuild_gate():
     request=json.loads((ROOT/"docs/commander/MINDLE_MEDIA_AI_REBUILD_REQUEST_20261024_R3.json").read_text(encoding="utf-8"))
-    assert evaluate_rebuild_request(ROOT,request).status=="REBUILD_AUTHORIZATION_CONTRACT_COMPLETE"
+    assert evaluate_rebuild_request(ROOT,request).status=="REBUILD_REJECTED_GATE_FALSE"
 
 
 def test_incomplete_rebuild_request_is_rejected_before_any_build():

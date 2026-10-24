@@ -1,0 +1,19 @@
+{
+  "source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "base_candidate_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
+  "runtime_id": "9f5d304ce825-0f8cc3c5d320-ai-r3",
+  "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+  "manifest_sha256": "ec2b82e15eba653a977ce9ddfcf1fb0b697d2bd701c8a7e65aa37f51b68652ca",
+  "files": 19341,
+  "engine_space": {
+    "planner_model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "planner_model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "planner_executable_sha256": "cfbe37629352def818bb1c917419d7433abfe53a77151d0154bf5e7d4858ff37",
+    "tts_engine": "sherpa-supertonic",
+    "tts_data_sha256": "2be5aafd0665b433cd8e63653d487b1b9e292340c37ce5776168920208ce0ba9",
+    "engine_bytes_reused": true
+  },
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "full_product_pass": false
+}

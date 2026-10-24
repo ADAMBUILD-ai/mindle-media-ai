@@ -1,0 +1,18 @@
+{
+  "status": "REMOTE_WINDOWS_EXE_QWEN_SUPERTONIC_MEASURED_ARCHITECTURE_RESTART_EXPORT_PASS",
+  "source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "old_pid": 1280,
+  "new_pid": 7868,
+  "old_endpoint_closed": true,
+  "project_id": "554adb12-3227-43d5-9ce1-c7a8c763671f",
+  "workflow_id": "a03315b1-862b-41f8-8b79-0d2c54811ecd",
+  "architecture_project_id": "cfe94a70-9a61-40f8-ad82-b20147a374d4",
+  "architecture_production_id": "c2439428-670d-4c00-aee9-6c77f3f2f085",
+  "export_sha256": "4882bed70df57df1fac74e840e7ed768e8411fe326ecde63843fa0bd95292331",
+  "manifest_files_checked_after_actual_engine_use": 19341,
+  "cache_files_created": 0,
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "approved_ui_pixel_match": false,
+  "full_product_pass": false
+}

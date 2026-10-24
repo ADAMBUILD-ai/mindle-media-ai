@@ -1,6 +1,6 @@
 {
-  "approval_id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3",
-  "authorized_parent": "86fcdf9d58172f77b7d1133b7968be67b68e030b",
+  "approval_id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-INFERENCE-BYTE-FIX",
+  "authorized_parent": "e8ac66a9be3e3aacfefd3d7e98aec06034c1d77a",
   "attempts_allowed": 1,
   "changed_files": [
     "external_assets/media-production/ASSET_REGISTRY.json",
@@ -30,5 +30,8 @@
     "ui/workflow_execution.js": "TEST R2 cannot route, reconnect, cancel and reopen architecture AI work.",
     "ui/workflow_routing.test.js": "TEST R2 lacks regression coverage for the new AI browser route."
   },
-  "package_build_allowed": true
+  "package_build_allowed": false,
+  "authorization_consumed": true,
+  "consumed_source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "consumed_run": 40079944004
 }
