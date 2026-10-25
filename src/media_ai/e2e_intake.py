@@ -23,7 +23,9 @@ def validate_intake(manifest: dict, base: Path) -> dict:
     volumes=manifest.get('volumes',{})
     for role in ('narration','original','bgm'):
         number=volumes.get(role)
-        require(type(number) in (int,float) and math.isfinite(number) and 0<=number<=2,f'explicit {role} volume required (0..2)')
+        maximum=1 if role=='bgm' else 2
+        require(type(number) in (int,float) and math.isfinite(number) and 0<=number<=maximum,
+                f'explicit {role} volume required (0..{maximum})')
     clips=manifest.get('clips',[])
     require(isinstance(clips,list) and 1<=len(clips)<=12,'1..12 real video clips required')
     bgm=manifest.get('bgm')

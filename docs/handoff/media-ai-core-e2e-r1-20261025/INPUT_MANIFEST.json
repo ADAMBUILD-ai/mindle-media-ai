@@ -1,6 +1,5 @@
 {
   "work_id": "MEDIA-AI-CORE-E2E-R1-20261025",
-  "status": "BLOCKED_ASSET_INTAKE",
   "duration_seconds": 30,
   "aspect": "16:9",
   "narration_script": null,
@@ -10,5 +9,5 @@
   "bgm": null,
   "clip_entry_fields": ["path", "sha256", "bytes", "duration_seconds", "width", "height", "label", "origin=real_capture", "rights_status=CONFIRMED", "source_or_owner", "license_or_permission"],
   "bgm_entry_fields": ["path", "sha256", "bytes", "duration_seconds", "label", "rights_status=CONFIRMED", "source_or_owner", "license_or_permission"],
-  "notes": "Existing Wikimedia photo fixtures are source evaluation materials; they do not satisfy owner video, BGM or script intake. No fabricated values. Relative paths resolve from this manifest directory."
+  "notes": "This file declares execution inputs only; authoritative status is written to INTAKE_RESULT.json. Narration/original volume range is 0..2 and BGM is 0..1. Existing Wikimedia photo fixtures are source evaluation materials; they do not satisfy owner video, BGM or script intake. No fabricated values. Relative paths resolve from this manifest directory."
 }

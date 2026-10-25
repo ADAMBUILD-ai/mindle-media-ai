@@ -1,5 +1,5 @@
 import hashlib
-import subprocess
+import json
 import pytest
 from media_ai.e2e_intake import validate_intake
 
@@ -12,12 +12,20 @@ def test_missing_inputs_stay_blocked_without_invented_assets(tmp_path):
 
 
 @pytest.fixture
-def intake(tmp_path):
+def intake(tmp_path,monkeypatch):
     video=tmp_path/'real-capture-placeholder-for-contract-test.mp4'
     bgm=tmp_path/'test-tone.wav'
     # Fixtures test the contract only, never serve as real architecture acceptance.
-    subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i','color=s=32x18:r=1','-t','30','-c:v','libx264',str(video)],check=True)
-    subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i','sine=frequency=440:duration=1',str(bgm)],check=True)
+    video.write_bytes(b'contract-video-fixture')
+    bgm.write_bytes(b'contract-audio-fixture')
+    def fake_ffprobe(args,**_kwargs):
+        target=args[-1]
+        if target==str(video):
+            return json.dumps({'streams':[{'codec_type':'video','codec_name':'h264','width':32,'height':18}],
+                               'format':{'duration':'30.0'}}).encode()
+        return json.dumps({'streams':[{'codec_type':'audio','codec_name':'pcm_s16le'}],
+                           'format':{'duration':'1.0'}}).encode()
+    monkeypatch.setattr('media_ai.e2e_intake.subprocess.check_output',fake_ffprobe)
     def entry(path):return {'path':path.name,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'bytes':path.stat().st_size,
                            'rights_status':'CONFIRMED','source_or_owner':'test fixture','license_or_permission':'test-only',
                            'label':'fixture, not actual capture','duration_seconds':30 if path==video else 1}
@@ -39,7 +47,7 @@ def test_verified_manifest_is_technical_only_and_hash_drift_blocks(intake):
     assert any('SHA-256 mismatch' in error for error in result['errors'])
 
 
-@pytest.mark.parametrize('fault',['rights','duration','resolution','policy','volume','bgm'])
+@pytest.mark.parametrize('fault',['rights','duration','resolution','policy','volume','bgm','bgm_over_product_limit'])
 def test_incomplete_or_drifted_acceptance_contract_blocks(intake,fault):
     manifest,base=intake
     if fault=='rights':manifest['clips'][0]['rights_status']='UNCONFIRMED'
@@ -48,4 +56,5 @@ def test_incomplete_or_drifted_acceptance_contract_blocks(intake,fault):
     elif fault=='policy':manifest['voice_length_policy']='trim'
     elif fault=='volume':manifest['volumes']['bgm']=True
     elif fault=='bgm':manifest['bgm']=None
+    elif fault=='bgm_over_product_limit':manifest['volumes']['bgm']=1.01
     assert validate_intake(manifest,base)['status']=='BLOCKED_ASSET_INTAKE'

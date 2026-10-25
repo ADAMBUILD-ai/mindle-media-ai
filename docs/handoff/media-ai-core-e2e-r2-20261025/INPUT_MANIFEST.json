@@ -1,0 +1,11 @@
+{
+  "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+  "duration_seconds": 30,
+  "aspect": "16:9",
+  "narration_script": null,
+  "voice_length_policy": "reject",
+  "volumes": {"narration": null, "original": null, "bgm": null},
+  "clips": [],
+  "bgm": null,
+  "notes": "Execution declaration only. Authoritative result is INTAKE_RESULT.json. Relative paths resolve from this directory. Do not substitute public photos, synthetic clips, test tones or invented text."
+}

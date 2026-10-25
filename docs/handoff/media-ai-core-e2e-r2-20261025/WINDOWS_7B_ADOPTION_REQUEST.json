@@ -1,0 +1,42 @@
+{
+  "status": "APPROVAL_REQUIRED_NOT_INSTALLED",
+  "model": {
+    "id": "Qwen/Qwen2.5-7B-Instruct-GGUF",
+    "revision": "bb5d59e06d9551d752d08b292a50eb208b07ab1f",
+    "license": "Apache-2.0",
+    "files": [
+      {"name":"qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf","bytes":3993201344,"sha256":"dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db"},
+      {"name":"qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf","bytes":689872288,"sha256":"539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"}
+    ],
+    "context_size": 4096,
+    "threads_evaluated_on_linux": 2
+  },
+  "linux_only_identity": {
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "runtime_tree_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+    "observed_rss_bytes_approx": 7709460889,
+    "observed_hwm_bytes_approx": 8031588844,
+    "windows_identity_reuse_allowed": false
+  },
+  "target_pc_snapshot": {
+    "total_physical_memory_bytes": 34234286080,
+    "available_physical_memory_bytes_at_probe": 7806390272,
+    "c_drive_total_bytes": 999098347520,
+    "c_drive_available_bytes_at_probe": 423116992512,
+    "windows_7b_executable": "NOT_ACQUIRED",
+    "windows_runtime_sha256": "NOT_VERIFIED",
+    "windows_peak_memory": "NOT_MEASURED"
+  },
+  "preservation": {
+    "existing_qwen15_model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "existing_supertonic_data_sha256": "2be5aafd0665b433cd8e63653d487b1b9e292340c37ce5776168920208ce0ba9",
+    "rule": "Do not replace or delete the installed runtime. Use a separately approved directory and restore by selecting the untouched original runtime identity."
+  },
+  "requested_approval_scope": [
+    "acquire a pinned Windows llama.cpp executable and record its SHA-256/runtime tree",
+    "place both verified 7B parts in an isolated non-default evaluation directory",
+    "run read-only identity and memory preflight, then five bounded inference probes",
+    "do not change the installed 1.5B default or build a package"
+  ],
+  "not_approved": ["installation replacement","new Windows package","default-model switch","deployment","budget change"]
+}
