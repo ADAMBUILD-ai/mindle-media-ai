@@ -161,3 +161,21 @@ def test_unpublished_workflow_records_not_loaded_as_success(service):
     folder=service.jobs/fake['job_id'];folder.mkdir();(folder/'JOB_EVIDENCE.json').write_text(json.dumps(fake))
     assert not is_published(service.root,'not-completed')
     assert fake['job_id'] not in ProductJobService(service.root,'').records
+
+
+def test_export_failure_preserves_previous_project_and_never_publishes_new_jobs(service,monkeypatch):
+    service,source=service
+    saved=service.save_project({'job_ids':[source['job_id']]})
+    project=service.projects/(saved['project_id']+'.json');before=project.read_bytes()
+    previous_jobs=set(service.records)
+    def fail_export(*args,**kwargs):raise ValueError('INJECTED_EXPORT_FAILURE')
+    monkeypatch.setattr(ProductJobService,'export_project',fail_export)
+    queue=DurableWorkflows(service)
+    try:
+        task=submit(queue,source,project_id=saved['project_id'])
+        result=wait(queue,task['workflow_id'])
+        assert result['state']=='FAILED' and 'INJECTED_EXPORT_FAILURE' in result['error']
+        assert project.read_bytes()==before
+        assert set(service.records)==previous_jobs
+        assert Path(source['primary_output']['path']).is_file()
+    finally:queue.close()

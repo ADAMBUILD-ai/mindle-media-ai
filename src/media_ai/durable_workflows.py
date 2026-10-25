@@ -99,7 +99,10 @@ class DurableWorkflows:
         plan={'plan_source':'STRUCTURED_USER_PLAN_NOT_GENERATIVE'}
         if payload.get('plan_id'):
             plan=json.loads((self.root/'plans'/(str(UUID(payload['plan_id']))+'.json')).read_text(encoding='utf-8'))
+            if plan.get('plan_id')!=str(UUID(payload['plan_id'])):raise ValueError('PLANNER_PLAN_IDENTITY_MISMATCH')
             if [{k:v for k,v in item.items() if k!='step_id'} for item in plan['steps']]!=[{k:v for k,v in item.items() if k!='step_id'} for item in steps]:raise ValueError('생성된 계획과 실행 단계가 다릅니다.')
+        from .workflow_planner import validate_generated_binding
+        validate_generated_binding(self.service.root,plan)
         from .generative_auto_edit import validate_auto_binding
         validate_auto_binding(self.service.root,plan,source,actual)
         request_key=str(payload.get('request_id') or uuid4())

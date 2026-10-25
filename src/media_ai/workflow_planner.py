@@ -33,16 +33,37 @@ def invoke_local_json_plan(root, prompt, schema, *, max_tokens=768, timeout=120)
         if actual!=part.get('sha256'):raise ValueError('PLANNER_ADDITIONAL_WEIGHT_IDENTITY_MISMATCH')
     context=settings.get('context_size')
     if context is not None and (type(context) is not int or not 512<=context<=32768):raise ValueError('PLANNER_CONTEXT_INVALID')
-    output=subprocess.check_output([
-        str(executable),'-m',str(model),'-p',prompt,'-n',str(max_tokens),
-        '--no-display-prompt','--no-conversation','--simple-io','--temp','0','-t','2',
-        '--json-schema',json.dumps(schema),*(['-c',str(context)] if context else []),
-    ],text=True,encoding='utf-8',timeout=timeout)
-    start=output.find('{')
-    if start < 0:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획이 JSON을 반환하지 않았습니다.')
-    try:parsed,_=json.JSONDecoder().raw_decode(output[start:])
-    except json.JSONDecodeError as error:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획 JSON을 해석할 수 없습니다.') from error
-    return parsed,output,settings
+    audit=Path(root)/'workflows/inference-audit'/str(uuid4());audit.mkdir(parents=True)
+    (audit/'prompt.txt').write_bytes(prompt.encode('utf-8'))
+    status={'status':'STARTED','model_sha256':settings['model_sha256'],
+            'additional_model_sha256':[x['sha256'] for x in settings.get('additional_model_files',[])],
+            'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),
+            'context_size':context,'revision':settings['revision'],'max_tokens':max_tokens,'timeout_seconds':timeout}
+    output=''
+    try:
+        output=subprocess.check_output([
+            str(executable),'-m',str(model),'-p',prompt,'-n',str(max_tokens),
+            '--no-display-prompt','--no-conversation','--simple-io','--temp','0','-t','2',
+            '--json-schema',json.dumps(schema),*(['-c',str(context)] if context else []),
+        ],text=True,encoding='utf-8',timeout=timeout,stderr=subprocess.PIPE)
+        start=output.find('{')
+        if start < 0:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획이 JSON을 반환하지 않았습니다.')
+        try:parsed,_=json.JSONDecoder().raw_decode(output[start:])
+        except json.JSONDecodeError as error:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획 JSON을 해석할 수 없습니다.') from error
+        status['status']='RESPONSE_RETURNED_NOT_DOMAIN_VALIDATED'
+        return parsed,output,settings
+    except Exception as error:
+        status.update(status='FAILED',error_type=type(error).__name__,error=str(error))
+        output=getattr(error,'output',None) or output
+        stderr=getattr(error,'stderr',None)
+        if stderr:(audit/'stderr.txt').write_bytes(stderr if isinstance(stderr,bytes) else stderr.encode('utf-8'))
+        raise
+    finally:
+        raw=output if isinstance(output,bytes) else output.encode('utf-8')
+        (audit/'response.txt').write_bytes(raw)
+        status['response_sha256']=hashlib.sha256(raw).hexdigest()
+        (audit/'INFERENCE.json').write_text(json.dumps(status,ensure_ascii=False,indent=2),encoding='utf-8')
+
 
 
 def capabilities(root):
@@ -56,7 +77,7 @@ def capabilities(root):
 
 def persist_plan(root,value,request):
     folder=Path(root)/'workflows/plans';folder.mkdir(parents=True,exist_ok=True)
-    value={**value,'plan_id':str(uuid4()),'command_sha256':hashlib.sha256(str(request.get('command','')).encode()).hexdigest()}
+    value={**value,'plan_id':str(uuid4()),'command':str(request.get('command','')),'command_sha256':hashlib.sha256(str(request.get('command','')).encode()).hexdigest()}
     (folder/(value['plan_id']+'.json')).write_text(json.dumps(value,ensure_ascii=False),encoding='utf-8')
     return value
 
@@ -161,6 +182,28 @@ def make_plan(root,request):
     if any(s['operation']=='narrate' for s in steps) and not any(s['operation']=='mix_narration' for s in steps):
         raise ValueError('PLANNER_INCOMPLETE_NARRATION_PLAN: 음성 생성 후 합성 단계가 필요합니다.')
     validated_values={**validate_edit_values(command,steps),**validate_media_tool_values(command,steps),**validate_narration_values(command,steps)}
-    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps,'validated_edit_values':validated_values},request)
+    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'additional_model_sha256':[x['sha256'] for x in settings.get('additional_model_files',[])],'context_size':settings.get('context_size'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps,'validated_edit_values':validated_values},request)
     (Path(root)/'workflows/plans'/(value['plan_id']+'.response.txt')).write_bytes(output.encode('utf-8'))
+    (Path(root)/'workflows/plans'/(value['plan_id']+'.prompt.txt')).write_bytes(prompt.encode('utf-8'))
     return value
+
+
+def validate_generated_binding(root, plan):
+    """Bind normal generated workflows to their original request and actual reply."""
+    if plan.get('plan_source')!='LOCAL_GENERATIVE_INFERENCE' or plan.get('task_kind')=='MEASURED_GENERATIVE_AUTO_EDIT':
+        return
+    command=plan.get('command')
+    if not isinstance(command,str) or hashlib.sha256(command.encode('utf-8')).hexdigest()!=plan.get('command_sha256'):
+        raise ValueError('PLANNER_COMMAND_IDENTITY_MISMATCH: 새 계획을 생성하세요.')
+    path=Path(root)/'workflows/plans'/(str(plan['plan_id'])+'.response.txt')
+    raw=path.read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=plan.get('raw_response_sha256'):
+        raise ValueError('PLANNER_RESPONSE_IDENTITY_MISMATCH')
+    try:
+        text=raw.decode('utf-8');parsed,_=json.JSONDecoder().raw_decode(text[text.index('{'):])
+        if parsed.get('error'):raise ValueError('model error')
+        actual=validate_steps(parsed['steps']);validate_plan_scope(command,actual)
+        clean=lambda steps:[{key:value for key,value in step.items() if key!='step_id'} for step in steps]
+        if clean(actual)!=clean(plan['steps']):raise ValueError('saved decision changed')
+    except (ValueError,KeyError,TypeError,AttributeError) as error:
+        raise ValueError('PLANNER_RESPONSE_PLAN_MISMATCH: '+str(error)) from error

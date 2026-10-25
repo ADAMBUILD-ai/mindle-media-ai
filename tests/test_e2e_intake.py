@@ -58,3 +58,31 @@ def test_incomplete_or_drifted_acceptance_contract_blocks(intake,fault):
     elif fault=='bgm':manifest['bgm']=None
     elif fault=='bgm_over_product_limit':manifest['volumes']['bgm']=1.01
     assert validate_intake(manifest,base)['status']=='BLOCKED_ASSET_INTAKE'
+
+def test_usable_ranges_not_whole_file_duration_determine_coverage(intake):
+    manifest,base=intake
+    manifest['clips'][0].update(usable_start_seconds=10,usable_end_seconds=20)
+    result=validate_intake(manifest,base)
+    assert result['status']=='BLOCKED_ASSET_INTAKE'
+    assert 'source coverage below 30 seconds' in result['errors']
+
+
+@pytest.mark.parametrize('start,end',[(20,10),(-1,30),(0,31),(True,30)])
+def test_invalid_usable_ranges_fail_closed(intake,start,end):
+    manifest,base=intake;manifest['clips'][0].update(usable_start_seconds=start,usable_end_seconds=end)
+    assert validate_intake(manifest,base)['status']=='BLOCKED_ASSET_INTAKE'
+
+
+def test_r2_requires_rights_reference_and_product_supported_bgm_volume(intake):
+    manifest,base=intake;manifest['require_rights_evidence']=True
+    assert validate_intake(manifest,base)['status']=='BLOCKED_ASSET_INTAKE'
+    manifest['clips'][0]['rights_evidence']='test contract only'
+    manifest['bgm']['rights_evidence']='test license only'
+    assert validate_intake(manifest,base)['status']=='PASS_INTAKE_TECHNICAL_ONLY'
+    manifest['volumes']['bgm']=1.5
+    assert validate_intake(manifest,base)['status']=='BLOCKED_ASSET_INTAKE'
+
+
+def test_original_sound_request_requires_actual_source_audio(intake):
+    manifest,base=intake;manifest['volumes']['original']=.2
+    assert validate_intake(manifest,base)['status']=='BLOCKED_ASSET_INTAKE'

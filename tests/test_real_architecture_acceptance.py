@@ -45,3 +45,30 @@ def test_approved_exe_is_mandatory_for_cold_restart(tmp_path,monkeypatch):
     try:module.main()
     except ValueError as error:assert str(error)=='approved source and EXE are required after intake passes'
     else:raise AssertionError('missing EXE must block the acceptance run')
+
+
+
+def test_candidate_approval_blocks_before_any_server_call(tmp_path,monkeypatch):
+    from types import SimpleNamespace
+    import pytest
+    module=_runner();approval=tmp_path/'approval.json';approval.write_text(json.dumps({'approved':False}),encoding='utf-8')
+    args=SimpleNamespace(approval_file=approval,expected_source='a'*40)
+    monkeypatch.setattr(module,'call',lambda *a,**k:pytest.fail('unapproved candidate must not be called'))
+    with pytest.raises(RuntimeError,match='BLOCKED_CANDIDATE_APPROVAL_BINDING'):
+        module.execute(args,{}, {'manifest_sha256':'b'*64},tmp_path)
+
+
+def test_candidate_probe_rejects_wrong_aspect_before_decode(monkeypatch):
+    import pytest
+    module=_runner()
+    probe={'format':{'duration':'30'},'streams':[{'codec_type':'video','codec_name':'h264','pix_fmt':'yuv420p','width':720,'height':1280},{'codec_type':'audio','codec_name':'aac'}]}
+    monkeypatch.setattr(module.subprocess,'check_output',lambda *a,**k:json.dumps(probe))
+    with pytest.raises(RuntimeError,match='FINAL_MEDIA_ASPECT_GATE_FAILED'):
+        module.technical_probe(Path('ffprobe.exe'),Path('video.mp4'))
+
+
+def test_pid_exit_requires_actual_process_exit():
+    import os,subprocess,sys
+    module=_runner();assert not module.pid_exited(os.getpid())
+    child=subprocess.Popen([sys.executable,'-c','pass']);child.wait(timeout=10)
+    assert module.pid_exited(child.pid)
