@@ -15,11 +15,22 @@
     <div class="future-copy"><strong>AI가 만드는 더 큰 가능성</strong><span>for a better tomorrow</span></div>
     <nav class="top-actions" aria-label="앱 메뉴"><button type="button" data-shell="projects">⌕</button><button type="button" data-shell="history">◌</button><button type="button" data-shell="storage">⚙</button><span class="avatar">S</span><span class="owner-name">신작가님</span></nav>
   </header>
+  <section class="ai-core-ribbon" data-ai-core-status data-state="checking" aria-live="polite">
+    <strong>AI CORE</strong>
+    <span data-ai-core-summary>실제 로컬 AI 엔진을 확인 중입니다.</span>
+    <span data-ai-engine="planner">Qwen 계획기 · 확인 중</span>
+    <span data-ai-engine="tts">한국어 신경망 음성 · 확인 중</span>
+    <span data-ai-engine="mp4">AI 작업 MP4 · 확인 중</span>
+    <span data-ai-engine="sam">SAM 분할·추적 · 확인 중</span>
+    <span data-ai-engine="whisper">Whisper 한국어 STT · 확인 중</span>
+    <span data-ai-engine="upscale">4× 업스케일 · 확인 중</span>
+    <button type="button" data-ai-core-refresh>AI 상태 다시 확인</button>
+  </section>
   <main class="dual-workspace" aria-label="MINDLE MEDIA AI editor">
     <section id="videoWorkspace" data-editor="video" class="editor-card video-card" aria-label="VIDEO">
       <header class="editor-header">
         <div class="editor-title"><span class="editor-kicker"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M14 9v22l19-11z"/></svg></span><span class="editor-banner-label">VIDEO</span><div><h1>VIDEO</h1><p>AI와 함께, 영상을 더 특별하게</p></div></div>
-        
+
       </header>
       <div data-layout="left-center-right" class="editor-grid">
         <aside data-panel="video-left" class="media-panel">
@@ -39,7 +50,7 @@
           <div class="tool-grid compact video-extended"><button data-video-tool="shortform">숏폼</button><button data-video-tool="fade">전환</button><button data-video-tool="effect" title="FFmpeg 영상 필터이며 생성형 AI 효과가 아닙니다.">AI 효과</button><button data-video-tool="subtitle">자막</button><button data-video-tool="auto-subtitle">자동 자막</button><button data-video-tool="highlight">하이라이트</button><button data-video-tool="bgm">배경음악</button></div>
           <div data-subtitle-controls hidden><label>자막 <input data-video-subtitle placeholder="표시할 자막"></label></div><input type="file" data-bgm-input accept="audio/*" hidden><button data-video-apply class="apply-button">영상 편집 적용</button>
         <div class="editor-actions">
-          
+
           <button type="button" data-action="ai-auto-edit" title="프레임의 움직임·노출·선명도를 분석하는 자동 편집입니다. 생성형 모델 추론은 아닙니다." class="outline-cyan">✦ AI 자동 편집</button><button type="button" data-action="shortform-mode" aria-pressed="false" class="outline-purple">✦ 광고 숏폼</button>
           <button data-action="save" class="ghost-button">프로젝트 저장</button><button data-action="export" class="primary-blue">내보내기</button>
         </div></aside>
@@ -50,7 +61,7 @@
     <section id="photoWorkspace" data-editor="photo" class="editor-card photo-card" aria-label="PHOTO">
       <header class="editor-header">
         <div class="editor-title"><span class="editor-kicker photo-kicker"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="26" rx="2"/><path d="m7 29 10-12 7 8 5-5 5 9"/><circle cx="27" cy="14" r="3"/></svg></span><span class="editor-banner-label">PHOTO</span><div><h1>PHOTO</h1><p>AI와 함께, 사진을 더 아름답게</p></div></div>
-        
+
       </header>
       <div data-layout="library-preview-below-tools" class="editor-grid">
         <aside data-panel="photo-left" class="media-panel"><div class="panel-title">MEDIA</div><div class="library-actions"><button type="button" data-action="load" class="outline-purple">＋ 사진 불러오기</button><input type="file" data-primary-input="photo" accept="image/*" hidden></div><div class="asset-grid photo-assets"><span class="asset-photo-house">house.jpg</span><span class="asset-video-interior">interior.jpg</span><span class="asset-photo-landscape">landscape.jpg</span></div></aside>
@@ -68,7 +79,7 @@
     </section>
   </main>
   <section class="final-guideline"><div><strong>PHOTO 가로형 기본</strong><span>가로 사진은 작업영역을 넓게 사용</span></div><div><strong>세로 사진 자동 대응</strong><span>Auto Fit + 중앙 배치 · 비율 유지 · 여백은 다크 네이비</span></div><div class="final-rule">최종 확정 기준 PHOTO = 가로 기본 + 세로 사진 자동 대응</div></section>
-  <script src="interaction.js"></script><script src="timeline_preview.js"></script><script src="workflow_execution.js"></script><script src="product_integration.js"></script><script src="photo_workspace.js"></script><script src="video_workspace.js"></script><script src="workspace_shell.js"></script>
+  <script src="interaction.js"></script><script src="timeline_preview.js"></script><script src="workflow_execution.js"></script><script src="product_integration.js"></script><script src="ai_core_status.js"></script><script src="photo_workspace.js"></script><script src="video_workspace.js"></script><script src="workspace_shell.js"></script>
 </body>
 </html>
 

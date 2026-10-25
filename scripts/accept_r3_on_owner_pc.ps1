@@ -42,6 +42,10 @@ function Find-Mp4($Value) {
 function Save-Json([string]$Name,$Value) {
   $Value | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath (Join-Path $Evidence $Name) -Encoding utf8
 }
+function Post-Json([string]$Uri,$Value,[int]$TimeoutSec=180) {
+  $json = $Value | ConvertTo-Json -Depth 30 -Compress
+  Invoke-RestMethod -Uri $Uri -Method Post -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($json)) -TimeoutSec $TimeoutSec
+}
 
 if(!(Test-Path -LiteralPath $Exe) -or !(Test-Path -LiteralPath $ManifestPath)) { throw "R3 설치 폴더가 없습니다: $Candidate" }
 if((Sha256 $Exe) -ne $ExpectedExe) { throw 'R3 EXE SHA-256이 다릅니다.' }
@@ -68,6 +72,43 @@ $Readiness = Invoke-RestMethod -Uri "$($Runtime.base)/api/runtime-readiness" -Ti
 $Planner = Invoke-RestMethod -Uri "$($Runtime.base)/api/workflows/capabilities" -TimeoutSec 15
 Save-Json '01_RUNTIME_BEFORE.json' ([ordered]@{candidate=$Candidate;runtime_root=$RuntimeRoot;exe_sha256=$ExpectedExe;manifest_sha256=$ExpectedManifest;payload_files_checked=$Checked;endpoint=$Runtime.base;identity=$Runtime.identity;control=$Before;readiness=$Readiness;planner_capabilities=$Planner;captured_at=(Get-Date).ToString('o')})
 
+# A visible window is not acceptance. Create a fresh source and require the
+# pinned Qwen planner, Supertonic neural voice and FFmpeg MP4 chain to run now.
+$FreshFolder = Join-Path $Evidence 'fresh-ai-runtime'
+New-Item -ItemType Directory -Force -Path $FreshFolder | Out-Null
+$Ffmpeg = Join-Path $RuntimeRoot 'tools\ffmpeg\ffmpeg.exe'
+$Ffprobe = Join-Path $RuntimeRoot 'tools\ffmpeg\ffprobe.exe'
+if(!(Test-Path -LiteralPath $Ffmpeg)) { throw 'R3 FFmpeg 실행기가 없습니다.' }
+$FreshVideo = Join-Path $FreshFolder 'fresh-input.mp4'
+$FfmpegArgs = @('-v','error','-f','lavfi','-i','color=c=blue:s=320x180:r=10','-f','lavfi','-i','sine=frequency=440:sample_rate=48000','-t','4','-c:v','h264_mf','-pix_fmt','yuv420p','-c:a','aac','-movflags','+faststart','-y',$FreshVideo)
+& $Ffmpeg @FfmpegArgs
+if($LASTEXITCODE -ne 0 -or !(Test-Path -LiteralPath $FreshVideo)) { throw '새 AI 검증 입력 MP4 생성에 실패했습니다.' }
+$FreshImport = Post-Json "$($Runtime.base)/api/media/import" ([ordered]@{kind='video';filename='owner-ai-alive-input.mp4';content_base64=[Convert]::ToBase64String([IO.File]::ReadAllBytes($FreshVideo))})
+$FreshCommand = '밝기를 3 높이고 "반갑습니다. 민들레 미디어 AI입니다." 나레이션을 넣고 영상을 연장해 주세요.'
+$FreshPlan = Post-Json "$($Runtime.base)/api/workflows/plan" ([ordered]@{command=$FreshCommand}) 300
+if($FreshPlan.plan_source -ne 'LOCAL_GENERATIVE_INFERENCE' -or $FreshPlan.model_id -notlike 'Qwen*') { throw 'Qwen 실제 생성형 계획이 확인되지 않았습니다.' }
+$Brightness = @($FreshPlan.steps | Where-Object {$_.operation -eq 'video_edit'})[0].options.brightness
+$Narration = @($FreshPlan.steps | Where-Object {$_.operation -eq 'narrate'})[0].text
+if($Brightness -ne 3 -or $Narration -ne '반갑습니다. 민들레 미디어 AI입니다.') { throw 'Qwen 계획이 요청한 수치 또는 원고를 보존하지 않았습니다.' }
+$FreshTask = Post-Json "$($Runtime.base)/api/workflows" ([ordered]@{request_id=[Guid]::NewGuid().ToString();plan_id=$FreshPlan.plan_id;input_job_id=$FreshImport.job_id;job_ids=@($FreshImport.job_id);steps=$FreshPlan.steps;export=$true})
+$FreshDeadline = (Get-Date).AddMinutes(15)
+while($FreshTask.state -notin @('SUCCEEDED','FAILED','CANCELLED','INTERRUPTED') -and (Get-Date) -lt $FreshDeadline) {
+  Start-Sleep -Milliseconds 500
+  $FreshTask = Invoke-RestMethod -Uri "$($Runtime.base)/api/workflows/$($FreshTask.workflow_id)" -TimeoutSec 30
+}
+if($FreshTask.state -ne 'SUCCEEDED') { throw "새 AI 작업 실패: $($FreshTask.state) $($FreshTask.error)" }
+$FreshVoice = @($FreshTask.records | Where-Object {$_.operation -eq 'narration'})[-1]
+if($FreshVoice.runtime_result.model_inference -ne $true -or $FreshVoice.runtime_result.engine -notlike '*Supertonic*') { throw 'Supertonic 실제 신경망 음성 생성이 확인되지 않았습니다.' }
+$FreshOutput = $FreshTask.result.primary_output.path
+if(!(Test-Path -LiteralPath $FreshOutput) -or !($FreshOutput.EndsWith('.mp4',[StringComparison]::OrdinalIgnoreCase))) { throw 'AI 작업 MP4가 생성되지 않았습니다.' }
+$FreshProbe = $null
+if(Test-Path -LiteralPath $Ffprobe) { $FreshProbe = & $Ffprobe -v error -show_streams -show_format -of json -- $FreshOutput | ConvertFrom-Json }
+$FreshHasVideo = @($FreshProbe.streams | Where-Object {$_.codec_type -eq 'video'}).Count -gt 0
+$FreshHasAudio = @($FreshProbe.streams | Where-Object {$_.codec_type -eq 'audio'}).Count -gt 0
+if(!$FreshHasVideo -or !$FreshHasAudio) { throw 'AI 작업 MP4의 영상 또는 오디오 스트림이 없습니다.' }
+$FreshAiGate = $true
+Save-Json '02_FRESH_AI_RUNTIME_PASS.json' ([ordered]@{status='FRESH_QWEN_SUPERTONIC_FFMPEG_PASS';command=$FreshCommand;plan=$FreshPlan;workflow_id=$FreshTask.workflow_id;project_id=$FreshTask.project_id;qwen_actual_inference=$true;supertonic_actual_inference=$true;mp4_path=$FreshOutput;mp4_sha256=(Sha256 $FreshOutput);mp4_probe=$FreshProbe;captured_at=(Get-Date).ToString('o')})
+
 Start-Process $Runtime.base
 Write-Host ''
 Write-Host '브라우저에서 사진·영상·자막·나레이션·참고 이미지를 확인하고 프로젝트 저장과 내보내기를 실행하세요.' -ForegroundColor Cyan
@@ -81,7 +122,6 @@ Save-Json '02_PROJECT_BEFORE_RESTART.json' ([ordered]@{latest=$LatestBefore;work
 $Mp4Before = @(Find-Mp4 ([ordered]@{latest=$LatestBefore;workflows=$WorkflowsBefore;architecture=$ArchitectureBefore}))
 if($Mp4Before.Count -lt 1) { throw '저장된 프로젝트에서 재생할 MP4를 찾지 못했습니다.' }
 $PlayerFile = $Mp4Before[0]
-$Ffprobe = Join-Path $RuntimeRoot 'tools\ffmpeg\ffprobe.exe'
 $MediaProbe = $null
 if(Test-Path -LiteralPath $Ffprobe) {
   $MediaProbe = & $Ffprobe -v error -show_streams -show_format -of json -- $PlayerFile | ConvertFrom-Json
@@ -141,7 +181,7 @@ $Seek = (Read-Host 'Windows 플레이어에서 재생과 앞뒤 탐색이 정상
 $Ui = (Read-Host '1536x1024 100% 기준 VIDEO 좌측/PHOTO 우측과 전체 UI를 직접 확인했습니까? Y 또는 N').Trim().ToUpper() -eq 'Y'
 $SameProject = $LatestBefore.project.project_id -and $LatestBefore.project.project_id -eq $LatestAfter.project.project_id -and $LatestBefore.project.project_id -eq $LatestFinal.project.project_id
 $Result = [ordered]@{
-  status = if($Heard -and $Seek -and $Ui -and $SameProject) {'OWNER_PC_ACCEPTANCE_EVIDENCE_COMPLETE'} else {'OWNER_PC_ACCEPTANCE_PARTIAL'}
+  status = if($FreshAiGate -and $Heard -and $Seek -and $Ui -and $SameProject) {'OWNER_PC_ACCEPTANCE_EVIDENCE_COMPLETE'} else {'OWNER_PC_ACCEPTANCE_PARTIAL'}
   source = '9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6'
   candidate = 'MINDLE_MEDIA_AI_PC_TEST_20261024_R3'
   payload_files_checked = $Checked
@@ -149,6 +189,7 @@ $Result = [ordered]@{
   old_pid = $Before.server_pid
   new_pid = $After.server_pid
   same_project_reopened = [bool]$SameProject
+  fresh_qwen_supertonic_ffmpeg_chain = [bool]$FreshAiGate
   windows_player_play_seek = [bool]$Seek
   human_hearing = [bool]$Heard
   owner_ui_observed = [bool]$Ui

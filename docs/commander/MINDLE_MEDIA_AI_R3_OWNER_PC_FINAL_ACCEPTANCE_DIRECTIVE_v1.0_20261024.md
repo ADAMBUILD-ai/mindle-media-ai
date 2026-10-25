@@ -10,13 +10,14 @@
 
 ## 실행
 
-`docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261024.zip`을 압축 해제하고 R3가 설치된 PC에서 `START_R3_OWNER_PC_ACCEPTANCE.cmd`를 두 번 클릭한다. 화면의 안내에 따라 사진·영상·자막·나레이션·참고 이미지가 포함된 프로젝트를 저장하고 Export한다. Windows 플레이어에서 자동으로 열린 MP4를 재생하고 앞뒤 탐색하며 실제 소리를 듣는다. 서버 재실행 뒤 동일 프로젝트를 Reopen하고 다시 Export한다.
+`docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261025.zip`을 압축 해제하고 R3가 설치된 PC에서 `START_R3_OWNER_PC_ACCEPTANCE.cmd`를 두 번 클릭한다. 실행기는 새 입력을 생성한 뒤 Qwen 계획, Supertonic 한국어 신경망 음성, FFmpeg MP4를 실제로 새로 만든다. 이 단계가 실패하면 창이 열려도 인수를 중단한다. 이어서 사진·영상·자막·나레이션·참고 이미지가 포함된 프로젝트를 저장하고 Export한다. Windows 플레이어에서 자동으로 열린 MP4를 재생하고 앞뒤 탐색하며 실제 소리를 듣는다. 서버 재실행 뒤 동일 프로젝트를 Reopen하고 다시 Export한다.
 
 실행기는 다음 항목을 자동 검증한다.
 
 - R3 EXE SHA-256, manifest SHA-256, manifest 19,341개 파일 전체
 - 정확한 설치 runtime root와 runtime manifest identity
-- Qwen 계획기와 로컬 모델/TTS runtime readiness
+- 새 4초 입력에 대한 Qwen 실제 생성형 계획과 요청 수치·원고 보존
+- Supertonic 실제 신경망 한국어 음성 생성과 FFmpeg 영상·오디오 MP4 생성
 - 저장 프로젝트·workflow·architecture production 상태
 - MP4 SHA-256과 ffprobe 스트림 정보
 - 소유 서버 control nonce를 사용한 정상 종료와 endpoint 닫힘

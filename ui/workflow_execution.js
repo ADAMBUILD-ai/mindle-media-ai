@@ -45,6 +45,7 @@
         if(task.state!=='SUCCEEDED')throw new Error(task.state+' · '+(task.error||task.missing?.join(', ')||'기존 결과는 보존했습니다.'));
         window.mindleEndEdit('video');ownsPending=false;
         if(!await window.mindleWorkflowRestore(task.receipt.project_id))throw new Error('건축 영상은 완료됐지만 프로젝트를 다시 열지 못했습니다.');
+        await window.mindleRefreshAiCore?.();
         show('건축 AI 장면 계획·MP4 조립·프로젝트 저장 완료 · '+task.production_id);
       }catch(error){show(error.message,true);}finally{if(ownsPending)window.mindleEndEdit('video');}
       return true;
@@ -70,6 +71,7 @@
       if(task.state!=='SUCCEEDED')throw new Error(task.state+' · '+(task.error||'기존 프로젝트는 보존했습니다.'));
       window.mindleEndEdit('video');ownsPending=false;
       if(!await window.mindleWorkflowRestore(task.project_id))throw new Error('작업은 완료됐지만 프로젝트 다시 열기에 실패했습니다. 작업 이력을 확인하세요.');
+      await window.mindleRefreshAiCore?.();
       show('순차 작업·저장 완료 · '+task.workflow_id+' · MP4는 프로젝트 내보내기에 포함됩니다.');
     }catch(error){show(error.message,true);}finally{if(ownsPending)window.mindleEndEdit('video');}
     return true;

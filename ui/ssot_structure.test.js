@@ -12,3 +12,4 @@ const videoStart=html.indexOf('<section id="videoWorkspace"'), photoStart=html.i
 assert.ok(videoStart>=0&&photoStart>videoStart);
 for (const slider of ["brightness","contrast","highlights","shadows","saturation","temperature","sharpness"]) assert.ok(html.includes('data-photo-adjust="'+slider+'"'));
 for (const required of ['.editor-header::after','PHOTO CREATIVE','.asset-thumb','.asset-name']) assert.ok(css.includes(required),"missing current approved visual treatment: "+required);
+for (const required of ['data-ai-core-status','Qwen 계획기','한국어 신경망 음성','AI 작업 MP4','SAM 분할·추적','Whisper 한국어 STT','4× 업스케일','ai_core_status.js']) assert.ok(html.includes(required),"missing truthful AI status surface: "+required);

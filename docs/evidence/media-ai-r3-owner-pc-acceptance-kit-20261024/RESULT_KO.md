@@ -23,7 +23,9 @@
 - `scripts/START_R3_OWNER_PC_ACCEPTANCE.cmd`: 더블클릭 진입점
 - `scripts/accept_r3_on_owner_pc.ps1`: identity·전체 payload·runtime·저장/재시작/복원·MP4·사람 판정 증거 수집
 - `tests/test_owner_pc_r3_acceptance_kit.py`: exact candidate와 안전한 소유 서버 종료 계약 회귀
-- `docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261024.zip`: 위 두 실행 파일과 한국어 안내를 묶은 단일 다운로드 파일. SHA-256 `9c058c27669f9ea2141903f477b9dac8c201f2e7501fc5944b1379b9f55fdda8`, ZIP CRC PASS
+- `docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261025.zip`: 새 Qwen·Supertonic·FFmpeg 실작동 Gate가 포함된 단일 다운로드 파일. SHA-256 `c097989c53d87296a60f07ce668194ebc797bb1b4075895b06a85a1f186f5608`, ZIP CRC PASS
+
+2026-10-25 보강 후에는 기존 프로젝트 존재만으로 통과하지 않는다. 인수 시점에 새 4초 입력을 생성하고, 자연어 명령의 밝기 `3`과 정확한 한국어 원고를 Qwen이 계획했는지 확인한 뒤 Supertonic 음성과 영상·오디오가 포함된 MP4를 실제 생성해야 다음 단계로 진행한다.
 
 실행기는 일반 프로세스 강제 종료를 쓰지 않는다. 제품의 `/api/runtime/control`에서 받은 PID·server instance·control nonce를 `/api/runtime/shutdown`에 제출하고 endpoint가 실제 닫힌 뒤 같은 EXE를 다시 실행한다.
 

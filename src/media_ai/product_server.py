@@ -120,7 +120,7 @@ class ProductHttpServer(ThreadingHTTPServer):
             "ui/product_integration.js",
             "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
         ]
-        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js', 'ui/workspace_shell.js', 'ui/timeline_preview.js', 'ui/workflow_execution.js') if (self.root / relative).is_file())
+        files.extend(relative for relative in ('ui/photo_workspace.js', 'ui/video_workspace.js', 'ui/workspace_shell.js', 'ui/timeline_preview.js', 'ui/workflow_execution.js', 'ui/ai_core_status.js') if (self.root / relative).is_file())
         hashes = {relative: hashlib.sha256((self.root / relative).read_bytes()).hexdigest() for relative in files}
         fingerprint = hashlib.sha256("\n".join(f"{key}:{hashes[key]}" for key in files).encode("utf-8")).hexdigest()
         branch = head = None
@@ -221,6 +221,16 @@ class Handler(BaseHTTPRequestHandler):
         if route == '/api/workflows/capabilities':
             from .workflow_planner import capabilities
             self._json(200,capabilities(self.server.data_dir));return
+        if route == '/api/ai-core/status':
+            from .workflow_planner import capabilities
+            from .ai_core_status import summarize_ai_core
+            self._json(200, summarize_ai_core(
+                capabilities(self.server.data_dir),
+                self.server.workflow_queue().list(),
+                self.server.architecture_queue().list(),
+                list(self.server.service.records.values()),
+                self.server.service.model_readiness,
+            ));return
         if route == '/api/architecture-agent/capabilities':
             from .workflow_planner import capabilities
             base=capabilities(self.server.data_dir)

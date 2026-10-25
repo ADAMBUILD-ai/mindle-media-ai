@@ -19,6 +19,11 @@ def test_r3_owner_pc_acceptance_is_exact_candidate_and_targeted_shutdown():
     assert '04_REOPEN_EXPORT.json' in source
     assert 'PASS_ALL_ENTRIES_READ' in source
     assert 'ZipFile]::OpenRead' in source
+    assert 'LOCAL_GENERATIVE_INFERENCE' in source
+    assert 'Qwen*' in source
+    assert 'Supertonic*' in source
+    assert 'FRESH_QWEN_SUPERTONIC_FFMPEG_PASS' in source
+    assert 'fresh_qwen_supertonic_ffmpeg_chain' in source
     assert "approved_ui_pixel_match = $false" in source
     assert "full_product_pass = $false" in source
 
@@ -30,8 +35,8 @@ def test_r3_owner_pc_acceptance_has_double_click_entrypoint():
 
 
 def test_r3_owner_pc_acceptance_download_bundle_is_exact_and_complete():
-    bundle=ROOT/'docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261024.zip'
-    assert hashlib.sha256(bundle.read_bytes()).hexdigest()=='9c058c27669f9ea2141903f477b9dac8c201f2e7501fc5944b1379b9f55fdda8'
+    bundle=ROOT/'docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261025.zip'
+    assert hashlib.sha256(bundle.read_bytes()).hexdigest()=='c097989c53d87296a60f07ce668194ebc797bb1b4075895b06a85a1f186f5608'
     with zipfile.ZipFile(bundle) as archive:
         assert archive.testzip() is None
         assert set(archive.namelist())=={'START_R3_OWNER_PC_ACCEPTANCE.cmd','accept_r3_on_owner_pc.ps1','README_KO.txt'}
