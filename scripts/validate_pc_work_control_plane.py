@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json,pathlib
+import json,pathlib,subprocess,sys
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 def require(value,message):
     if not value:raise SystemExit('PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: '+message)
@@ -89,6 +89,10 @@ require(w.get('pr23_hold_do_not_merge') is True and w.get('merge_main_forbidden'
 for inv in ('main_merge_forbidden','force_push_forbidden','pr23_hold_do_not_merge','approved_ui_preserved'):
     require(l['invariants'].get(inv) is True,inv)
 require(epoch in (ROOT/'CURRENT_PC_WORK_DIRECTIVE.md').read_text(encoding='utf-8'),'current epoch missing')
+if (ROOT/'CURRENT_MEDIA_WORK_STATUS.json').exists() or any('current_work' in value for value in (p,l,g,gl,w)):
+    result=subprocess.run([sys.executable,str(ROOT/'scripts/media_work_status.py'),'--check'],capture_output=True,text=True,encoding='utf-8',timeout=30)
+    require(result.returncode==0,'current R2 work status failed: '+(result.stderr or result.stdout).strip())
+    print('CURRENT_R2_STATUS_VALIDATED; HISTORICAL_R3_IDENTITY_PRESERVED; NO_NEW_EXECUTION_AUTHORIZATION')
 print('PC_WORK_CORRECTED_CANDIDATE_READY_FOR_LOCAL_ACCEPTANCE_PASS' if phase.endswith('PC_ACCEPTANCE') else 'PC_WORK_CORRECTED_WINDOWS_CANDIDATE_GATE_PASS')
 print('OWNER_PC_PASS=false; FULL_PRODUCT_PASS=false; OPENAI_CONNECTED=false')
 

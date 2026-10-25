@@ -1,3 +1,16 @@
+# 2026-10-25 현재 작업: MEDIA-AI-CORE-E2E-R2-20261025
+
+현재 상태 원본: CURRENT_MEDIA_WORK_STATUS.json
+현재 지시: docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md
+R2의 General 준비·실제 제작 가능 여부는 위 상태 원본에서 매번 다시 계산한다.
+원본 자료를 접수한 뒤 python scripts/media_work_status.py --refresh / --check로 다시 확인한다.
+이 파일의 아래 R3 epoch·phase·READY·ACTIVE·Build Gate=true 기록은 과거 후보 이력이다.
+현재 상태와 실행 권한으로 사용하지 않는다. 기존 R3 빌드 승인은 소진됐고 Build Gate=false다.
+R2 Windows 7B 채택·새 후보 제작·대표 인수는 승인되지 않았다. 실제 PC 프로세스는 미관측이다.
+새 검증 프로세스/모델/제작이 계속 실행 중이라고 보고하지 않는다.
+
+---
+
 # 2026-10-25 현재 인수 상태와 필요한 회귀 복구
 
 Epoch: MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3.

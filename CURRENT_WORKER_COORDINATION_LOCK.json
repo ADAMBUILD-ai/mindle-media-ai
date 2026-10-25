@@ -1,15 +1,15 @@
 {
   "schema_version": "PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
-  "status": "ACTIVE",
+  "status": "R2_WAITING_INPUT_OR_PREFLIGHT",
   "date": "2026-10-18",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
   "active_control_plane_epoch": "MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3",
-  "collision_status": "ALIGNED_R9_CORRECTED_CANDIDATE_VERIFIED_PC_HANDOFF",
+  "collision_status": "ALIGNED_R2_STATUS_AND_CONSUMED_R3_CANDIDATE_EVIDENCE",
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "One owner-authorized Windows development candidate assembled from frozen verified runtime and latest source; source/hash/CRC PASS; new Windows EXE acceptance and approved UI exact match remain pending; gate CLOSED after this single candidate.",
+      "current_assignment": "R2 General source preparation verified; read CURRENT_MEDIA_WORK_STATUS.json; actual production is gated by real inputs and engine preflight.",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -34,7 +34,7 @@
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "Producer 38845082039 and independent readback 38846038527 PASS; gate CLOSED",
+      "current_assignment": "R3 is consumed historical evidence. R2 Windows 7B/candidate execution requires exact approval and real asset intake; no build authorization granted.",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",
@@ -132,5 +132,18 @@
     "transport_run": 39989419656,
     "zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606"
   },
-  "active_candidate_directive": "docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md"
+  "active_candidate_directive": "docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md",
+  "pre_r2_status": "ACTIVE",
+  "historical_candidate_status_scope": "HISTORICAL_R3_CANDIDATE_ONLY_SEE_CURRENT_WORK_FOR_R2",
+  "current_work": {
+    "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+    "status_file": "CURRENT_MEDIA_WORK_STATUS.json",
+    "snapshot_sha256": "71f0d4955ceb74a908b76b6064159b9c5ff7a12a738cd55715f5b1b5e117b9e9",
+    "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
+    "general_status": "R2_GENERAL_PREPARATION_COMPLETE",
+    "pc_status": "R2_BLOCKED_ASSET_INTAKE",
+    "production_eligibility": "BLOCKED_ASSET_INTAKE",
+    "runtime_baseline_source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa"
+  },
+  "pre_r2_collision_status": "ALIGNED_R9_CORRECTED_CANDIDATE_VERIFIED_PC_HANDOFF"
 }

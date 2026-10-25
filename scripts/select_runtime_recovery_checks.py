@@ -12,6 +12,10 @@ PRIOR_RUN = 40186056871
 ROOT = Path(__file__).resolve().parents[1]
 CONTROL_ONLY = {
     '.github/workflows/runtime-recovery.yml', 'CURRENT_GENERAL_WORK_DIRECTIVE.md',
+    '.github/workflows/pc-one-click-windows-build.yml',
+    '.github/workflows/windows-openvino-runtime.yml',
+    '.github/workflows/remote-verified-runtime-package.yml',
+    'tests/test_r2_package_gate.py',
     'scripts/validate_general_work_control_plane.py', 'scripts/select_runtime_recovery_checks.py',
     'tests/test_general_work_control_plane.py', 'tests/test_runtime_recovery_selection.py',
     'model_scout/run_runtime_recovery_browser.py',
@@ -19,12 +23,18 @@ CONTROL_ONLY = {
     'src/media_ai/source_e2e.py','src/media_ai/e2e_intake.py','scripts/run_real_architecture_acceptance.py',
     'tests/test_e2e_intake.py',
     'tests/test_source_e2e.py','tests/test_real_architecture_acceptance.py',
+    'scripts/media_work_status.py','tests/test_media_work_status.py',
+    'scripts/validate_pc_work_control_plane.py','CURRENT_PC_WORK_DIRECTIVE.md',
+    'CURRENT_MEDIA_WORK_STATUS.json','CURRENT_GENERAL_WORK_STATE.json',
+    'CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json','CURRENT_PC_WORK_STATE.json',
+    'CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json','CURRENT_WORKER_COORDINATION_LOCK.json',
 }
 
 
 def control_only(paths):
     return bool(paths) and all(path in CONTROL_ONLY or path.startswith(('docs/evidence/media-ai-control-plane-recovery-20261025/',
-        'docs/evidence/media-ai-core-e2e-r2-20261025/','docs/handoff/media-ai-core-e2e-r2-20261025/')) for path in paths)
+        'docs/evidence/media-ai-core-e2e-r2-20261025/','docs/handoff/media-ai-core-e2e-r2-20261025/',
+        'docs/evidence/media-ai-r2-work-status-20261025/','docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md')) for path in paths)
 
 
 def engine_job_body(source):

@@ -27,7 +27,17 @@ def handoff(tmp_path):
         'docs/evidence/windows-ai-successor-20261024-r3/ACCEPTANCE.json',
         'docs/evidence/windows-ai-successor-20261024-r3/FINAL_DELIVERY.json',
     ]
-    for name in paths:
+    paths += ['CURRENT_MEDIA_WORK_STATUS.json','scripts/media_work_status.py',
+              'docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md',
+              'docs/handoff/media-ai-core-e2e-r2-20261025/INPUT_MANIFEST.json',
+              'docs/evidence/media-ai-core-e2e-r2-20261025/SOURCE_VALIDATION.json',
+              'docs/evidence/media-ai-core-e2e-r1-20261025/SOURCE_BINDING.json']
+    baseline=json.loads((ROOT/'docs/evidence/media-ai-core-e2e-r2-20261025/SOURCE_VALIDATION.json').read_text(encoding='utf-8'))
+    foundation=json.loads((ROOT/'docs/evidence/media-ai-core-e2e-r1-20261025/SOURCE_BINDING.json').read_text(encoding='utf-8'))
+    paths += list(foundation['source_file_sha256'])
+    paths += [name for name in baseline['code_file_sha256'] if name.startswith('src/media_ai/')]
+    paths += list(baseline['source_ui_identity']['file_hashes'])
+    for name in set(paths):
         destination = tmp_path/name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT/name, destination)

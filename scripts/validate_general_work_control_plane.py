@@ -29,7 +29,9 @@ def validate(root=ROOT):
     epoch = state.get('control_plane_epoch')
     if epoch in {RECOVERY_EPOCH, R3_EPOCH}:
         require(worker.get('active_control_plane_epoch') == epoch, 'worker epoch mismatch')
-        require(state.get('status') == lock.get('status') == 'ACTIVE_OWNER_RUNTIME_RECOVERY', 'recovery status mismatch')
+        expected_status=state.get('current_work',{}).get('general_status','ACTIVE_OWNER_RUNTIME_RECOVERY')
+        require(expected_status in {'ACTIVE_OWNER_RUNTIME_RECOVERY','R2_GENERAL_PREPARATION_COMPLETE','R2_SOURCE_REVALIDATION_REQUIRED'}, 'unknown General status')
+        require(state.get('status') == lock.get('status') == expected_status, 'recovery status mismatch')
         require(lock.get('control_plane_epoch') == lock.get('epoch') == epoch and lock.get('active') is True, 'General lock epoch mismatch')
         require(epoch in current and state.get('product_changes_allowed') is True, 'current General directive mismatch')
         for value in (state, lock):
@@ -47,6 +49,9 @@ def validate(root=ROOT):
             check = subprocess.run([sys.executable, str(root/'scripts/validate_pc_work_control_plane.py')],
                                    capture_output=True, text=True, timeout=30)
             require(check.returncode == 0, 'PC handoff validation failed: '+(check.stderr or check.stdout).strip())
+            current_work=state.get('current_work')
+            if current_work:
+                return 'CURRENT_WORK='+current_work['work_id']+'\nGENERAL_STATUS='+expected_status+'\nPC_STATUS='+current_work['pc_status']+'\nHISTORICAL_GENERAL_WORK_R3_REMOTE_VERIFIED_OWNER_PC_PENDING\nOWNER_PC_PASS=false; FULL_PRODUCT_PASS=false; PACKAGE_BUILD_ALLOWED=false'
             return 'GENERAL_WORK_R3_REMOTE_VERIFIED_OWNER_PC_PENDING\nOWNER_PC_PASS=false; FULL_PRODUCT_PASS=false; PACKAGE_BUILD_ALLOWED=false'
         return 'GENERAL_WORK_OWNER_RUNTIME_RECOVERY_ACTIVE'
 

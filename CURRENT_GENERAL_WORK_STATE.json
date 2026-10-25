@@ -1,6 +1,6 @@
 {
   "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
-  "status": "ACTIVE_OWNER_RUNTIME_RECOVERY",
+  "status": "R2_GENERAL_PREPARATION_COMPLETE",
   "date": "2026-10-24",
   "control_plane_epoch": "MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3",
   "owner_authorization": "Explicit current conversation: development commander, repair and reinforce existing product without optional confirmation; approve only OpenAI credential connection.",
@@ -449,5 +449,17 @@
     "approved_ui_pixel_match": false,
     "evidence": "docs/evidence/windows-ai-successor-20261024-r3/RESULT_KO.md"
   },
-  "package_status": "AI_SUCCESSOR_R3_REMOTE_VERIFIED_OWNER_PC_PENDING"
+  "package_status": "AI_SUCCESSOR_R3_REMOTE_VERIFIED_OWNER_PC_PENDING",
+  "pre_r2_status": "ACTIVE_OWNER_RUNTIME_RECOVERY",
+  "historical_candidate_status_scope": "HISTORICAL_R3_CANDIDATE_ONLY_SEE_CURRENT_WORK_FOR_R2",
+  "current_work": {
+    "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+    "status_file": "CURRENT_MEDIA_WORK_STATUS.json",
+    "snapshot_sha256": "71f0d4955ceb74a908b76b6064159b9c5ff7a12a738cd55715f5b1b5e117b9e9",
+    "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
+    "general_status": "R2_GENERAL_PREPARATION_COMPLETE",
+    "pc_status": "R2_BLOCKED_ASSET_INTAKE",
+    "production_eligibility": "BLOCKED_ASSET_INTAKE",
+    "runtime_baseline_source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa"
+  }
 }

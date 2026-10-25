@@ -1,7 +1,7 @@
 {
   "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
   "date": "2026-10-24",
-  "status": "READY_FOR_LOCAL_PC_ACCEPTANCE",
+  "status": "R2_BLOCKED_ASSET_INTAKE",
   "repository": "ADAMBUILD-ai/mindle-media-ai",
   "branch": "feature/ad-shortform-bridge-p0-20260926",
   "control_plane_epoch": "MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3",
@@ -466,5 +466,17 @@
     ],
     "approved_ui_pixel_match": false,
     "evidence": "docs/evidence/windows-ai-successor-20261024-r3/RESULT_KO.md"
+  },
+  "pre_r2_status": "READY_FOR_LOCAL_PC_ACCEPTANCE",
+  "historical_candidate_status_scope": "HISTORICAL_R3_CANDIDATE_ONLY_SEE_CURRENT_WORK_FOR_R2",
+  "current_work": {
+    "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+    "status_file": "CURRENT_MEDIA_WORK_STATUS.json",
+    "snapshot_sha256": "71f0d4955ceb74a908b76b6064159b9c5ff7a12a738cd55715f5b1b5e117b9e9",
+    "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
+    "general_status": "R2_GENERAL_PREPARATION_COMPLETE",
+    "pc_status": "R2_BLOCKED_ASSET_INTAKE",
+    "production_eligibility": "BLOCKED_ASSET_INTAKE",
+    "runtime_baseline_source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa"
   }
 }
