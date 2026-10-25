@@ -100,6 +100,8 @@ class DurableWorkflows:
         if payload.get('plan_id'):
             plan=json.loads((self.root/'plans'/(str(UUID(payload['plan_id']))+'.json')).read_text(encoding='utf-8'))
             if [{k:v for k,v in item.items() if k!='step_id'} for item in plan['steps']]!=[{k:v for k,v in item.items() if k!='step_id'} for item in steps]:raise ValueError('생성된 계획과 실행 단계가 다릅니다.')
+        from .generative_auto_edit import validate_auto_binding
+        validate_auto_binding(self.service.root,plan,source,actual)
         request_key=str(payload.get('request_id') or uuid4())
         if len(request_key)>128:raise ValueError('요청ID가 너무 깁니다.')
         clean={'input_job_id':source['job_id'],'input_sha256':actual['sha256'],'steps':[{k:v for k,v in s.items() if k!='step_id'} for s in steps],
@@ -211,6 +213,10 @@ class DurableWorkflows:
         with self.lock:
             value=self.get(identifier)
             if self.closed or value['state']=='CANCEL_REQUESTED':self._finish_cancel(value);return
+            if value['plan_receipt'].get('task_kind')=='MEASURED_GENERATIVE_AUTO_EDIT':
+                from .generative_auto_edit import assess_auto_output
+                value['technical_quality']=assess_auto_output(value['plan_receipt'],value['records'][-1])
+                self._put(value)
             # Save/Export operate on an isolated service catalog until every file verifies.
             from .product_runtime import ProductJobService
             staging=ProductJobService(self.root/identifier/'commit','')

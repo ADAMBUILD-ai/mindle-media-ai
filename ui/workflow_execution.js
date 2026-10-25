@@ -68,16 +68,18 @@
       return true;
     }
     const modelIntent=/밝기|밝게|대비|채도|자막|STT|받아쓰|나레이션|내레이션|narration|tts|속도|배속|자르|구간|trim|페이드|fade|배경\s*음악|bgm|9\s*:\s*16|16\s*:\s*9|순차|순서대로|실행 계획/i.test(text);
+    const autoIntent=/^(?:AI\s*)?자동\s*편집(?:해\s*줘|해\s*주세요|해)?[.!]?$/i.test(text);
     const manualIntent=/추적|tracking|숏폼|속도|자르|전환|효과|오디오|배경음악|잔잔|자동.*편집|하이라이트/i.test(text);
-    if(!steps && !modelIntent && manualIntent)return false;
+    if(!steps && !autoIntent && !modelIntent && manualIntent)return false;
     const input=detail.input_job_id||editor.querySelector('[data-preview]').dataset.jobId;
     if(!input){show('먼저 실제 원본 영상을 불러오세요.',true);return true;}
     window.mindleBeginEdit('video');let ownsPending=true;
     try{
-      const planResponse=await fetch('/api/workflows/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:detail.command,...(steps?{steps}:{})})});const plan=await planResponse.json();if(!planResponse.ok)throw new Error(plan.error||'계획 생성 실패');
+      if(autoIntent)show('원본 프레임을 측정하고 로컬 AI가 편집 계획을 판단하고 있습니다.');
+      const planResponse=await fetch(autoIntent&&!steps?'/api/workflows/auto-plan':'/api/workflows/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:detail.command,...(autoIntent&&!steps?{input_job_id:input}:{}),...(steps?{steps}:{})})});const plan=await planResponse.json();if(!planResponse.ok)throw new Error(plan.error||'계획 생성 실패');
       const labels={brightness:'밝기',contrast:'대비',saturation:'채도',speed:'속도',start:'시작',duration:'길이',aspect:'비율',fade:'페이드',backgroundVolume:'BGM 음량',volume:'나레이션 음량',original_volume:'원본 음량',length_policy:'영상 길이'};
       const applied=Object.entries(plan.validated_edit_values||{}).map(([key,value])=>{let shown=value;if(['brightness','contrast','saturation'].includes(key))shown=(value>=0?'+':'')+value+' 포인트';else if(key==='speed')shown=value+'배';else if(['start','duration'].includes(key))shown=value+'초';else if(['backgroundVolume','volume','original_volume'].includes(key))shown=Math.round(value*100)+'%';else if(key==='fade')shown=value?'적용':'미적용';else if(key==='length_policy')shown=value==='extend_video'?'음성에 맞춰 연장':'원본 유지';return (labels[key]||key)+' '+shown;}).join(' · ');
-      show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획 · '+(plan.model_id||'모델 정보 없음'):'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → ')+(applied?' · 검증된 적용값: '+applied:''));
+      show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획 · '+(plan.model_id||'모델 정보 없음'):'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → ')+(applied?' · 검증된 적용값: '+applied:'')+(autoIntent?' · AI 판단 근거: '+(plan.decision?.reason||'없음'):''));
       let background=null;const bgm=editor.querySelector('[data-bgm-input]').files[0];
       if(plan.steps.some(step=>Object.hasOwn(step.options||{},'backgroundVolume')||Object.hasOwn(step,'background_volume'))&&!bgm)throw new Error('BGM 작업을 실행하려면 우측 배경음악 버튼에서 오디오 파일을 먼저 선택하세요.');
       if(bgm){background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.readAsDataURL(bgm);})};}
@@ -91,7 +93,7 @@
       window.mindleEndEdit('video');ownsPending=false;
       if(!await window.mindleWorkflowRestore(task.project_id))throw new Error('작업은 완료됐지만 프로젝트 다시 열기에 실패했습니다. 작업 이력을 확인하세요.');
       await window.mindleRefreshAiCore?.();
-      show('순차 작업·저장 완료 · '+task.workflow_id+' · MP4는 프로젝트 내보내기에 포함됩니다.');
+      show('순차 작업·저장 완료 · '+task.workflow_id+' · MP4는 프로젝트 내보내기에 포함됩니다.'+(task.technical_quality?' · 출력 기술 검수 통과 · 최종 화면 확인 필요':''));
     }catch(error){show(error.message,true);}finally{if(ownsPending)window.mindleEndEdit('video');}
     return true;
   };

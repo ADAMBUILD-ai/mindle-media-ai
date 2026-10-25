@@ -86,6 +86,29 @@ def _connected_chain(task: dict, root: Path | None) -> bool:
     return False
 
 
+def _verified_auto_edit(task, root):
+    plan = task.get("plan_receipt", {})
+    if task.get("state") != "SUCCEEDED" or plan.get("task_kind") != "MEASURED_GENERATIVE_AUTO_EDIT":
+        return False
+    result = task.get("result", {})
+    quality = task.get("technical_quality", {})
+    if not _verified_plan(plan, root) or not _verified_record(result, root):
+        return False
+    source = task.get("input_record", {})
+    artifact = source.get("preview_output", source.get("primary_output", {}))
+    if not _verified_artifact(artifact, root):
+        return False
+    if (quality.get("status") != "PASS_TECHNICAL_ONLY" or quality.get("output_sha256") != result["primary_output"]["sha256"]
+            or source.get("job_id") != plan.get("input_job_id") or artifact.get("sha256") != plan.get("input_sha256")):
+        return False
+    try:
+        from .generative_auto_edit import validate_auto_binding
+        validate_auto_binding(root, plan, source, artifact)
+    except (OSError, ValueError, KeyError, TypeError):
+        return False
+    return result.get("runtime_result", {}).get("options") == plan["steps"][0]["options"]
+
+
 def _actual_neural_voice(records: list[dict]) -> bool:
     return any(
         record.get("operation") == "narration"
@@ -145,9 +168,12 @@ def summarize_ai_core(
     )
     actual_planner = bool(planner_runs or architecture_runs)
     connected = [task["workflow_id"] for task in planner_runs if _connected_chain(task, data_root)]
+    auto_edits = [task["workflow_id"] for task in planner_runs if _verified_auto_edit(task, data_root)]
     actual_chain = bool(connected)
     if actual_chain:
         state = "AI_RUNTIME_ACTUAL_CHAIN_VERIFIED"
+    elif auto_edits:
+        state = "AI_EDIT_EXECUTION_VERIFIED"
     elif planner_configured and tts_configured:
         state = "AI_ENGINES_READY_INFERENCE_REQUIRED"
     else:
@@ -156,6 +182,8 @@ def summarize_ai_core(
         "state": state,
         "chain_evidence": {"workflow_ids": connected, "scope": "SAME_WORKFLOW_VERIFIED_ARTIFACTS",
                            "full_product_pass": False, "human_hearing": "NOT_VERIFIED"},
+        "auto_edit_evidence": {"workflow_ids": auto_edits, "semantic_understanding": False,
+                               "human_visual_approval": "REQUIRED", "full_product_pass": False},
         "shell_only": not (planner_configured or tts_configured or actual_planner or neural_voice),
         "configured": {
             "local_generative_planner": planner_configured,

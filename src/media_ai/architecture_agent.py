@@ -25,6 +25,7 @@ from .external_media_assets import file_sha256, load_asset_registry
 from .product_runtime import file_record
 from .workflow_planner import invoke_local_json_plan
 from .video_analysis import analyze_video
+from .planner_constraints import instruction_text
 
 
 def _programs() -> tuple[Path, Path]:
@@ -43,7 +44,7 @@ def _probe(ffprobe: Path, source: Path) -> dict[str, Any]:
 
 
 def _requested_contract(command: str) -> dict[str, Any]:
-    text = command.casefold()
+    text = instruction_text(command)
     durations = re.findall(r"(?<![\d.])(\d+(?:\.\d+)?)\s*초", text)
     if len(durations) > 1:
         raise ValueError("ARCHITECTURE_AMBIGUOUS_DURATION: 전체 영상 길이는 한 번만 지정하세요.")

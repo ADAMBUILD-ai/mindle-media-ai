@@ -58,13 +58,21 @@ def main():
         wait.until(lambda d:len(d.find_elements(By.CSS_SELECTOR,'[data-editor=video] [data-asset-job-id]'))==1)
         assert driver.find_element(By.CSS_SELECTOR,'[data-asset-job-id]').text=='SOURCE.mp4'
         record('actual_media_library_contains_user_import',driver.find_element(By.CSS_SELECTOR,'[data-asset-job-id]').text)
+        # This regression has no Qwen configured: the real AI button must refuse
+        # rather than silently run the deterministic measured highlighter.
+        before_jobs=driver.execute_async_script("fetch('/api/evidence').then(r=>r.json()).then(arguments[0])")['jobs']
         driver.find_element(By.CSS_SELECTOR,'[data-action=ai-auto-edit]').click()
+        wait.until(lambda d:'LOCAL_GENERATIVE_MODEL_UNAVAILABLE' in d.find_element(By.CSS_SELECTOR,'[data-editor=video] [data-command-error]').text and not d.execute_script("return window.mindleEditPending('video')"))
+        jobs=driver.execute_async_script("fetch('/api/evidence').then(r=>r.json()).then(arguments[0])")['jobs']
+        assert set(jobs)==set(before_jobs)
+        record('actual_ai_auto_edit_refuses_missing_model_without_fallback',{'new_jobs':0,'fresh_model_inference':False})
+        driver.find_element(By.CSS_SELECTOR,'[data-video-tool=highlight]').click()
         wait.until(lambda d: d.execute_script("return document.querySelector('[data-preview=video]').dataset.operation==='video_edit' && !window.mindleEditPending('video')"))
         jobs=driver.execute_async_script("fetch('/api/evidence').then(r=>r.json()).then(arguments[0])")['jobs']
         job=[j for j in jobs.values() if j['operation']=='video_edit'][-1]
-        assert job['runtime_result']['analysis']['sample_count']>0 and job['runtime_result']['options']['auto_edit'] is True
+        assert job['runtime_result']['analysis']['sample_count']>0 and job['runtime_result']['options']['highlight'] is True
         assert job['runtime_result']['model_inference'] is False and not any(j['operation']=='tracking' for j in jobs.values())
-        record('auto_edit_actual_button_analysis_not_tracking',job)
+        record('explicit_measured_highlight_remains_non_generative',job)
         wait.until(lambda d:(media_state(d) or {}).get('readyState',0)>=2)
         driver.execute_async_script("document.querySelector('[data-preview=video] video').play().then(()=>arguments[0](true)).catch(e=>arguments[0](String(e)))")
         wait.until(lambda d:media_state(d)['currentTime']>.3)

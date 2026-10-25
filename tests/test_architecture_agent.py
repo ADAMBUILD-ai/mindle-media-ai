@@ -172,3 +172,10 @@ def test_running_architecture_cancel_never_publishes_output(monkeypatch,tmp_path
         assert not Path(task["plan"]["output"]).exists()
         assert not list(service.projects.glob("*.json"))
     finally:runtime.close()
+
+
+def test_narration_content_numbers_do_not_override_architecture_contract():
+    plan={'aspect':'16:9','scenes':[{'source_id':'input-01','duration_seconds':1},{'source_id':'input-02','duration_seconds':2}]}
+    actual=validate_generated_architecture_plan('3초 16:9 건축 홍보 영상, "30초의 휴식, 9:16의 풍경" 나레이션',plan,_catalog())
+    assert actual['total_duration_seconds']==3
+    assert actual['aspect']=='16:9'

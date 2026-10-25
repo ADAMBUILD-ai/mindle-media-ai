@@ -271,8 +271,8 @@ class Handler(BaseHTTPRequestHandler):
             ai=capabilities(self.server.data_dir)
             self._json(200, {'product':'MINDLE MEDIA AI', 'models': self.server.service.model_readiness,
                              'video_tool_present': bool(ffmpeg and Path(ffmpeg).is_file()),
-                             'auto_edit_engine':'OpenCV measured scene window + FFmpeg',
-                             'auto_edit_model_inference':False,
+                             'auto_edit_engine':'Measured frames -> pinned Qwen decision -> FFmpeg -> technical quality gate',
+                             'auto_edit_model_inference':'REQUIRED_NOT_YET_PROVEN_FOR_THIS_TASK',
                              'local_generative_planner':ai['generative_planner'],
                              'local_tts':ai['tts'],
                              'architecture_agent':{'planner':'LOCAL_GENERATIVE_MODEL_REQUIRED',
@@ -393,6 +393,9 @@ class Handler(BaseHTTPRequestHandler):
                                          'operation':body.get('operation'),'request_id':body.get('request_id')})
             if route.startswith('/api/workflows'):
                 if not self._local_control_request():self._json(403,{'status':'LOCAL_CONTROL_REQUIRED'});return
+                if route == '/api/workflows/auto-plan':
+                    from .generative_auto_edit import make_auto_plan
+                    self._json(200,make_auto_plan(self.server.service,body));return
                 if route == '/api/workflows/plan':
                     from .workflow_planner import make_plan
                     self._json(200,make_plan(self.server.data_dir,body));return

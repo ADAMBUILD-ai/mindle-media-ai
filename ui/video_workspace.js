@@ -57,7 +57,8 @@
   editor.querySelectorAll('[data-video-option]').forEach(input=>input.addEventListener('input',()=>{if(input.nextElementSibling?.tagName==='OUTPUT') input.nextElementSibling.value=input.value;updateVideoPreview();}));
   window.mindleApplyVideoSubtitle=(text,segments=[])=>apply({subtitle:text,subtitleSegments:segments},"자동 자막 적용");
   window.mindleVideoCommand=async text=>{
-    if(/자동.*편집|하이라이트/.test(text)) {await apply({auto_edit:true},'장면 분석 자동 편집');return true;}
+    if(/자동.*편집/.test(text)) throw new Error('AI 자동 편집은 로컬 Qwen 계획 경로가 필요합니다. 일반 편집으로 대신 실행하지 않습니다.');
+    if(/하이라이트/.test(text)) {await apply({auto_edit:true},'장면 분석 자동 편집');return true;}
     if(/숏폼|초.*만들|속도|자르|전환|효과|밝게|오디오/.test(text)) {
       const extra={};if(/숏폼/.test(text)) extra.aspect='9:16';const sec=text.match(/(\d+)\s*초/);if(sec) extra.duration=Number(sec[1]);
       if(/전환/.test(text)) extra.fade=true;if(/효과/.test(text)) extra.effect=true;if(/밝게/.test(text)) extra.brightness=15;
