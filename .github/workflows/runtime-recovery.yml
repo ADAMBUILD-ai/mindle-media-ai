@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Compare inputs with the pinned successful engine source
-        run: git fetch --depth=1 origin 08c5b1b449411f0ffa4e533aa98758bb5b1c65f0
+        run: git fetch --depth=1 origin 93a5e80ae214365043e91622920ce8e9f1ac0e9d
       - name: Select only invalidated checks and verify prior successful job
         id: scope
         env:

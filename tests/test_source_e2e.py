@@ -80,6 +80,7 @@ def test_owned_real_product_process_cold_restart_reopen_and_export(tmp_path):
     try:
         first=session.start('first')
         imported=session.call('/api/media/import',{'kind':'video','filename':'test.mp4','content_base64':base64.b64encode(source.read_bytes()).decode()})
+        runner.verify_imported_input(imported,runner.file_record(source))
         saved=session.call('/api/projects/save',{'job_ids':[imported['job_id']]});session.stop()
         second=session.start('second')
         assert first['server_pid']!=second['server_pid']
@@ -110,3 +111,17 @@ def test_export_cannot_hide_changed_job_metadata_behind_transport_url_normalizat
     changed={**job,'preview_url':'/files/new','runtime_result':{'text':'changed'}}
     with pytest.raises(ValueError,match='EXPORT_REOPEN_JOB_IDENTITY_FAILED'):
         runner.verify_export(path,hashlib.sha256(path.read_bytes()).hexdigest(),'project',[changed])
+
+
+@pytest.mark.parametrize('fault',[None,'input','preview'])
+def test_original_input_and_transcoded_preview_have_separate_identities(tmp_path,fault):
+    original=tmp_path/'original.mp4';original.write_bytes(b'owner original bytes')
+    preview=tmp_path/'preview.mp4';preview.write_bytes(b'different transcoded preview bytes')
+    source=runner.file_record(original)
+    job={'status':'TESTED_PASS','operation':'import','input':source.copy(),'primary_output':runner.file_record(preview)}
+    assert source['sha256']!=job['primary_output']['sha256']
+    if fault=='input':job['input']['sha256']='a'*64
+    elif fault=='preview':preview.write_bytes(b'changed preview')
+    if fault:
+        with pytest.raises(ValueError,match='IMPORTED_(SOURCE|PREVIEW)_IDENTITY_FAILED'):runner.verify_imported_input(job,source)
+    else:runner.verify_imported_input(job,source)

@@ -8,7 +8,7 @@ import argparse,base64,hashlib,json,subprocess,time,urllib.error,urllib.request,
 from datetime import datetime,timezone
 from pathlib import Path
 from media_ai.e2e_intake import validate_intake
-from media_ai.source_e2e import audio_command,validate_audio_plan,verify_export,MODEL_SHA,PART_SHA,config_from
+from media_ai.source_e2e import audio_command,validate_audio_plan,verify_export,verify_imported_input,MODEL_SHA,PART_SHA,config_from
 from media_ai.workflow_worker import tree_sha
 import os,ctypes
 
@@ -132,7 +132,7 @@ def execute(args,manifest,intake,evidence):
         unchanged();path=(args.manifest.parent/item['path']).resolve()
         payload={'request_id':str(uuid.uuid4()),'kind':'video','filename':path.name,'content_base64':base64.b64encode(path.read_bytes()).decode()}
         job=call(base,'/api/media/import',{'request_id':str(uuid.uuid4()),'kind':'video','filename':path.name,'content_base64':base64.b64encode(path.read_bytes()).decode()})
-        if job['input']['sha256']!=item['sha256']:raise RuntimeError('IMPORTED_INPUT_SHA_MISMATCH')
+        verify_imported_input(job,item)
         start=item.get('usable_start_seconds',0);end=item.get('usable_end_seconds',item['duration_seconds'])
         if start or abs(end-item['duration_seconds'])>.01:job=call(base,'/api/video-edits',{**payload,'options':{'start':start,'duration':end-start}})
         jobs.append(job)

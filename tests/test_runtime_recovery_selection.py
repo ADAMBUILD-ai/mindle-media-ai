@@ -22,3 +22,11 @@ def test_control_only_changes_can_reuse_unchanged_engine_job():
 
 def test_empty_delta_does_not_silently_claim_new_reuse():
     assert selection.control_only([]) is False
+
+
+@pytest.mark.parametrize('path',['src/media_ai/source_e2e.py','scripts/run_real_architecture_acceptance.py','tests/test_source_e2e.py'])
+def test_acceptance_tooling_can_reuse_verified_engine_job_but_runtime_cannot(path):
+    before='  adopted-real-engines:\n    runs-on: ubuntu-latest\n    steps:\n      - run: verify-engine\n'
+    assert selection.select([path],before,before)
+    assert not selection.select([path,'src/media_ai/workflow_planner.py'],before,before)
+    assert not selection.select([path],before,before.replace('verify-engine','changed-engine'))

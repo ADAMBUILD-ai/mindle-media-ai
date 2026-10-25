@@ -7,19 +7,23 @@ from pathlib import Path
 import subprocess
 import urllib.request
 
-BASE = '08c5b1b449411f0ffa4e533aa98758bb5b1c65f0'
-PRIOR_RUN = 40169533879
+BASE = '93a5e80ae214365043e91622920ce8e9f1ac0e9d'
+PRIOR_RUN = 40186056871
 ROOT = Path(__file__).resolve().parents[1]
 CONTROL_ONLY = {
     '.github/workflows/runtime-recovery.yml', 'CURRENT_GENERAL_WORK_DIRECTIVE.md',
     'scripts/validate_general_work_control_plane.py', 'scripts/select_runtime_recovery_checks.py',
     'tests/test_general_work_control_plane.py', 'tests/test_runtime_recovery_selection.py',
     'model_scout/run_runtime_recovery_browser.py',
+    # Source/PC acceptance tooling is not imported by the engine workflow.
+    'src/media_ai/source_e2e.py','scripts/run_real_architecture_acceptance.py',
+    'tests/test_source_e2e.py','tests/test_real_architecture_acceptance.py',
 }
 
 
 def control_only(paths):
-    return bool(paths) and all(path in CONTROL_ONLY or path.startswith('docs/evidence/media-ai-control-plane-recovery-20261025/') for path in paths)
+    return bool(paths) and all(path in CONTROL_ONLY or path.startswith(('docs/evidence/media-ai-control-plane-recovery-20261025/',
+        'docs/evidence/media-ai-core-e2e-r2-20261025/','docs/handoff/media-ai-core-e2e-r2-20261025/')) for path in paths)
 
 
 def engine_job_body(source):

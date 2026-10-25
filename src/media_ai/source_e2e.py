@@ -148,6 +148,15 @@ def wait_task(session,route,identifier,output,timeout=600):
     raise TimeoutError('PRODUCT_TASK_TIMEOUT_CANCEL_REQUESTED')
 
 
+def verify_imported_input(job, original):
+    # Product import transcodes previews: input SHA binds the owner's bytes,
+    # while primary_output has its own independently verified output identity.
+    require(job.get('status')=='TESTED_PASS' and job.get('operation')=='import','PRODUCT_IMPORT_REQUIRED')
+    require(job['input']['sha256']==original['sha256'] and job['input']['bytes']==original['bytes'],'IMPORTED_SOURCE_IDENTITY_FAILED')
+    preview=file_record(Path(job['primary_output']['path']))
+    require(preview['sha256']==job['primary_output']['sha256'] and preview['bytes']==job['primary_output']['bytes'],'IMPORTED_PREVIEW_IDENTITY_FAILED')
+
+
 def audio_command(manifest):
     volumes=manifest['volumes'];percent=lambda key:format(volumes[key]*100,'.12g')
     policy='영상 연장' if manifest['voice_length_policy']=='extend_video' else '원본 길이 유지'
@@ -208,7 +217,7 @@ def execute(session,manifest,intake,receipt,output):
     for item in (x for x in intake['verified_assets'] if x['role']=='video'):
         unchanged();path=Path(item['path']);payload={'kind':'video','filename':path.name,'content_base64':base64.b64encode(path.read_bytes()).decode('ascii')}
         job=session.call('/api/media/import',payload)
-        require(job['primary_output']['sha256']==item['sha256'],'IMPORTED_SOURCE_IDENTITY_FAILED')
+        verify_imported_input(job,item)
         start=item['usable_start_seconds'];end=item['usable_end_seconds']
         if start or abs(end-item['duration_seconds'])>.01:
             job=session.call('/api/video-edits',{**payload,'options':{'start':start,'duration':end-start}})
