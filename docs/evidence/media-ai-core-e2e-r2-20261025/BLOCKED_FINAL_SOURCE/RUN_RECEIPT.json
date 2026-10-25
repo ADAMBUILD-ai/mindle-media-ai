@@ -1,0 +1,75 @@
+{
+  "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+  "status": "BLOCKED",
+  "overall": "PARTIAL",
+  "mode": "ISOLATED_SOURCE_ONLY",
+  "package_build": false,
+  "installed_models_changed": false,
+  "full_product_pass": false,
+  "owner_acceptance": false,
+  "windows_candidate_acceptance": false,
+  "stages": {
+    "intake": {
+      "status": "BLOCKED",
+      "details": {
+        "status": "BLOCKED_ASSET_INTAKE",
+        "errors": [
+          "exact Korean narration script missing or incompatible with quoted product command",
+          "explicit voice length policy missing",
+          "explicit narration volume required (0..2)",
+          "explicit original volume required (0..2)",
+          "explicit bgm volume required (0..1)",
+          "1..12 real video clips required",
+          "BGM and its permission record required",
+          "source coverage below 30 seconds"
+        ],
+        "verified_assets": [],
+        "rights_review": "DECLARATIONS_ONLY_REQUIRES_OWNER_CONFIRMATION",
+        "scene_labels": "USER_SUPPLIED_NOT_MODEL_VISION",
+        "human_visual_review": "NOT_EXECUTED",
+        "human_audio_review": "NOT_EXECUTED",
+        "full_product_pass": false,
+        "manifest_path": "/workspace/scratch/4e99f0098e8e/media-r2/docs/handoff/media-ai-core-e2e-r2-20261025/INPUT_MANIFEST.json",
+        "manifest_sha256": "63aad65ce08697195fcd58948905b37ecf5b5e77ce2e027c6b19baf9aef08993",
+        "authoritative_input": "INPUT_MANIFEST",
+        "historical_intake_reports_are_not_authority": true
+      }
+    },
+    "engine_identity": {
+      "status": "NOT_EXECUTED"
+    },
+    "import_and_ranges": {
+      "status": "NOT_EXECUTED"
+    },
+    "qwen_scene_plan": {
+      "status": "NOT_EXECUTED"
+    },
+    "assembly": {
+      "status": "NOT_EXECUTED"
+    },
+    "qwen_audio_plan": {
+      "status": "NOT_EXECUTED"
+    },
+    "supertonic_and_mix": {
+      "status": "NOT_EXECUTED"
+    },
+    "output_quality": {
+      "status": "NOT_EXECUTED"
+    },
+    "save": {
+      "status": "NOT_EXECUTED"
+    },
+    "cold_restart": {
+      "status": "NOT_EXECUTED"
+    },
+    "reopen": {
+      "status": "NOT_EXECUTED"
+    },
+    "export": {
+      "status": "NOT_EXECUTED"
+    }
+  },
+  "manifest_sha256": "63aad65ce08697195fcd58948905b37ecf5b5e77ce2e027c6b19baf9aef08993",
+  "error": "BLOCKED_ASSET_INTAKE",
+  "error_type": "ValueError"
+}

@@ -68,3 +68,10 @@
 | 최신 Windows 후보 제작 승인 | 빌드 승인자 | 별도 Build Gate 승인 ID | 현재 false 해제 전 제작 금지 |
 
 PC Work는 위 항목을 모두 충족한 뒤 `PC_EXECUTION_KO.md`의 단일 명령으로 시작한다. PR #23 Draft/HOLD, main 미병합, Build Gate=false, UI 보존, 전체 제품 PASS 금지를 유지한다.
+
+
+## 사령관 후속 통합 폐합
+
+병행 준비 결과를 보존하고, 이후 실제 API/lifecycle 시험에서 확인한 보강을 통합했다. 최신 검증 코드는 **903f892a5dcd79166cc2ffbaa70ddaabf293aaaa**, 원격 Run **40186880120 SUCCESS**, Python **379 PASS / 5 SKIP**, 실제 브라우저 **41 PASS**다. 이는 실제 30초 실무 E2E PASS가 아니다. 자세한 변경·새 실제 Qwen 계획 probe·실제 프로세스 재시작·실패 보호·엔진 성공 재사용·승인 경계는 [GENERAL_CLOSURE_KO.md](GENERAL_CLOSURE_KO.md)와 [SOURCE_VALIDATION.json](SOURCE_VALIDATION.json)을 참조한다.
+
+단일 최신 접수표는 handoff의 INTAKE_AND_APPROVAL_KO.md, 소스 절차는 EXECUTION_KO.md, 승인 후보 절차는 PC_EXECUTION_KO.md다. 실제 입력·Windows 7B 채택·새 후보·사람 검수 Gate는 계속 미완료이며 Build Gate=false와 Draft/HOLD를 유지한다.

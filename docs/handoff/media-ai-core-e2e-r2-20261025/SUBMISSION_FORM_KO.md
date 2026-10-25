@@ -1,3 +1,5 @@
+> 통합 보강: 최신 단일 접수표는 [INTAKE_AND_APPROVAL_KO.md](INTAKE_AND_APPROVAL_KO.md)입니다. 아래 최초 접수 안내는 이력으로 보존하며, R2 원본 Manifest에 권리 근거·사용 구간·확정 정책을 입력하고 매번 검사해야 합니다.
+
 # 실제 자산·승인 일괄 접수표
 
 작업 ID: `MEDIA-AI-CORE-E2E-R2-20261025`
