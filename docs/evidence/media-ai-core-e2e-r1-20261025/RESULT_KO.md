@@ -58,3 +58,8 @@ Windows에서 모델 runtime tree 정렬 테스트가 `A.txt`와 `a.txt`의 동�
 General Work에는 권리 확인된 영상과 음악, 확정 원고·음량·장문 정책을 전달해야 한다. 모델 책임자는 7B Windows 채택 여부와 정확한 분할 가중치·runtime·메모리 조건을 승인해야 한다. 별도의 유효한 Build Gate가 열린 뒤에만 신규 Windows 후보를 제작한다. 그 후보에서 새 추론 원문, 30초 MP4, 기술 검사, 콜드 재시작, Reopen, Export, 화면·청취 사람 검수를 연속 수행한다.
 
 PR #23 Draft/HOLD, main 병합 금지, Build Gate=false, 전체 제품 PASS 금지를 유지한다.
+
+
+## 사령관 Linux 격리 평가 보충
+
+후속 인수 보고의 PARTIAL / 30초 실무 E2E BLOCKED 판정은 유지한다. 별도 실제 7B 추론 5종·원격 회귀·소스 결속·실행 자원 기록은 [LINUX_SUPPLEMENT_KO.md](LINUX_SUPPLEMENT_KO.md)를 참조한다. 합성 입력 평가를 실제 건축 30초·Windows·한국어 음성 인수로 승격하지 않는다.

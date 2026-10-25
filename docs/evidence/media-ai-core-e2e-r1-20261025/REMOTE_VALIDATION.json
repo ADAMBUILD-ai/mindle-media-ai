@@ -1,0 +1,268 @@
+{
+  "work_id": "MEDIA-AI-CORE-E2E-R1-20261025",
+  "code_commit": "19d9cd562735e32b460d4b08278fd2bea9faa7a9",
+  "subsequent_head": "5a9d3b46985c7556be20d52b3b8fc932e23d2419",
+  "subsequent_changes": [
+    "docs/evidence/media-ai-core-e2e-r1-20261025/ASSET_INTAKE.json",
+    "docs/evidence/media-ai-core-e2e-r1-20261025/RESULT_KO.md",
+    "tests/test_architecture_agent.py",
+    "tests/test_local_planner_scope.py"
+  ],
+  "runtime_source_changed_in_subsequent_head": false,
+  "run": {
+    "id": 40180334294,
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "19d9cd562735e32b460d4b08278fd2bea9faa7a9",
+    "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/40180334294"
+  },
+  "remote_python": {
+    "passed": 338,
+    "skipped": 5
+  },
+  "remote_browser": {
+    "passed": 41,
+    "fresh_model_inference": false
+  },
+  "local_python": {
+    "passed": 337,
+    "skipped": 6
+  },
+  "local_ui": {
+    "passed": 31
+  },
+  "scope_jobs": [
+    {
+      "run_id": 40180334299,
+      "jobs": [
+        {
+          "id": 121129836890,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121129877665,
+          "name": "build-and-e2e",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "run_id": 40180334295,
+      "jobs": [
+        {
+          "id": 121129836807,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121129875963,
+          "name": "build-one-click-runtime",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "run_id": 40180338654,
+      "jobs": [
+        {
+          "id": 121129849802,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121129894326,
+          "name": "package",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "run_id": 40180338634,
+      "jobs": [
+        {
+          "id": 121129849599,
+          "name": "active-epoch",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121129888581,
+          "name": "general-work-final-self-audit",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "id": 121129888801,
+          "name": "external-shortform-closeout",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "id": 121129888827,
+          "name": "Approved UI to perpetual-use CPU models",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "run_id": 40180338675,
+      "jobs": [
+        {
+          "id": 121129849559,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121129892747,
+          "name": "package Windows CPython 3.11 CPU runtime",
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "run_id": 40180338597,
+      "jobs": [
+        {
+          "id": 121129849176,
+          "name": "verify",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "run_id": 40180334294,
+      "jobs": [
+        {
+          "id": 121129836729,
+          "name": "select-checks",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121129884081,
+          "name": "adopted-real-engines",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121129884121,
+          "name": "actual-browser",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12593523274,
+      "name": "mindle-runtime-recovery-20261013",
+      "size_in_bytes": 5144482,
+      "url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12593523274",
+      "archive_download_url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12593523274/zip",
+      "expired": false,
+      "created_at": "2026-10-25T09:24:07Z",
+      "expires_at": "2027-01-23T09:21:54Z",
+      "updated_at": "2026-10-25T09:24:07Z",
+      "digest": "sha256:81ee66232a3f63943f1e400f7462ec315a6b017489b70d329c0ba23babfddb68",
+      "workflow_run": {
+        "id": 40180334294,
+        "repository_id": 1367047667,
+        "head_repository_id": 1367047667,
+        "head_branch": "feature/ad-shortform-bridge-p0-20260926",
+        "head_sha": "19d9cd562735e32b460d4b08278fd2bea9faa7a9"
+      }
+    },
+    {
+      "id": 12593393234,
+      "name": "mindle-live-agent-engines-20261014",
+      "size_in_bytes": 21684753,
+      "url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12593393234",
+      "archive_download_url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12593393234/zip",
+      "expired": false,
+      "created_at": "2026-10-25T09:23:30Z",
+      "expires_at": "2027-01-23T09:21:54Z",
+      "updated_at": "2026-10-25T09:23:30Z",
+      "digest": "sha256:cd74ab17dc236faf0e7901f25ddaa4accf420423ef0262e32fd25879ea659615",
+      "workflow_run": {
+        "id": 40180334294,
+        "repository_id": 1367047667,
+        "head_repository_id": 1367047667,
+        "head_branch": "feature/ad-shortform-bridge-p0-20260926",
+        "head_sha": "19d9cd562735e32b460d4b08278fd2bea9faa7a9"
+      }
+    },
+    {
+      "id": 12593292846,
+      "name": "runtime-recovery-check-selection",
+      "size_in_bytes": 1170,
+      "url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12593292846",
+      "archive_download_url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12593292846/zip",
+      "expired": false,
+      "created_at": "2026-10-25T09:22:06Z",
+      "expires_at": "2027-01-23T09:21:54Z",
+      "updated_at": "2026-10-25T09:22:06Z",
+      "digest": "sha256:63e39fed83a2f9142a3f79d19b36244c5908a4964fa02d57c254af467246644d",
+      "workflow_run": {
+        "id": 40180334294,
+        "repository_id": 1367047667,
+        "head_repository_id": 1367047667,
+        "head_branch": "feature/ad-shortform-bridge-p0-20260926",
+        "head_sha": "19d9cd562735e32b460d4b08278fd2bea9faa7a9"
+      }
+    }
+  ],
+  "browser_artifact_verification": {
+    "id": 12593523274,
+    "downloaded": true,
+    "sha256": "81ee66232a3f63943f1e400f7462ec315a6b017489b70d329c0ba23babfddb68",
+    "zip_crc": "PASS",
+    "source_receipt": "19d9cd562735e32b460d4b08278fd2bea9faa7a9"
+  },
+  "source_readback": [
+    {
+      "status": "fulfilled",
+      "value": "model_scout/run_generative_auto_edit_probe.py"
+    },
+    {
+      "status": "fulfilled",
+      "value": "src/media_ai/architecture_agent.py"
+    },
+    {
+      "status": "fulfilled",
+      "value": "src/media_ai/generative_auto_edit.py"
+    },
+    {
+      "status": "fulfilled",
+      "value": "src/media_ai/e2e_intake.py"
+    },
+    {
+      "status": "fulfilled",
+      "value": "tests/test_architecture_agent.py"
+    },
+    {
+      "status": "fulfilled",
+      "value": "tests/test_generative_auto_edit.py"
+    },
+    {
+      "status": "fulfilled",
+      "value": "tests/test_e2e_intake.py"
+    }
+  ],
+  "overall": "PARTIAL",
+  "real_30_second_e2e": "BLOCKED_ASSET_INTAKE",
+  "build_gate": false,
+  "pr_draft_hold": true,
+  "owner_acceptance": false
+}

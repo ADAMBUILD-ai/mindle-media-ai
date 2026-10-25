@@ -1,0 +1,22 @@
+{
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "cpu": "x86_64",
+  "host_memory": {
+    "MemTotal": "10206484 kB",
+    "MemAvailable": "5632292 kB"
+  },
+  "sampled_inference_processes": [
+    {
+      "pid": 46112,
+      "command": "/tmp/media-ai-verified-engines/llama/llama-b11716/llama-completion -m /tmp/media-ai-verified-engines/qwen7b/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf -p <|im_start|>system\nYou are a local video edit decision maker. Use the supplied measured exposure, motion and sharpness to select a source window and conservative color corrections. Return start, brightness, contrast, saturation, reason as JSON only. Choose start from sampled second values clamped to source_duration-duration, or zero or that final boundary. Corrections are signed relative points in [-12,12]; zero preserves the control. Zero motion or zero sharpness does NOT mean exposure is correct. If measured exposure is below 80, brightness MUST be positive. Above 176, brightness MUST be negative. Choose the magnitude yourself from 1 to 12 points; the validator rejects an ignored or reversed exposure correction. For exposure within [80,176], choose conservative corrections or preserve controls. Explain using the actual measured exposure number; write the reason in Korean. Do not invent scene objects, architecture types or semantic vision. Explain your decision from numeric measurements only. Do not add narration, external resources, camera moves or new scenes. <|im_end|>\n<|im_start|>user\nOBSERVATION={\"mean_exposure_0_to_255\": 60, \"candidate_starts\": [0]}<|im_end|>\n<|im_start|>assistant\n{\"start\": 0, \"brightness\": 6, \"contrast\": 0, \"saturation\": 0, \"reason\": \"\ud3c9\uade0 \ub178\ucd9c 60\uc774 \ub0ae\uc544 \ubc1d\uae30\ub97c \ubcf4\uc815\ud569\ub2c8\ub2e4.\"}<|im_end|>\n<|im_start|>user\nOBSERVATION={\"mean_exposure_0_to_255\": 196, \"candidate_starts\": [0]}<|im_end|>\n<|im_start|>assistant\n{\"start\": 0, \"brightness\": -4, \"contrast\": 0, \"saturation\": 0, \"reason\": \"\ud3c9\uade0 \ub178\ucd9c 196\uc774 \ub192\uc544 \ubc1d\uae30\ub97c \ub0ae\ucda5\ub2c8\ub2e4.\"}<|im_end|>\n<|im_start|>user\nOBSERVATION={\"mean_exposure_0_to_255\": 120, \"candidate_starts\": [0]}<|im_end|>\n<|im_start|>assistant\n{\"start\": 0, \"brightness\": 0, \"contrast\": 0, \"saturation\": 0, \"reason\": \"\ud3c9\uade0 \ub178\ucd9c 120\uc774 \ubc94\uc704 \uc548\uc5d0 \uc788\uc5b4 \uc720\uc9c0\ud569\ub2c8\ub2e4.\"}<|im_end|>\n<|im_start|>user\nOBSERVATION={\"mean_exposure_0_to_255\": 128.0, \"acceptable_exposure_band\": [80, 176], \"source_duration\": 2.0, \"output_duration\": 2.0, \"candidate_starts\": [0.0]}\nMEASUREMENTS=[{\"start\": 0.0, \"mean_exposure\": 128.0, \"mean_motion\": 0.0, \"mean_sharpness\": 0.0}]\nREQUEST=Make the actual decision for OBSERVATION and MEASUREMENTS above. Use their measured exposure value, not an example. Return the edit JSON now.<|im_end|>\n<|im_start|>assistant\n -n 768 --no-display-prompt --no-conversation --simple-io --temp 0 -t 2 --json-schema {\"type\": \"object\", \"properties\": {\"start\": {\"type\": \"number\"}, \"brightness\": {\"type\": \"number\"}, \"contrast\": {\"type\": \"number\"}, \"saturation\": {\"type\": \"number\"}, \"reason\": {\"type\": \"string\"}}, \"required\": [\"start\", \"brightness\", \"contrast\", \"saturation\", \"reason\"], \"additionalProperties\": false} -c 4096 ",
+      "memory_status": {
+        "VmPeak": "8345944 kB",
+        "VmHWM": "7847016 kB",
+        "VmRSS": "7533516 kB",
+        "Threads": "3"
+      }
+    }
+  ],
+  "windows_minimum_memory": "NOT_MEASURED",
+  "sample_is_not_full_run_peak": true
+}

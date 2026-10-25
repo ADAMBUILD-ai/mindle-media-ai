@@ -1,0 +1,3 @@
+{"start": 0, "brightness": 0, "contrast": 0, "saturation": 0, "reason": "측정된 평균 노출 128.0이 허용 범위 [80, 176] 안에 있어 유지합니다."} [end of text]
+
+
