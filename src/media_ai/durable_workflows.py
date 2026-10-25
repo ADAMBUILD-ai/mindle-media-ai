@@ -14,7 +14,7 @@ from uuid import uuid4, UUID
 
 TERMINAL = {'SUCCEEDED', 'FAILED', 'CANCELLED', 'INTERRUPTED'}
 OPERATIONS = {'video_edit', 'transcribe', 'narrate', 'mix_narration', 'apply_subtitles'}
-EDIT_OPTIONS = {'brightness','contrast','saturation','subtitle','subtitleSegments','volume','mute','aspect','duration','start','speed','fade','effect','rotate','denoise','stabilize'}
+EDIT_OPTIONS = {'brightness','contrast','saturation','subtitle','subtitleSegments','volume','mute','aspect','duration','start','speed','fade','effect','rotate','denoise','stabilize','backgroundVolume'}
 
 def validate_steps(steps):
     if not isinstance(steps,list) or not 1<=len(steps)<=8: raise ValueError('1~8개 실제 작업 단계가 필요합니다.')
@@ -27,6 +27,11 @@ def validate_steps(steps):
         options=item.get('options',{})
         if not isinstance(options,dict) or set(options)-EDIT_OPTIONS: raise ValueError('지원하지 않는 영상 옵션입니다.')
         if options.get('aspect') not in {None,'','original','16:9','9:16'}:raise ValueError('지원하는 영상 비율은 원본·16:9·9:16입니다.')
+        if 'speed' in options and (type(options['speed']) not in (int,float) or not .5<=float(options['speed'])<=2):raise ValueError('속도는 0.5~2배입니다.')
+        if 'start' in options and (type(options['start']) not in (int,float) or float(options['start'])<0):raise ValueError('시작 시간은 0초 이상입니다.')
+        if 'duration' in options and (type(options['duration']) not in (int,float) or float(options['duration'])<=0):raise ValueError('영상 길이는 0초보다 커야 합니다.')
+        if 'backgroundVolume' in options and (type(options['backgroundVolume']) not in (int,float) or not 0<=float(options['backgroundVolume'])<=1):raise ValueError('배경음악 음량은 0~1 범위입니다.')
+        if 'fade' in options and type(options['fade']) is not bool:raise ValueError('페이드 설정은 참/거짓이어야 합니다.')
         if step['operation']=='narrate' and (not isinstance(step.get('text'),str) or not 1<=len(step['text'].strip())<=3000): raise ValueError('나레이션 원고는 1~3000자입니다.')
         if step['operation']=='apply_subtitles' and not any(s['operation']=='transcribe' for s in result):raise ValueError('받아쓰기 단계가 먼저 필요합니다.')
         if step['operation']=='mix_narration' and not any(s['operation']=='narrate' for s in result) and not step.get('voice_job_id'): raise ValueError('음성 생성 단계가 먼저 필요합니다.')

@@ -7,7 +7,7 @@ import subprocess
 import re
 from uuid import uuid4
 from .durable_workflows import validate_steps
-from .planner_constraints import instruction_text, validate_edit_values, requested_edit_fields
+from .planner_constraints import instruction_text, validate_edit_values, requested_edit_fields, validate_media_tool_values, requested_media_tool_fields
 from .workflow_worker import engines_config, tree_sha
 
 
@@ -64,7 +64,8 @@ def validate_plan_scope(command,steps):
         op=step['operation']
         if op=='video_edit':
             options=step.get('options',{})
-            if not options or any(not any(word in text for word in fields.get(key,())) for key in options):
+            color_options={key:value for key,value in options.items() if key in fields}
+            if not options or any(not any(word in text for word in fields[key]) for key in color_options):
                 raise ValueError('PLANNER_SCOPE_MISMATCH: 요청하지 않은 영상 보정입니다.')
         if op in {'transcribe','apply_subtitles'} and not subtitles:
             raise ValueError('PLANNER_SCOPE_MISMATCH: 요청하지 않은 받아쓰기·자막입니다.')
@@ -78,6 +79,10 @@ def validate_plan_scope(command,steps):
     operations={step['operation'] for step in steps}
     if not expected_fields.issubset(actual_fields):
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 보정이 누락됐습니다.')
+    expected_tools=requested_media_tool_fields(command)
+    actual_tools={key for step in steps if step['operation']=='video_edit' for key in step.get('options',{}) if key in {'speed','start','duration','aspect','fade','backgroundVolume'}}
+    if not expected_tools.issubset(actual_tools):
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 도구가 누락됐습니다.')
     if narration and not {'narrate','mix_narration'}.issubset(operations):
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 나레이션 생성·합성이 누락됐습니다.')
     if subtitles and 'transcribe' not in operations:
@@ -85,6 +90,7 @@ def validate_plan_scope(command,steps):
     if any(word in text for word in ('자막','subtitle')) and 'apply_subtitles' not in operations:
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 자막 적용이 누락됐습니다.')
     validate_edit_values(command,steps)
+    validate_media_tool_values(command,steps)
     return steps
 
 
@@ -93,14 +99,17 @@ def make_plan(root,request):
         return persist_plan(root,{'plan_source':'STRUCTURED_USER_PLAN_NOT_GENERATIVE','steps':validate_steps(request['steps'])},request)
     command=str(request.get('command','')).strip()
     if not command or len(command)>4000:raise ValueError('편집 지시는1~4000자입니다.')
-    if re.search(r'속도|자르|회전|전환|효과|배경음악|숏폼|추적|삭제|제거',re.sub(r'["“][^"”]*["”]', '', command)):
-        raise ValueError('PLANNER_UNSUPPORTED: 대화 계획기는 밝기·대비·채도·받아쓰기·자막·명시 원고 나레이션을 지원합니다. 그 밖의 편집은 해당 도구를 사용하세요.')
+    unsupported_text=re.sub(r'페이드\s*(?:인)?\s*(?:전환)?|fade|배경\s*음악|bgm|속도|배속|자르|구간|trim', '', re.sub(r'["“][^"”]*["”]', '', command), flags=re.I)
+    if re.search(r'회전|전환|효과|숏폼|추적|삭제|제거',unsupported_text):
+        raise ValueError('PLANNER_UNSUPPORTED: 대화 계획기는 밝기·대비·채도·구간 자르기·속도·비율·페이드·BGM·받아쓰기·자막·명시 원고 나레이션을 지원합니다. 그 밖의 편집은 해당 도구를 사용하세요.')
     # Completion mode prevents interactive banners/prompt echoes contaminating JSON.
     # The model still chooses the operations and values; the grammar only constrains
     # the product's allowlisted wire format, never substitutes an intent classifier.
     schema={'type':'object','properties':{'steps':{'type':'array','maxItems':8,'items':{'type':'object','properties':{
         'operation':{'enum':['video_edit','transcribe','apply_subtitles','narrate','mix_narration']},
-        'options':{'type':'object','properties':{key:{'type':'number'} for key in ('brightness','contrast','saturation')},'additionalProperties':False},
+        'options':{'type':'object','properties':{
+            **{key:{'type':'number'} for key in ('brightness','contrast','saturation','speed','start','duration','backgroundVolume')},
+            'aspect':{'enum':['16:9','9:16']},'fade':{'type':'boolean'}},'additionalProperties':False},
         'text':{'type':'string'},'length_policy':{'enum':['reject','extend_video']}
     },'required':['operation'],'additionalProperties':False}},'error':{'type':'string'}},'required':['steps'],'additionalProperties':False}
     instructions=('You translate Korean video edit requests into JSON. Output {"steps":[...]} only. '
@@ -115,6 +124,9 @@ def make_plan(root,request):
       'Edit values are signed relative correction points, not absolute settings or percentages. '
       'For an explicit magnitude 0 to 100 use positive for 높이기/increase and negative for 낮추기/decrease. '
       'Omit controls the user says to preserve; never repeat the same control. '
+      'For speed use the exact requested 0.5 to 2 ratio. For a trim from START seconds to END seconds use start=START and duration=END-START. '
+      'For an explicit 9:16 or 16:9 use aspect exactly. Fade means fade=true. '
+      'For BGM use backgroundVolume as the exact percentage divided by 100, or 0.35 when no volume was specified. '
       'Ambiguous magnitudes, absolute settings, unsupported units or negated speech/subtitle requests: return an error. '
       'Speech to subtitles: transcribe THEN apply_subtitles. Narration: narrate THEN mix_narration. '
       'If video extension requested use length_policy extend_video. Never invent a narration script. '
@@ -122,10 +134,11 @@ def make_plan(root,request):
     examples=[('대비를 4 높여 주세요.',{'steps':[{'operation':'video_edit','options':{'contrast':4}}]}),
         ('음성을 받아쓰고 자막을 적용해 주세요.',{'steps':[{'operation':'transcribe'},{'operation':'apply_subtitles'}]}),
         ('밝기를 3 높이고 "반갑습니다" 나레이션을 넣고 영상을 연장해 주세요.',{'steps':[{'operation':'video_edit','options':{'brightness':3}},{'operation':'narrate','text':'반갑습니다'},{'operation':'mix_narration','length_policy':'extend_video'}]}),
+        ('5초부터 12초까지 자르고 속도를 1.25배로 해 주세요.',{'steps':[{'operation':'video_edit','options':{'start':5,'duration':7,'speed':1.25}}]}),
         ('파일을 삭제해 줘.',{'steps':[],'error':'unsupported request'})]
     prompt='<|im_start|>system\n'+instructions+'<|im_end|>\n'
     for question,answer in examples:prompt+='<|im_start|>user\n'+question+'<|im_end|>\n<|im_start|>assistant\n'+json.dumps(answer,ensure_ascii=False)+'<|im_end|>\n'
-    prompt+='<|im_start|>user\n'+command+'<|im_end|>\n<|im_start|>assistant\n' 
+    prompt+='<|im_start|>user\n'+command+'<|im_end|>\n<|im_start|>assistant\n'
     parsed,output,settings=invoke_local_json_plan(root,prompt,schema)
     diagnostic=Path(root)/'workflows/planner-responses';diagnostic.mkdir(parents=True,exist_ok=True)
     (diagnostic/(str(uuid4())+'.txt')).write_text(output,encoding='utf-8')
@@ -134,6 +147,7 @@ def make_plan(root,request):
     validate_plan_scope(command,steps)
     if any(s['operation']=='narrate' for s in steps) and not any(s['operation']=='mix_narration' for s in steps):
         raise ValueError('PLANNER_INCOMPLETE_NARRATION_PLAN: 음성 생성 후 합성 단계가 필요합니다.')
-    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps,'validated_edit_values':validate_edit_values(command,steps)},request)
+    validated_values={**validate_edit_values(command,steps),**validate_media_tool_values(command,steps)}
+    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps,'validated_edit_values':validated_values},request)
     (Path(root)/'workflows/plans'/(value['plan_id']+'.response.txt')).write_text(output,encoding='utf-8')
     return value

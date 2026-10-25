@@ -3,6 +3,7 @@ import math
 import re
 
 FIELDS = {'brightness': r'밝기|밝게|brightness', 'contrast': r'대비|contrast', 'saturation': r'채도|saturation'}
+MEDIA_TOOL_FIELDS = {'speed', 'start', 'duration', 'aspect', 'fade', 'backgroundVolume'}
 NEGATION = r'지\s*마|말|않|금지|유지|그대로|하지|do not|don.t|unchanged'
 QUOTED = r'"[^"\n]*"|“[^”\n]*”|\'[^\'\n]*\''
 
@@ -27,6 +28,8 @@ def validate_edit_values(command, steps):
         if step['operation'] != 'video_edit':
             continue
         for key, value in step.get('options', {}).items():
+            if key not in FIELDS:
+                continue
             if key in actual:
                 raise ValueError('PLANNER_DUPLICATE_EDIT: 같은 보정을 중복 실행할 수 없습니다.')
             if type(value) not in (int, float) or not math.isfinite(value):
@@ -60,3 +63,79 @@ def validate_edit_values(command, steps):
         elif key not in actual or not math.isclose(actual[key], value, rel_tol=0, abs_tol=1e-9):
             raise ValueError('PLANNER_VALUE_MISMATCH: 요청한 보정 수치·증감 방향과 계획이 다릅니다.')
     return {key: value for key, value in expected.items() if value is not None}
+
+
+def requested_media_tool_fields(command):
+    text = instruction_text(command)
+    requested = set()
+    if re.search(r'속도|배속|speed', text):
+        requested.add('speed')
+    if re.search(r'자르|구간|trim', text):
+        requested.update(('start', 'duration'))
+    if re.search(r'(?:9\s*:\s*16|16\s*:\s*9)', text):
+        requested.add('aspect')
+    if re.search(r'페이드|fade', text):
+        requested.add('fade')
+    if re.search(r'배경\s*음악|bgm', text):
+        requested.add('backgroundVolume')
+    return requested
+
+
+def validate_media_tool_values(command, steps):
+    """Bind generated FFmpeg tool values to explicit user language."""
+    text = instruction_text(command)
+    expected = {}
+    requested = requested_media_tool_fields(command)
+    actual = {}
+    for step in steps:
+        if step['operation'] != 'video_edit':
+            continue
+        for key, value in step.get('options', {}).items():
+            if key not in MEDIA_TOOL_FIELDS:
+                continue
+            if key in actual:
+                raise ValueError('PLANNER_DUPLICATE_TOOL: 같은 편집 도구를 중복 실행할 수 없습니다.')
+            actual[key] = value
+
+    if 'speed' in requested:
+        match = re.search(r'(?:속도|배속|speed)[^,.;\n]{0,24}?([0-9]+(?:\.[0-9]+)?)\s*(?:배|x)', text)
+        if not match:
+            raise ValueError('PLANNER_AMBIGUOUS_SPEED: 0.5~2배의 속도를 명시하세요.')
+        expected['speed'] = float(match.group(1))
+        if not .5 <= expected['speed'] <= 2:
+            raise ValueError('PLANNER_UNSUPPORTED_SPEED: 속도는 0.5~2배입니다.')
+
+    if {'start', 'duration'} & requested:
+        match = re.search(r'([0-9]+(?:\.[0-9]+)?)\s*초\s*부터\s*([0-9]+(?:\.[0-9]+)?)\s*초\s*까지', text)
+        if not match:
+            raise ValueError('PLANNER_AMBIGUOUS_TRIM: 시작 초와 종료 초를 모두 명시하세요.')
+        start, end = map(float, match.groups())
+        if start < 0 or end <= start:
+            raise ValueError('PLANNER_UNSUPPORTED_TRIM: 종료 초는 시작 초보다 커야 합니다.')
+        expected.update(start=start, duration=end-start)
+
+    if 'aspect' in requested:
+        match = re.search(r'(9\s*:\s*16|16\s*:\s*9)', text)
+        expected['aspect'] = match.group(1).replace(' ', '')
+    if 'fade' in requested:
+        expected['fade'] = True
+    if 'backgroundVolume' in requested:
+        match = re.search(r'(?:배경\s*음악|bgm)[^,.;\n]{0,24}?([0-9]+(?:\.[0-9]+)?)\s*%', text)
+        expected['backgroundVolume'] = float(match.group(1))/100 if match else .35
+        if not 0 <= expected['backgroundVolume'] <= 1:
+            raise ValueError('PLANNER_UNSUPPORTED_BGM_VOLUME: 배경음악 음량은 0~100%입니다.')
+
+    invented = set(actual) - requested
+    if invented:
+        raise ValueError('PLANNER_SCOPE_MISMATCH: 요청하지 않은 영상 도구가 포함됐습니다.')
+    missing = requested - set(actual)
+    if missing:
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 도구가 누락됐습니다.')
+    for key, expected_value in expected.items():
+        value = actual.get(key)
+        if isinstance(expected_value, float):
+            if type(value) not in (int, float) or not math.isclose(float(value), expected_value, rel_tol=0, abs_tol=1e-9):
+                raise ValueError('PLANNER_TOOL_VALUE_MISMATCH: 요청한 편집 수치와 계획이 다릅니다.')
+        elif value != expected_value:
+            raise ValueError('PLANNER_TOOL_VALUE_MISMATCH: 요청한 편집 설정과 계획이 다릅니다.')
+    return expected

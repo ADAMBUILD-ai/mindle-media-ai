@@ -137,6 +137,14 @@ def execute(request):
     if hashlib.sha256(content).hexdigest()!=artifact['sha256']:raise ValueError('WORKFLOW_INPUT_HASH_MISMATCH')
     payload={'filename':path.name,'content_base64':base64.b64encode(content).decode(),'options':step.get('options',{}),'command':'순차 작업'}
     if step['operation']=='video_edit':
+        if 'backgroundVolume' in step.get('options',{}):
+            if not request.get('background'):
+                raise ValueError('BGM_FILE_REQUIRED: 배경음악 파일을 먼저 선택하세요.')
+            background_path=Path(request['background']['path'])
+            if file_record(background_path)['sha256']!=request['background']['sha256']:
+                raise ValueError('BGM_INPUT_HASH_MISMATCH')
+            payload['background']={'filename':background_path.name,
+                'content_base64':base64.b64encode(background_path.read_bytes()).decode()}
         result=service.edit_video(payload)
         if video.get('runtime_result',{}).get('options',{}).get('narration_job_id'):result['runtime_result']['options']['narration_job_id']=video['runtime_result']['options']['narration_job_id']
         return result
