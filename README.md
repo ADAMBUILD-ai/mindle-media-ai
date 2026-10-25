@@ -6,11 +6,13 @@ Canonical development branch: `feature/ad-shortform-bridge-p0-20260926` · PR #2
 
 Local Qwen generative planning, Supertonic Korean neural narration, FFmpeg media processing, durable execution, project persistence and product evidence are implemented. Text-to-new-video and semantic scene generation are **not implemented**.
 
-Latest source review and remaining acceptance:
+Latest AI core and behavior review: [Actual inference failures, isolated 7B proof and completion gates](docs/evidence/media-ai-core-behavior-audit-20261025/RESULT_KO.md). The AI auto-edit button now requires real input-bound Qwen decisions and technical output checks; no deterministic fallback. The tested 1.5B configuration failed automatic exposure judgment. A separate 7B evaluation passed two synthetic cases; it has not replaced installed models. Whole-product acceptance remains pending.
+
+Earlier source review and remaining acceptance:
 [Commander core closeout](docs/evidence/media-ai-commander-closeout-20261025/RESULT_KO.md) · [Machine validation](docs/evidence/media-ai-commander-closeout-20261025/SOURCE_VALIDATION.json).
 
-- Source regression: 280 Python PASS, 6 SKIP; 30 UI JavaScript PASS.
-- This revision: actual local FFmpeg/HTTP/file-evidence tests; **Qwen/Supertonic inference not rerun**.
+- Latest source regression: 329 Python PASS, 5 SKIP remotely; 31 UI JavaScript PASS locally.
+- This review: actual pinned Qwen automatic-edit probes and FFmpeg/HTTP/file-evidence tests. **Supertonic and the complete latest Windows promotional-video chain were not rerun**.
 - Prior R3: [remote Windows candidate evidence](docs/evidence/windows-ai-successor-20261024-r3/RESULT_KO.md), source `9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6`. That EXE does not contain today's changes.
 - Office PC acceptance, human listening and approved visual comparison remain pending.
 - Package Build Gate=false; no new candidate, final release or merge authorized by this source closeout.

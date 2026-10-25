@@ -1,0 +1,9 @@
+{
+  "start": 0.0,
+  "brightness": 0.0,
+  "contrast": 0.0,
+  "saturation": 0.0,
+  "reason": "The source window is from the first second of the video, and there are no significant motion, exposure, or sharpness measurements."
+} [end of text]
+
+

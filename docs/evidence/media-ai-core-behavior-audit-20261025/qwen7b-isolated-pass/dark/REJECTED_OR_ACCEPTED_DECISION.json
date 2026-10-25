@@ -1,0 +1,13 @@
+{
+  "status": "ACCEPTED_DECISION_NOT_EXECUTION",
+  "input_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+  "model_sha256": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+  "raw_response_sha256": "2ba93406307a5912327661f1ba2fdb02f4e4f52c6ca217c91acdffe1afc2dd4f",
+  "decision": {
+    "start": 0,
+    "brightness": 8,
+    "contrast": 0,
+    "saturation": 0,
+    "reason": "측정된 노출 값 31이 80 미만이므로 밝기를 증가시킵니다."
+  }
+}

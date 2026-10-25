@@ -1,0 +1,271 @@
+{
+  "input_job_id": "69f1d59f-18ed-46c9-bb6b-3d5ce33c11b6",
+  "input_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+  "steps": [
+    {
+      "operation": "video_edit",
+      "options": {
+        "start": 0.0,
+        "brightness": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "duration": 2.0
+      },
+      "step_id": "d369957c-0ff1-48e1-8c7e-b7e613b79777"
+    }
+  ],
+  "workspace": null,
+  "job_ids": [],
+  "background": null,
+  "project_id": "a9adb18e-c6f0-44c9-890b-8dd6ccc73d05",
+  "export": {
+    "status": "EXPORTED",
+    "project_id": "a9adb18e-c6f0-44c9-890b-8dd6ccc73d05",
+    "export": {
+      "file_name": "a9adb18e-c6f0-44c9-890b-8dd6ccc73d05_export.zip",
+      "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/workflows/00ad4a88-5624-4429-9226-21fd41654a95/commit/projects/a9adb18e-c6f0-44c9-890b-8dd6ccc73d05_export.zip",
+      "bytes": 8570,
+      "sha256": "caffb156d0332f720f61ef0b6f7ee77ecd90c33b693bbf44c5f2c815cdfc1dcd"
+    }
+  },
+  "workflow_id": "00ad4a88-5624-4429-9226-21fd41654a95",
+  "request_id": "real-qwen-dark",
+  "state": "SUCCEEDED",
+  "records": [
+    {
+      "status": "TESTED_PASS",
+      "job_id": "517dafc6-c029-4373-b4b7-1d076712c2fc",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "순차 작업",
+      "input": {
+        "file_name": "fe763766-03a2-4d35-89cf-4588713a97ac_original_video_preview.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/workflows/00ad4a88-5624-4429-9226-21fd41654a95/00-1/sealed/517dafc6-c029-4373-b4b7-1d076712c2fc/fe763766-03a2-4d35-89cf-4588713a97ac_original_video_preview.mp4",
+        "bytes": 2228,
+        "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/workflows/00ad4a88-5624-4429-9226-21fd41654a95/00-1/sealed/517dafc6-c029-4373-b4b7-1d076712c2fc/edited_video.mp4",
+        "bytes": 2228,
+        "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/workflows/00ad4a88-5624-4429-9226-21fd41654a95/00-1/sealed/517dafc6-c029-4373-b4b7-1d076712c2fc/edited_video.mp4",
+          "bytes": 2228,
+          "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "start": 0.0,
+          "brightness": 0.0,
+          "contrast": 0.0,
+          "saturation": 0.0,
+          "duration": 2.0
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "sealed_artifacts": true,
+      "workflow_id": "00ad4a88-5624-4429-9226-21fd41654a95"
+    }
+  ],
+  "attempts": [
+    {
+      "step_id": "d369957c-0ff1-48e1-8c7e-b7e613b79777",
+      "attempt": 1,
+      "started_at": 1792914111.5443184,
+      "state": "SUCCEEDED",
+      "worker_pid": 96,
+      "finished_at": 1792914111.9498134,
+      "returncode": 0
+    }
+  ],
+  "created_at": 1792914111.5420167,
+  "current_step": 0,
+  "input_record": {
+    "status": "TESTED_PASS",
+    "job_id": "69f1d59f-18ed-46c9-bb6b-3d5ce33c11b6",
+    "lane": "video",
+    "operation": "import",
+    "original_filename": "input.mp4",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "d3aa4fd1-2a63-43f9-9c6d-f0363034f165_input.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/inputs/d3aa4fd1-2a63-43f9-9c6d-f0363034f165_input.mp4",
+      "bytes": 2252,
+      "sha256": "9f0475a7776a5492e727b8fbb1b858ff837198c8b764d094f32fe33818820a1e"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/jobs/69f1d59f-18ed-46c9-bb6b-3d5ce33c11b6/original_video_preview.mp4",
+      "bytes": 2228,
+      "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+    },
+    "outputs": [
+      {
+        "file_name": "d3aa4fd1-2a63-43f9-9c6d-f0363034f165_input.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/inputs/d3aa4fd1-2a63-43f9-9c6d-f0363034f165_input.mp4",
+        "bytes": 2252,
+        "sha256": "9f0475a7776a5492e727b8fbb1b858ff837198c8b764d094f32fe33818820a1e"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/jobs/69f1d59f-18ed-46c9-bb6b-3d5ce33c11b6/original_video_preview.mp4",
+        "bytes": 2228,
+        "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        160,
+        90
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    }
+  },
+  "plan_receipt": {
+    "task_kind": "MEASURED_GENERATIVE_AUTO_EDIT",
+    "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+    "input_job_id": "69f1d59f-18ed-46c9-bb6b-3d5ce33c11b6",
+    "input_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+    "input_artifact": {
+      "file_name": "original_video_preview.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/jobs/69f1d59f-18ed-46c9-bb6b-3d5ce33c11b6/original_video_preview.mp4",
+      "bytes": 2228,
+      "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+    },
+    "analysis": {
+      "method": "measured_scene_window_v1",
+      "model_inference": false,
+      "semantic_understanding": false,
+      "source_duration": 2.0,
+      "requested_duration": 30.0,
+      "start": 0.0,
+      "duration": 2.0,
+      "sample_count": 2,
+      "samples": [
+        {
+          "second": 0.0,
+          "motion": 0.0,
+          "exposure": 31.0,
+          "sharpness": 0.0,
+          "score": 0.0,
+          "usable": true
+        },
+        {
+          "second": 1.0,
+          "motion": 0.0,
+          "exposure": 31.0,
+          "sharpness": 0.0,
+          "score": 0.0,
+          "usable": true
+        }
+      ],
+      "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+    },
+    "decision": {
+      "start": 0.0,
+      "brightness": 0.0,
+      "contrast": 0.0,
+      "saturation": 0.0,
+      "reason": "The source window is from the first second of the video, and there are no significant motion, exposure, or sharpness measurements."
+    },
+    "steps": [
+      {
+        "operation": "video_edit",
+        "options": {
+          "start": 0.0,
+          "brightness": 0.0,
+          "contrast": 0.0,
+          "saturation": 0.0,
+          "duration": 2.0
+        },
+        "step_id": "d369957c-0ff1-48e1-8c7e-b7e613b79777"
+      }
+    ],
+    "validated_edit_values": {
+      "start": 0.0,
+      "brightness": 0.0,
+      "contrast": 0.0,
+      "saturation": 0.0,
+      "duration": 2.0
+    },
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "license": "Apache-2.0",
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+    "raw_response_sha256": "be671e46f15938bcb7d5bd7968a54ad504b834f866cd6a9b2861246c63c7b6a1",
+    "semantic_understanding": false,
+    "output_quality": "REQUIRED_BEFORE_PUBLICATION",
+    "plan_id": "bb8d1c50-17c0-42b1-b1f3-2e9824028bce",
+    "command_sha256": "5d83fb3831cf805642b6d6a711d1791e00475af662055e1dfb914db7fe537d57"
+  },
+  "base_records": [],
+  "previous_project": null,
+  "previous_project_sha256": null,
+  "previous_project_raw": null,
+  "updated_at": 1792914112.0070145,
+  "technical_quality": {
+    "status": "PASS_TECHNICAL_ONLY",
+    "output_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+    "duration_seconds": 2.0,
+    "video_codec": "h264",
+    "usable_frame_ratio": 1.0,
+    "sample_count": 2,
+    "semantic_quality": "NOT_EVALUATED",
+    "human_visual_approval": "REQUIRED",
+    "full_product_pass": false
+  },
+  "result": {
+    "status": "TESTED_PASS",
+    "job_id": "517dafc6-c029-4373-b4b7-1d076712c2fc",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "순차 작업",
+    "input": {
+      "file_name": "fe763766-03a2-4d35-89cf-4588713a97ac_original_video_preview.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/workflows/00ad4a88-5624-4429-9226-21fd41654a95/00-1/sealed/517dafc6-c029-4373-b4b7-1d076712c2fc/fe763766-03a2-4d35-89cf-4588713a97ac_original_video_preview.mp4",
+      "bytes": 2228,
+      "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/workflows/00ad4a88-5624-4429-9226-21fd41654a95/00-1/sealed/517dafc6-c029-4373-b4b7-1d076712c2fc/edited_video.mp4",
+      "bytes": 2228,
+      "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/dark/data/workflows/00ad4a88-5624-4429-9226-21fd41654a95/00-1/sealed/517dafc6-c029-4373-b4b7-1d076712c2fc/edited_video.mp4",
+        "bytes": 2228,
+        "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "start": 0.0,
+        "brightness": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "duration": 2.0
+      },
+      "model_inference": false,
+      "sampled_frames": 0,
+      "analysis": null
+    },
+    "sealed_artifacts": true,
+    "workflow_id": "00ad4a88-5624-4429-9226-21fd41654a95"
+  },
+  "finished_at": 1792914112.0070117
+}
