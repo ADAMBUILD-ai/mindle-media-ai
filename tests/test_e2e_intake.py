@@ -19,6 +19,7 @@ def intake(tmp_path,monkeypatch):
     video.write_bytes(b'contract-video-fixture')
     bgm.write_bytes(b'contract-audio-fixture')
     def fake_ffprobe(args,**_kwargs):
+        assert _kwargs.get('encoding')=='utf-8'  # Windows CP949 must not decode FFprobe JSON.
         target=args[-1]
         if target==str(video):
             return json.dumps({'streams':[{'codec_type':'video','codec_name':'h264','width':32,'height':18}],

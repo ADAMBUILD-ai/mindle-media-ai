@@ -16,7 +16,8 @@ CONTROL_ONLY = {
     'tests/test_general_work_control_plane.py', 'tests/test_runtime_recovery_selection.py',
     'model_scout/run_runtime_recovery_browser.py',
     # Source/PC acceptance tooling is not imported by the engine workflow.
-    'src/media_ai/source_e2e.py','scripts/run_real_architecture_acceptance.py',
+    'src/media_ai/source_e2e.py','src/media_ai/e2e_intake.py','scripts/run_real_architecture_acceptance.py',
+    'tests/test_e2e_intake.py',
     'tests/test_source_e2e.py','tests/test_real_architecture_acceptance.py',
 }
 

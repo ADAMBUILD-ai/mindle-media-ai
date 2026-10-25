@@ -51,7 +51,7 @@ def validate_intake(manifest: dict, base: Path) -> dict:
         require(digest==item.get('sha256'),f'{label}: SHA-256 mismatch')
         require(type(item.get('bytes')) is int and path.stat().st_size==item['bytes'],f'{label}: byte size mismatch')
         try:
-            info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(path)],text=True,timeout=30))
+            info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(path)],text=True,encoding='utf-8',timeout=30))
             streams=info.get('streams',[]);stream=next(x for x in streams if x.get('codec_type')==role)
             duration=float(info['format']['duration'])
             require(math.isfinite(duration) and duration>0,f'{label}: invalid duration')

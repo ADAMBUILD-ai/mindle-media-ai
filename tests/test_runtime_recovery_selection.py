@@ -24,7 +24,7 @@ def test_empty_delta_does_not_silently_claim_new_reuse():
     assert selection.control_only([]) is False
 
 
-@pytest.mark.parametrize('path',['src/media_ai/source_e2e.py','scripts/run_real_architecture_acceptance.py','tests/test_source_e2e.py'])
+@pytest.mark.parametrize('path',['src/media_ai/source_e2e.py','src/media_ai/e2e_intake.py','scripts/run_real_architecture_acceptance.py','tests/test_source_e2e.py'])
 def test_acceptance_tooling_can_reuse_verified_engine_job_but_runtime_cannot(path):
     before='  adopted-real-engines:\n    runs-on: ubuntu-latest\n    steps:\n      - run: verify-engine\n'
     assert selection.select([path],before,before)
