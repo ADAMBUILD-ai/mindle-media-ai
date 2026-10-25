@@ -25,9 +25,12 @@ def test_neural_model_identity_checked_before_construction(tmp_path):
 def test_engine_tree_digest_has_case_sensitive_portable_order(tmp_path):
     import hashlib
     from media_ai.workflow_worker import tree_sha
-    for name,content in [('a.txt',b'lower'),('Z.txt',b'upper'),('A.txt',b'first')]:
+    # Keep the case-order assertion portable to Windows, where A.txt and
+    # a.txt cannot coexist on the default case-insensitive filesystem.
+    fixtures=[('a.txt',b'lower'),('Z.txt',b'upper'),('B.txt',b'first')]
+    for name,content in fixtures:
         (tmp_path/name).write_bytes(content)
-    rows=[name+':'+hashlib.sha256(content).hexdigest() for name,content in [('A.txt',b'first'),('Z.txt',b'upper'),('a.txt',b'lower')]]
+    rows=[name+':'+hashlib.sha256(content).hexdigest() for name,content in sorted(fixtures)]
     assert tree_sha(tmp_path)==hashlib.sha256('\n'.join(rows).encode()).hexdigest()
 
 def test_local_planner_decodes_korean_as_utf8(tmp_path,monkeypatch):

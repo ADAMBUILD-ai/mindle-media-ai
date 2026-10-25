@@ -72,9 +72,9 @@ def test_actual_planning_rejects_duration_drift_and_preserves_raw_reply(monkeypa
     with pytest.raises(ValueError,match="TOTAL_DURATION_MISMATCH"):
         architecture_agent.make_architecture_plan(tmp_path,"2초 16:9 건축 홍보 영상",catalog,"00000000-0000-0000-0000-000000000001")
     audit=next((tmp_path/"architecture-agent/decision-audit").iterdir())
-    assert (audit/"response.txt").read_text()==raw
-    assert "2초" in (audit/"prompt.txt").read_text()
-    assert json.loads((audit/"DECISION.json").read_text())["status"]=="REJECTED"
+    assert (audit/"response.txt").read_text(encoding="utf-8")==raw
+    assert "2초" in (audit/"prompt.txt").read_text(encoding="utf-8")
+    assert json.loads((audit/"DECISION.json").read_text(encoding="utf-8"))["status"]=="REJECTED"
     assert not (tmp_path/"architecture-agent/plans").exists()
 
 
