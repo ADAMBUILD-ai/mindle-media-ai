@@ -1,0 +1,55 @@
+{
+  "manifest_status": "AUDITED_WITH_UNRESOLVED_REDISTRIBUTION_GATES",
+  "offline_distribution_approved": false,
+  "remote_windows_preflight": "INSPECTED",
+  "ffmpeg": {
+    "name": "FFmpeg/ffprobe",
+    "version": "6.1.1-essentials_build-www.gyan.dev",
+    "origin": "https://github.com/GyanD/codexffmpeg/releases/tag/6.1.1",
+    "bundled": true,
+    "license": "GPL-3.0",
+    "redistribution_basis": "GPL license retained; full corresponding source for static dependencies not yet verified",
+    "source_reference": "https://github.com/FFmpeg/FFmpeg/commit/e38092ef93",
+    "notice_files": [
+      {
+        "path": "tools/ffmpeg/LICENSE",
+        "bytes": 35147,
+        "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+      },
+      {
+        "path": "tools/ffmpeg/README.txt",
+        "bytes": 39494,
+        "sha256": "a636a7183c58006351acbaf35303c0ed85c6e1320fd4e80de453ba6157de6311"
+      }
+    ],
+    "notice_file_count": 2,
+    "notice_inventory_reference": "All retained notices are indexed and SHA-256 pinned in PACKAGE_MANIFEST.json"
+  },
+  "visual_c_runtime": {
+    "name": "Visual C++ runtime",
+    "version": "Official v14 x64 prerequisite",
+    "origin": "https://aka.ms/vc14/vc_redist.x64.exe",
+    "bundled_official_installer": false,
+    "owner_entitlement": "USER_CONFIRMED_NOT_YET_VERIFIED",
+    "handling": "Separate consent-gated online bootstrap; not an offline full package",
+    "existing_upstream_embedded_dlls": [
+      {
+        "path": "runtime/python/vcruntime140.dll",
+        "bytes": 119192,
+        "sha256": "4d292623516f65c80482081e62d5dadb759dc16e851de5db24c3cbb57b87db83"
+      },
+      {
+        "path": "runtime/python/vcruntime140_1.dll",
+        "bytes": 49528,
+        "sha256": "a113f192195f245f17389e6ecbed8005990bcb2476ddad33f7c4c6c86327afe5"
+      },
+      {
+        "path": "runtime/site-packages/numpy.libs/msvcp140-263139962577ecda4cd9469ca360a746.dll",
+        "bytes": 575056,
+        "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+      }
+    ],
+    "redistribution_basis": "UNKNOWN; these existing Python/NumPy embedded DLLs keep the candidate on hold",
+    "license_reference": "https://learn.microsoft.com/en-us/cpp/windows/redistributing-visual-cpp-files"
+  }
+}
