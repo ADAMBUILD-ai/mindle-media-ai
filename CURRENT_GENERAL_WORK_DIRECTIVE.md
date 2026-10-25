@@ -1,3 +1,19 @@
+# 2026-10-25 현재 인수 상태와 필요한 회귀 복구
+
+Epoch: MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3.
+현재 인수 단계: WINDOWS_AI_SUCCESSOR_R3_REMOTE_VERIFIED_OWNER_PC_PENDING.
+활성 지시서: docs/commander/MINDLE_MEDIA_AI_WINDOWS_AI_SUCCESSOR_R3_DIRECTIVE_20261024.md
+활성 계약: docs/commander/MINDLE_MEDIA_AI_WINDOWS_AI_SUCCESSOR_R3_EVIDENCE_CONTRACT_20261024.json
+
+R3 원격 성공은 source 9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6 / run 40079944004의 기존 범위다. 현재 개발 소스의 전체 제품 PASS가 아니다.
+해당 1회 빌드 승인은 소진됐다. 아래 역사 단락의 Build Gate=true 문구를 새 제작 권한으로 사용하지 않는다. 현재 machine state와 lock의 package_build_allowed=false가 적용된다.
+
+대표의 2026-10-25 공통 지시에 따라 40169533879의 General Work 검증기 세대 불일치를 수정하고 실패했던 actual-browser 회귀만 검증한다. 작업을 이미 시작했던 실제 코드/인수 계약 오류이며 예산 차단이 아니다.
+동일 08c5b1b 소스의 adopted-real-engines 성공과 다른 성공 검사 결과는 보존한다. 후속 변경이 제어·인수 문서·해당 시험에만 한정되는지 확인하고 엔진 입력 바이트가 달라지면 과거 결과를 최신 실행 PASS로 확대하지 않는다.
+Build Gate=false / PR23 HOLD / main 병합·배포·추가 예산 변경 금지. 사무실 PC·청취·최종 제품 PASS=false.
+
+---
+
 # 2026-10-24 Windows AI Successor R3 단일 제작 승인
 
 Epoch: MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3.

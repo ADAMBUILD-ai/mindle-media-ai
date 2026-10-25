@@ -14,7 +14,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from media_ai.product_server import create_server
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'docs/evidence/media-ai-runtime-recovery-20261013'
+OUT=ROOT/os.environ.get('MINDLE_RUNTIME_RECOVERY_EVIDENCE_DIR','docs/evidence/media-ai-runtime-recovery-20261013')
 OUT.mkdir(parents=True,exist_ok=True)
 DATA=ROOT/'runtime_recovery_data'
 checks=[]

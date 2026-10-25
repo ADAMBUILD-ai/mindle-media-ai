@@ -9,11 +9,39 @@ on:
       - ui/**
       - model_scout/run_runtime_recovery_browser.py
       - model_scout/run_live_agent_engines.py
+      - scripts/validate_general_work_control_plane.py
+      - scripts/select_runtime_recovery_checks.py
+      - tests/test_general_work_control_plane.py
+      - tests/test_runtime_recovery_selection.py
+      - CURRENT_GENERAL_WORK_DIRECTIVE.md
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 jobs:
+  select-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      run_engines: ${{ steps.scope.outputs.run_engines }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compare inputs with the pinned successful engine source
+        run: git fetch --depth=1 origin 08c5b1b449411f0ffa4e533aa98758bb5b1c65f0
+      - name: Select only invalidated checks and verify prior successful job
+        id: scope
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/select_runtime_recovery_checks.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: runtime-recovery-check-selection
+          path: runtime_recovery_selection.json
   actual-browser:
+    needs: select-checks
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -21,6 +49,7 @@ jobs:
       HF_HUB_OFFLINE: '1'
       HF_HUB_DISABLE_TELEMETRY: '1'
       MINDLE_DEFER_EXTERNAL_SHORTFORM: '1'
+      MINDLE_RUNTIME_RECOVERY_EVIDENCE_DIR: runtime_recovery_evidence
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -39,10 +68,10 @@ jobs:
       - run: python -m pip install '.[dev]' selenium==4.35.0
       - name: Full regression
         run: |
-          mkdir -p docs/evidence/media-ai-runtime-recovery-20261013
+          mkdir -p "$MINDLE_RUNTIME_RECOVERY_EVIDENCE_DIR"
           set -o pipefail
-          python scripts/validate_general_work_control_plane.py
-          python -m pytest -q 2>&1 | tee docs/evidence/media-ai-runtime-recovery-20261013/REGRESSION.log
+          python scripts/validate_general_work_control_plane.py 2>&1 | tee "$MINDLE_RUNTIME_RECOVERY_EVIDENCE_DIR/GENERAL_WORK_GATE.log"
+          python -m pytest -q 2>&1 | tee "$MINDLE_RUNTIME_RECOVERY_EVIDENCE_DIR/REGRESSION.log"
           node --test ui/interaction.test.js ui/ssot_structure.test.js
           python -m compileall -q src model_scout/run_runtime_recovery_browser.py
           python -m pip check
@@ -54,9 +83,11 @@ jobs:
           name: mindle-runtime-recovery-20261013
           retention-days: 90
           path: |
-            docs/evidence/media-ai-runtime-recovery-20261013/**
+            runtime_recovery_evidence/**
             runtime_recovery_data/**
   adopted-real-engines:
+    needs: select-checks
+    if: needs.select-checks.outputs.run_engines == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:

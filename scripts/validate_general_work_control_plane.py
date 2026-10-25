@@ -1,49 +1,74 @@
 #!/usr/bin/env python3
+"""Validate the active General/PC handoff without promoting historical PASS scopes."""
 from __future__ import annotations
-import json, pathlib, sys
+import json
+import pathlib
+import subprocess
+import sys
 
-ROOT=pathlib.Path(__file__).resolve().parents[1]
-EPOCH="MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1"
-PC_EPOCH="MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1"
-PASS="PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK"
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+LEGACY_EPOCH = 'MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1'
+PC_EPOCH = 'MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1'
+RECOVERY_EPOCH = 'MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1'
+R3_EPOCH = 'MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3'
+PASS = 'PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK'
 
-current=(ROOT/"CURRENT_GENERAL_WORK_DIRECTIVE.md").read_text(encoding="utf-8")
-lock=json.loads((ROOT/"CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json").read_text(encoding="utf-8"))
-state=json.loads((ROOT/"CURRENT_GENERAL_WORK_STATE.json").read_text(encoding="utf-8"))
-worker=json.loads((ROOT/"CURRENT_WORKER_COORDINATION_LOCK.json").read_text(encoding="utf-8"))
 
-if state.get('control_plane_epoch') == 'MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1':
-    assert worker['active_control_plane_epoch'] == state['control_plane_epoch']
-    assert state['status'] == lock['status'] == 'ACTIVE_OWNER_RUNTIME_RECOVERY'
-    assert lock['epoch'] == state['control_plane_epoch'] and lock['active'] is True
-    assert state['control_plane_epoch'] in current and state['product_changes_allowed'] is True
-    assert state['owner_pc_runtime_pass'] is False and state['final_product_pass'] is False
-    assert lock['invariants']['main_merge_forbidden'] and lock['invariants']['pr23_hold_do_not_merge']
-    print('GENERAL_WORK_OWNER_RUNTIME_RECOVERY_ACTIVE')
-    raise SystemExit(0)
+def require(value, message):
+    if not value:
+        raise ValueError(message)
 
-def fail(msg):
-    print("GENERAL_WORK_HANDOFF_MISMATCH_BLOCKED: "+msg, file=sys.stderr)
-    raise SystemExit(2)
 
-if lock.get("epoch") != EPOCH or state.get("control_plane_epoch") != EPOCH:
-    fail("General Work epoch mismatch")
-if lock.get("status") != "COMPLETE_HANDOFF_TO_PC_WORK":
-    fail("General Work lock must be complete")
-if state.get("status") != "COMPLETE_HANDOFF_TO_PC_WORK":
-    fail("General Work state must be complete")
-if lock.get("final_result") != PASS or state.get("final_result") != PASS:
-    fail("General Work final PASS missing")
-if lock.get("final_head") != "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb":
-    fail("General Work final HEAD mismatch")
-if state.get("pc_work_allowed") is not True:
-    fail("PC Work must be unblocked")
-if worker.get("active_control_plane_epoch") != PC_EPOCH:
-    fail("PC Work must be the active worker epoch")
-for token in (PASS,"9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",PC_EPOCH):
-    if token not in current:
-        fail(f"CURRENT missing {token!r}")
+def validate(root=ROOT):
+    current = (root/'CURRENT_GENERAL_WORK_DIRECTIVE.md').read_text(encoding='utf-8')
+    def read(name):
+        return json.loads((root/name).read_text(encoding='utf-8'))
+    lock = read('CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json')
+    state = read('CURRENT_GENERAL_WORK_STATE.json')
+    worker = read('CURRENT_WORKER_COORDINATION_LOCK.json')
+    epoch = state.get('control_plane_epoch')
+    if epoch in {RECOVERY_EPOCH, R3_EPOCH}:
+        require(worker.get('active_control_plane_epoch') == epoch, 'worker epoch mismatch')
+        require(state.get('status') == lock.get('status') == 'ACTIVE_OWNER_RUNTIME_RECOVERY', 'recovery status mismatch')
+        require(lock.get('control_plane_epoch') == lock.get('epoch') == epoch and lock.get('active') is True, 'General lock epoch mismatch')
+        require(epoch in current and state.get('product_changes_allowed') is True, 'current General directive mismatch')
+        for value in (state, lock):
+            require(value.get('owner_pc_runtime_pass') is False and value.get('final_product_pass') is False, 'unsupported General final PASS')
+        for invariant in ('main_merge_forbidden', 'force_push_forbidden', 'pr23_hold_do_not_merge', 'approved_visual_frozen'):
+            require(lock.get('invariants', {}).get(invariant) is True, 'General invariant missing: '+invariant)
+        if epoch == R3_EPOCH:
+            # Keep the independent PC validator authoritative for source, delivery,
+            # phase, consumed authorization, four state files and R3 byte readback.
+            require(state.get('phase') == 'WINDOWS_AI_SUCCESSOR_R3_REMOTE_VERIFIED_OWNER_PC_PENDING', 'unaccepted R3 phase')
+            for value in (state, lock):
+                require(value.get('package_build_allowed') is False, 'R3 repeat build forbidden')
+                for field in ('active_directive', 'evidence_contract'):
+                    require(value.get(field) == state.get(field) and value.get(field) in current, 'General '+field+' mismatch')
+            check = subprocess.run([sys.executable, str(root/'scripts/validate_pc_work_control_plane.py')],
+                                   capture_output=True, text=True, timeout=30)
+            require(check.returncode == 0, 'PC handoff validation failed: '+(check.stderr or check.stdout).strip())
+            return 'GENERAL_WORK_R3_REMOTE_VERIFIED_OWNER_PC_PENDING\nOWNER_PC_PASS=false; FULL_PRODUCT_PASS=false; PACKAGE_BUILD_ALLOWED=false'
+        return 'GENERAL_WORK_OWNER_RUNTIME_RECOVERY_ACTIVE'
 
-print("GENERAL_WORK_COMPLETE_HANDOFF_TO_PC_WORK")
-print(f"GENERAL_EPOCH={EPOCH}")
-print(f"PC_EPOCH={PC_EPOCH}")
+    require(lock.get('epoch') == epoch == LEGACY_EPOCH, 'General Work epoch mismatch')
+    require(lock.get('status') == state.get('status') == 'COMPLETE_HANDOFF_TO_PC_WORK', 'General Work handoff must be complete')
+    require(lock.get('final_result') == state.get('final_result') == PASS, 'General Work final PASS missing')
+    require(lock.get('final_head') == '9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb', 'General Work final HEAD mismatch')
+    require(state.get('pc_work_allowed') is True, 'PC Work must be unblocked')
+    require(worker.get('active_control_plane_epoch') == PC_EPOCH, 'PC Work must be the active worker epoch')
+    for token in (PASS, '9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb', PC_EPOCH):
+        require(token in current, 'CURRENT missing '+repr(token))
+    return 'GENERAL_WORK_COMPLETE_HANDOFF_TO_PC_WORK\nGENERAL_EPOCH='+LEGACY_EPOCH+'\nPC_EPOCH='+PC_EPOCH
+
+
+def main():
+    try:
+        print(validate())
+        return 0
+    except (ValueError, KeyError, OSError, subprocess.SubprocessError) as error:
+        print('GENERAL_WORK_HANDOFF_MISMATCH_BLOCKED: '+str(error), file=sys.stderr)
+        return 2
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
