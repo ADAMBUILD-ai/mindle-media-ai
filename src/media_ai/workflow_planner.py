@@ -26,10 +26,17 @@ def invoke_local_json_plan(root, prompt, schema, *, max_tokens=768, timeout=120)
         if digest!=settings.get(key):raise ValueError('PLANNER_IDENTITY_MISMATCH')
     if settings.get('runtime_sha256') and tree_sha(executable.parent)!=settings['runtime_sha256']:
         raise ValueError('PLANNER_RUNTIME_IDENTITY_MISMATCH')
+    for part in settings.get('additional_model_files',[]):
+        path=Path(part['path'])
+        if not path.is_file():raise ValueError('PLANNER_ADDITIONAL_WEIGHT_MISSING')
+        with path.open('rb') as stream:actual=hashlib.file_digest(stream,'sha256').hexdigest()
+        if actual!=part.get('sha256'):raise ValueError('PLANNER_ADDITIONAL_WEIGHT_IDENTITY_MISMATCH')
+    context=settings.get('context_size')
+    if context is not None and (type(context) is not int or not 512<=context<=32768):raise ValueError('PLANNER_CONTEXT_INVALID')
     output=subprocess.check_output([
         str(executable),'-m',str(model),'-p',prompt,'-n',str(max_tokens),
         '--no-display-prompt','--no-conversation','--simple-io','--temp','0','-t','2',
-        '--json-schema',json.dumps(schema),
+        '--json-schema',json.dumps(schema),*(['-c',str(context)] if context else []),
     ],text=True,encoding='utf-8',timeout=timeout)
     start=output.find('{')
     if start < 0:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획이 JSON을 반환하지 않았습니다.')

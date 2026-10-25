@@ -26,16 +26,20 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--engine-config',required=True)
     parser.add_argument('--output',required=True)
+    parser.add_argument('--profile',choices=['approved-1.5b','isolated-7b-evaluation'],default='approved-1.5b')
     args=parser.parse_args()
     output=Path(args.output).resolve();output.mkdir(parents=True,exist_ok=False)
     config=json.loads(Path(args.engine_config).read_text())
-    assert config['planner']['model_sha256']=='6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e'
+    expected='6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e' if args.profile=='approved-1.5b' else 'dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db'
+    assert config['planner']['model_sha256']==expected
+    if args.profile=='isolated-7b-evaluation':
+        assert config['planner']['additional_model_files'][0]['sha256']=='539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a'
     assert config['planner']['executable_sha256']=='7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52'
     repo=Path(__file__).resolve().parents[1]
     files=sorted((repo/'src/media_ai').glob('*.py'))+sorted((repo/'ui').glob('*.js'))+[repo/'ui/index.html']
     receipt={'status':'RUNNING','source_commit':subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip(),
              'source_files':{str(p.relative_to(repo)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
-             'model_downloaded_by_probe':False,'fixture_inference':False,'native_windows':False,
+             'model_profile':args.profile,'engine_identity':config['planner'],'model_downloaded_by_probe':False,'fixture_inference':False,'native_windows':False,
              'semantic_understanding':False,'architectural_promotion_quality':'NOT_TESTED','full_product_pass':False,'cases':[]}
     try:
         for name,color in [('dark','0x202020'),('bright','0xe0e0e0')]:

@@ -167,3 +167,11 @@ def test_auto_plan_actual_http_refuses_missing_model_without_publication(source)
         assert server.workflow_queue().list()==[]
         assert not list(server.service.projects.glob('*.json'))
     finally:server.shutdown();thread.join();server.server_close()
+
+
+@pytest.mark.parametrize('exposure,brightness',[(32,0),(32,-3),(224,0),(224,3)])
+def test_ignoring_or_reversing_measured_exposure_is_rejected(exposure,brightness):
+    analysis={'duration':2,'source_duration':2,'samples':[{'second':0,'exposure':exposure}]}
+    decision={'start':0,'brightness':brightness,'contrast':0,'saturation':0,'reason':'fixture'}
+    with pytest.raises(ValueError,match='AI_AUTO_IGNORED_EXPOSURE'):
+        auto._decision(decision,analysis)

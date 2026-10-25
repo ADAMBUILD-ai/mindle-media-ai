@@ -188,3 +188,32 @@ def test_planner_response_is_saved_as_exact_utf8_bytes_on_every_platform(tmp_pat
     response = tmp_path/'workflows/plans'/(plan['plan_id']+'.response.txt')
     assert response.read_bytes() == raw.encode('utf-8')
     assert hashlib.sha256(response.read_bytes()).hexdigest() == plan['raw_response_sha256']
+
+
+def test_split_gguf_part_hash_is_verified_before_inference(tmp_path,monkeypatch):
+    import hashlib
+    from media_ai import workflow_planner as planner
+    model=tmp_path/'part1.gguf';model.write_bytes(b'part1')
+    other=tmp_path/'part2.gguf';other.write_bytes(b'modified-part2')
+    exe=tmp_path/'executor';exe.write_bytes(b'fixture')
+    settings={'model_path':str(model),'model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),
+              'executable':str(exe),'executable_sha256':hashlib.sha256(exe.read_bytes()).hexdigest(),
+              'revision':'a'*40,'license':'fixture','additional_model_files':[{'path':str(other),'sha256':'b'*64}]}
+    monkeypatch.setattr(planner,'engines_config',lambda root:{'planner':settings})
+    monkeypatch.setattr(planner.subprocess,'check_output',lambda *args,**kwargs:pytest.fail('must reject before inference'))
+    with pytest.raises(ValueError,match='PLANNER_ADDITIONAL_WEIGHT_IDENTITY_MISMATCH'):
+        planner.invoke_local_json_plan(tmp_path,'prompt',{})
+
+
+@pytest.mark.parametrize('context',[True,0,128,99999])
+def test_invalid_context_budget_is_rejected_before_inference(tmp_path,monkeypatch,context):
+    import hashlib
+    from media_ai import workflow_planner as planner
+    model=tmp_path/'model';model.write_bytes(b'fixture')
+    settings={'model_path':str(model),'model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),
+              'executable':str(model),'executable_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),
+              'revision':'a'*40,'license':'fixture','context_size':context}
+    monkeypatch.setattr(planner,'engines_config',lambda root:{'planner':settings})
+    monkeypatch.setattr(planner.subprocess,'check_output',lambda *args,**kwargs:pytest.fail('must reject before inference'))
+    with pytest.raises(ValueError,match='PLANNER_CONTEXT_INVALID'):
+        planner.invoke_local_json_plan(tmp_path,'prompt',{})

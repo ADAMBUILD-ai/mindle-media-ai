@@ -31,6 +31,10 @@ def engines_config(root):
             resolved=(path.parent/Path(value)).resolve()
             if bundled and path.parent.resolve() not in resolved.parents and resolved!=path.parent.resolve():raise ValueError('BUNDLED_ENGINE_PATH_OUTSIDE_PACKAGE')
             config[kind][field]=str(resolved)
+        for part in config.get(kind,{}).get('additional_model_files',[]):
+            resolved=(path.parent/Path(part['path'])).resolve()
+            if bundled and path.parent.resolve() not in resolved.parents:raise ValueError('BUNDLED_ENGINE_PATH_OUTSIDE_PACKAGE')
+            part['path']=str(resolved)
     return config
 
 def narrate_neural(service,text,settings):
