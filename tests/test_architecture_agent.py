@@ -9,7 +9,7 @@ import json
 
 import pytest
 
-from media_ai.architecture_agent import ArchitectureAgentRuntime, apply_explicit_duration_guardrail, validate_generated_architecture_plan
+from media_ai.architecture_agent import ArchitectureAgentRuntime, validate_generated_architecture_plan
 from media_ai.architectural_video_pipeline import ProductionCancelled
 from media_ai.product_runtime import ProductJobService
 
@@ -64,17 +64,18 @@ def test_generated_architecture_plan_rejects_model_drift(parsed,error):
         validate_generated_architecture_plan("3초 16:9 건축 홍보 영상",parsed,_catalog())
 
 
-def test_explicit_duration_guardrail_preserves_model_order_and_fits_total():
-    parsed={"aspect":"16:9","scenes":[
-        {"source_id":"input-02","duration_seconds":3},
-        {"source_id":"input-01","duration_seconds":2},
-    ]}
-    adjusted,receipt=apply_explicit_duration_guardrail("두 영상으로 2초 16:9 건축 홍보 영상",parsed,_catalog())
-    assert [x["source_id"] for x in adjusted["scenes"]]==["input-02","input-01"]
-    assert sum(x["duration_seconds"] for x in adjusted["scenes"])==2
-    assert receipt==[{"field":"scene.duration_seconds","reason":"EXPLICIT_TOTAL_DURATION",
-                      "model_total_seconds":5.0,"applied_total_seconds":2.0,
-                      "method":"PROPORTIONAL_WITH_SOURCE_CAPS"}]
+def test_actual_planning_rejects_duration_drift_and_preserves_raw_reply(monkeypatch,tmp_path):
+    from media_ai import architecture_agent
+    raw='{"aspect":"16:9","scenes":[{"source_id":"input-01","duration_seconds":2},{"source_id":"input-02","duration_seconds":3}]}'
+    monkeypatch.setattr(architecture_agent,"invoke_local_json_plan",lambda *args,**kw:(json.loads(raw),raw,{"model_sha256":"a"*64}))
+    catalog=[{**item,"orientation":"landscape","visual_profile":{}} for item in _catalog()]
+    with pytest.raises(ValueError,match="TOTAL_DURATION_MISMATCH"):
+        architecture_agent.make_architecture_plan(tmp_path,"2초 16:9 건축 홍보 영상",catalog,"00000000-0000-0000-0000-000000000001")
+    audit=next((tmp_path/"architecture-agent/decision-audit").iterdir())
+    assert (audit/"response.txt").read_text()==raw
+    assert "2초" in (audit/"prompt.txt").read_text()
+    assert json.loads((audit/"DECISION.json").read_text())["status"]=="REJECTED"
+    assert not (tmp_path/"architecture-agent/plans").exists()
 
 
 @pytest.mark.skipif(not shutil.which("ffmpeg") or not shutil.which("ffprobe"),reason="FFmpeg unavailable")
@@ -107,6 +108,15 @@ def test_local_model_plan_to_durable_mp4_and_project(monkeypatch,tmp_path):
         assert all(x["selection"]["model_inference"] is False for x in plan["scenes"])
         assert all(x["start_seconds"]>=0 for x in plan["scenes"])
         assert all(x["visual_profile"]["semantic_understanding"] is False for x in plan["catalog"])
+        # A valid raw response hash must not authorize a different saved edit.
+        saved_path=runtime.root/"plans"/(plan["plan_id"]+".json")
+        original=saved_path.read_bytes()
+        drift=json.loads(original);drift["aspect"]="9:16"
+        saved_path.write_text(json.dumps(drift))
+        with pytest.raises(ValueError,match="RESPONSE_BINDING_FAILED"):
+            runtime.submit({"plan_id":plan["plan_id"]})
+        assert runtime.list()==[]
+        saved_path.write_bytes(original)
         task=runtime.submit({"request_id":"architecture-real-assembly","plan_id":plan["plan_id"]})
         assert runtime.submit({"request_id":"browser-retry-new-id","plan_id":plan["plan_id"]})["production_id"]==task["production_id"]
         assert len(analysis_calls)==4

@@ -1,6 +1,6 @@
 """Source-only real pinned Qwen proof. Requires an existing verified engine config.
 
-Creates synthetic exposure counterfactuals, not architectural marketing footage.
+Creates five synthetic exposure/motion counterfactuals, not architectural marketing footage.
 No model download, package build, fixture inference or installation is performed.
 """
 from __future__ import annotations
@@ -42,10 +42,15 @@ def main():
              'model_profile':args.profile,'engine_identity':config['planner'],'model_downloaded_by_probe':False,'fixture_inference':False,'native_windows':False,
              'semantic_understanding':False,'architectural_promotion_quality':'NOT_TESTED','full_product_pass':False,'cases':[]}
     try:
-        for name,color in [('dark','0x202020'),('bright','0xe0e0e0')]:
+        cases=[('dark','color=c=0x202020:s=160x90:r=12',[]),
+               ('bright','color=c=0xe0e0e0:s=160x90:r=12',[]),
+               ('normal','color=c=0x808080:s=160x90:r=12',[]),
+               ('moving','testsrc2=size=160x90:rate=12',[]),
+               ('static','testsrc2=size=160x90:rate=12',['-vf','loop=loop=-1:size=1:start=0'])]
+        for name,fixture,filters in cases:
             folder=output/name;folder.mkdir()
             media=folder/'input.mp4'
-            subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i',f'color=c={color}:s=160x90:r=12',
+            subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i',fixture,*filters,
                             '-t','2','-c:v','libx264','-pix_fmt','yuv420p',str(media)],check=True)
             service=ProductJobService(folder/'data','')
             write(service.root/'runtime-engines.json',config)
@@ -55,6 +60,7 @@ def main():
                 plan=make_auto_plan(service,{'command':'자동 편집','input_job_id':source['job_id']})
                 write(folder/'ACTUAL_QWEN_PLAN.json',plan)
                 shutil.copyfile(service.root/'workflows/plans'/(plan['plan_id']+'.response.txt'),folder/'ACTUAL_QWEN_RESPONSE.txt')
+                shutil.copyfile(service.root/'workflows/plans'/(plan['plan_id']+'.prompt.txt'),folder/'ACTUAL_QWEN_PROMPT.txt')
                 task=queue.submit({'request_id':'real-qwen-'+name,'input_job_id':source['job_id'],'plan_id':plan['plan_id'],'steps':plan['steps']})
                 deadline=time.monotonic()+120
                 while time.monotonic()<deadline:
@@ -78,9 +84,17 @@ def main():
                      'status':'PASS_ACTUAL_QWEN_FFMPEG_TECHNICAL_GATE'}
                 receipt['cases'].append(row)
                 print(name,'ACTUAL_QWEN_TO_MP4_PASS',json.dumps(plan['decision'],ensure_ascii=False),flush=True)
-            finally:queue.close()
+            except Exception as error:
+                receipt['cases'].append({'case':name,'status':'FAIL','error':repr(error)})
+                print(name,'FAIL',repr(error),flush=True)
+            finally:
+                audits=service.root/'workflows/auto-decision-audit'
+                if audits.exists():shutil.copytree(audits,folder/'DECISION_AUDIT')
+                queue.close()
+                write(output/'REAL_INFERENCE_RECEIPT.json',receipt)
         # Same request, different measured input: reject a constant response/preset.
-        dark,bright=[case['decision']['brightness'] for case in receipt['cases']]
+        assert all(case['status']=='PASS_ACTUAL_QWEN_FFMPEG_TECHNICAL_GATE' for case in receipt['cases']),'AI_CASE_FAILED_SEE_PRESERVED_EVIDENCE'
+        dark,bright=[case['decision']['brightness'] for case in receipt['cases'][:2]]
         receipt['input_sensitivity']={'dark_brightness':dark,'bright_brightness':bright,
                                        'different_decisions':dark!=bright,'opposite_exposure_directions':dark>0 and bright<0}
         assert dark>0 and bright<0,'AI_INPUT_SENSITIVITY_FAILED'

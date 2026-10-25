@@ -99,6 +99,7 @@ def make_auto_plan(service, request):
     parsed, raw, settings = invoke_local_json_plan(service.root,prompt,schema,max_tokens=768,timeout=120)
     audit=service.root/'workflows/auto-decision-audit'/str(uuid4());audit.mkdir(parents=True)
     (audit/'response.txt').write_bytes(raw.encode('utf-8'))
+    (audit/'prompt.txt').write_bytes(prompt.encode('utf-8'))
     audit_value={'status':'PENDING_VALIDATION','input_sha256':artifact['sha256'],'model_sha256':settings['model_sha256'],'raw_response_sha256':hashlib.sha256(raw.encode('utf-8')).hexdigest(),'decision':parsed}
     try:
         options = _decision(parsed,analysis)
@@ -122,6 +123,7 @@ def make_auto_plan(service, request):
         'runtime_sha256':settings.get('runtime_sha256'),'raw_response_sha256':hashlib.sha256(raw.encode('utf-8')).hexdigest(),
         'semantic_understanding':False,'output_quality':'REQUIRED_BEFORE_PUBLICATION'},request)
     (service.root/'workflows/plans'/(plan['plan_id']+'.response.txt')).write_bytes(raw.encode('utf-8'))
+    (service.root/'workflows/plans'/(plan['plan_id']+'.prompt.txt')).write_bytes(prompt.encode('utf-8'))
     return plan
 
 
@@ -161,6 +163,8 @@ def assess_auto_output(plan, result):
     before=sum(s['exposure'] for s in originals)/len(originals)
     after=sum(s['exposure'] for s in samples)/len(samples)
     distance=lambda value:max(80-value,0,value-176)
+    if distance(before)==0 and distance(after)>1:
+        raise ValueError('AI_AUTO_OUTPUT_DEGRADED_NORMAL_EXPOSURE')
     if distance(before)>0 and distance(after)>=distance(before)-1:
         raise ValueError('AI_AUTO_OUTPUT_DID_NOT_IMPROVE_EXPOSURE')
     return {'status':'PASS_TECHNICAL_ONLY','output_sha256':output['sha256'],'duration_seconds':duration,

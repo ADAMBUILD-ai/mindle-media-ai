@@ -175,3 +175,14 @@ def test_ignoring_or_reversing_measured_exposure_is_rejected(exposure,brightness
     decision={'start':0,'brightness':brightness,'contrast':0,'saturation':0,'reason':'fixture'}
     with pytest.raises(ValueError,match='AI_AUTO_IGNORED_EXPOSURE'):
         auto._decision(decision,analysis)
+
+
+def test_normal_exposure_output_cannot_be_degraded_into_overexposure(source,monkeypatch):
+    from media_ai.product_runtime import file_record
+    service,record=source
+    plan=plan_for(source,monkeypatch)
+    white=service.root/'overexposed.mp4'
+    subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i','color=c=0xe0e0e0:s=160x90:r=12',
+                    '-t','1','-c:v','libx264','-pix_fmt','yuv420p',str(white)],check=True)
+    with pytest.raises(ValueError,match='AI_AUTO_OUTPUT_DEGRADED_NORMAL_EXPOSURE'):
+        auto.assess_auto_output(plan,{'primary_output':file_record(white)})

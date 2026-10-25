@@ -140,38 +140,6 @@ def validate_generated_architecture_plan(command: str, parsed: dict[str, Any], c
             "validated_request": requested}
 
 
-def apply_explicit_duration_guardrail(command: str, parsed: dict[str, Any], catalog: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    """Fit model-proposed scene weights to an explicit total without inventing sources or order."""
-    requested=_requested_contract(command);target=requested["duration_seconds"]
-    if target is None or not isinstance(parsed.get("scenes"),list):return parsed,[]
-    sources={item["source_id"]:item for item in catalog};scenes=parsed["scenes"]
-    if (not scenes or any(not isinstance(x,dict) or set(x)!={"source_id","duration_seconds"} for x in scenes)
-            or len({str(x["source_id"]) for x in scenes})!=len(scenes)
-            or {str(x["source_id"]) for x in scenes}!=set(sources)):
-        return parsed,[]
-    try:weights=[float(x["duration_seconds"]) for x in scenes]
-    except (TypeError,ValueError):return parsed,[]
-    if any(not math.isfinite(x) or x<=0 for x in weights):return parsed,[]
-    if abs(sum(weights)-target)<=.05:return parsed,[]
-    minimum=.25;caps=[min(30.0,float(sources[str(x["source_id"])]["duration_seconds"])+.01) for x in scenes]
-    if target < minimum*len(scenes)-.001 or target > sum(caps)+.001:return parsed,[]
-    allocated=[minimum]*len(scenes);remaining=target-sum(allocated);active=set(range(len(scenes)))
-    while remaining>1e-9 and active:
-        weight=sum(weights[i] for i in active);progress=0.0
-        for i in list(active):
-            share=remaining*(weights[i]/weight) if weight else remaining/len(active)
-            add=min(share,caps[i]-allocated[i]);allocated[i]+=add;progress+=add
-            if caps[i]-allocated[i]<=1e-9:active.remove(i)
-        remaining-=progress
-        if progress<=1e-9:break
-    if abs(sum(allocated)-target)>.001:return parsed,[]
-    allocated[-1]+=target-sum(allocated)
-    adjusted={**parsed,"scenes":[{**scene,"duration_seconds":round(allocated[i],6)} for i,scene in enumerate(scenes)]}
-    return adjusted,[{"field":"scene.duration_seconds","reason":"EXPLICIT_TOTAL_DURATION",
-                      "model_total_seconds":sum(weights),"applied_total_seconds":target,
-                      "method":"PROPORTIONAL_WITH_SOURCE_CAPS"}]
-
-
 def make_architecture_plan(data_root: Path, command: str, catalog: list[dict[str, Any]], project_id: str,
                            range_provider=None) -> dict[str, Any]:
     command = str(command).strip()
@@ -208,19 +176,34 @@ def make_architecture_plan(data_root: Path, command: str, catalog: list[dict[str
             "the scene duration_seconds values must sum to it exactly.\nREQUEST="+command+
             "<|im_end|>\n<|im_start|>assistant\n")
     parsed, raw, settings = invoke_local_json_plan(data_root, prompt, schema, max_tokens=1024, timeout=120)
-    parsed,adjustments=apply_explicit_duration_guardrail(command,parsed,catalog)
-    validated = _add_measured_ranges(validate_generated_architecture_plan(command, parsed, catalog),catalog,range_provider)
+    # Preserve the actual request and reply even when the model violates it.
+    audit=Path(data_root)/"architecture-agent/decision-audit"/str(uuid4());audit.mkdir(parents=True)
+    (audit/"prompt.txt").write_bytes(prompt.encode("utf-8"))
+    (audit/"response.txt").write_bytes(raw.encode("utf-8"))
+    audit_value={"status":"PENDING_VALIDATION","command":command,"catalog":catalog,
+                 "model_sha256":settings["model_sha256"],"decision":parsed,
+                 "raw_response_sha256":hashlib.sha256(raw.encode("utf-8")).hexdigest()}
+    try:
+        validated = _add_measured_ranges(validate_generated_architecture_plan(command, parsed, catalog),catalog,range_provider)
+    except (ValueError,TypeError,KeyError) as error:
+        audit_value.update(status="REJECTED",error=str(error))
+        (audit/"DECISION.json").write_text(json.dumps(audit_value,ensure_ascii=False,indent=2),encoding="utf-8")
+        raise
+    audit_value["status"]="ACCEPTED_DECISION_NOT_EXECUTION"
+    (audit/"DECISION.json").write_text(json.dumps(audit_value,ensure_ascii=False,indent=2),encoding="utf-8")
     plan_id=str(uuid4());folder=Path(data_root)/"architecture-agent/plans";folder.mkdir(parents=True,exist_ok=True)
     receipt={"plan_id":plan_id,"project_id":project_id,"plan_source":"LOCAL_GENERATIVE_INFERENCE",
-             "command_sha256":hashlib.sha256(command.encode()).hexdigest(),"model_id":settings.get("model_id"),
+             "command":command,"command_sha256":hashlib.sha256(command.encode()).hexdigest(),"model_id":settings.get("model_id"),
              "model_sha256":settings["model_sha256"],"revision":settings["revision"],"license":settings["license"],
              "executable_sha256":settings["executable_sha256"],"runtime_sha256":settings.get("runtime_sha256"),
              "raw_response_sha256":hashlib.sha256(raw.encode()).hexdigest(),"catalog":catalog,
-             "constraint_adjustments":adjustments,**validated}
+             "additional_model_sha256":[part["sha256"] for part in settings.get("additional_model_files",[])],
+             "context_size":settings.get("context_size"),"constraint_adjustments":[],**validated}
     (folder/(plan_id+".json")).write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     # Preserve the exact inference bytes on every OS. Text-mode writes turn LF
     # into CRLF on Windows and would invalidate the recorded response digest.
     (folder/(plan_id+".response.txt")).write_bytes(raw.encode("utf-8"))
+    (folder/(plan_id+".prompt.txt")).write_bytes(prompt.encode("utf-8"))
     return receipt
 
 
@@ -313,8 +296,17 @@ class ArchitectureAgentRuntime:
         catalog={x["source_id"]:x for x in current}
         if any(current[index] != saved for index,saved in enumerate(receipt.get("catalog",[]))):
             raise ValueError("건축 영상 자료가 계획 이후 변경됐습니다.")
-        checked=_add_measured_ranges(validate_generated_architecture_plan("",{"aspect":receipt.get("aspect"),"scenes":[
-            {"source_id":x.get("source_id"),"duration_seconds":x.get("duration_seconds")} for x in receipt.get("scenes",[])]},current),current,self._cached_range)
+        command=receipt.get("command")
+        if not isinstance(command,str) or hashlib.sha256(command.encode("utf-8")).hexdigest()!=receipt.get("command_sha256"):
+            raise ValueError("ARCHITECTURE_PLAN_COMMAND_IDENTITY_MISMATCH: 새 계획을 생성하세요.")
+        raw=response.read_text(encoding="utf-8")
+        try:
+            parsed,_=json.JSONDecoder().raw_decode(raw[raw.index('{'):])
+            checked=_add_measured_ranges(validate_generated_architecture_plan(command,parsed,current),current,self._cached_range)
+        except (ValueError,TypeError,KeyError) as error:
+            raise ValueError("ARCHITECTURE_PLAN_RESPONSE_BINDING_FAILED: "+str(error)) from error
+        if checked["aspect"]!=receipt.get("aspect"):
+            raise ValueError("ARCHITECTURE_PLAN_RESPONSE_BINDING_FAILED: aspect")
         if checked["scenes"]!=receipt.get("scenes") or abs(checked["total_duration_seconds"]-receipt.get("total_duration_seconds",-1))>.001:
             raise ValueError("저장된 건축 영상 계획 의미 계약이 일치하지 않습니다.")
         if any(job_id not in self.service.records for job_id in receipt.get("project_job_ids",[])):
