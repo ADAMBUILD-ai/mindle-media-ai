@@ -157,7 +157,7 @@ def execute(request):
         result=narrate(service,step['text'],request.get('engines',{}));result['runtime_result']['base_video_job_id']=video['job_id'];return result
     if step['operation']=='mix_narration':
         voice=next(r for r in reversed(records+request.get('base_records',[])) if r['job_id']==step['voice_job_id']) if step.get('voice_job_id') else next(r for r in reversed(records) if r['operation']=='narration')
-        return mix_narration(service,video,voice,step,request.get('background'))
+        return mix_narration(service,video,voice,step,request.get('background') if 'background_volume' in step else None)
     raise ValueError('Unsupported step')
 
 def supervise_parent(parent_pid):

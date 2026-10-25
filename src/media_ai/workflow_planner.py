@@ -81,6 +81,7 @@ def validate_plan_scope(command,steps):
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 보정이 누락됐습니다.')
     expected_tools=requested_media_tool_fields(command)
     actual_tools={key for step in steps if step['operation']=='video_edit' for key in step.get('options',{}) if key in {'speed','start','duration','aspect','fade','backgroundVolume'}}
+    if any(step['operation']=='mix_narration' and 'background_volume' in step for step in steps):actual_tools.add('backgroundVolume')
     if not expected_tools.issubset(actual_tools):
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 도구가 누락됐습니다.')
     if narration and not {'narrate','mix_narration'}.issubset(operations):
@@ -110,7 +111,8 @@ def make_plan(root,request):
         'options':{'type':'object','properties':{
             **{key:{'type':'number'} for key in ('brightness','contrast','saturation','speed','start','duration','backgroundVolume')},
             'aspect':{'enum':['16:9','9:16']},'fade':{'type':'boolean'}},'additionalProperties':False},
-        'text':{'type':'string'},'length_policy':{'enum':['reject','extend_video']}
+        'text':{'type':'string'},'length_policy':{'enum':['reject','extend_video']},
+        'volume':{'type':'number'},'original_volume':{'type':'number'},'background_volume':{'type':'number'}
     },'required':['operation'],'additionalProperties':False}},'error':{'type':'string'}},'required':['steps'],'additionalProperties':False}
     instructions=('You translate Korean video edit requests into JSON. Output {"steps":[...]} only. '
       'Allowed step shapes: {"operation":"video_edit","options":{"brightness":10}}, '
@@ -126,7 +128,8 @@ def make_plan(root,request):
       'Omit controls the user says to preserve; never repeat the same control. '
       'For speed use the exact requested 0.5 to 2 ratio. For a trim from START seconds to END seconds use start=START and duration=END-START. '
       'For an explicit 9:16 or 16:9 use aspect exactly. Fade means fade=true. '
-      'For BGM use backgroundVolume as the exact percentage divided by 100, or 0.35 when no volume was specified. '
+      'For BGM without narration use video_edit options.backgroundVolume. With narration put background_volume on mix_narration instead, never both. '
+      'Use the exact BGM percentage divided by 100, or 0.35 when no volume was specified. '
       'Ambiguous magnitudes, absolute settings, unsupported units or negated speech/subtitle requests: return an error. '
       'Speech to subtitles: transcribe THEN apply_subtitles. Narration: narrate THEN mix_narration. '
       'If video extension requested use length_policy extend_video. Never invent a narration script. '
@@ -135,6 +138,7 @@ def make_plan(root,request):
         ('음성을 받아쓰고 자막을 적용해 주세요.',{'steps':[{'operation':'transcribe'},{'operation':'apply_subtitles'}]}),
         ('밝기를 3 높이고 "반갑습니다" 나레이션을 넣고 영상을 연장해 주세요.',{'steps':[{'operation':'video_edit','options':{'brightness':3}},{'operation':'narrate','text':'반갑습니다'},{'operation':'mix_narration','length_policy':'extend_video'}]}),
         ('5초부터 12초까지 자르고 속도를 1.25배로 해 주세요.',{'steps':[{'operation':'video_edit','options':{'start':5,'duration':7,'speed':1.25}}]}),
+        ('"환영합니다" 나레이션과 배경음악을 넣어 주세요.',{'steps':[{'operation':'narrate','text':'환영합니다'},{'operation':'mix_narration','length_policy':'reject','background_volume':0.35}]}),
         ('파일을 삭제해 줘.',{'steps':[],'error':'unsupported request'})]
     prompt='<|im_start|>system\n'+instructions+'<|im_end|>\n'
     for question,answer in examples:prompt+='<|im_start|>user\n'+question+'<|im_end|>\n<|im_start|>assistant\n'+json.dumps(answer,ensure_ascii=False)+'<|im_end|>\n'

@@ -87,15 +87,22 @@ def validate_media_tool_values(command, steps):
     expected = {}
     requested = requested_media_tool_fields(command)
     actual = {}
+    bgm_location = None
     for step in steps:
-        if step['operation'] != 'video_edit':
-            continue
-        for key, value in step.get('options', {}).items():
-            if key not in MEDIA_TOOL_FIELDS:
-                continue
-            if key in actual:
-                raise ValueError('PLANNER_DUPLICATE_TOOL: 같은 편집 도구를 중복 실행할 수 없습니다.')
-            actual[key] = value
+        if step['operation'] == 'video_edit':
+            for key, value in step.get('options', {}).items():
+                if key not in MEDIA_TOOL_FIELDS:
+                    continue
+                if key in actual:
+                    raise ValueError('PLANNER_DUPLICATE_TOOL: 같은 편집 도구를 중복 실행할 수 없습니다.')
+                actual[key] = value
+                if key == 'backgroundVolume':
+                    bgm_location = 'video_edit'
+        if step['operation'] == 'mix_narration' and 'background_volume' in step:
+            if 'backgroundVolume' in actual:
+                raise ValueError('PLANNER_DUPLICATE_TOOL: 배경음악은 한 번만 합성해야 합니다.')
+            actual['backgroundVolume'] = step['background_volume']
+            bgm_location = 'mix_narration'
 
     if 'speed' in requested:
         match = re.search(r'(?:속도|배속|speed)[^,.;\n]{0,24}?([0-9]+(?:\.[0-9]+)?)\s*(?:배|x)', text)
@@ -131,6 +138,9 @@ def validate_media_tool_values(command, steps):
     missing = requested - set(actual)
     if missing:
         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 도구가 누락됐습니다.')
+    has_narration = any(step['operation'] in {'narrate', 'mix_narration'} for step in steps)
+    if 'backgroundVolume' in requested and bgm_location != ('mix_narration' if has_narration else 'video_edit'):
+        raise ValueError('PLANNER_BGM_MIX_LOCATION_MISMATCH: 나레이션과 BGM은 한 번의 오디오 믹스로 합성해야 합니다.')
     for key, expected_value in expected.items():
         value = actual.get(key)
         if isinstance(expected_value, float):

@@ -43,10 +43,27 @@
           await new Promise(r=>setTimeout(r,350));const status=await fetch('/api/architecture-agent/productions/'+task.production_id);if(!status.ok)throw new Error('건축 영상 작업 상태를 읽을 수 없습니다.');task=await status.json();
         }
         if(task.state!=='SUCCEEDED')throw new Error(task.state+' · '+(task.error||task.missing?.join(', ')||'기존 결과는 보존했습니다.'));
+        const needsAudioFinish=/나레이션|내레이션|narration|tts|배경\s*음악|bgm/i.test(text);
+        if(needsAudioFinish){
+          const finishPlanResponse=await fetch('/api/workflows/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:text})});
+          const finishPlan=await finishPlanResponse.json();if(!finishPlanResponse.ok)throw new Error(finishPlan.error||'건축 영상 음성 계획 생성 실패');
+          let background=null;const bgm=video.querySelector('[data-bgm-input]').files[0];
+          if(finishPlan.steps.some(step=>Object.hasOwn(step.options||{},'backgroundVolume')||Object.hasOwn(step,'background_volume'))&&!bgm)throw new Error('건축 영상에 BGM을 넣으려면 우측 배경음악 버튼에서 오디오 파일을 먼저 선택하세요.');
+          if(bgm)background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.readAsDataURL(bgm);})};
+          const context=await window.mindleWorkflowContext();
+          const finishResponse=await fetch('/api/workflows',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:crypto.randomUUID(),plan_id:finishPlan.plan_id,input_job_id:task.receipt.job_id,project_id:task.receipt.project_id,job_ids:[...new Set([...(context.job_ids||[]),task.receipt.job_id])],workspace:context.workspace,steps:finishPlan.steps.map(({step_id,...step})=>step),background,export:true})});
+          let finish=await finishResponse.json();if(!finishResponse.ok)throw new Error(finish.error||'건축 영상 음성 작업 등록 실패');
+          while(!['SUCCEEDED','FAILED','CANCELLED','INTERRUPTED'].includes(finish.state)){
+            const node=show(`건축 AI 음성·BGM 마감 · ${finish.state} · 단계 ${finish.current_step+1}/${finish.steps.length}`);const cancel=document.createElement('button');cancel.type='button';cancel.textContent='작업 취소';cancel.addEventListener('click',()=>fetch('/api/workflows/'+finish.workflow_id+'/cancel',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}));node.append(cancel);
+            await new Promise(r=>setTimeout(r,350));const status=await fetch('/api/workflows/'+finish.workflow_id);if(!status.ok)throw new Error('건축 영상 음성 작업 상태를 읽을 수 없습니다.');finish=await status.json();
+          }
+          if(finish.state!=='SUCCEEDED')throw new Error(finish.state+' · '+(finish.error||'건축 영상 MP4는 보존했습니다.'));
+          task={...task,receipt:{...task.receipt,project_id:finish.project_id},finish_workflow_id:finish.workflow_id};
+        }
         window.mindleEndEdit('video');ownsPending=false;
         if(!await window.mindleWorkflowRestore(task.receipt.project_id))throw new Error('건축 영상은 완료됐지만 프로젝트를 다시 열지 못했습니다.');
         await window.mindleRefreshAiCore?.();
-        show('건축 AI 장면 계획·MP4 조립·프로젝트 저장 완료 · '+task.production_id);
+        show('건축 AI 장면 계획·MP4 조립'+(task.finish_workflow_id?'·신경망 나레이션·BGM 합성':'')+'·프로젝트 저장 완료 · '+task.production_id);
       }catch(error){show(error.message,true);}finally{if(ownsPending)window.mindleEndEdit('video');}
       return true;
     }
@@ -62,7 +79,7 @@
       const applied=Object.entries(plan.validated_edit_values||{}).map(([key,value])=>{let shown=value;if(['brightness','contrast','saturation'].includes(key))shown=(value>=0?'+':'')+value+' 포인트';else if(key==='speed')shown=value+'배';else if(['start','duration'].includes(key))shown=value+'초';else if(key==='backgroundVolume')shown=Math.round(value*100)+'%';else if(key==='fade')shown=value?'적용':'미적용';return (labels[key]||key)+' '+shown;}).join(' · ');
       show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획 · '+(plan.model_id||'모델 정보 없음'):'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → ')+(applied?' · 검증된 적용값: '+applied:''));
       let background=null;const bgm=editor.querySelector('[data-bgm-input]').files[0];
-      if(plan.steps.some(step=>Object.hasOwn(step.options||{},'backgroundVolume'))&&!bgm)throw new Error('BGM 작업을 실행하려면 우측 배경음악 버튼에서 오디오 파일을 먼저 선택하세요.');
+      if(plan.steps.some(step=>Object.hasOwn(step.options||{},'backgroundVolume')||Object.hasOwn(step,'background_volume'))&&!bgm)throw new Error('BGM 작업을 실행하려면 우측 배경음악 버튼에서 오디오 파일을 먼저 선택하세요.');
       if(bgm){background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.readAsDataURL(bgm);})};}
       const response=await fetch('/api/workflows',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:crypto.randomUUID(),plan_id:plan.plan_id,input_job_id:input,...await window.mindleWorkflowContext(),steps:plan.steps.map(({step_id,...step})=>step),background,export:true})});let task=await response.json();if(!response.ok)throw new Error(task.error||'작업 요청 실패');
       while(!['SUCCEEDED','FAILED','CANCELLED','INTERRUPTED'].includes(task.state)){

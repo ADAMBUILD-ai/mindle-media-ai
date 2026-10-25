@@ -1,0 +1,73 @@
+{
+  "status": "SOURCE_PASS_WINDOWS_MODEL_RUNTIME_REVALIDATION_REQUIRED",
+  "source_parent": "dc9bb55bd0b699e0c75ae6850bfe427fe6335702",
+  "flow": [
+    "QWEN_ARCHITECTURE_PLAN",
+    "FFMPEG_SCENE_ASSEMBLY",
+    "QWEN_AUDIO_FINISH_PLAN",
+    "SUPERTONIC_KOREAN_TTS",
+    "FFMPEG_SINGLE_AUDIO_MIX",
+    "PROJECT_REOPEN"
+  ],
+  "contracts": {
+    "assembled_job_is_finish_input": true,
+    "durable_finish_queue": true,
+    "bgm_single_mix": true,
+    "bgm_file_required": true,
+    "bgm_hash_rechecked": true,
+    "completed_assembly_preserved_on_finish_failure": true,
+    "text_to_video_generation": false
+  },
+  "validation": {
+    "python_direct_scenarios": 14,
+    "node_ui_contracts": 3,
+    "python_compile": "PASS",
+    "javascript_syntax": "PASS",
+    "actual_windows_model_rerun": false,
+    "human_hearing": false
+  },
+  "gates": {
+    "package_build_allowed": false,
+    "new_candidate_built": false,
+    "pr23_hold_do_not_merge": true,
+    "full_product_pass": false
+  },
+  "files": [
+    {
+      "path": "src/media_ai/planner_constraints.py",
+      "bytes": 8416,
+      "sha256": "1035bf9d97c48f767125b0b8a5928102be4de4571cca6610c125e0a36d0f744b"
+    },
+    {
+      "path": "src/media_ai/workflow_planner.py",
+      "bytes": 13289,
+      "sha256": "3ea6ea04f73f9cb770d898753aeec39861e400df8f1a0e6070836192b3ac9ad3"
+    },
+    {
+      "path": "src/media_ai/workflow_worker.py",
+      "bytes": 15710,
+      "sha256": "614b41fa50d9554e94c4fba8d835b85e1660310e1bc22085842c878c235e7801"
+    },
+    {
+      "path": "ui/workflow_execution.js",
+      "bytes": 20544,
+      "sha256": "bb9e2a47ba37dd0ca3cd7f19b958de60e00a6e09240825b7e200644567d48d64"
+    },
+    {
+      "path": "tests/test_planner_media_tools.py",
+      "bytes": 3376,
+      "sha256": "56c8e22fb1c106a06cba2741eeb22ed7d971019b12076d7efadc74cab0acb9ff"
+    },
+    {
+      "path": "ui/workflow_media_tools.test.js",
+      "bytes": 815,
+      "sha256": "a8623c9c69572a54cd84d6023787824e5e684263731b14dd98e7f62876fc53d0"
+    },
+    {
+      "path": "docs/evidence/media-ai-architecture-audio-chain-20261025/RESULT_KO.md",
+      "bytes": 2038,
+      "sha256": "ffb24bc54a4c95835cd45f8004c067e935cc362291a6d0d38f9ef9ef0ac6a61a"
+    }
+  ],
+  "captured_at": "2026-10-25T06:09:17.611411+00:00"
+}

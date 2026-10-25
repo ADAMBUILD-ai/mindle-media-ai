@@ -44,6 +44,23 @@ def test_aspect_fade_and_bgm_are_explicit_and_bgm_has_a_visible_default():
     )["backgroundVolume"] == .2
 
 
+def test_narration_and_bgm_use_one_audio_mix_step():
+    command = '"환영합니다" 나레이션과 배경음악을 넣어 주세요.'
+    steps = [
+        {"operation": "narrate", "text": "환영합니다"},
+        {"operation": "mix_narration", "length_policy": "reject", "background_volume": .35},
+    ]
+    assert validate_media_tool_values(command, steps)["backgroundVolume"] == .35
+    duplicated = [*steps, {"operation": "video_edit", "options": {"backgroundVolume": .35}}]
+    assert_rejected("PLANNER_DUPLICATE_TOOL", command, duplicated)
+    wrong_location = [
+        {"operation": "video_edit", "options": {"backgroundVolume": .35}},
+        {"operation": "narrate", "text": "환영합니다"},
+        {"operation": "mix_narration", "length_policy": "reject"},
+    ]
+    assert_rejected("PLANNER_BGM_MIX_LOCATION_MISMATCH", command, wrong_location)
+
+
 def test_missing_or_invented_media_tool_is_rejected():
     assert_rejected("PLANNER_INCOMPLETE_PLAN", "속도를 1.2배로", video_step({}))
     assert_rejected("PLANNER_SCOPE_MISMATCH", "밝기를 3 높여 주세요.", video_step({"speed": 1.2}))
