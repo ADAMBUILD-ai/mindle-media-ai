@@ -25,6 +25,8 @@ jobs:
   windows-fallback-preflight:
     runs-on: windows-latest
     timeout-minutes: 20
+    env:
+      PYTHONUTF8: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -49,6 +51,17 @@ jobs:
           New-Item -ItemType Directory -Force -Path remote_windows_fallback_evidence | Out-Null
           $profile | ConvertTo-Json | Set-Content remote_windows_fallback_evidence/REMOTE_WINDOWS_RUNNER_PROFILE.json -Encoding utf8
           Get-Content remote_windows_fallback_evidence/REMOTE_WINDOWS_RUNNER_PROFILE.json
+
+      - name: Preserve exact committed bytes before identity validation
+        shell: pwsh
+        run: |
+          python scripts/media_work_status.py --preflight | Set-Content remote_windows_fallback_evidence/BEFORE_EXACT_CHECKOUT.json -Encoding utf8
+          if ($LASTEXITCODE -notin @(0, 2)) { exit $LASTEXITCODE }
+          git -c core.autocrlf=false -c core.eol=lf checkout-index --all --force
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/media_work_status.py --preflight | Set-Content remote_windows_fallback_evidence/AFTER_EXACT_CHECKOUT.json -Encoding utf8
+          if ($LASTEXITCODE -notin @(0, 2)) { exit $LASTEXITCODE }
+          exit 0
 
       - name: Validate PC Work control plane
         shell: pwsh
@@ -85,6 +98,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Upload fallback preflight evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: media-ai-pc-windows-fallback-preflight
