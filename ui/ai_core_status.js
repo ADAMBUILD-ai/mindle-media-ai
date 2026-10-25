@@ -16,7 +16,7 @@
       label('whisper',actual.whisper_korean_stt?'Whisper 한국어 STT PASS':'Whisper 새 추론 필요',actual.whisper_korean_stt);
       label('upscale',actual.photo_upscale_4x?'4× 업스케일 PASS':'4× 업스케일 새 추론 필요',actual.photo_upscale_4x);
       root.dataset.state=value.state;
-      summary.textContent=value.state==='AI_RUNTIME_ACTUAL_CHAIN_VERIFIED'?'로컬 AI가 계획·음성·MP4를 실제 생성했습니다.':value.shell_only?'AI 엔진이 연결되지 않았습니다. 이 상태는 제품 PASS가 아닙니다.':'엔진은 준비됐습니다. 자연어 작업을 실행해야 실제 AI PASS가 됩니다.';
+      summary.textContent=value.state==='AI_RUNTIME_ACTUAL_CHAIN_VERIFIED'?'동일 작업의 AI 계획·신경망 음성·최종 MP4 연결을 검증했습니다. 음질·전체 제품 인수는 별도입니다.':value.shell_only?'AI 엔진이 연결되지 않았습니다. 이 상태는 제품 PASS가 아닙니다.':'엔진은 준비됐습니다. 자연어 작업을 실행해야 실제 AI PASS가 됩니다.';
     }catch(error){root.dataset.state='AI_STATUS_UNAVAILABLE';summary.textContent=error.message;for(const name of ['planner','tts','mp4','sam','whisper','upscale'])label(name,'상태 확인 실패',false);}
   }
   root.querySelector('[data-ai-core-refresh]').addEventListener('click',refresh);

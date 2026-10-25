@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "date_kst": "2026-10-25",
+  "reviewed_parent": "9cc6e93042a5e8d814a1693eca3151f81bbacee4",
+  "verdict": "SOURCE_REGRESSION_PASS_CURRENT_SOURCE_MODEL_INFERENCE_NOT_EXECUTED",
+  "python": {
+    "passed": 280,
+    "skipped": 6,
+    "failed": 0,
+    "log": "PYTHON_REGRESSION.txt"
+  },
+  "ui_javascript": {
+    "passed": 30,
+    "failed": 0,
+    "log": "UI_REGRESSION.txt"
+  },
+  "actual_this_session": {
+    "ffmpeg_video_audio_mix": true,
+    "sealed_voice_content_binding": true,
+    "http_status_artifact_change_downgrade": true,
+    "qwen_inference": false,
+    "supertonic_neural_synthesis": false,
+    "sam_inference": false,
+    "whisper_inference": false,
+    "upscale_inference": false,
+    "native_windows": false,
+    "human_hearing": false
+  },
+  "prior_remote_windows": {
+    "run_id": 40079944004,
+    "source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+    "status": "completed",
+    "conclusion": "success",
+    "scope": "PRIOR_R3_ONLY"
+  },
+  "gates": {
+    "package_build_allowed": false,
+    "new_exe_created": false,
+    "pr23_draft_hold": true,
+    "merge_allowed": false,
+    "full_product_pass": false
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39"
+  },
+  "changed_files": [
+    {
+      "path": "README.md",
+      "bytes": 1837,
+      "sha256": "b9f561d9217e698469abe62f02d3510cf75a053675a0c5da98fd2ac43d80c93e"
+    },
+    {
+      "path": "src/media_ai/ai_core_status.py",
+      "bytes": 8208,
+      "sha256": "32bc7bdf492581a4fadf0b1d4d9d344909882942f9943845a869f0f7d579f94d"
+    },
+    {
+      "path": "src/media_ai/planner_constraints.py",
+      "bytes": 10724,
+      "sha256": "ebe28e3485e0c890f7cc32895c0fea85cc76a9180183d070ba0276eb9de58fab"
+    },
+    {
+      "path": "src/media_ai/product_server.py",
+      "bytes": 30423,
+      "sha256": "d990236443321ad2d75487c38df6d0a2b8d7c80296c43073b7318d4b39e60cb8"
+    },
+    {
+      "path": "src/media_ai/workflow_planner.py",
+      "bytes": 13579,
+      "sha256": "3f6fe38fc555ad18d69c5f1afc3bcb484bd7aa8bd7bf4dcccc8d07a88f813cec"
+    },
+    {
+      "path": "tests/test_ai_core_status.py",
+      "bytes": 10273,
+      "sha256": "7086b610a80e77df1b63f7e3dd02b103b48fb9d2c8227dc795bdde38ae12e1fe"
+    },
+    {
+      "path": "tests/test_local_planner_scope.py",
+      "bytes": 11745,
+      "sha256": "e69063be00621ab8b67facd2862e71834fad00bd6e560ec109dd30bca1c01c00"
+    },
+    {
+      "path": "ui/ai_core_status.js",
+      "bytes": 2604,
+      "sha256": "333cb779621e236095032fe5004072692bac201002cab3593316caba649684db"
+    },
+    {
+      "path": "ui/workflow_execution.js",
+      "bytes": 20773,
+      "sha256": "d97d115abf9461a15b611319d139df10d7e378202ff570bf03d272f0fd7c9578"
+    },
+    {
+      "path": "ui/workflow_routing.test.js",
+      "bytes": 7560,
+      "sha256": "9853ac18165ac0d244e26c159c6748cfe120ea392a15d2f39e2d8997135b6e79"
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "docs/evidence/media-ai-commander-closeout-20261025/PYTHON_REGRESSION.txt",
+      "sha256": "1f826f69d74f6ed978f1fd6a284293f35f1c05e5ed79fca0c0ab487af9b041bd"
+    },
+    {
+      "path": "docs/evidence/media-ai-commander-closeout-20261025/RESULT_KO.md",
+      "sha256": "d2000357f09ee2ceb80c973830eaed38c2a8d28693f8a795caa5566420a22800"
+    },
+    {
+      "path": "docs/evidence/media-ai-commander-closeout-20261025/UI_REGRESSION.txt",
+      "sha256": "802c38ab0cebc492716b42699ed12ba9d114453308593331106c75c08cffc423"
+    }
+  ]
+}

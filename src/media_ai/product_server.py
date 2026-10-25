@@ -230,6 +230,7 @@ class Handler(BaseHTTPRequestHandler):
                 self.server.architecture_queue().list(),
                 list(self.server.service.records.values()),
                 self.server.service.model_readiness,
+                data_root=self.server.data_dir,
             ));return
         if route == '/api/architecture-agent/capabilities':
             from .workflow_planner import capabilities

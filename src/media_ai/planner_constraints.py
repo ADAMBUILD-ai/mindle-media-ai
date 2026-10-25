@@ -149,3 +149,37 @@ def validate_media_tool_values(command, steps):
         elif value != expected_value:
             raise ValueError('PLANNER_TOOL_VALUE_MISMATCH: 요청한 편집 설정과 계획이 다릅니다.')
     return expected
+
+
+def validate_narration_values(command, steps):
+    """Protect the full script, one synthesis/mix, and explicit audio intent."""
+    narration = [step for step in steps if step['operation'] == 'narrate']
+    mixes = [step for step in steps if step['operation'] == 'mix_narration']
+    if not narration and not mixes:
+        return {}
+    scripts = [match.group()[1:-1] for match in re.finditer(QUOTED, command)]
+    if len(scripts) != 1 or not scripts[0].strip():
+        raise ValueError('PLANNER_EXACT_SCRIPT_REQUIRED: 합성할 원고 하나를 따옴표로 명시하세요.')
+    if len(narration) != 1 or len(mixes) != 1:
+        raise ValueError('PLANNER_DUPLICATE_NARRATION: 한 원고는 한 번 생성하고 한 번 합성해야 합니다.')
+    if narration[0].get('text') != scripts[0]:
+        raise ValueError('PLANNER_SCRIPT_MISMATCH: 원고를 생략·변경·덧붙일 수 없습니다.')
+    text = instruction_text(command)
+    expected = {}
+    for field, pattern in [('volume', r'(?:나레이션|내레이션|narration|tts)\s*(?:음량|볼륨|volume)'),
+                           ('original_volume', r'(?:원본|원래|original)\s*(?:소리|오디오|음성|audio)?\s*(?:음량|볼륨|volume)')]:
+        matches = re.findall(pattern + r'\s*(?:을|를|은|는|:|=)?\s*([0-9]+(?:\.[0-9]+)?)\s*%', text)
+        if len(matches) > 1:
+            raise ValueError('PLANNER_AMBIGUOUS_AUDIO_VOLUME: 음량은 한 번씩 명시하세요.')
+        value = float(matches[0]) / 100 if matches else 1.0
+        actual = mixes[0].get(field, 1.0)
+        if (type(actual) not in (int, float) or not math.isfinite(actual)
+                or not 0 <= value <= 2 or not math.isclose(actual, value, rel_tol=0, abs_tol=1e-9)):
+            raise ValueError('PLANNER_AUDIO_VOLUME_MISMATCH: 요청하지 않은 음량 변경은 실행하지 않습니다.')
+        expected[field] = value
+    extend = bool(re.search(r'(?:영상|비디오|video)[^,.;\n]{0,20}(?:연장|늘려|늘리)|extend\s+(?:the\s+)?video', text))
+    policy = 'extend_video' if extend else 'reject'
+    if mixes[0].get('length_policy', 'reject') != policy:
+        raise ValueError('PLANNER_LENGTH_POLICY_MISMATCH: 영상 연장은 명시한 경우에만 실행합니다.')
+    expected['length_policy'] = policy
+    return expected

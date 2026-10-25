@@ -140,3 +140,51 @@ def test_other_negated_subtitle_forms_fail_closed(command):
 def test_korean_additive_particle_is_not_a_degree_unit():
     steps=[{'operation':'video_edit','options':{'brightness':3}},{'operation':'transcribe'},{'operation':'apply_subtitles'}]
     assert validate_plan_scope('밝기 3 높이고 자막도 넣어 줘',steps)==steps
+
+@pytest.mark.parametrize('script', ['안녕하세요', '신우입니다', '안녕하세요 신우입니다!'])
+def test_narration_must_preserve_the_complete_exact_quoted_script(script):
+    with pytest.raises(ValueError, match='PLANNER_SCRIPT_MISMATCH'):
+        validate_plan_scope('"안녕하세요 신우입니다" 나레이션을 넣어 줘', [
+            {'operation':'narrate','text':script}, {'operation':'mix_narration'}])
+
+@pytest.mark.parametrize('change', [
+    {'volume':0}, {'original_volume':0}, {'volume':2}, {'length_policy':'extend_video'},
+])
+def test_model_cannot_mute_or_extend_video_without_request(change):
+    with pytest.raises(ValueError, match='PLANNER_(AUDIO_VOLUME|LENGTH_POLICY)_MISMATCH'):
+        validate_plan_scope('"안녕하세요" 나레이션을 넣어 줘', [
+            {'operation':'narrate','text':'안녕하세요'}, {'operation':'mix_narration',**change}])
+
+
+def test_explicit_narration_original_volumes_and_extension_are_preserved():
+    steps=[{'operation':'narrate','text':'환영합니다'},
+           {'operation':'mix_narration','volume':.8,'original_volume':.2,'length_policy':'extend_video'}]
+    assert validate_plan_scope('"환영합니다" 나레이션 음량 80%, 원본 소리 음량 20%, 영상 연장해 줘',steps)==steps
+
+
+def test_model_cannot_synthesize_same_script_twice():
+    with pytest.raises(ValueError, match='PLANNER_DUPLICATE_NARRATION'):
+        validate_plan_scope('"안녕하세요" 나레이션을 넣어 줘', [
+            {'operation':'narrate','text':'안녕하세요'}, {'operation':'narrate','text':'안녕하세요'},
+            {'operation':'mix_narration'}])
+
+
+def test_planner_response_is_saved_as_exact_utf8_bytes_on_every_platform(tmp_path, monkeypatch):
+    """Prevent Windows newline translation from invalidating the inference receipt."""
+    import hashlib
+    import json
+    from pathlib import Path
+    from media_ai import workflow_planner as planner
+    raw = json.dumps({'steps':[{'operation':'video_edit','options':{'brightness':3}}]}, indent=2)+'\n'
+    settings = {'model_sha256':'a'*64,'revision':'b'*40,'license':'fixture','executable_sha256':'c'*64}
+    monkeypatch.setattr(planner,'invoke_local_json_plan',lambda *args,**kwargs:(json.loads(raw),raw,settings))
+    normal_write = Path.write_text
+    def no_text_response(path, data, *args, **kwargs):
+        if path.suffix == '.txt':
+            pytest.fail('model response must use a byte write, including diagnostics')
+        return normal_write(path,data,*args,**kwargs)
+    monkeypatch.setattr(Path,'write_text',no_text_response)
+    plan = planner.make_plan(tmp_path,{'command':'밝기 3 높여 줘'})
+    response = tmp_path/'workflows/plans'/(plan['plan_id']+'.response.txt')
+    assert response.read_bytes() == raw.encode('utf-8')
+    assert hashlib.sha256(response.read_bytes()).hexdigest() == plan['raw_response_sha256']
