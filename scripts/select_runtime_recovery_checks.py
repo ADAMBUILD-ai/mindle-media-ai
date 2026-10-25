@@ -17,6 +17,7 @@ CONTROL_ONLY = {
     '.github/workflows/remote-verified-runtime-package.yml',
     'tests/test_r2_package_gate.py',
     '.github/workflows/pc-one-click-windows-fallback.yml','tests/test_exact_checkout_bytes.py',
+    'scripts/restore_exact_status_source.py',
     'scripts/validate_general_work_control_plane.py', 'scripts/select_runtime_recovery_checks.py',
     'tests/test_general_work_control_plane.py', 'tests/test_runtime_recovery_selection.py',
     'model_scout/run_runtime_recovery_browser.py',
