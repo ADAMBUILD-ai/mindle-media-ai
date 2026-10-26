@@ -1,0 +1,46 @@
+{
+  "CORE_BASELINE_CHECK.json": {
+    "bytes": 1878,
+    "sha256": "ba7c7f42bc613051b461a2aac09273e37f0ed5eff5d8618d4fad4b9786c4ab3f"
+  },
+  "DEFAULT_CONFIG_BLOCKED.json": {
+    "bytes": 104,
+    "sha256": "a49c53df6e6b4d24bb9e10fa8a0870427d679d5e12119fb79209c30b66ef36f9"
+  },
+  "GENERAL_CONTROL.log": {
+    "bytes": 258,
+    "sha256": "f863bd6934008ba0d1d9ca6b42635f3d81dd7d730352386f8d08e672b6cca087"
+  },
+  "LOCAL_ADAPTER_REGRESSION.log": {
+    "bytes": 100,
+    "sha256": "c0902de1310d57067132a468ba4e152a39bff923dd6ce9c4c7df62516f08b385"
+  },
+  "LOCAL_REGRESSION.log": {
+    "bytes": 592,
+    "sha256": "5e0f3d02c65247c1c43f887453d484dfbd948ee57f64a604771cff407507c38f"
+  },
+  "PC_CONTROL.log": {
+    "bytes": 209,
+    "sha256": "05335cc952f4ecf382cb4084342bb354e3f8b1f9dbbb88a62ae23ac731d78b70"
+  },
+  "REMOTE_CANONICAL_JOB.log": {
+    "bytes": 81181,
+    "sha256": "8c518e397172e06d4883fc8a9ff9ea7377748b614d12e3e5b1be39920e673405"
+  },
+  "RESULT_KO.md": {
+    "bytes": 3825,
+    "sha256": "4d1d0b9a6c34f0e99ef0e58c6f50937b877614f56ac7e5c409983d7630dfe0e1"
+  },
+  "SOURCE_VALIDATION.json": {
+    "bytes": 2961,
+    "sha256": "0f7ffcf2793015e6b6e70d20f2b3c037dcaa7a62e2de1c404bb586f2f849b986"
+  },
+  "SYNTHETIC_EXPORT_MANIFEST.json": {
+    "bytes": 1408,
+    "sha256": "686051ebf5656ba4092a997497903d3457d6d51bbb3eec158f0fcba583f20166"
+  },
+  "SYNTHETIC_PROCESS_LIFECYCLE.json": {
+    "bytes": 1051,
+    "sha256": "84370b75f483b55576134723d4e8ef8ac1507c8a8790128b336e88ae380bcb40"
+  }
+}

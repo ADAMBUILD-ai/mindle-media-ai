@@ -1,0 +1,34 @@
+{
+  "schema": "MINDLE_PROJECT_BUNDLE_V1",
+  "project_id": "316cab75-feee-4f90-9377-caec0af5ef62",
+  "files": [
+    {
+      "role": "output",
+      "job_id": "d7c9d812-b1fd-418f-ac40-c73816e4f47b",
+      "archive_path": "jobs/d7c9d812-b1fd-418f-ac40-c73816e4f47b/fd803540-c2a6-4978-8eb0-74e22d724e52_ltx_dd24ebbf-da22-49a7-b9bd-ad11c002b7da.mp4",
+      "sha256": "31d3bdd36f17c6011c1671805d977597062ffb177a6997535bdcb3c2eba9db24",
+      "bytes": 6564
+    },
+    {
+      "role": "output",
+      "job_id": "d7c9d812-b1fd-418f-ac40-c73816e4f47b",
+      "archive_path": "jobs/d7c9d812-b1fd-418f-ac40-c73816e4f47b/original_video_preview.mp4",
+      "sha256": "57426784bb2ef811c42df4cac221d92aaef6a71e03a8306c54e9bd721a4c1ba6",
+      "bytes": 6421
+    },
+    {
+      "role": "input",
+      "job_id": "d7c9d812-b1fd-418f-ac40-c73816e4f47b",
+      "archive_path": "inputs/d7c9d812-b1fd-418f-ac40-c73816e4f47b/fd803540-c2a6-4978-8eb0-74e22d724e52_ltx_dd24ebbf-da22-49a7-b9bd-ad11c002b7da.mp4",
+      "sha256": "31d3bdd36f17c6011c1671805d977597062ffb177a6997535bdcb3c2eba9db24",
+      "bytes": 6564
+    },
+    {
+      "role": "reference",
+      "job_id": "d7c9d812-b1fd-418f-ac40-c73816e4f47b",
+      "archive_path": "references/d7c9d812-b1fd-418f-ac40-c73816e4f47b/000_GENERATION_SOURCE_RECEIPT.json",
+      "sha256": "4326c0d7eb64a9b616eb5294f9364906cec7db7c355c0fbfc79b68a6bde0ebaf",
+      "bytes": 3285
+    }
+  ]
+}
