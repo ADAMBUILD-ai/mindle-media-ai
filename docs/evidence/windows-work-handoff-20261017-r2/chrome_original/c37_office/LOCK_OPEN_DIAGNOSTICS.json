@@ -1,0 +1,23 @@
+{
+  "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\deploy.lock",
+  "time": "2026-10-17T14:42:20.335407+09:00",
+  "attempts": [
+    {
+      "mode": "rb",
+      "open": "PASS_NO_READ_OR_WRITE"
+    },
+    {
+      "mode": "r+b",
+      "error": "PermissionError(13, 'Permission denied')",
+      "errno": 13,
+      "winerror": null
+    },
+    {
+      "mode": "a+b",
+      "error": "PermissionError(13, 'Permission denied')",
+      "errno": 13,
+      "winerror": null
+    }
+  ],
+  "file_modified": false
+}

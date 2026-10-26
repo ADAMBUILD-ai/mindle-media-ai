@@ -1,0 +1,52 @@
+{
+  "overall": "PARTIAL",
+  "completed": [
+    "three upstream fix groups integrated",
+    "two reproduced stale-presentation defects fixed",
+    "16 Node and 46 Python pass",
+    "real Chrome staged-restore boundaries and dense 1536x1024/1536x720 source checks"
+  ],
+  "blocked": [
+    {
+      "item": "followup candidate and office full restart",
+      "reason": "Build Gate=false; no officially delivered candidate containing c1956f4",
+      "owner": "GENERAL / build approver then WINDOWS",
+      "entry": "separate valid build approval, immutable candidate source/manifest/EXE/ZIP handoff"
+    },
+    {
+      "item": "browser download",
+      "reason": "Chrome automation cancels even plain TXT control; response HTTP200, direct bytes/CRC pass. Root cause unconfirmed; not promoted to UI download PASS",
+      "owner": "WINDOWS browser-control environment",
+      "entry": "permitted browser download path/environment proof without weakening product checks"
+    },
+    {
+      "item": "hearing",
+      "reason": "owner explicitly said unconfirmed",
+      "owner": "human office verifier",
+      "entry": "actual candidate export playback + witness and time"
+    }
+  ],
+  "preserved": [
+    "c37 PC bounded launch/save/reopen/export/PotPlayer display-seek",
+    "Chrome6 ef56 source PASS",
+    "R9 TXT/CSV/PNG/exceptions",
+    "deploy.lock open access denial vs byte-lock conflict separation"
+  ],
+  "r9_large_zip": "original 272MB bytes still not received by General; metadata only",
+  "external": "DEFERRED_EXTERNAL",
+  "restrictions": [
+    "PR23 HOLD",
+    "no main merge/force push",
+    "no rebuild/employee package regeneration",
+    "no OpenAI connection",
+    "no final product PASS"
+  ],
+  "approved_image_match": "FAIL_APPROVED_IMAGE_MATCH",
+  "ui_comparison": "UI_IMAGE_COMPARISON_FINAL_KO.md; latest original 1536x1024 vs actual source Chrome baseline, not historical F27E",
+  "remaining_ui": {
+    "status": "FAIL",
+    "evidence": "UI_IMAGE_COMPARISON_FINAL_KO.md",
+    "owner": "GENERAL / approved UI restoration",
+    "entry": "Preserve connected features and restore latest approved structure; no new design or fabricated Timeline functionality"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-30",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_head": "6e1625db2996ec6563ee97a3dbf507b7396f790b",
+  "directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RUNTIME_INPUT_RECOVERY_REAL_UI_EXECUTION_DIRECTIVE_v3.0_20260930.md",
+    "commit": "6e1625db2996ec6563ee97a3dbf507b7396f790b"
+  },
+  "execution_surface": {
+    "os": "Windows 10",
+    "server": "http://127.0.0.1:8765/",
+    "browser_tab": "4",
+    "evidence_endpoint": "http://127.0.0.1:8765/api/evidence"
+  },
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO"
+  },
+  "inputs": {
+    "photo_segmentation": {
+      "path": "model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg",
+      "bytes": 8967798,
+      "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75",
+      "approval_trace": "prior PC v15/v19 evidence and repository fixture manifest"
+    },
+    "photo_upscale": {
+      "path": "model_scout/artifacts/realesrgan_qualcomm/benchmark/01_input_128.png",
+      "bytes": 38721,
+      "sha256": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2",
+      "approval_trace": "prior repository benchmark fixture; input-only lane"
+    },
+    "video": {"status": "VERIFY_REQUIRED", "reason": "no approved local video materialized"},
+    "korean_audio": {"status": "VERIFY_REQUIRED", "reason": "no approved spoken-Korean audio materialized"}
+  },
+  "ui": {
+    "approved_shell": "PASS",
+    "native_chooser": "VERIFY_REQUIRED",
+    "chooser_detail": "import control visible in AX tree; current browser surface did not surface a Windows chooser; no bypass used",
+    "shortform_entry": "PASS",
+    "shortform_missing_contract_route": "PASS_503_VERIFY_REQUIRED"
+  },
+  "jobs": {
+    "photo_segmentation": {
+      "job_id": "6b410fb0-1471-4b8d-baea-858fcf5820e0",
+      "http_status": 422,
+      "status": "FAILED",
+      "root_cause": "HF private revision ad63c52a4b9a3db7eaec9c5058c94ee1422757dd blocked by Windows network policy WinError 10013"
+    },
+    "photo_upscale": {
+      "job_id": "d243b8ba-79f3-4bef-843c-b7a5e8acd791",
+      "http_status": 422,
+      "status": "FAILED",
+      "root_cause": "perpetual-use alternative cache revision is required"
+    }
+  },
+  "lanes": {
+    "photo_segmentation": "REWORK",
+    "photo_4x": "REWORK",
+    "video_tracking": "VERIFY_REQUIRED",
+    "korean_stt": "VERIFY_REQUIRED",
+    "preview": "VERIFY_REQUIRED",
+    "completed_project_save": "VERIFY_REQUIRED",
+    "export": "VERIFY_REQUIRED",
+    "shortform_live_e2e": "VERIFY_REQUIRED"
+  },
+  "runtime": {
+    "python": "3.11.9",
+    "torch": "2.14.0+cu126",
+    "cuda_available": true,
+    "opencv": "5.0.0",
+    "ffmpeg_on_path": false,
+    "openvino": false
+  },
+  "ui_ssot_changed": false,
+  "fabricated_inputs_or_outputs": false,
+  "evidence_locations": {
+    "review_md": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RUNTIME_INPUT_RECOVERY_REAL_UI_REVIEW_v3.0_20260930.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_RUNTIME_INPUT_RECOVERY_REAL_UI_EVIDENCE_v3_0_20260930.json",
+    "cycle_manifest": "evidence/pc_remote/pc-work-runtime-input-recovery-v3-20260930/manifest.json",
+    "next_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_RUNTIME_INPUT_RECOVERY_NEXT_DIRECTIVE_v3.1_20260930.md"
+  },
+  "final_commit_sha": "46fd8babec9d3deed3c38c514aa8c6db87a043c1"
+}

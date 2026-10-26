@@ -1,0 +1,51 @@
+{
+  "work_id": "MEDIA-REAL-30S-GENERAL-CLOSEOUT-R3-20261026",
+  "role": "GENERAL_WORK",
+  "execution_source_commit": "8e50446144d83d804ecb8a072f93b63bc117876d",
+  "status": "GENERAL_WORK_COMPLETE_PC_HANDOFF_NOT_ELIGIBLE_UNTIL_REAL_INPUT",
+  "actual_input": {
+    "operator_input_sha256": "58bc76fd27f0051ec49920b227658371ba15c4c3292d088f9add745f2bc28e06",
+    "changed_since_last_intake": false,
+    "status": "BLOCKED_ASSET_INTAKE",
+    "return_03_executed": false,
+    "reason": "video, rights evidence, BGM, Korean narration, three volumes, and voice-length policy remain null"
+  },
+  "general_completed": {
+    "source_and_windows_runner_use_same_stream_timing_gate": true,
+    "source_and_windows_runner_use_same_reopen_project_identity_gate": true,
+    "stream_timing_rejects_container_only_30_seconds": true,
+    "reopen_checks_script_volumes_workspace_inputs_outputs_references": true,
+    "engine_reuse_selection": {
+      "changed_paths_from_pinned_engine_source": 112,
+      "engine_job_body_unchanged": true,
+      "run_engines": false,
+      "reason": "all changed paths are isolated acceptance tooling, handoff/evidence, or explicitly non-engine LTX tooling; runtime engine inputs are unchanged"
+    }
+  },
+  "validation": {
+    "full_python": "462 PASS / 6 SKIP",
+    "focused_general": "64 PASS",
+    "ui_contracts": "2 PASS",
+    "syntax_evidence_sync_package_source_tree": "PASS",
+    "actual_model_inference_started": false,
+    "real_30_second_mp4_created": false,
+    "owner_visual_audio_review": "NOT_EXECUTED"
+  },
+  "pc_work": {
+    "status": "DO_NOT_START_YET",
+    "first_eligible_trigger": "a changed OPERATOR_INPUT.json followed by PASS INPUT_MANIFEST.json, PREPARATION_RECEIPT.json, and INTAKE_RESULT.json",
+    "required_general_recheck_after_return": [
+      "actual source and manifest identity binding",
+      "engine identity binding",
+      "Windows 7B adoption approval binding"
+    ]
+  },
+  "restrictions": {
+    "build_gate": false,
+    "pr_23": "DRAFT_HOLD",
+    "main_merge": false,
+    "deployment": false,
+    "new_exe": false,
+    "installed_model_change": false
+  }
+}

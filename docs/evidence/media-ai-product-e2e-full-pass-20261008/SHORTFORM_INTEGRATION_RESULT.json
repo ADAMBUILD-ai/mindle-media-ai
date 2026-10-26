@@ -1,0 +1,20 @@
+{
+  "status": "BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION",
+  "missing_dependencies": [
+    "MARKETING_SHORTFORM_BRIDGE_TOKEN for the actual Marketing provider",
+    "actual Marketing runtime at http://127.0.0.1:4318"
+  ],
+  "provider_base_url": "http://127.0.0.1:4318",
+  "token_present": false,
+  "provider": {
+    "reachable": false
+  },
+  "marketing_http_contract": "NOT_REACHED",
+  "approved_avora_asset": "NOT_REACHED",
+  "shortform_preview": "NOT_REACHED",
+  "representative_approval": "NOT_REACHED",
+  "mp4_export": "NOT_REACHED",
+  "mock_used": false,
+  "auto_publish": false,
+  "ad_spend": false
+}

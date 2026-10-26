@@ -1,0 +1,120 @@
+{
+  "status": "SOURCE_VALIDATED_OWNER_PC_FRESH_AI_GATE_READY",
+  "source_parent": "655a2e3dcc8c100dfee766fc871c8310006b1f29",
+  "candidate_reused": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3",
+  "candidate_source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "candidate_runtime_id": "9f5d304ce825-0f8cc3c5d320-ai-r3",
+  "truth_contract": {
+    "configured_is_not_actual_inference": true,
+    "fresh_qwen_inference_required": true,
+    "fresh_supertonic_inference_required": true,
+    "fresh_mp4_video_and_audio_required": true,
+    "sam_success_record_required_for_sam_pass": true,
+    "whisper_success_record_required_for_stt_pass": true,
+    "upscale_success_record_required_for_4x_pass": true,
+    "text_to_video_generation_implemented": false,
+    "semantic_vision_generation_implemented": false
+  },
+  "validation": {
+    "python_ai_core_scenarios": 4,
+    "python_owner_kit_contracts": 3,
+    "node_ui_contracts": 2,
+    "python_compile": "PASS",
+    "json_parse": "PASS",
+    "bundle_crc": "PASS",
+    "pytest_runner_available": false,
+    "windows_execution_this_change": false
+  },
+  "gates": {
+    "package_build_allowed": false,
+    "new_candidate_built": false,
+    "office_pc_execution": false,
+    "human_hearing": false,
+    "approved_ui_pixel_match": false,
+    "full_product_pass": false,
+    "pr23_hold_do_not_merge": true
+  },
+  "files": [
+    {
+      "path": "src/media_ai/ai_core_status.py",
+      "bytes": 3740,
+      "sha256": "cc953904066b29d51dbb9185cd1c8e56ef4a0f50b30844d75cbc2427f32e451c"
+    },
+    {
+      "path": "src/media_ai/product_server.py",
+      "bytes": 30375,
+      "sha256": "40ca80544b929579287bca3c56f8f0b02394d8c4e6162f65803031e7739b7efe"
+    },
+    {
+      "path": "tests/test_ai_core_status.py",
+      "bytes": 2593,
+      "sha256": "5cc47729b400615164159377177df6eeca46ad6bd661f12a0646f1255fdeedae"
+    },
+    {
+      "path": "ui/index.html",
+      "bytes": 14809,
+      "sha256": "42df9f45397239e0847e93c9fc567d64f5267e0155b41094071559f30d982d0d"
+    },
+    {
+      "path": "ui/ai_core_status.js",
+      "bytes": 2531,
+      "sha256": "8fd160936f295228e337809f4caddfe46476bf828a469c7ad878d0628e6d9c8f"
+    },
+    {
+      "path": "ui/ai_core_status.test.js",
+      "bytes": 1025,
+      "sha256": "cfb1b0e7c2f2b0fbdde7f3995a08bbc79f94e861e63499d94ba2aa92801f49aa"
+    },
+    {
+      "path": "ui/approved_visual.css",
+      "bytes": 17237,
+      "sha256": "0b449183cc7e0d445898eec58888d4488f58a0e89def859083cd91e574632401"
+    },
+    {
+      "path": "ui/ssot_structure.test.js",
+      "bytes": 2076,
+      "sha256": "240075c3cafadd4ede184840606e21bbb0102a2ac2d08556735c4a3c91c88701"
+    },
+    {
+      "path": "ui/workflow_execution.js",
+      "bytes": 16914,
+      "sha256": "b281336ba25857b030b0085df2d7cbfdc09f304b683930cd92878ff3ea5330e1"
+    },
+    {
+      "path": "scripts/accept_r3_on_owner_pc.ps1",
+      "bytes": 15283,
+      "sha256": "ae09f860f115ef5d45b7724ac1aeb2d2608d0945f61897bc06242e5e74eb87c3"
+    },
+    {
+      "path": "tests/test_owner_pc_r3_acceptance_kit.py",
+      "bytes": 2280,
+      "sha256": "45338aecbeff339c361f1efb09dabb759669175bbbe49532992d615e042dac5c"
+    },
+    {
+      "path": "docs/handoff/MINDLE_MEDIA_AI_R3_OWNER_PC_ACCEPTANCE_KIT_20261025.zip",
+      "bytes": 6546,
+      "sha256": "c097989c53d87296a60f07ce668194ebc797bb1b4075895b06a85a1f186f5608"
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_R3_OWNER_PC_FINAL_ACCEPTANCE_DIRECTIVE_v1.0_20261024.md",
+      "bytes": 2445,
+      "sha256": "ba99ada5f53887e766242fabc7732a20d43af12b8c33533f993397a76d5157e7"
+    },
+    {
+      "path": "docs/evidence/media-ai-r3-owner-pc-acceptance-kit-20261024/RESULT_KO.md",
+      "bytes": 2967,
+      "sha256": "75f662749f8c46ceb03ac3bb67e34146941a9bbddeb2875a087421cb3095d986"
+    },
+    {
+      "path": "docs/evidence/media-ai-r3-owner-pc-acceptance-kit-20261024/ACCEPTANCE_KIT.json",
+      "bytes": 1239,
+      "sha256": "ca24e929ff14ce28b2602e279c385c1fbed3a99077feaf4af11857c10c7725b8"
+    },
+    {
+      "path": "docs/evidence/media-ai-ai-core-truthful-runtime-20261025/RESULT_KO.md",
+      "bytes": 2642,
+      "sha256": "e116c5398c665b7bad60fc42f9094c8bf48178c632371fbbbde6c56a708d9274"
+    }
+  ],
+  "captured_at": "2026-10-25T05:34:00.497821+00:00"
+}

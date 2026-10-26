@@ -1,0 +1,383 @@
+{
+  "status": "PASS_CHROME_AND_LGPL_NATIVE_EDIT_FILTERS",
+  "source_commit": "69f49900d85714426620ae50b5f1fec727a80264",
+  "preview": {
+    "status": "H264_PREVIEW_CREATED",
+    "model_output_preserved": true,
+    "ffmpeg_version": "ffmpeg version n8.1.3-18-g46d899d7a0-20261012 Copyright (c) 2000-2026 the FFmpeg developers",
+    "encoder": "h264_mf",
+    "command": [
+      "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_runtime\\tools\\ffmpeg\\ffmpeg.exe",
+      "-y",
+      "-i",
+      "D:\\a\\mindle-media-ai\\mindle-media-ai\\docs\\evidence\\media-ai-general-work-final-self-audit-20261008\\KOREAN_SUBTITLE_ACTUAL.mp4",
+      "-map",
+      "0:v:0",
+      "-map",
+      "0:a?",
+      "-vf",
+      "scale=trunc(iw/2)*2:trunc(ih/2)*2",
+      "-c:v",
+      "h264_mf",
+      "-pix_fmt",
+      "yuv420p",
+      "-c:a",
+      "aac",
+      "-movflags",
+      "+faststart",
+      "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_evidence\\preview.mp4"
+    ],
+    "input": {
+      "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\docs\\evidence\\media-ai-general-work-final-self-audit-20261008\\KOREAN_SUBTITLE_ACTUAL.mp4",
+      "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+    },
+    "output": {
+      "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_evidence\\preview.mp4",
+      "file_name": "preview.mp4",
+      "bytes": 141932,
+      "sha256": "7bccb39492cfed9f96f9d4eccfd970f75621459f27a2e3e0bc0a0b272c3e06e7"
+    },
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_tag_string": "avc1",
+          "width": 320,
+          "height": 180,
+          "pix_fmt": "yuv420p",
+          "duration": "4.000000"
+        },
+        {
+          "codec_name": "aac",
+          "codec_tag_string": "mp4a",
+          "duration": "4.032000"
+        }
+      ],
+      "format": {
+        "duration": "4.032000"
+      }
+    },
+    "faststart": true,
+    "gpu_used": false,
+    "paid_compute": false
+  },
+  "browsers": [
+    {
+      "browser": "bundled_chromium",
+      "version": "140.0.7339.16",
+      "capability": {
+        "h264": "",
+        "aac": "",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/140.0.7339.16 Safari/537.36"
+      },
+      "before_play": {
+        "MediaError_code": null,
+        "readyState": 0,
+        "videoWidth": 0,
+        "currentSrc": "http://127.0.0.1:57544/preview.mp4",
+        "currentTime": 0
+      },
+      "after_play": {
+        "MediaError_code": null,
+        "readyState": 0,
+        "videoWidth": 0,
+        "currentSrc": "http://127.0.0.1:57544/preview.mp4",
+        "currentTime": 0
+      },
+      "status": "FAIL"
+    },
+    {
+      "browser": "google_chrome",
+      "version": "154.0.8037.58",
+      "capability": {
+        "h264": "probably",
+        "aac": "probably",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+      },
+      "before_play": {
+        "MediaError_code": null,
+        "readyState": 4,
+        "videoWidth": 320,
+        "currentSrc": "http://127.0.0.1:57544/preview.mp4",
+        "currentTime": 0.02082
+      },
+      "after_play": {
+        "MediaError_code": null,
+        "readyState": 4,
+        "videoWidth": 320,
+        "currentSrc": "http://127.0.0.1:57544/preview.mp4",
+        "currentTime": 1.235815
+      },
+      "status": "PASS"
+    }
+  ],
+  "filter_inventory": "Filters:\n  T.. = Timeline support\n  .S. = Slice threading\n  A = Audio input/output\n  V = Video input/output\n  N = Dynamic number and/or type of input/output\n  | = Source or sink filter\n  ------\n TS aap               AA->A      Apply Affine Projection algorithm to first audio stream.\n .. abench            A->A       Benchmark part of a filtergraph.\n .. acompressor       A->A       Audio compressor.\n .. acontrast         A->A       Simple audio dynamic range compression/expansion filter.\n .. acopy             A->A       Copy the input audio unchanged to the output.\n .. acue              A->A       Delay filtering to match a cue.\n .. acrossfade        N->A       Cross fade two input audio streams.\n .S acrossover        A->N       Split audio into per-bands streams.\n T. acrusher          A->A       Reduce audio bit resolution.\n TS adeclick          A->A       Remove impulsive noise from input audio.\n TS adeclip           A->A       Remove clipping from input audio.\n TS adecorrelate      A->A       Apply decorrelation to input audio.\n T. adelay            A->A       Delay one or more audio channels.\n TS adenorm           A->A       Remedy denormals by adding extremely low-level noise.\n T. aderivative       A->A       Compute derivative of input audio.\n TS adrc              A->A       Audio Spectral Dynamic Range Controller.\n TS adynamicequalizer A->A       Apply Dynamic Equalization of input audio.\n T. adynamicsmooth    A->A       Apply Dynamic Smoothing of input audio.\n .. aecho             A->A       Add echoing to the audio.\n TS aemphasis         A->A       Audio emphasis.\n T. aeval             A->A       Filter audio signal according to a specified expression.\n T. aexciter          A->A       Enhance high frequency part of audio.\n T. afade             A->A       Fade in/out input audio.\n TS afftdn            A->A       Denoise audio samples using FFT.\n TS afftfilt          A->A       Apply arbitrary expressions to samples in frequency domain.\n TS afir              N->A       Apply Finite Impulse Response filter with supplied coefficients in additional stream(s).\n .. aformat           A->A       Convert the input audio to one of the specified formats.\n TS afreqshift        A->A       Apply frequency shifting to input audio.\n TS afwtdn            A->A       Denoise audio stream using Wavelets.\n T. agate             A->A       Audio gate.\n .S aiir              A->N       Apply Infinite Impulse Response filter with supplied coefficients.\n T. aintegral         A->A       Compute integral of input audio.\n .. ainterleave       N->A       Temporally interleave audio inputs.\n T. alatency          A->A       Report audio filtering latency.\n T. alimiter          A->A       Audio lookahead limiter.\n TS allpass           A->A       Apply a two-pole all-pass filter.\n .. aloop             A->A       Loop audio samples.\n .. amerge            N->A       Merge two or more audio streams into a single multi-channel stream.\n T. ametadata         A->A       Manipulate audio frame metadata.\n .. amix              N->A       Audio mixing.\n .. amultiply         AA->A      Multiply two audio streams.\n TS anequalizer       A->N       Apply high-order audio parametric multi band equalizer.\n TS anlmdn            A->A       Reduce broadband noise from stream using Non-Local Means.\n TS anlmf             AA->A      Apply Normalized Least-Mean-Fourth algorithm to first audio stream.\n TS anlms             AA->A      Apply Normalized Least-Mean-Squares algorithm to first audio stream.\n .. anull             A->A       Pass the source unchanged to the output.\n T. apad              A->A       Pad audio with silence.\n T. aperms            A->A       Set permissions for the output audio frame.\n .. aphaser           A->A       Add a phasing effect to the audio.\n TS aphaseshift       A->A       Apply phase shifting to input audio.\n TS apsnr             AA->A      Measure Audio Peak Signal-to-Noise Ratio.\n TS apsyclip          A->A       Audio Psychoacoustic Clipper.\n .. apulsator         A->A       Audio pulsator.\n .. arealtime         A->A       Slow down filtering to match realtime.\n .. aresample         A->A       Resample audio data.\n .. areverse          A->A       Reverse an audio clip.\n TS arls              AA->A      Apply Recursive Least Squares algorithm to first audio stream.\n TS arnndn            A->A       Reduce noise from speech using Recurrent Neural Networks.\n TS asdr              AA->A      Measure Audio Signal-to-Distortion Ratio.\n .. asegment          A->N       Segment audio stream.\n .. aselect           A->N       Select audio frames to pass in output.\n .. asendcmd          A->A       Send commands to filters.\n T. asetnsamples      A->A       Set the number of samples for each output audio frames.\n .. asetpts           A->A       Set PTS for the output audio frame.\n .. asetrate          A->A       Change the sample rate without altering the data.\n .. asettb            A->A       Set timebase for the audio output link.\n .. ashowinfo         A->A       Show textual information for each audio frame.\n T. asidedata         A->A       Manipulate audio frame side data.\n TS asisdr            AA->A      Measure Audio Scale-Invariant Signal-to-Distortion Ratio.\n TS asoftclip         A->A       Audio Soft Clipper.\n .S aspectralstats    A->A       Show frequency domain statistics about audio frames.\n .. asplit            A->N       Pass on the audio input to N audio outputs.\n .S astats            A->A       Show time domain statistics about audio frames.\n .. astreamselect     N->N       Select audio streams\n TS asubboost         A->A       Boost subwoofer frequencies.\n TS asubcut           A->A       Cut subwoofer frequencies.\n TS asupercut         A->A       Cut super frequencies.\n TS asuperpass        A->A       Apply high order Butterworth band-pass filter.\n TS asuperstop        A->A       Apply high order Butterworth band-stop filter.\n .. atempo            A->A       Adjust audio tempo.\n TS atilt             A->A       Apply spectral tilt to audio.\n .. atrim             A->A       Pick one continuous section from the input, drop the rest.\n .. axcorrelate       AA->A      Cross-correlate two audio streams.\n .. azmq              A->A       Receive commands through ZMQ and broker them to filters.\n TS bandpass          A->A       Apply a two-pole Butterworth band-pass filter.\n TS bandreject        A->A       Apply a two-pole Butterworth band-reject filter.\n TS bass              A->A       Boost or cut lower frequencies.\n TS biquad            A->A       Apply a biquad IIR filter with the given coefficients.\n .. channelmap        A->A       Remap audio channels.\n .. channelsplit      A->N       Split audio into per-channel streams.\n .. chorus            A->A       Add a chorus effect to the audio.\n .. compand           A->A       Compress or expand audio dynamic range.\n T. compensationdelay A->A       Audio Compensation Delay Line.\n T. crossfeed         A->A       Apply headphone crossfeed filter.\n TS crystalizer       A->A       Simple audio noise sharpening filter.\n T. dcshift           A->A       Apply a DC shift to the audio.\n T. deesser           A->A       Apply de-essing to the audio.\n T. dialoguenhance    A->A       Audio Dialogue Enhancement.\n .. drmeter           A->A       Measure audio dynamic range.\n TS dynaudnorm        A->A       Dynamic Audio Normalizer.\n .. earwax            A->A       Widen the stereo image.\n .. ebur128           A->N       EBU R128 scanner.\n TS equalizer         A->A       Apply two-pole peaking equalization (EQ) filter.\n T. extrastereo       A->A       Increase difference between stereo audio channels.\n .. firequalizer      A->A       Finite Impulse Response Equalizer.\n .. flanger           A->A       Apply a flanging effect to the audio.\n .. haas              A->A       Apply Haas Stereo Enhancer.\n .. hdcd              A->A       Apply High Definition Compatible Digital (HDCD) decoding.\n .S headphone         N->A       Apply headphone binaural spatialization with HRTFs in additional streams.\n TS highpass          A->A       Apply a high-pass filter with 3dB point frequency.\n TS highshelf         A->A       Apply a high shelf filter.\n .. join              N->A       Join multiple audio streams into multi-channel output.\n .. loudnorm          A->A       EBU R128 loudness normalization\n TS lowpass           A->A       Apply a low-pass filter with 3dB point frequency.\n TS lowshelf          A->A       Apply a low shelf filter.\n .. lv2               N->A       Apply LV2 effect.\n .. mcompand          A->A       Multiband Compress or expand audio dynamic range.\n .. pan               A->A       Remix channels with coefficients (panning).\n .. replaygain        A->A       ReplayGain scanner.\n .. sidechaincompress AA->A      Sidechain compressor.\n T. sidechaingate     AA->A      Audio sidechain gate.\n .. silencedetect     A->A       Detect silence.\n T. silenceremove     A->A       Remove silence.\n T. speechnorm        A->A       Speech Normalizer.\n T. stereotools       A->A       Apply various stereo tools.\n T. stereowiden       A->A       Apply stereo widening effect.\n .. superequalizer    A->A       Apply 18 band equalization filter.\n .S surround          A->A       Apply audio surround upmix filter.\n TS tiltshelf         A->A       Apply a tilt shelf filter.\n TS treble            A->A       Boost or cut upper frequencies.\n T. tremolo           A->A       Apply tremolo effect.\n T. vibrato           A->A       Apply vibrato effect.\n T. virtualbass       A->A       Audio Virtual Bass.\n T. volume            A->A       Change input volume.\n .. volumedetect      A->A       Detect audio volume.\n .. aevalsrc          |->A       Generate an audio signal generated by an expression.\n .. afdelaysrc        |->A       Generate a Fractional delay FIR coefficients.\n .. afireqsrc         |->A       Generate a FIR equalizer coefficients audio stream.\n .. afirsrc           |->A       Generate a FIR coefficients audio stream.\n .. anoisesrc         |->A       Generate a noise audio signal.\n .. anullsrc          |->A       Null audio source, return empty audio frames.\n .. hilbert           |->A       Generate a Hilbert transform FIR coefficients.\n .. sinc              |->A       Generate a sinc kaiser-windowed low-pass, high-pass, band-pass, or band-reject FIR coefficients.\n .. sine              |->A       Generate sine wave audio signal.\n .. anullsink         A->|       Do absolutely nothing with the input audio.\n .. addroi            V->V       Add region of interest to frame.\n .. alphaextract      V->V       Extract an alpha channel as a grayscale image component.\n T. alphamerge        VV->V      Copy the luma value of the second input into the alpha channel of the first input.\n TS amplify           V->V       Amplify changes between successive video frames.\n .. ass               V->V       Render ASS subtitles onto input video using the libass library.\n TS atadenoise        V->V       Apply an Adaptive Temporal Averaging Denoiser.\n T. avgblur           V->V       Apply Average Blur filter.\n .. avgblur_opencl    V->V       Apply average blur filter\n .. avgblur_vulkan    V->V       Apply avgblur mask to input video\n TS backgroundkey     V->V       Turns a static background into transparency.\n T. bbox              V->V       Compute bounding box for each frame.\n .. bench             V->V       Benchmark part of a filtergraph.\n TS bilateral         V->V       Apply Bilateral filter.\n .. bilateral_cuda    V->V       GPU accelerated bilateral filter\n T. bitplanenoise     V->V       Measure bit plane noise.\n .S blackdetect       V->V       Detect video intervals that are (almost) black.\n .. blackdetect_vulkan V->V       Detect video intervals that are (almost) black.\n TS blend             VV->V      Blend two video frames into each other.\n .. blend_vulkan      VV->V      Blend two video frames in Vulkan\n .. blockdetect       V->V       Blockdetect filter.\n .. blurdetect        V->V       Blurdetect filter.\n TS bm3d              N->V       Block-Matching 3D denoiser.\n TS bwdif             V->V       Deinterlace the input image.\n T. bwdif_cuda        V->V       Deinterlace CUDA frames\n T. bwdif_vulkan      V->V       Deinterlace Vulkan frames via bwdif\n TS cas               V->V       Contrast Adaptive Sharpen.\n .. ccrepack          V->V       Repack CEA-708 closed caption metadata\n .. chromaber_vulkan  V->V       Offset chroma of input video (chromatic aberration)\n TS chromahold        V->V       Turns a certain color range into gray.\n TS chromakey         V->V       Turns a certain color into transparency. Operates on YUV colors.\n .. chromakey_cuda    V->V       GPU accelerated chromakey filter\n TS chromanr          V->V       Reduce chrominance noise.\n TS chromashift       V->V       Shift chroma.\n .. ciescope          V->V       Video CIE scope.\n T. codecview         V->V       Visualize information about some codecs.\n TS colorbalance      V->V       Adjust the color balance.\n TS colorchannelmixer V->V       Adjust colors by mixing color channels.\n TS colorcontrast     V->V       Adjust color contrast between RGB components.\n TS colorcorrect      V->V       Adjust color white balance selectively for blacks and whites.\n .S colordetect       V->V       Detect video color properties.\n TS colorize          V->V       Overlay a solid color on the video stream.\n TS colorkey          V->V       Turns a certain color into transparency. Operates on RGB colors.\n .. colorkey_opencl   V->V       Turns a certain color into transparency. Operates on RGB colors.\n TS colorhold         V->V       Turns a certain color range into gray. Operates on RGB colors.\n TS colorlevels       V->V       Adjust the color levels.\n TS colormap          VVV->V     Apply custom Color Maps to video stream.\n TS colorspace        V->V       Convert between colorspaces.\n .. colorspace_cuda   V->V       CUDA accelerated video color converter\n TS colortemperature  V->V       Adjust color temperature of video.\n TS convolution       V->V       Apply convolution filter.\n .. convolution_opencl V->V       Apply convolution mask to input video\n TS convolve          VV->V      Convolve first video stream with second video stream.\n .. copy              V->V       Copy the input video unchanged to the output.\n TS corr              VV->V      Calculate the correlation between two video streams.\n .. crop              V->V       Crop the input video.\n .. cue               V->V       Delay filtering to match a cue.\n TS curves            V->V       Adjust components curves.\n .S datascope         V->V       Video data analysis.\n T. dblur             V->V       Apply Directional Blur filter.\n TS dctdnoiz          V->V       Denoise frames using 2D DCT.\n TS deband            V->V       Debands video.\n T. deblock           V->V       Deblock video.\n .. decimate          N->V       Decimate frames (post field matching filter).\n TS deconvolve        VV->V      Deconvolve first video stream with second video stream.\n TS dedot             V->V       Reduce cross-luminance and cross-color.\n TS deflate           V->V       Apply deflate effect.\n .. deflicker         V->V       Remove temporal frame luminance variations.\n .. deinterlace_qsv   V->V       Quick Sync Video \"deinterlacing\"\n .. deinterlace_d3d12 V->V       Deinterlacing using Direct3D12 Video Processor\n .. deinterlace_vaapi V->V       Deinterlacing of VAAPI surfaces\n .. dejudder          V->V       Remove judder produced by pullup.\n .. denoise_vaapi     V->V       VAAPI VPP for de-noise\n .. deshake           V->V       Stabilize shaky video.\n .. deshake_opencl    V->V       Feature-point based video stabilization filter\n TS despill           V->V       Despill video.\n .. detelecine        V->V       Apply an inverse telecine pattern.\n TS dilation          V->V       Apply dilation effect.\n .. dilation_opencl   V->V       Apply dilation effect\n TS displace          VVV->V     Displace pixels.\n .S doubleweave       V->V       Weave input video fields into double number of frames.\n T. drawbox           V->V       Draw a colored box on the input video.\n .. drawgraph         V->V       Draw a graph using input video metadata.\n T. drawgrid          V->V       Draw a colored grid on the input video.\n T. drawtext          V->V       Draw text on top of video frames using libfreetype library.\n T. edgedetect        V->V       Detect and draw edge.\n .. elbg              V->V       Apply posterize effect, using the ELBG algorithm.\n T. entropy           V->V       Measure video frames entropy.\n .S epx               V->V       Scale the input using EPX algorithm.\n TS erosion           V->V       Apply erosion effect.\n .. erosion_opencl    V->V       Apply erosion effect\n TS estdif            V->V       Apply Edge Slope Tracing deinterlace.\n TS exposure          V->V       Adjust exposure of the video stream.\n .. extractplanes     V->N       Extract planes as grayscale frames.\n TS fade              V->V       Fade in/out input video.\n T. feedback          VV->VV     Apply feedback video filter.\n TS fftdnoiz          V->V       Denoise frames using 3D FFT.\n TS fftfilt           V->V       Apply arbitrary expressions to pixels in frequency domain.\n .. field             V->V       Extract a field from the input video.\n .. fieldhint         V->V       Field matching using hints.\n .. fieldmatch        N->V       Field matching for inverse telecine.\n T. fieldorder        V->V       Set the field order.\n T. fillborders       V->V       Fill borders of the input video.\n .. flip_vulkan       V->V       Flip both horizontally and vertically\n T. floodfill         V->V       Fill area with same color with another color.\n .. format            V->V       Convert the input video to one of the specified pixel formats.\n .. fps               V->V       Force constant framerate.\n .. framepack         VV->V      Generate a frame packed stereoscopic video.\n .S framerate         V->V       Upsamples or downsamples progressive source between specified frame rates.\n T. framestep         V->V       Select one frame every N frames.\n .. freezedetect      V->V       Detects frozen video input.\n .. freezeframes      VV->V      Freeze video frames.\n .. fsync             V->V       Synchronize video frames from external source.\n TS gblur             V->V       Apply Gaussian Blur filter.\n .. gblur_vulkan      V->V       Gaussian Blur in Vulkan\n TS geq               V->V       Apply generic equation to each pixel.\n T. gradfun           V->V       Debands video quickly using gradients.\n .. graphmonitor      V->V       Show various filtergraph stats.\n TS grayworld         V->V       Adjust white balance using LAB gray world algorithm\n TS greyedge          V->V       Estimates scene illumination by grey edge assumption.\n TS guided            N->V       Apply Guided filter.\n TS haldclut          VV->V      Adjust colors using a Hald CLUT.\n TS hflip             V->V       Horizontally flip the input video.\n .. hflip_vulkan      V->V       Horizontally flip the input video in Vulkan\n .. histogram         V->V       Compute and draw a histogram.\n .S hqx               V->V       Scale the input by 2, 3 or 4 using the hq*x magnification algorithm.\n .S hstack            N->V       Stack video inputs horizontally.\n TS hsvhold           V->V       Turns a certain HSV range into gray.\n TS hsvkey            V->V       Turns a certain HSV range into transparency. Operates on YUV colors.\n T. hue               V->V       Adjust the hue and saturation of the input video.\n TS huesaturation     V->V       Apply hue-saturation-intensity adjustments.\n .. hwdownload        V->V       Download a hardware frame to a normal frame\n .. hwmap             V->V       Map hardware frames\n .. hwupload          V->V       Upload a normal frame to a hardware frame\n .. hwupload_cuda     V->V       Upload a system memory frame to a CUDA device.\n T. hysteresis        VV->V      Grow first stream into second stream by connecting components.\n .. iccdetect         V->V       Detect and parse ICC profiles.\n .. iccgen            V->V       Generate and attach ICC profiles.\n TS identity          VV->V      Calculate the Identity between two video streams.\n .. idet              V->V       Interlace detect Filter.\n T. il                V->V       Deinterleave or interleave fields.\n TS inflate           V->V       Apply inflate effect.\n .. interlace_vulkan  V->V       Convert progressive video into interlaced.\n .. interleave        N->V       Temporally interleave video inputs.\n TS kirsch            V->V       Apply kirsch operator.\n TS lagfun            V->V       Slowly update darker pixels.\n T. latency           V->V       Report video filtering latency.\n .. lcevc             V->V       LCEVC\n TS lenscorrection    V->V       Rectify the image by correcting for lens distortion.\n .. libplacebo        N->V       Apply various GPU filters from libplacebo\n .. libvmaf           VV->V      Calculate the VMAF between two video streams.\n TS limitdiff         N->V       Apply filtering with limiting difference.\n TS limiter           V->V       Limit pixels components to the specified range.\n .. loop              V->V       Loop video frames.\n TS lumakey           V->V       Turns a certain luma into transparency.\n TS lut               V->V       Compute and apply a lookup table to the RGB/YUV input video.\n TS lut1d             V->V       Adjust colors using a 1D LUT.\n TS lut2              VV->V      Compute and apply a lookup table from two video inputs.\n TS lut3d             V->V       Adjust colors using a 3D LUT.\n TS lutrgb            V->V       Compute and apply a lookup table to the RGB input video.\n TS lutyuv            V->V       Compute and apply a lookup table to the YUV input video.\n TS maskedclamp       VVV->V     Clamp first stream with second stream and third stream.\n TS maskedmax         VVV->V     Apply filtering with maximum difference of two streams.\n TS maskedmerge       VVV->V     Merge first stream with second stream using third stream as mask.\n TS maskedmin         VVV->V     Apply filtering with minimum difference of two streams.\n TS maskedthreshold   VV->V      Pick pixels comparing absolute difference of two streams with threshold.\n TS maskfun           V->V       Create Mask.\n TS median            V->V       Apply Median filter.\n .. mergeplanes       N->V       Merge planes.\n .. mestimate         V->V       Generate motion vectors.\n .. mestimate_d3d12   V->V       Generate motion vectors using D3D12 hardware acceleration.\n T. metadata          V->V       Manipulate video frame metadata.\n T. midequalizer      VV->V      Apply Midway Equalization.\n .. minterpolate      V->V       Frame rate conversion using Motion Interpolation.\n TS mix               N->V       Mix video inputs.\n TS monochrome        V->V       Convert video to gray using custom color filter.\n TS morpho            VV->V      Apply Morphological filter.\n TS msad              VV->V      Calculate the MSAD between two video streams.\n TS multiply          VV->V      Multiply first video stream with second video stream.\n TS negate            V->V       Negate input video.\n TS nlmeans           V->V       Non-local means denoiser.\n .. nlmeans_opencl    V->V       Non-local means denoiser through OpenCL\n .. nlmeans_vulkan    V->V       Non-local means denoiser (Vulkan)\n .. noformat          V->V       Force libavfilter not to use any of the specified pixel formats for the input to the next filter.\n TS noise             V->V       Add noise.\n T. normalize         V->V       Normalize RGB video.\n .. null              V->V       Pass the source unchanged to the output.\n T. oscilloscope      V->V       2D Video Oscilloscope.\n TS overlay           VV->V      Overlay a video source on top of the input.\n .. overlay_opencl    VV->V      Overlay one video on top of another\n .. overlay_qsv       VV->V      Quick Sync Video overlay.\n .. overlay_vaapi     VV->V      Overlay one video on top of another\n .. overlay_vulkan    VV->V      Overlay a source on top of another\n T. overlay_cuda      VV->V      Overlay one video on top of another using CUDA\n .. pad               V->V       Pad the input video.\n .. pad_cuda          V->V       CUDA-based GPU padding filter\n .. pad_opencl        V->V       Pad the input video.\n .. palettegen        V->V       Find the optimal palette for a given stream.\n .. paletteuse        VV->V      Use a palette to downsample an input video stream.\n T. perms             V->V       Set permissions for the output video frame.\n .. photosensitivity  V->V       Filter out photosensitive epilepsy seizure-inducing flashes.\n .. pixdesctest       V->V       Test pixel format definitions.\n TS pixelize          V->V       Pixelize video.\n T. pixscope          V->V       Pixel data analysis.\n TS premultiply       N->V       PreMultiply first stream with first plane of second stream.\n .S premultiply_dynamic V->V       Premultiply or unpremultiply an image in-place, as needed.\n TS prewitt           V->V       Apply prewitt operator.\n .. prewitt_opencl    V->V       Apply prewitt operator\n .. procamp_vaapi     V->V       ProcAmp (color balance) adjustments for hue, saturation, brightness, contrast\n .. program_opencl    N->V       Filter video using an OpenCL program\n TS pseudocolor       V->V       Make pseudocolored video frames.\n TS psnr              VV->V      Calculate the PSNR between two video streams.\n T. qp                V->V       Change video quantization parameters.\n .. random            V->V       Return random frames.\n TS readeia608        V->V       Read EIA-608 Closed Caption codes from input video and write them to frame metadata.\n .. readvitc          V->V       Read vertical interval timecode and write it to frame metadata.\n .. realtime          V->V       Slow down filtering to match realtime.\n .S remap             VVV->V     Remap pixels.\n .. remap_opencl      VVV->V     Remap pixels using OpenCL.\n TS removegrain       V->V       Remove grain.\n T. removelogo        V->V       Remove a TV logo based on a mask image.\n .. reverse           V->V       Reverse a clip.\n TS rgbashift         V->V       Shift RGBA.\n TS roberts           V->V       Apply roberts cross operator.\n .. roberts_opencl    V->V       Apply roberts operator\n TS rotate            V->V       Rotate the input image.\n .. scale             V->V       Scale the input video size and/or convert the image format.\n .. vpp_amf           V->V       AMF video scaling and format conversion\n .. sr_amf            V->V       AMF HQ video upscaling\n .. scale_cuda        V->V       GPU accelerated video resizer\n .. scale_d3d11       V->V       Scale video using Direct3D11\n .. scale_d3d12       V->V       Scale video using Direct3D12\n .. scale_qsv         V->V       Quick Sync Video \"scaling and format conversion\"\n .. scale_vaapi       V->V       Scale to/from VAAPI surfaces.\n .. scale_vulkan      V->V       Scale Vulkan frames\n .. scale2ref         VV->VV     Scale the input video size and/or convert the image format to the given reference.\n .. scdet             V->V       Detect video scene change\n .. scdet_vulkan      V->V       Detect video scene change\n TS scharr            V->V       Apply scharr operator.\n TS scroll            V->V       Scroll input video.\n .. segment           V->N       Segment video stream.\n .. select            V->N       Select video frames to pass in output.\n TS selectivecolor    V->V       Apply CMYK adjustments to specific color ranges.\n .. sendcmd           V->V       Send commands to filters.\n .. separatefields    V->V       Split input video frames into fields.\n .. setdar            V->V       Set the frame display aspect ratio.\n .. setfield          V->V       Force field for the output video frame.\n .. setparams         V->V       Force field, or color property for the output video frame.\n .. setpts            V->V       Set PTS for the output video frame.\n .. setrange          V->V       Force color range for the output video frame.\n .. setsar            V->V       Set the pixel sample aspect ratio.\n .. settb             V->V       Set timebase for the video output link.\n .. sharpness_vaapi   V->V       VAAPI VPP for sharpness\n TS shear             V->V       Shear transform the input image.\n .. showinfo          V->V       Show textual information for each video frame.\n .. showpalette       V->V       Display frame palette.\n T. shuffleframes     V->V       Shuffle video frames.\n TS shufflepixels     V->V       Shuffle video pixels.\n T. shuffleplanes     V->V       Shuffle video planes.\n T. sidedata          V->V       Manipulate video frame side data.\n .S signalstats       V->V       Generate statistics from video analysis.\n .. siti              V->V       Calculate spatial information (SI) and temporal information (TI).\n TS sobel             V->V       Apply sobel operator.\n .. sobel_opencl      V->V       Apply sobel operator\n .. split             V->N       Pass on the input to N video outputs.\n TS ssim              VV->V      Calculate the SSIM between two video streams.\n .. ssim360           VV->V      Calculate the SSIM between two 360 video streams.\n .. streamselect      N->N       Select video streams\n .. subtitles         V->V       Render text subtitles onto input video using the libass library.\n T. swaprect          V->V       Swap 2 rectangular objects in video.\n T. swapuv            V->V       Swap U and V components.\n TS tblend            V->V       Blend successive frames.\n .. telecine          V->V       Apply a telecine pattern.\n .. thistogram        V->V       Compute and draw a temporal histogram.\n TS threshold         VVVV->V    Threshold first video stream using other video streams.\n TS thumbnail         V->V       Select the most representative frame in a given sequence of consecutive frames.\n .. thumbnail_cuda    V->V       Select the most representative frame in a given sequence of consecutive frames using CUDA.\n .. tile              V->V       Tile several successive frames together.\n .. tiltandshift      V->V       Generate a tilt-and-shift'd video.\n TS tlut2             V->V       Compute and apply a lookup table from two successive frames.\n TS tmedian           V->V       Pick median pixels from successive frames.\n T. tmidequalizer     V->V       Apply Temporal Midway Equalization.\n TS tmix              V->V       Mix successive video frames.\n .S tonemap           V->V       Conversion to/from different dynamic ranges.\n .. tonemap_opencl    V->V       Perform HDR to SDR conversion with tonemapping.\n .. tonemap_vaapi     V->V       VAAPI VPP for tone-mapping\n .. tpad              V->V       Temporarily pad video frames.\n .S transpose         V->V       Transpose input video.\n .. transpose_opencl  V->V       Transpose input video\n .. transpose_vaapi   V->V       VAAPI VPP for transpose\n .. transpose_vulkan  V->V       Transpose Vulkan Filter\n .. trim              V->V       Pick one continuous section from the input, drop the rest.\n TS unpremultiply     N->V       UnPreMultiply first stream with first plane of second stream.\n TS unsharp           V->V       Sharpen or blur the input video.\n .. unsharp_opencl    V->V       Apply unsharp mask to input video\n .. untile            V->V       Untile a frame into a sequence of frames.\n .S v360              V->V       Convert 360 projection of video.\n TS varblur           VV->V      Apply Variable Blur filter.\n .. vectorscope       V->V       Video vectorscope.\n T. vflip             V->V       Flip the input video vertically.\n .. vflip_vulkan      V->V       Vertically flip the input video in Vulkan\n .. vfrdet            V->V       Variable frame rate detect filter.\n TS vibrance          V->V       Boost or alter saturation.\n TS vif               VV->V      Calculate the VIF between two video streams.\n T. vignette          V->V       Make or reverse a vignette effect.\n .. vmafmotion        V->V       Calculate the VMAF Motion score.\n .. vpp_qsv           V->V       Quick Sync Video \"VPP\"\n .S vstack            N->V       Stack video inputs vertically.\n TS w3fdif            V->V       Apply Martin Weston three field deinterlace.\n .S waveform          V->V       Video waveform monitor.\n .S weave             V->V       Weave input video fields into frames.\n .S xbr               V->V       Scale the input using xBR algorithm.\n TS xcorrelate        VV->V      Cross-correlate first video stream with second video stream.\n .S xfade             VV->V      Cross fade one video with another video.\n .. xfade_opencl      VV->V      Cross fade one video with another video.\n .. xfade_vulkan      VV->V      Cross fade one video with another video.\n TS xmedian           N->V       Pick median pixels from several video inputs.\n T. xpsnr             VV->V      Calculate the extended perceptually weighted peak signal-to-noise ratio (XPSNR) between two video streams.\n .S xstack            N->V       Stack video inputs into custom layout.\n TS yadif             V->V       Deinterlace the input image.\n T. yadif_cuda        V->V       Deinterlace CUDA frames\n TS yaepblur          V->V       Yet another edge preserving blur filter.\n .. zmq               V->V       Receive commands through ZMQ and broker them to filters.\n .. zoompan           V->V       Apply Zoom & Pan effect.\n .S zscale            V->V       Apply resizing, colorspace and bit depth conversion.\n .. hstack_vaapi      N->V       \"VA-API\" hstack\n .. vstack_vaapi      N->V       \"VA-API\" vstack\n .. xstack_vaapi      N->V       \"VA-API\" xstack\n .. hstack_qsv        N->V       \"Quick Sync Video\" hstack\n .. vstack_qsv        N->V       \"Quick Sync Video\" vstack\n .. xstack_qsv        N->V       \"Quick Sync Video\" xstack\n .. pad_vaapi         V->V       Pad the input video.\n .. drawbox_vaapi     V->V       Draw a colored box on the input video.\n .. allrgb            |->V       Generate all RGB colors.\n .. allyuv            |->V       Generate all yuv colors.\n .. vsrc_amf          |->V       AMD AMF screen capture\n .. cellauto          |->V       Create pattern generated by an elementary cellular automaton.\n .. color             |->V       Provide an uniformly colored input.\n .. color_vulkan      |->V       Generate a constant color (Vulkan)\n .. colorchart        |->V       Generate color checker chart.\n .. colorspectrum     |->V       Generate colors spectrum.\n .. ddagrab           |->V       Grab Windows Desktop images using Desktop Duplication API\n .. gfxcapture        |->V       Capture graphics/screen content as a video source\n .S gradients         |->V       Draw a gradients.\n .. haldclutsrc       |->V       Provide an identity Hald CLUT.\n .. life              |->V       Create life.\n .. mandelbrot        |->V       Render a Mandelbrot fractal.\n .. nullsrc           |->V       Null video source, return unprocessed video frames.\n .. openclsrc         |->V       Generate video using an OpenCL program\n .. pal75bars         |->V       Generate PAL 75% color bars.\n .. pal100bars        |->V       Generate PAL 100% color bars.\n .. perlin            |->V       Generate Perlin noise\n .. rgbtestsrc        |->V       Generate RGB test pattern.\n .S sierpinski        |->V       Render a Sierpinski fractal.\n .. smptebars         |->V       Generate SMPTE color bars.\n .. smptehdbars       |->V       Generate SMPTE HD color bars.\n .. testsrc           |->V       Generate test pattern.\n .. testsrc2          |->V       Generate another test pattern.\n .. yuvtestsrc        |->V       Generate YUV test pattern.\n .S zoneplate         |->V       Generate zone-plate.\n .. nullsink          V->|       Do absolutely nothing with the input video.\n .. a3dscope          A->V       Convert input audio to 3d scope video output.\n .. abitscope         A->V       Convert input audio to audio bit scope video output.\n .. adrawgraph        A->V       Draw a graph using input audio metadata.\n .. agraphmonitor     A->V       Show various filtergraph stats.\n .. ahistogram        A->V       Convert input audio to histogram video output.\n .. aphasemeter       A->N       Convert input audio to phase meter video output.\n .S avectorscope      A->V       Convert input audio to vectorscope video output.\n .. concat            N->N       Concatenate audio and video streams.\n .. showcqt           A->V       Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output.\n .S showcwt           A->V       Convert input audio to a CWT (Continuous Wavelet Transform) spectrum video output.\n .. showfreqs         A->V       Convert input audio to a frequencies video output.\n .S showspatial       A->V       Convert input audio to a spatial video output.\n .S showspectrum      A->V       Convert input audio to a spectrum video output.\n .S showspectrumpic   A->V       Convert input audio to a spectrum video output single picture.\n .. showvolume        A->V       Convert input audio volume to video output.\n .. showwaves         A->V       Convert input audio to a video output.\n .. showwavespic      A->V       Convert input audio to a video output single picture.\n .. spectrumsynth     VV->A      Convert input spectrum videos to audio output.\n .. avsynctest        |->AV      Generate an Audio Video Sync Test.\n .. amovie            |->N       Read audio from a movie source.\n .. movie             |->N       Read from a movie source.\n .. abuffer           |->A       Buffer audio frames, and make them accessible to the filterchain.\n .. buffer            |->V       Buffer video frames, and make them accessible to the filterchain.\n .. abuffersink       A->|       Buffer audio frames, and make them available to the end of the filter graph.\n .. buffersink        V->|       Buffer video frames, and make them available to the end of the filter graph.\n",
+  "malgun_available": true,
+  "edit_tests": [
+    {
+      "test": "brightness_contrast_saturation",
+      "options": {
+        "brightness": 18,
+        "contrast": 20,
+        "saturation": 15
+      },
+      "status": "PASS",
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "051aded5-824c-4d44-866e-888e44d636b0",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "\uc601\uc0c1 \ud3b8\uc9d1",
+        "input": {
+          "file_name": "8c8ab6ff-1172-4ce0-ab71-8893efd03eec_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\inputs\\8c8ab6ff-1172-4ce0-ab71-8893efd03eec_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "bytes": 130275,
+          "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\051aded5-824c-4d44-866e-888e44d636b0\\edited_video.mp4",
+          "bytes": 141690,
+          "sha256": "09d3ae15bf691c7d31807e2d43cdf73321a66c0b47c8b474601fb68fc2f6fdd5"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\051aded5-824c-4d44-866e-888e44d636b0\\edited_video.mp4",
+            "bytes": 141690,
+            "sha256": "09d3ae15bf691c7d31807e2d43cdf73321a66c0b47c8b474601fb68fc2f6fdd5"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "brightness": 18,
+            "contrast": 20,
+            "saturation": 15
+          },
+          "model_inference": false,
+          "sampled_frames": 0,
+          "analysis": null
+        }
+      }
+    },
+    {
+      "test": "denoise",
+      "options": {
+        "denoise": true
+      },
+      "status": "PASS",
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "414c5104-fd93-4799-9fde-e68328675f8b",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "\uc601\uc0c1 \ud3b8\uc9d1",
+        "input": {
+          "file_name": "f764b272-c17a-4ada-8bad-4b069ccc1b8f_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\inputs\\f764b272-c17a-4ada-8bad-4b069ccc1b8f_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "bytes": 130275,
+          "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\414c5104-fd93-4799-9fde-e68328675f8b\\edited_video.mp4",
+          "bytes": 142649,
+          "sha256": "0c6d39d46000e50b8e1619655fc1461b08ccdc05a4d399ad6c31b7956bbc4236"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\414c5104-fd93-4799-9fde-e68328675f8b\\edited_video.mp4",
+            "bytes": 142649,
+            "sha256": "0c6d39d46000e50b8e1619655fc1461b08ccdc05a4d399ad6c31b7956bbc4236"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "denoise": true
+          },
+          "model_inference": false,
+          "sampled_frames": 0,
+          "analysis": null
+        }
+      }
+    },
+    {
+      "test": "stabilize",
+      "options": {
+        "stabilize": true
+      },
+      "status": "PASS",
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "01ea9d47-2f32-4e17-acf9-77f19356a9f6",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "\uc601\uc0c1 \ud3b8\uc9d1",
+        "input": {
+          "file_name": "17019056-2111-4237-9a0c-09c8d61f8a76_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\inputs\\17019056-2111-4237-9a0c-09c8d61f8a76_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "bytes": 130275,
+          "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\01ea9d47-2f32-4e17-acf9-77f19356a9f6\\edited_video.mp4",
+          "bytes": 141932,
+          "sha256": "7bccb39492cfed9f96f9d4eccfd970f75621459f27a2e3e0bc0a0b272c3e06e7"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\01ea9d47-2f32-4e17-acf9-77f19356a9f6\\edited_video.mp4",
+            "bytes": 141932,
+            "sha256": "7bccb39492cfed9f96f9d4eccfd970f75621459f27a2e3e0bc0a0b272c3e06e7"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": true
+          },
+          "model_inference": false,
+          "sampled_frames": 0,
+          "analysis": null
+        }
+      }
+    },
+    {
+      "test": "effect",
+      "options": {
+        "effect": true
+      },
+      "status": "PASS",
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "631e90d5-ba7a-4c2a-88c6-c65c206f4d2e",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "\uc601\uc0c1 \ud3b8\uc9d1",
+        "input": {
+          "file_name": "0ec05b5d-7bd3-4608-b866-074e929e3586_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\inputs\\0ec05b5d-7bd3-4608-b866-074e929e3586_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "bytes": 130275,
+          "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\631e90d5-ba7a-4c2a-88c6-c65c206f4d2e\\edited_video.mp4",
+          "bytes": 140082,
+          "sha256": "8667e62b677033ea8300f3c20448b117216cb4f81ce0248e4d9020c6cb5e95f7"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\631e90d5-ba7a-4c2a-88c6-c65c206f4d2e\\edited_video.mp4",
+            "bytes": 140082,
+            "sha256": "8667e62b677033ea8300f3c20448b117216cb4f81ce0248e4d9020c6cb5e95f7"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "effect": true
+          },
+          "model_inference": false,
+          "sampled_frames": 0,
+          "analysis": null
+        }
+      }
+    },
+    {
+      "test": "fade",
+      "options": {
+        "fade": true
+      },
+      "status": "PASS",
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "de60cb0b-3c3c-4671-afe4-602fe3e6c0fe",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "\uc601\uc0c1 \ud3b8\uc9d1",
+        "input": {
+          "file_name": "aef359c9-62df-4fc1-86ef-58b202018c76_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\inputs\\aef359c9-62df-4fc1-86ef-58b202018c76_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "bytes": 130275,
+          "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\de60cb0b-3c3c-4671-afe4-602fe3e6c0fe\\edited_video.mp4",
+          "bytes": 144033,
+          "sha256": "40b77fbbb04be7cb1ad0c6da975b17dafc9f1723c235e2432ca47fa4b6e5dd7f"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\de60cb0b-3c3c-4671-afe4-602fe3e6c0fe\\edited_video.mp4",
+            "bytes": 144033,
+            "sha256": "40b77fbbb04be7cb1ad0c6da975b17dafc9f1723c235e2432ca47fa4b6e5dd7f"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "fade": true
+          },
+          "model_inference": false,
+          "sampled_frames": 0,
+          "analysis": null
+        }
+      }
+    },
+    {
+      "test": "korean_subtitle",
+      "options": {
+        "subtitle": "\ud55c\uad6d\uc5b4 \uc790\ub9c9 \uac80\uc99d"
+      },
+      "status": "PASS",
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "95a61249-e805-467d-99b0-4d9561b1ac9c",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "\uc601\uc0c1 \ud3b8\uc9d1",
+        "input": {
+          "file_name": "9f0ad9c1-82ae-47ca-ba5d-8f000afed823_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\inputs\\9f0ad9c1-82ae-47ca-ba5d-8f000afed823_KOREAN_SUBTITLE_ACTUAL.mp4",
+          "bytes": 130275,
+          "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\95a61249-e805-467d-99b0-4d9561b1ac9c\\edited_video.mp4",
+          "bytes": 142511,
+          "sha256": "6ae13a9730b95f9a409ca53e86d30da0a75bff20f0cf0110d78661aaeafaf871"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\codec_probe_data\\jobs\\95a61249-e805-467d-99b0-4d9561b1ac9c\\edited_video.mp4",
+            "bytes": 142511,
+            "sha256": "6ae13a9730b95f9a409ca53e86d30da0a75bff20f0cf0110d78661aaeafaf871"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "subtitle": "\ud55c\uad6d\uc5b4 \uc790\ub9c9 \uac80\uc99d"
+          },
+          "model_inference": false,
+          "sampled_frames": 0,
+          "analysis": null
+        }
+      }
+    }
+  ],
+  "artifact_format_note": "Original fixture writer appended literal backslash-n; exact original artifact retained, object decoded without changing fields."
+}

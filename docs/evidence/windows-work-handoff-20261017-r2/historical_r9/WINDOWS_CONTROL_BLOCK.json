@@ -1,0 +1,14 @@
+{
+  "status": "BLOCKED",
+  "reason": "Windows browser URL verification policy stopped native Computer Use; no further browser/app input performed",
+  "execution_id": "PC-20261015-2c8112c9-de2c-4292-99da-2b209c8c1998",
+  "at": "2026-10-15T09:22:02.496741+09:00",
+  "not_product_engine_failure": true,
+  "native_error": "Computer Use has been stopped for this turn because it could not determine the current browser URL on Windows with enough confidence to enforce policy.",
+  "previous_app_approval_error": "Computer Use app approval timed out",
+  "first_click_geometry_error": "coordinate input geometry is unavailable; refreshed screenshot geometry before actual click",
+  "actual_doubleclick_performed": true,
+  "followup_enter_action": true,
+  "additional_native_launch_api": "approval timed out",
+  "runtime_later_observed": true
+}

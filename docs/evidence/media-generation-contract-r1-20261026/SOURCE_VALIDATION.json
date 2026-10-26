@@ -1,0 +1,42 @@
+{
+  "checked_date_kst": "2026-10-26",
+  "work_id": "MEDIA-GENERATION-CONTRACT-R1-20261026",
+  "media_base": "fb445c3ea98f6d9ea4c0bfd6fbffa3be3d5dd471",
+  "ltx_desktop": {
+    "tag": "v1.3.1",
+    "source": "8ffed888f3a9afdfbf137fa6193bf1cdc1cd657b",
+    "release": "https://github.com/Lightricks/LTX-Desktop/releases/tag/v1.3.1"
+  },
+  "wan_source": "1ea34ff48f87168174e12956e200b1d908b1c5ff",
+  "findings": {
+    "ltx_remote_api": "SOURCE_CONFIRMED_NOT_RUNTIME_TESTED",
+    "ltx_video_guide_remote_upload": "NOT_SUPPORTED_BY_REVIEWED_IMAGE_UPLOAD_SURFACE",
+    "media_ltx_adapter": "NOT_IMPLEMENTED",
+    "wan_current_path": "COMFYUI_REQUIRES_PINNED_WORKFLOW",
+    "real_30s_e2e": "BLOCKED_ASSET_INTAKE"
+  },
+  "boundaries": {
+    "build_gate": false,
+    "new_candidate": false,
+    "installed_model_changes": false,
+    "model_downloads": false,
+    "paid_api": false,
+    "live_engine_calls": false,
+    "license_acceptance": false,
+    "main_merge": false
+  },
+  "reused_evidence": {
+    "source": "d98db8cd61268b766563b6c426e3c55375570312",
+    "python_pass": 402,
+    "python_skip": 5,
+    "browser_pass": 41,
+    "scope": "historical exact runtime; not new generation evidence"
+  },
+  "api_types_source": {
+    "encoding": "utf-8",
+    "sha": "0a60597fad57ddb78cc85711b6a7c882ea268f61",
+    "display_url": "https://github.com/Lightricks/LTX-Desktop/blob/8ffed888f3a9afdfbf137fa6193bf1cdc1cd657b/backend/api_types.py",
+    "display_title": "api_types.py"
+  },
+  "notes": "Docs/static audit only. Old successful CI preserved; no Actions re-run needed for runtime changes because none were made."
+}

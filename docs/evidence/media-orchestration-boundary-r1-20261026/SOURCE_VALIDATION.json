@@ -1,0 +1,26 @@
+{
+  "work_id": "MEDIA-ORCHESTRATION-BOUNDARY-R1-20261026",
+  "source_commit": "94c2a0b102f2ad6c7dd2c4c6d82d1a5de3dafa31",
+  "status": "GENERAL_BOUNDARY_IMPLEMENTED_REAL_PRODUCTION_BLOCKED_ASSET_INTAKE",
+  "role": "AI_VIDEO_PRODUCTION_ORCHESTRATION",
+  "implemented": {
+    "standard_package": "MINDLE_MEDIA_PRODUCTION_PACKAGE_V1",
+    "required_fields": ["projectId", "revisionId", "source_file_hash", "schema_version", "createdAt", "status", "evidence_receipt"],
+    "generated_only_after": ["actual Qwen scene plan", "FFmpeg assembly", "actual Supertonic narration", "technical QA", "save", "cold restart", "reopen", "export"],
+    "new_scene_generation_without_evidence": "NOT_IMPLEMENTED_NEW_SCENE_GENERATION",
+    "subtitle_without_request": "NOT_REQUESTED_NOT_GENERATED"
+  },
+  "validation": {
+    "python": "465 PASS / 6 SKIP",
+    "ui_contracts": "2 PASS",
+    "syntax": "PASS",
+    "evidence_sync": "PASS",
+    "source_package_tree": "PASS"
+  },
+  "not_executed": ["actual Qwen inference", "real asset assembly", "Supertonic synthesis", "final MP4", "human visual review", "human audio review"],
+  "input_status": "BLOCKED_ASSET_INTAKE",
+  "build_gate": false,
+  "pr_23": "DRAFT_HOLD",
+  "main_merge": false,
+  "deployment": false
+}

@@ -1,0 +1,42 @@
+{
+  "cycle": "pc-work-rework-20260930",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_FINAL_UI_ACTIVATION_SHORTFORM_E2E_DIRECTIVE_v1.0_20260930.md",
+  "directive_commit": "d75513ce7bd652e7baec841b2600450a2ddc1523",
+  "execution_surface": {
+    "os": "Windows",
+    "server": "http://127.0.0.1:8765/",
+    "evidence_endpoint": "http://127.0.0.1:8765/api/evidence"
+  },
+  "observed_server_requests": [
+    {
+      "method": "POST",
+      "path": "/api/integrations/marketing/shortform",
+      "status": 503,
+      "result": "VERIFY_REQUIRED"
+    }
+  ],
+  "ui_results": {
+    "ui_shell": "PASS",
+    "project_save_gate": "PASS",
+    "shortform_entry": "PASS",
+    "native_chooser": "VERIFY_REQUIRED",
+    "photo_segmentation": "VERIFY_REQUIRED",
+    "photo_4x_upscale": "VERIFY_REQUIRED",
+    "video_tracking": "VERIFY_REQUIRED",
+    "korean_stt": "VERIFY_REQUIRED",
+    "preview": "VERIFY_REQUIRED",
+    "project_save_completed_job": "VERIFY_REQUIRED",
+    "export": "VERIFY_REQUIRED",
+    "shortform_live_e2e": "VERIFY_REQUIRED"
+  },
+  "files_changed": [
+    "src/media_ai/product_server.py",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_REWORK_REVIEW_20260930.md",
+    "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_REWORK_EVIDENCE_20260930.json",
+    "evidence/pc_remote/pc-work-rework-20260930/manifest.json"
+  ],
+  "regression": "No UI SSOT files changed; fail-closed route blocks publish/ad spend when Contract v1 is unavailable.",
+  "final_commit_sha": "2bd209e435106b0b40d71d2452a5d2c7818b5d21"
+}

@@ -1,0 +1,177 @@
+{
+  "status": "PASS_TESTED_LOCAL_EDITS_IMPORT_SAVE_EXPORT",
+  "scope": "development UI/runtime using package Python/models/FFmpeg; not final employee distribution",
+  "records": [
+    {
+      "job_id": "a5fe7d08-0b60-4441-bbc0-d766938a29d5",
+      "operation": "import",
+      "check": "VIDEO_16x9_IMPORT",
+      "output_sha256": "76646857227ba34993ca142f54cb7b19ab4d2bd2fe2b84e43911544ea7fb5e06",
+      "bytes": 242806,
+      "runtime_result": {
+        "result_size": [
+          640,
+          360
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "45eccb4d-1ec4-4dc7-b9f7-b45280025351",
+      "operation": "video_edit",
+      "check": "trim_speed_DECODED",
+      "output_sha256": "3635a266245a3402425584ad06cec0bec1e1cf913f38e0065017540966407716",
+      "bytes": 79890,
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "start": 0.25,
+          "duration": 0.5,
+          "speed": 2
+        },
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "20394b04-52f2-4bbf-8003-29dacd99635f",
+      "operation": "video_edit",
+      "check": "rotate_DECODED",
+      "output_sha256": "34a4f0ac4fb4b0220794401df1483e279351bfa2f4b9336e248cb552b9f78184",
+      "bytes": 239634,
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "rotate": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "21082551-547c-4956-9458-bda1e588e288",
+      "operation": "video_edit",
+      "check": "shortform_DECODED",
+      "output_sha256": "4215a109701f215519229a491eac4adaa18cbd4b1dc60121d3b70db3522a9786",
+      "bytes": 54448,
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "aspect": "9:16",
+          "duration": 1
+        },
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "f06b7066-f787-4411-b37c-f4f4cdfa9b7d",
+      "operation": "video_edit",
+      "check": "color_transition_effect_DECODED",
+      "output_sha256": "cca1ade611c2c544ee777338a3ff9056c02b9feb613fffd8c0e34ec480c161f6",
+      "bytes": 229923,
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "brightness": 10,
+          "contrast": 10,
+          "saturation": 10,
+          "fade": true,
+          "effect": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "37793b3f-9cd0-41dc-a1ef-4b4f7918e4b2",
+      "operation": "video_edit",
+      "check": "korean_subtitle_DECODED",
+      "output_sha256": "657f170bef09cbb8e3026b4d76dfbfebc38bd60528867180ed29df5eae82fed3",
+      "bytes": 235922,
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "subtitle": "안녕하세요 MINDLE MEDIA AI"
+        },
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "b298ee22-832a-42c6-88c3-12aeed4d9607",
+      "operation": "video_edit",
+      "check": "BACKGROUND_AUDIO_STREAM",
+      "output_sha256": "0514097357820f78866fa9d2ea9f7dbe9594c40d9a17e1c26ebc40d938561cae",
+      "bytes": 258297,
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "backgroundVolume": 0.35
+        },
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "604f5281-4832-4d58-b1bf-3061e94a68e8",
+      "operation": "import",
+      "check": "PHOTO_LANDSCAPE_IMPORT",
+      "output_sha256": "c19fef14ac15a143e5fc16dca80985bab0216214ee0919b88869e451734ab6c4",
+      "bytes": 230931,
+      "runtime_result": {
+        "result_size": [
+          512,
+          292
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "a4268f54-e1a9-4414-8488-44caa725ea85",
+      "operation": "import",
+      "check": "PHOTO_PORTRAIT_IMPORT",
+      "output_sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730",
+      "bytes": 177550,
+      "runtime_result": {
+        "result_size": [
+          288,
+          512
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    },
+    {
+      "job_id": "76ff5ab3-7c39-4d0a-8d58-8a71bcd0da95",
+      "operation": "import",
+      "check": "PHOTO_SQUARE_IMPORT",
+      "output_sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44",
+      "bytes": 221673,
+      "runtime_result": {
+        "result_size": [
+          400,
+          400
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      }
+    }
+  ],
+  "project_id": "c42c04f6-bc38-4b56-9c86-8c8678977ab1",
+  "export": {
+    "status": "EXPORTED",
+    "project_id": "c42c04f6-bc38-4b56-9c86-8c8678977ab1",
+    "export": {
+      "file_name": "c42c04f6-bc38-4b56-9c86-8c8678977ab1_export.zip",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\projects\\c42c04f6-bc38-4b56-9c86-8c8678977ab1_export.zip",
+      "bytes": 3594911,
+      "sha256": "1a4ad41b55e98e835ec551803b70583dbbdaab81aeb982bc33e89432350b5699"
+    },
+    "download_url": "/files/projects/c42c04f6-bc38-4b56-9c86-8c8678977ab1_export.zip"
+  },
+  "zip_crc": "PASS",
+  "full_ui_directive_pass": false
+}

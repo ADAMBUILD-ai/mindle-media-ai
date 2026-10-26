@@ -1,0 +1,8 @@
+{
+  "python_passed": 77,
+  "ui_tests": 2,
+  "pip_check": "PASS",
+  "compile": "PASS",
+  "general_control_plane": "PASS",
+  "raw_log": "REGRESSION.log"
+}

@@ -1,0 +1,176 @@
+{
+  "status": "FINAL_UI_BROWSER_FUNCTION_PASS",
+  "base_url": "http://127.0.0.1:18768",
+  "checks": {
+    "final_ui_geometry": "PASS",
+    "photo_live_and_apply": "PASS",
+    "video_play_and_edit": "PASS",
+    "portrait_auto_fit": "PASS"
+  },
+  "browser": {
+    "channel": "chrome",
+    "version": "155.0.8059.40"
+  },
+  "codec_capability": {
+    "h264": "probably",
+    "aac": "probably",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+  },
+  "media_before_play": {
+    "MediaError_code": null,
+    "readyState": 4,
+    "videoWidth": 320,
+    "currentSrc": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+    "currentTime": 0
+  },
+  "media_after_play": {
+    "MediaError_code": null,
+    "readyState": 4,
+    "videoWidth": 320,
+    "currentSrc": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+    "currentTime": 1.54611
+  },
+  "portrait_geometry": {
+    "host": {
+      "x": 923,
+      "y": 161,
+      "width": 408,
+      "height": 229.5
+    },
+    "image": {
+      "x": 924,
+      "y": 162,
+      "width": 406,
+      "height": 227.5
+    },
+    "objectFit": "contain",
+    "objectPosition": "50% 50%",
+    "natural": [
+      90,
+      160
+    ]
+  },
+  "http_responses": [
+    {
+      "url": "http://127.0.0.1:18768/api/projects/latest",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/ff7d8b44-f7d9-4f20-8404-7076c4c144a6/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/ff7d8b44-f7d9-4f20-8404-7076c4c144a6/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/0dcf8199-6011-4451-8ff6-6bad9964cb26/edited_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/0dcf8199-6011-4451-8ff6-6bad9964cb26/edited_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/media/import",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/0b8d63ec-99c4-4dc9-94c2-de53125eebc0/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/0b8d63ec-99c4-4dc9-94c2-de53125eebc0/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/photo-edits",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/4634053d-039a-48ef-ad70-ab0df727f0e0/edited_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/4634053d-039a-48ef-ad70-ab0df727f0e0/edited_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/media/import",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/c9d066fb-4c32-49de-9ce5-32fc5086f003/original_video_preview.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/video-edits",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/1d2a11ca-66e4-4c07-9d95-b1e433ade09b/edited_video.mp4",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/1d2a11ca-66e4-4c07-9d95-b1e433ade09b/edited_video.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/media/import",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/2dca33bc-2d2e-4ee2-9c21-37777766007c/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/2dca33bc-2d2e-4ee2-9c21-37777766007c/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    }
+  ],
+  "page_errors": []
+}

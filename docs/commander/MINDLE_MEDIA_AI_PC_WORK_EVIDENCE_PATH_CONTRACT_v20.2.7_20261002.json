@@ -1,0 +1,17 @@
+{
+  "contract_version": "20.2.7",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261002-V20.2.7",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_ONLY_DIRECTIVE_v20.2.7_20261002.md",
+  "scope": "desktop shortcut reactivation only",
+  "ui_changes_forbidden": true,
+  "review": "docs/commander/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_REVIEW_v20.2.7_20261002.md",
+  "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_DESKTOP_SHORTCUT_REACTIVATION_EVIDENCE_v20_2_7_20261002.json",
+  "allowed_results": [
+    "DESKTOP_SHORTCUT_REACTIVATED",
+    "DESKTOP_SHORTCUT_REACTIVATION_FAILED"
+  ],
+  "remote_readback_required": true
+}

@@ -1,0 +1,17 @@
+{
+  "tts": {
+    "engine": "espeak-ng",
+    "executable": "tools/espeak-ng/espeak-ng.exe",
+    "executable_sha256": "REPLACE_WITH_VERIFIED_BINARY_SHA256",
+    "data_path": "tools/espeak-ng",
+    "data_sha256": "REPLACE_WITH_VERIFIED_ESPEAK_NG_DATA_TREE_SHA256"
+  },
+  "planner": {
+    "executable": "tools/llama/llama-cli.exe",
+    "executable_sha256": "REPLACE_WITH_VERIFIED_BINARY_SHA256",
+    "model_path": "models/approved-instruct.gguf",
+    "model_sha256": "REPLACE_WITH_VERIFIED_MODEL_SHA256",
+    "revision": "REPLACE_WITH_40_CHARACTER_PINNED_REVISION",
+    "license": "REPLACE_WITH_VERIFIED_MODEL_LICENSE"
+  }
+}

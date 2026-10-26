@@ -1,0 +1,41 @@
+MINDLE MEDIA AI 프로젝트 전환 수정 실검증 — 2026-10-17 KST
+
+검증 소스: ef56f956db5cdaf9e9dd455a5a8c065ce4f15a56
+수정 commit: 84cf58014eafa2aabd5eed763881424ab3a70c1f
+공식 Chrome: 155.0.8059.80. 실제 production HTML/CSS/JS와 실제 ProductHttpServer 사용.
+Runtime: DEVELOPMENT_UI_WITH_PACKAGE_MODELS. 기존 고정 Runtime을 FFmpeg 의존성으로만 재사용.
+이번 실행에서 모델 추론·알고리즘·가중치·제품 코드·UI 수정 없음.
+
+PASS — 한 Chrome 세션 전환/정상 경로 6개 시나리오, 페이지 JS 예외 0.
+1. PHOTO 편집 응답 지연 중 New/Open 거절. 자료 보존, Save ID 유지, 완료 후 정상 Open.
+2. VIDEO 편집 응답 지연 중 New/Open 거절. 자료 보존, Save ID 유지, 완료 후 정상 Open.
+3. Save 응답 지연 중 New/Open·중복 Save 거절. 신규 첫 Save project_id=null. 이전 프로젝트 파일 SHA 동일.
+4. Reopen 지연 중 New/Open/Save 거절. 실제 GET 1회. 검수 전용 503 주입 뒤 정상 재시도.
+5. Export 지연 중 New/Open/중복 Export 거절. 다른 작업이 guard를 해제하지 않음. 완료 후 정상 전환.
+6. PHOTO/VIDEO Import, PHOTO/VIDEO 참고 각각 2개, 음성 첨부, Save/Reopen/ZIP Export.
+   첨부 해시 복원, ZIP CRC, cloud 미연결 안내/local storage 분리, 자연어 사진 편집 실제 출력.
+지연은 브라우저 route에서 실제 서버 응답을 보류했고 실패만 503 주입했다. 제품 우회/가짜 성공 없음.
+
+c37 후보 — 추가 빌드 없이 승인 run 38845082039의 고정 part00~04만 수령.
+ZIP SHA 5291760966d87089259de4d1030879fdf0a1a878d7b9f1fd12f7918f36656b30 및 EXE/manifest 일치.
+원격 독립 readback·cold restart 성과는 보존하며 실제 사무실 PC 성공으로 대체하지 않음.
+
+FAIL/실행 차단 — 실제 c37 EXE 명령 실행(PID 5304)에서 deploy.lock open 단계 PermissionError [Errno13].
+경로: C:\Users\R\AppData\Local\MINDLE_MEDIA_AI\deploy.lock
+새 예외 전문과 실제 모달 화면, 읽기 가능/r+b·a+b 거부 진단, ACL을 함께 보존.
+ACL에는 R FullControl이 관찰되지만 실제 쓰기 open은 거부됐다. ACL·공유 잠금·token 중 원인 미확정.
+lock 삭제/변경·ACL 변경·잠금 검증 제거·Timeout 연장·다른 앱 종료 없음.
+명령 실행 증거이며 실제 Explorer 더블클릭 성공으로 표시하지 않음.
+
+BLOCKED — 전환 수정은 c37 후보에 미포함. Build Gate=false, 승인된 1회 제작은 이미 소진.
+재개 조건: 이번 source Chrome 6 PASS 증거 검토 후 소유자가 후속 후보 Gate 활성화.
+새 후보 SHA/ZIP/manifest/EXE 고정·독립 readback 후 해당 후보를 실제 PC에서 cold restart/Reopen/Export.
+현재 deploy.lock open 차단은 원본 파일/프로세스 증거로 해소해야 하며 임의 삭제로 우회하지 않음.
+Windows 설치 플레이어·실제 사람이 듣는 청취는 아직 BLOCKED. 브라우저 decode/원격 runner로 대체 금지.
+Marketing/AVORA/OpenAI는 DEFERRED_EXTERNAL. PR23 HOLD / DO NOT MERGE, main/force push 금지 유지.
+소유자 PC 최종 인수/전체 제품 PASS를 발행하지 않음.
+
+이전 시도 보존: R1 별도 포트 접근 실패, R2 검수 LGPL FFmpeg libx264 미포함,
+R3 identity 단언 보정, R4 dialog close-event 관측 시점, R5 navigation 후 응답 본문 수집 오류.
+검수 harness 문제를 수정한 R6에서 전체 6 시나리오를 같은 세션으로 실제 재확인.
+기존 입력8·버튼60·고비용 모델 검수는 반복하지 않았다.

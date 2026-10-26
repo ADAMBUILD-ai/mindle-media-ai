@@ -1,0 +1,37 @@
+{
+  "source_commit": "f94b473d8e139a526f46cd3646ef4d018af257fb",
+  "scope": "FAILURE_PROTECTION_FIXTURES_ONLY",
+  "model_or_tts_inference": false,
+  "real_30_second_e2e": false,
+  "full_product_pass": false,
+  "cases": [
+    {
+      "case": "long_voice",
+      "status": "PASS_EXPECTED_FAILURE",
+      "error": "NARRATION_LONGER_THAN_VIDEO: 음성을 줄이거나 영상 연장 정책을 선택하세요.",
+      "error_type": "ValueError"
+    },
+    {
+      "case": "bgm_hash_drift",
+      "status": "PASS_EXPECTED_FAILURE",
+      "error": "BGM_INPUT_HASH_MISMATCH",
+      "error_type": "ValueError"
+    },
+    {
+      "case": "voice_hash_drift",
+      "status": "PASS_EXPECTED_FAILURE",
+      "error": "WORKFLOW_INPUT_HASH_MISMATCH",
+      "error_type": "ValueError"
+    },
+    {
+      "case": "actual_ffmpeg_invalid_input",
+      "status": "PASS_EXPECTED_FAILURE",
+      "returncode": 183,
+      "stderr_sha256": "5bb491e193768b9d4744aff93160a39ceb667369f6bcc9a34f1934a933d85df8"
+    }
+  ],
+  "status": "PASS_FOUR_FAILURE_PROTECTIONS",
+  "previous_project_sha256": "16ed26f05adb9d259d54c8d842d4024ccc7f6234dcfb2023ec30ad6943792f7d",
+  "previous_project_preserved": true,
+  "new_published_jobs": 0
+}

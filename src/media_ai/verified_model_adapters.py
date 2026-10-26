@@ -225,6 +225,20 @@ class Sam21VerifiedAdapter:
         writer.release()
         if not video_path.is_file() or video_path.stat().st_size == 0:
             raise RuntimeError("SAM tracking output video is empty")
+        # Browser preview needs H.264 rather than OpenCV's MPEG-4 Part 2 output.
+        import os
+        import subprocess
+        package_root = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', '').strip()
+        if package_root and (Path(package_root) / 'PACKAGE_MANIFEST.json').is_file():
+            ffmpeg = Path(package_root) / 'tools/ffmpeg/ffmpeg.exe'
+            intermediate = output_dir / 'tracking_encode_input.mp4'
+            video_path.rename(intermediate)
+            encoder = 'h264_mf' if os.name == 'nt' else 'libx264'
+            encoder_args = ['-c:v', 'h264_mf', '-pix_fmt', 'yuv420p'] if encoder == 'h264_mf' else ['-c:v', 'libx264', '-preset', 'fast', '-pix_fmt', 'yuv420p']
+            subprocess.run([str(ffmpeg), '-nostdin', '-y', '-loglevel', 'error', '-i', str(intermediate),
+                            *encoder_args, '-movflags', '+faststart', str(video_path)],
+                           check=True, capture_output=True)
+            intermediate.unlink()
         manifest_path = output_dir / "tracking.json"
         manifest_path.write_text(json.dumps({"track_id": 1, "samples": rows}, indent=2) + "\n", encoding="utf-8")
         return {
@@ -303,18 +317,18 @@ class WhisperKoreanVerifiedAdapter:
             audio = audio.reshape(-1, channels).mean(axis=1)
         if sample_rate != 16000:
             raise RuntimeError(f"expected 16 kHz Korean input, got {sample_rate}")
-        inputs = self.processor(audio, sampling_rate=sample_rate, return_tensors="pt")
         started = time.perf_counter()
-        with self.torch.inference_mode():
-            tokens = self.model.generate(
-                inputs.input_features,
-                language="ko",
-                task="transcribe",
-                max_new_tokens=128,
-                do_sample=False,
-            )
+        segments=[]
+        # Whisper's input feature window is bounded: process the entire recording.
+        for offset in range(0,len(audio),25*sample_rate):
+            chunk=audio[offset:offset+25*sample_rate]
+            inputs=self.processor(chunk,sampling_rate=sample_rate,return_tensors='pt')
+            with self.torch.inference_mode():
+                tokens=self.model.generate(inputs.input_features,language='ko',task='transcribe',max_new_tokens=440,do_sample=False)
+            segment_text=self.processor.batch_decode(tokens,skip_special_tokens=True)[0].strip()
+            segments.append({'start_seconds':offset/sample_rate,'end_seconds':(offset+len(chunk))/sample_rate,'text':segment_text})
         elapsed = round((time.perf_counter() - started) * 1000, 2)
-        text = self.processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
+        text=' '.join(item['text'] for item in segments if item['text'])
         error_rate = None
         if reference:
             reference_words = re.findall(r"[가-힣A-Za-z0-9]+", reference)
@@ -352,6 +366,7 @@ class WhisperKoreanVerifiedAdapter:
             "input_path": str(input_path),
             "input_sha256": sha256_file(input_path),
             "sample_rate": sample_rate,
+            "segments":segments, "full_input_samples_processed":len(audio),
             "duration_seconds": len(audio) / sample_rate,
             "reference": reference,
             "text": text,

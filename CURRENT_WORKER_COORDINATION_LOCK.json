@@ -1,0 +1,149 @@
+{
+  "schema_version": "PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
+  "status": "R2_WAITING_INPUT_OR_PREFLIGHT",
+  "date": "2026-10-18",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_control_plane_epoch": "MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3",
+  "collision_status": "ALIGNED_R2_STATUS_AND_CONSUMED_R3_CANDIDATE_EVIDENCE",
+  "worker_lanes": {
+    "general_work": {
+      "role": "Owner-appointed development commander",
+      "current_assignment": "R2 General source preparation verified; read CURRENT_MEDIA_WORK_STATUS.json; actual production is gated by real inputs and engine preflight.",
+      "may_write": [
+        "src/** runtime fixes",
+        "ui/** behavior only",
+        "tests/**",
+        "model_scout/run_runtime_recovery_browser.py",
+        ".github/workflows/runtime-recovery.yml",
+        "CURRENT_GENERAL_WORK_*",
+        "scripts/validate_general_work_control_plane.py",
+        "docs/commander/MINDLE_MEDIA_AI_OWNER_RUNTIME_RECOVERY*",
+        "docs/evidence/media-ai-runtime-recovery-20261013/**",
+        "CURRENT_PC_WORK_*",
+        "CURRENT_WORKER_COORDINATION_LOCK.json",
+        "scripts/validate_pc_work_control_plane.py",
+        "docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE*"
+      ],
+      "may_not_change": [
+        "main/default branch",
+        "approved UI layout/colors",
+        "historical model Evidence",
+        "PR23 merge state"
+      ]
+    },
+    "pc_work_remote_windows": {
+      "role": "Windows PC Work remote fallback executor",
+      "current_assignment": "R3 is consumed historical evidence. R2 Windows 7B/candidate execution requires exact approval and real asset intake; no build authorization granted.",
+      "may_write": [
+        "scripts/** Windows runtime/launcher/package implementation",
+        ".github/workflows/** PC Windows build/test workflows",
+        "src/** only verified Windows runtime lifecycle fixes",
+        "tests/** Windows/package regression tests",
+        "LICENSES/** verified redistribution records/notices",
+        "docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK_REVIEW_v1.0_20261008.md",
+        "docs/evidence/media-ai-pc-work-remote-windows-fallback-20261008/**"
+      ],
+      "may_not_change": [
+        "main/default branch",
+        "approved UI layout/colors",
+        "General Work historical Evidence",
+        "external Marketing/AVORA live integration",
+        "PR #23 merge state"
+      ]
+    },
+    "local_pc_acceptance": {
+      "role": "Final physical Windows acceptance",
+      "current_assignment": "Preserve actual c37 launch/save/reopen/export and PotPlayer display/seek PASS. Do not repeat Chrome six/model work or patch c37. Cold restart/hearing and future candidate dense UI/lifecycle pending.",
+      "may_write": [],
+      "may_not_change": [
+        "remote work progress"
+      ]
+    },
+    "external_marketing_avora": {
+      "role": "Deferred external integration",
+      "current_assignment": "DEFERRED_EXTERNAL",
+      "may_write": [],
+      "may_not_change": [
+        "active PC Work"
+      ]
+    }
+  },
+  "force_push_forbidden": true,
+  "merge_main_forbidden": true,
+  "new_repo_or_worktree_forbidden": true,
+  "pr23_hold_do_not_merge": true,
+  "workflow_runtime_supplement": "docs/commander/MINDLE_MEDIA_AI_WORKFLOW_TTS_MP4_IMPLEMENTATION_20261018.md",
+  "local_engine_closeout_20261018": {
+    "source_commit": "3a889d9af5e0e91b4efc8132eb86e11251f1ced5",
+    "evidence": "docs/evidence/media-ai-local-engines-closeout-20261018/RESULT_KO.md",
+    "planner": "PASS_ACTUAL_QWEN_1_5B_KOREAN_INFERENCE_AND_PRODUCT_QUEUE",
+    "neural_tts": "PASS_ACTUAL_SUPERTONIC_3_KOREAN_WAV_AND_MP4",
+    "scope": "LINUX_SOURCE_BROWSER_NOT_WINDOWS_EXE",
+    "human_hearing": "NOT_VERIFIED",
+    "approved_ui": "FAIL_EXACT_MATCH",
+    "raw_intermediate_writer": "UNRESOLVED_HISTORICAL_WRITER_SEALED_OUTPUT_PROTECTION_PASS",
+    "candidate_contains_fix": false,
+    "package_build_allowed": false,
+    "full_product_pass": false
+  },
+  "owner_windows_candidate_20261018": {
+    "status": "ASSEMBLED_ZIP_ALL_PAYLOAD_HASHES_CRC_VERIFIED_NATIVE_WINDOWS_PENDING",
+    "source_commit": "e00e6e0b82994fca628d6ca3cf039f7dc43c15c6",
+    "scope": "ONE_OWNER_DEVELOPMENT_TEST_CANDIDATE_ONLY_NOT_EMPLOYEE_FINAL_RELEASE",
+    "owner_authorization_20261018": "노트북 또는 데스크톱에서 더블클릭해 실행할 수 있게 만들어 보내 달라는 현재 대화의 명시 요청",
+    "authorization_consumed": true,
+    "additional_package_builds_allowed": false,
+    "archive_name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip",
+    "archive_bytes": 3177192286,
+    "archive_sha256": "715c351a3733aea2ffd87fa0113cc6e554920faabe430c74f941b7b6e5feac8c",
+    "payload_files_verified": 20440,
+    "base_source": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+    "base_files_preserved": 19236,
+    "bootstrap_launcher_reused_unchanged": true,
+    "data_directory_name": "MEDIA_AI_CANDIDATE_20261018_R1",
+    "windows_python_abi": "cp311-win_amd64",
+    "planner": "Qwen2.5-1.5B-Instruct-GGUF + pinned Windows llama.cpp b11716",
+    "neural_tts": "Supertonic 3 + sherpa-onnx/core 1.13.8 Windows",
+    "native_windows_exe_verified": false,
+    "real_hearing_verified": false,
+    "approved_ui_exact_match": false,
+    "full_product_pass": false,
+    "delivery": "512 MiB per-file service limit; seven <=500 MiB binary parts plus small automatic merge/extract/start installer ZIP",
+    "evidence": "docs/evidence/windows-oneclick-candidate-20261018-r1/RESULT_KO.md"
+  },
+  "owner_windows_candidate_20261024": {
+    "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-CANDIDATE-R1",
+    "status": "DELIVERED_REMOTE_VERIFIED_OWNER_PC_PENDING",
+    "workflow": ".github/workflows/windows-ai-candidate-20261024.yml",
+    "global_package_build_allowed": false,
+    "scope": "ONE_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
+    "office_pc_acceptance": false,
+    "full_product_pass": false,
+    "source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+    "run": 39985471598,
+    "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+    "manifest_sha256": "2c6c3345539473e77cab56b10105448d0c23b651875dca45e8d49217b781dc07",
+    "runtime_id": "2e5e9197d78c-473763a9ef2d-ai-r2",
+    "remote_windows_acceptance": true,
+    "human_hearing": false,
+    "producer_run": 39985471598,
+    "readback_run": 39987617196,
+    "transport_run": 39989419656,
+    "zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606"
+  },
+  "active_candidate_directive": "docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md",
+  "pre_r2_status": "ACTIVE",
+  "historical_candidate_status_scope": "HISTORICAL_R3_CANDIDATE_ONLY_SEE_CURRENT_WORK_FOR_R2",
+  "current_work": {
+    "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+    "status_file": "CURRENT_MEDIA_WORK_STATUS.json",
+    "snapshot_sha256": "87ee896197c643a475f576d4f69f5b3b6ef3aac9bed2c146eedd5f044343773d",
+    "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
+    "general_status": "R2_GENERAL_PREPARATION_COMPLETE",
+    "pc_status": "R2_BLOCKED_ASSET_INTAKE",
+    "production_eligibility": "BLOCKED_ASSET_INTAKE",
+    "runtime_baseline_source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa"
+  },
+  "pre_r2_collision_status": "ALIGNED_R9_CORRECTED_CANDIDATE_VERIFIED_PC_HANDOFF"
+}

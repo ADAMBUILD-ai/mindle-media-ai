@@ -1,0 +1,18 @@
+{
+  "status": "NOT_RUN",
+  "checks": {
+    "video_import": "NOT_RUN",
+    "video_tracking": "NOT_RUN",
+    "korean_stt": "NOT_RUN",
+    "photo_import": "NOT_RUN",
+    "sam_segmentation": "NOT_RUN",
+    "intel_4x_upscale": "NOT_RUN",
+    "preview": "NOT_RUN",
+    "save_close_reopen": "NOT_RUN",
+    "export": "NOT_RUN",
+    "shortform_unavailable": "NOT_RUN",
+    "desktop_launch_2_of_2": "NOT_RUN",
+    "uninstall_reinstall": "NOT_RUN",
+    "data_preservation": "NOT_RUN"
+  }
+}

@@ -1,0 +1,357 @@
+{
+  "status": "PASS_ACTUAL_PINNED_QWEN_INPUT_SENSITIVE_AUTO_EDIT",
+  "source_commit": "410ba721eac23e118a4b4ff7938dd44501118591",
+  "source_files": {
+    "src/media_ai/__init__.py": "e9a5d1bac9397c42f014a49e84a08c01cfc45e7f76ab91fc9522a3c5f2876ef7",
+    "src/media_ai/ai_core_status.py": "56f64cf7007db2814ad1be6f92619a93019019fd54bfca67e2dc89aaec9909aa",
+    "src/media_ai/architectural_video_pipeline.py": "8fab05dcf78a334aca0a423f61f009b50278b0338f955fed8d5c325c474c9a2f",
+    "src/media_ai/architecture_agent.py": "6270e5359e02bf6262984cc350b2aa913406d29eec79ea18c88f5d014af8d23d",
+    "src/media_ai/browser_preview.py": "c233b3f7a7e663c7bff58d8d9bd029a1a52e3536afce7d44419075704277cd95",
+    "src/media_ai/candidate_reuse_gate.py": "e6f54441ff21a303a445f08b415797a3b11189c07eee2e38aa1fc90b8d1919a1",
+    "src/media_ai/cli.py": "97f6ec073d2048806a5c5dd0cb2b3c2428456b3eaeefa67a5d3223fd0c1e875f",
+    "src/media_ai/continuous_tracking.py": "94b84ffe2b603563ece66451ed16861abad1e181cfae4ed18cbd908ed7c57b22",
+    "src/media_ai/contracts.py": "c6fbb7a43fd1007133d6eb28659f333d4a8e1e83416952ea7e75c5b53eacd5b5",
+    "src/media_ai/durable_workflows.py": "4a5afe57184b7030894340f3374c3b912560cbaa1da53b085584fb97b4e91b4c",
+    "src/media_ai/evidence.py": "69fc4e8586d2e02230503170cab7ae136c001ec1b48707b3fd604b4a16b7583e",
+    "src/media_ai/external_media_assets.py": "b00d85f404b8b35b1c6f0eda134381d36ee12eda0d8d8e9ff0c66614428b3191",
+    "src/media_ai/generative_auto_edit.py": "2b6c626996b089f42344adffbe778914368c7af4c6920cfe8f46d28ff030fb52",
+    "src/media_ai/intel_sisr_verified_adapter.py": "9ebae8197a79b1df31bfb308864ee4060624f17f91a4dfb67a2e86a76d5b14cc",
+    "src/media_ai/job_pipeline.py": "6e65944036be7321a77ba5bc9f8f18d5b98e26b0f6240a226e1813d730f27bdb",
+    "src/media_ai/job_queue.py": "e35b3fdbe48501b748a889db90acb9576ce8bab43289d509c0949c1db62b3657",
+    "src/media_ai/marketing_shortform_client.py": "d55c19e32982358a6bb98ea90fadf15d120348ed02e0eafa51c8783b3eb05106",
+    "src/media_ai/marketing_shortform_gateway.py": "c054818cbd571a12f67722962963e1131f4b0cb99e35642b54760305c7ee07f1",
+    "src/media_ai/model_scout_integration.py": "b0270d6e149302e87db7a3bab6b50fbede509ed78676903cf690a91ebce0420b",
+    "src/media_ai/photo.py": "0a9528c63a941cd15351b166b5f56e50c8b09d4b53389bc77ae72dc306855b53",
+    "src/media_ai/photo_adapters.py": "60a880d363fa3d45f9373b7ad4e2ccf50fbf65c55ab5181bccb50ed345ba8887",
+    "src/media_ai/planner.py": "d6dbb8f1d6af4d3d10330e9cd7d69efbfc645b1cea1a6e6502180d3a685008b3",
+    "src/media_ai/planner_constraints.py": "ebe28e3485e0c890f7cc32895c0fea85cc76a9180183d070ba0276eb9de58fab",
+    "src/media_ai/product_runtime.py": "da9731278a0b8f9fc978d509ced26f41aaf6ec56e7df0a510c2416a8402e6776",
+    "src/media_ai/product_server.py": "b43d2d844ca16a24d8e22d5596537fe026703c7d3c3e6aea3fd675041d14c13e",
+    "src/media_ai/quality_engine.py": "4826520d69a62f0266b46700249585e3bdadafbaf1eab7e1aad8f997f8fba8bd",
+    "src/media_ai/realesrgan_verified_adapter.py": "90cfd56b431dc73da2f113726db919cf8d996d86853d43fcebec9f6b2f7529d8",
+    "src/media_ai/router.py": "26cb9a808bea2ac676064356f53c749f69d9e28a414003bbe6b1ebcddd94913a",
+    "src/media_ai/runtime.py": "e171a19ed04e6c8d43bd743929b1e10abc3f3e2199c1a3b1d10feed5b20a0c0e",
+    "src/media_ai/runtime_orchestration.py": "d3f88c56ff75e1059d50223b35fe5bc9f87e056d3e191551780c6808a3771c77",
+    "src/media_ai/shortform_bridge.py": "6ceb9cf75dd7087f438d92c1ad4176ce91c42dfe06f95c7664ef81613711c34a",
+    "src/media_ai/ui_bridge.py": "0635c571bf6c073cc04df6be74c834ec73e26ab3de6cb895ccda2a697054a830",
+    "src/media_ai/ui_contract.py": "41eb7bcbb309cfd4b82193e27d44a1a1394b993346096a6e7c3996869633a275",
+    "src/media_ai/verified_model_adapters.py": "81cfbbb488040fffae17e4c664b3a181988c9428225a1d7e59f0dd2b832340f4",
+    "src/media_ai/video.py": "7d7be683ca040ce35daff47ebeb0a58f2cdd715f281659942ec0bcdea08c9a2e",
+    "src/media_ai/video_analysis.py": "76e525051b66992f9da726005ffd778292d09c3b68066a7d30d43af23e218456",
+    "src/media_ai/workflow_planner.py": "29c20269033c8fb414bc02fb8c821e757b2abc9797110431bf96c6951b757278",
+    "src/media_ai/workflow_worker.py": "e7a9a1bcd6d01e9554bbf94905b0d1a747d815bc35e6b7dfc6de9918f8fd1b1e",
+    "ui/ai_core_status.js": "da74fa451ae91cc9ddd7f412e74b9e82612a10f93c70ea0f082d9ebc18ea07bd",
+    "ui/ai_core_status.test.js": "cfb1b0e7c2f2b0fbdde7f3995a08bbc79f94e861e63499d94ba2aa92801f49aa",
+    "ui/cloud_navigation.test.js": "0f2dd6f868510f0dfe29708a9869344958243d5b6fa50f8bb03621ce1ba63851",
+    "ui/interaction.js": "0fff209f6f27c6380ce7d38e50cc33c5da434b97beb657b26331c189dfd0b0af",
+    "ui/interaction.test.js": "ecbe47e5c5861be6e7d1e56354c0a5fd2c8cbad766abd824bfab25a895807554",
+    "ui/photo_workspace.js": "8b019abf90e6085cac7e5847fd802ee1ed2254973261675461b4e1f8515aa7c2",
+    "ui/product_integration.js": "ed5fd7ee6ee17e2271a9ea7b77ba3675cc9e6d40279076cbe537d0a4fc1915f0",
+    "ui/project_lifecycle.test.js": "e917503cffea5536ad1ef08e1cf0e506e87a6c13dba8861e0f6371bfcdea7eb4",
+    "ui/ssot_structure.test.js": "240075c3cafadd4ede184840606e21bbb0102a2ac2d08556735c4a3c91c88701",
+    "ui/timeline_preview.js": "84667afe83a69c7444f07b43edc374c8dce312b1697be18b0df3990bbcc4b1ba",
+    "ui/video_workspace.js": "0bf1ae5fe2cc0ac02e7f8b536acd793ea127114e6e99b4b20076deae0a84a1b6",
+    "ui/workflow_execution.js": "2d5eeb10b73835bc102b419f3105dc0341274bda825b5c01388405794916a01e",
+    "ui/workflow_media_tools.test.js": "a8623c9c69572a54cd84d6023787824e5e684263731b14dd98e7f62876fc53d0",
+    "ui/workflow_routing.test.js": "b820ad2851ff6490aea62e8d31f4c18d5fd67f71d9dafabda0e81747cbb640ee",
+    "ui/workspace_shell.js": "978845f44af3d1e879bd03f9828d1e4f9a05a415d62fc41bef9545252ff76c8b",
+    "ui/index.html": "f799d8b55801b380950e5226236f77d306fbaf8fd6105e123a7cc509da211469"
+  },
+  "model_profile": "isolated-7b-evaluation",
+  "engine_identity": {
+    "executable": "/tmp/media-ai-verified-engines/llama/llama-b11716/llama-completion",
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "model_path": "/tmp/media-ai-verified-engines/qwen7b/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf",
+    "model_sha256": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+    "revision": "bb5d59e06d9551d752d08b292a50eb208b07ab1f",
+    "license": "Apache-2.0",
+    "model_id": "Qwen/Qwen2.5-7B-Instruct-GGUF",
+    "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+    "context_size": 4096,
+    "additional_model_files": [
+      {
+        "path": "/tmp/media-ai-verified-engines/qwen7b/qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf",
+        "sha256": "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+      }
+    ]
+  },
+  "model_downloaded_by_probe": false,
+  "fixture_inference": false,
+  "native_windows": false,
+  "semantic_understanding": false,
+  "architectural_promotion_quality": "NOT_TESTED",
+  "full_product_pass": false,
+  "cases": [
+    {
+      "case": "dark",
+      "input": {
+        "file_name": "input.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/dark/input.mp4",
+        "bytes": 2252,
+        "sha256": "9f0475a7776a5492e727b8fbb1b858ff837198c8b764d094f32fe33818820a1e"
+      },
+      "output": {
+        "file_name": "output.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/dark/output.mp4",
+        "bytes": 2228,
+        "sha256": "1f6240909c806689653641d3b72727ffbec34eb0d64cf22da9b74732ae1ee49e"
+      },
+      "workflow_id": "7bc60ce4-b80d-49ce-909c-83854aa47f42",
+      "plan_id": "8af6fade-8b58-4256-aed0-c391e42bb909",
+      "decision": {
+        "start": 0,
+        "brightness": 8,
+        "contrast": 0,
+        "saturation": 0,
+        "reason": "측정된 노출 값 31이 80 미만이므로 밝기를 증가시킵니다."
+      },
+      "actual_model_inference": true,
+      "raw_response_sha256": "2ba93406307a5912327661f1ba2fdb02f4e4f52c6ca217c91acdffe1afc2dd4f",
+      "technical_quality": {
+        "status": "PASS_TECHNICAL_ONLY",
+        "output_sha256": "1f6240909c806689653641d3b72727ffbec34eb0d64cf22da9b74732ae1ee49e",
+        "duration_seconds": 2.0,
+        "video_codec": "h264",
+        "source_window_exposure": 31.0,
+        "output_exposure": 54.0,
+        "exposure_error_before": 49.0,
+        "exposure_error_after": 26.0,
+        "usable_frame_ratio": 1.0,
+        "sample_count": 2,
+        "semantic_quality": "NOT_EVALUATED",
+        "human_visual_approval": "REQUIRED",
+        "full_product_pass": false
+      },
+      "reopen_project": "PASS",
+      "export": {
+        "status": "EXPORTED",
+        "project_id": "77139d47-ea8d-45f6-b3e1-0fa89cb7dca1",
+        "export": {
+          "file_name": "77139d47-ea8d-45f6-b3e1-0fa89cb7dca1_export.zip",
+          "path": "/tmp/media-ai-core-e2e-r1-five-cases/dark/data/projects/77139d47-ea8d-45f6-b3e1-0fa89cb7dca1_export.zip",
+          "bytes": 8648,
+          "sha256": "8b2477e8911f1e02383cb5ad7f0ee68c6b4346345a1eb52eb6ea772bb6c8f3bf"
+        }
+      },
+      "status": "PASS_ACTUAL_QWEN_FFMPEG_TECHNICAL_GATE"
+    },
+    {
+      "case": "bright",
+      "input": {
+        "file_name": "input.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/bright/input.mp4",
+        "bytes": 2251,
+        "sha256": "76dda41cefa41eaedb6699223e0afe49f33971d9fe97bc3b1e73aa7ee3a8a150"
+      },
+      "output": {
+        "file_name": "output.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/bright/output.mp4",
+        "bytes": 2228,
+        "sha256": "875539e7795483a193bd88a24402be3304a366f8e7a88fc7a6f1a5ac5c5ea1c0"
+      },
+      "workflow_id": "577c6d9c-041e-4602-b4f9-08ea9ec3e405",
+      "plan_id": "23309621-2f9a-49df-868f-77d301ee02a3",
+      "decision": {
+        "start": 0,
+        "brightness": -4,
+        "contrast": 0,
+        "saturation": 0,
+        "reason": "측정된 평균 노출 223.0이 176보다 높아 밝기를 조정합니다."
+      },
+      "actual_model_inference": true,
+      "raw_response_sha256": "6623c4832b6ce28d1c9c113424d07f9c244d74057f49958609aeb083c0015c5a",
+      "technical_quality": {
+        "status": "PASS_TECHNICAL_ONLY",
+        "output_sha256": "875539e7795483a193bd88a24402be3304a366f8e7a88fc7a6f1a5ac5c5ea1c0",
+        "duration_seconds": 2.0,
+        "video_codec": "h264",
+        "source_window_exposure": 223.0,
+        "output_exposure": 210.0,
+        "exposure_error_before": 47.0,
+        "exposure_error_after": 34.0,
+        "usable_frame_ratio": 1.0,
+        "sample_count": 2,
+        "semantic_quality": "NOT_EVALUATED",
+        "human_visual_approval": "REQUIRED",
+        "full_product_pass": false
+      },
+      "reopen_project": "PASS",
+      "export": {
+        "status": "EXPORTED",
+        "project_id": "c43e887c-4665-46ca-a838-872a367a16bc",
+        "export": {
+          "file_name": "c43e887c-4665-46ca-a838-872a367a16bc_export.zip",
+          "path": "/tmp/media-ai-core-e2e-r1-five-cases/bright/data/projects/c43e887c-4665-46ca-a838-872a367a16bc_export.zip",
+          "bytes": 8645,
+          "sha256": "ad18579649105ad514ce7e3fbcac1acfd7b772a96c12e0a040a7019cf9de1e33"
+        }
+      },
+      "status": "PASS_ACTUAL_QWEN_FFMPEG_TECHNICAL_GATE"
+    },
+    {
+      "case": "normal",
+      "input": {
+        "file_name": "input.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/normal/input.mp4",
+        "bytes": 2250,
+        "sha256": "edef69a77d7ce0de9b15eb4070ed4e9154eaf9146728d2c47f38127c641b19dd"
+      },
+      "output": {
+        "file_name": "output.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/normal/output.mp4",
+        "bytes": 2224,
+        "sha256": "deef9870e469ab34d10046afe406657fd61df995e2999070af972ae9e3d1efa0"
+      },
+      "workflow_id": "e5c1d876-2b8d-4ae2-95d5-38bb025c7fe6",
+      "plan_id": "d72c6657-59a7-43ec-8f30-9e590431b25d",
+      "decision": {
+        "start": 0,
+        "brightness": 0,
+        "contrast": 0,
+        "saturation": 0,
+        "reason": "측정된 평균 노출 128.0이 허용 범위 [80, 176] 안에 있어 유지합니다."
+      },
+      "actual_model_inference": true,
+      "raw_response_sha256": "1f127ab9e812784fc369c1669b75ed9d7409b81d11f70e3aed697b0a8443c75f",
+      "technical_quality": {
+        "status": "PASS_TECHNICAL_ONLY",
+        "output_sha256": "deef9870e469ab34d10046afe406657fd61df995e2999070af972ae9e3d1efa0",
+        "duration_seconds": 2.0,
+        "video_codec": "h264",
+        "source_window_exposure": 128.0,
+        "output_exposure": 128.0,
+        "exposure_error_before": 0,
+        "exposure_error_after": 0,
+        "usable_frame_ratio": 1.0,
+        "sample_count": 2,
+        "semantic_quality": "NOT_EVALUATED",
+        "human_visual_approval": "REQUIRED",
+        "full_product_pass": false
+      },
+      "reopen_project": "PASS",
+      "export": {
+        "status": "EXPORTED",
+        "project_id": "ce72042b-9676-459b-b032-77caac7d0eea",
+        "export": {
+          "file_name": "ce72042b-9676-459b-b032-77caac7d0eea_export.zip",
+          "path": "/tmp/media-ai-core-e2e-r1-five-cases/normal/data/projects/ce72042b-9676-459b-b032-77caac7d0eea_export.zip",
+          "bytes": 8545,
+          "sha256": "5b87c63556f4e0f98f657d1c5b651236c24f10415a670b6576469efa12f1edb8"
+        }
+      },
+      "status": "PASS_ACTUAL_QWEN_FFMPEG_TECHNICAL_GATE"
+    },
+    {
+      "case": "moving",
+      "input": {
+        "file_name": "input.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/moving/input.mp4",
+        "bytes": 21796,
+        "sha256": "2c7796fb34e3a6d9d1a286a897ac79eb21159b97ff3bcaaa9fa83a01a6532a70"
+      },
+      "output": {
+        "file_name": "output.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/moving/output.mp4",
+        "bytes": 21050,
+        "sha256": "011bd98a29b0ebc254ae1eea768952e777d880e95627765b1731511b23270d70"
+      },
+      "workflow_id": "c009c82c-e8ca-44ab-abbb-b74cd76dc14d",
+      "plan_id": "4d5b4313-9f6d-4d69-8d68-df59a1a53abb",
+      "decision": {
+        "start": 0,
+        "brightness": 0,
+        "contrast": 0,
+        "saturation": 0,
+        "reason": "측정된 평균 노출 105.73이 80과 176의 범위 안에 있어 보정하지 않습니다."
+      },
+      "actual_model_inference": true,
+      "raw_response_sha256": "f429204bfb9586e3056d4e7d4a3b106fea54bd4f893a27f7ba08cac4b63f1545",
+      "technical_quality": {
+        "status": "PASS_TECHNICAL_ONLY",
+        "output_sha256": "011bd98a29b0ebc254ae1eea768952e777d880e95627765b1731511b23270d70",
+        "duration_seconds": 2.0,
+        "video_codec": "h264",
+        "source_window_exposure": 105.72794999999999,
+        "output_exposure": 105.70259999999999,
+        "exposure_error_before": 0,
+        "exposure_error_after": 0,
+        "usable_frame_ratio": 1.0,
+        "sample_count": 2,
+        "semantic_quality": "NOT_EVALUATED",
+        "human_visual_approval": "REQUIRED",
+        "full_product_pass": false
+      },
+      "reopen_project": "PASS",
+      "export": {
+        "status": "EXPORTED",
+        "project_id": "8bf8fe86-3995-463b-b1de-8027dd3b5f40",
+        "export": {
+          "file_name": "8bf8fe86-3995-463b-b1de-8027dd3b5f40_export.zip",
+          "path": "/tmp/media-ai-core-e2e-r1-five-cases/moving/data/projects/8bf8fe86-3995-463b-b1de-8027dd3b5f40_export.zip",
+          "bytes": 108309,
+          "sha256": "8deefbc993360805321c24726f76a4b183610a549c80b357b4c98eaca90be8f2"
+        }
+      },
+      "status": "PASS_ACTUAL_QWEN_FFMPEG_TECHNICAL_GATE"
+    },
+    {
+      "case": "static",
+      "input": {
+        "file_name": "input.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/static/input.mp4",
+        "bytes": 5026,
+        "sha256": "abd26e216ae1a1a7419dd628b2d9d9a2888ff07b6a0e530daaa67d0b34526acf"
+      },
+      "output": {
+        "file_name": "output.mp4",
+        "path": "/tmp/media-ai-core-e2e-r1-five-cases/static/output.mp4",
+        "bytes": 4679,
+        "sha256": "fcaa0f5174a1a10b04417d48ef80994152c9d972c56c89de1ec3c2e6c21fd224"
+      },
+      "workflow_id": "bbad87f7-62ec-4b7b-839d-f04b8fa20b28",
+      "plan_id": "0d86e002-d986-4688-9f93-7cf7b6130d38",
+      "decision": {
+        "start": 0,
+        "brightness": 0,
+        "contrast": 0,
+        "saturation": 0,
+        "reason": "측정된 노출 104.2987이 범위 [80, 176] 안에 있어 유지합니다."
+      },
+      "actual_model_inference": true,
+      "raw_response_sha256": "f05ee8c8a0d5084540dc68a7eead570b454cfb98aab914eab79ab9710b15d192",
+      "technical_quality": {
+        "status": "PASS_TECHNICAL_ONLY",
+        "output_sha256": "fcaa0f5174a1a10b04417d48ef80994152c9d972c56c89de1ec3c2e6c21fd224",
+        "duration_seconds": 2.0,
+        "video_codec": "h264",
+        "source_window_exposure": 104.2987,
+        "output_exposure": 104.3253,
+        "exposure_error_before": 0,
+        "exposure_error_after": 0,
+        "usable_frame_ratio": 1.0,
+        "sample_count": 2,
+        "semantic_quality": "NOT_EVALUATED",
+        "human_visual_approval": "REQUIRED",
+        "full_product_pass": false
+      },
+      "reopen_project": "PASS",
+      "export": {
+        "status": "EXPORTED",
+        "project_id": "11525d8b-c4b1-40c6-8860-19bfe59fa834",
+        "export": {
+          "file_name": "11525d8b-c4b1-40c6-8860-19bfe59fa834_export.zip",
+          "path": "/tmp/media-ai-core-e2e-r1-five-cases/static/data/projects/11525d8b-c4b1-40c6-8860-19bfe59fa834_export.zip",
+          "bytes": 22417,
+          "sha256": "71383697530118d8427fe2133b0fd90835a9edd14a7d15e8f6ce55557447bd1f"
+        }
+      },
+      "status": "PASS_ACTUAL_QWEN_FFMPEG_TECHNICAL_GATE"
+    }
+  ],
+  "input_sensitivity": {
+    "dark_brightness": 8,
+    "bright_brightness": -4,
+    "different_decisions": true,
+    "opposite_exposure_directions": true
+  }
+}

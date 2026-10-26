@@ -1,0 +1,19 @@
+{
+  "cycle": "pc-work-verified-runtime-photo-v4-20260930",
+  "execution_surface": "Windows local product UI http://127.0.0.1:8765/ and GitHub Actions artifact page run 36089930051",
+  "artifact_attempt": {
+    "part00_id": 10845890220,
+    "part00_expected_digest": "sha256:5d0fb6ba466b9ad77a6ebaac0e15eb730994f1968def25405f1a535643114ee4",
+    "partial_file": "C:\\Users\\PC\\Downloads\\미확인 306151.crdownload",
+    "partial_bytes": 15380,
+    "result": "INCOMPLETE_DOWNLOAD"
+  },
+  "ui_attempt": {
+    "photo_import_control": "VISIBLE",
+    "native_chooser": "NOT_SURFACED",
+    "result": "HUMAN_FILE_SELECTION_REQUIRED"
+  },
+  "outputs": [],
+  "note": "No completed PHOTO output was claimed because the exact verified runtime payload was not materialized.",
+  "final_commit_sha": "b75be81fdbe32c4d335e27a8b1198ad5db288bb8"
+}

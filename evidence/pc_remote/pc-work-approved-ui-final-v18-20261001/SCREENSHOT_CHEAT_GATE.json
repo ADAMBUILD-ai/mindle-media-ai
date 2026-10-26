@@ -1,0 +1,9 @@
+{
+  "status": "PASS_FOR_BLOCKED_CYCLE",
+  "approved_image_as_background": false,
+  "approved_image_as_overlay": false,
+  "controls_preserved_as_dom": true,
+  "inputs_preserved_as_html": true,
+  "timeline_flattened": false,
+  "note": "No visual implementation was attempted; this is not a visual conformance PASS."
+}

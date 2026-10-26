@@ -1,0 +1,192 @@
+diff --git a/src/media_ai/workflow_planner.py b/src/media_ai/workflow_planner.py
+index b1ecbf5..0731ffa 100644
+--- a/src/media_ai/workflow_planner.py
++++ b/src/media_ai/workflow_planner.py
+@@ -7,6 +7,7 @@ import subprocess
+ import re
+ from uuid import uuid4
+ from .durable_workflows import validate_steps
++from .planner_constraints import instruction_text, validate_edit_values, requested_edit_fields
+ from .workflow_worker import engines_config, tree_sha
+ 
+ 
+@@ -26,7 +27,9 @@ def persist_plan(root,value,request):
+ 
+ def validate_plan_scope(command,steps):
+     """Reject model-invented actions; this gate never generates a plan."""
+-    text=command.casefold()
++    text=instruction_text(command)
++    if re.search(r'자막|받아쓰|stt|subtitle|transcrib|나레이션|내레이션|narration|tts',text) and re.search(r'지\s*마|말|않|금지|하지|없이|제외|빼고|do not|don.t|never|without',text):
++        raise ValueError('PLANNER_AMBIGUOUS_NEGATION: 음성·자막 부정 지시를 실행하지 않습니다. 수행할 작업만 명시하세요.')
+     fields={'brightness':('밝기','밝게','brightness'),'contrast':('대비','contrast'),'saturation':('채도','saturation')}
+     narration=any(word in text for word in ('나레이션','내레이션','narration','tts'))
+     subtitles=any(word in text for word in ('받아쓰','자막','stt','transcrib','subtitle'))
+@@ -44,7 +47,7 @@ def validate_plan_scope(command,steps):
+             raise ValueError('PLANNER_SCRIPT_NOT_IN_REQUEST: 명시한 원고만 합성할 수 있습니다.')
+     # A valid subset is not a completed plan: reject silently dropped requests.
+     actual_fields={key for step in steps if step['operation']=='video_edit' for key in step.get('options',{})}
+-    expected_fields={key for key,words in fields.items() if any(word in text for word in words)}
++    expected_fields=requested_edit_fields(command)
+     operations={step['operation'] for step in steps}
+     if not expected_fields.issubset(actual_fields):
+         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 보정이 누락됐습니다.')
+@@ -54,6 +57,7 @@ def validate_plan_scope(command,steps):
+         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 받아쓰기가 누락됐습니다.')
+     if any(word in text for word in ('자막','subtitle')) and 'apply_subtitles' not in operations:
+         raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 자막 적용이 누락됐습니다.')
++    validate_edit_values(command,steps)
+     return steps
+ 
+ 
+@@ -90,6 +94,10 @@ def make_plan(root,request):
+       '{"operation":"mix_narration","length_policy":"reject"}. '
+       'Choose ONLY the requested steps; numeric values above are examples, use actual user values. '
+       '밝기=brightness, 대비=contrast, 채도=saturation. '
++      'Edit values are signed relative correction points, not absolute settings or percentages. '
++      'For an explicit magnitude 0 to 100 use positive for 높이기/increase and negative for 낮추기/decrease. '
++      'Omit controls the user says to preserve; never repeat the same control. '
++      'Ambiguous magnitudes, absolute settings, unsupported units or negated speech/subtitle requests: return an error. '
+       'Speech to subtitles: transcribe THEN apply_subtitles. Narration: narrate THEN mix_narration. '
+       'If video extension requested use length_policy extend_video. Never invent a narration script. '
+       'Unsupported request: {"error":"unsupported request"}. Do not output paths, commands or network actions.')
+@@ -110,6 +118,6 @@ def make_plan(root,request):
+     validate_plan_scope(command,steps)
+     if any(s['operation']=='narrate' for s in steps) and not any(s['operation']=='mix_narration' for s in steps):
+         raise ValueError('PLANNER_INCOMPLETE_NARRATION_PLAN: 음성 생성 후 합성 단계가 필요합니다.')
+-    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps},request)
++    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps,'validated_edit_values':validate_edit_values(command,steps)},request)
+     (Path(root)/'workflows/plans'/(value['plan_id']+'.response.txt')).write_text(output,encoding='utf-8')
+     return value
+diff --git a/tests/test_local_planner_scope.py b/tests/test_local_planner_scope.py
+index 379f670..0f86e5e 100644
+--- a/tests/test_local_planner_scope.py
++++ b/tests/test_local_planner_scope.py
+@@ -52,3 +52,91 @@ def test_local_planner_decodes_korean_as_utf8(tmp_path,monkeypatch):
+ def test_generated_partial_plan_is_not_success(command,steps):
+     with pytest.raises(ValueError,match='PLANNER_INCOMPLETE_PLAN'):
+         validate_plan_scope(command,steps)
++
++@pytest.mark.parametrize('command,value',[
++ ('밝기를 3 높여 줘',3),('밝기를 3 낮춰 줘',-3),
++ ('밝기를 2.5 줄여 줘',-2.5),('밝기 0 높여 줘',0),
++])
++def test_exact_numeric_direction(command,value):
++    steps=[{'operation':'video_edit','options':{'brightness':value}}]
++    assert validate_plan_scope(command,steps)==steps
++
++@pytest.mark.parametrize('command,value',[
++ ('밝기를 3 높여 줘',30),('밝기를 3 낮춰 줘',3),
++ ('밝기를 3으로 설정해',3),('밝기를 3% 높여 줘',3),
++ ('밝기를 높여 줘',3),('밝기 3 높이고 밝기 3 높여',3),
++ ('밝기를 바꾸지 마',3),('밝기 -3 낮춰 줘',-3),
++ ('밝기 3 높여 줘',True),('밝기 3 높여 줘',float('nan')),
++])
++def test_unsafe_numeric_plan_rejected(command,value):
++    with pytest.raises(ValueError,match='PLANNER_'):
++        validate_plan_scope(command,[{'operation':'video_edit','options':{'brightness':value}}])
++
++def test_negated_edit_with_another_requested_edit():
++    steps=[{'operation':'video_edit','options':{'contrast':4}}]
++    assert validate_plan_scope('밝기는 그대로 두고 대비를 4 높여 줘',steps)==steps
++
++def test_script_edit_words_do_not_become_instructions():
++    steps=[{'operation':'narrate','text':'밝기 30 대비 20'},{'operation':'mix_narration'}]
++    assert validate_plan_scope('"밝기 30 대비 20" 나레이션 넣어 줘',steps)==steps
++
++def test_duplicate_model_edits_rejected():
++    with pytest.raises(ValueError,match='PLANNER_DUPLICATE_EDIT'):
++        validate_plan_scope('밝기 3 높여 줘',[{'operation':'video_edit','options':{'brightness':3}}]*2)
++
++@pytest.mark.parametrize('model_value,accepted',[(3,True),(30,False),(-3,False)])
++def test_plan_api_rejects_wrong_model_values_before_persistence(tmp_path,monkeypatch,model_value,accepted):
++    """Actual product HTTP boundary, synthetic model reply; no model inference."""
++    import hashlib,json,threading
++    from urllib.request import Request,urlopen
++    from urllib.error import HTTPError
++    from media_ai import workflow_planner as planner
++    from media_ai.product_server import create_server
++    executable=tmp_path/'executor';executable.write_bytes(b'not-executed')
++    model=tmp_path/'model';model.write_bytes(b'not-a-model')
++    settings={'executable':str(executable),'executable_sha256':hashlib.sha256(executable.read_bytes()).hexdigest(),'model_path':str(model),'model_sha256':hashlib.sha256(model.read_bytes()).hexdigest(),'license':'fixture','revision':'a'*40}
++    monkeypatch.setattr(planner,'engines_config',lambda root:{'planner':settings})
++    monkeypatch.setattr(planner.subprocess,'check_output',lambda *args,**kw:json.dumps({'steps':[{'operation':'video_edit','options':{'brightness':model_value}}]}))
++    from pathlib import Path
++    data=tmp_path/'data'
++    server=create_server(Path(__file__).resolve().parents[1],data,'')
++    thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
++    request=Request('http://127.0.0.1:'+str(server.server_port)+'/api/workflows/plan',data=json.dumps({'command':'밝기를 3 높여 줘'}).encode(),headers={'Content-Type':'application/json'})
++    try:
++        if accepted:
++            with urlopen(request,timeout=10) as response:result=json.load(response)
++            assert result['validated_edit_values']=={'brightness':3}
++            assert list((data/'workflows/plans').glob('*.json'))
++        else:
++            with pytest.raises(HTTPError) as error:urlopen(request,timeout=10)
++            assert error.value.code==422
++            assert 'PLANNER_VALUE_MISMATCH' in json.load(error.value)['error']
++            assert not list((data/'workflows/plans').glob('*.json'))
++    finally:
++        server.shutdown();server.server_close();thread.join(timeout=3)
++
++@pytest.mark.parametrize('command', ['밝기 3초 높여 줘','밝기 3e1 높여 줘','밝기 3배 높여 줘','밝기 3 높이고 낮춰 줘'])
++def test_unsupported_units_and_conflicting_directions(command):
++    with pytest.raises(ValueError,match='PLANNER_'):
++        validate_plan_scope(command,[{'operation':'video_edit','options':{'brightness':3}}])
++
++@pytest.mark.parametrize('command,steps',[
++ ('자막을 넣지 마',[{'operation':'transcribe'},{'operation':'apply_subtitles'}]),
++ ('"안녕" 나레이션 하지 마',[{'operation':'narrate','text':'안녕'},{'operation':'mix_narration'}]),
++])
++def test_negated_audio_subtitle_commands_do_not_execute(command,steps):
++    with pytest.raises(ValueError,match='PLANNER_AMBIGUOUS_NEGATION'):
++        validate_plan_scope(command,steps)
++
++def test_independent_compound_values_preserve_plan():
++    steps=[{'operation':'video_edit','options':{'brightness':-3,'contrast':4,'saturation':2.5}}]
++    assert validate_plan_scope('밝기 3 낮추고 대비 4 높이고 채도 2.5 높여 줘',steps)==steps
++
++@pytest.mark.parametrize('command', ['자막 없이 해 줘', '자막은, 넣지 마', "do not add subtitles"])
++def test_other_negated_subtitle_forms_fail_closed(command):
++    with pytest.raises(ValueError,match='PLANNER_AMBIGUOUS_NEGATION'):
++        validate_plan_scope(command,[{'operation':'transcribe'},{'operation':'apply_subtitles'}])
++
++def test_korean_additive_particle_is_not_a_degree_unit():
++    steps=[{'operation':'video_edit','options':{'brightness':3}},{'operation':'transcribe'},{'operation':'apply_subtitles'}]
++    assert validate_plan_scope('밝기 3 높이고 자막도 넣어 줘',steps)==steps
+diff --git a/ui/workflow_execution.js b/ui/workflow_execution.js
+index 86a9eab..49a03bd 100644
+--- a/ui/workflow_execution.js
++++ b/ui/workflow_execution.js
+@@ -34,7 +34,8 @@
+     window.mindleBeginEdit('video');let ownsPending=true;
+     try{
+       const planResponse=await fetch('/api/workflows/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:detail.command,...(steps?{steps}:{})})});const plan=await planResponse.json();if(!planResponse.ok)throw new Error(plan.error||'계획 생성 실패');
+-      show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획 · '+(plan.model_id||'모델 정보 없음'):'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → '));
++      const applied=Object.entries(plan.validated_edit_values||{}).map(([key,value])=>({brightness:'밝기',contrast:'대비',saturation:'채도'}[key]||key)+' '+(value>=0?'+':'')+value+' 포인트').join(' · ');
++      show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획 · '+(plan.model_id||'모델 정보 없음'):'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → ')+(applied?' · 검증된 적용값: '+applied:''));
+       let background=null;const bgm=editor.querySelector('[data-bgm-input]').files[0];
+       if(bgm){background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.readAsDataURL(bgm);})};}
+       const response=await fetch('/api/workflows',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:crypto.randomUUID(),plan_id:plan.plan_id,input_job_id:input,...await window.mindleWorkflowContext(),steps:plan.steps.map(({step_id,...step})=>step),background,export:true})});let task=await response.json();if(!response.ok)throw new Error(task.error||'작업 요청 실패');
+diff --git a/ui/workflow_routing.test.js b/ui/workflow_routing.test.js
+index 36b57e3..6c3edd7 100644
+--- a/ui/workflow_routing.test.js
++++ b/ui/workflow_routing.test.js
+@@ -12,3 +12,18 @@ for(const command of ['대비를 13 높여 줘','밝기를 7 낮추고 자막을
+ }
+ test('manual scene analysis and tracking stay in existing path',async()=>{for(const command of ['자동 편집','객체 추적','속도 2배']){const s=setup();assert.equal(await s.window.mindleWorkflowCommand(s.editor,'video',{command}),false);assert.equal(s.calls.length,0);}});
+ test('PHOTO does not silently enter VIDEO model plan',async()=>{const s=setup();assert.equal(await s.window.mindleWorkflowCommand(s.editor,'photo',{command:'사진 분할'}),false);assert.equal(s.calls.length,0);});
++test('verified values and model provenance are shown before queue submission',async()=>{
++ const messages=[],status={style:{},dataset:{},replaceChildren(text){messages.push(text);}};
++ const editor={querySelector:selector=>selector==='[data-bgm-input]'?{files:[]}:selector==='[data-preview]'?{dataset:{jobId:'video'}}:status};
++ const document={querySelector:()=>editor,createTextNode:x=>x,addEventListener(){}};
++ const window={mindleBeginEdit(){},mindleEndEdit(){},mindleWorkflowContext:async()=>({})};
++ let submitted=false;
++ const fetch=async url=>{
++  if(url==='/api/workflows/plan')return {ok:true,json:async()=>({plan_source:'LOCAL_GENERATIVE_INFERENCE',model_id:'fixture-model',plan_id:'fixture-plan',steps:[{operation:'video_edit',options:{brightness:-3}}],validated_edit_values:{brightness:-3}})};
++  assert.ok(messages.some(x=>x.includes('fixture-model')&&x.includes('밝기 -3 포인트')));
++  submitted=true;return {ok:false,json:async()=>({error:'fixture: stop before execution'})};
++ };
++ vm.runInNewContext(fs.readFileSync(__dirname+'/workflow_execution.js','utf8'),{window,document,fetch,crypto:{randomUUID:()=> 'fixture-request'}});
++ await window.mindleWorkflowCommand(editor,'video',{command:'밝기 3 낮춰 줘'});
++ assert.equal(submitted,true);
++});

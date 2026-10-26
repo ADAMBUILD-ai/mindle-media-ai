@@ -1,0 +1,10 @@
+{
+  "approved": false,
+  "scope": "ISOLATED_SOURCE_ONLY",
+  "source_sha": null,
+  "manifest_sha256": null,
+  "engine_config_sha256": null,
+  "approved_by": null,
+  "approved_at": null,
+  "notes": "Unapproved template. Does not authorize a build, installed-model replacement, deployment, or whole-product acceptance. Fill only after explicit owner approval."
+}

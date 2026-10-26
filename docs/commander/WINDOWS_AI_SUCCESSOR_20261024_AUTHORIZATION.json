@@ -1,0 +1,57 @@
+{
+  "id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3-INFERENCE-BYTE-FIX",
+  "authorized_parent": "e8ac66a9be3e3aacfefd3d7e98aec06034c1d77a",
+  "scope": "ONE_SUCCESSOR_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
+  "owner_instruction": "실행 공간의 실제 모델 원문과 증거 바이트가 Windows에서도 일치하게 고쳐 끝까지 검증한다.",
+  "authorization_source": "Current owner conversation, 2026-10-24 KST; corrective successor for Windows text-mode inference receipt bytes",
+  "attempts_allowed": 1,
+  "workflow": ".github/workflows/windows-ai-successor-20261024.yml",
+  "reuse_base_candidate": "TEST_R2",
+  "reuse_base_zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
+  "package_build_allowed": false,
+  "engine_download_allowed": false,
+  "engine_rebuild_allowed": false,
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "main_merge_forbidden": true,
+  "pr23_hold_do_not_merge": true,
+  "employee_final_release_forbidden": true,
+  "previous_attempt": {
+    "source": "85664285d921c565c2126e90f7f6e6ef31b20944",
+    "run": 40077165558,
+    "status": "FAILED_WINDOWS_CRLF_ASSET_SHA_MISMATCH_AFTER_QWEN_SUPERTONIC_BROWSER_PASS",
+    "evidence_artifact": 12554315219
+  },
+  "previous_attempts": [
+    {
+      "source": "85664285d921c565c2126e90f7f6e6ef31b20944",
+      "run": 40077165558,
+      "status": "FAILED_WINDOWS_CRLF_ASSET_SHA_AFTER_QWEN_SUPERTONIC_BROWSER_PASS",
+      "evidence_artifact": 12554315219
+    },
+    {
+      "source": "e0574b4a6e3d2970bc9ab444b559b8f26d468023",
+      "run": 40077847820,
+      "status": "FAILED_GENERATIVE_ARCHITECTURE_PLAN_422_AFTER_ASSET_FIX_AND_QWEN_SUPERTONIC_BROWSER_PASS",
+      "evidence_artifact": 12554211730
+    },
+    {
+      "source": "150146746a55c267ecd920357abc0d50271a9880",
+      "run": 40078457178,
+      "status": "FAILED_QWEN_EXPLICIT_TOTAL_DURATION_GUARDRAIL_BLOCKED",
+      "evidence_artifact": 12554890413,
+      "error": "ARCHITECTURE_PLAN_TOTAL_DURATION_MISMATCH"
+    },
+    {
+      "source": "e8ac66a9be3e3aacfefd3d7e98aec06034c1d77a",
+      "run": 40079150015,
+      "status": "FAILED_WINDOWS_TEXT_MODE_INFERENCE_RECEIPT_SHA_AFTER_ARCHITECTURE_PLAN_PASS",
+      "evidence_artifact": 12554721546,
+      "error": "architecture inference response byte integrity mismatch"
+    }
+  ],
+  "authorization_consumed": true,
+  "consumed_source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "consumed_run": 40079944004,
+  "result": "REMOTE_WINDOWS_PASS_INDEPENDENT_READBACK_PASS_OWNER_PC_PENDING"
+}

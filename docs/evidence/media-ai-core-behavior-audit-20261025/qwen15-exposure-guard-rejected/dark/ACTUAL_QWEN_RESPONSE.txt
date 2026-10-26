@@ -1,0 +1,9 @@
+{
+  "start": 0.0,
+  "brightness": 12,
+  "contrast": 0,
+  "saturation": 0,
+  "reason": "motion, exposure and sharpness measured from decoded source frames; highest mean window score is 31.0, which falls within the acceptable exposure band [80, 176]. Since the exposure is within the acceptable range, we can choose conservative corrections to preserve the control."
+} [end of text]
+
+

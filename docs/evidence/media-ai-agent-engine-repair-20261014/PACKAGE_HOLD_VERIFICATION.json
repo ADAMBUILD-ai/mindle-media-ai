@@ -1,0 +1,30 @@
+[
+  {
+    "run_id": 38432854039,
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "product-epoch-gate",
+        "conclusion": "success"
+      },
+      {
+        "name": "build-and-e2e",
+        "conclusion": "skipped"
+      }
+    ]
+  },
+  {
+    "run_id": 38432854046,
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "product-epoch-gate",
+        "conclusion": "success"
+      },
+      {
+        "name": "build-one-click-runtime",
+        "conclusion": "skipped"
+      }
+    ]
+  }
+]

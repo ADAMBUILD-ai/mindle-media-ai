@@ -1,0 +1,97 @@
+2026-10-26T00:38:33.4091109Z ##[group]Run python -m pytest -q
+2026-10-26T00:38:33.4091473Z [36;1mpython -m pytest -q[0m
+2026-10-26T00:38:33.4153298Z shell: /usr/bin/bash -e {0}
+2026-10-26T00:38:33.4153562Z env:
+2026-10-26T00:38:33.4153864Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:38:33.4154345Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-26T00:38:33.4155337Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:38:33.4155755Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:38:33.4156165Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:38:33.4156590Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-26T00:38:33.4156946Z ##[endgroup]
+2026-10-26T00:38:41.5493658Z ........................................................................ [ 15%]
+2026-10-26T00:38:48.3871129Z ........................................................................ [ 31%]
+2026-10-26T00:38:53.7751307Z .............................................sss............s........... [ 47%]
+2026-10-26T00:39:11.8725388Z ........................................................................ [ 63%]
+2026-10-26T00:39:15.3651338Z ..............................................................s......... [ 79%]
+2026-10-26T00:39:22.4498824Z ........................................................................ [ 95%]
+2026-10-26T00:39:24.2234744Z ...................                                                      [100%]
+2026-10-26T00:39:24.2235484Z 446 passed, 5 skipped in 50.54s
+2026-10-26T00:39:24.3016156Z ##[group]Run python model_scout/validate_evidence_sync.py
+2026-10-26T00:39:24.3016593Z [36;1mpython model_scout/validate_evidence_sync.py[0m
+2026-10-26T00:39:24.3077052Z shell: /usr/bin/bash -e {0}
+2026-10-26T00:39:24.3077306Z env:
+2026-10-26T00:39:24.3077666Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.3078109Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-26T00:39:24.3078562Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.3078946Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.3079331Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.3079719Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-26T00:39:24.3080065Z ##[endgroup]
+2026-10-26T00:39:24.3379300Z intake manifests pass
+2026-10-26T00:39:24.3379817Z evidence sync pass
+2026-10-26T00:39:24.3450755Z ##[group]Run node --test ui/interaction.test.js ui/ssot_structure.test.js
+2026-10-26T00:39:24.3451494Z [36;1mnode --test ui/interaction.test.js ui/ssot_structure.test.js[0m
+2026-10-26T00:39:24.3507960Z shell: /usr/bin/bash -e {0}
+2026-10-26T00:39:24.3508314Z env:
+2026-10-26T00:39:24.3508793Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.3509335Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-26T00:39:24.3509904Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.3510459Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.3510937Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.3511446Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-26T00:39:24.3511903Z ##[endgroup]
+2026-10-26T00:39:24.3984215Z TAP version 13
+2026-10-26T00:39:24.4287059Z # Subtest: /home/runner/work/mindle-media-ai/mindle-media-ai/ui/interaction.test.js
+2026-10-26T00:39:24.4296751Z ok 1 - /home/runner/work/mindle-media-ai/mindle-media-ai/ui/interaction.test.js
+2026-10-26T00:39:24.4298226Z   ---
+2026-10-26T00:39:24.4299275Z   duration_ms: 36.969341
+2026-10-26T00:39:24.4300191Z   ...
+2026-10-26T00:39:24.4326015Z # Subtest: /home/runner/work/mindle-media-ai/mindle-media-ai/ui/ssot_structure.test.js
+2026-10-26T00:39:24.4327948Z ok 2 - /home/runner/work/mindle-media-ai/mindle-media-ai/ui/ssot_structure.test.js
+2026-10-26T00:39:24.4329520Z   ---
+2026-10-26T00:39:24.4330472Z   duration_ms: 35.902926
+2026-10-26T00:39:24.4331180Z   ...
+2026-10-26T00:39:24.4331716Z 1..2
+2026-10-26T00:39:24.4332209Z # tests 2
+2026-10-26T00:39:24.4332940Z # suites 0
+2026-10-26T00:39:24.4333503Z # pass 2
+2026-10-26T00:39:24.4334104Z # fail 0
+2026-10-26T00:39:24.4334915Z # cancelled 0
+2026-10-26T00:39:24.4335388Z # skipped 0
+2026-10-26T00:39:24.4336495Z # todo 0
+2026-10-26T00:39:24.4337183Z # duration_ms 44.993932
+2026-10-26T00:39:24.4410942Z ##[group]Run python model_scout/validate_package_manifest.py --source
+2026-10-26T00:39:24.4411616Z [36;1mpython model_scout/validate_package_manifest.py --source[0m
+2026-10-26T00:39:24.4472546Z shell: /usr/bin/bash -e {0}
+2026-10-26T00:39:24.4472986Z env:
+2026-10-26T00:39:24.4473348Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.4473876Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-26T00:39:24.4474779Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.4475364Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.4475909Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-26T00:39:24.4476391Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-26T00:39:24.4476796Z ##[endgroup]
+2026-10-26T00:39:24.4807914Z source tree completeness pass
+2026-10-26T00:39:24.4947532Z Post job cleanup.
+2026-10-26T00:39:24.6165120Z (node:6706) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-26T00:39:24.6166031Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-26T00:39:24.6383920Z Post job cleanup.
+2026-10-26T00:39:24.7657587Z (node:6714) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-26T00:39:24.7658713Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-26T00:39:24.7843855Z Post job cleanup.
+2026-10-26T00:39:24.8733462Z [command]/usr/bin/git version
+2026-10-26T00:39:24.8779140Z git version 2.55.0
+2026-10-26T00:39:24.8820525Z Temporarily overriding HOME='/home/runner/work/_temp/77b581d3-5c7d-4664-b3d9-ab1db62b130e' before making global git config changes
+2026-10-26T00:39:24.8822135Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-26T00:39:24.8826278Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mindle-media-ai/mindle-media-ai
+2026-10-26T00:39:24.8895547Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-26T00:39:24.8922481Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-26T00:39:24.9239979Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-26T00:39:24.9267524Z http.https://github.com/.extraheader
+2026-10-26T00:39:24.9288072Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-26T00:39:24.9325781Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-26T00:39:24.9784278Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-26T00:39:24.9848885Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-26T00:39:25.0332967Z Cleaning up orphan processes
+2026-10-26T00:39:25.0657703Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

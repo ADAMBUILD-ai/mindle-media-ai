@@ -1,0 +1,72 @@
+[
+  {
+    "issue": "lifecycle gates execute after inference",
+    "status": "FIXED",
+    "evidence": "tests/test_agent_execution_order.py and fresh HTTP Job lifecycle"
+  },
+  {
+    "issue": "failed child worker identity missing",
+    "status": "FIXED",
+    "evidence": "failed persistence and service restart tests"
+  },
+  {
+    "issue": "wrong explicit right target",
+    "status": "FIXED",
+    "evidence": "right precedence regression"
+  },
+  {
+    "issue": "reference file ignored",
+    "status": "FIXED_WITH_LIMIT",
+    "evidence": "real template crop match; copied hash/export; general semantic reference understanding remains unconnected"
+  },
+  {
+    "issue": "four-frame tracking",
+    "status": "FIXED_WITH_LIMIT",
+    "evidence": "125-frame memory tracking; CPU ~208sec; no semantic accuracy benchmark"
+  },
+  {
+    "issue": "timestamp does not bracket execution",
+    "status": "FIXED",
+    "evidence": "execution_started_at/finished_at real inference timestamps"
+  },
+  {
+    "issue": "PR10 handoff lineage",
+    "status": "FIXED",
+    "evidence": "PR23"
+  },
+  {
+    "issue": "local callback mistaken for external agent",
+    "status": "CLASSIFIED",
+    "evidence": "local receipt only; external integrations deferred"
+  },
+  {
+    "issue": "missing live status API",
+    "status": "FIXED_WITH_LIMIT",
+    "evidence": "GET /api/tasks/:request_id while running and GET /api/jobs/:id persisted; no durable autonomous queue"
+  },
+  {
+    "issue": "OpenAI generative planner absent",
+    "status": "PENDING_CREDENTIAL_AUTHORIZATION",
+    "evidence": "only owner approval gate"
+  },
+  {
+    "issue": "long WAV unsupported/truncated",
+    "status": "FIXED",
+    "evidence": "44.1k stereo to16k mono;599040 samples/37.44sec;two segments"
+  },
+  {
+    "issue": "same BGM repeatedly mixed",
+    "status": "FIXED",
+    "evidence": "40-check actual browser regression"
+  },
+  {
+    "issue": "timed Korean subtitle not rendered",
+    "status": "FIXED_WITH_LIMIT",
+    "evidence": "two chunk-level intervals rendered; word-level alignment and WER not benchmarked"
+  },
+  {
+    "issue": "legacy paused PC workflows run and fail",
+    "status": "FIXED_CONTROL_GUARD",
+    "evidence": "explicit package hold causes SKIPPED build jobs"
+  }
+]

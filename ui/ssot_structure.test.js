@@ -1,23 +1,15 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
-
 const html = fs.readFileSync(path.join(__dirname, "index.html"), "utf8");
-for (const required of [
-  'data-editor="video"',
-  'data-editor="photo"',
-  'data-layout="left-center-right"',
-  'data-preview="video"',
-  'data-timeline="video"',
-  'data-preview="photo"',
-  'data-command="video"',
-  'data-command="photo"',
-  '참고 이미지 추가',
-  '프로젝트 저장',
-  '내보내기',
-]) assert.ok(html.includes(required), `missing SSOT structure: ${required}`);
-
-const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, "ssot_manifest.json"), "utf8"));
-assert.equal(manifest.status, "APPROVED_PINNED");
-assert.equal(manifest.approved_ui_asset, "assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png");
-assert.match(manifest.asset_sha256, /^[a-f0-9]{64}$/);
+const css = fs.readFileSync(path.join(__dirname, "approved_visual.css"), "utf8");
+for (const required of ['data-ui-contract="FINAL_UI_20261013"','Create. Edit. Together.','>VIDEO<','>PHOTO<','AI가 만드는 더 큰 가능성','for a better tomorrow','신작가님','data-editor="video"','data-editor="photo"','data-layout="left-center-right"','data-preview="video"','data-timeline="video"','data-preview="photo"','data-command="video"','data-command="photo"','AI 대화 편집','광고 숏폼','배경 제거','해상도 향상','유사 이미지','프로젝트 저장','내보내기','최종 확정 기준 PHOTO = 가로 기본 + 세로 사진 자동 대응']) assert.ok(html.includes(required), "missing final UI contract: "+required);
+assert.ok(!html.includes("사진과 영상을 더 멋지게, 더 쉬운 작업"), "legacy topbar must not ship");
+assert.match(css,/\.dual-workspace\s*\{[^}]*grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/s);
+assert.match(css,/\.preview-stage\s*\{[^}]*aspect-ratio:16\/9/s);
+assert.match(css,/\[data-preview\] img[^}]*object-fit:contain/s);
+const videoStart=html.indexOf('<section id="videoWorkspace"'), photoStart=html.indexOf('<section id="photoWorkspace"');
+assert.ok(videoStart>=0&&photoStart>videoStart);
+for (const slider of ["brightness","contrast","highlights","shadows","saturation","temperature","sharpness"]) assert.ok(html.includes('data-photo-adjust="'+slider+'"'));
+for (const required of ['.editor-header::after','PHOTO CREATIVE','.asset-thumb','.asset-name']) assert.ok(css.includes(required),"missing current approved visual treatment: "+required);
+for (const required of ['data-ai-core-status','Qwen 계획기','한국어 신경망 음성','AI 작업 MP4','SAM 분할·추적','Whisper 한국어 STT','4× 업스케일','ai_core_status.js']) assert.ok(html.includes(required),"missing truthful AI status surface: "+required);

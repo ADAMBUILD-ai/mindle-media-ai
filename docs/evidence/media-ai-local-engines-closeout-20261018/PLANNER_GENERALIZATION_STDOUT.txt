@@ -1,0 +1,2 @@
+대비를 13 높여 주세요. PASS [{'operation': 'video_edit', 'options': {'contrast': 13}}]
+채도를 9 높이고 밝기를 -6으로 보정해 주세요. PASS [{'operation': 'video_edit', 'options': {'saturation': 9}}, {'operation': 'video_edit', 'options': {'brightness': -6}}]

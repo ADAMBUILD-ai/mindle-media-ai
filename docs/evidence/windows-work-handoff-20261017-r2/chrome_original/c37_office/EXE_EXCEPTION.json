@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-10-17T05:41:48.175Z",
+  "window": {
+    "app": "process:C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\c37-PC-20261017\\MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0\\MINDLE_MEDIA_AI_RUN.exe",
+    "id": 594262,
+    "title": "Unhandled exception in script"
+  },
+  "accessibility": {
+    "focused_element": "0 대화 상자 Unhandled exception in script Secondary Actions: Raise",
+    "tree": "Window: \"Unhandled exception in script\", App: MINDLE_MEDIA_AI_RUN.exe.\n\t0 대화 상자 Unhandled exception in script Secondary Actions: Raise\n\t\t1 이미지\n\t\t2 텍스트 Failed to execute script 'one_click_bootstrap' due to unhandled exception: [Errno 13] Permission denied: 'C:\\\\Users\\\\R\\\\AppData\\\\Local\\\\MINDLE_MEDIA_AI\\\\deploy.lock'\n\t\t3 편집 Failed to execute script 'one_click_bootstrap' due to unhandled exception: [Errno 13] Permission denied: 'C:\\\\Users\\\\R\\\\AppData\\\\Local\\\\MINDLE_MEDIA_AI\\\\deploy.lock' Value: Traceback (most recent call last): File \"one_click_bootstrap.py\", line 270, in <module> File \"one_click_bootstrap.py\", line 229, in main File \"one_click_bootstrap.py\", line 60, in __init__ File \"pathlib.py\", line 1044, in open PermissionError: [Errno 13] Permission denied: 'C:\\\\Users\\\\R\\\\AppData\\\\Local\\\\MINDLE_MEDIA_AI\\\\deploy.lock'\n\t\t\t4 스크롤 막대 (disabled, settable, float) 세로 Value: 0 ID: NonClientVerticalScrollBar\n\t\t\t\t5 단추 (disabled) 위쪽 스크롤 화살표 ID: UpButton\n\t\t\t\t6 단추 (disabled) 아래쪽 스크롤 화살표 ID: DownButton\n\t\t\t7 스크롤 막대 (settable, float) 가로 Value: 0 ID: NonClientHorizontalScrollBar\n\t\t\t\t8 단추 왼쪽 스크롤 화살표 ID: UpButton\n\t\t\t\t9 위치 조정 위치 ID: ScrollbarThumb\n\t\t\t\t10 단추 페이지 오른쪽으로 ID: DownPageButton\n\t\t\t\t11 단추 오른쪽 스크롤 화살표 ID: DownButton\n\t\t\t12 위치 조정 (disabled)\n\t\t13 단추 Close ID: 1\n\t\t14 제목 표시줄 (settable, string) Value: Unhandled exception in script\n\t\t\t15 메뉴 모음 시스템 ID: MenuBar\n\t\t\t\t16 메뉴 항목 시스템\n\t\t\t17 단추 닫기\n\nThe focused UI element is 0 대화 상자 Unhandled exception in script Secondary Actions: Raise."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "tests": 56,
+  "method": "pytest tests -q",
+  "duration_seconds": 13.57,
+  "source_changes": "R2 launcher, installed gate, saved VIDEO+STT restoration"
+}

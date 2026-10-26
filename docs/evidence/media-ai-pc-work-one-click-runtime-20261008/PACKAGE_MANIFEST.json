@@ -1,0 +1,11 @@
+{
+  "status": "NO_ONE_CLICK_ARTIFACT_BUILT",
+  "general_work_baseline": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
+  "expected_visible_artifact": "MINDLE_MEDIA_AI_RUN.exe",
+  "artifact": null,
+  "bytes": null,
+  "sha256": null,
+  "embedded_payload": null,
+  "files": null,
+  "legacy_candidate_reused_as_final": false
+}

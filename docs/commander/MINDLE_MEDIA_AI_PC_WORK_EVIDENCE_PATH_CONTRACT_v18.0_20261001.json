@@ -1,0 +1,43 @@
+{
+  "contract_version": "18.0",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_APPROVED_UI_ASSET_HANDOFF_AND_PIXEL_IMPLEMENTATION_FINAL_CLOSEOUT_DIRECTIVE_v18.0_20261001.md",
+  "commander_handoff_manifest": "docs/commander/MINDLE_MEDIA_AI_APPROVED_UI_ASSET_HANDOFF_MANIFEST_v1.0_20261001.json",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_FINAL_IMPLEMENTATION_REVIEW_v18.0_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_APPROVED_UI_FINAL_IMPLEMENTATION_EVIDENCE_v18_0_20261001.json",
+    "detail_directory": "evidence/pc_remote/pc-work-approved-ui-final-v18-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "COMMANDER_HANDOFF_HASH_VERIFY.json",
+      "LEGACY_INVALID_SSOT_9AAF.bin",
+      "APPROVED_SSOT_F27E.png",
+      "LIVE_UI_AFTER.png",
+      "LIVE_VS_APPROVED.png",
+      "VISUAL_DELTA_ANNOTATED.png",
+      "VISUAL_COMPLIANCE_MATRIX.json",
+      "SCREENSHOT_CHEAT_GATE.json",
+      "CSS_IMPLEMENTATION_RESULT.json",
+      "LIVE_SOURCE_IDENTITY.json",
+      "SSOT_MANIFEST_VERIFY.json",
+      "V14_PASS_PRESERVATION.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "exact_handoff_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "pc_handoff_target": "incoming/commander/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+  "canonical_ssot_target": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+  "completion_results": [
+    "TESTED_PASS",
+    "ASSET_HANDOFF_REQUIRED",
+    "ASSET_HANDOFF_HASH_FAIL",
+    "FAIL"
+  ],
+  "required_detail_file_count": 16,
+  "remote_readback_required": true
+}

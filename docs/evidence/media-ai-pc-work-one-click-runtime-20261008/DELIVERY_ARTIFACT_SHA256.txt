@@ -1,0 +1,3 @@
+NO_ONE_CLICK_ARTIFACT_BUILT
+SHA256=NOT_AVAILABLE
+Legacy ZIP must not be renamed or presented as the one-click delivery artifact.

@@ -1,0 +1,1 @@
+{"endpoint":"POST /api/integrations/marketing/shortform","http":200,"status":"bridge_contract_ready","contract_duration_sec":15,"scenes":5,"adapter":"marketing_shortform_gateway + normalize_marketing_contract"}

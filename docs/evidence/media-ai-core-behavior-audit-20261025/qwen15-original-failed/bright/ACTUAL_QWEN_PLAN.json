@@ -1,0 +1,79 @@
+{
+  "task_kind": "MEASURED_GENERATIVE_AUTO_EDIT",
+  "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+  "input_job_id": "a6151c68-e6fa-4a3a-a98d-ccbb55a1102e",
+  "input_sha256": "72a3e33c2f923296a142e8c34754b67ce1861a76dc4d28694729baaef8292ee5",
+  "input_artifact": {
+    "file_name": "original_video_preview.mp4",
+    "path": "/tmp/media-ai-real-auto-edit-ac15d4ca/bright/data/jobs/a6151c68-e6fa-4a3a-a98d-ccbb55a1102e/original_video_preview.mp4",
+    "bytes": 2228,
+    "sha256": "72a3e33c2f923296a142e8c34754b67ce1861a76dc4d28694729baaef8292ee5"
+  },
+  "analysis": {
+    "method": "measured_scene_window_v1",
+    "model_inference": false,
+    "semantic_understanding": false,
+    "source_duration": 2.0,
+    "requested_duration": 30.0,
+    "start": 0.0,
+    "duration": 2.0,
+    "sample_count": 2,
+    "samples": [
+      {
+        "second": 0.0,
+        "motion": 0.0,
+        "exposure": 223.0,
+        "sharpness": 0.0,
+        "score": 0.0,
+        "usable": true
+      },
+      {
+        "second": 1.0,
+        "motion": 0.0,
+        "exposure": 223.0,
+        "sharpness": 0.0,
+        "score": 0.0,
+        "usable": true
+      }
+    ],
+    "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+  },
+  "decision": {
+    "start": 0.0,
+    "brightness": 0.0,
+    "contrast": 0.0,
+    "saturation": 0.0,
+    "reason": "The source window is from the first second of the source, and there are no significant motion, exposure, or sharpness measurements to adjust."
+  },
+  "steps": [
+    {
+      "operation": "video_edit",
+      "options": {
+        "start": 0.0,
+        "brightness": 0.0,
+        "contrast": 0.0,
+        "saturation": 0.0,
+        "duration": 2.0
+      },
+      "step_id": "5e687371-0afb-4516-bb2f-007e8b7f5055"
+    }
+  ],
+  "validated_edit_values": {
+    "start": 0.0,
+    "brightness": 0.0,
+    "contrast": 0.0,
+    "saturation": 0.0,
+    "duration": 2.0
+  },
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+  "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+  "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+  "license": "Apache-2.0",
+  "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+  "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+  "raw_response_sha256": "6956fb9c512e99614cd61cf546375d5cc8b8c31ff704d62e02956d7820af1cd0",
+  "semantic_understanding": false,
+  "output_quality": "REQUIRED_BEFORE_PUBLICATION",
+  "plan_id": "e64abd80-1e1e-490f-9a6f-a3c0a94037f2",
+  "command_sha256": "5d83fb3831cf805642b6d6a711d1791e00475af662055e1dfb914db7fe537d57"
+}

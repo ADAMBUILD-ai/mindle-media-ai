@@ -1,0 +1,9 @@
+{
+  "ui/index.html": "858e38e79af28f035f81dc91303398005a5e44ea2747e388891a1fc7f80c1b73",
+  "ui/approved_visual.css": "2e6c7f992c8ab412e0d70af433fa2cc1e3e625304cf4051ba37de4d7814e7757",
+  "ui/interaction.css": "c65c15ae17da41b2aac0c4d62d7a7156fcbf8bc8542d770890e2946923ef3f45",
+  "ui/photo_workspace.js": "bfce1bda1a1986a8cc217d0ec8d31a3553049c48714b879346b913138cbb6937",
+  "ui/video_workspace.js": "49e392d9afe4af464b40bbdfc8d7d4ba519b4cb1ffa0271cb43697e836d64d58",
+  "src/media_ai/verified_model_adapters.py": "81cfbbb488040fffae17e4c664b3a181988c9428225a1d7e59f0dd2b832340f4",
+  "src/media_ai/intel_sisr_verified_adapter.py": "9ebae8197a79b1df31bfb308864ee4060624f17f91a4dfb67a2e86a76d5b14cc"
+}

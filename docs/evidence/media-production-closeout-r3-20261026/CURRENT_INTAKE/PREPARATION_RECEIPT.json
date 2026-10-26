@@ -1,0 +1,43 @@
+{
+  "status": "BLOCKED_ASSET_INTAKE",
+  "request_path": "/workspace/scratch/4e99f0098e8e/media-ltx/docs/handoff/media-production-closeout-r3-20261026/OPERATOR_INPUT.template.json",
+  "request_sha256": "ad8c198f9f230e897649a022fd7ad91c602b489947448fc698ef8078db8ff9bd",
+  "manifest_sha256": "5669afe9e837b932566ad554cc1adc39b1755696aad1189803eddc0f61161a4d",
+  "errors": [
+    "video: textual label missing or invalid",
+    "video: textual source_or_owner missing or invalid",
+    "video: textual license_or_permission missing or invalid",
+    "video: textual rights_evidence missing or invalid",
+    "video: file path missing",
+    "audio: textual label missing or invalid",
+    "audio: textual source_or_owner missing or invalid",
+    "audio: textual license_or_permission missing or invalid",
+    "audio: textual rights_evidence missing or invalid",
+    "audio: file path missing",
+    "exact Korean narration script missing or incompatible with quoted product command",
+    "explicit voice length policy missing",
+    "explicit narration volume required (0..2)",
+    "explicit original volume required (0..2)",
+    "explicit bgm volume required (0..1)",
+    "video: supplied scene/track label missing",
+    ": provenance/permission missing",
+    ": real capture declaration missing",
+    ": rights evidence reference missing",
+    ": local path missing",
+    "audio: supplied scene/track label missing",
+    "source coverage below 30 seconds"
+  ],
+  "ffprobe": {
+    "path": "/usr/bin/ffprobe",
+    "sha256": "272f6ebc634a63d9c8b4ca68e964119d980f25154e5aa2c35e5487da48e9a58f"
+  },
+  "scope": "LOCAL_INPUT_MEASUREMENT_NOT_PRODUCTION",
+  "rights_review": "OWNER_DECLARATIONS_ONLY",
+  "next_action": "COMPLETE_OPERATOR_INPUT",
+  "production_started": false,
+  "model_started": false,
+  "approval_granted": false,
+  "pc_execution_authorized": false,
+  "build_gate": false,
+  "full_product_pass": false
+}

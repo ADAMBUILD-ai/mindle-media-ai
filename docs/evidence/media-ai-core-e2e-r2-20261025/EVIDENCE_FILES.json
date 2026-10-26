@@ -1,0 +1,172 @@
+{
+  "frozen_code": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
+  "overall": "PARTIAL",
+  "real_e2e": "BLOCKED_ASSET_INTAKE",
+  "inventory_excludes_self": true,
+  "files": {
+    "docs/evidence/media-ai-core-e2e-r2-20261025/ACTUAL_FFMPEG_FAILURE.stderr.txt": {
+      "bytes": 2333,
+      "sha256": "5bb491e193768b9d4744aff93160a39ceb667369f6bcc9a34f1934a933d85df8"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/ACTUAL_QWEN.prompt.txt": {
+      "bytes": 3358,
+      "sha256": "ce0b29cb6d9cea96d1dc8664005a77e3ee054025797f23f873e8d08913f1ecca"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/ACTUAL_QWEN.response.txt": {
+      "bytes": 87,
+      "sha256": "57ec10652aeacfc9a2f53d11dd5b59c2967a128d5d7d12a749e0a2835946738f"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/ACTUAL_QWEN_BINDING_SMOKE.json": {
+      "bytes": 2572,
+      "sha256": "fa1c41cbbac81bd4b3f9cf015d5a0227c2ed14d24e29890ea2e36e045f533329"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_FINAL_SOURCE/ASSET_INTAKE.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_FINAL_SOURCE/INTAKE_RESULT.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_FINAL_SOURCE/RUN_RECEIPT.json": {
+      "bytes": 2346,
+      "sha256": "819e35819987189cb773caba7e067be88acf47eeb1e995e39ee6a0f7330486b9"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_REHEARSAL/ASSET_INTAKE.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_REHEARSAL/INTAKE_RESULT.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_REHEARSAL/RUN_RECEIPT.json": {
+      "bytes": 2346,
+      "sha256": "819e35819987189cb773caba7e067be88acf47eeb1e995e39ee6a0f7330486b9"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_REHEARSAL_FROZEN/ASSET_INTAKE.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_REHEARSAL_FROZEN/INTAKE_RESULT.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/BLOCKED_REHEARSAL_FROZEN/RUN_RECEIPT.json": {
+      "bytes": 2346,
+      "sha256": "819e35819987189cb773caba7e067be88acf47eeb1e995e39ee6a0f7330486b9"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/CHECK_SELECTION.json": {
+      "bytes": 670,
+      "sha256": "a65d486ef20fec0f2d40d7e0777d397f0e2730c3613ced20f4eb5b080716b5e6"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/F94B_REMOTE_REGRESSION.log": {
+      "bytes": 512,
+      "sha256": "16150a110e3ae0f2b05f48912c2c56a1584400f4d29255210fa73be317729a38"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/F94B_REMOTE_RUNTIME_RECEIPT.json": {
+      "bytes": 37461,
+      "sha256": "6be2f1c698927cd650c27082763a013d941aeecbd227894cfd4d53794fe0b21c"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/FAILURE_MATRIX_KO.md": {
+      "bytes": 3091,
+      "sha256": "7c2cc44521c3b4a6ed9ce994da633a31a4e30d618b6788227675f280bdff4414"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/FAILURE_PROTECTION_RECEIPT.json": {
+      "bytes": 1202,
+      "sha256": "a64d52128f79786ae514facf646f4a7fd3bf5473b653fa537df05201695430ca"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/GENERAL_CLOSURE_KO.md": {
+      "bytes": 11452,
+      "sha256": "35a8497cba1c0d687db97d881de1e2b3e610dd17a31524c8ad60bffa7342aef5"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/GENERAL_HOST_FACTS.json": {
+      "bytes": 554,
+      "sha256": "b2c20977c06d07059c2935568865b0e45a427f865bc8af0a07f2cab0ff14b2da"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/GENERAL_WORK_GATE.log": {
+      "bytes": 123,
+      "sha256": "6b3404a3e95f80e025ff2d5a130f4d774d4b9bcc798cbff2cdb3531cac24da10"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/INTAKE_RESULT.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/LIFECYCLE_TOOLING_EXPORT.zip": {
+      "bytes": 5032,
+      "sha256": "85dbc8ce3939796e7bd4bb7c7e57cdcac19568f8c4e3ea2f54592c4c4fe3096d"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/LIFECYCLE_TOOLING_RECEIPT.json": {
+      "bytes": 1466,
+      "sha256": "1a075fdb454be50b493947d8f29078859afc38db7301ac885910b5082d022ebc"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/LOCAL_PYTHON.log": {
+      "bytes": 512,
+      "sha256": "d46a1c6a9055241fc8971a8b40a45c77a9c71f6f06a986417f264624fe8ee95d"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/LOCAL_UI.log": {
+      "bytes": 2712,
+      "sha256": "b20f0debaf2e054c4016cb9487077905841a8acbde561dcafbe50c5f98550daf"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/REMOTE_REGRESSION.log": {
+      "bytes": 512,
+      "sha256": "c0e169dd5b07c7f632455f680af1abf3418a7becb6c33391eb4594473aff404c"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/REMOTE_RUNTIME_RECEIPT.json": {
+      "bytes": 37460,
+      "sha256": "9aaec909008a8e04fca1d9aaa4f2efd496ddd26db9f76b79f2a09618ff93b1f6"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/RESULT_KO.md": {
+      "bytes": 6421,
+      "sha256": "c04d891f4fbf885ef8a37ce507c3cca1a694225be96c65f374d554cdb79acdce"
+    },
+    "docs/evidence/media-ai-core-e2e-r2-20261025/SOURCE_VALIDATION.json": {
+      "bytes": 12033,
+      "sha256": "2655b6e1d90c97859d0d4a4d2331002368f578e32192e62531d89e68ac6fbfc1"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/ASSET_INTAKE.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/EXECUTION_KO.md": {
+      "bytes": 6003,
+      "sha256": "ea47403f93f4427105bcce222cfabd3c48de2c01bcf5d14a89eda5a7422a8858"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/HUMAN_ACCEPTANCE.json": {
+      "bytes": 570,
+      "sha256": "ccf6e7d91707c9fe14f4031d4fe602ffc1ad813fa80da424e1e73da3b1f6893b"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/INPUT_MANIFEST.json": {
+      "bytes": 499,
+      "sha256": "63aad65ce08697195fcd58948905b37ecf5b5e77ce2e027c6b19baf9aef08993"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/INTAKE_AND_APPROVAL_KO.md": {
+      "bytes": 4689,
+      "sha256": "1d5db549e6307e6d5c107df9df1bdcf9a8749114e7f72fa0127b0cec3bf73db0"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/INTAKE_RESULT.json": {
+      "bytes": 1024,
+      "sha256": "87a26b429241f0303d34d81af7335da97e5ccaa7ac805fe0851f6574db8a96a4"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/PC_EXECUTION_KO.md": {
+      "bytes": 3597,
+      "sha256": "e00d9f1a303376fd139827a6727e40f438cde7d05d35cb61fde509802104f8b9"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/SUBMISSION_FORM_KO.md": {
+      "bytes": 2455,
+      "sha256": "32133e491e52426d45d178efc6da5480efb0d4472e75ebef4b5c57177885be2c"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/WINDOWS_7B_ADOPTION_REQUEST.json": {
+      "bytes": 3482,
+      "sha256": "886798feb721ae97ba3d8e922988b85d29ad26f568a29c6ced0f4ad25ebbf0b4"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/WINDOWS_CANDIDATE_APPROVAL.template.json": {
+      "bytes": 447,
+      "sha256": "8e6d66890df77083ffd8d2dbfed3561f9c528a5f035289b3b3f9d542fe74e916"
+    },
+    "docs/handoff/media-ai-core-e2e-r2-20261025/WINDOWS_SOURCE_APPROVAL.template.json": {
+      "bytes": 360,
+      "sha256": "40f363ba10e5125c5e820efbadc33a08b827002284f185679ad53464724842a9"
+    }
+  }
+}

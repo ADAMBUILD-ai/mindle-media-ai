@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": [
+    "server reachable on 8768",
+    "canonical UI HTML served",
+    "launcher points to canonical repo",
+    "browser launch uses maximized Edge/Chrome when installed"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "producer_archive_sha256": "b8f16230463e14cfff72e9dd241028a8d47329f98c168097ba2cdb58d07cfee3",
+  "source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+  "all_payload_files_checked": 19333,
+  "manifest_sha256": "2c6c3345539473e77cab56b10105448d0c23b651875dca45e8d49217b781dc07",
+  "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+  "office_pc_acceptance": false,
+  "human_hearing": false
+}

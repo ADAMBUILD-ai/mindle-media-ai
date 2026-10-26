@@ -1,0 +1,179 @@
+{
+  "status": "PASS",
+  "backend_job": {
+    "status": "TESTED_PASS",
+    "job_id": "3ebbc7e6-050b-433d-bd63-938be99507fc",
+    "evidence_id": "5e44bb4e-7d90-4b43-bf7a-0517d35b39b3",
+    "lane": "korean_audio",
+    "operation": "transcribe",
+    "command": "한국어 음성을 실제 텍스트로 변환해줘",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "license": "apache-2.0",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 966995080,
+        "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+      },
+      "private_cache": {
+        "repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+        "revision": "45a07513eb07e685b74a9ea0a30659d28d0ca310",
+        "path": "VERIFIED_MODEL_CACHE/perpetual-use-alternatives/whisper-small",
+        "read_only": true
+      },
+      "perpetual_use_gate": "PERPETUAL_USE_EVIDENCE_READY"
+    },
+    "adapter": {
+      "id": "mindle.whisper.ko.verified.cpu",
+      "version": "1.0.0",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu"
+    },
+    "input": {
+      "file_name": "49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav",
+      "bytes": 798778,
+      "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+    },
+    "runtime_result": {
+      "status": "TESTED_PASS",
+      "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav",
+      "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+      "sample_rate": 16000,
+      "duration_seconds": 12.48,
+      "reference": null,
+      "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+      "word_error_rate": null,
+      "elapsed_ms": 4102.86,
+      "outputs": [
+        {
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/5b5d64f0-f51b-4696-b391-df63bb6c0ffd/whisper/korean_transcript.json",
+          "sha256": "76217bdfe7e5fb83fecc16326110e82fc0a773ae707128e86a42480192abcf86",
+          "bytes": 253
+        }
+      ]
+    },
+    "primary_output": {
+      "file_name": "korean_transcript.json",
+      "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/5b5d64f0-f51b-4696-b391-df63bb6c0ffd/whisper/korean_transcript.json",
+      "bytes": 253,
+      "sha256": "76217bdfe7e5fb83fecc16326110e82fc0a773ae707128e86a42480192abcf86"
+    },
+    "outputs": [
+      {
+        "file_name": "korean_transcript.json",
+        "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/5b5d64f0-f51b-4696-b391-df63bb6c0ffd/whisper/korean_transcript.json",
+        "bytes": 253,
+        "sha256": "76217bdfe7e5fb83fecc16326110e82fc0a773ae707128e86a42480192abcf86"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "3ebbc7e6-050b-433d-bd63-938be99507fc",
+        "evidence_id": "5e44bb4e-7d90-4b43-bf7a-0517d35b39b3",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-08T06:42:45.381568+00:00",
+        "started_at": "2026-10-08T06:42:45.381322+00:00",
+        "finished_at": "2026-10-08T06:42:45.381575+00:00",
+        "project_id": "c2b5e325-46c6-4ec9-9547-fef602e23e25",
+        "requested_operation": "transcribe",
+        "source_provenance": {
+          "source_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/49d9967a-4eb8-4626-9d30-9908913f5de3_fleurs_ko_kr_test_row0.wav",
+          "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "3ebbc7e6-050b-433d-bd63-938be99507fc",
+          "evidence_id": "5e44bb4e-7d90-4b43-bf7a-0517d35b39b3",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "hardware": "x86_64"
+        },
+        "adapter_id": "mindle.whisper.ko.verified.cpu",
+        "model_or_program_id": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "license_source": "apache-2.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu",
+        "execution_context": {
+          "job_id": "3ebbc7e6-050b-433d-bd63-938be99507fc",
+          "evidence_id": "5e44bb4e-7d90-4b43-bf7a-0517d35b39b3",
+          "lane": "korean_audio",
+          "source_hashes": {
+            "source": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+          },
+          "nl_instruction": "한국어 음성을 실제 텍스트로 변환해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "3ebbc7e6-050b-433d-bd63-938be99507fc",
+            "evidence_id": "5e44bb4e-7d90-4b43-bf7a-0517d35b39b3",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "mindle.whisper.ko.verified.cpu",
+            "model_or_program_id": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+          }
+        },
+        "output_artifact": {
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/5b5d64f0-f51b-4696-b391-df63bb6c0ffd/whisper/korean_transcript.json",
+          "type": ".json",
+          "size_bytes": 253,
+          "sha256": "76217bdfe7e5fb83fecc16326110e82fc0a773ae707128e86a42480192abcf86",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-418d6854-8152-4c54-800a-918cb251f1fe",
+          "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+          "output_sha256": "76217bdfe7e5fb83fecc16326110e82fc0a773ae707128e86a42480192abcf86",
+          "output_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/5b5d64f0-f51b-4696-b391-df63bb6c0ffd/whisper/korean_transcript.json",
+          "elapsed_ms": 4102.86
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "python": "3.11.17",
+      "process": "3.11.17"
+    },
+    "preview_url": "/files/jobs/5b5d64f0-f51b-4696-b391-df63bb6c0ffd/whisper/korean_transcript.json"
+  },
+  "ui_transcript_visible": true,
+  "tracking_preserved": true,
+  "input": {
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/frozen_product_checkpoint/inputs/fleurs_ko_kr_test_row0.wav",
+    "bytes": 798778,
+    "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+  }
+}

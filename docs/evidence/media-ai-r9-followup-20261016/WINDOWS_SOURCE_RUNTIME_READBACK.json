@@ -1,0 +1,20 @@
+{
+  "status": "PASS_INDEPENDENT_WINDOWS_SOURCE_UI_AND_HTTP_EXPORT_BYTES",
+  "archives": [
+    {
+      "file": "SOURCE_UI_EXPORT.zip",
+      "sha256": "b66b0c495aa45abc4380441ae4d2bf528c88249b45b2740b5e4d0a87494ce5ee",
+      "files_checked": 4,
+      "crc": "PASS"
+    },
+    {
+      "file": "SOURCE_HTTP_EXPORT.zip",
+      "sha256": "b66b0c495aa45abc4380441ae4d2bf528c88249b45b2740b5e4d0a87494ce5ee",
+      "files_checked": 4,
+      "crc": "PASS"
+    }
+  ],
+  "windows_exe_pass": false,
+  "owner_pc_pass": false,
+  "full_product_pass": false
+}

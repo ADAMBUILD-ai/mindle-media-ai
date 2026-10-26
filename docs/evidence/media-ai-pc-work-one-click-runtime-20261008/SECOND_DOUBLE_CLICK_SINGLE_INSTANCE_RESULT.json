@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RUN",
+  "scope": "Second click while running",
+  "reason": "Local Windows executor initialization failed; no current one-click artifact exists.",
+  "passed": false,
+  "observations": null
+}

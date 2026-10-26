@@ -1,0 +1,15 @@
+{
+  "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+  "status": "NOT_EXECUTED",
+  "source_sha": null,
+  "package_manifest_sha256": null,
+  "project_id": null,
+  "final_mp4_sha256": null,
+  "reviewer": null,
+  "reviewed_at": null,
+  "visual": {"real_ui_playback": null, "architecture_scene_order": null, "framing": null, "story": null, "requested_subtitles": null},
+  "audio": {"full_script": null, "pronunciation": null, "naturalness": null, "narration_bgm_original_balance": null, "sync": null},
+  "notes": null,
+  "owner_acceptance": false,
+  "full_product_pass": false
+}

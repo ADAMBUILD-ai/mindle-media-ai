@@ -1,0 +1,19 @@
+{
+  "status": "READ_ONLY_FACTS_COLLECTED",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "machine": "x86_64",
+  "is_windows_target": false,
+  "cpu_count": 9,
+  "windows_model_adoption": "NOT_APPROVED_BY_THIS_PROBE",
+  "full_product_pass": false,
+  "available_memory_bytes": 9699450880,
+  "installed_models_changed": false,
+  "package_build": false,
+  "total_memory_bytes": 10451439616,
+  "disk": {
+    "path": "/workspace/scratch/4e99f0098e8e/media-ltx",
+    "total_bytes": 33770192896,
+    "free_bytes": 29381402624
+  }
+}

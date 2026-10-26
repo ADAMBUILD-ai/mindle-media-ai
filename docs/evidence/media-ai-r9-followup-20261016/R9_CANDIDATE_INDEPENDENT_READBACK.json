@@ -1,0 +1,68 @@
+{
+  "r9_sources_verified": {
+    "ui/index.html": {
+      "sha256": "64abc36dfec2d45a052d6abd00e4a6680bdde01326dfc305319096aa5cde8398",
+      "bytes": 13274,
+      "source_content_sha256": "858e38e79af28f035f81dc91303398005a5e44ea2747e388891a1fc7f80c1b73",
+      "git_checkout_line_endings_only": true
+    },
+    "ui/workspace_shell.js": {
+      "sha256": "3515718cd53197729add03b690f38f2c2431a1694477e309b84b7960d0ce13be",
+      "bytes": 3990,
+      "source_content_sha256": "1b721095c9ae3bd8fe0260c2a8f7e3a62e122cb976d4e74a44ea5139d0487fb4",
+      "git_checkout_line_endings_only": true
+    },
+    "ui/interaction.css": {
+      "sha256": "8aa3983bf84ca7b004f3b1d6016ddaa6d48790236420a56a195c70defa57217f",
+      "bytes": 1305,
+      "source_content_sha256": "c65c15ae17da41b2aac0c4d62d7a7156fcbf8bc8542d770890e2946923ef3f45",
+      "git_checkout_line_endings_only": true
+    },
+    "scripts/employee_package_launcher.py": {
+      "sha256": "033a3775f253b6976d991dd2e39d2cb8801316961596f36d7b1fb5e3594a6ca6",
+      "bytes": 9011,
+      "source_content_sha256": "8021c05e134258f11a57f9e2dfaa23b46118ec1893b8fb0c0b78d5bb8f87fe7a",
+      "git_checkout_line_endings_only": true
+    },
+    "src/media_ai/product_runtime.py": {
+      "sha256": "6340291a3e3b0c9f885cb5bf3f300de0f93317a13f26a3c1942abe08dfc12aaa",
+      "bytes": 54093,
+      "source_content_sha256": "dc3ff9e47534e6df81a31e66ea10b21aed55aa87d110ae888c3ad5fba9bd2e37",
+      "git_checkout_line_endings_only": true
+    },
+    "src/media_ai/product_server.py": {
+      "sha256": "c62ec8375c5efa709234e49335a6d41206b115b9ea1a73530bd50102047bc0c3",
+      "bytes": 19273,
+      "source_content_sha256": "c103220630c72fb159bf3035ff53673957c2893dbdcad439532432c38fb2db57",
+      "git_checkout_line_endings_only": true
+    },
+    "ui/approved_visual.css": {
+      "sha256": "23695715beb425b35580f2c56dc7e657e3a3538d714a8183f532f77a56b1ebc0",
+      "bytes": 10043,
+      "source_content_sha256": "2e6c7f992c8ab412e0d70af433fa2cc1e3e625304cf4051ba37de4d7814e7757",
+      "git_checkout_line_endings_only": true,
+      "frozen_git_blob": "3e1334c14b84fcbd5845a7a7a693c3f6bfe5a5da"
+    }
+  },
+  "status": "PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES",
+  "source_commit": "fef692312ae8d8e3070c97e013dacdd31a043172",
+  "producer_run": 38822776656,
+  "verifier_source": "0e4dbabdba7ec65656d7050e415980f754271651",
+  "zip_name": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip",
+  "zip_sha256": "79b8fc38a5dade14a5974b132f265ba52476058f574b9d6c1795aa000aed7fe6",
+  "zip_bytes": 1913892012,
+  "parts": 5,
+  "crc": "PASS",
+  "payload_files_checked": 19236,
+  "payload_manifest_sha256": "3facd08b16aeae044af39755c2d0d9638af4fe3fa0fec317b2dbc0bd863f2c17",
+  "launcher_sha256": "dd3f485a13a869acac87c3094381c9b97f872e461044af685e768afe9cadbe5a",
+  "runtime_id": "fef692312ae8-1261762e58ca",
+  "ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
+  "office_pc_pass": false,
+  "full_product_pass": false,
+  "scope": "CORRECTED_DEVELOPMENT_CANDIDATE_ONLY_NOT_FINAL_EMPLOYEE_RELEASE",
+  "generated_bytecode_cache_file_count": 1099,
+  "full_receipt_sha256": "2e3a9a41ca2813e60611031b92c4ffdd38c2a95bd3661e94bcb37de9dbc5bcdb",
+  "artifact": 12014421906,
+  "readback_run": 38824641294
+}

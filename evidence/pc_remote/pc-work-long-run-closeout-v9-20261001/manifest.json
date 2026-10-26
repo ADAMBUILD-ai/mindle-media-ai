@@ -1,0 +1,13 @@
+{
+  "cycle": "pc-work-long-run-closeout-v9-20261001",
+  "phase_a": "HUMAN_ACTION_REQUIRED",
+  "required_artifact_id": 10797756522,
+  "required_bytes": 418706393,
+  "required_sha256": "8bc5a6df3759a48b50efce8c5984c65057ec57ea4270935a2c11359f5835b128",
+  "current_candidate_bytes": 418706255,
+  "current_candidate_sha256": "c68985ff2d3abf39d7f5ed64ce6ad9c1cdffd15cea319d561cae1fdf817ff8f3",
+  "phase_b_to_f": "PENDING_GATE",
+  "download_page": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/35974551384",
+  "auto_resume": true,
+  "final_commit_sha": "e2b6c2b2e2b1da0093d4ee741e9d2a45b4825002"
+}

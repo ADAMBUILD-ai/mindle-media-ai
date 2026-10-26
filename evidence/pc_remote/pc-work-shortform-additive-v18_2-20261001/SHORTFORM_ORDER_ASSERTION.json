@@ -1,0 +1,6 @@
+{
+  "video_action_order": ["영상 불러오기", "AI 자동 편집", "광고 숏폼", "프로젝트 저장", "내보내기"],
+  "advertising_shortform_after": "AI 자동 편집",
+  "advertising_shortform_before": "프로젝트 저장",
+  "assertion_result": "PASS"
+}

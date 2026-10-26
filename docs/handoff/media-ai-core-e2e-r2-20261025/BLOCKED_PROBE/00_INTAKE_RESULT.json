@@ -1,0 +1,19 @@
+{
+  "status": "BLOCKED_ASSET_INTAKE",
+  "errors": [
+    "exact Korean narration script missing",
+    "explicit narration volume required (0..2)",
+    "explicit original volume required (0..2)",
+    "explicit bgm volume required (0..1)",
+    "1..12 real video clips required",
+    "BGM and its permission record required",
+    "source coverage below 30 seconds"
+  ],
+  "verified_assets": [],
+  "rights_review": "DECLARATIONS_ONLY_REQUIRES_OWNER_CONFIRMATION",
+  "scene_labels": "USER_SUPPLIED_NOT_MODEL_VISION",
+  "human_visual_review": "NOT_EXECUTED",
+  "human_audio_review": "NOT_EXECUTED",
+  "full_product_pass": false,
+  "manifest_sha256": "3fac221dbfe6f9d6454c87c92fbcd1c79bf170f0345d262c272cd35158b7bdb7"
+}

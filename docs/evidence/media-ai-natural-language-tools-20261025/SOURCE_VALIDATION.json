@@ -1,0 +1,85 @@
+{
+  "status": "SOURCE_PASS_ACTUAL_QWEN_REVALIDATION_REQUIRED",
+  "source_parent": "383b0407eef153680235880c02ed07ddd5d287b0",
+  "features": {
+    "trim_start_end": true,
+    "speed_ratio": true,
+    "aspect_explicit": true,
+    "fade": true,
+    "selected_bgm": true,
+    "text_to_video_generation": false
+  },
+  "safety_contract": {
+    "exact_user_value_match": true,
+    "invented_tool_rejected": true,
+    "bounded_speed": true,
+    "bounded_time": true,
+    "bounded_bgm_volume": true,
+    "bgm_sha256_rechecked": true,
+    "missing_bgm_rejected_before_submit": true
+  },
+  "validation": {
+    "planner_tool_scenarios": 6,
+    "existing_ai_core_scenarios": 4,
+    "existing_owner_kit_contracts": 3,
+    "node_ui_contracts": 3,
+    "python_compile": "PASS",
+    "javascript_syntax": "PASS",
+    "actual_qwen_rerun_this_change": false,
+    "windows_execution_this_change": false
+  },
+  "gates": {
+    "package_build_allowed": false,
+    "new_candidate_built": false,
+    "pr23_hold_do_not_merge": true,
+    "full_product_pass": false
+  },
+  "files": [
+    {
+      "path": "src/media_ai/planner_constraints.py",
+      "bytes": 7601,
+      "sha256": "53c572fb9f96f75325fd4c68a89f04b2b3932ab6bc7eae341daf0b61d7e675bc"
+    },
+    {
+      "path": "src/media_ai/workflow_planner.py",
+      "bytes": 12696,
+      "sha256": "db00bcba7ce86b56a1a0c82fb3495da19d3e472bd008f6f6f07cbc1211441d0a"
+    },
+    {
+      "path": "src/media_ai/durable_workflows.py",
+      "bytes": 24370,
+      "sha256": "ed1a63eec8179076ee7f0fb3a715601df3c42645fe2975594bee1a61d81403c1"
+    },
+    {
+      "path": "src/media_ai/workflow_worker.py",
+      "bytes": 15669,
+      "sha256": "947af09cdf567f59d0a3321c67c1b90645cf1fb2be100dc7cd929460e3335220"
+    },
+    {
+      "path": "ui/index.html",
+      "bytes": 14818,
+      "sha256": "d5ce406948156f5285d7de24f9223cf62c7ed4a01acf648c45d6d8f0ab1b7f23"
+    },
+    {
+      "path": "ui/workflow_execution.js",
+      "bytes": 17672,
+      "sha256": "80a99cd5cbc9150d8481c151a7a3b0373ae22648ee1af6ddc98e53c246587713"
+    },
+    {
+      "path": "tests/test_planner_media_tools.py",
+      "bytes": 2508,
+      "sha256": "c1e3c88b768b9fb434c1d64069bc9e1843df133d24097f2500e1b885bff11131"
+    },
+    {
+      "path": "ui/workflow_media_tools.test.js",
+      "bytes": 611,
+      "sha256": "3473f6fa0a2359ea19a1ec26bc5b63438ac51b4cee3f3efa26528ffad21fe016"
+    },
+    {
+      "path": "docs/evidence/media-ai-natural-language-tools-20261025/RESULT_KO.md",
+      "bytes": 1905,
+      "sha256": "482f1072360f9d0883ed5bad578a6da0580ae72b818568cab47897c0dff3fc9f"
+    }
+  ],
+  "captured_at": "2026-10-25T06:01:02.502917+00:00"
+}

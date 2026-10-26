@@ -1,0 +1,13 @@
+{
+  "status": "ROW_HEIGHT_CORRECTION_REQUIRED",
+  "control_plane_epoch": "MEDIA-AI-20261002-V20.2.5",
+  "head": "2ab174e",
+  "implementation": "canonical row-height CSS consolidation applied",
+  "tests": {"node": "2/2 PASS", "pytest": "52/52 PASS"},
+  "detail_directory": "evidence/pc_remote/media-ai-row-height-v20_2_5-20261002/",
+  "remaining_evidence_gap": [
+    "native Windows before/after screenshots",
+    "browser-JS numeric geometry capture"
+  ],
+  "launcher_icon_preserved": true
+}

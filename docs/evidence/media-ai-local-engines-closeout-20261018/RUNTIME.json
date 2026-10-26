@@ -1,0 +1,250 @@
+{
+  "status": "PASS_SOURCE_PRODUCT_RUNTIME_NOT_WINDOWS",
+  "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+  "generative_inference": "PASS_BOUNDED_KOREAN_PRODUCT_REQUESTS",
+  "workflow_id": "2c8d2670-0c3a-4260-9219-79822ac3ba15",
+  "project_id": "4de7ad5d-b91f-4e8e-b232-e32d7515c900",
+  "attempts": [
+    {
+      "step_id": "4bc89ec8-48f1-40c7-b907-d5a31d57e730",
+      "attempt": 1,
+      "started_at": 1792291563.65288,
+      "state": "SUCCEEDED",
+      "worker_pid": 376,
+      "finished_at": 1792291564.265544,
+      "returncode": 0
+    }
+  ],
+  "voice": {
+    "channels": 1,
+    "sample_rate": 44100,
+    "frames": 124762,
+    "seconds": 2.8290702947845805,
+    "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9",
+    "bytes": 249568
+  },
+  "engine": {
+    "engine": "sherpa-onnx / Supertonic 3",
+    "engine_version": "1.13.8",
+    "engine_license": "Apache-2.0",
+    "model_license": "OpenRAIL-M (model); MIT (upstream code)",
+    "model_revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+    "model_archive_sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427",
+    "voice_data_sha256": "56dd586123097a75024c304de344513e72100c967d66b71670ca3bceff1af130",
+    "runtime_sha256": "1c686b41ae4a423909e31e9c1303adda8d8c06615cfc09c8636cf6c4a00c6028",
+    "model_inference": true,
+    "synthesis": "local neural ONNX inference",
+    "text": "안녕하세요. 민들레 미디어입니다.",
+    "voice": "ko/sid0",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_seconds": 2.8290702947845805,
+    "human_hearing": "NOT_VERIFIED",
+    "naturalness": "NOT_BENCHMARKED",
+    "base_video_job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823"
+  },
+  "mp4": {
+    "file_name": "narrated_video.mp4",
+    "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/narrated_video.mp4",
+    "bytes": 110561,
+    "sha256": "7b6f79bcf5c050f80ac3cb01a815a2b463123598ef4b8127574d4f60f191f3f4"
+  },
+  "mix": {
+    "engine": "FFmpeg",
+    "model_inference": false,
+    "options": {
+      "brightness": 10,
+      "narrationVolume": 0.5,
+      "originalVolume": 1.0,
+      "lengthPolicy": "reject",
+      "narration_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+      "backgroundVolume": null,
+      "originalAudioIncluded": true
+    },
+    "duration_seconds": 4.04,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "human_hearing": "NOT_VERIFIED"
+  },
+  "first_stop": {
+    "pid": 65,
+    "instance": "1df0e496-0924-420c-8dd2-e6209e7fab6d",
+    "exit": 0,
+    "endpoint_unavailable": true
+  },
+  "second_stop": {
+    "pid": 587,
+    "instance": "b0683057-fadb-4d74-8ec9-391c5dc5d7b1",
+    "exit": 0,
+    "endpoint_unavailable": true
+  },
+  "export": {
+    "sha256": "b389915329aa7d51bf2ef679024daef471f48ea0b9e00e482f839ee88c2eaf5c",
+    "bytes": 1455512,
+    "crc": "PASS",
+    "files": [
+      {
+        "role": "output",
+        "job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+        "archive_path": "jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+        "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7",
+        "bytes": 117376
+      },
+      {
+        "role": "output",
+        "job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+        "archive_path": "jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+        "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e",
+        "bytes": 115367
+      },
+      {
+        "role": "input",
+        "job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+        "archive_path": "inputs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+        "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7",
+        "bytes": 117376
+      },
+      {
+        "role": "output",
+        "job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+        "archive_path": "jobs/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+        "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de",
+        "bytes": 112040
+      },
+      {
+        "role": "input",
+        "job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+        "archive_path": "inputs/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+        "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e",
+        "bytes": 115367
+      },
+      {
+        "role": "output",
+        "job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+        "archive_path": "jobs/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav",
+        "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9",
+        "bytes": 249568
+      },
+      {
+        "role": "output",
+        "job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+        "archive_path": "jobs/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt",
+        "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a",
+        "bytes": 46
+      },
+      {
+        "role": "input",
+        "job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+        "archive_path": "inputs/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt",
+        "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a",
+        "bytes": 46
+      },
+      {
+        "role": "output",
+        "job_id": "097a5077-cc7a-4356-ad11-3e437916c442",
+        "archive_path": "jobs/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+        "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc",
+        "bytes": 110587
+      },
+      {
+        "role": "output",
+        "job_id": "097a5077-cc7a-4356-ad11-3e437916c442",
+        "archive_path": "jobs/097a5077-cc7a-4356-ad11-3e437916c442/281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+        "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9",
+        "bytes": 249568
+      },
+      {
+        "role": "input",
+        "job_id": "097a5077-cc7a-4356-ad11-3e437916c442",
+        "archive_path": "inputs/097a5077-cc7a-4356-ad11-3e437916c442/e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+        "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de",
+        "bytes": 112040
+      },
+      {
+        "role": "output",
+        "job_id": "f381420d-d348-45ad-9623-ab179a8e2869",
+        "archive_path": "jobs/f381420d-d348-45ad-9623-ab179a8e2869/narrated_video.mp4",
+        "sha256": "7b6f79bcf5c050f80ac3cb01a815a2b463123598ef4b8127574d4f60f191f3f4",
+        "bytes": 110561
+      },
+      {
+        "role": "output",
+        "job_id": "f381420d-d348-45ad-9623-ab179a8e2869",
+        "archive_path": "jobs/f381420d-d348-45ad-9623-ab179a8e2869/54bb7a1e-b465-4f5b-bf7d-b028447908a7_mix_voice.wav",
+        "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9",
+        "bytes": 249568
+      },
+      {
+        "role": "input",
+        "job_id": "f381420d-d348-45ad-9623-ab179a8e2869",
+        "archive_path": "inputs/f381420d-d348-45ad-9623-ab179a8e2869/436ab953-eeb6-4539-a98f-cb5dd4a27665_mix_video.mp4",
+        "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de",
+        "bytes": 112040
+      },
+      {
+        "role": "workspace_reference",
+        "job_id": "workspace",
+        "archive_path": "workspace/references/photo/000_b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png",
+        "sha256": "b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9",
+        "bytes": 110
+      }
+    ]
+  },
+  "human_hearing": "NOT_VERIFIED",
+  "windows_exe": "NOT_EXECUTED",
+  "marketing_avora": "DEFERRED_EXTERNAL",
+  "engines": {
+    "planner": {
+      "executable": "/workspace/scratch/b0ed3e0d34af/local-engines/llama/llama-b11716/llama-completion",
+      "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+      "model_path": "/workspace/scratch/b0ed3e0d34af/local-engines/qwen15.gguf",
+      "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "license": "Apache-2.0",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3"
+    },
+    "tts": {
+      "engine": "sherpa-supertonic",
+      "data_path": "/workspace/scratch/b0ed3e0d34af/local-engines/supertonic-verified/sherpa-onnx-supertonic-3-tts-int8-2026-05-11",
+      "data_sha256": "56dd586123097a75024c304de344513e72100c967d66b71670ca3bceff1af130",
+      "runtime_version": "1.13.8",
+      "runtime_sha256": "1c686b41ae4a423909e31e9c1303adda8d8c06615cfc09c8636cf6c4a00c6028",
+      "model_revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+      "archive_sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427",
+      "license": "OpenRAIL-M (model); MIT (upstream code)"
+    }
+  },
+  "planner_browser": {
+    "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+    "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "license": "Apache-2.0",
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "raw_response_sha256": "a324c6bb66871ca4ceaac06085bcda726be2af3aa5af8b8c34d2f44180207c89",
+    "steps": [
+      {
+        "operation": "video_edit",
+        "options": {
+          "brightness": 10
+        },
+        "step_id": "7cb146f4-2d92-4cc8-858c-f6a3d7daaa44"
+      },
+      {
+        "operation": "narrate",
+        "text": "안녕하세요. 민들레 미디어입니다.",
+        "step_id": "eca46333-fc0e-4ac2-833d-06e6f714a66c"
+      },
+      {
+        "operation": "mix_narration",
+        "length_policy": "extend_video",
+        "step_id": "2df2c03c-adc0-4fa7-ab7b-e7cfe8cc3597"
+      }
+    ],
+    "plan_id": "00a8d0ad-9e95-4b87-96f8-a76fffbe6b33",
+    "command_sha256": "932c79b7b6d45a570de8671b34bca567113fdc6f6d5bf071d839de84e8a293ee"
+  }
+}

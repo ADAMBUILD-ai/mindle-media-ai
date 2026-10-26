@@ -1,0 +1,11 @@
+....................................................s..................s [ 34%]
+ss............s......................................................... [ 68%]
+.....s...........................................................        [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_general_work_gaps.py:108: Korean font runtime unavailable
+SKIPPED [1] tests/test_launcher_lock_windows.py:37: native Windows file locking required
+SKIPPED [1] tests/test_launcher_lock_windows.py:42: native Windows file locking required
+SKIPPED [1] tests/test_launcher_lock_windows.py:33: native Windows file locking required
+SKIPPED [1] tests/test_local_planner_scope.py:20: could not import 'sherpa_onnx': No module named 'sherpa_onnx'
+SKIPPED [1] tests/test_product_server_paths.py:34: native Windows 8.3 path support required
+203 passed, 6 skipped in 20.10s

@@ -1,16 +1,31 @@
 # MINDLE MEDIA AI
 
-## Two Track Work Package
+Canonical development branch: `feature/ad-shortform-bridge-p0-20260926` · PR #23: **Draft / HOLD / DO NOT MERGE**.
 
-The non-destructive Work Track A handoff is in `docs/00_README_FIRST.md` through `docs/09_PC_REMOTE_FINAL_CHECKLIST.md`. The approved visual UI is intentionally not redrawn in this repository because its source and approved screenshot are absent; only the state contract is implemented in `src/media_ai/ui_contract.py`.
+## Current scope — 2026-10-25 KST
 
-Model Scout를 제외한 P0 실행 코어입니다. 자연어 요청을 PHOTO 또는 VIDEO로 라우팅하고, 비동기 Job으로 처리하며, 원본과 결과 및 실행 로그를 분리 보관합니다.
+Local Qwen generative planning, Supertonic Korean neural narration, FFmpeg media processing, durable execution, project persistence and product evidence are implemented. Text-to-new-video and semantic scene generation are **not implemented**.
 
-## 실행
+Latest AI core and behavior review: [Actual inference failures, isolated 7B proof and completion gates](docs/evidence/media-ai-core-behavior-audit-20261025/RESULT_KO.md). The AI auto-edit button now requires real input-bound Qwen decisions and technical output checks; no deterministic fallback. The tested 1.5B configuration failed automatic exposure judgment. A separate 7B evaluation passed two synthetic cases; it has not replaced installed models. Whole-product acceptance remains pending.
 
-```bash
-python -m pytest
-python -m media_ai.cli photo --input sample.jpg --output out.jpg --brightness 1.05
-```
+Earlier source review and remaining acceptance:
+[Commander core closeout](docs/evidence/media-ai-commander-closeout-20261025/RESULT_KO.md) · [Machine validation](docs/evidence/media-ai-commander-closeout-20261025/SOURCE_VALIDATION.json).
 
-VIDEO 명령은 시스템의 `ffmpeg`를 사용하여 지정 구간 자르기와 16:9, 9:16, 1:1 리프레임의 첫 E2E를 제공합니다.
+- Latest source regression: 329 Python PASS, 5 SKIP remotely; 31 UI JavaScript PASS locally.
+- This review: actual pinned Qwen automatic-edit probes and FFmpeg/HTTP/file-evidence tests. **Supertonic and the complete latest Windows promotional-video chain were not rerun**.
+- Prior R3: [remote Windows candidate evidence](docs/evidence/windows-ai-successor-20261024-r3/RESULT_KO.md), source `9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6`. That EXE does not contain today's changes.
+- Office PC acceptance, human listening and approved visual comparison remain pending.
+- Package Build Gate=false; no new candidate, final release or merge authorized by this source closeout.
+
+## Worker entry
+
+Read the current directive and machine state before executing PC or package work:
+
+1. `CURRENT_PC_WORK_DIRECTIVE.md`
+2. `CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json`
+3. `CURRENT_PC_WORK_STATE.json`
+4. `CURRENT_WORKER_COORDINATION_LOCK.json`
+5. `scripts/validate_pc_work_control_plane.py`
+6. The active directive and its Evidence contract.
+
+The October 6 recovery-only notice previously displayed here is historical. This README is a status index, not a replacement for execution locks or build approval. Never reuse consumed build authorization or treat source tests as Windows product acceptance.

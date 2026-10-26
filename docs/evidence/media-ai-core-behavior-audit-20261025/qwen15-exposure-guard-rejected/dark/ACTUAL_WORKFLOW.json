@@ -1,0 +1,275 @@
+{
+  "input_job_id": "612809c8-c468-4fcb-a411-69620ffbaebd",
+  "input_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+  "steps": [
+    {
+      "operation": "video_edit",
+      "options": {
+        "start": 0.0,
+        "brightness": 12,
+        "contrast": 0,
+        "saturation": 0,
+        "duration": 2.0
+      },
+      "step_id": "23985d0d-b72a-4325-86ec-7549f4b98b2b"
+    }
+  ],
+  "workspace": null,
+  "job_ids": [],
+  "background": null,
+  "project_id": "e46f4eb8-919b-4ce6-bd7e-cb42e9a24957",
+  "export": {
+    "status": "EXPORTED",
+    "project_id": "e46f4eb8-919b-4ce6-bd7e-cb42e9a24957",
+    "export": {
+      "file_name": "e46f4eb8-919b-4ce6-bd7e-cb42e9a24957_export.zip",
+      "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/workflows/d3f5847d-d16e-4000-808b-5e88bd37018e/commit/projects/e46f4eb8-919b-4ce6-bd7e-cb42e9a24957_export.zip",
+      "bytes": 8659,
+      "sha256": "d30052499e49b6423119e933b6ede43eed846ccd3e5eebc43ee96d5bc7bbbcde"
+    }
+  },
+  "workflow_id": "d3f5847d-d16e-4000-808b-5e88bd37018e",
+  "request_id": "real-qwen-dark",
+  "state": "SUCCEEDED",
+  "records": [
+    {
+      "status": "TESTED_PASS",
+      "job_id": "e5f16561-9ad6-4ca1-aadb-c79b9d392ee2",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "순차 작업",
+      "input": {
+        "file_name": "ca42924c-94ea-418d-9d59-f3ca6c54faf2_original_video_preview.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/workflows/d3f5847d-d16e-4000-808b-5e88bd37018e/00-1/sealed/e5f16561-9ad6-4ca1-aadb-c79b9d392ee2/ca42924c-94ea-418d-9d59-f3ca6c54faf2_original_video_preview.mp4",
+        "bytes": 2228,
+        "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/workflows/d3f5847d-d16e-4000-808b-5e88bd37018e/00-1/sealed/e5f16561-9ad6-4ca1-aadb-c79b9d392ee2/edited_video.mp4",
+        "bytes": 2228,
+        "sha256": "07a2df4de004e1bb2d42eee1e9b75ec83ce3736ddb182ce5c93263657a6d0e50"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/workflows/d3f5847d-d16e-4000-808b-5e88bd37018e/00-1/sealed/e5f16561-9ad6-4ca1-aadb-c79b9d392ee2/edited_video.mp4",
+          "bytes": 2228,
+          "sha256": "07a2df4de004e1bb2d42eee1e9b75ec83ce3736ddb182ce5c93263657a6d0e50"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "start": 0.0,
+          "brightness": 12,
+          "contrast": 0,
+          "saturation": 0,
+          "duration": 2.0
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "sealed_artifacts": true,
+      "workflow_id": "d3f5847d-d16e-4000-808b-5e88bd37018e"
+    }
+  ],
+  "attempts": [
+    {
+      "step_id": "23985d0d-b72a-4325-86ec-7549f4b98b2b",
+      "attempt": 1,
+      "started_at": 1792914222.8560405,
+      "state": "SUCCEEDED",
+      "worker_pid": 97,
+      "finished_at": 1792914223.264628,
+      "returncode": 0
+    }
+  ],
+  "created_at": 1792914222.8534372,
+  "current_step": 0,
+  "input_record": {
+    "status": "TESTED_PASS",
+    "job_id": "612809c8-c468-4fcb-a411-69620ffbaebd",
+    "lane": "video",
+    "operation": "import",
+    "original_filename": "input.mp4",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "69180047-7dec-46e1-953e-da3c13540119_input.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/inputs/69180047-7dec-46e1-953e-da3c13540119_input.mp4",
+      "bytes": 2252,
+      "sha256": "9f0475a7776a5492e727b8fbb1b858ff837198c8b764d094f32fe33818820a1e"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/jobs/612809c8-c468-4fcb-a411-69620ffbaebd/original_video_preview.mp4",
+      "bytes": 2228,
+      "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+    },
+    "outputs": [
+      {
+        "file_name": "69180047-7dec-46e1-953e-da3c13540119_input.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/inputs/69180047-7dec-46e1-953e-da3c13540119_input.mp4",
+        "bytes": 2252,
+        "sha256": "9f0475a7776a5492e727b8fbb1b858ff837198c8b764d094f32fe33818820a1e"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/jobs/612809c8-c468-4fcb-a411-69620ffbaebd/original_video_preview.mp4",
+        "bytes": 2228,
+        "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        160,
+        90
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    }
+  },
+  "plan_receipt": {
+    "task_kind": "MEASURED_GENERATIVE_AUTO_EDIT",
+    "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+    "input_job_id": "612809c8-c468-4fcb-a411-69620ffbaebd",
+    "input_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+    "input_artifact": {
+      "file_name": "original_video_preview.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/jobs/612809c8-c468-4fcb-a411-69620ffbaebd/original_video_preview.mp4",
+      "bytes": 2228,
+      "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+    },
+    "analysis": {
+      "method": "measured_scene_window_v1",
+      "model_inference": false,
+      "semantic_understanding": false,
+      "source_duration": 2.0,
+      "requested_duration": 30.0,
+      "start": 0.0,
+      "duration": 2.0,
+      "sample_count": 2,
+      "samples": [
+        {
+          "second": 0.0,
+          "motion": 0.0,
+          "exposure": 31.0,
+          "sharpness": 0.0,
+          "score": 0.0,
+          "usable": true
+        },
+        {
+          "second": 1.0,
+          "motion": 0.0,
+          "exposure": 31.0,
+          "sharpness": 0.0,
+          "score": 0.0,
+          "usable": true
+        }
+      ],
+      "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+    },
+    "decision": {
+      "start": 0.0,
+      "brightness": 12,
+      "contrast": 0,
+      "saturation": 0,
+      "reason": "motion, exposure and sharpness measured from decoded source frames; highest mean window score is 31.0, which falls within the acceptable exposure band [80, 176]. Since the exposure is within the acceptable range, we can choose conservative corrections to preserve the control."
+    },
+    "steps": [
+      {
+        "operation": "video_edit",
+        "options": {
+          "start": 0.0,
+          "brightness": 12,
+          "contrast": 0,
+          "saturation": 0,
+          "duration": 2.0
+        },
+        "step_id": "23985d0d-b72a-4325-86ec-7549f4b98b2b"
+      }
+    ],
+    "validated_edit_values": {
+      "start": 0.0,
+      "brightness": 12,
+      "contrast": 0,
+      "saturation": 0,
+      "duration": 2.0
+    },
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "license": "Apache-2.0",
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+    "raw_response_sha256": "0d64f13f80a5ebfcec6e599a0fb2daa379bb835cfcf1af127f46438bd1c3efbb",
+    "semantic_understanding": false,
+    "output_quality": "REQUIRED_BEFORE_PUBLICATION",
+    "plan_id": "5c03cf6f-a329-4c73-95c1-1db52e4448b3",
+    "command_sha256": "5d83fb3831cf805642b6d6a711d1791e00475af662055e1dfb914db7fe537d57"
+  },
+  "base_records": [],
+  "previous_project": null,
+  "previous_project_sha256": null,
+  "previous_project_raw": null,
+  "updated_at": 1792914223.3222897,
+  "technical_quality": {
+    "status": "PASS_TECHNICAL_ONLY",
+    "output_sha256": "07a2df4de004e1bb2d42eee1e9b75ec83ce3736ddb182ce5c93263657a6d0e50",
+    "duration_seconds": 2.0,
+    "video_codec": "h264",
+    "source_window_exposure": 31.0,
+    "output_exposure": 66.0,
+    "exposure_error_before": 49.0,
+    "exposure_error_after": 14.0,
+    "usable_frame_ratio": 1.0,
+    "sample_count": 2,
+    "semantic_quality": "NOT_EVALUATED",
+    "human_visual_approval": "REQUIRED",
+    "full_product_pass": false
+  },
+  "result": {
+    "status": "TESTED_PASS",
+    "job_id": "e5f16561-9ad6-4ca1-aadb-c79b9d392ee2",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "순차 작업",
+    "input": {
+      "file_name": "ca42924c-94ea-418d-9d59-f3ca6c54faf2_original_video_preview.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/workflows/d3f5847d-d16e-4000-808b-5e88bd37018e/00-1/sealed/e5f16561-9ad6-4ca1-aadb-c79b9d392ee2/ca42924c-94ea-418d-9d59-f3ca6c54faf2_original_video_preview.mp4",
+      "bytes": 2228,
+      "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/workflows/d3f5847d-d16e-4000-808b-5e88bd37018e/00-1/sealed/e5f16561-9ad6-4ca1-aadb-c79b9d392ee2/edited_video.mp4",
+      "bytes": 2228,
+      "sha256": "07a2df4de004e1bb2d42eee1e9b75ec83ce3736ddb182ce5c93263657a6d0e50"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/workflows/d3f5847d-d16e-4000-808b-5e88bd37018e/00-1/sealed/e5f16561-9ad6-4ca1-aadb-c79b9d392ee2/edited_video.mp4",
+        "bytes": 2228,
+        "sha256": "07a2df4de004e1bb2d42eee1e9b75ec83ce3736ddb182ce5c93263657a6d0e50"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "start": 0.0,
+        "brightness": 12,
+        "contrast": 0,
+        "saturation": 0,
+        "duration": 2.0
+      },
+      "model_inference": false,
+      "sampled_frames": 0,
+      "analysis": null
+    },
+    "sealed_artifacts": true,
+    "workflow_id": "d3f5847d-d16e-4000-808b-5e88bd37018e"
+  },
+  "finished_at": 1792914223.322287
+}

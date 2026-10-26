@@ -1,0 +1,11 @@
+{
+  "status": "SOURCE_PINNED_NOT_LOCALLY_AVAILABLE",
+  "repository": "mindle-marketing-department",
+  "pr": 4,
+  "branch": "feature/shortform-bridge-p0-20260926",
+  "commit": "3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a",
+  "workflow": 36852551111,
+  "workflow_result": "SUCCESS",
+  "local_checkout_present": false,
+  "modified": false
+}

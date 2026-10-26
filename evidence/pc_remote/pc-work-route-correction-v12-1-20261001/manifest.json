@@ -1,0 +1,10 @@
+{
+  "evidence_version": "v12.1",
+  "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_ROUTE_CORRECTION_REVIEW_v12.1_20261001.md",
+  "evidence": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_ROUTE_CORRECTION_EVIDENCE_v12_1_20261001.json",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_ROUTE_CORRECTION_NO_GITHUB_LOGIN_LOOP_DIRECTIVE_v12.1_20261001.md",
+  "next_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_COMMANDER_ROUTE_CORRECTION_NEXT_DIRECTIVE_v12.2_20261001.md",
+  "github_auth_loop_stopped": true,
+  "ui_ssot_changed": false,
+  "evidence_commit_sha": "PENDING"
+}

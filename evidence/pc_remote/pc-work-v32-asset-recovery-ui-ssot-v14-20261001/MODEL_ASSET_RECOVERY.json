@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "source_package": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package",
+  "assets": [
+    {
+      "id": "SAM 2.1 Hiera Base Plus",
+      "repo": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package\\models\\sam21\\model.safetensors",
+      "bytes": 323476296,
+      "sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+    },
+    {
+      "id": "Whisper-small",
+      "repo": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package\\models\\whisper-small\\model.safetensors",
+      "bytes": 966995080,
+      "sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+    },
+    {
+      "id": "Intel SISR 1032 FP32",
+      "repo": "openvinotoolkit/open_model_zoo",
+      "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+      "xml": {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package\\omz\\intel\\single-image-super-resolution-1032\\FP32\\single-image-super-resolution-1032.xml",
+        "bytes": 78485,
+        "sha384": "4f355965e070341e1f1df5b954213e0ecca5d43faf8a0c9770efdf04c7442c88fb0aaeb825fc8091b30f0a674c808446"
+      },
+      "bin": {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package\\omz\\intel\\single-image-super-resolution-1032\\FP32\\single-image-super-resolution-1032.bin",
+        "bytes": 119436,
+        "sha384": "ec5a759c2d43eebf679040638ad765bc6ce5c16253421ddeb8acafd1ab6c8cb406f9f85b274771d9f670efc3d824e926"
+      }
+    }
+  ]
+}

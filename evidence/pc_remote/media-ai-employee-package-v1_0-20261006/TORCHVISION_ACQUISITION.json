@@ -1,0 +1,6 @@
+{
+  "version": "0.29.0+cpu",
+  "requires_torch": "2.14.0",
+  "wheel_sha256": "1e9b226ec8fec75062093657ebdb2f93c3484630ced9ece5a7aa537e5a02a83f",
+  "official_index_verified": true
+}

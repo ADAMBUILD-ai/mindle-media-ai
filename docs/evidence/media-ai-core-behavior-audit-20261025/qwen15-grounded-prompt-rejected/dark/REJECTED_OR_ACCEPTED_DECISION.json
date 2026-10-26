@@ -1,0 +1,14 @@
+{
+  "status": "REJECTED",
+  "input_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+  "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+  "raw_response_sha256": "a54b50e9a9297e7532d4eb85916d64433422cea2646acfa919108d2228c21c9f",
+  "decision": {
+    "start": 0.0,
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+  },
+  "error": "AI_AUTO_IGNORED_EXPOSURE: 측정한 과소·과다 노출을 무시한 판단입니다."
+}

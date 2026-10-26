@@ -1,0 +1,16 @@
+{
+  "original_project": "e0d16a40-0ef1-4ec7-a478-489337cdcf4d",
+  "original_sha256": "084958129025fe4aa176b63c0a6be074a99d5bfd2615555e75ab808aeb4b3bd1",
+  "clone": "78a2aa14-15bb-4bf3-809d-8b27a85f11f9",
+  "response": {
+    "status": "SAVED",
+    "project_id": "78a2aa14-15bb-4bf3-809d-8b27a85f11f9",
+    "project": {
+      "file_name": "78a2aa14-15bb-4bf3-809d-8b27a85f11f9.json",
+      "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\projects\\78a2aa14-15bb-4bf3-809d-8b27a85f11f9.json",
+      "bytes": 166107,
+      "sha256": "0fb500fefc167a81107d1ce3510e1c5a29c6e3d4dfb692f7e24fff5fe969f985"
+    }
+  },
+  "model_jobs_reexecuted": false
+}

@@ -1,0 +1,94 @@
+{
+  "baseline_source": "17ff980cbb9995590fe48eb47ffac22ab3e194c2",
+  "owner_pc_runtime_pass": false,
+  "product_full_pass": false,
+  "bindings": [
+    {
+      "control": "AI 자동 편집",
+      "before": "fixed target tracking command to /api/jobs",
+      "after": "measured scene-window analysis -> /api/video-edits -> OpenCV/FFmpeg -> real MP4",
+      "model_inference": false,
+      "status": "ACTUAL_BROWSER_VERIFIED"
+    },
+    {
+      "control": "PHOTO AI 보정",
+      "binding": "decoded pixel percentile measurement -> calculated correction values -> actual canvas pixels -> Pillow artifact",
+      "model_inference": false,
+      "status": "ACTUAL_BROWSER_VERIFIED_MEASURED_PIXELS_NOT_MODEL"
+    },
+    {
+      "control": "AI 효과",
+      "binding": "FFmpeg vignette",
+      "model_inference": false,
+      "status": "FILTER_NOT_GENERATIVE_AI"
+    },
+    {
+      "control": "자동 자막",
+      "binding": "/api/jobs transcribe -> Whisper Korean -> FFmpeg subtitle",
+      "status": "CURRENT_PACKAGE_INFERENCE_NOT_REVERIFIED"
+    },
+    {
+      "control": "배경 제거 / 추적",
+      "binding": "SAM2.1 immutable adapter via isolated worker",
+      "status": "CURRENT_PACKAGE_INFERENCE_NOT_REVERIFIED"
+    },
+    {
+      "control": "해상도 향상",
+      "binding": "Intel SISR 1032 OpenVINO isolated worker",
+      "status": "CURRENT_PACKAGE_INFERENCE_NOT_REVERIFIED"
+    },
+    {
+      "control": "AI 대화 편집",
+      "binding": "regex command rules; no generative planner",
+      "status": "GENERATIVE_AGENT_NOT_CONNECTED"
+    },
+    {
+      "control": "유사 이미지",
+      "binding": "attached image color histogram ranking",
+      "status": "NO_EXTERNAL_IMAGE_SEARCH"
+    },
+    {
+      "control": "광고 숏폼",
+      "binding": "Marketing HTTP; packaged mode deliberately503",
+      "status": "DEFERRED_EXTERNAL"
+    },
+    {
+      "control": "MEDIA cards",
+      "binding": "actual imported JOB records -> /api/assets -> keyboard/click selection -> real original previews; persisted across restart",
+      "status": "ACTUAL_BROWSER_VERIFIED_PERSISTED_ASSETS"
+    },
+    {
+      "control": "Timeline tracks",
+      "binding": "read-only status labels",
+      "status": "NOT_MULTITRACK_EDITOR"
+    }
+  ],
+  "pending_gates": [
+    "Current Windows package real SAM/SISR/Whisper inference",
+    "Owner office double-click/use of own media",
+    "Generative planning/semantic analysis provider credential gate",
+    "Corrected Windows rebuild and delivery after core verification",
+    "Replace static library/status-only surfaces with real project assets as required without visual redesign"
+  ],
+  "legacy_packaging_gate_incident": {
+    "cause": "legacy packaging workflows read PC state package_build_allowed=true without General Work owner recovery hold",
+    "first_runs": [
+      38413580030,
+      38413579985
+    ],
+    "cancel_capability_available": false,
+    "corrective_commit": "876e577f4be55b2b66d80e93aa11ed8e8aa70015",
+    "fresh_photo_inference": false,
+    "old_package_not_new_repair_delivery": true
+  },
+  "remaining_disposition": "ACTIVE_DEVELOPMENT_NOT_FULL_PRODUCT_PASS",
+  "historical_windows_model_chain": {
+    "run_id": 38121146106,
+    "run_source_commit": "8b28e712bf8e77052ca7efcc3459f7779597dc5a",
+    "job_id": 114415960390,
+    "actual_packaged_PHOTO_VIDEO_STT_save_reopen_export_step": "success",
+    "local_final_acceptance": "PENDING",
+    "current_repaired_source_model_inference": "NOT_RUN",
+    "current_office_installation_identity": "NOT_VERIFIED"
+  }
+}

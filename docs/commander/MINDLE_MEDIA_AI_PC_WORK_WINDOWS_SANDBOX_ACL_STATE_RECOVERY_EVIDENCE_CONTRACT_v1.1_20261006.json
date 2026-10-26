@@ -1,0 +1,26 @@
+{
+  "contract_version": "1.1",
+  "date": "2026-10-06",
+  "status": "ACTIVE",
+  "control_plane_epoch": "MEDIA-AI-20261006-WINDOWS-SANDBOX-ACL-RECOVERY-V1.1",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_WINDOWS_SANDBOX_ACL_STATE_RECOVERY_DIRECTIVE_v1.1_20261006.md",
+  "purpose": "Windows sandbox persisted ACL-state diagnosis and controlled recovery only",
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_REVIEW_v1.1_20261006.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_SANDBOX_ACL_RECOVERY_EVIDENCE_v1_1_20261006.json",
+    "detail_directory": "evidence/pc_remote/media-ai-windows-sandbox-acl-recovery-v1_1-20261006/"
+  },
+  "decision_results": [
+    "HOST_SANDBOX_ACL_RECOVERY_PASS",
+    "RECOVERY_PASS",
+    "ACL_STATE_MALFORMED_NONCANONICAL",
+    "ACL_STATE_VALID_JSON_DIFFERENT_DEFECT",
+    "ACL_STATE_FILE_NOT_FOUND",
+    "ACL_STATE_REGENERATED_BUT_SANDBOX_STILL_BLOCKED",
+    "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED"
+  ],
+  "package_build_allowed": false,
+  "product_changes_allowed": false
+}

@@ -1,0 +1,10 @@
+{
+  "status": "DEFAULT_PROFILE_HOST_GATE_PENDING",
+  "gate_script": "scripts/FINAL_EMPLOYEE_PACKAGE_HOST_GATE.ps1",
+  "gate_cmd": "scripts/FINAL_EMPLOYEE_PACKAGE_HOST_GATE.cmd",
+  "syntax_check": "PASS",
+  "actual_default_profile_execution": "NOT_RUN",
+  "reason": "R2 section 4 requires ordinary Windows PowerShell outside Work sandbox; protected default profile write grant not returned",
+  "temporary_profile_results_reused": true,
+  "desktop_cold_launch_2_of_2_verified": false
+}
