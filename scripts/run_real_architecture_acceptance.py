@@ -8,7 +8,7 @@ import argparse,base64,hashlib,json,subprocess,time,urllib.error,urllib.request,
 from datetime import datetime,timezone
 from pathlib import Path
 from media_ai.e2e_intake import validate_intake
-from media_ai.source_e2e import audio_command,validate_audio_plan,verify_export,verify_imported_input,MODEL_SHA,PART_SHA,config_from
+from media_ai.source_e2e import audio_command,validate_audio_plan,verify_export,verify_imported_input,verify_reopened_project,quality_from_probe,MODEL_SHA,PART_SHA,config_from
 from media_ai.workflow_worker import tree_sha
 import os,ctypes
 
@@ -62,14 +62,14 @@ def launch(exe,expected_source,evidence,label):
 
 def technical_probe(ffprobe,video):
     value=json.loads(subprocess.check_output([str(ffprobe),'-v','error','-show_streams','-show_format','-of','json',str(video)],text=True,encoding='utf-8',timeout=60))
-    streams=value.get('streams',[]);v=next((x for x in streams if x.get('codec_type')=='video'),None);a=next((x for x in streams if x.get('codec_type')=='audio'),None)
-    duration=float(value.get('format',{}).get('duration',0))
-    if not v or not a or v.get('codec_name')!='h264' or v.get('pix_fmt')!='yuv420p' or a.get('codec_name')!='aac' or abs(duration-30)>.15:
-        raise RuntimeError('FINAL_MEDIA_TECHNICAL_GATE_FAILED')
-    if abs(v['width']/v['height']-16/9)>.002:raise RuntimeError('FINAL_MEDIA_ASPECT_GATE_FAILED')
     decoder=Path(ffprobe).with_name('ffmpeg.exe' if Path(ffprobe).suffix.lower()=='.exe' else 'ffmpeg')
-    subprocess.run([str(decoder),'-v','error','-xerror','-i',str(video),'-map','0:v:0','-map','0:a:0','-f','null','-'],check=True,capture_output=True,timeout=180)
-    return {'decoded_video_and_audio':True,'duration_seconds':duration,'width':v.get('width'),'height':v.get('height'),'video_codec':v.get('codec_name'),'pixel_format':v.get('pix_fmt'),'audio_codec':a.get('codec_name')}
+    try:
+        result=quality_from_probe(video,value,decoder)
+    except (KeyError,StopIteration,TypeError,ValueError) as error:
+        message=str(error)
+        if message=='OUTPUT_ASPECT_FAILED':raise RuntimeError('FINAL_MEDIA_ASPECT_GATE_FAILED') from error
+        raise RuntimeError('FINAL_MEDIA_TECHNICAL_GATE_FAILED: '+message) from error
+    return result
 
 def pid_exited(pid):
     if os.name!='nt':
@@ -193,7 +193,8 @@ def execute(args,manifest,intake,evidence):
     verify_candidate(identity2,args,approval)
     reopened=call(base2,'/api/projects/'+workflow['project_id'])['project']
     if reopened['project_id']!=workflow['project_id'] or not any(x['job_id']==workflow['result']['job_id'] for x in reopened['jobs']):raise RuntimeError('REOPEN_CONTENT_MISMATCH')
-    if {x['job_id']:x['primary_output']['sha256'] for x in reopened['jobs']}!={x['job_id']:x['primary_output']['sha256'] for x in before_project['jobs']}:raise RuntimeError('REOPEN_ARTIFACT_IDENTITY_CHANGED')
+    try:verify_reopened_project(before_project,reopened)
+    except ValueError as error:raise RuntimeError(str(error)) from error
     exported=call(base2,'/api/projects/'+workflow['project_id']+'/export',{})
     archive=evidence/'09_AFTER_RESTART_EXPORT.zip';archive.write_bytes(call(base2,exported['download_url'],raw=True,timeout=300))
     if sha(archive)!=exported['export']['sha256']:raise RuntimeError('EXPORT_DOWNLOAD_HASH_MISMATCH')

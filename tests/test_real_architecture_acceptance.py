@@ -61,9 +61,20 @@ def test_candidate_approval_blocks_before_any_server_call(tmp_path,monkeypatch):
 def test_candidate_probe_rejects_wrong_aspect_before_decode(monkeypatch):
     import pytest
     module=_runner()
-    probe={'format':{'duration':'30'},'streams':[{'codec_type':'video','codec_name':'h264','pix_fmt':'yuv420p','width':720,'height':1280},{'codec_type':'audio','codec_name':'aac'}]}
+    probe={'format':{'duration':'30'},'streams':[{'codec_type':'video','codec_name':'h264','pix_fmt':'yuv420p','width':720,'height':1280,'start_time':'0','duration':'30'},{'codec_type':'audio','codec_name':'aac','start_time':'0','duration':'30'}]}
     monkeypatch.setattr(module.subprocess,'check_output',lambda *a,**k:json.dumps(probe))
     with pytest.raises(RuntimeError,match='FINAL_MEDIA_ASPECT_GATE_FAILED'):
+        module.technical_probe(Path('ffprobe.exe'),Path('video.mp4'))
+
+
+def test_candidate_probe_rejects_container_only_thirty_seconds(monkeypatch):
+    import pytest
+    module=_runner()
+    probe={'format':{'duration':'30'},'streams':[
+        {'codec_type':'video','codec_name':'h264','pix_fmt':'yuv420p','width':160,'height':90,'start_time':'0','duration':'1'},
+        {'codec_type':'audio','codec_name':'aac','start_time':'0','duration':'30'}]}
+    monkeypatch.setattr(module.subprocess,'check_output',lambda *a,**k:json.dumps(probe))
+    with pytest.raises(RuntimeError,match='FINAL_MEDIA_TECHNICAL_GATE_FAILED: OUTPUT_STREAM_NOT_EXACT_30_SECONDS'):
         module.technical_probe(Path('ffprobe.exe'),Path('video.mp4'))
 
 

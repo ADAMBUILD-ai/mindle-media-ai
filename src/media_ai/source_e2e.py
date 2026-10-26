@@ -171,8 +171,8 @@ def validate_audio_plan(manifest,plan):
     require([step['operation'] for step in steps]==['narrate','mix_narration'],'AUDIO_FINISH_MUST_BE_SINGLE_SYNTHESIS_AND_MIX')
 
 
-def quality(path,manifest):
-    info=probe(Path(path));video=next(x for x in info['streams'] if x['codec_type']=='video');audio=next(x for x in info['streams'] if x['codec_type']=='audio')
+def quality_from_probe(path,info,decoder='ffmpeg'):
+    video=next(x for x in info['streams'] if x['codec_type']=='video');audio=next(x for x in info['streams'] if x['codec_type']=='audio')
     duration=float(info['format']['duration'])
     require(video['codec_name']=='h264' and video.get('pix_fmt')=='yuv420p' and audio['codec_name']=='aac','OUTPUT_CODECS_FAILED')
     require(abs(video['width']/video['height']-16/9)<.002,'OUTPUT_ASPECT_FAILED')
@@ -190,10 +190,14 @@ def quality(path,manifest):
         timelines[kind]={'start_seconds':start,'duration_seconds':length,'end_seconds':start+length}
     require(abs(timelines['video']['end_seconds']-timelines['audio']['end_seconds'])<=.15,
             'OUTPUT_AUDIO_VIDEO_TIMING_MISMATCH')
-    subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(path),'-map','0:v:0','-map','0:a:0','-f','null','-'],check=True,capture_output=True,timeout=180)
+    subprocess.run([str(decoder),'-v','error','-xerror','-i',str(path),'-map','0:v:0','-map','0:a:0','-f','null','-'],check=True,capture_output=True,timeout=180)
     return {'status':'PASS_TECHNICAL_ONLY','duration_seconds':duration,'video_codec':video['codec_name'],'audio_codec':audio['codec_name'],
-            'width':video['width'],'height':video['height'],'stream_timelines':timelines,
+            'width':video['width'],'height':video['height'],'pixel_format':video['pix_fmt'],'stream_timelines':timelines,
             'decoded_video_and_audio':True,'human_review':'NOT_EXECUTED'}
+
+
+def quality(path,manifest):
+    return quality_from_probe(path,probe(Path(path)))
 
 
 def persisted_jobs(jobs):

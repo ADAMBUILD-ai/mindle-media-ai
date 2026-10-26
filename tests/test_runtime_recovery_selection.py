@@ -24,6 +24,14 @@ def test_empty_delta_does_not_silently_claim_new_reuse():
     assert selection.control_only([]) is False
 
 
+def test_real_input_handoff_and_isolated_ltx_adapter_do_not_rerun_unrelated_engine_job():
+    paths=['docs/evidence/media-real-30s-general-r2-20261026/RESULT_KO.md',
+           'docs/handoff/media-production-closeout-r3-20261026/START_HERE_KO.md',
+           'external_assets/media-production/ltx_remote_adapter.py',
+           'scripts/run_ltx_source_evaluation.py','tests/test_ltx_remote_adapter.py']
+    assert selection.control_only(paths)
+
+
 @pytest.mark.parametrize('path',['src/media_ai/source_e2e.py','src/media_ai/e2e_intake.py','scripts/run_real_architecture_acceptance.py','tests/test_source_e2e.py'])
 def test_acceptance_tooling_can_reuse_verified_engine_job_but_runtime_cannot(path):
     before='  adopted-real-engines:\n    runs-on: ubuntu-latest\n    steps:\n      - run: verify-engine\n'

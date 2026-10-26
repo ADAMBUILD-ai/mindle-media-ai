@@ -26,17 +26,24 @@ CONTROL_ONLY = {
     'tests/test_e2e_intake.py',
     'tests/test_source_e2e.py','tests/test_real_architecture_acceptance.py',
     'scripts/media_work_status.py','tests/test_media_work_status.py',
+    'scripts/run_ltx_source_evaluation.py','tests/test_ltx_remote_adapter.py',
     'scripts/validate_pc_work_control_plane.py','CURRENT_PC_WORK_DIRECTIVE.md',
     'CURRENT_MEDIA_WORK_STATUS.json','CURRENT_GENERAL_WORK_STATE.json',
     'CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json','CURRENT_PC_WORK_STATE.json',
     'CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json','CURRENT_WORKER_COORDINATION_LOCK.json',
 }
+CONTROL_ONLY_PREFIXES = (
+    # Evidence, handoff material, and isolated source adapters are deliberately
+    # not imported by adopted-real-engines. Their regressions run elsewhere.
+    'docs/', 'external_assets/media-production/',
+)
 
 
 def control_only(paths):
     return bool(paths) and all(path in CONTROL_ONLY or path.startswith(('docs/evidence/media-ai-control-plane-recovery-20261025/',
         'docs/evidence/media-ai-core-e2e-r2-20261025/','docs/handoff/media-ai-core-e2e-r2-20261025/',
-        'docs/evidence/media-ai-r2-work-status-20261025/','docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md')) for path in paths)
+        'docs/evidence/media-ai-r2-work-status-20261025/','docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md',
+        *CONTROL_ONLY_PREFIXES)) for path in paths)
 
 
 def engine_job_body(source):

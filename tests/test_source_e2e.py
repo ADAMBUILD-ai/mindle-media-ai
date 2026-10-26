@@ -162,6 +162,16 @@ def test_invalid_or_skewed_stream_timing_cannot_reach_decode(monkeypatch,fault):
         runner.quality(Path('unused.mp4'),{})
 
 
+def test_quality_from_probe_can_use_the_approved_package_decoder(monkeypatch):
+    info={'format':{'duration':'30'},'streams':[{'codec_type':'video','codec_name':'h264','pix_fmt':'yuv420p','width':160,'height':90,'duration':'30','start_time':'0'},
+        {'codec_type':'audio','codec_name':'aac','duration':'30','start_time':'0'}]}
+    called=[]
+    monkeypatch.setattr(runner.subprocess,'run',lambda command,**kwargs:called.append(command))
+    result=runner.quality_from_probe(Path('approved.mp4'),info,'C:/approved/ffmpeg.exe')
+    assert result['decoded_video_and_audio'] is True
+    assert called[0][0]=='C:/approved/ffmpeg.exe'
+
+
 @pytest.mark.parametrize('fault',['script','volume','workspace','input','reference',None])
 def test_reopen_preserves_full_project_and_original_reference_bytes(tmp_path,fault):
     original=tmp_path/'original';original.write_bytes(b'original')
