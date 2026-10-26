@@ -12,7 +12,7 @@
       "base_sha256": "7f44953fa2b0549c9cae1b645a3e37cac941d6654b07cb6c462b01d96b671b08",
       "sha256": "f3e5a6b1e9fd9c61e37247d577b4c3be2c491e94a98f13da91d6c6ace99594f8",
       "scope": "SOURCE_AND_WINDOWS_ACCEPTANCE_STREAM_TIMING_AND_REOPEN_VERIFICATION_ONLY",
-      "evidence": "docs/evidence/media-real-30s-general-r2-20261026/RESULT_KO.md"
+      "evidence": "docs/evidence/media-real-30s-general-r3-20261026/RESULT_KO.md"
     },
     "workspace_ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495"
   },
