@@ -1,0 +1,32 @@
+{
+  "narration_script": null,
+  "voice_length_policy": null,
+  "volumes": {"narration": null, "original": null, "bgm": null},
+  "clips": [
+    {
+      "path": null,
+      "label": null,
+      "origin": null,
+      "source_or_owner": null,
+      "license_or_permission": null,
+      "rights_evidence": null,
+      "rights_status": null
+    }
+  ],
+  "bgm": {
+    "path": null,
+    "label": null,
+    "source_or_owner": null,
+    "license_or_permission": null,
+    "rights_evidence": null,
+    "rights_status": null
+  },
+  "field_guide": {
+    "clip": "path, label, origin=real_capture, source_or_owner, license_or_permission, rights_evidence, rights_status=CONFIRMED; optional usable_start_seconds/usable_end_seconds",
+    "bgm": "path, label, source_or_owner, license_or_permission, rights_evidence, rights_status=CONFIRMED",
+    "volumes": "narration/original 0..2; bgm 0..1. No automatic defaults.",
+    "voice_length_policy": "reject or extend_video; a result longer than 30 seconds is not a fixed 30-second PASS.",
+    "paths": "Absolute local/NAS paths or paths relative to this operator-input file. Original files are read, not copied or changed.",
+    "approval": "This form does not approve model installation, Windows adoption, a new EXE, or rights automatically."
+  }
+}
