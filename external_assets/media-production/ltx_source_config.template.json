@@ -1,0 +1,12 @@
+{
+  "upstream_revision": "8ffed888f3a9afdfbf137fa6193bf1cdc1cd657b",
+  "base_url": "http://127.0.0.1:41955",
+  "execution_approved": false,
+  "approval_id": null,
+  "review_scope": "source_evaluation",
+  "license_reviewed": false,
+  "offline_reviewed": false,
+  "identity_files": [],
+  "allowed_params": [],
+  "output_dimensions": {}
+}
