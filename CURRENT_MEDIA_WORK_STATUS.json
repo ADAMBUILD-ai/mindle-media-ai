@@ -7,6 +7,13 @@
     "source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
     "file_count": 59,
     "changed_paths": [],
+    "acceptance_tool_patch": {
+      "path": "src/media_ai/source_e2e.py",
+      "base_sha256": "7f44953fa2b0549c9cae1b645a3e37cac941d6654b07cb6c462b01d96b671b08",
+      "sha256": "7616a7727fbd2adeb64d3274dc2c14d00eb157b0c1121226b7b0e21b4637b050",
+      "scope": "SOURCE_ACCEPTANCE_STREAM_TIMING_AND_REOPEN_VERIFICATION_ONLY",
+      "evidence": "docs/evidence/media-real-30s-general-r2-20261026/RESULT_KO.md"
+    },
     "workspace_ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495"
   },
   "general_status": "R2_GENERAL_PREPARATION_COMPLETE",

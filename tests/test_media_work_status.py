@@ -46,6 +46,15 @@ def test_source_change_cannot_be_hidden_by_a_ready_status(tree):
     assert value['general_status']=='R2_SOURCE_REVALIDATION_REQUIRED'
 
 
+def test_reviewed_acceptance_tool_patch_still_rejects_further_drift(tree):
+    path=status.ACCEPTANCE_TOOL_PATCH['path']
+    assert status.runtime_baseline(tree)['acceptance_tool_patch']['sha256']==status.digest(tree/path)
+    target=tree/path;target.write_bytes(target.read_bytes()+b'\n# unverified drift\n')
+    value=status.refresh(tree)
+    assert value['production_eligibility']=='BLOCKED_SOURCE_REVALIDATION'
+    assert path in value['runtime_baseline']['changed_paths']
+
+
 def test_missing_or_added_runtime_module_requires_revalidation(tree):
     p=tree/'src/media_ai/new_unverified_runtime.py';p.write_text('# fixture',encoding='utf-8')
     value=status.refresh(tree)

@@ -23,6 +23,15 @@ BASELINE_SHA='2655b6e1d90c97859d0d4a4d2331002368f578e32192e62531d89e68ac6fbfc1'
 FOUNDATION='docs/evidence/media-ai-core-e2e-r1-20261025/SOURCE_BINDING.json'
 FOUNDATION_SHA='5a93616e83ff9cb935fdd9c85f30f4d9dffb49f20797ac544e9f379a5bced76e'
 CODE='903f892a5dcd79166cc2ffbaa70ddaabf293aaaa'
+# Reviewed source-acceptance tool delta only. Preserve immutable runtime/UI
+# foundation evidence and reject every other changed byte as before.
+ACCEPTANCE_TOOL_PATCH={
+    'path':'src/media_ai/source_e2e.py',
+    'base_sha256':'7f44953fa2b0549c9cae1b645a3e37cac941d6654b07cb6c462b01d96b671b08',
+    'sha256':'7616a7727fbd2adeb64d3274dc2c14d00eb157b0c1121226b7b0e21b4637b050',
+    'scope':'SOURCE_ACCEPTANCE_STREAM_TIMING_AND_REOPEN_VERIFICATION_ONLY',
+    'evidence':'docs/evidence/media-real-30s-general-r2-20261026/RESULT_KO.md',
+}
 CONTROLS=('CURRENT_GENERAL_WORK_STATE.json','CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json',
           'CURRENT_PC_WORK_STATE.json','CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json','CURRENT_WORKER_COORDINATION_LOCK.json')
 SCOPE='HISTORICAL_R3_CANDIDATE_ONLY_SEE_CURRENT_WORK_FOR_R2'
@@ -47,10 +56,14 @@ def runtime_baseline(root):
     paths=dict(read(root,FOUNDATION)['source_file_sha256'])
     paths.update({name:sha for name,sha in receipt['code_file_sha256'].items() if name.startswith('src/media_ai/')})
     paths.update(receipt['source_ui_identity']['file_hashes'])
+    patch=ACCEPTANCE_TOOL_PATCH
+    require(paths.get(patch['path'])==patch['base_sha256'],'ACCEPTANCE_TOOL_BASE_AUTHORITY_MISMATCH')
+    paths[patch['path']]=patch['sha256']
     changed=[name for name,sha in paths.items() if not (root/name).is_file() or digest(root/name)!=sha]
     changed.extend(p.relative_to(root).as_posix() for p in (root/'src/media_ai').glob('*.py') if p.relative_to(root).as_posix() not in paths)
     return {'status':'BLOCKED_RUNTIME_SOURCE_CHANGED' if changed else 'PASS_EXACT_RUNTIME_UI_BYTES',
             'source':CODE,'file_count':len(paths),'changed_paths':changed,
+            'acceptance_tool_patch':dict(patch),
             'workspace_ui_fingerprint':receipt['source_ui_identity']['workspace_ui_fingerprint']}
 
 

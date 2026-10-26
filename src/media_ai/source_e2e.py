@@ -9,6 +9,7 @@ import base64
 import hashlib
 import importlib
 import json
+import math
 import os
 from pathlib import Path
 import subprocess
@@ -176,9 +177,40 @@ def quality(path,manifest):
     require(video['codec_name']=='h264' and video.get('pix_fmt')=='yuv420p' and audio['codec_name']=='aac','OUTPUT_CODECS_FAILED')
     require(abs(video['width']/video['height']-16/9)<.002,'OUTPUT_ASPECT_FAILED')
     require(abs(duration-30)<=.15,'OUTPUT_NOT_EXACT_30_SECONDS: extended outputs cannot pass fixed-duration acceptance')
+    timelines={}
+    for stream in (video,audio):
+        kind=stream['codec_type']
+        try:
+            start=float(stream['start_time']);length=float(stream['duration'])
+        except (KeyError,TypeError,ValueError) as error:
+            raise ValueError('OUTPUT_STREAM_TIMING_REQUIRED: '+kind) from error
+        require(math.isfinite(start) and math.isfinite(length),'OUTPUT_STREAM_TIMING_INVALID: '+kind)
+        require(abs(start)<=.15 and abs(length-30)<=.15 and abs(start+length-30)<=.15,
+                'OUTPUT_STREAM_NOT_EXACT_30_SECONDS: '+kind)
+        timelines[kind]={'start_seconds':start,'duration_seconds':length,'end_seconds':start+length}
+    require(abs(timelines['video']['end_seconds']-timelines['audio']['end_seconds'])<=.15,
+            'OUTPUT_AUDIO_VIDEO_TIMING_MISMATCH')
     subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(path),'-map','0:v:0','-map','0:a:0','-f','null','-'],check=True,capture_output=True,timeout=180)
     return {'status':'PASS_TECHNICAL_ONLY','duration_seconds':duration,'video_codec':video['codec_name'],'audio_codec':audio['codec_name'],
-            'width':video['width'],'height':video['height'],'decoded_video_and_audio':True,'human_review':'NOT_EXECUTED'}
+            'width':video['width'],'height':video['height'],'stream_timelines':timelines,
+            'decoded_video_and_audio':True,'human_review':'NOT_EXECUTED'}
+
+
+def persisted_jobs(jobs):
+    # Only HTTP presentation URLs may vary. Keep narration, volumes, references,
+    # and all persisted execution metadata in the comparison.
+    return [{key:value for key,value in job.items() if key not in {'preview_url','input_url','reference_urls'}} for job in jobs]
+
+
+def verify_reopened_project(saved,reopened):
+    normalize=lambda project:{**project,'jobs':persisted_jobs(project['jobs'])}
+    require(normalize(saved)==normalize(reopened),'REOPEN_PROJECT_METADATA_CHANGED')
+    for job in reopened['jobs']:
+        artifacts=list(job['outputs'])+list(job.get('reference_artifacts',[]))
+        if job.get('input'):artifacts.append(job['input'])
+        for item in artifacts:
+            actual=file_record(Path(item['path']))
+            require(actual['sha256']==item['sha256'] and actual['bytes']==item['bytes'],'REOPEN_FILE_IDENTITY_FAILED')
 
 
 def verify_export(path,expected,project_id,expected_jobs=None):
@@ -190,8 +222,7 @@ def verify_export(path,expected,project_id,expected_jobs=None):
         require(project['project_id']==bundle['project_id']==project_id,'EXPORT_PROJECT_IDENTITY_FAILED')
         if expected_jobs is not None:
             # HTTP Reopen adds transport URLs; compare every persisted job field.
-            persisted=lambda jobs:[{key:value for key,value in job.items() if key not in {'preview_url','input_url','reference_urls'}} for job in jobs]
-            require(persisted(project['jobs'])==persisted(expected_jobs),'EXPORT_REOPEN_JOB_IDENTITY_FAILED')
+            require(persisted_jobs(project['jobs'])==persisted_jobs(expected_jobs),'EXPORT_REOPEN_JOB_IDENTITY_FAILED')
         require(bool(bundle['files']),'EXPORT_MANIFEST_EMPTY')
         for item in bundle['files']:
             data=archive.read(item['archive_path'])
@@ -255,15 +286,13 @@ def execute(session,manifest,intake,receipt,output):
     begin('save')
     saved=session.call('/api/projects/'+project_id)['project'];mark('save',project_id)
     begin('cold_restart')
-    before={x['job_id']:x['primary_output']['sha256'] for x in saved['jobs']};session.stop()
+    session.stop()
     after=session.start('COLD_SOURCE_SERVER')
     require(first['server_pid']!=after['server_pid'] and first['server_instance_id']!=after['server_instance_id'],'COLD_RESTART_IDENTITY_FAILED')
     receipt['second_process']=after;mark('cold_restart',{'first':first,'second':after})
     begin('reopen')
     reopened=session.call('/api/projects/'+project_id)['project']
-    require(before=={x['job_id']:x['primary_output']['sha256'] for x in reopened['jobs']},'REOPEN_IDENTITY_FAILED')
-    for job in reopened['jobs']:
-        for item in job['outputs']:require(file_record(Path(item['path']))['sha256']==item['sha256'],'REOPEN_FILE_IDENTITY_FAILED')
+    verify_reopened_project(saved,reopened)
     require(session.call('/api/workflows/'+finish['workflow_id'])['state']=='SUCCEEDED','REOPEN_WORKFLOW_CHANGED')
     mark('reopen',project_id)
     begin('export')

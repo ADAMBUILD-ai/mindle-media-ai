@@ -81,11 +81,13 @@ def test_owned_real_product_process_cold_restart_reopen_and_export(tmp_path):
         first=session.start('first')
         imported=session.call('/api/media/import',{'kind':'video','filename':'test.mp4','content_base64':base64.b64encode(source.read_bytes()).decode()})
         runner.verify_imported_input(imported,runner.file_record(source))
-        saved=session.call('/api/projects/save',{'job_ids':[imported['job_id']]});session.stop()
+        saved=session.call('/api/projects/save',{'job_ids':[imported['job_id']]})
+        before=session.call('/api/projects/'+saved['project_id'])['project'];session.stop()
         second=session.start('second')
         assert first['server_pid']!=second['server_pid']
         assert first['server_instance_id']!=second['server_instance_id']
         reopened=session.call('/api/projects/'+saved['project_id'])['project']
+        runner.verify_reopened_project(before,reopened)
         assert reopened['jobs'][0]['primary_output']['sha256']==imported['primary_output']['sha256']
         exported=session.call('/api/projects/'+saved['project_id']+'/export',{})
         result=runner.verify_export(exported['export']['path'],exported['export']['sha256'],saved['project_id'],reopened['jobs'])
@@ -125,3 +127,57 @@ def test_original_input_and_transcoded_preview_have_separate_identities(tmp_path
     if fault:
         with pytest.raises(ValueError,match='IMPORTED_(SOURCE|PREVIEW)_IDENTITY_FAILED'):runner.verify_imported_input(job,source)
     else:runner.verify_imported_input(job,source)
+
+
+@pytest.mark.parametrize('video_seconds,audio_seconds,accepted',[(1,30,False),(30,1,False),(30,30,True)])
+def test_quality_checks_both_actual_stream_lengths(tmp_path,video_seconds,audio_seconds,accepted):
+    # Fault fixtures exercise the acceptance gate; never owner production assets.
+    path=tmp_path/'timing.mp4'
+    subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i',f'color=s=160x90:r=4:d={video_seconds}',
+                    '-f','lavfi','-i',f'anullsrc=r=16000:cl=mono:d={audio_seconds}',
+                    '-c:v','libx264','-pix_fmt','yuv420p','-c:a','aac',str(path)],check=True)
+    if accepted:
+        result=runner.quality(path,{})
+        assert result['stream_timelines']['video']['duration_seconds']==30
+        assert result['human_review']=='NOT_EXECUTED'
+    else:
+        with pytest.raises(ValueError,match='OUTPUT_STREAM_NOT_EXACT_30_SECONDS'):
+            runner.quality(path,{})
+
+
+@pytest.mark.parametrize('fault',['missing','nan','infinity','offset','opposite_ends'])
+def test_invalid_or_skewed_stream_timing_cannot_reach_decode(monkeypatch,fault):
+    info={'format':{'duration':'30'},'streams':[
+        {'codec_type':'video','codec_name':'h264','pix_fmt':'yuv420p','width':160,'height':90,'duration':'30','start_time':'0'},
+        {'codec_type':'audio','codec_name':'aac','duration':'30','start_time':'0'}]}
+    if fault=='missing':del info['streams'][0]['duration']
+    elif fault=='nan':info['streams'][0]['duration']='nan'
+    elif fault=='infinity':info['streams'][1]['start_time']='inf'
+    elif fault=='offset':info['streams'][1]['start_time']='1'
+    else:
+        info['streams'][0]['duration']='29.86';info['streams'][1]['duration']='30.14'
+    monkeypatch.setattr(runner,'probe',lambda path:info)
+    monkeypatch.setattr(runner.subprocess,'run',lambda *a,**kw:pytest.fail('invalid timing must block decode'))
+    with pytest.raises(ValueError,match='OUTPUT_(STREAM|AUDIO_VIDEO)'):
+        runner.quality(Path('unused.mp4'),{})
+
+
+@pytest.mark.parametrize('fault',['script','volume','workspace','input','reference',None])
+def test_reopen_preserves_full_project_and_original_reference_bytes(tmp_path,fault):
+    original=tmp_path/'original';original.write_bytes(b'original')
+    reference=tmp_path/'reference';reference.write_bytes(b'reference')
+    output=tmp_path/'output';output.write_bytes(b'output')
+    job={'job_id':'job','outputs':[runner.file_record(output)],'input':runner.file_record(original),
+         'reference_artifacts':[runner.file_record(reference)],'preview_url':'/old',
+         'runtime_result':{'text':'exact script','options':{'volume':.8}}}
+    saved={'project_id':'p','jobs':[job],'workspace':{'label':'approved'}}
+    reopened=deepcopy(saved);reopened['jobs'][0]['preview_url']='/new'
+    if fault=='script':reopened['jobs'][0]['runtime_result']['text']='changed'
+    elif fault=='volume':reopened['jobs'][0]['runtime_result']['options']['volume']=.9
+    elif fault=='workspace':reopened['workspace']['label']='changed'
+    elif fault=='input':original.write_bytes(b'altered')
+    elif fault=='reference':reference.write_bytes(b'altered')
+    if fault:
+        with pytest.raises(ValueError,match='REOPEN_(PROJECT_METADATA_CHANGED|FILE_IDENTITY_FAILED)'):
+            runner.verify_reopened_project(saved,reopened)
+    else:runner.verify_reopened_project(saved,reopened)
