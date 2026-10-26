@@ -1,0 +1,103 @@
+{
+  "status": "GENERAL_INTAKE_HANDOFF_VERIFIED_REAL_PRODUCTION_BLOCKED",
+  "tested_source": "1606e67fae51ae889c88e63b05991ca948ada773",
+  "source_files": {
+    "scripts/prepare_media_production_intake.py": {
+      "bytes": 7236,
+      "sha256": "fc01286894edd259ab5982b827769cba5d52db5ac88b5889c4d2b2fcf7f1fed1"
+    },
+    "tests/test_prepare_media_production_intake.py": {
+      "bytes": 5788,
+      "sha256": "46968fb8994c4ac824ba3cf46cabfa2def68173e7dda48bf6130eca2ece28a9f"
+    },
+    "docs/handoff/media-production-closeout-r3-20261026/OPERATOR_INPUT.template.json": {
+      "bytes": 1279,
+      "sha256": "ad8c198f9f230e897649a022fd7ad91c602b489947448fc698ef8078db8ff9bd"
+    },
+    "docs/handoff/media-production-closeout-r3-20261026/START_HERE_KO.md": {
+      "bytes": 5491,
+      "sha256": "99ba0c9c67e04032ba2dd5da1990b6311d0d077bef02ffc8237e94df95fa90aa"
+    }
+  },
+  "remote": {
+    "run": 40250290046,
+    "job": 121340477284,
+    "status": "SUCCESS",
+    "python_pass": 446,
+    "python_skip": 5,
+    "ui_contract_pass": 2,
+    "fresh_ai_inference": false
+  },
+  "source_intake_kit": {
+    "source_commit": "1606e67fae51ae889c88e63b05991ca948ada773",
+    "archive": "docs/handoff/media-production-closeout-r3-20261026/SOURCE_INTAKE_TOOL_ONLY.zip",
+    "archive_bytes": 12671,
+    "archive_sha256": "06de65235e01ab992eef0c5f7b2ed6af455123fed4385ff1e7ec4f30586d6bde",
+    "zip_crc": "PASS",
+    "all_internal_hashes": "PASS",
+    "file_count": 10,
+    "source_modules": [
+      "__init__",
+      "contracts",
+      "e2e_intake",
+      "router",
+      "ui_bridge",
+      "ui_contract"
+    ],
+    "isolated_execution": {
+      "interpreter": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "exit_code": 2,
+      "status": "BLOCKED_ASSET_INTAKE",
+      "stdout": {
+        "status": "BLOCKED_ASSET_INTAKE",
+        "errors": [
+          "video: textual label missing or invalid",
+          "video: textual source_or_owner missing or invalid",
+          "video: textual license_or_permission missing or invalid",
+          "video: textual rights_evidence missing or invalid",
+          "video: file path missing",
+          "audio: textual label missing or invalid",
+          "audio: textual source_or_owner missing or invalid",
+          "audio: textual license_or_permission missing or invalid",
+          "audio: textual rights_evidence missing or invalid",
+          "audio: file path missing",
+          "exact Korean narration script missing or incompatible with quoted product command",
+          "explicit voice length policy missing",
+          "explicit narration volume required (0..2)",
+          "explicit original volume required (0..2)",
+          "explicit bgm volume required (0..1)",
+          "video: supplied scene/track label missing",
+          ": provenance/permission missing",
+          ": real capture declaration missing",
+          ": rights evidence reference missing",
+          ": local path missing",
+          "audio: supplied scene/track label missing",
+          "source coverage below 30 seconds"
+        ],
+        "next_action": "COMPLETE_OPERATOR_INPUT",
+        "full_product_pass": false
+      },
+      "model_started": false,
+      "production_started": false
+    },
+    "is_windows_candidate": false,
+    "build_gate": false,
+    "full_product_pass": false
+  },
+  "gates": {
+    "source_code": "PASS",
+    "input_collection_tool": "PASS",
+    "source_kit_integrity_and_isolated_execution": "PASS",
+    "actual_asset_intake": "BLOCKED",
+    "new_model_inference": "NOT_EXECUTED",
+    "real_30_second_mp4": "BLOCKED",
+    "owner_pc_reopen_export": "NOT_EXECUTED",
+    "human_screen_listening": "NOT_EXECUTED",
+    "overall_product": "PARTIAL"
+  },
+  "build_gate": false,
+  "new_windows_candidate": false,
+  "installed_model_changes": false,
+  "main_merged": false,
+  "full_product_pass": false
+}

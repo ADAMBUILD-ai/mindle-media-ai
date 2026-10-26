@@ -1,0 +1,8 @@
+{
+  "observed_environment": "GENERAL_CONTAINER_NOT_OWNER_PC",
+  "nvidia_smi_path": null,
+  "visible_nvidia_device_paths": [],
+  "owner_pc_observed": false,
+  "model_started": false,
+  "production_started": false
+}
