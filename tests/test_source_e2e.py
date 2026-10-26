@@ -96,6 +96,30 @@ def test_owned_real_product_process_cold_restart_reopen_and_export(tmp_path):
     finally:session.cleanup()
 
 
+def test_completed_orchestration_emits_standard_media_production_package():
+    intake={'manifest_sha256':'a'*64,'verified_assets':[
+        {'role':'video','label':'전경','sha256':'v'*64,'bytes':10,'duration_seconds':30,'path':'/owner/view.mp4'},
+        {'role':'audio','label':'BGM','sha256':'b'*64,'bytes':20,'duration_seconds':31,'path':'/owner/bgm.wav'}]}
+    receipt={'status':'PASS_SOURCE_TECHNICAL_ONLY','source_commit':'c'*40,'final_mp4':{'sha256':'f'*64,'bytes':100,'path':'/work/final.mp4'},
+             'stages':{'assembly':{'details':{'job_id':'assembled'}},'output_quality':{'status':'PASS'},
+                        'reopen':{'status':'PASS'},'export':{'status':'PASS'}}}
+    scene={'plan_id':'scene','plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':runner.MODEL_SHA}
+    audio={'plan_id':'audio'}
+    package=runner.media_production_package(manifest(),intake,receipt,'project',scene,audio,{'export':{'sha256':'e'*64}})
+    assert package['schema_version']=='MINDLE_MEDIA_PRODUCTION_PACKAGE_V1'
+    assert package['projectId']=='project' and package['revisionId']=='c'*40+':'+'a'*12
+    assert package['source_assets'][0]['object_reference']=='/owner/view.mp4'
+    assert package['storyboard']['plan_source']=='LOCAL_GENERATIVE_INFERENCE'
+    assert package['generated_clips']['status']=='NOT_IMPLEMENTED_NEW_SCENE_GENERATION'
+    assert package['subtitle_references']['status']=='NOT_REQUESTED_NOT_GENERATED'
+    assert package['full_product_pass'] is False
+
+
+def test_media_production_package_cannot_be_created_for_failed_or_blocked_run():
+    with pytest.raises(ValueError,match='MEDIA_PACKAGE_REQUIRES_COMPLETED_ORCHESTRATION'):
+        runner.media_production_package({}, {'verified_assets':[]}, {'status':'BLOCKED'}, 'project', {}, {}, {})
+
+
 def test_fixed_30_second_quality_does_not_accept_short_video(tmp_path):
     source=tmp_path/'short.mp4'
     subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i','color=s=160x90:r=4','-f','lavfi','-i','sine=duration=1',

@@ -6,6 +6,7 @@ A technical completion always leaves human/Windows-candidate acceptance pending.
 from __future__ import annotations
 import argparse
 import base64
+from datetime import datetime, timezone
 import hashlib
 import importlib
 import json
@@ -234,6 +235,42 @@ def verify_export(path,expected,project_id,expected_jobs=None):
     return {'status':'PASS','file_count':len(bundle['files']),'project_id':project_id,'sha256':expected}
 
 
+def media_production_package(manifest,intake,receipt,project_id,scene_plan,audio_plan,exported):
+    """The only handoff produced by a completed orchestration run.
+
+    This records supplied source labels rather than claiming model vision, and
+    names absent new-scene/subtitle work explicitly instead of fabricating it.
+    """
+    require(receipt.get('status')=='PASS_SOURCE_TECHNICAL_ONLY','MEDIA_PACKAGE_REQUIRES_COMPLETED_ORCHESTRATION')
+    assets=[{'role':item['role'],'label':item['label'],'sha256':item['sha256'],'bytes':item['bytes'],
+             'duration_seconds':item['duration_seconds'],'object_reference':item['path']} for item in intake['verified_assets']]
+    return {
+        'schema_version':'MINDLE_MEDIA_PRODUCTION_PACKAGE_V1',
+        'projectId':project_id,
+        'revisionId':f"{receipt['source_commit']}:{intake['manifest_sha256'][:12]}",
+        'createdAt':datetime.now(timezone.utc).isoformat(),
+        'status':'TECHNICAL_E2E_PASS_HUMAN_ACCEPTANCE_REQUIRED',
+        'source_file_hash':{'execution_source_commit':receipt['source_commit'],'input_manifest_sha256':intake['manifest_sha256']},
+        'source_assets':assets,
+        'storyboard':{'plan_id':scene_plan['plan_id'],'plan_source':scene_plan['plan_source'],
+                      'model_sha256':scene_plan['model_sha256'],'requested_duration_seconds':30,'aspect':'16:9'},
+        'tool_execution_log':{'qwen_scene_plan':'ACTUAL_SCENE_PLAN.json','assembly':'ACTUAL_ASSEMBLY.json',
+                              'qwen_audio_plan':'ACTUAL_AUDIO_PLAN.json','audio_workflow':'ACTUAL_AUDIO_WORKFLOW.json',
+                              'run_receipt':'RUN_RECEIPT.json'},
+        'generated_clips':{'status':'NOT_IMPLEMENTED_NEW_SCENE_GENERATION','existing_asset_assembly_job_id':receipt['stages']['assembly']['details']['job_id']},
+        'audio_references':{'narration_script':manifest['narration_script'],'volumes':manifest['volumes'],
+                            'voice_length_policy':manifest['voice_length_policy'],'audio_plan_id':audio_plan['plan_id']},
+        'subtitle_references':{'status':'NOT_REQUESTED_NOT_GENERATED'},
+        'qa_result':{'output_quality':receipt['stages']['output_quality'],'reopen':receipt['stages']['reopen'],
+                     'export':receipt['stages']['export'],'human_visual_review':'NOT_EXECUTED','human_audio_review':'NOT_EXECUTED'},
+        'final_mp4':receipt['final_mp4'],
+        'export':{'sha256':exported['export']['sha256'],'archive':'AFTER_COLD_RESTART_EXPORT.zip'},
+        'recovery_history':{'completed_stages':receipt['stages'],'failed_attempts_in_this_run':[]},
+        'evidence_receipt':'RUN_RECEIPT.json',
+        'full_product_pass':False,
+    }
+
+
 def execute(session,manifest,intake,receipt,output):
     def begin(stage):
         receipt['active_stage']=stage;receipt['stages'][stage]={'status':'RUNNING'};write_result(output/'RUN_RECEIPT.json',receipt)
@@ -260,22 +297,22 @@ def execute(session,manifest,intake,receipt,output):
     mark('import_and_ranges',[job['job_id'] for job in imported])
     project_id=str(uuid4());command='선택한 기존 영상 모두로 30초 16:9 건축 홍보 영상을 구성해 주세요.'
     begin('qwen_scene_plan')
-    plan=session.call('/api/architecture-agent/plan',{'command':command,'project_id':project_id,'job_ids':[x['job_id'] for x in imported]})
-    require(plan['plan_source']=='LOCAL_GENERATIVE_INFERENCE' and plan['model_sha256']==MODEL_SHA,'ACTUAL_SCENE_QWEN_REQUIRED')
-    write_result(output/'ACTUAL_SCENE_PLAN.json',plan);mark('qwen_scene_plan',plan['plan_id'])
+    scene_plan=session.call('/api/architecture-agent/plan',{'command':command,'project_id':project_id,'job_ids':[x['job_id'] for x in imported]})
+    require(scene_plan['plan_source']=='LOCAL_GENERATIVE_INFERENCE' and scene_plan['model_sha256']==MODEL_SHA,'ACTUAL_SCENE_QWEN_REQUIRED')
+    write_result(output/'ACTUAL_SCENE_PLAN.json',scene_plan);mark('qwen_scene_plan',scene_plan['plan_id'])
     begin('assembly')
-    unchanged();task=session.call('/api/architecture-agent/productions',{'plan_id':plan['plan_id'],'request_id':str(uuid4())})
+    unchanged();task=session.call('/api/architecture-agent/productions',{'plan_id':scene_plan['plan_id'],'request_id':str(uuid4())})
     assembled=wait_task(session,'/api/architecture-agent/productions',task['production_id'],output/'ACTUAL_ASSEMBLY.json')
     mark('assembly',assembled['receipt'])
     begin('qwen_audio_plan')
     command=audio_command(manifest);receipt['audio_command']=command
-    plan=session.call('/api/workflows/plan',{'command':command});write_result(output/'ACTUAL_AUDIO_PLAN.json',plan)
-    validate_audio_plan(manifest,plan);require(plan['model_sha256']==MODEL_SHA,'AUDIO_MODEL_CHANGED');mark('qwen_audio_plan',plan['plan_id'])
+    audio_plan=session.call('/api/workflows/plan',{'command':command});write_result(output/'ACTUAL_AUDIO_PLAN.json',audio_plan)
+    validate_audio_plan(manifest,audio_plan);require(audio_plan['model_sha256']==MODEL_SHA,'AUDIO_MODEL_CHANGED');mark('qwen_audio_plan',audio_plan['plan_id'])
     begin('supertonic_and_mix')
     unchanged();bgm=next(x for x in intake['verified_assets'] if x['role']=='audio');path=Path(bgm['path'])
     task=session.call('/api/workflows',{'request_id':str(uuid4()),'plan_id':plan['plan_id'],'input_job_id':assembled['receipt']['job_id'],
         'project_id':project_id,'job_ids':[x['job_id'] for x in imported],
-        'steps':[{key:value for key,value in step.items() if key!='step_id'} for step in plan['steps']],
+        'steps':[{key:value for key,value in step.items() if key!='step_id'} for step in audio_plan['steps']],
         'background':{'filename':path.name,'content_base64':base64.b64encode(path.read_bytes()).decode('ascii')},'export':True})
     finish=wait_task(session,'/api/workflows',task['workflow_id'],output/'ACTUAL_AUDIO_WORKFLOW.json')
     voice=next(x for x in finish['records'] if x['operation']=='narration')
@@ -305,6 +342,9 @@ def execute(session,manifest,intake,receipt,output):
     mark('export',verify_export(output/'AFTER_COLD_RESTART_EXPORT.zip',exported['export']['sha256'],project_id,reopened['jobs']))
     unchanged();require(source_snapshot==source_files(),'SOURCE_CHANGED_DURING_EXECUTION');session.stop()
     receipt.update(status='PASS_SOURCE_TECHNICAL_ONLY',overall='PARTIAL',human_visual_review='NOT_EXECUTED',human_audio_review='NOT_EXECUTED')
+    package=media_production_package(manifest,intake,receipt,project_id,scene_plan,audio_plan,exported)
+    write_result(output/'MEDIA_PRODUCTION_PACKAGE.json',package)
+    receipt['media_production_package']='MEDIA_PRODUCTION_PACKAGE.json'
 
 
 def main():
