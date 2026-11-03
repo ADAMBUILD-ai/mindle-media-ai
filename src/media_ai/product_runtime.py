@@ -484,7 +484,7 @@ class ProductJobService:
             orchestrator.dispatch(job); orchestrator.start(job)
             if hasattr(self,'progress_hook'):self.progress_hook({'status':'RUNNING','job_id':job.id,'state':'running','operation':operation,'request_id':request.get('request_id')})
             execution_started_at = now()
-            if reference_records and operation!='segment':
+            if reference_records and operation not in {'segment', 'tracking'}:
                 raise ValueError('이 모델 작업은 참고 이미지 지시를 소비하지 않습니다. 사진 배경 제거에는 대상 크롭 참고 이미지를 사용할 수 있습니다.')
             if operation == 'segment':
                 point=self._photo_target_point(command,source)
@@ -502,7 +502,21 @@ class ProductJobService:
                 result['reference_match']=reference_match
                 primary = Path(result['outputs'][-1]['path'])
             elif operation == 'tracking':
-                result = adapter.track_video(source, job_dir/'sam_video', command)
+                if len(reference_records) != 1:
+                    raise ValueError('TRACKING_TARGET_REFERENCE_REQUIRED: 영상에서 추적할 대상의 크롭 참고 이미지를 하나 선택하세요.')
+                import cv2
+                capture=cv2.VideoCapture(str(source));ok,frame=capture.read();capture.release()
+                template=cv2.imread(reference_records[0]['path'])
+                if not ok or template is None or template.shape[0]>frame.shape[0] or template.shape[1]>frame.shape[1]:
+                    raise ValueError('TRACKING_TARGET_REFERENCE_INVALID: 참고 이미지는 원본 첫 프레임 안의 크롭이어야 합니다.')
+                if template.std()<2:
+                    raise ValueError('TRACKING_TARGET_REFERENCE_INVALID: 참고 이미지에 구분할 수 있는 특징이 없습니다.')
+                scores=cv2.matchTemplate(frame,template,cv2.TM_CCOEFF_NORMED);_,score,_,location=cv2.minMaxLoc(scores)
+                if score<.75:
+                    raise ValueError('TRACKING_TARGET_REFERENCE_MISMATCH: 원본 첫 프레임에서 추적 대상을 찾지 못했습니다.')
+                point=(location[0]+template.shape[1]//2,location[1]+template.shape[0]//2)
+                result = adapter.track_video(source, job_dir/'sam_video', command, point, target_reference=reference_records[0]['path'])
+                result['reference_match']={'engine':'OpenCV template matching','score':score,'point':point,'reference_sha256':reference_records[0]['sha256']}
                 primary = Path(result['outputs'][0]['path'])
             elif operation == 'upscale':
                 result = adapter.upscale(source, output)
@@ -518,7 +532,13 @@ class ProductJobService:
             callback = {"request_id": handoff.request_id, "issue_id": handoff.issue_id, "callback_id": f"callback-{uuid4()}", "job_id": job.id, "evidence_id": job.evidence_id, "lane": execution_lane, "revision": handoff.revision, "artifact_sha256": handoff.artifact_sha256, "adapter_id": handoff.adapter_id, "adapter_version": handoff.adapter_version, "status": IntegrationStatus.TESTED_PASS, "input_sha256": input_sha, "output_sha256": output_sha, "output_path": str(primary), "elapsed_ms": float(result.get("elapsed_ms", 0.0)), "runtime_backend": handoff.runtime_backend, "device_requirement": handoff.device_requirement, "sent_at": now()}
             delivery = gate.accept_callback(job, callback)
             outputs = [file_record(path) for path in sorted(job_dir.rglob("*")) if path.is_file()]
-            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": execution_lane.value, "requested_lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "request_id":request.get("request_id"), "reference_artifacts":reference_records, "execution_started_at":execution_started_at, "execution_finished_at":execution_finished_at, "quality_status":"TASK_QUALITY_NOT_BENCHMARKED", "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version(), "process": sys.version.split()[0]}}
+            execution_environment = {"hardware": "CPU", "gpu_used": False, "paid_compute": False, "platform": platform.platform(), "python": platform.python_version(), "process": sys.version.split()[0]}
+            if operation == 'tracking':
+                runtime_identity = result.get('runtime_identity', {})
+                if not runtime_identity.get('cuda_available') or not runtime_identity.get('gpu_name'):
+                    raise RuntimeError('TRACKING_RUNTIME_BLOCKED: CUDA execution evidence is missing')
+                execution_environment.update(hardware=runtime_identity['gpu_name'], gpu_used=True, cuda_runtime=runtime_identity.get('cuda_runtime'), torch_version=runtime_identity.get('torch_version'), vram_total_bytes=runtime_identity.get('vram_total_bytes'))
+            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": execution_lane.value, "requested_lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "request_id":request.get("request_id"), "reference_artifacts":reference_records, "execution_started_at":execution_started_at, "execution_finished_at":execution_finished_at, "quality_status":"TASK_QUALITY_NOT_BENCHMARKED", "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": execution_environment}
             (job_dir / "JOB_EVIDENCE.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.records[job.id] = record
             return record

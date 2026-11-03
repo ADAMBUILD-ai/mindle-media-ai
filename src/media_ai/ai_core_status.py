@@ -118,13 +118,28 @@ def _actual_neural_voice(records: list[dict]) -> bool:
     )
 
 
-def _completed_operation(records: list[dict], operation: str) -> bool:
-    return any(
-        record.get("status") == "TESTED_PASS"
-        and record.get("operation") == operation
-        and bool(record.get("model") or record.get("runtime_result", {}).get("model_inference"))
-        for record in records
-    )
+def _completed_operation(records: list[dict], operation: str, root: Path | None) -> bool:
+    for record in records:
+        runtime = record.get("runtime_result", {})
+        if not (record.get("status") == "TESTED_PASS" and record.get("operation") == operation
+                and bool(record.get("model") or runtime.get("model_inference"))):
+            continue
+        if operation == "tracking":
+            if (runtime.get("tracking_mode") != "continuous_video_memory_per_scene"
+                    or int(runtime.get("tracked_frames", 0)) < 2
+                    or not runtime.get("runtime_identity", {}).get("cuda_available")
+                    or not record.get("execution_environment", {}).get("gpu_used")
+                    or not runtime.get("sessions")):
+                continue
+        elif operation == "transcribe":
+            has_srt = any(str(item.get("path", "")).lower().endswith(".srt") and _verified_artifact(item, root)
+                          for item in record.get("outputs", []))
+            if not runtime.get("segments") or not has_srt:
+                continue
+        elif operation == "upscale" and runtime.get("scale") != 4:
+            continue
+        return True
+    return False
 
 
 def summarize_ai_core(
@@ -154,10 +169,10 @@ def summarize_ai_core(
     all_records = [record for record in [*records, *workflow_records] if _verified_record(record, data_root)]
     neural_voice = _actual_neural_voice(all_records)
     actual_tools = {
-        "sam_photo_segmentation": _completed_operation(all_records, "segment"),
-        "sam_video_tracking": _completed_operation(all_records, "tracking"),
-        "whisper_korean_stt": _completed_operation(all_records, "transcribe"),
-        "photo_upscale_4x": _completed_operation(all_records, "upscale"),
+        "sam_photo_segmentation": _completed_operation(all_records, "segment", data_root),
+        "sam_video_tracking": _completed_operation(all_records, "tracking", data_root),
+        "whisper_korean_stt": _completed_operation(all_records, "transcribe", data_root),
+        "photo_upscale_4x": _completed_operation(all_records, "upscale", data_root),
     }
     mp4_output = any(
         record.get("status") == "TESTED_PASS"
