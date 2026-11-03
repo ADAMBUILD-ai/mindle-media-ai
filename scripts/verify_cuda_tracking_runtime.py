@@ -1,9 +1,9 @@
 """Fail-closed preflight for the CUDA SAM 2.1 product tracking path.
 
 This is deliberately an inspection-only tool: it never invokes pip, downloads
-models, starts inference, or modifies a recovered model package.  It creates
-one receipt only after checking the interpreter, CUDA runtime and the complete
-three-model product vault that ProductJobService requires.
+models, starts inference, or modifies a recovered model package. It also loads
+the exact product SAM adapter without processing a frame, so dtype binding is
+proved before an expensive tracking job is allowed.
 """
 from __future__ import annotations
 
@@ -101,8 +101,24 @@ def inspect(runtime_root: Path, source: Path) -> dict:
         from media_ai.product_runtime import ProductModelVault
         vault = ProductModelVault(source / ".runtime-preflight", token="")
         vault.verify_local_models()
+        adapter, _ = vault.sam_video()
+        try:
+            parameter = next(adapter.model.parameters())
+            if not parameter.is_cuda or parameter.dtype != torch.float32:
+                block("TRACKING_RUNTIME_BLOCKED: product SAM adapter is not CUDA fp32", receipt)
+            receipt["adapter"] = {
+                "id": adapter.adapter_id,
+                "version": adapter.adapter_version,
+                "module": type(adapter).__module__,
+                "model_parameter_dtype": str(parameter.dtype),
+                "session_dtype": str(adapter.inference_dtype),
+                "cuda": True,
+                "frame_inference_executed": False,
+            }
+        finally:
+            adapter.close()
     except (ImportError, OSError, RuntimeError, ValueError) as error:
-        block(f"TRACKING_RUNTIME_BLOCKED: complete immutable model vault verification failed: {error}", receipt)
+        block(f"TRACKING_RUNTIME_BLOCKED: complete immutable model vault or adapter-load verification failed: {error}", receipt)
     receipt["models"] = {
         "status": "VERIFIED_READ_ONLY",
         "required": ["SAM 2.1", "Whisper-small", "Intel SISR 1032"],
