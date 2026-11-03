@@ -15,7 +15,7 @@ class ContinuousSamTracking:
     """Track only a source-reference-selected subject; never use CPU or a centre prompt."""
 
     adapter_id = "mindle.sam21.video.memory.cuda"
-    adapter_version = "2.0.1"
+    adapter_version = "2.0.2"
     runtime_backend = "transformers-sam2-video-pytorch-cuda"
     device_requirement = "cuda"
     cut_threshold = 0.45
@@ -38,15 +38,17 @@ class ContinuousSamTracking:
         self.model, loading = Sam2VideoModel.from_pretrained(snapshot, config=config, local_files_only=True, trust_remote_code=False, output_loading_info=True)
         if loading.get("missing_keys") or loading.get("mismatched_keys"):
             raise RuntimeError("Pinned checkpoint does not contain the complete video memory engine")
-        # A video session is deliberately created in fp16 to fit the pinned
-        # SAM 2.1 engine into the approved CUDA envelope.  The model and every
-        # frame tensor must use that exact dtype.  Leaving the loaded checkpoint
-        # in fp32 lets a half frame reach an fp32 Conv2d bias, which fails only
-        # after a real job has started (rather than at the runtime gate).
-        self.inference_dtype = torch.float16
+        # Transformers' SAM 2.1 video-memory implementation retains fp32
+        # features between frames.  Mixed fp16/fp32 memory is not supported:
+        # it can pass frame zero then fail in memory attention on frame one.
+        # Keep the CUDA model, session and every frame tensor in fp32.
+        self.inference_dtype = torch.float32
         self.model = self.model.to(device=self.device, dtype=self.inference_dtype).eval()
-        if not next(self.model.parameters()).is_cuda:
+        parameter = next(self.model.parameters())
+        if not parameter.is_cuda:
             raise RuntimeError("TRACKING_RUNTIME_BLOCKED: SAM model was not placed on CUDA")
+        if parameter.dtype != self.inference_dtype:
+            raise RuntimeError("TRACKING_RUNTIME_BLOCKED: SAM model dtype does not match the CUDA session dtype")
         self.processor = Sam2VideoProcessor(
             image_processor=Sam2ImageProcessorFast.from_pretrained(snapshot, local_files_only=True, size={"height": 512, "width": 512}),
             video_processor=Sam2VideoVideoProcessor(size={"height": 512, "width": 512}), target_size=512)
