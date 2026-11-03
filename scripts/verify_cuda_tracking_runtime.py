@@ -65,6 +65,11 @@ def inspect(runtime_root: Path, source: Path) -> dict:
         block("TRACKING_RUNTIME_BLOCKED: Python 3.11 is required", receipt)
     if not runtime_root.is_dir():
         block("TRACKING_RUNTIME_BLOCKED: recovered runtime root is unavailable", receipt)
+    source_package = source / "src"
+    if not (source_package / "media_ai").is_dir():
+        block("TRACKING_RUNTIME_BLOCKED: source media_ai package is unavailable", receipt)
+    if str(source_package) not in sys.path:
+        sys.path.insert(0, str(source_package))
     try:
         import cv2
         import torch
