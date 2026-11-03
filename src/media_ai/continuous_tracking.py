@@ -15,7 +15,7 @@ class ContinuousSamTracking:
     """Track only a source-reference-selected subject; never use CPU or a centre prompt."""
 
     adapter_id = "mindle.sam21.video.memory.cuda"
-    adapter_version = "2.0.2"
+    adapter_version = "2.0.3"
     runtime_backend = "transformers-sam2-video-pytorch-cuda"
     device_requirement = "cuda"
     cut_threshold = 0.45
@@ -49,9 +49,19 @@ class ContinuousSamTracking:
             raise RuntimeError("TRACKING_RUNTIME_BLOCKED: SAM model was not placed on CUDA")
         if parameter.dtype != self.inference_dtype:
             raise RuntimeError("TRACKING_RUNTIME_BLOCKED: SAM model dtype does not match the CUDA session dtype")
+        self.runtime_identity.update(model_parameter_dtype=str(parameter.dtype), session_dtype=str(self.inference_dtype))
         self.processor = Sam2VideoProcessor(
             image_processor=Sam2ImageProcessorFast.from_pretrained(snapshot, local_files_only=True, size={"height": 512, "width": 512}),
             video_processor=Sam2VideoVideoProcessor(size={"height": 512, "width": 512}), target_size=512)
+
+    def _processor_inputs(self, frame):
+        inputs = self.processor(images=cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), device=self.device, return_tensors="pt")
+        pixels = inputs.pixel_values.to(device=self.device, dtype=self.inference_dtype)
+        if pixels.dtype != self.inference_dtype:
+            raise RuntimeError("TRACKING_RUNTIME_BLOCKED: SAM processor dtype does not match the CUDA session dtype")
+        inputs["pixel_values"] = pixels
+        self.runtime_identity["processor_input_dtype"] = str(pixels.dtype)
+        return inputs
 
     @staticmethod
     def _validate_point(point, width, height):
@@ -77,7 +87,7 @@ class ContinuousSamTracking:
         return float(cv2.compareHist(histogram(previous), histogram(current), cv2.HISTCMP_BHATTACHARYYA))
 
     def _new_session(self, frame, point, session_id, start_frame, score, reason):
-        inputs = self.processor(images=cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), device=self.device, return_tensors="pt")
+        inputs = self._processor_inputs(frame)
         session = self.processor.init_video_session(inference_device=self.device, dtype=self.inference_dtype)
         self.processor.add_inputs_to_inference_session(inference_session=session, frame_idx=0, obj_ids=1, input_points=[[[[point[0], point[1]]]]], input_labels=[[[1]]], original_size=inputs.original_sizes[0])
         return session, inputs, {"session_id": session_id, "start_frame": start_frame, "target_point": list(point), "reference_match_score": score, "restart_reason": reason}
@@ -116,7 +126,7 @@ class ContinuousSamTracking:
 
         def process(frame, frame_index, distance, restarted):
             nonlocal session_frame, previous_mask
-            frame_inputs = initial_inputs if session_frame == 0 else self.processor(images=cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), device=self.device, return_tensors="pt")
+            frame_inputs = initial_inputs if session_frame == 0 else self._processor_inputs(frame)
             frame_tensor = frame_inputs.pixel_values[0].to(device=self.device, dtype=self.inference_dtype)
             if frame_tensor.dtype != self.inference_dtype:
                 raise RuntimeError("TRACKING_RUNTIME_BLOCKED: SAM frame dtype does not match the CUDA model dtype")
