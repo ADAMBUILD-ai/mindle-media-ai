@@ -15,7 +15,7 @@ class ContinuousSamTracking:
     """Track only a source-reference-selected subject; never use CPU or a centre prompt."""
 
     adapter_id = "mindle.sam21.video.memory.cuda"
-    adapter_version = "2.0.0"
+    adapter_version = "2.0.1"
     runtime_backend = "transformers-sam2-video-pytorch-cuda"
     device_requirement = "cuda"
     cut_threshold = 0.45
@@ -38,7 +38,13 @@ class ContinuousSamTracking:
         self.model, loading = Sam2VideoModel.from_pretrained(snapshot, config=config, local_files_only=True, trust_remote_code=False, output_loading_info=True)
         if loading.get("missing_keys") or loading.get("mismatched_keys"):
             raise RuntimeError("Pinned checkpoint does not contain the complete video memory engine")
-        self.model = self.model.to(self.device).eval()
+        # A video session is deliberately created in fp16 to fit the pinned
+        # SAM 2.1 engine into the approved CUDA envelope.  The model and every
+        # frame tensor must use that exact dtype.  Leaving the loaded checkpoint
+        # in fp32 lets a half frame reach an fp32 Conv2d bias, which fails only
+        # after a real job has started (rather than at the runtime gate).
+        self.inference_dtype = torch.float16
+        self.model = self.model.to(device=self.device, dtype=self.inference_dtype).eval()
         if not next(self.model.parameters()).is_cuda:
             raise RuntimeError("TRACKING_RUNTIME_BLOCKED: SAM model was not placed on CUDA")
         self.processor = Sam2VideoProcessor(
@@ -70,7 +76,7 @@ class ContinuousSamTracking:
 
     def _new_session(self, frame, point, session_id, start_frame, score, reason):
         inputs = self.processor(images=cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), device=self.device, return_tensors="pt")
-        session = self.processor.init_video_session(inference_device=self.device, dtype=self.torch.float16)
+        session = self.processor.init_video_session(inference_device=self.device, dtype=self.inference_dtype)
         self.processor.add_inputs_to_inference_session(inference_session=session, frame_idx=0, obj_ids=1, input_points=[[[[point[0], point[1]]]]], input_labels=[[[1]]], original_size=inputs.original_sizes[0])
         return session, inputs, {"session_id": session_id, "start_frame": start_frame, "target_point": list(point), "reference_match_score": score, "restart_reason": reason}
 
@@ -109,7 +115,10 @@ class ContinuousSamTracking:
         def process(frame, frame_index, distance, restarted):
             nonlocal session_frame, previous_mask
             frame_inputs = initial_inputs if session_frame == 0 else self.processor(images=cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), device=self.device, return_tensors="pt")
-            result = self.model(inference_session=session, frame=frame_inputs.pixel_values[0])
+            frame_tensor = frame_inputs.pixel_values[0].to(device=self.device, dtype=self.inference_dtype)
+            if frame_tensor.dtype != self.inference_dtype:
+                raise RuntimeError("TRACKING_RUNTIME_BLOCKED: SAM frame dtype does not match the CUDA model dtype")
+            result = self.model(inference_session=session, frame=frame_tensor)
             mask = self.processor.post_process_masks([result.pred_masks], original_sizes=frame_inputs.original_sizes, binarize=False)[0].squeeze().detach().float().cpu().numpy() > 0
             if mask.shape != (height, width):
                 raise RuntimeError("영상 mask 비율이 원본과 다릅니다.")
