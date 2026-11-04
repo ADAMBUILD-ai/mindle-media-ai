@@ -34,10 +34,10 @@ ACCEPTANCE_TOOL_PATCH={
 }
 REVALIDATED_RUNTIME_PATCHES={
     # Exact reviewed source bytes only; this is not runtime or PC acceptance.
-    'src/media_ai/product_runtime.py':'d180570127b10360308ec14aec6d041af4a483e19de5780baf2136761005e472',
-    'src/media_ai/continuous_tracking.py':'b53b7b10ad2b403a9b0180e219846e9b9e1502f07c85e9380311b6675bea070d',
-    'src/media_ai/browser_preview.py':'f157e5486844a91a2c2c7d25ab1d130380f360c247df4d6029b08248ba829996',
-    'src/media_ai/video_input_quality.py':'c92e9d740aa714d59e6995fe29747628a71d91eef9005609bdba7c5f1f04a432',
+    'src/media_ai/product_runtime.py':'c48a42897ac0c66d230fcdc01c50e9dece22f39eab15419a14cdb7cb1e4ae52d',
+    'src/media_ai/continuous_tracking.py':'7b9e09bdf22d527667d82389494e3c6befa5f2c61aec41615759a803a81abe81',
+    'src/media_ai/browser_preview.py':'0f814e7f2a28e1bd9462adef66c02e08a9116671afc04906dacaaa3e7f167ea2',
+    'src/media_ai/video_input_quality.py':'17861b8a4321c3a57a91f06ca1ee2cdf9665e4980e77b2cf858626dbfaa67600',
 }
 CONTROLS=('CURRENT_GENERAL_WORK_STATE.json','CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json',
           'CURRENT_PC_WORK_STATE.json','CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json','CURRENT_WORKER_COORDINATION_LOCK.json')
