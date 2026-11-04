@@ -5,7 +5,7 @@
   "runtime_baseline": {
     "status": "PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE",
     "source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
-    "file_count": 62,
+    "file_count": 60,
     "changed_paths": [],
     "acceptance_tool_patch": {
       "path": "src/media_ai/source_e2e.py",
