@@ -97,9 +97,13 @@ def test_static_shell_is_exposed_and_generation_limits_stay_explicit():
 def test_media_models_require_extant_verified_output_bytes(tmp_path):
     records = [{"status":"TESTED_PASS", "operation":op, "model":{"repo_id":"fixture"},
                 "primary_output":artifact(tmp_path,op+'.bin')} for op in ('segment','tracking','transcribe','upscale')]
-    keys = ('sam_photo_segmentation','sam_video_tracking','whisper_korean_stt','photo_upscale_4x')
     actual = summary(tmp_path, records=records)['actual_evidence']
-    assert all(actual[k] for k in keys)
+    # An output byte plus a claimed model is not enough for the three engines
+    # that require their own execution evidence.
+    assert actual['sam_photo_segmentation'] is True
+    assert actual['sam_video_tracking'] is False
+    assert actual['whisper_korean_stt'] is False
+    assert actual['photo_upscale_4x'] is False
     for record in records:
         __import__('pathlib').Path(record['primary_output']['path']).unlink()
     actual = summary(tmp_path, records=records)['actual_evidence']
