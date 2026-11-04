@@ -1,6 +1,7 @@
 """Contract tests for binding real Whisper evidence to a subtitle MP4."""
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -46,9 +47,9 @@ def test_subtitle_render_keeps_the_transcription_and_source_identities(tmp_path,
         {"codec_type": "video", "codec_name": "h264"},
         {"codec_type": "audio", "codec_name": "aac"},
     ]})
-    monkeypatch.setattr("media_ai.product_runtime.subprocess.run", fake_run)
+    monkeypatch.setattr(subprocess, "run", fake_run)
     monkeypatch.setattr(
-        "media_ai.product_runtime.subprocess.check_output",
+        subprocess, "check_output",
         lambda _command, text=False: probe if text else probe.encode("utf-8"),
     )
     rendered = service.render_transcribed_subtitles("stt-job")
