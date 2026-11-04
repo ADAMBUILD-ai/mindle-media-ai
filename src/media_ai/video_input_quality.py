@@ -42,8 +42,11 @@ def _block_grid_risk(frame: np.ndarray) -> float:
         for grid in (8, 16):
             if pixels.shape[1] <= grid + 1:
                 continue
-            boundary.append(np.abs(pixels[:, grid::grid] - pixels[:, grid - 1::grid]).mean())
-            neighbours.append(np.abs(pixels[:, grid - 1::grid] - pixels[:, grid - 2::grid]).mean())
+            edge = pixels[:, grid::grid]
+            preceding = pixels[:, grid - 1::grid][:, :edge.shape[1]]
+            inner = pixels[:, grid - 2::grid][:, :edge.shape[1]]
+            boundary.append(np.abs(edge - preceding).mean())
+            neighbours.append(np.abs(preceding - inner).mean())
     if not boundary:
         return 0.0
     return max(0.0, float(np.mean(boundary) - np.mean(neighbours)))
