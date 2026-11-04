@@ -484,7 +484,7 @@
   "current_work": {
     "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
     "status_file": "CURRENT_MEDIA_WORK_STATUS.json",
-    "snapshot_sha256": "75762cfd2b2edd5a18414fa75d295c72567726b02824fa7f086f32fb5ee17c95",
+    "snapshot_sha256": "345715ef248a77d4f8cff3006a08e6f89360e62fe82717a92dca894a5b4a4b76",
     "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
     "general_status": "R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING",
     "pc_status": "R2_BLOCKED_ASSET_INTAKE",
