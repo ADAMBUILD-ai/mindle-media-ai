@@ -459,6 +459,12 @@ class Handler(BaseHTTPRequestHandler):
                 result = self.server.service.prepare_photo_background(route.split('/')[3])
                 result['preview_url'] = '/files/' + Path(result['preview_output']['path']).relative_to(self.server.data_dir).as_posix()
                 self._json(201, result); return
+            if route.startswith("/api/jobs/") and route.endswith("/subtitles"):
+                transcription_job_id = route.split("/")[3]
+                result = self.server.run_once(route, body, lambda _body: self.server.service.render_transcribed_subtitles(transcription_job_id))
+                primary = Path(result["primary_output"]["path"]).relative_to(self.server.data_dir)
+                result["preview_url"] = "/files/" + primary.as_posix()
+                self._json(201, result); return
             if route == "/api/jobs":
                 result = self.server.run_once(route, body, self.server.service.execute_isolated)
                 if result.get("operation") == "tracking":
