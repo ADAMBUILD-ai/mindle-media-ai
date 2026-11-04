@@ -27,6 +27,11 @@ def change(root,name,key,value):
     body=status.read(root,name);body[key]=value;status.write(root/name,body)
 
 
+def test_hash_pinned_visual_quality_source_contract_is_exact(tree):
+    baseline = status.runtime_baseline(tree)
+    assert baseline['status'] == 'PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE'
+    assert baseline['changed_paths'] == []
+
 def test_current_status_separates_preparation_production_and_pc_observation(tree):
     value=status.check(tree)
     assert value['general_status']=='R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING'
