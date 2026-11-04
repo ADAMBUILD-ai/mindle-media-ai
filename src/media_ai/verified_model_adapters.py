@@ -355,12 +355,36 @@ class WhisperKoreanVerifiedAdapter:
                     "reference": reference,
                     "text": text,
                     "word_error_rate": error_rate,
+                    "segments": segments,
                 },
                 ensure_ascii=False,
                 indent=2,
             ) + "\n",
             encoding="utf-8",
         )
+
+        def timestamp(value: float, separator: str) -> str:
+            milliseconds = max(0, round(value * 1000))
+            hours, milliseconds = divmod(milliseconds, 3_600_000)
+            minutes, milliseconds = divmod(milliseconds, 60_000)
+            seconds, milliseconds = divmod(milliseconds, 1000)
+            return f"{hours:02d}:{minutes:02d}:{seconds:02d}{separator}{milliseconds:03d}"
+
+        subtitle_segments = [item for item in segments if str(item.get("text", "")).strip()]
+        if not subtitle_segments:
+            raise RuntimeError("Korean STT produced no timed subtitle segments")
+        srt_path = output_dir / "korean_transcript.srt"
+        vtt_path = output_dir / "korean_transcript.vtt"
+        srt_lines, vtt_lines = [], ["WEBVTT", ""]
+        for index, item in enumerate(subtitle_segments, start=1):
+            start, end = float(item["start_seconds"]), float(item["end_seconds"])
+            if end <= start:
+                raise RuntimeError("Korean STT emitted an invalid subtitle time range")
+            subtitle = str(item["text"]).strip()
+            srt_lines.extend([str(index), f"{timestamp(start, ',')} --> {timestamp(end, ',')}", subtitle, ""])
+            vtt_lines.extend([f"{timestamp(start, '.')} --> {timestamp(end, '.')}", subtitle, ""])
+        srt_path.write_text("\n".join(srt_lines), encoding="utf-8")
+        vtt_path.write_text("\n".join(vtt_lines), encoding="utf-8")
         return {
             "status": "TESTED_PASS",
             "input_path": str(input_path),
@@ -373,7 +397,8 @@ class WhisperKoreanVerifiedAdapter:
             "word_error_rate": error_rate,
             "elapsed_ms": elapsed,
             "outputs": [
-                {"path": str(transcript_path), "sha256": sha256_file(transcript_path), "bytes": transcript_path.stat().st_size}
+                {"path": str(path), "sha256": sha256_file(path), "bytes": path.stat().st_size}
+                for path in (transcript_path, srt_path, vtt_path)
             ],
         }
 
