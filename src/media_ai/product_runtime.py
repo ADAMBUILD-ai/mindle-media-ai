@@ -39,6 +39,7 @@ from .realesrgan_verified_adapter import (
     sha256_file as realesrgan_sha256,
 )
 from .runtime_orchestration import RuntimeOrchestrator
+from .video_input_quality import assess_video_input
 from .verified_model_adapters import (
     Sam21VerifiedAdapter,
     VerifiedModelIdentity,
@@ -436,6 +437,9 @@ class ProductJobService:
         if not command: raise ValueError("natural-language command is required")
         source = self._store_input(str(request["filename"]), str(request["content_base64"]))
         job_dir = self.jobs / str(uuid4()); job_dir.mkdir()
+        package_root = os.environ.get('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', '').strip()
+        ffprobe = str(Path(package_root) / 'tools/ffmpeg/ffprobe.exe') if package_root else 'ffprobe'
+        input_quality = assess_video_input(source, job_dir / 'INPUT_QUALITY.json', ffprobe) if lane is MediaType.VIDEO else None
         job = MediaJob(request=command, input_path=source, media_type=execution_lane, requested_operation=operation, project_id=request.get("project_id"), source_provenance={"source_path": str(source), "sha256": sha256_file(source), "ingress": "approved-ui"})
         reference_records=[]
         adapter = None
@@ -538,7 +542,7 @@ class ProductJobService:
                 if not runtime_identity.get('cuda_available') or not runtime_identity.get('gpu_name'):
                     raise RuntimeError('TRACKING_RUNTIME_BLOCKED: CUDA execution evidence is missing')
                 execution_environment.update(hardware=runtime_identity['gpu_name'], gpu_used=True, cuda_runtime=runtime_identity.get('cuda_runtime'), torch_version=runtime_identity.get('torch_version'), vram_total_bytes=runtime_identity.get('vram_total_bytes'))
-            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": execution_lane.value, "requested_lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "request_id":request.get("request_id"), "reference_artifacts":reference_records, "execution_started_at":execution_started_at, "execution_finished_at":execution_finished_at, "quality_status":"TASK_QUALITY_NOT_BENCHMARKED", "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": result, "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": execution_environment}
+            record = {"status": "TESTED_PASS", "job_id": job.id, "evidence_id": job.evidence_id, "lane": execution_lane.value, "requested_lane": lane.value, "execution_lane": execution_lane.value, "operation": operation, "command": command, "request_id":request.get("request_id"), "reference_artifacts":reference_records, "execution_started_at":execution_started_at, "execution_finished_at":execution_finished_at, "quality_status": input_quality["status"] if input_quality else "TASK_QUALITY_NOT_BENCHMARKED", "state_history": [state.value for state in job.state_history], "model": model, "adapter": {"id": adapter.adapter_id, "version": adapter.adapter_version, "runtime_backend": adapter.runtime_backend, "device_requirement": adapter.device_requirement}, "input": file_record(source), "runtime_result": ({**result, "input_quality_assessment": input_quality} if input_quality else result), "primary_output": file_record(primary), "outputs": outputs, "backend": {"api_status": 201, "delivery_gate": delivery, "job_evidence": job.evidence}, "execution_environment": execution_environment}
             (job_dir / "JOB_EVIDENCE.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             self.records[job.id] = record
             return record
