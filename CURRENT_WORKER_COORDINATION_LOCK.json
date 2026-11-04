@@ -9,7 +9,7 @@
   "worker_lanes": {
     "general_work": {
       "role": "Owner-appointed development commander",
-      "current_assignment": "R2 visual-quality source contract is hash-pinned; PC engine restoration remains unexecuted and must use the exact source and preserved input.",
+      "current_assignment": "R2 General source preparation verified; read CURRENT_MEDIA_WORK_STATUS.json; actual production is gated by real inputs and engine preflight.",
       "may_write": [
         "src/** runtime fixes",
         "ui/** behavior only",
@@ -34,7 +34,7 @@
     },
     "pc_work_remote_windows": {
       "role": "Windows PC Work remote fallback executor",
-      "current_assignment": "PC restoration may start only from the hash-pinned General contract; no package build, model replacement, or production-pass claim is authorized.",
+      "current_assignment": "R3 is consumed historical evidence. R2 Windows 7B/candidate execution requires exact approval and real asset intake; no build authorization granted.",
       "may_write": [
         "scripts/** Windows runtime/launcher/package implementation",
         ".github/workflows/** PC Windows build/test workflows",
@@ -138,7 +138,7 @@
   "current_work": {
     "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
     "status_file": "CURRENT_MEDIA_WORK_STATUS.json",
-    "snapshot_sha256": "0db477df2e3d62d2535dfdefb56c22348cceda42263e66a9968499799f21e72c",
+    "snapshot_sha256": "eef3c7b637149494a9d53fb9aebfd60c2b191fd6b08dcbc933c0aaac04c61a3b",
     "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
     "general_status": "R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING",
     "pc_status": "R2_BLOCKED_ASSET_INTAKE",
