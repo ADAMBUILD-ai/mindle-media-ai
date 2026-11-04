@@ -30,7 +30,7 @@ def validate(root=ROOT):
     if epoch in {RECOVERY_EPOCH, R3_EPOCH}:
         require(worker.get('active_control_plane_epoch') == epoch, 'worker epoch mismatch')
         expected_status=state.get('current_work',{}).get('general_status','ACTIVE_OWNER_RUNTIME_RECOVERY')
-        require(expected_status in {'ACTIVE_OWNER_RUNTIME_RECOVERY','R2_GENERAL_PREPARATION_COMPLETE','R2_SOURCE_REVALIDATION_REQUIRED'}, 'unknown General status')
+        require(expected_status in {'ACTIVE_OWNER_RUNTIME_RECOVERY','R2_GENERAL_PREPARATION_COMPLETE','R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING','R2_SOURCE_REVALIDATION_REQUIRED'}, 'unknown General status')
         require(state.get('status') == lock.get('status') == expected_status, 'recovery status mismatch')
         require(lock.get('control_plane_epoch') == lock.get('epoch') == epoch and lock.get('active') is True, 'General lock epoch mismatch')
         require(epoch in current and state.get('product_changes_allowed') is True, 'current General directive mismatch')
