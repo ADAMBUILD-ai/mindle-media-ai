@@ -34,10 +34,11 @@ ACCEPTANCE_TOOL_PATCH={
 }
 REVALIDATED_RUNTIME_PATCHES={
     # Exact reviewed source bytes only; this is not runtime or PC acceptance.
-    'src/media_ai/product_runtime.py':'c48a42897ac0c66d230fcdc01c50e9dece22f39eab15419a14cdb7cb1e4ae52d',
-    'src/media_ai/continuous_tracking.py':'7b9e09bdf22d527667d82389494e3c6befa5f2c61aec41615759a803a81abe81',
-    'src/media_ai/browser_preview.py':'0f814e7f2a28e1bd9462adef66c02e08a9116671afc04906dacaaa3e7f167ea2',
-    'src/media_ai/video_input_quality.py':'17861b8a4321c3a57a91f06ca1ee2cdf9665e4980e77b2cf858626dbfaa67600',
+    'src/media_ai/ai_core_status.py':'4d53850912079598a9adfbd7fe12758b8af7a037c37a1623043719236d342aa4',
+    'src/media_ai/product_runtime.py':'9ac59875ca367f5e4b25d5e134816220a0a3d2e3cc7e7eecf0bb1240a11ab246',
+    'src/media_ai/continuous_tracking.py':'0c44f23f3bb59b3ececd539d864af37932ee2f270dfe3f56bba9e3f6c3afc147',
+    'src/media_ai/browser_preview.py':'5060872ed48528d2482516fab20a1236a42dea8b5fb872e029bda0f15d3a5042',
+    'src/media_ai/video_input_quality.py':'db67d388b83b7deaf0dadb108d6716dcf94450b794148fb6789d592ac1b8ef3f',
 }
 CONTROLS=('CURRENT_GENERAL_WORK_STATE.json','CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json',
           'CURRENT_PC_WORK_STATE.json','CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json','CURRENT_WORKER_COORDINATION_LOCK.json')
