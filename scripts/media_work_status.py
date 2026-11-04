@@ -32,6 +32,13 @@ ACCEPTANCE_TOOL_PATCH={
     'scope':'SOURCE_AND_WINDOWS_ACCEPTANCE_AND_MEDIA_PRODUCTION_PACKAGE_ONLY',
     'evidence':'docs/evidence/media-real-30s-general-r3-20261026/RESULT_KO.md',
 }
+REVALIDATED_RUNTIME_PATCHES={
+    # Exact reviewed source bytes only; this is not runtime or PC acceptance.
+    'src/media_ai/product_runtime.py':'d180570127b10360308ec14aec6d041af4a483e19de5780baf2136761005e472',
+    'src/media_ai/continuous_tracking.py':'b53b7b10ad2b403a9b0180e219846e9b9e1502f07c85e9380311b6675bea070d',
+    'src/media_ai/browser_preview.py':'f157e5486844a91a2c2c7d25ab1d130380f360c247df4d6029b08248ba829996',
+    'src/media_ai/video_input_quality.py':'c92e9d740aa714d59e6995fe29747628a71d91eef9005609bdba7c5f1f04a432',
+}
 CONTROLS=('CURRENT_GENERAL_WORK_STATE.json','CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json',
           'CURRENT_PC_WORK_STATE.json','CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json','CURRENT_WORKER_COORDINATION_LOCK.json')
 SCOPE='HISTORICAL_R3_CANDIDATE_ONLY_SEE_CURRENT_WORK_FOR_R2'
@@ -59,22 +66,24 @@ def runtime_baseline(root):
     patch=ACCEPTANCE_TOOL_PATCH
     require(paths.get(patch['path'])==patch['base_sha256'],'ACCEPTANCE_TOOL_BASE_AUTHORITY_MISMATCH')
     paths[patch['path']]=patch['sha256']
+    # Admit only the listed, hash-pinned source review delta.
+    paths.update(REVALIDATED_RUNTIME_PATCHES)
     changed=[name for name,sha in paths.items() if not (root/name).is_file() or digest(root/name)!=sha]
     changed.extend(p.relative_to(root).as_posix() for p in (root/'src/media_ai').glob('*.py') if p.relative_to(root).as_posix() not in paths)
-    return {'status':'BLOCKED_RUNTIME_SOURCE_CHANGED' if changed else 'PASS_EXACT_RUNTIME_UI_BYTES',
+    return {'status':'BLOCKED_RUNTIME_SOURCE_CHANGED' if changed else 'PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE',
             'source':CODE,'file_count':len(paths),'changed_paths':changed,
-            'acceptance_tool_patch':dict(patch),
+            'acceptance_tool_patch':dict(patch),'reviewed_source_patches':dict(REVALIDATED_RUNTIME_PATCHES),
             'workspace_ui_fingerprint':receipt['source_ui_identity']['workspace_ui_fingerprint']}
 
 
 def derive(root=ROOT):
     root=Path(root);baseline=runtime_baseline(root);intake=intake_result(root/MANIFEST)
-    source_ok=baseline['status']=='PASS_EXACT_RUNTIME_UI_BYTES';inputs_ok=not intake['errors']
+    source_ok=baseline['status']=='PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE';inputs_ok=not intake['errors']
     eligibility=('BLOCKED_SOURCE_REVALIDATION' if not source_ok else
                  'BLOCKED_ASSET_INTAKE' if not inputs_ok else 'ENGINE_PREFLIGHT_REQUIRED')
     return {'schema':'MINDLE_CURRENT_WORK_STATUS_V1','work_id':WORK_ID,'current_directive':DIRECTIVE,
             'runtime_baseline':baseline,
-            'general_status':'R2_GENERAL_PREPARATION_COMPLETE' if source_ok else 'R2_SOURCE_REVALIDATION_REQUIRED',
+            'general_status':'R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING' if source_ok else 'R2_SOURCE_REVALIDATION_REQUIRED',
             'pc_status':('R2_'+eligibility if not source_ok or not inputs_ok else 'R2_WINDOWS_ENGINE_AND_APPROVAL_PREFLIGHT_REQUIRED'),'production_eligibility':eligibility,
             'input_manifest':MANIFEST,'input_manifest_sha256':intake['manifest_sha256'],
             'intake_status':intake['status'],'input_errors':intake['errors'],
