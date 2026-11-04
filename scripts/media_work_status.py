@@ -145,8 +145,11 @@ def refresh(root=ROOT):
 
 def check(root=ROOT):
     root=Path(root);controls=closed_gates(root)
-    require(read(root,STATUS_FILE)==derive(root),'CURRENT_WORK_SNAPSHOT_STALE_OR_FORGED')
-    value=read(root,STATUS_FILE);ref=reference(value)
+    saved=read(root,STATUS_FILE);derived=derive(root)
+    if saved != derived:
+        differing=sorted(key for key in set(saved)|set(derived) if saved.get(key)!=derived.get(key))
+        raise ValueError('CURRENT_WORK_SNAPSHOT_STALE_OR_FORGED: '+','.join(differing))
+    value=saved;ref=reference(value)
     require((root/DIRECTIVE).is_file(),'CURRENT_R2_DIRECTIVE_MISSING')
     for name,state in zip(CONTROLS,controls):
         require(state.get('current_work')==ref,'CURRENT_WORK_REFERENCE_MISMATCH: '+name)
