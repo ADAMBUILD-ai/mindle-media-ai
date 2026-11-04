@@ -5,7 +5,7 @@
   "runtime_baseline": {
     "status": "PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE",
     "source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
-    "file_count": 60,
+    "file_count": 62,
     "changed_paths": [],
     "acceptance_tool_patch": {
       "path": "src/media_ai/source_e2e.py",
@@ -16,11 +16,13 @@
     },
     "workspace_ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495",
     "reviewed_source_patches": {
-      "src/media_ai/product_runtime.py": "9ac59875ca367f5e4b25d5e134816220a0a3d2e3cc7e7eecf0bb1240a11ab246",
+      "src/media_ai/ai_core_status.py": "4d53850912079598a9adfbd7fe12758b8af7a037c37a1623043719236d342aa4",
+      "src/media_ai/product_runtime.py": "2f77b46aab7fe605252445f74b63ce382ee3d3a563be5b1f4c00e32d4cd5e965",
+      "src/media_ai/product_server.py": "17091699d88c85d4c6e4999a955a439e96913b42384d202a93f82b0d507eb032",
+      "src/media_ai/verified_model_adapters.py": "8fcdf43d97d7886c489389c92d44a0c76b49a3a27639320ecc19bc53d20f8d2a",
       "src/media_ai/continuous_tracking.py": "0c44f23f3bb59b3ececd539d864af37932ee2f270dfe3f56bba9e3f6c3afc147",
       "src/media_ai/browser_preview.py": "5060872ed48528d2482516fab20a1236a42dea8b5fb872e029bda0f15d3a5042",
-      "src/media_ai/video_input_quality.py": "db67d388b83b7deaf0dadb108d6716dcf94450b794148fb6789d592ac1b8ef3f",
-      "src/media_ai/ai_core_status.py": "4d53850912079598a9adfbd7fe12758b8af7a037c37a1623043719236d342aa4"
+      "src/media_ai/video_input_quality.py": "db67d388b83b7deaf0dadb108d6716dcf94450b794148fb6789d592ac1b8ef3f"
     },
     "source_hash_mismatches": {}
   },
