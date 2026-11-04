@@ -37,6 +37,10 @@ def handoff(tmp_path):
     paths += list(foundation['source_file_sha256'])
     paths += [name for name in baseline['code_file_sha256'] if name.startswith('src/media_ai/')]
     paths += list(baseline['source_ui_identity']['file_hashes'])
+    status_spec = importlib.util.spec_from_file_location('current_status', ROOT/'scripts/media_work_status.py')
+    current_status = importlib.util.module_from_spec(status_spec)
+    status_spec.loader.exec_module(current_status)
+    paths += list(current_status.REVALIDATED_RUNTIME_PATCHES)
     for name in set(paths):
         destination = tmp_path/name
         destination.parent.mkdir(parents=True, exist_ok=True)
