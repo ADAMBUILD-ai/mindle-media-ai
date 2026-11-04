@@ -17,6 +17,7 @@ def tree(tmp_path):
     names.update(foundation['source_file_sha256'])
     names.update(name for name in baseline['code_file_sha256'] if name.startswith('src/media_ai/'))
     names.update(baseline['source_ui_identity']['file_hashes'])
+    names.update(status.REVALIDATED_RUNTIME_PATCHES)
     for name in names:
         target=tmp_path/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target)
     return tmp_path
@@ -28,7 +29,7 @@ def change(root,name,key,value):
 
 def test_current_status_separates_preparation_production_and_pc_observation(tree):
     value=status.check(tree)
-    assert value['general_status']=='R2_GENERAL_PREPARATION_COMPLETE'
+    assert value['general_status']=='R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING'
     assert value['production_eligibility']=='BLOCKED_ASSET_INTAKE'
     assert value['local_pc_process_status']=='NOT_OBSERVED'
     assert value['production_execution_allowed'] is False
