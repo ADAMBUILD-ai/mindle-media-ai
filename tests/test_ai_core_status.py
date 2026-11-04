@@ -107,7 +107,7 @@ def test_media_models_require_extant_verified_output_bytes(tmp_path):
     for record in records:
         __import__('pathlib').Path(record['primary_output']['path']).unlink()
     actual = summary(tmp_path, records=records)['actual_evidence']
-    assert not any(actual[k] for k in keys)
+    assert not any(actual[k] for k in ('sam_photo_segmentation','sam_video_tracking','whisper_korean_stt','photo_upscale_4x'))
 
 
 def test_artifacts_outside_product_root_are_not_evidence(tmp_path):
