@@ -68,10 +68,12 @@ def runtime_baseline(root):
     paths[patch['path']]=patch['sha256']
     # Admit only the listed, hash-pinned source review delta.
     paths.update(REVALIDATED_RUNTIME_PATCHES)
-    changed=[name for name,sha in paths.items() if not (root/name).is_file() or digest(root/name)!=sha]
+    mismatches={name:{'expected':sha,'actual':digest(root/name) if (root/name).is_file() else None}
+                for name,sha in paths.items() if not (root/name).is_file() or digest(root/name)!=sha}
+    changed=list(mismatches)
     changed.extend(p.relative_to(root).as_posix() for p in (root/'src/media_ai').glob('*.py') if p.relative_to(root).as_posix() not in paths)
     return {'status':'BLOCKED_RUNTIME_SOURCE_CHANGED' if changed else 'PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE',
-            'source':CODE,'file_count':len(paths),'changed_paths':changed,
+            'source':CODE,'file_count':len(paths),'changed_paths':changed,'source_hash_mismatches':mismatches,
             'acceptance_tool_patch':dict(patch),'reviewed_source_patches':dict(REVALIDATED_RUNTIME_PATCHES),
             'workspace_ui_fingerprint':receipt['source_ui_identity']['workspace_ui_fingerprint']}
 
