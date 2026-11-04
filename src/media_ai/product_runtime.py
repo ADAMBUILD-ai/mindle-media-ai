@@ -527,6 +527,7 @@ class ProductJobService:
                 primary = output
             else:
                 result = adapter.transcribe(source, job_dir/'whisper', request.get('reference'))
+                result['source_media'] = job.source_provenance.get('derived_from')
                 primary = Path(result['outputs'][0]['path'])
             execution_finished_at = now()
             receipt = orchestrator.complete(job, primary)
@@ -556,6 +557,83 @@ class ProductJobService:
         finally:
             if adapter is not None and hasattr(adapter, "close"):
                 adapter.close()
+
+    def render_transcribed_subtitles(self, transcription_job_id: str) -> dict:
+        """Render only a verified Whisper receipt onto its byte-pinned source video."""
+        import subprocess
+        record = self.records.get(str(transcription_job_id))
+        if not record or record.get("status") != "TESTED_PASS" or record.get("operation") != "transcribe":
+            raise ValueError("VERIFIED_TRANSCRIPTION_REQUIRED")
+        result = record.get("runtime_result", {})
+        source_info = result.get("source_media")
+        segments = result.get("segments")
+        if not isinstance(source_info, dict) or not isinstance(segments, list) or not segments:
+            raise ValueError("VERIFIED_TIMED_TRANSCRIPTION_REQUIRED")
+        source = Path(str(source_info.get("path", "")))
+        if not source.is_file() or file_record(source)["sha256"] != source_info.get("sha256"):
+            raise ValueError("TRANSCRIPTION_SOURCE_IDENTITY_FAILED")
+        srt_info = next((item for item in record.get("outputs", []) if Path(str(item.get("path", ""))).name == "korean_transcript.srt"), None)
+        if not srt_info:
+            raise ValueError("TIMED_SRT_ARTIFACT_REQUIRED")
+        srt = Path(srt_info["path"])
+        if not srt.is_file() or file_record(srt)["sha256"] != srt_info.get("sha256"):
+            raise ValueError("TRANSCRIPTION_SRT_IDENTITY_FAILED")
+
+        package = os.environ.get("MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT", "").strip()
+        ffmpeg = str(Path(package) / "tools/ffmpeg/ffmpeg.exe") if package else "ffmpeg"
+        ffprobe = str(Path(package) / "tools/ffmpeg/ffprobe.exe") if package else "ffprobe"
+        font = Path(os.environ["MINDLE_SUBTITLE_FONT"]) if os.environ.get("MINDLE_SUBTITLE_FONT") else Path(os.environ.get("SystemRoot", "C:/Windows")) / "Fonts/malgun.ttf"
+        if not font.is_file():
+            raise RuntimeError("Korean subtitle font is unavailable")
+        output_job = str(uuid4())
+        output_dir = self.jobs / output_job / "whisper_subtitles"
+        output_dir.mkdir(parents=True)
+        output = output_dir / "whisper_timed_subtitles.mp4"
+        escaped = lambda value: Path(value).as_posix().replace(":", "\\:").replace("'", "\\'")
+        filters = ["scale=trunc(iw/2)*2:trunc(ih/2)*2"]
+        for index, segment in enumerate(segments):
+            text = str(segment.get("text", "")).strip()
+            start, end = float(segment.get("start_seconds", -1)), float(segment.get("end_seconds", -1))
+            if not text or start < 0 or end <= start:
+                raise ValueError("INVALID_TIMED_TRANSCRIPTION_SEGMENT")
+            text_path = output_dir / f"subtitle_{index:03d}.txt"
+            text_path.write_text(text, encoding="utf-8")
+            filters.append(
+                f"drawtext=fontfile='{escaped(font)}':textfile='{escaped(text_path)}':fontsize=42:"
+                f"fontcolor=white:box=1:boxcolor=black@0.55:x=(w-text_w)/2:y=h-text_h-64:"
+                f"enable='between(t,{start},{end})'"
+            )
+        subprocess.run(
+            [ffmpeg, "-y", "-i", str(source), "-vf", ",".join(filters), *h264_encoder_args(package),
+             "-map", "0:v:0", "-map", "0:a?", "-c:a", "aac", "-movflags", "+faststart", str(output)],
+            check=True, capture_output=True, timeout=900,
+        )
+        subprocess.run([ffmpeg, "-v", "error", "-xerror", "-i", str(output), "-f", "null", "-"],
+                       check=True, capture_output=True, timeout=900)
+        probe = json.loads(subprocess.check_output(
+            [ffprobe, "-v", "error", "-show_entries", "format=duration:stream=codec_type,codec_name",
+             "-of", "json", str(output)], text=True))
+        streams = probe.get("streams", [])
+        if not any(item.get("codec_type") == "video" for item in streams) or not any(item.get("codec_type") == "audio" for item in streams):
+            raise RuntimeError("SUBTITLE_MP4_STREAM_VALIDATION_FAILED")
+        output_record = file_record(output)
+        render_record = {
+            "status": "TESTED_PASS", "job_id": output_job, "lane": "video", "operation": "subtitle_render",
+            "command": "Whisper 실제 전사 결과로 시간 정합 한국어 자막을 입혀줘",
+            "input": file_record(source), "primary_output": output_record,
+            "outputs": [output_record, file_record(srt)],
+            "runtime_result": {
+                "model_inference": False, "transcription_job_id": record["job_id"],
+                "transcription_primary_output_sha256": record["primary_output"]["sha256"],
+                "source_media_sha256": source_info["sha256"], "timed_srt_sha256": srt_info["sha256"],
+                "subtitle_segment_count": len(segments), "render_engine": "FFmpeg drawtext",
+                "decoded_video_and_audio": True, "duration_seconds": float(probe["format"]["duration"]),
+            },
+        }
+        (output_dir.parent / "JOB_EVIDENCE.json").write_text(
+            json.dumps(render_record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        self.records[output_job] = render_record
+        return render_record
 
     def edit_video(self, payload: dict) -> dict:
         """Run explicit local FFmpeg edits; never interpret them as model inference."""
