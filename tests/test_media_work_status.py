@@ -27,6 +27,10 @@ def change(root,name,key,value):
     body=status.read(root,name);body[key]=value;status.write(root/name,body)
 
 
+def test_repository_source_contract_is_exact():
+    baseline = status.runtime_baseline(ROOT)
+    assert baseline['status'] == 'PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE', json.dumps(baseline['source_hash_mismatches'], sort_keys=True)
+
 def test_hash_pinned_visual_quality_source_contract_is_exact(tree):
     baseline = status.runtime_baseline(tree)
     assert baseline['status'] == 'PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE', json.dumps(baseline['source_hash_mismatches'], sort_keys=True)
