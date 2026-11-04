@@ -1,6 +1,6 @@
 {
   "schema_version": "OWNER-RUNTIME-RECOVERY-R1",
-  "status": "R2_GENERAL_PREPARATION_COMPLETE",
+  "status": "R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING",
   "date": "2026-10-24",
   "control_plane_epoch": "MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3",
   "owner_authorization": "Explicit current conversation: development commander, repair and reinforce existing product without optional confirmation; approve only OpenAI credential connection.",
@@ -455,9 +455,9 @@
   "current_work": {
     "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
     "status_file": "CURRENT_MEDIA_WORK_STATUS.json",
-    "snapshot_sha256": "87ee896197c643a475f576d4f69f5b3b6ef3aac9bed2c146eedd5f044343773d",
+    "snapshot_sha256": "75762cfd2b2edd5a18414fa75d295c72567726b02824fa7f086f32fb5ee17c95",
     "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
-    "general_status": "R2_GENERAL_PREPARATION_COMPLETE",
+    "general_status": "R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING",
     "pc_status": "R2_BLOCKED_ASSET_INTAKE",
     "production_eligibility": "BLOCKED_ASSET_INTAKE",
     "runtime_baseline_source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa"
