@@ -1,0 +1,16 @@
+{
+  "src/media_ai/durable_workflows.py": "0fe38018a670bccaaac7c5d51abe764b440f09baf96f69a1080bb11f187b74d3",
+  "src/media_ai/workflow_worker.py": "afa2a635b0541240c8a1dd85443ab0ce4d2bbedad70fd83d7d24d6ffaf75949f",
+  "src/media_ai/workflow_planner.py": "bc274e6d397c08a308657b7cb5fd9e4458d3e5b592d92a1d9c9f788cfc517ea9",
+  "src/media_ai/product_runtime.py": "da9731278a0b8f9fc978d509ced26f41aaf6ec56e7df0a510c2416a8402e6776",
+  "src/media_ai/product_server.py": "9256a6d721a4472b2932739412b4b83d8403fd7b426f517fa9cd60a075e8b8d3",
+  "ui/workflow_execution.js": "4755c7429d3ee036f0be90bab189a57da662d023e09d567522574c1d46bb2a62",
+  "ui/product_integration.js": "4288afadd5ffd9bcec640782ef508636ede02e61ca36f9a9836c5e1f4b933cce",
+  "ui/workspace_shell.js": "978845f44af3d1e879bd03f9828d1e4f9a05a415d62fc41bef9545252ff76c8b",
+  "ui/index.html": "a75ecaaf69f9a2b38c3979ccb7679d8dd68612234cf84eb2f607b54f0af28e6c",
+  "scripts/build_one_click_runtime_layout.py": "a9afb870f9097578ee19def2e641cfa025fc546cbf3d5783c42bf2aef722e812",
+  "scripts/build_employee_distribution_package.py": "525570a627e5ebfbef26cea281e93228b87943b142bdece205b7f8b9dbcddfc2",
+  "tests/test_durable_workflows.py": "b0e23b867290cf10d0c6c92b01c6f8fe964f02c2e8d92e32ed2a75139a3700ee",
+  "tests/test_workflow_http.py": "277bd562f88e3214cbb33b70cc112750f6eb1cacb3926c3c7846a55643990271",
+  "tests/test_general_work_gaps.py": "9fa0af958f3ca024a2742651c1446a88008a5a09a78507a0a5a8d82a7c13c115"
+}

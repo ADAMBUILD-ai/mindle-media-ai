@@ -1,0 +1,98 @@
+{
+  "status": "PASS_REMOTE_EXACT_CONTENT_READBACK",
+  "publication_commit": "78abb8da5761ed11bcfa97447b97efd4e699df12",
+  "verified_source_commit": "92a281f8c5eee70e4e23d14949f2f2c9b728da82",
+  "core_run": 38433228957,
+  "files": [
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/APPROVED_UI_REMOTE_COMPARISON.json",
+      "sha": "b23a065b9f8d23c38c3b6ee68353d7557659f9ec",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/ENGINE_RESEARCH.json",
+      "sha": "8921c4c388085b30a7098ef442f66a899e33b12b",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/EVIDENCE.json",
+      "sha": "d2f0b8b6bba324edc643c3bc17148b1d4a0af118",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "sha": "fd513af2e915c1045c348426bbf924c7ec7dc276",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/GAP_CLOSURE.json",
+      "sha": "83fbfe73ddc31cb0d1ea95c401e7771e9d8d1e79",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/INDEPENDENT_VERIFICATION.json",
+      "sha": "8784348934525cf1a94c2a3392fdcd35f0f80db0",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/LIVE_ENGINE_RECEIPT.json",
+      "sha": "b88674dcd34d59ab400a489f42ac383944c329fc",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/PACKAGE_HOLD_VERIFICATION.json",
+      "sha": "c619eb2a6b4317306bb94a7a54239c185f5e2f47",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/PREVIOUS_ATTEMPTS.json",
+      "sha": "101d8cf82b77d286698f61af250b8527c6c37430",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/RUNTIME_RECEIPT.json",
+      "sha": "05a7b3a479054d8b835fbccbe2a9e294a6b8b0c7",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/SOURCE_INVARIANTS.json",
+      "sha": "40906a7976229b79f28166990f8da6167291043d",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/REGRESSION.log",
+      "sha": "d79d629e1462a18abff6e49d83808399d5a74c02",
+      "exact": true
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_AGENT_ENGINE_ENVIRONMENT_REPAIR_REVIEW_v1.0_20261014.md",
+      "sha": "d39e30328932b73a82f5dc1a7271c7350b728327",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/FINAL_ACTIONS_BROWSER.log",
+      "sha": "018e34b2f1bb24276cf18836035b795eafea0060",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/FINAL_ACTIONS_ENGINES.log",
+      "sha": "8f3ccb831931b38f602656f030a0809db7ae92c1",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/LEGACY_PACKAGE_HOLD_FAILURE_38432262868.log",
+      "sha": "e3b1690ce2bb022755782799570030d6a02c66f3",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-agent-engine-repair-20261014/LEGACY_PACKAGE_HOLD_FAILURE_38432262912.log",
+      "sha": "0f76dbd16925c0290dbbeebec603c894f6241505",
+      "exact": true
+    }
+  ],
+  "main_unchanged": "797da297f588780ad2d608deea3b5af8f05af450",
+  "pr23_open_draft_hold": true,
+  "final_full_product_pass": false,
+  "owner_pc_pass": false,
+  "openai_connected": false
+}

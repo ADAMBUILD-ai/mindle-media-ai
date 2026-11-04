@@ -1,0 +1,59 @@
+{
+  "schema": "AGENT_ENGINE_ENVIRONMENT_REPAIR_R1",
+  "date": "2026-10-14 KST",
+  "source_commit": "92a281f8c5eee70e4e23d14949f2f2c9b728da82",
+  "core_run": 38433228957,
+  "core_jobs": [
+    {
+      "id": 115420520873,
+      "name": "adopted-real-engines",
+      "conclusion": "success"
+    },
+    {
+      "id": 115420521390,
+      "name": "actual-browser",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11832017391,
+      "name": "mindle-runtime-recovery-20261013",
+      "sha256": "sha256:4be0e73e435c6654128c378c3b7d2d48519629c23bfd73d8395cce7c952e274a",
+      "size": 3678992,
+      "link": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38433228957/artifacts/11832017391"
+    },
+    {
+      "id": 11830894580,
+      "name": "mindle-live-agent-engines-20261014",
+      "sha256": "sha256:1826ea036c2ebdf934ab9145fbb42d35cf26477c9db62cedec3389799f935e3c",
+      "size": 17839742,
+      "link": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38433228957/artifacts/11830894580"
+    }
+  ],
+  "status": "PASS_ADOPTED_CPU_ENGINE_EXECUTION_AND_PERSISTENCE_AND_40_BROWSER_GATES",
+  "python_tests": 89,
+  "ui_tests": 2,
+  "browser_checks": 40,
+  "real_engines": 3,
+  "operations": 4,
+  "current_run_fresh_inference": 1,
+  "current_run_verified_current_engine_checkpoint_reuse": 3,
+  "all_four_operations_fresh_current_repair_run": 38422429712,
+  "long_stt_fresh_run": 38425586338,
+  "full_product_pass": false,
+  "owner_pc_pass": false,
+  "openai_connected": false,
+  "marketing_avora": "DEFERRED_EXTERNAL",
+  "package_build": "HELD_CURRENT_CONTROL_PLANE",
+  "pr23": "HOLD_DO_NOT_MERGE_OPEN_DRAFT",
+  "main_unchanged": "797da297f588780ad2d608deea3b5af8f05af450",
+  "review": "docs/commander/MINDLE_MEDIA_AI_AGENT_ENGINE_ENVIRONMENT_REPAIR_REVIEW_v1.0_20261014.md",
+  "official_research": "ENGINE_RESEARCH.json",
+  "independent_verification": "INDEPENDENT_VERIFICATION.json",
+  "regression_logs": [
+    "FINAL_ACTIONS_BROWSER.log",
+    "FINAL_ACTIONS_ENGINES.log"
+  ],
+  "provenance": "Latest execution re-verifies real SAM reference-guided inference, timed Korean captions, persistence, export and all outputs. Three other actual engine results are hash-verified current repair checkpoints, never historical Windows success re-labelled fresh."
+}

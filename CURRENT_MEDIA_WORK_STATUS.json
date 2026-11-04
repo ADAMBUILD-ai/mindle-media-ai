@@ -1,0 +1,57 @@
+{
+  "schema": "MINDLE_CURRENT_WORK_STATUS_V1",
+  "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+  "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
+  "runtime_baseline": {
+    "status": "PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE",
+    "source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
+    "file_count": 60,
+    "changed_paths": [],
+    "acceptance_tool_patch": {
+      "path": "src/media_ai/source_e2e.py",
+      "base_sha256": "7f44953fa2b0549c9cae1b645a3e37cac941d6654b07cb6c462b01d96b671b08",
+      "sha256": "59b8f13ed38ea85ad233b50b721754773e82c8029591eff03c89cbca1470bf58",
+      "scope": "SOURCE_AND_WINDOWS_ACCEPTANCE_AND_MEDIA_PRODUCTION_PACKAGE_ONLY",
+      "evidence": "docs/evidence/media-real-30s-general-r3-20261026/RESULT_KO.md"
+    },
+    "workspace_ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495",
+    "reviewed_source_patches": {
+      "src/media_ai/ai_core_status.py": "4d53850912079598a9adfbd7fe12758b8af7a037c37a1623043719236d342aa4",
+      "src/media_ai/product_runtime.py": "2f77b46aab7fe605252445f74b63ce382ee3d3a563be5b1f4c00e32d4cd5e965",
+      "src/media_ai/product_server.py": "17091699d88c85d4c6e4999a955a439e96913b42384d202a93f82b0d507eb032",
+      "src/media_ai/verified_model_adapters.py": "8fcdf43d97d7886c489389c92d44a0c76b49a3a27639320ecc19bc53d20f8d2a",
+      "src/media_ai/continuous_tracking.py": "0c44f23f3bb59b3ececd539d864af37932ee2f270dfe3f56bba9e3f6c3afc147",
+      "src/media_ai/browser_preview.py": "5060872ed48528d2482516fab20a1236a42dea8b5fb872e029bda0f15d3a5042",
+      "src/media_ai/video_input_quality.py": "db67d388b83b7deaf0dadb108d6716dcf94450b794148fb6789d592ac1b8ef3f"
+    },
+    "source_hash_mismatches": {}
+  },
+  "general_status": "R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING",
+  "pc_status": "R2_BLOCKED_ASSET_INTAKE",
+  "production_eligibility": "BLOCKED_ASSET_INTAKE",
+  "input_manifest": "docs/handoff/media-ai-core-e2e-r2-20261025/INPUT_MANIFEST.json",
+  "input_manifest_sha256": "63aad65ce08697195fcd58948905b37ecf5b5e77ce2e027c6b19baf9aef08993",
+  "intake_status": "BLOCKED_ASSET_INTAKE",
+  "input_errors": [
+    "exact Korean narration script missing or incompatible with quoted product command",
+    "explicit voice length policy missing",
+    "explicit narration volume required (0..2)",
+    "explicit original volume required (0..2)",
+    "explicit bgm volume required (0..1)",
+    "1..12 real video clips required",
+    "BGM and its permission record required",
+    "source coverage below 30 seconds"
+  ],
+  "next_action": "REGISTER_REAL_VIDEO_BGM_SCRIPT_VOLUMES_POLICY",
+  "source_lane": "ACTUAL_ASSET_INTAKE_REQUIRED",
+  "windows_lane": "WINDOWS_7B_AND_EXACT_CANDIDATE_APPROVAL_REQUIRED",
+  "production_execution_allowed": false,
+  "source_execution_started_by_this_check": false,
+  "local_pc_process_status": "NOT_OBSERVED",
+  "background_execution_claimed": false,
+  "package_build_allowed": false,
+  "installed_model_replacement_allowed": false,
+  "owner_acceptance": false,
+  "full_product_pass": false,
+  "historical_candidate_control": "R3 epoch/phase/identity remain consumed candidate evidence, not current R2 readiness"
+}

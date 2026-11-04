@@ -1,0 +1,30 @@
+{
+  "status": "PASS_INSTALLED_SERVER_RESTART_TEMPORARY_PROFILE",
+  "project_id": "1ef711bb-7fba-4f62-9365-d4acfc4dae73",
+  "checks": {
+    "identity": "PASS",
+    "save_close_reopen": "PASS_SERVER_RESTART",
+    "export": "PASS_CONTENT_AND_DOWNLOAD_HASH",
+    "shortform_and_base_continuation": "PASS"
+  },
+  "identity_after_restart": {
+    "product": "MINDLE MEDIA AI",
+    "distribution": "EMPLOYEE_WIN_X64",
+    "package_version": "1.0",
+    "build_commit": "0371cb72ee00802b5b9bd17bd05c809858cba813",
+    "package_manifest_sha256": "74e9855398cf2340d9a4eff0125bd9a55c4ba8fadf4ddefa00acb2498aeea44c",
+    "ui_fingerprint": "aee47baa8996af1905b8a7609d260548a8bb2b22afd2c6cc564d49cdc5d408cf",
+    "model_manifest_hash": "a8340b0fc7a58863ef975f558365bbedc6d6402dfe37263de3b9a32fa718397b",
+    "install_root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+    "data_root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI_DATA",
+    "runtime_mode": "LOCAL_OFFLINE_PACKAGE"
+  },
+  "browser_observed_video_ready_state": 4,
+  "browser_observed_photo_dimensions": [
+    1920,
+    1080
+  ],
+  "browser_observed_korean_transcript": true,
+  "desktop_shortcut_reopen_verified": false,
+  "screenshot": "R2_INSTALLED_SERVER_RESTART_REOPEN.jpg"
+}

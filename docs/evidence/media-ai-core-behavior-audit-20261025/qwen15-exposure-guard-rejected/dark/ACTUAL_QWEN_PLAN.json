@@ -1,0 +1,79 @@
+{
+  "task_kind": "MEASURED_GENERATIVE_AUTO_EDIT",
+  "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+  "input_job_id": "612809c8-c468-4fcb-a411-69620ffbaebd",
+  "input_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+  "input_artifact": {
+    "file_name": "original_video_preview.mp4",
+    "path": "/tmp/media-ai-real-auto-edit-exposure-fix/dark/data/jobs/612809c8-c468-4fcb-a411-69620ffbaebd/original_video_preview.mp4",
+    "bytes": 2228,
+    "sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208"
+  },
+  "analysis": {
+    "method": "measured_scene_window_v1",
+    "model_inference": false,
+    "semantic_understanding": false,
+    "source_duration": 2.0,
+    "requested_duration": 30.0,
+    "start": 0.0,
+    "duration": 2.0,
+    "sample_count": 2,
+    "samples": [
+      {
+        "second": 0.0,
+        "motion": 0.0,
+        "exposure": 31.0,
+        "sharpness": 0.0,
+        "score": 0.0,
+        "usable": true
+      },
+      {
+        "second": 1.0,
+        "motion": 0.0,
+        "exposure": 31.0,
+        "sharpness": 0.0,
+        "score": 0.0,
+        "usable": true
+      }
+    ],
+    "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+  },
+  "decision": {
+    "start": 0.0,
+    "brightness": 12,
+    "contrast": 0,
+    "saturation": 0,
+    "reason": "motion, exposure and sharpness measured from decoded source frames; highest mean window score is 31.0, which falls within the acceptable exposure band [80, 176]. Since the exposure is within the acceptable range, we can choose conservative corrections to preserve the control."
+  },
+  "steps": [
+    {
+      "operation": "video_edit",
+      "options": {
+        "start": 0.0,
+        "brightness": 12,
+        "contrast": 0,
+        "saturation": 0,
+        "duration": 2.0
+      },
+      "step_id": "23985d0d-b72a-4325-86ec-7549f4b98b2b"
+    }
+  ],
+  "validated_edit_values": {
+    "start": 0.0,
+    "brightness": 12,
+    "contrast": 0,
+    "saturation": 0,
+    "duration": 2.0
+  },
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+  "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+  "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+  "license": "Apache-2.0",
+  "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+  "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+  "raw_response_sha256": "0d64f13f80a5ebfcec6e599a0fb2daa379bb835cfcf1af127f46438bd1c3efbb",
+  "semantic_understanding": false,
+  "output_quality": "REQUIRED_BEFORE_PUBLICATION",
+  "plan_id": "5c03cf6f-a329-4c73-95c1-1db52e4448b3",
+  "command_sha256": "5d83fb3831cf805642b6d6a711d1791e00475af662055e1dfb914db7fe537d57"
+}

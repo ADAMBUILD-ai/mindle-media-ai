@@ -1,0 +1,13 @@
+{
+  "result": "ASSET_HANDOFF_REQUIRED",
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EXACT_APPROVED_UI_F27E_RECOVERY_AND_LIVE_VISUAL_CLOSEOUT_DIRECTIVE_v17.1_20261001.md",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "approved_source_required": "네온 다크 테마 AI 미디어 편집기.png",
+  "approved_source_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "approved_source_accessible_in_pc_work": false,
+  "substitute_used": false,
+  "visual_implementation_attempted": false,
+  "v14_pass_preserved": true,
+  "note": "APPROVED_SSOT_F27E.png is a zero-byte required-path marker only; it is not presented as an approved image. No substitute source was used."
+}

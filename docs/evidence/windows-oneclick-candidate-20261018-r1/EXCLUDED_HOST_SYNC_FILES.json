@@ -1,0 +1,16 @@
+{
+  "files": [
+    "runtime/site-packages/cv2/.opencv_videoio_ffmpeg4120_64.dll.R4nQTJ",
+    "runtime/site-packages/cv2/.opencv_videoio_ffmpeg4120_64.dll.3a0CQ0",
+    "runtime/site-packages/openvino/libs/.openvino_intel_gpu_plugin.dll.qqZ8qX",
+    "runtime/site-packages/openvino/libs/.openvino_intel_cpu_plugin.dll.oZTqLy",
+    "runtime/site-packages/torch/lib/.libprotobuf.lib.neNxdk",
+    "runtime/site-packages/torch/lib/.dnnl.lib.26PPqg",
+    "runtime/site-packages/torch/lib/.dnnl.lib.hN2Pnh",
+    "runtime/site-packages/torch/lib/.libprotoc.lib.rp5Kzd",
+    "runtime/site-packages/torch/lib/.libprotobuf.lib.klTzk9",
+    "runtime/site-packages/torch/lib/.dnnl.lib.hN2Pnh.QWOREN",
+    "models/qwen2.5-1.5b-instruct/.model.gguf.keHPHK"
+  ],
+  "rule": "No hidden copy/rsync namespaces; preserve legitimate numpy .f2py_f2cmap. No core model/algorithm changed."
+}

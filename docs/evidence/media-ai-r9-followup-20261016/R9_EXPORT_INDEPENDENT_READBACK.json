@@ -1,0 +1,23 @@
+[
+  {
+    "path": "docs/evidence/media-ai-r9-corrected-windows-candidate-20261016/AFTER_COLD_RESTART_EXPORT.zip",
+    "sha256": "751a30205435d17efa44892363c5760a3161384d4edc63218d1107a384d41042",
+    "crc": "PASS",
+    "bundle_files_verified": 8,
+    "roles": [
+      "input",
+      "output"
+    ]
+  },
+  {
+    "video": "build/ci-localappdata/MINDLE/MEDIA_AI_DATA/jobs/1d2a11ca-66e4-4c07-9d95-b1e433ade09b/edited_video.mp4",
+    "codec": "h264",
+    "pix_fmt": "yuv420p",
+    "size": [
+      320,
+      180
+    ],
+    "audio_codec": "aac",
+    "faststart": true
+  }
+]

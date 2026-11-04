@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-24T07:02:06.728795+00:00",
+  "registry": "/workspace/scratch/b0ed3e0d34af/repo/external_assets/media-production/ASSET_REGISTRY.json",
+  "assets": {
+    "mindle.blender.camera-render-driver.v1": {
+      "state": "SOURCE_APPROVED_PENDING_MATERIALIZATION",
+      "enabled": false
+    },
+    "external.blender.runtime": {
+      "state": "SOURCE_APPROVED_PENDING_MATERIALIZATION",
+      "enabled": false
+    },
+    "external.ffmpeg.runtime": {
+      "state": "PRODUCT_RUNTIME_VERIFIED",
+      "enabled": true
+    },
+    "external.comfyui.runtime": {
+      "state": "SOURCE_APPROVED_PENDING_MATERIALIZATION",
+      "enabled": false
+    },
+    "external.wan22.ti2v-5b": {
+      "state": "SOURCE_APPROVED_PENDING_MATERIALIZATION",
+      "enabled": false
+    },
+    "external.ltx.desktop": {
+      "state": "DEFERRED_HARDWARE",
+      "enabled": false
+    }
+  },
+  "program_probes": {
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "exit_code": 0,
+      "version_line": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+      "executable_sha256": "ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41"
+    }
+  },
+  "result": "PASS_IDENTITY_PROBE_ONLY",
+  "runtime_e2e_verified": false
+}

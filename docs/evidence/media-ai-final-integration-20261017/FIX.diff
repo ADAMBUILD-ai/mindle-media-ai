@@ -1,0 +1,1250 @@
+diff --git a/tests/test_runtime_owner_lifecycle.py b/tests/test_runtime_owner_lifecycle.py
+index 6f0c426..a1e48da 100644
+--- a/tests/test_runtime_owner_lifecycle.py
++++ b/tests/test_runtime_owner_lifecycle.py
+@@ -1,81 +1,134 @@
+-"""Real loopback HTTP with no models; owner stop never kills another PID."""
+-import json
+-import os
+-from pathlib import Path
+-import threading
+-from urllib.error import HTTPError
+-from urllib.request import Request, urlopen
+-import pytest
+-from media_ai.product_server import create_server
+-
+-@pytest.fixture
+-def live(tmp_path, monkeypatch):
+-    monkeypatch.delenv('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', raising=False)
+-    server = create_server(Path(__file__).resolve().parents[1], tmp_path / 'data', '', 0)
+-    worker = threading.Thread(target=server.serve_forever, daemon=True)
+-    worker.start()
+-    yield server, worker, f'http://127.0.0.1:{server.server_port}'
+-    if worker.is_alive():
+-        server.shutdown()
+-    server.server_close()
+-    worker.join(timeout=5)
+-
+-def call(base, route, body=None, headers=None):
+-    headers = dict(headers or {})
+-    if body is not None:
+-        headers['Content-Type'] = 'application/json'
+-    req = Request(base + route, data=None if body is None else json.dumps(body).encode(), headers=headers)
+-    with urlopen(req, timeout=5) as response:
+-        return response.status, json.load(response), response.headers
+-
+-def control(base):
+-    _, info, _ = call(base, '/api/runtime/control')
+-    body = {k: info[k] for k in ('server_pid', 'server_instance_id')}
+-    return body, {'X-Mindle-Control': info['control_nonce']}
+-
+-def test_runtime_identity_reports_own_pid_and_per_instance_identity(live):
+-    server, _, base = live
+-    _, value, headers = call(base, '/api/runtime-identity')
+-    assert value['server_pid'] == os.getpid()
+-    assert value['server_instance_id'] == server.instance_id
+-    assert value['server_command'] and value['server_started_at']
+-    assert 'control_nonce' not in value
+-    assert 'no-store' in headers['Cache-Control']
+-
+-@pytest.mark.parametrize('headers', [{'Origin': 'https://foreign.example'},
+-    {'Host': 'foreign.example'}, {'Sec-Fetch-Site': 'cross-site'}])
+-def test_foreign_browser_cannot_acquire_owner_control(live, headers):
+-    _, _, base = live
+-    with pytest.raises(HTTPError) as error:
+-        call(base, '/api/runtime/control', headers=headers)
+-    assert error.value.code == 403
+-
+-def test_missing_nonce_wrong_identity_and_busy_work_do_not_stop(live):
+-    server, worker, base = live
+-    body, headers = control(base)
+-    for payload, auth, code in [(body, {}, 403),
+-        (body, {**headers, 'Origin': 'https://foreign.example'}, 403),
+-        ({**body, 'server_instance_id': 'old-instance'}, headers, 409),
+-        ({**body, 'server_pid': -1}, headers, 409), ([], headers, 400)]:
+-        with pytest.raises(HTTPError) as error:
+-            call(base, '/api/runtime/shutdown', payload, auth)
+-        assert error.value.code == code
+-        assert worker.is_alive() and not server.stopping
+-    assert server.begin_request()
+-    try:
+-        with pytest.raises(HTTPError) as error:
+-            call(base, '/api/runtime/shutdown', body, headers)
+-        assert error.value.code == 409
+-    finally:
+-        server.end_request()
+-    assert not server.stopping
+-
+-def test_confirmed_owner_stop_returns_and_new_requests_are_refused(live):
+-    server, worker, base = live
+-    body, headers = control(base)
+-    status, value, _ = call(base, '/api/runtime/shutdown', body, headers)
+-    assert status == 202 and value['server_instance_id'] == server.instance_id
+-    worker.join(timeout=5)
+-    assert not worker.is_alive()
+-    assert not server.begin_request()
+-    assert server.active_requests == 0
++"""Real loopback HTTP with no models; owner stop never kills another PID."""
++import json
++import os
++from pathlib import Path
++import threading
++from urllib.error import HTTPError
++from urllib.request import Request, urlopen
++import pytest
++from media_ai.product_server import create_server
++
++@pytest.fixture
++def live(tmp_path, monkeypatch):
++    monkeypatch.delenv('MINDLE_LOCAL_VERIFIED_RUNTIME_ROOT', raising=False)
++    server = create_server(Path(__file__).resolve().parents[1], tmp_path / 'data', '', 0)
++    worker = threading.Thread(target=server.serve_forever, daemon=True)
++    worker.start()
++    yield server, worker, f'http://127.0.0.1:{server.server_port}'
++    if worker.is_alive():
++        server.shutdown()
++    server.server_close()
++    worker.join(timeout=5)
++
++def call(base, route, body=None, headers=None):
++    headers = dict(headers or {})
++    if body is not None:
++        headers['Content-Type'] = 'application/json'
++    req = Request(base + route, data=None if body is None else json.dumps(body).encode(), headers=headers)
++    with urlopen(req, timeout=5) as response:
++        return response.status, json.load(response), response.headers
++
++def control(base):
++    _, info, _ = call(base, '/api/runtime/control')
++    body = {k: info[k] for k in ('server_pid', 'server_instance_id')}
++    return body, {'X-Mindle-Control': info['control_nonce']}
++
++def test_runtime_identity_reports_own_pid_and_per_instance_identity(live):
++    server, _, base = live
++    _, value, headers = call(base, '/api/runtime-identity')
++    assert value['server_pid'] == os.getpid()
++    assert value['server_instance_id'] == server.instance_id
++    assert value['server_command'] and value['server_started_at']
++    assert 'control_nonce' not in value
++    assert 'no-store' in headers['Cache-Control']
++
++@pytest.mark.parametrize('headers', [{'Origin': 'https://foreign.example'},
++    {'Host': 'foreign.example'}, {'Sec-Fetch-Site': 'cross-site'}])
++def test_foreign_browser_cannot_acquire_owner_control(live, headers):
++    _, _, base = live
++    with pytest.raises(HTTPError) as error:
++        call(base, '/api/runtime/control', headers=headers)
++    assert error.value.code == 403
++
++def test_missing_nonce_wrong_identity_and_busy_work_do_not_stop(live):
++    server, worker, base = live
++    body, headers = control(base)
++    for payload, auth, code in [(body, {}, 403),
++        (body, {**headers, 'Origin': 'https://foreign.example'}, 403),
++        ({**body, 'server_instance_id': 'old-instance'}, headers, 409),
++        ({**body, 'server_pid': -1}, headers, 409), ([], headers, 400)]:
++        with pytest.raises(HTTPError) as error:
++            call(base, '/api/runtime/shutdown', payload, auth)
++        assert error.value.code == code
++        assert worker.is_alive() and not server.stopping
++    assert server.begin_request()
++    try:
++        with pytest.raises(HTTPError) as error:
++            call(base, '/api/runtime/shutdown', body, headers)
++        assert error.value.code == 409
++    finally:
++        server.end_request()
++    assert not server.stopping
++
++def test_confirmed_owner_stop_returns_and_new_requests_are_refused(live):
++    server, worker, base = live
++    body, headers = control(base)
++    status, value, _ = call(base, '/api/runtime/shutdown', body, headers)
++    assert status == 202 and value['server_instance_id'] == server.instance_id
++    worker.join(timeout=5)
++    assert not worker.is_alive()
++    assert not server.begin_request()
++    assert server.active_requests == 0
++
++
++@pytest.mark.parametrize('operation', ['save', 'edit', 'download'])
++def test_owner_stop_does_not_interrupt_real_inflight_requests(live, monkeypatch, operation):
++    """Pause a real request at the I/O boundary, never add a product bypass."""
++    from concurrent.futures import ThreadPoolExecutor
++    from io import BytesIO
++    import base64
++    from PIL import Image
++    from media_ai.product_server import Handler
++    server, worker, base = live
++    body, headers = control(base)
++    entered, release = threading.Event(), threading.Event()
++    def gate(action):
++        def delayed(*args, **kwargs):
++            entered.set()
++            assert release.wait(3), 'test must release the held request'
++            return action(*args, **kwargs)
++        return delayed
++    if operation == 'save':
++        seed = BytesIO(); Image.new('RGB', (4, 3), 'blue').save(seed, 'PNG')
++        job = server.service.store_photo_edit({'filename': 'seed.png',
++            'content_base64': base64.b64encode(seed.getvalue()).decode(), 'options': {}})
++        monkeypatch.setattr(server.service, 'save_project', gate(server.service.save_project))
++        request = lambda: call(base, '/api/projects/save', {'project_id': None, 'job_ids': [job['job_id']]})
++    elif operation == 'edit':
++        image = BytesIO(); Image.new('RGB', (4, 3), 'blue').save(image, 'PNG')
++        monkeypatch.setattr(server.service, 'store_photo_edit', gate(server.service.store_photo_edit))
++        request = lambda: call(base, '/api/photo-edits', {'filename': 'edit.png',
++            'content_base64': base64.b64encode(image.getvalue()).decode(), 'options': {}})
++    else:
++        path = server.data_dir / 'download.bin'; path.parent.mkdir(parents=True, exist_ok=True)
++        path.write_bytes(b'unchanged actual download')
++        monkeypatch.setattr(Handler, '_file', gate(Handler._file))
++        def request():
++            with urlopen(base + '/files/download.bin', timeout=5) as response:
++                return response.status, response.read(), response.headers
++    with ThreadPoolExecutor(max_workers=1) as pool:
++        pending = pool.submit(request)
++        try:
++            assert entered.wait(3)
++            with pytest.raises(HTTPError) as error:
++                call(base, '/api/runtime/shutdown', body, headers)
++            assert error.value.code == 409
++            assert worker.is_alive() and not server.stopping
++            assert not pending.done()
++        finally:
++            release.set()
++        status, result, _ = pending.result(timeout=5)
++        assert status == (200 if operation == 'download' else 201)
++        if operation == 'download': assert result == b'unchanged actual download'
++    # A rejected stop must leave the runtime accepting subsequent work.
++    assert call(base, '/api/runtime-identity')[0] == 200
+diff --git a/ui/product_integration.js b/ui/product_integration.js
+index 7440be6..5812c94 100644
+--- a/ui/product_integration.js
++++ b/ui/product_integration.js
+@@ -1,314 +1,326 @@
+-/* Behaviour layer for the approved layout.  It never selects or substitutes a model. */
+-(() => {
+-  const state = { video: null, photo: null, jobs: [], projectId: null, videoMode: "general", shortformContract: null, audio: null };
+-  const executing = new Set();
+-  const pending={photo:0,video:0};
+-  let saving=false, restoring=false, exporting=false;
+-  const projectBusy=()=>saving || restoring || exporting || executing.size || pending.photo || pending.video;
+-  const projectChangeBlocked=()=>{
+-    if(!projectBusy()) return false;
+-    document.querySelectorAll('[data-editor]').forEach(editor=>message(editor,'진행 중인 편집·저장·불러오기를 완료한 뒤 프로젝트를 전환하세요.',true));
+-    return true;
+-  };
+-  window.mindleBeginEdit=kind=>{pending[kind]++;};
+-  window.mindleEndEdit=kind=>{pending[kind]=Math.max(0,pending[kind]-1);};
+-  window.mindleEditPending=kind=>pending[kind]>0 || saving || restoring || exporting;
+-  window.mindleInputFor = kind => state[kind];
+-  const readFile = (file) => new Promise((resolve, reject) => {
+-    const reader = new FileReader();
+-    reader.onerror = () => reject(new Error("파일을 읽을 수 없습니다."));
+-    reader.onload = () => resolve(String(reader.result).split(",", 2)[1]);
+-    reader.readAsDataURL(file);
+-  });
+-  const operationFor = (kind, file, command) => {
+-    if (file.type.startsWith("audio/")) return { lane: "korean_audio", operation: "transcribe" };
+-    if (kind === "video" && /자막|STT|받아쓰기/.test(command)) return {lane:"korean_audio",operation:"transcribe"};
+-    if (kind === "video") return { lane: "video", operation: "tracking" };
+-    return { lane: "photo", operation: /업스케일|고화질|해상도|4x|4배|upscale/i.test(command) ? "upscale" : "segment" };
+-  };
+-  const message = (editor, text, error = false) => {
+-    const node = editor.querySelector("[data-command-error]");
+-    node.textContent = text; node.dataset.result = error ? "error" : "ok";
+-    node.style.display = text ? "block" : "none";
+-  };
+-  const rememberResult = async result => {
+-    if(result.lane!=='photo' && result.lane!=='video') return;
+-    const response=await fetch(result.preview_url);
+-    if(!response.ok) throw new Error('편집 결과 파일을 읽을 수 없습니다.');
+-    const blob=await response.blob();state[result.lane]=new File([blob],result.primary_output.file_name||result.primary_output.path.split(/[\\/]/).pop(),{type:blob.type});
+-    state[result.lane].mindleAudio=result.runtime_result.options||{};
+-  };
+-  const preview = (editor, result) => {
+-    if(result.operation==="transcribe") result={...result,lane:"korean_audio"};
+-    const host = editor.querySelector("[data-preview]"); host.replaceChildren();
+-    const output = result.preview_output || result.primary_output;
+-    let element;
+-    if (result.lane === "photo") { element = document.createElement("img"); element.alt = result.operation === "photo_edit" ? "보정 결과" : result.operation === "import" ? "원본 사진" : "AI 편집 결과"; element.src = result.preview_url; }
+-    else if (result.lane === "video") { element = document.createElement("video"); element.controls = false; element.src = result.preview_url; }
+-    else { element = document.createElement("pre"); element.textContent = result.runtime_result.text; }
+-    element.dataset.jobId = result.job_id; element.dataset.outputSha256 = output.sha256; host.append(element);
+-    if(result.lane==='video') {
+-      const clock=seconds=>new Date(Math.max(0,seconds||0)*1000).toISOString().slice(11,19);
+-      element.addEventListener('error',()=>{ if(!host.contains(element)) return;host.dataset.previewStatus='media-error'; message(editor, '영상 미리보기를 재생할 수 없습니다 · MediaError '+(element.error?.code || 0), true); });
+-      element.addEventListener('loadedmetadata',()=>{
+-        if(!host.contains(element)) return;
+-        editor.querySelector('[data-video-duration]').textContent='/ '+clock(element.duration);
+-        editor.querySelector('.timeline-ruler').textContent=Array.from({length:6},(_,i)=>clock(element.duration*i/5)).join('　');
+-      });
+-      element.addEventListener('timeupdate',()=>{
+-        if(!host.contains(element)) return;
+-        editor.querySelector('[data-video-time]').textContent=clock(element.currentTime);
+-        editor.querySelector('[data-video-seek]').value=element.duration?element.currentTime/element.duration*100:0;
+-      });
+-      const options=result.runtime_result.options||{};
+-      editor.querySelector('.track.purple').textContent='Subtitle Track · '+(options.subtitle||'자막 없음');
+-      editor.querySelector('.track.cyan').textContent='Effect Track · '+(options.effect?'영상 효과':options.fade?'장면 전환':'효과 없음');
+-      editor.querySelector('.track.green').textContent='Audio Track · '+(options.backgroundVolume!=null?'추가한 배경음악':'원본 오디오');
+-    }
+-    host.dataset.operation = result.operation; host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
+-    if (result.lane === "video") { const track = editor.querySelector(".track.film"); if (track) track.textContent = result.operation === "tracking" ? (result.runtime_result.tracking_mode==='continuous_video_memory'?`영상 Track · 전체 ${result.runtime_result.tracked_frames}프레임 연속 추적`:`영상 Track · SAM tracking · ${result.runtime_result.sampled_frames} samples`) : "영상 Track · "+(result.operation === "import" ? "원본 영상" : "편집 결과"); }
+-  };
+-  async function executeShortform(editor, detail) {
+-    try {
+-      message(editor, "Marketing AI에 광고 기획을 요청 중입니다.");
+-      const response = await fetch("/api/integrations/marketing/shortform", {
+-        method: "POST",
+-        headers: { "Content-Type": "application/json" },
+-        body: JSON.stringify({ command: detail.command, entrypoint: "media_ai", project_id: state.projectId })
+-      });
+-      const result = await response.json();
+-      if (!response.ok || result.status !== "bridge_contract_ready") throw new Error(result.error || "광고 제작지시 수신 실패");
+-      state.shortformContract = result.contract;
+-      const timeline = editor.querySelector("[data-timeline]");
+-      timeline.replaceChildren(...result.contract.scenes.map((scene) => {
+-        const item = document.createElement("span");
+-        item.dataset.sceneId = scene.id;
+-        item.dataset.startSec = String(scene.start_sec);
+-        item.dataset.endSec = String(scene.end_sec);
+-        item.textContent = `${scene.start_sec}–${scene.end_sec}초 · ${scene.subtitle}`;
+-        return item;
+-      }));
+-      editor.dataset.shortformStatus = "contract-ready";
+-      editor.dataset.aspectRatio = result.contract.aspect_ratio;
+-      message(editor, `광고 제작지시 준비 완료 · ${result.contract.duration}초 · Preview 전 검수 필요`);
+-    } catch (error) { message(editor, error.message, true); }
+-  }
+-  async function execute(editor, kind, detail) {
+-    if (executing.has(kind) || window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);return;}
+-    executing.add(kind);
+-    try {await executeReady(editor,kind,detail);} finally {executing.delete(kind);}
+-  }
+-  async function executeReady(editor, kind, detail) {
+-    if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
+-    const file = kind==='video' && /자막|STT|받아쓰기/.test(detail.command) && state.audio ? state.audio : state[kind];
+-    if (!file) { message(editor, "먼저 실제 원본 파일을 불러오세요.", true); return; }
+-    try {
+-      const command = detail.command;
+-      if (kind === "video" && window.mindleVideoCommand && await window.mindleVideoCommand(command)) return;
+-      if (kind === "photo" && window.mindlePhotoCommand && await window.mindlePhotoCommand(command)) return;
+-      if(kind==='photo' && /배경/.test(command)) {
+-        const host=editor.querySelector('[data-preview]');
+-        if(host.dataset.operation==='segment' && host.dataset.jobId) {
+-          const response=await fetch('/api/jobs/'+encodeURIComponent(host.dataset.jobId)+'/background',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+-          const result=await response.json();if(!response.ok) throw new Error(result.error||'배경 제거 실패');
+-          await window.mindleAcceptResult(result);message(editor,'배경 제거 완료 · 원본 비율과 투명 배경을 보존했습니다.');return;
+-        }
+-      }
+-      if (kind === 'video' && !file.type.startsWith('audio/') && !/추적|tracking|자막|STT|받아쓰기/i.test(command)) {
+-        throw new Error('지원하는 영상 지시: 추적·자막·밝게·속도·자르기·전환·효과·숏폼');
+-      }
+-      message(editor, "AI 편집을 실행하고 있습니다.");
+-      const choice = operationFor(kind, file, command);
+-      const body = { ...choice, request_id:crypto.randomUUID(), command, filename: file.name, content_base64: await readFile(file), project_id: state.projectId };
+-      body.references=await Promise.all((detail.references||[]).filter(ref=>ref.file).map(async ref=>({filename:ref.name,content_base64:await readFile(ref.file)})));
+-      if (file.datasetReference) body.reference = file.datasetReference;
+-      const monitor=setInterval(async()=>{
+-        try {const r=await fetch('/api/tasks/'+encodeURIComponent(body.request_id));if(r.ok) {const task=await r.json();if(task.status==='RUNNING') message(editor,'AI 처리 중 · '+task.operation+' · '+task.state);}} catch(_) {}
+-      },1000);
+-      let response;
+-      try {response=await fetch('/api/jobs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});} finally {clearInterval(monitor);}
+-      const result = await response.json(); if (!response.ok || result.status !== "TESTED_PASS") throw new Error(result.error || "실제 모델 Job 실패");
+-      if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
+-      if(result.lane==='korean_audio' && editor.querySelector('[data-preview] video')) {
+-        editor.querySelector('.track.purple').textContent='Subtitle Track · '+result.runtime_result.text;
+-        message(editor,result.runtime_result.text);
+-        if(/자막/.test(command) && window.mindleApplyVideoSubtitle) await window.mindleApplyVideoSubtitle(result.runtime_result.text,result.runtime_result.segments||[]);
+-        return;
+-      } else {preview(editor, result);await rememberResult(result);}
+-      message(editor, "편집 완료");
+-    } catch (error) { message(editor, error.message, true); }
+-  }
+-  async function save(editor) {
+-    if(projectBusy()) {message(editor,'진행 중인 편집·저장·불러오기를 완료한 뒤 저장하세요.',true);return false;}
+-    saving=true;
+-    try {
+-      const serialize = async file => ({filename:file.name,mime_type:file.type,content_base64:await readFile(file)});
+-      const workspace = {references:{},audio:null};
+-      for(const kind of ['photo','video']) workspace.references[kind]=await Promise.all((window.mindleReferenceFiles?.(kind)||[]).map(serialize));
+-      const audio=state.audio;
+-      if(audio) workspace.audio=await serialize(audio);
+-      const response = await fetch("/api/projects/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ project_id: state.projectId, job_ids: state.jobs, workspace }) });
+-      const result = await response.json(); if (!response.ok) throw new Error(result.error || "저장 실패");
+-      state.projectId = result.project_id; editor.dataset.projectStatus = "saved"; message(editor, `프로젝트 저장 완료 · ${result.project_id}`);
+-      return true;
+-    } catch (error) { message(editor, error.message, true); return false; }
+-    finally {saving=false;}
+-  }
+-  async function exportProject(editor) {
+-    let ownsExport=false;
+-    try {
+-      if (!await save(editor) || !state.projectId) return;
+-      exporting=true;ownsExport=true;
+-      const response = await fetch(`/api/projects/${state.projectId}/export`, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+-      const result = await response.json(); if (!response.ok) throw new Error(result.error || "내보내기 실패");
+-      const link = document.createElement("a"); link.href = result.download_url; link.download = result.export.file_name; link.dataset.exportSha256 = result.export.sha256; document.body.append(link); link.click(); link.remove();
+-      editor.dataset.exportStatus = "exported"; editor.dataset.exportSha256 = result.export.sha256; message(editor, `내보내기 완료 · ${result.export.file_name}`);
+-    } catch (error) { message(editor, error.message, true); }
+-    finally {if(ownsExport) exporting=false;}
+-  }
+-  window.mindleRefreshAssets = async () => {
+-    const response=await fetch('/api/assets');if(!response.ok) throw new Error('실제 원본 목록을 읽을 수 없습니다.');
+-    const {assets}=await response.json();
+-    for(const kind of ['video','photo']) {
+-      const grid=document.querySelector(`[data-editor="${kind}"] .asset-grid`);grid.replaceChildren();
+-      for(const asset of assets.filter(item=>item.lane===kind)) {
+-        const name=asset.original_filename||asset.input.file_name.replace(/^[0-9a-f-]{36}_/i,'');
+-        const tile=document.createElement('span');tile.textContent=name;tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',name+' 불러오기');
+-        if(kind==='photo') tile.style.backgroundImage=`url("${asset.preview_url}")`;
+-        const open=async()=>{
+-          if(projectBusy()) return;
+-          window.mindleBeginEdit(kind);
+-          try {await window.mindleAcceptResult(asset);} catch(error) {message(document.querySelector(`[data-editor="${kind}"]`),error.message,true);}
+-          finally {window.mindleEndEdit(kind);}
+-        };
+-        tile.addEventListener('click',open);tile.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' ') {event.preventDefault();open();}});grid.append(tile);
+-      }
+-    }
+-  };
+-  window.mindleAcceptResult = async result => {
+-    state.jobs=state.jobs.filter(id=>id!==result.job_id);state.jobs.push(result.job_id);
+-    await rememberResult(result);
+-    preview(document.querySelector(`[data-editor="${result.lane}"]`),result);
+-    await window.mindleRefreshAssets();
+-  };
+-  document.addEventListener('mindle:video-result', async (event) => { await window.mindleAcceptResult(event.detail); });
+-  document.addEventListener('mindle:photo-result', async (event) => {
+-    const result = event.detail; if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
+-    preview(document.querySelector('[data-editor="photo"]'), result);await rememberResult(result);
+-  });
+-  ["video", "photo"].forEach((kind) => {
+-    const editor = document.querySelector(`[data-editor="${kind}"]`); if (!editor) return;
+-    const input = editor.querySelector("[data-primary-input]");
+-    editor.querySelector("[data-action='load']").addEventListener("click", () => input.click());
+-    input.addEventListener("change", async () => {
+-      const original = state[kind];
+-      const selected = input.files[0];
+-      if (!selected) return;
+-      if(window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);input.value='';return;}
+-      if (kind==='photo' && !selected.type.startsWith('image/') || kind==='video' && !/^(video|audio)\//.test(selected.type)) {message(editor,'지원하지 않는 입력 파일입니다.',true);input.value='';return;}
+-      if(kind==='video' && selected.type.startsWith('audio/')) {state.audio=selected;message(editor,'음성 입력 준비 · '+selected.name);input.value='';return;}
+-      if(kind==='video') state.audio=null;
+-      state[kind] = selected;
+-      message(editor, `입력 준비 · ${state[kind].name}`);
+-      if (state[kind].type.startsWith('audio/')) {input.value='';return;}
+-      window.mindleBeginEdit(kind);
+-      try {
+-        message(editor,'원본을 불러오고 있습니다.');
+-        const response=await fetch('/api/media/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,filename:state[kind].name,content_base64:await readFile(state[kind])})});
+-        const result=await response.json();if(!response.ok) throw new Error(result.error||'원본 불러오기 실패');
+-        await window.mindleAcceptResult(result);message(editor,'원본 불러오기 완료');
+-      } catch(error) {state[kind]=original;input.value='';message(editor,error.message,true);}
+-      finally {input.value='';window.mindleEndEdit(kind);}
+-
+-    });
+-    editor.addEventListener("mindle:mode", (event) => { state.videoMode = event.detail.mode; message(editor, state.videoMode === "ad_shortform" ? "광고 숏폼 모드 · 자연어로 제품·대상·길이를 지시하세요." : "일반 영상 편집 모드"); });
+-    editor.querySelector("[data-action='ai-auto-edit']")?.addEventListener("click", () => execute(editor, kind, {command:"자동 편집"}));
+-    editor.addEventListener("mindle:command", (event) => execute(editor, kind, event.detail));
+-    editor.addEventListener("mindle:save", () => save(editor));
+-    editor.addEventListener("mindle:export", () => exportProject(editor));
+-  });
+-  document.querySelectorAll('.asset-grid').forEach(grid=>grid.replaceChildren());
+-  async function restoreSavedProject(url='/api/projects/latest') {
+-    if(projectChangeBlocked()) return false;
+-    restoring=true;
+-    window.mindleRestoreReady=false;
+-    try {
+-      const response = await fetch(url);
+-      const result = await response.json();
+-      if (!response.ok) throw new Error(result.error || '저장된 프로젝트를 불러올 수 없습니다.');
+-      if (!result.project) return false;
+-      // Resolve every dependency before replacing the active workspace. A failed
+-      // fetch must leave the previous project available for Save and retry.
+-      const restoredFiles = new Map();
+-      const restoredReferences = {};
+-      const loadSavedFile = async (url, name, mime, failure) => {
+-        const r=await fetch(url);if(!r.ok) throw new Error(failure);
+-        const blob=await r.blob();return new File([blob],name,{type:mime||blob.type});
+-      };
+-      for(const job of result.project.jobs) {
+-        if(job.preview_url && ['photo','video'].includes(job.lane) && job.operation!=='transcribe') {
+-          const output=job.preview_output||job.primary_output||job.input;
+-          const file=await loadSavedFile(job.preview_url,output.file_name||output.path.split(/[\\/]/).pop(),null,'저장된 편집 결과를 읽을 수 없습니다.');
+-          file.mindleAudio=job.runtime_result.options||{};restoredFiles.set(job.job_id,file);
+-        }
+-      }
+-      const workspace=result.project.workspace;
+-      for(const kind of ['photo','video']) {
+-        const referenceJob=[...result.project.jobs].reverse().find(job=>job.lane===kind&&job.reference_urls?.length);
+-        const references=workspace ? workspace.references?.[kind]||[] : referenceJob?.reference_urls||[];
+-        restoredReferences[kind]=await Promise.all(references.map(ref=>loadSavedFile(ref.url,ref.original_filename||ref.name,ref.mime_type,'저장된 참고 이미지를 읽을 수 없습니다.')));
+-      }
+-      const transcript=[...result.project.jobs].reverse().find(job=>job.lane==='korean_audio'||job.operation==='transcribe');
+-      let restoredAudio=null;
+-      if(workspace?.audio) restoredAudio=await loadSavedFile(workspace.audio.url,workspace.audio.original_filename,workspace.audio.mime_type,'저장된 음성을 읽을 수 없습니다.');
+-      else if(!workspace && transcript?.input_url) restoredAudio=await loadSavedFile(transcript.input_url,transcript.input.file_name||'saved_audio.wav','audio/wav','저장된 음성을 읽을 수 없습니다.');
+-      state.projectId = result.project.project_id;
+-      state.jobs = result.project.job_ids;
+-      state.photo=state.video=state.audio=null;
+-      document.querySelectorAll('[data-preview]').forEach(host=>host.replaceChildren());
+-      for (const storedJob of result.project.jobs) {
+-        const job=storedJob.operation==="transcribe"?{...storedJob,lane:"korean_audio"}:storedJob;
+-        // A saved transcript must not replace an available VIDEO result preview.
+-        if (job.lane === 'korean_audio' && result.project.jobs.some((item) => item.lane === 'video' && item.operation!=='transcribe')) continue;
+-        const kind = job.lane === 'photo' ? 'photo' : 'video';
+-        const editor = document.querySelector(`[data-editor="${kind}"]`);
+-        if (editor) {
+-          preview(editor, job);
+-          if(restoredFiles.has(job.job_id)) state[kind]=restoredFiles.get(job.job_id);
+-          editor.dataset.projectStatus = 'reopened';
+-          message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);
+-        }
+-      }
+-      for(const kind of ['photo','video']) document.querySelector(`[data-editor="${kind}"]`).dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:restoredReferences[kind]}}));
+-      state.audio=restoredAudio;
+-      if (transcript) {
+-        const editor = document.querySelector('[data-editor="video"]');
+-        if (editor) {
+-          editor.querySelector('.track.purple').textContent='Subtitle Track · '+transcript.runtime_result.text;
+-          message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId} · 한국어 자막: ${transcript.runtime_result.text}`);
+-        }
+-      }
+-      return true;
+-    } catch (error) {
+-      const editor = document.querySelector('[data-editor="video"]');
+-      if (editor) message(editor, error.message, true);
+-      return false;
+-    } finally {try {await window.mindleRefreshAssets();} catch(error) {message(document.querySelector('[data-editor="video"]'),error.message,true);}restoring=false;window.mindleRestoreReady=true;}
+-  }
+-  window.mindleOpenProject = projectId => restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));
+-  window.mindleNewProject = () => {
+-    if(projectChangeBlocked()) return false;
+-    state.projectId=null;state.jobs=[];state.photo=state.video=state.audio=null;
+-    document.querySelectorAll('[data-preview]').forEach(host=>{host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;});
+-    const video=document.querySelector('[data-editor="video"]');
+-    video.querySelector('.track.purple').textContent='Subtitle Track · 자막 없음';
+-    video.querySelector('[data-video-time]').textContent='00:00:00';
+-    video.querySelector('[data-video-duration]').textContent='/ 00:00:00';
+-    document.querySelectorAll('[data-editor]').forEach(editor=>{
+-      editor.dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:[]}}));
+-      message(editor,'새 프로젝트 · 원본을 불러오세요.');
+-    });
+-    return true;
+-  };
+-  restoreSavedProject();
+-})();
++/* Behaviour layer for the approved layout.  It never selects or substitutes a model. */
++(() => {
++  const state = { video: null, photo: null, jobs: [], projectId: null, videoMode: "general", shortformContract: null, audio: null };
++  const executing = new Set();
++  const pending={photo:0,video:0};
++  let saving=false, restoring=false, exporting=false;
++  const projectBusy=()=>saving || restoring || exporting || executing.size || pending.photo || pending.video;
++  const projectChangeBlocked=()=>{
++    if(!projectBusy()) return false;
++    document.querySelectorAll('[data-editor]').forEach(editor=>message(editor,'진행 중인 편집·저장·불러오기를 완료한 뒤 프로젝트를 전환하세요.',true));
++    return true;
++  };
++  window.mindleBeginEdit=kind=>{pending[kind]++;};
++  window.mindleEndEdit=kind=>{pending[kind]=Math.max(0,pending[kind]-1);};
++  window.mindleEditPending=kind=>pending[kind]>0 || saving || restoring || exporting;
++  window.mindleInputFor = kind => state[kind];
++  const readFile = (file) => new Promise((resolve, reject) => {
++    const reader = new FileReader();
++    reader.onerror = () => reject(new Error("파일을 읽을 수 없습니다."));
++    reader.onload = () => resolve(String(reader.result).split(",", 2)[1]);
++    reader.readAsDataURL(file);
++  });
++  const operationFor = (kind, file, command) => {
++    if (file.type.startsWith("audio/")) return { lane: "korean_audio", operation: "transcribe" };
++    if (kind === "video" && /자막|STT|받아쓰기/.test(command)) return {lane:"korean_audio",operation:"transcribe"};
++    if (kind === "video") return { lane: "video", operation: "tracking" };
++    return { lane: "photo", operation: /업스케일|고화질|해상도|4x|4배|upscale/i.test(command) ? "upscale" : "segment" };
++  };
++  const message = (editor, text, error = false) => {
++    const node = editor.querySelector("[data-command-error]");
++    node.textContent = text; node.dataset.result = error ? "error" : "ok";
++    node.style.display = text ? "block" : "none";
++  };
++  const rememberResult = async result => {
++    if(result.lane!=='photo' && result.lane!=='video') return;
++    const response=await fetch(result.preview_url);
++    if(!response.ok) throw new Error('편집 결과 파일을 읽을 수 없습니다.');
++    const blob=await response.blob();state[result.lane]=new File([blob],result.primary_output.file_name||result.primary_output.path.split(/[\\/]/).pop(),{type:blob.type});
++    state[result.lane].mindleAudio=result.runtime_result.options||{};
++  };
++  const preview = (editor, result) => {
++    if(result.operation==="transcribe") result={...result,lane:"korean_audio"};
++    const host = editor.querySelector("[data-preview]"); host.replaceChildren();
++    const output = result.preview_output || result.primary_output;
++    let element;
++    if (result.lane === "photo") { element = document.createElement("img"); element.alt = result.operation === "photo_edit" ? "보정 결과" : result.operation === "import" ? "원본 사진" : "AI 편집 결과"; element.src = result.preview_url; }
++    else if (result.lane === "video") { element = document.createElement("video"); element.controls = false; element.src = result.preview_url; }
++    else { element = document.createElement("pre"); element.textContent = result.runtime_result.text; }
++    element.dataset.jobId = result.job_id; element.dataset.outputSha256 = output.sha256; host.append(element);
++    if(result.lane==='video') {
++      const clock=seconds=>new Date(Math.max(0,seconds||0)*1000).toISOString().slice(11,19);
++      element.addEventListener('error',()=>{ if(!host.contains(element)) return;host.dataset.previewStatus='media-error'; message(editor, '영상 미리보기를 재생할 수 없습니다 · MediaError '+(element.error?.code || 0), true); });
++      element.addEventListener('loadedmetadata',()=>{
++        if(!host.contains(element)) return;
++        editor.querySelector('[data-video-duration]').textContent='/ '+clock(element.duration);
++        editor.querySelector('.timeline-ruler').textContent=Array.from({length:6},(_,i)=>clock(element.duration*i/5)).join('　');
++      });
++      element.addEventListener('timeupdate',()=>{
++        if(!host.contains(element)) return;
++        editor.querySelector('[data-video-time]').textContent=clock(element.currentTime);
++        editor.querySelector('[data-video-seek]').value=element.duration?element.currentTime/element.duration*100:0;
++      });
++      const options=result.runtime_result.options||{};
++      editor.querySelector('.track.purple').textContent='Subtitle Track · '+(options.subtitle||'자막 없음');
++      editor.querySelector('.track.cyan').textContent='Effect Track · '+(options.effect?'영상 효과':options.fade?'장면 전환':'효과 없음');
++      editor.querySelector('.track.green').textContent='Audio Track · '+(options.backgroundVolume!=null?'추가한 배경음악':'원본 오디오');
++    }
++    host.dataset.operation = result.operation; host.dataset.jobId = result.job_id; host.dataset.previewStatus = "actual-output";
++    if (result.lane === "video") { const track = editor.querySelector(".track.film"); if (track) track.textContent = result.operation === "tracking" ? (result.runtime_result.tracking_mode==='continuous_video_memory'?`영상 Track · 전체 ${result.runtime_result.tracked_frames}프레임 연속 추적`:`영상 Track · SAM tracking · ${result.runtime_result.sampled_frames} samples`) : "영상 Track · "+(result.operation === "import" ? "원본 영상" : "편집 결과"); }
++  };
++  async function executeShortform(editor, detail) {
++    try {
++      message(editor, "Marketing AI에 광고 기획을 요청 중입니다.");
++      const response = await fetch("/api/integrations/marketing/shortform", {
++        method: "POST",
++        headers: { "Content-Type": "application/json" },
++        body: JSON.stringify({ command: detail.command, entrypoint: "media_ai", project_id: state.projectId })
++      });
++      const result = await response.json();
++      if (!response.ok || result.status !== "bridge_contract_ready") throw new Error(result.error || "광고 제작지시 수신 실패");
++      state.shortformContract = result.contract;
++      const timeline = editor.querySelector("[data-timeline]");
++      timeline.replaceChildren(...result.contract.scenes.map((scene) => {
++        const item = document.createElement("span");
++        item.dataset.sceneId = scene.id;
++        item.dataset.startSec = String(scene.start_sec);
++        item.dataset.endSec = String(scene.end_sec);
++        item.textContent = `${scene.start_sec}–${scene.end_sec}초 · ${scene.subtitle}`;
++        return item;
++      }));
++      editor.dataset.shortformStatus = "contract-ready";
++      editor.dataset.aspectRatio = result.contract.aspect_ratio;
++      message(editor, `광고 제작지시 준비 완료 · ${result.contract.duration}초 · Preview 전 검수 필요`);
++    } catch (error) { message(editor, error.message, true); }
++  }
++  async function execute(editor, kind, detail) {
++    if (executing.has(kind) || window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);return;}
++    executing.add(kind);
++    try {await executeReady(editor,kind,detail);} finally {executing.delete(kind);}
++  }
++  async function executeReady(editor, kind, detail) {
++    if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
++    const file = kind==='video' && /자막|STT|받아쓰기/.test(detail.command) && state.audio ? state.audio : state[kind];
++    if (!file) { message(editor, "먼저 실제 원본 파일을 불러오세요.", true); return; }
++    try {
++      const command = detail.command;
++      if (kind === "video" && window.mindleVideoCommand && await window.mindleVideoCommand(command)) return;
++      if (kind === "photo" && window.mindlePhotoCommand && await window.mindlePhotoCommand(command)) return;
++      if(kind==='photo' && /배경/.test(command)) {
++        const host=editor.querySelector('[data-preview]');
++        if(host.dataset.operation==='segment' && host.dataset.jobId) {
++          const response=await fetch('/api/jobs/'+encodeURIComponent(host.dataset.jobId)+'/background',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
++          const result=await response.json();if(!response.ok) throw new Error(result.error||'배경 제거 실패');
++          await window.mindleAcceptResult(result);message(editor,'배경 제거 완료 · 원본 비율과 투명 배경을 보존했습니다.');return;
++        }
++      }
++      if (kind === 'video' && !file.type.startsWith('audio/') && !/추적|tracking|자막|STT|받아쓰기/i.test(command)) {
++        throw new Error('지원하는 영상 지시: 추적·자막·밝게·속도·자르기·전환·효과·숏폼');
++      }
++      message(editor, "AI 편집을 실행하고 있습니다.");
++      const choice = operationFor(kind, file, command);
++      const body = { ...choice, request_id:crypto.randomUUID(), command, filename: file.name, content_base64: await readFile(file), project_id: state.projectId };
++      body.references=await Promise.all((detail.references||[]).filter(ref=>ref.file).map(async ref=>({filename:ref.name,content_base64:await readFile(ref.file)})));
++      if (file.datasetReference) body.reference = file.datasetReference;
++      const monitor=setInterval(async()=>{
++        try {const r=await fetch('/api/tasks/'+encodeURIComponent(body.request_id));if(r.ok) {const task=await r.json();if(task.status==='RUNNING') message(editor,'AI 처리 중 · '+task.operation+' · '+task.state);}} catch(_) {}
++      },1000);
++      let response;
++      try {response=await fetch('/api/jobs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});} finally {clearInterval(monitor);}
++      const result = await response.json(); if (!response.ok || result.status !== "TESTED_PASS") throw new Error(result.error || "실제 모델 Job 실패");
++      if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
++      if(result.lane==='korean_audio' && editor.querySelector('[data-preview] video')) {
++        editor.querySelector('.track.purple').textContent='Subtitle Track · '+result.runtime_result.text;
++        message(editor,result.runtime_result.text);
++        if(/자막/.test(command) && window.mindleApplyVideoSubtitle) await window.mindleApplyVideoSubtitle(result.runtime_result.text,result.runtime_result.segments||[]);
++        return;
++      } else {preview(editor, result);await rememberResult(result);}
++      message(editor, "편집 완료");
++    } catch (error) { message(editor, error.message, true); }
++  }
++  async function save(editor) {
++    if(projectBusy()) {message(editor,'진행 중인 편집·저장·불러오기를 완료한 뒤 저장하세요.',true);return false;}
++    saving=true;
++    try {
++      const serialize = async file => ({filename:file.name,mime_type:file.type,content_base64:await readFile(file)});
++      const workspace = {references:{},audio:null};
++      for(const kind of ['photo','video']) workspace.references[kind]=await Promise.all((window.mindleReferenceFiles?.(kind)||[]).map(serialize));
++      const audio=state.audio;
++      if(audio) workspace.audio=await serialize(audio);
++      const response = await fetch("/api/projects/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ project_id: state.projectId, job_ids: state.jobs, workspace }) });
++      const result = await response.json(); if (!response.ok) throw new Error(result.error || "저장 실패");
++      state.projectId = result.project_id; editor.dataset.projectStatus = "saved"; message(editor, `프로젝트 저장 완료 · ${result.project_id}`);
++      return true;
++    } catch (error) { message(editor, error.message, true); return false; }
++    finally {saving=false;}
++  }
++  async function exportProject(editor) {
++    let ownsExport=false;
++    try {
++      if (!await save(editor) || !state.projectId) return;
++      exporting=true;ownsExport=true;
++      const response = await fetch(`/api/projects/${state.projectId}/export`, { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
++      const result = await response.json(); if (!response.ok) throw new Error(result.error || "내보내기 실패");
++      const link = document.createElement("a"); link.href = result.download_url; link.download = result.export.file_name; link.dataset.exportSha256 = result.export.sha256; document.body.append(link); link.click(); link.remove();
++      editor.dataset.exportStatus = "exported"; editor.dataset.exportSha256 = result.export.sha256; message(editor, `내보내기 완료 · ${result.export.file_name}`);
++    } catch (error) { message(editor, error.message, true); }
++    finally {if(ownsExport) exporting=false;}
++  }
++  window.mindleRefreshAssets = async () => {
++    const response=await fetch('/api/assets');if(!response.ok) throw new Error('실제 원본 목록을 읽을 수 없습니다.');
++    const {assets}=await response.json();
++    for(const kind of ['video','photo']) {
++      const grid=document.querySelector(`[data-editor="${kind}"] .asset-grid`);grid.replaceChildren();
++      for(const asset of assets.filter(item=>item.lane===kind)) {
++        const name=asset.original_filename||asset.input.file_name.replace(/^[0-9a-f-]{36}_/i,'');
++        const tile=document.createElement('span');tile.textContent=name;tile.dataset.assetJobId=asset.job_id;tile.tabIndex=0;tile.setAttribute('role','button');tile.setAttribute('aria-label',name+' 불러오기');
++        if(kind==='photo') tile.style.backgroundImage=`url("${asset.preview_url}")`;
++        const open=async()=>{
++          if(projectBusy()) return;
++          window.mindleBeginEdit(kind);
++          try {await window.mindleAcceptResult(asset);} catch(error) {message(document.querySelector(`[data-editor="${kind}"]`),error.message,true);}
++          finally {window.mindleEndEdit(kind);}
++        };
++        tile.addEventListener('click',open);tile.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' ') {event.preventDefault();open();}});grid.append(tile);
++      }
++    }
++  };
++  window.mindleAcceptResult = async result => {
++    state.jobs=state.jobs.filter(id=>id!==result.job_id);state.jobs.push(result.job_id);
++    await rememberResult(result);
++    preview(document.querySelector(`[data-editor="${result.lane}"]`),result);
++    await window.mindleRefreshAssets();
++  };
++  document.addEventListener('mindle:video-result', async (event) => { await window.mindleAcceptResult(event.detail); });
++  document.addEventListener('mindle:photo-result', async (event) => {
++    const result = event.detail; if (!state.jobs.includes(result.job_id)) state.jobs.push(result.job_id);
++    preview(document.querySelector('[data-editor="photo"]'), result);await rememberResult(result);
++  });
++  ["video", "photo"].forEach((kind) => {
++    const editor = document.querySelector(`[data-editor="${kind}"]`); if (!editor) return;
++    const input = editor.querySelector("[data-primary-input]");
++    editor.querySelector("[data-action='load']").addEventListener("click", () => input.click());
++    input.addEventListener("change", async () => {
++      const original = state[kind];
++      const selected = input.files[0];
++      if (!selected) return;
++      if(window.mindleEditPending(kind)) {message(editor,'현재 편집이 완료될 때까지 기다리세요.',true);input.value='';return;}
++      if (kind==='photo' && !selected.type.startsWith('image/') || kind==='video' && !/^(video|audio)\//.test(selected.type)) {message(editor,'지원하지 않는 입력 파일입니다.',true);input.value='';return;}
++      if(kind==='video' && selected.type.startsWith('audio/')) {state.audio=selected;message(editor,'음성 입력 준비 · '+selected.name);input.value='';return;}
++      if(kind==='video') state.audio=null;
++      state[kind] = selected;
++      message(editor, `입력 준비 · ${state[kind].name}`);
++      if (state[kind].type.startsWith('audio/')) {input.value='';return;}
++      window.mindleBeginEdit(kind);
++      try {
++        message(editor,'원본을 불러오고 있습니다.');
++        const response=await fetch('/api/media/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,filename:state[kind].name,content_base64:await readFile(state[kind])})});
++        const result=await response.json();if(!response.ok) throw new Error(result.error||'원본 불러오기 실패');
++        await window.mindleAcceptResult(result);message(editor,'원본 불러오기 완료');
++      } catch(error) {state[kind]=original;input.value='';message(editor,error.message,true);}
++      finally {input.value='';window.mindleEndEdit(kind);}
++
++    });
++    editor.addEventListener("mindle:mode", (event) => { state.videoMode = event.detail.mode; message(editor, state.videoMode === "ad_shortform" ? "광고 숏폼 모드 · 자연어로 제품·대상·길이를 지시하세요." : "일반 영상 편집 모드"); });
++    editor.querySelector("[data-action='ai-auto-edit']")?.addEventListener("click", () => execute(editor, kind, {command:"자동 편집"}));
++    editor.addEventListener("mindle:command", (event) => execute(editor, kind, event.detail));
++    editor.addEventListener("mindle:save", () => save(editor));
++    editor.addEventListener("mindle:export", () => exportProject(editor));
++  });
++  document.querySelectorAll('.asset-grid').forEach(grid=>grid.replaceChildren());
++  const clearWorkspacePresentation = () => {
++    document.querySelectorAll('[data-preview]').forEach(host=>{
++      host.replaceChildren();delete host.dataset.jobId;delete host.dataset.operation;delete host.dataset.previewStatus;
++    });
++    document.querySelectorAll('[data-editor]').forEach(editor=>{
++      delete editor.dataset.projectStatus;delete editor.dataset.exportStatus;delete editor.dataset.exportSha256;
++    });
++    const video=document.querySelector('[data-editor="video"]');
++    for(const [selector,text] of [
++      ['.track.film','영상 Track · 원본 영상'],['.track.purple','Subtitle Track · 자막 없음'],
++      ['.track.cyan','Effect Track · 효과 없음'],['.track.green','Audio Track · 원본 오디오'],
++      ['[data-video-time]','00:00:00'],['[data-video-duration]','/ 00:00:00'],
++      ['.timeline-ruler','00:00　00:05　00:10　00:15　00:20　00:25']
++    ]) video.querySelector(selector).textContent=text;
++    video.querySelector('[data-video-seek]').value=0;
++  };
++  async function restoreSavedProject(url='/api/projects/latest') {
++    if(projectChangeBlocked()) return false;
++    restoring=true;
++    window.mindleRestoreReady=false;
++    try {
++      const response = await fetch(url);
++      const result = await response.json();
++      if (!response.ok) throw new Error(result.error || '저장된 프로젝트를 불러올 수 없습니다.');
++      if (!result.project) return false;
++      // Resolve every dependency before replacing the active workspace. A failed
++      // fetch must leave the previous project available for Save and retry.
++      const restoredFiles = new Map();
++      const restoredReferences = {};
++      const loadSavedFile = async (url, name, mime, failure) => {
++        const r=await fetch(url);if(!r.ok) throw new Error(failure);
++        const blob=await r.blob();return new File([blob],name,{type:mime||blob.type});
++      };
++      for(const job of result.project.jobs) {
++        if(job.preview_url && ['photo','video'].includes(job.lane) && job.operation!=='transcribe') {
++          const output=job.preview_output||job.primary_output||job.input;
++          const file=await loadSavedFile(job.preview_url,output.file_name||output.path.split(/[\\/]/).pop(),null,'저장된 편집 결과를 읽을 수 없습니다.');
++          file.mindleAudio=job.runtime_result.options||{};restoredFiles.set(job.job_id,file);
++        }
++      }
++      const workspace=result.project.workspace;
++      for(const kind of ['photo','video']) {
++        const referenceJob=[...result.project.jobs].reverse().find(job=>job.lane===kind&&job.reference_urls?.length);
++        const references=workspace ? workspace.references?.[kind]||[] : referenceJob?.reference_urls||[];
++        restoredReferences[kind]=await Promise.all(references.map(ref=>loadSavedFile(ref.url,ref.original_filename||ref.name,ref.mime_type,'저장된 참고 이미지를 읽을 수 없습니다.')));
++      }
++      const transcript=[...result.project.jobs].reverse().find(job=>job.lane==='korean_audio'||job.operation==='transcribe');
++      let restoredAudio=null;
++      if(workspace?.audio) restoredAudio=await loadSavedFile(workspace.audio.url,workspace.audio.original_filename,workspace.audio.mime_type,'저장된 음성을 읽을 수 없습니다.');
++      else if(!workspace && transcript?.input_url) restoredAudio=await loadSavedFile(transcript.input_url,transcript.input.file_name||'saved_audio.wav','audio/wav','저장된 음성을 읽을 수 없습니다.');
++      state.projectId = result.project.project_id;
++      state.jobs = result.project.job_ids;
++      state.photo=state.video=state.audio=null;
++      clearWorkspacePresentation();
++      for (const storedJob of result.project.jobs) {
++        const job=storedJob.operation==="transcribe"?{...storedJob,lane:"korean_audio"}:storedJob;
++        // A saved transcript must not replace an available VIDEO result preview.
++        if (job.lane === 'korean_audio' && result.project.jobs.some((item) => item.lane === 'video' && item.operation!=='transcribe')) continue;
++        const kind = job.lane === 'photo' ? 'photo' : 'video';
++        const editor = document.querySelector(`[data-editor="${kind}"]`);
++        if (editor) {
++          preview(editor, job);
++          if(restoredFiles.has(job.job_id)) state[kind]=restoredFiles.get(job.job_id);
++          editor.dataset.projectStatus = 'reopened';
++          message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId}`);
++        }
++      }
++      for(const kind of ['photo','video']) document.querySelector(`[data-editor="${kind}"]`).dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:restoredReferences[kind]}}));
++      state.audio=restoredAudio;
++      if (transcript) {
++        const editor = document.querySelector('[data-editor="video"]');
++        if (editor) {
++          editor.querySelector('.track.purple').textContent='Subtitle Track · '+transcript.runtime_result.text;
++          message(editor, `저장된 프로젝트를 다시 열었습니다 · ${state.projectId} · 한국어 자막: ${transcript.runtime_result.text}`);
++        }
++      }
++      return true;
++    } catch (error) {
++      const editor = document.querySelector('[data-editor="video"]');
++      if (editor) message(editor, error.message, true);
++      return false;
++    } finally {try {await window.mindleRefreshAssets();} catch(error) {message(document.querySelector('[data-editor="video"]'),error.message,true);}restoring=false;window.mindleRestoreReady=true;}
++  }
++  window.mindleOpenProject = projectId => restoreSavedProject('/api/projects/'+encodeURIComponent(projectId));
++  window.mindleNewProject = () => {
++    if(projectChangeBlocked()) return false;
++    state.projectId=null;state.jobs=[];state.photo=state.video=state.audio=null;
++    clearWorkspacePresentation();
++    document.querySelectorAll('[data-editor]').forEach(editor=>{
++      editor.dispatchEvent(new CustomEvent('mindle:restore-references',{detail:{files:[]}}));
++      message(editor,'새 프로젝트 · 원본을 불러오세요.');
++    });
++    return true;
++  };
++  restoreSavedProject();
++})();
+diff --git a/ui/project_lifecycle.test.js b/ui/project_lifecycle.test.js
+index 3bdf81b..0209b90 100644
+--- a/ui/project_lifecycle.test.js
++++ b/ui/project_lifecycle.test.js
+@@ -1,177 +1,203 @@
+-const test = require('node:test');
+-const assert = require('node:assert/strict');
+-const fs = require('node:fs');
+-const vm = require('node:vm');
+-
+-// Execute the production controller. Only DOM/network boundaries are fixtures;
+-// no model, browser decoding, Windows execution or hearing is claimed here.
+-function deferred() {
+-  let resolve;
+-  const promise = new Promise(r => { resolve = r; });
+-  return {promise, resolve};
+-}
+-class Element {
+-  constructor() { this.dataset = {}; this.style = {}; this.listeners = {}; this.nodes = new Map(); }
+-  querySelector(selector) {
+-    if (!this.nodes.has(selector)) this.nodes.set(selector, new Element());
+-    return this.nodes.get(selector);
+-  }
+-  addEventListener(name, callback) { this.listeners[name] = callback; }
+-  dispatchEvent(event) { return this.listeners[event.type]?.(event); }
+-  replaceChildren(...children) { this.children = children; }
+-  append(...children) { (this.children ||= []).push(...children); }
+-  click() {}
+-  remove() {}
+-}
+-async function setup(routes = {}) {
+-  const editors = {video: new Element(), photo: new Element()};
+-  const calls = [];
+-  const pendingSave = deferred();
+-  const pendingRestore = deferred();
+-  const pendingExport = deferred();
+-  let delaySave = false;
+-  let delayRestore = false;
+-  let delayExport = false;
+-  const document = new Element();
+-  document.body = new Element();
+-  document.querySelector = selector => editors[selector.includes('photo') ? 'photo' : 'video'];
+-  document.querySelectorAll = selector => selector === '[data-editor]' ? Object.values(editors)
+-    : selector === '[data-preview]' ? Object.values(editors).map(e => e.querySelector('[data-preview]')) : [];
+-  document.createElement = () => new Element();
+-  const response = data => ({ok: true, json: async () => data, blob: async () => new Blob(['photo'], {type: 'image/png'})});
+-  const window = {};
+-  const context = vm.createContext({window, document, File, Blob, Set, FileReader: class { readAsDataURL() { this.result="data:image/png;base64,cGhvdG8=";this.onload(); } },
+-    CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options?.detail; } },
+-    fetch: async (url, options) => {
+-      calls.push({url, options});
+-      if(routes[url]) return routes[url];
+-      if (url === '/api/projects/latest') return response({project: null});
+-      if (url === '/api/assets') return response({assets: []});
+-      if (url === '/api/projects/save') {
+-        if (delaySave) await pendingSave.promise;
+-        return response({project_id: 'saved-project', status: 'SAVED'});
+-      }
+-      if (url.endsWith('/export')) {
+-        if (delayExport) await pendingExport.promise;
+-        return response({download_url: '/bundle.zip', export: {file_name: 'bundle.zip', sha256: 'fixture'}});
+-      }
+-      if (url.startsWith('/api/projects/')) {
+-        if (delayRestore) await pendingRestore.promise;
+-        return response({project: null});
+-      }
+-      return response({});
+-    }});
+-  vm.runInContext(fs.readFileSync(__dirname + '/product_integration.js', 'utf8'), context);
+-  await new Promise(setImmediate);
+-  const job = {job_id: 'existing-photo', lane: 'photo', operation: 'import', preview_url: '/photo.png',
+-    primary_output: {file_name: 'photo.png', sha256: 'fixture'}, runtime_result: {options: {}}};
+-  await window.mindleAcceptResult(job);
+-  return {window, editors, calls, pendingSave, pendingRestore, pendingExport,
+-    startSave: () => { delaySave = true; return editors.photo.dispatchEvent({type: 'mindle:save'}); },
+-    startRestore: () => { delayRestore = true; return window.mindleOpenProject('first-project'); },
+-    startExport: () => { delayExport = true; return editors.photo.dispatchEvent({type: 'mindle:export'}); }};
+-}
+-
+-test('new/open project cannot clear an edit in progress or start a competing restore', async () => {
+-  const {window, calls} = await setup();
+-  const photo = window.mindleInputFor('photo');
+-  window.mindleBeginEdit('photo');
+-  window.mindleNewProject();
+-  assert.equal(window.mindleInputFor('photo'), photo, 'pending photo must stay in its project');
+-  const before = calls.length;
+-  await window.mindleOpenProject('another-project');
+-  assert.equal(calls.length, before, 'no project fetch may race the active edit');
+-  window.mindleEndEdit('photo');
+-  window.mindleNewProject();
+-  assert.equal(window.mindleInputFor('photo'), null);
+-});
+-
+-test('save response cannot attach the old project to a new project', async () => {
+-  const {window, editors, calls, pendingSave, startSave} = await setup();
+-  const photo = window.mindleInputFor('photo');
+-  const saving = startSave();
+-  await new Promise(setImmediate);
+-  window.mindleNewProject();
+-  assert.equal(window.mindleInputFor('photo'), photo, 'new project must wait for the save response');
+-  pendingSave.resolve();
+-  await saving;
+-  window.mindleNewProject();
+-  await editors.photo.dispatchEvent({type: 'mindle:save'});
+-  const saves = calls.filter(c => c.url === '/api/projects/save');
+-  assert.equal(JSON.parse(saves.at(-1).options.body).project_id, null);
+-});
+-
+-test('rejected duplicate save/export does not unlock the active save', async () => {
+-  const {window, editors, calls, pendingSave, startSave} = await setup();
+-  const saving = startSave();
+-  await new Promise(setImmediate);
+-  await editors.video.dispatchEvent({type: 'mindle:save'});
+-  await editors.video.dispatchEvent({type: 'mindle:export'});
+-  assert.equal(window.mindleNewProject(), false);
+-  assert.equal(calls.filter(c => c.url === '/api/projects/save').length, 1);
+-  pendingSave.resolve();
+-  await saving;
+-  assert.equal(window.mindleNewProject(), true);
+-});
+-
+-test('in-flight restore excludes new/open/save and releases its guard when no project exists', async () => {
+-  const {window, editors, calls, pendingRestore, startRestore} = await setup();
+-  const restoring = startRestore();
+-  const before = calls.length;
+-  assert.equal(window.mindleNewProject(), false);
+-  assert.equal(await window.mindleOpenProject('second-project'), false);
+-  await editors.photo.dispatchEvent({type: 'mindle:save'});
+-  assert.equal(calls.length, before);
+-  pendingRestore.resolve();
+-  assert.equal(await restoring, false);
+-  assert.equal(window.mindleNewProject(), true);
+-});
+-
+-test('rejected duplicate export cannot release the first export transition guard', async () => {
+-  const {window, editors, calls, pendingExport, startExport} = await setup();
+-  const exporting = startExport();
+-  await new Promise(setImmediate);
+-  await editors.video.dispatchEvent({type: 'mindle:export'});
+-  assert.equal(window.mindleNewProject(), false);
+-  assert.equal(calls.filter(c => c.url.endsWith('/export')).length, 1);
+-  pendingExport.resolve();
+-  await exporting;
+-  assert.equal(window.mindleNewProject(), true);
+-});
+-
+-for(const dependency of ['preview','reference','audio']) {
+-  test(`failed ${dependency} restore preserves the previous input, preview, project and jobs`, async () => {
+-    const job={job_id:'replacement',lane:'photo',operation:'import',preview_url:'/replacement.png',
+-      primary_output:{file_name:'replacement.png',sha256:'new'},runtime_result:{options:{}}};
+-    const routes={
+-      '/api/projects/broken':{ok:true,json:async()=>({project:{project_id:'broken',job_ids:['replacement'],jobs:[job],
+-        workspace:{references:{photo:dependency==='reference'?[{url:'/missing',name:'ref.png'}]:[],video:[]},
+-          audio:dependency==='audio'?{url:'/missing',original_filename:'voice.wav'}:null}}})},
+-      '/missing':{ok:false},
+-    };
+-    if(dependency==='preview') routes['/replacement.png']={ok:false};
+-    const {window,editors,calls}=await setup(routes);
+-    await editors.photo.dispatchEvent({type:'mindle:save'});
+-    const input=window.mindleInputFor('photo');
+-    const preview=editors.photo.querySelector('[data-preview]').children[0];
+-    assert.equal(await window.mindleOpenProject('broken'),false);
+-    assert.equal(window.mindleInputFor('photo'),input);
+-    assert.equal(editors.photo.querySelector('[data-preview]').children[0],preview);
+-    await editors.photo.dispatchEvent({type:'mindle:save'});
+-    const body=JSON.parse(calls.filter(c=>c.url==='/api/projects/save').at(-1).options.body);
+-    assert.equal(body.project_id,'saved-project');
+-    assert.deepEqual(body.job_ids,['existing-photo']);
+-    assert.equal(window.mindleNewProject(),true,'failure releases transition guard');
+-  });
+-}
+-
+-test('successful staged restore uses the actual output filename', async () => {
+-  const job={job_id:'replacement',lane:'photo',operation:'photo_edit',preview_url:'/output.png',
+-    input:{file_name:'original.jpg'},primary_output:{file_name:'edited.png',sha256:'output'},runtime_result:{options:{}}};
+-  const {window,editors}=await setup({'/api/projects/complete':{ok:true,json:async()=>({project:{
+-    project_id:'complete',job_ids:['replacement'],jobs:[job],workspace:{references:{photo:[],video:[]},audio:null}}})}});
+-  assert.equal(await window.mindleOpenProject('complete'),true);
+-  assert.equal(window.mindleInputFor('photo').name,'edited.png');
+-  assert.equal(window.mindleInputFor('video'),null);
+-  assert.equal(editors.photo.dataset.projectStatus,'reopened');
+-});
++const test = require('node:test');
++const assert = require('node:assert/strict');
++const fs = require('node:fs');
++const vm = require('node:vm');
++
++// Execute the production controller. Only DOM/network boundaries are fixtures;
++// no model, browser decoding, Windows execution or hearing is claimed here.
++function deferred() {
++  let resolve;
++  const promise = new Promise(r => { resolve = r; });
++  return {promise, resolve};
++}
++class Element {
++  constructor() { this.dataset = {}; this.style = {}; this.listeners = {}; this.nodes = new Map(); }
++  querySelector(selector) {
++    if (!this.nodes.has(selector)) this.nodes.set(selector, new Element());
++    return this.nodes.get(selector);
++  }
++  addEventListener(name, callback) { this.listeners[name] = callback; }
++  dispatchEvent(event) { return this.listeners[event.type]?.(event); }
++  replaceChildren(...children) { this.children = children; }
++  append(...children) { (this.children ||= []).push(...children); }
++  click() {}
++  remove() {}
++}
++async function setup(routes = {}) {
++  const editors = {video: new Element(), photo: new Element()};
++  const calls = [];
++  const pendingSave = deferred();
++  const pendingRestore = deferred();
++  const pendingExport = deferred();
++  let delaySave = false;
++  let delayRestore = false;
++  let delayExport = false;
++  const document = new Element();
++  document.body = new Element();
++  document.querySelector = selector => editors[selector.includes('photo') ? 'photo' : 'video'];
++  document.querySelectorAll = selector => selector === '[data-editor]' ? Object.values(editors)
++    : selector === '[data-preview]' ? Object.values(editors).map(e => e.querySelector('[data-preview]')) : [];
++  document.createElement = () => new Element();
++  const response = data => ({ok: true, json: async () => data, blob: async () => new Blob(['photo'], {type: 'image/png'})});
++  const window = {};
++  const context = vm.createContext({window, document, File, Blob, Set, FileReader: class { readAsDataURL() { this.result="data:image/png;base64,cGhvdG8=";this.onload(); } },
++    CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options?.detail; } },
++    fetch: async (url, options) => {
++      calls.push({url, options});
++      if(routes[url]) return routes[url];
++      if (url === '/api/projects/latest') return response({project: null});
++      if (url === '/api/assets') return response({assets: []});
++      if (url === '/api/projects/save') {
++        if (delaySave) await pendingSave.promise;
++        return response({project_id: 'saved-project', status: 'SAVED'});
++      }
++      if (url.endsWith('/export')) {
++        if (delayExport) await pendingExport.promise;
++        return response({download_url: '/bundle.zip', export: {file_name: 'bundle.zip', sha256: 'fixture'}});
++      }
++      if (url.startsWith('/api/projects/')) {
++        if (delayRestore) await pendingRestore.promise;
++        return response({project: null});
++      }
++      return response({});
++    }});
++  vm.runInContext(fs.readFileSync(__dirname + '/product_integration.js', 'utf8'), context);
++  await new Promise(setImmediate);
++  const job = {job_id: 'existing-photo', lane: 'photo', operation: 'import', preview_url: '/photo.png',
++    primary_output: {file_name: 'photo.png', sha256: 'fixture'}, runtime_result: {options: {}}};
++  await window.mindleAcceptResult(job);
++  return {window, editors, calls, pendingSave, pendingRestore, pendingExport,
++    startSave: () => { delaySave = true; return editors.photo.dispatchEvent({type: 'mindle:save'}); },
++    startRestore: () => { delayRestore = true; return window.mindleOpenProject('first-project'); },
++    startExport: () => { delayExport = true; return editors.photo.dispatchEvent({type: 'mindle:export'}); }};
++}
++
++test('new/open project cannot clear an edit in progress or start a competing restore', async () => {
++  const {window, calls} = await setup();
++  const photo = window.mindleInputFor('photo');
++  window.mindleBeginEdit('photo');
++  window.mindleNewProject();
++  assert.equal(window.mindleInputFor('photo'), photo, 'pending photo must stay in its project');
++  const before = calls.length;
++  await window.mindleOpenProject('another-project');
++  assert.equal(calls.length, before, 'no project fetch may race the active edit');
++  window.mindleEndEdit('photo');
++  window.mindleNewProject();
++  assert.equal(window.mindleInputFor('photo'), null);
++});
++
++test('save response cannot attach the old project to a new project', async () => {
++  const {window, editors, calls, pendingSave, startSave} = await setup();
++  const photo = window.mindleInputFor('photo');
++  const saving = startSave();
++  await new Promise(setImmediate);
++  window.mindleNewProject();
++  assert.equal(window.mindleInputFor('photo'), photo, 'new project must wait for the save response');
++  pendingSave.resolve();
++  await saving;
++  window.mindleNewProject();
++  await editors.photo.dispatchEvent({type: 'mindle:save'});
++  const saves = calls.filter(c => c.url === '/api/projects/save');
++  assert.equal(JSON.parse(saves.at(-1).options.body).project_id, null);
++});
++
++test('rejected duplicate save/export does not unlock the active save', async () => {
++  const {window, editors, calls, pendingSave, startSave} = await setup();
++  const saving = startSave();
++  await new Promise(setImmediate);
++  await editors.video.dispatchEvent({type: 'mindle:save'});
++  await editors.video.dispatchEvent({type: 'mindle:export'});
++  assert.equal(window.mindleNewProject(), false);
++  assert.equal(calls.filter(c => c.url === '/api/projects/save').length, 1);
++  pendingSave.resolve();
++  await saving;
++  assert.equal(window.mindleNewProject(), true);
++});
++
++test('in-flight restore excludes new/open/save and releases its guard when no project exists', async () => {
++  const {window, editors, calls, pendingRestore, startRestore} = await setup();
++  const restoring = startRestore();
++  const before = calls.length;
++  assert.equal(window.mindleNewProject(), false);
++  assert.equal(await window.mindleOpenProject('second-project'), false);
++  await editors.photo.dispatchEvent({type: 'mindle:save'});
++  assert.equal(calls.length, before);
++  pendingRestore.resolve();
++  assert.equal(await restoring, false);
++  assert.equal(window.mindleNewProject(), true);
++});
++
++test('rejected duplicate export cannot release the first export transition guard', async () => {
++  const {window, editors, calls, pendingExport, startExport} = await setup();
++  const exporting = startExport();
++  await new Promise(setImmediate);
++  await editors.video.dispatchEvent({type: 'mindle:export'});
++  assert.equal(window.mindleNewProject(), false);
++  assert.equal(calls.filter(c => c.url.endsWith('/export')).length, 1);
++  pendingExport.resolve();
++  await exporting;
++  assert.equal(window.mindleNewProject(), true);
++});
++
++for(const dependency of ['preview','reference','audio']) {
++  test(`failed ${dependency} restore preserves the previous input, preview, project and jobs`, async () => {
++    const job={job_id:'replacement',lane:'photo',operation:'import',preview_url:'/replacement.png',
++      primary_output:{file_name:'replacement.png',sha256:'new'},runtime_result:{options:{}}};
++    const routes={
++      '/api/projects/broken':{ok:true,json:async()=>({project:{project_id:'broken',job_ids:['replacement'],jobs:[job],
++        workspace:{references:{photo:dependency==='reference'?[{url:'/missing',name:'ref.png'}]:[],video:[]},
++          audio:dependency==='audio'?{url:'/missing',original_filename:'voice.wav'}:null}}})},
++      '/missing':{ok:false},
++    };
++    if(dependency==='preview') routes['/replacement.png']={ok:false};
++    const {window,editors,calls}=await setup(routes);
++    await editors.photo.dispatchEvent({type:'mindle:save'});
++    const input=window.mindleInputFor('photo');
++    const preview=editors.photo.querySelector('[data-preview]').children[0];
++    assert.equal(await window.mindleOpenProject('broken'),false);
++    assert.equal(window.mindleInputFor('photo'),input);
++    assert.equal(editors.photo.querySelector('[data-preview]').children[0],preview);
++    await editors.photo.dispatchEvent({type:'mindle:save'});
++    const body=JSON.parse(calls.filter(c=>c.url==='/api/projects/save').at(-1).options.body);
++    assert.equal(body.project_id,'saved-project');
++    assert.deepEqual(body.job_ids,['existing-photo']);
++    assert.equal(window.mindleNewProject(),true,'failure releases transition guard');
++  });
++}
++
++test('successful staged restore uses the actual output filename', async () => {
++  const job={job_id:'replacement',lane:'photo',operation:'photo_edit',preview_url:'/output.png',
++    input:{file_name:'original.jpg'},primary_output:{file_name:'edited.png',sha256:'output'},runtime_result:{options:{}}};
++  const {window,editors}=await setup({'/api/projects/complete':{ok:true,json:async()=>({project:{
++    project_id:'complete',job_ids:['replacement'],jobs:[job],workspace:{references:{photo:[],video:[]},audio:null}}})}});
++  assert.equal(await window.mindleOpenProject('complete'),true);
++  assert.equal(window.mindleInputFor('photo').name,'edited.png');
++  assert.equal(window.mindleInputFor('video'),null);
++  assert.equal(editors.photo.dataset.projectStatus,'reopened');
++});
++
++for (const transition of ['new', 'photo-only']) {
++  test(`${transition} clears previous video tracks, clock, preview metadata and project status`, async () => {
++    const photo={job_id:'photo-only',lane:'photo',operation:'import',preview_url:'/photo-only.png',
++      primary_output:{file_name:'photo-only.png',sha256:'photo'},runtime_result:{options:{}}};
++    const {window,editors}=await setup({'/api/projects/photo-only':{ok:true,json:async()=>({project:{
++      project_id:'photo-only',job_ids:['photo-only'],jobs:[photo],workspace:{references:{photo:[],video:[]},audio:null}}})}});
++    await window.mindleAcceptResult({job_id:'old-video',lane:'video',operation:'video_edit',preview_url:'/old.mp4',
++      primary_output:{file_name:'old.mp4',sha256:'video'},runtime_result:{options:{subtitle:'old subtitle',effect:true,backgroundVolume:.3}}});
++    const video=editors.video;
++    video.dataset.projectStatus='saved';
++    video.querySelector('[data-video-time]').textContent='00:00:03';
++    video.querySelector('[data-video-duration]').textContent='/ 00:00:12';
++    video.querySelector('[data-video-seek]').value=25;
++    assert.equal(transition==='new'?window.mindleNewProject():await window.mindleOpenProject('photo-only'),true);
++    assert.equal(window.mindleInputFor('video'),null);
++    assert.equal(video.querySelector('.track.purple').textContent,'Subtitle Track · 자막 없음');
++    assert.equal(video.querySelector('.track.cyan').textContent,'Effect Track · 효과 없음');
++    assert.equal(video.querySelector('.track.green').textContent,'Audio Track · 원본 오디오');
++    assert.equal(video.querySelector('[data-video-time]').textContent,'00:00:00');
++    assert.equal(video.querySelector('[data-video-duration]').textContent,'/ 00:00:00');
++    assert.equal(Number(video.querySelector('[data-video-seek]').value),0);
++    assert.equal(video.querySelector('[data-preview]').dataset.jobId,undefined);
++    assert.equal(video.dataset.projectStatus,undefined);
++  });
++}

@@ -1,0 +1,100 @@
+0.00.001.196 I llama_completion: llama backend init
+0.00.011.271 I llama_completion: load the model and apply lora adapter, if any
+0.00.444.992 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.438.993 I cmn          init: llama threadpool init, n_threads = 2
+0.01.534.246 I 
+0.01.534.335 I system_info: n_threads = 2 (n_threads_batch = 2) / 9 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | AVX512_VBMI = 1 | AVX512_VNNI = 1 | AVX512_BF16 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.01.534.342 I 
+0.01.535.624 I sampler seed: 4294967295
+0.01.535.641 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.01.535.648 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> greedy 
+0.01.535.649 I generate: n_ctx = 32768, n_batch = 2048, n_predict = 768, n_keep = 0
+0.01.535.649 I 
+0.09.316.945 I common_perf_print:    sampling time =      14.90 ms
+0.09.316.946 I common_perf_print:    samplers time =       4.21 ms /   525 tokens
+0.09.316.951 I common_perf_print:        load time =    1175.01 ms
+0.09.316.952 I common_perf_print: prompt eval time =    5387.62 ms /   460 tokens (   11.71 ms per token,    85.38 tokens per second)
+0.09.316.953 I common_perf_print:        eval time =    2374.70 ms /    64 runs   (   37.10 ms per token,    26.95 tokens per second)
+0.09.316.953 I common_perf_print:       total time =    7782.71 ms /   524 tokens
+0.09.316.954 I common_perf_print: unaccounted time =       5.49 ms /   0.1 %      (total - sampling - prompt eval - eval) / (total)
+0.09.316.954 I common_perf_print:    graphs reused =         62
+0.09.316.954 I common_perf_print:   graph reallocs =          0    /     0        (same size) / (changed size)
+0.00.001.129 I llama_completion: llama backend init
+0.00.013.467 I llama_completion: load the model and apply lora adapter, if any
+0.00.509.637 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.540.883 I cmn          init: llama threadpool init, n_threads = 2
+0.01.616.265 I 
+0.01.616.381 I system_info: n_threads = 2 (n_threads_batch = 2) / 9 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | AVX512_VBMI = 1 | AVX512_VNNI = 1 | AVX512_BF16 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.01.616.394 I 
+0.01.617.707 I sampler seed: 4294967295
+0.01.617.734 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.01.617.743 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> greedy 
+0.01.617.744 I generate: n_ctx = 32768, n_batch = 2048, n_predict = 768, n_keep = 0
+0.01.617.744 I 
+0.07.855.148 I common_perf_print:    sampling time =       5.65 ms
+0.07.855.149 I common_perf_print:    samplers time =       1.62 ms /   444 tokens
+0.07.855.156 I common_perf_print:        load time =    1196.73 ms
+0.07.855.157 I common_perf_print: prompt eval time =    5419.66 ms /   423 tokens (   12.81 ms per token,    78.05 tokens per second)
+0.07.855.158 I common_perf_print:        eval time =     810.65 ms /    20 runs   (   40.53 ms per token,    24.67 tokens per second)
+0.07.855.158 I common_perf_print:       total time =    6238.90 ms /   443 tokens
+0.07.855.159 I common_perf_print: unaccounted time =       2.94 ms /   0.0 %      (total - sampling - prompt eval - eval) / (total)
+0.07.855.159 I common_perf_print:    graphs reused =         19
+0.07.855.159 I common_perf_print:   graph reallocs =          0    /     0        (same size) / (changed size)
+0.00.001.629 I llama_completion: llama backend init
+0.00.016.527 I llama_completion: load the model and apply lora adapter, if any
+0.00.414.319 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.344.551 I cmn          init: llama threadpool init, n_threads = 2
+0.01.422.738 I 
+0.01.422.818 I system_info: n_threads = 2 (n_threads_batch = 2) / 9 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | AVX512_VBMI = 1 | AVX512_VNNI = 1 | AVX512_BF16 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.01.422.826 I 
+0.01.424.261 I sampler seed: 4294967295
+0.01.424.281 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.01.424.288 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> greedy 
+0.01.424.289 I generate: n_ctx = 32768, n_batch = 2048, n_predict = 768, n_keep = 0
+0.01.424.289 I 
+0.06.939.595 I common_perf_print:    sampling time =       5.37 ms
+0.06.939.596 I common_perf_print:    samplers time =       1.46 ms /   447 tokens
+0.06.939.603 I common_perf_print:        load time =    1076.79 ms
+0.06.939.604 I common_perf_print: prompt eval time =    4840.97 ms /   427 tokens (   11.34 ms per token,    88.21 tokens per second)
+0.06.939.605 I common_perf_print:        eval time =     667.59 ms /    19 runs   (   35.14 ms per token,    28.46 tokens per second)
+0.06.939.605 I common_perf_print:       total time =    5516.87 ms /   446 tokens
+0.06.939.606 I common_perf_print: unaccounted time =       2.94 ms /   0.1 %      (total - sampling - prompt eval - eval) / (total)
+0.06.939.606 I common_perf_print:    graphs reused =         18
+0.06.939.607 I common_perf_print:   graph reallocs =          0    /     0        (same size) / (changed size)
+0.00.001.571 I llama_completion: llama backend init
+0.00.012.703 I llama_completion: load the model and apply lora adapter, if any
+0.00.464.890 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.486.916 I cmn          init: llama threadpool init, n_threads = 2
+0.01.558.047 I 
+0.01.558.143 I system_info: n_threads = 2 (n_threads_batch = 2) / 9 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | AVX512_VBMI = 1 | AVX512_VNNI = 1 | AVX512_BF16 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.01.558.151 I 
+0.01.559.606 I sampler seed: 4294967295
+0.01.559.624 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.01.559.631 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> greedy 
+0.01.559.632 I generate: n_ctx = 32768, n_batch = 2048, n_predict = 768, n_keep = 0
+0.01.559.632 I 
+0.10.430.960 I common_perf_print:    sampling time =      28.69 ms
+0.10.430.962 I common_perf_print:    samplers time =       7.88 ms /   530 tokens
+0.10.430.968 I common_perf_print:        load time =    1175.18 ms
+0.10.430.969 I common_perf_print: prompt eval time =    4670.09 ms /   422 tokens (   11.07 ms per token,    90.36 tokens per second)
+0.10.430.970 I common_perf_print:        eval time =    4163.37 ms /   107 runs   (   38.91 ms per token,    25.70 tokens per second)
+0.10.430.970 I common_perf_print:       total time =    8872.93 ms /   529 tokens
+0.10.430.971 I common_perf_print: unaccounted time =      10.77 ms /   0.1 %      (total - sampling - prompt eval - eval) / (total)
+0.10.430.971 I common_perf_print:    graphs reused =        105
+0.10.430.971 I common_perf_print:   graph reallocs =          0    /     0        (same size) / (changed size)

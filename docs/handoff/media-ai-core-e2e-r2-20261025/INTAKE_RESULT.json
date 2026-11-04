@@ -1,0 +1,23 @@
+{
+  "status": "BLOCKED_ASSET_INTAKE",
+  "errors": [
+    "exact Korean narration script missing or incompatible with quoted product command",
+    "explicit voice length policy missing",
+    "explicit narration volume required (0..2)",
+    "explicit original volume required (0..2)",
+    "explicit bgm volume required (0..1)",
+    "1..12 real video clips required",
+    "BGM and its permission record required",
+    "source coverage below 30 seconds"
+  ],
+  "verified_assets": [],
+  "rights_review": "DECLARATIONS_ONLY_REQUIRES_OWNER_CONFIRMATION",
+  "scene_labels": "USER_SUPPLIED_NOT_MODEL_VISION",
+  "human_visual_review": "NOT_EXECUTED",
+  "human_audio_review": "NOT_EXECUTED",
+  "full_product_pass": false,
+  "manifest_path": "/workspace/scratch/4e99f0098e8e/media-r2/docs/handoff/media-ai-core-e2e-r2-20261025/INPUT_MANIFEST.json",
+  "manifest_sha256": "63aad65ce08697195fcd58948905b37ecf5b5e77ce2e027c6b19baf9aef08993",
+  "authoritative_input": "INPUT_MANIFEST",
+  "historical_intake_reports_are_not_authority": true
+}

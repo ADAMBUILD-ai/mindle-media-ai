@@ -1,0 +1,42 @@
+{
+  "artifact_run": 37752630381,
+  "artifact_id": 11538633312,
+  "artifact_sha256": "1809640a89cac062e6f7a56e79005a640581c9e4784640e2ec3bc2d7099c0ff8",
+  "artifact_zip_CRC": "PASS",
+  "independent_post_download_check": [
+    {
+      "file": "PHOTO_FOREGROUND_RGBA.png",
+      "sha256": "0866e968c0bc9c82ef0fd789562d3e8edfbaaf89a88476dae870afb657b8173a",
+      "bytes": 193445,
+      "source_runtime_check": "photo_background_removal_from_frozen_mask"
+    },
+    {
+      "file": "KOREAN_SUBTITLE_ACTUAL.mp4",
+      "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35",
+      "bytes": 130275,
+      "source_runtime_check": "video_korean_subtitle_render"
+    },
+    {
+      "file": "BGM_FOLLOWUP_ACTUAL.mp4",
+      "sha256": "5956ef16833a73f5ab4b282b4393f5e0b088a7ceae0640438d6bb4b4d336b6c0",
+      "bytes": 116363,
+      "source_runtime_check": "background_music_state_after_followup_edit"
+    },
+    {
+      "artifact_file": "general_work_audit_runtime/downloads/0325752c-3d86-48a9-89a7-2d960f4ca422_export.zip",
+      "sha256": "c0dbb827e44b13af9673020c3e9dc7ae7a369b4e4b71368160d04254e553545a",
+      "bytes": 6317540,
+      "CRC": "PASS",
+      "all_media_hashes": "PASS",
+      "entries": 72
+    },
+    {
+      "artifact_file": "general_work_audit_runtime/downloads/c276f6a4-4849-4f64-9661-57ec00f4c2cc_export.zip",
+      "sha256": "40255d8cde6da26e1c4e6743dc73b50d6f809ea7ef8fe6b0d0d94e849ceb49bb",
+      "bytes": 3067373,
+      "CRC": "PASS",
+      "all_media_hashes": "PASS",
+      "entries": 17
+    }
+  ]
+}

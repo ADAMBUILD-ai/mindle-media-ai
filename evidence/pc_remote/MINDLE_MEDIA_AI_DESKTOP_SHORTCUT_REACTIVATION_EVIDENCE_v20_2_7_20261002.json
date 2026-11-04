@@ -1,0 +1,16 @@
+{
+  "status": "PASS_METADATA_RUNTIME_VERIFIED",
+  "control_plane_epoch": "MEDIA-AI-20261002-V20.2.7",
+  "desktop": "C:\\Users\\PC\\OneDrive\\Desktop\\MINDLE MEDIA AI - 최종 UI.lnk",
+  "target": "powershell.exe",
+  "launcher": "scripts/launch_media_ai_windows.ps1",
+  "icon": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico,0",
+  "old_url_removed": true,
+  "runtime_identity": {
+    "branch": "feature/ad-shortform-bridge-p0-20260926",
+    "head": "213080d7a5672dcc9a56101ce85b47348c355139",
+    "browser_launch": "--new-window --start-maximized"
+  },
+  "ui_modified": false,
+  "native_screenshot": "NOT_CAPTURED"
+}

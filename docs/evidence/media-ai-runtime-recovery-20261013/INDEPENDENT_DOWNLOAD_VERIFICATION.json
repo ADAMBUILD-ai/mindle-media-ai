@@ -1,0 +1,97 @@
+{
+  "artifact_id": 11823561702,
+  "run_id": 38414861948,
+  "source_commit": "1493cb5e6886dc2b6c35252fff246ad6eb48ebe9",
+  "artifact_sha256": "719e94c63e472b9f1e7658bf8782f173dacd30b4e566b662afb83cd02541cdc8",
+  "artifact_CRC": "PASS",
+  "export_sha256": "b998233b518c79225b4381ff846be0910ca700dc8436ec0be96645ba15186a11",
+  "export_CRC": "PASS",
+  "export_media_hashes_checked": 7,
+  "actual_exported_photo_pixels": [
+    {
+      "operation": "photo_edit",
+      "job_id": "7ada275a-9cd9-4b89-a13c-ea0abbdf98af",
+      "sha256": "2b4ff75788c557cde1c254d02aad9cac93075d5ea54792b7659b3943131bd340",
+      "size": [
+        120,
+        240
+      ],
+      "RGB_mean": [
+        109.0,
+        124.0,
+        140.0
+      ],
+      "options": {
+        "brightness": 35,
+        "contrast": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "saturation": 0,
+        "temperature": 16,
+        "sharpness": 0,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "neutral",
+        "resizeWidth": null,
+        "crop": null,
+        "automaticAnalysis": {
+          "method": "decoded_pixel_percentiles_v1",
+          "model_inference": false,
+          "sample_pixels": 28800,
+          "p10": 97.192,
+          "p50": 97.192,
+          "p90": 97.192
+        }
+      }
+    },
+    {
+      "operation": "photo_edit",
+      "job_id": "c4145d99-b4c9-4d97-a67c-cfa6069ac2cc",
+      "sha256": "9752c2bbf769388fb7f057a647804cb47164ab462efdffce946cb80369a70eed",
+      "size": [
+        120,
+        240
+      ],
+      "RGB_mean": [
+        123.0,
+        138.0,
+        154.0
+      ],
+      "options": {
+        "brightness": 20,
+        "contrast": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "saturation": 0,
+        "temperature": 0,
+        "sharpness": 0,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "neutral",
+        "resizeWidth": null,
+        "crop": null,
+        "automaticAnalysis": null
+      }
+    },
+    {
+      "operation": "import",
+      "job_id": "74b46cc0-22f9-4bd1-ad03-2090039fa803",
+      "sha256": "ef2a61bb6a3391207d691cc2a41312ad0f351f28a01b461d03cc0afa45c51b6d",
+      "size": [
+        120,
+        240
+      ],
+      "RGB_mean": [
+        80.0,
+        100.0,
+        120.0
+      ],
+      "options": null
+    }
+  ],
+  "portrait_ratio_preserved": true,
+  "automatic_and_manual_pixels_differ_from_original": true,
+  "manual_brightness_increased_mean_RGB": true
+}

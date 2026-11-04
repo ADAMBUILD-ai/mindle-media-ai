@@ -1,0 +1,13 @@
+{
+  "status": "SAVE_REOPEN_COLD_RELAUNCH_EXPORT_PASS",
+  "first_pid": 5220,
+  "first_command_line": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca\\runtime\\python\\python.exe D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca\\app\\launcher\\employee_package_launcher.py --server --port 18768 --data-root D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA",
+  "second_pid": 1780,
+  "second_command_line": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca\\runtime\\python\\python.exe D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca\\app\\launcher\\employee_package_launcher.py --server --port 18768 --data-root D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA",
+  "old_endpoint_closed": true,
+  "project_id": "9200506f-96a8-482a-8612-1cf0b60a4fdb",
+  "restored_jobs": 3,
+  "export_sha256": "751a30205435d17efa44892363c5760a3161384d4edc63218d1107a384d41042",
+  "base_url": "http://127.0.0.1:18768",
+  "owner_pc_pass": false
+}

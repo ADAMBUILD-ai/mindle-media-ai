@@ -1,0 +1,12 @@
+{
+  "status": "NOT_RUN",
+  "mp4_filename": null,
+  "bytes": null,
+  "sha256": null,
+  "duration_seconds": null,
+  "resolution": null,
+  "video_codec": null,
+  "audio_codec": null,
+  "audio_stream_present": false,
+  "reason": "Live Marketing prerequisite unavailable"
+}

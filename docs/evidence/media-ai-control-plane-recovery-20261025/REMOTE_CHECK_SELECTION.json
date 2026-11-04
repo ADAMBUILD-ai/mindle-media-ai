@@ -1,0 +1,21 @@
+{
+  "source": "beb6c8d3afdf1a144d4f7cc218f545d601d439d3",
+  "changed_paths": [
+    ".github/workflows/runtime-recovery.yml",
+    "CURRENT_GENERAL_WORK_DIRECTIVE.md",
+    "model_scout/run_runtime_recovery_browser.py",
+    "scripts/select_runtime_recovery_checks.py",
+    "scripts/validate_general_work_control_plane.py",
+    "tests/test_general_work_control_plane.py",
+    "tests/test_runtime_recovery_selection.py"
+  ],
+  "engine_inputs_unchanged": true,
+  "run_engines": false,
+  "reused_engine_job": {
+    "run_id": 40169533879,
+    "source": "08c5b1b449411f0ffa4e533aa98758bb5b1c65f0",
+    "job_id": 121097388617,
+    "conclusion": "success"
+  },
+  "full_product_pass": false
+}

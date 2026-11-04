@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "epoch": "MEDIA-AI-20261024-WINDOWS-AI-SUCCESSOR-R3",
+  "authorization": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-SUCCESSOR-R3",
+  "authorized_parent": "86fcdf9d58172f77b7d1133b7968be67b68e030b",
+  "attempts_allowed": 1,
+  "required": [
+    "TEST R2 archive, manifest, EXE and every payload file readback",
+    "Qwen, llama.cpp, Supertonic, sherpa-onnx identities unchanged",
+    "actual Windows Qwen edit plan",
+    "actual Windows Supertonic Korean WAV and MP4 integration",
+    "actual measured architecture-agent Qwen plan and MP4 assembly",
+    "owned server shutdown, endpoint close, new PID restart",
+    "workflow and architecture project reopen and Export",
+    "post-runtime every payload hash and ZIP CRC",
+    "independent readback"
+  ],
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "approved_ui_pixel_match": false,
+  "full_product_pass": false,
+  "pr23_hold_do_not_merge": true
+}

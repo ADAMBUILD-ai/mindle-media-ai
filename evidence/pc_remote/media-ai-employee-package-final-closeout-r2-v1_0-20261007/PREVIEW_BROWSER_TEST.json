@@ -1,0 +1,16 @@
+{
+  "status": "PASS_INSTALLED_BROWSER_AFTER_RESTART",
+  "video_job_id": "76f27451-d6e2-406a-9ef2-5ed5ecf04830",
+  "video_ready_state": 4,
+  "video_dimensions": [
+    512,
+    292
+  ],
+  "photo_job_id": "584514ef-121a-447e-9236-18235462c812",
+  "photo_dimensions": [
+    1920,
+    1080
+  ],
+  "transcript_and_video_restore_coexist": true,
+  "screenshot": "R2_INSTALLED_SERVER_RESTART_REOPEN.jpg"
+}

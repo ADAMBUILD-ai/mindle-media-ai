@@ -1,0 +1,94 @@
+{
+  "scope": "REAL_FFMPEG_TWO_SCENE_ASSEMBLY_NOT_MODEL_INFERENCE_NOT_HUMAN_HEARING",
+  "preflight": "READY",
+  "visual_order_probe": [
+    {
+      "position_ms": 250,
+      "mean_bgr": [
+        254.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position_ms": 750,
+      "mean_bgr": [
+        0.0125,
+        0.0,
+        79.06875
+      ]
+    }
+  ],
+  "task": {
+    "production_id": "8239cbc3-f150-4748-84e9-42554ff80183",
+    "request_key": "owned-two-scene-smoke",
+    "fingerprint": "b52a3029a5b0d1a811ad25453eeb640133cfba12b260112fbf97c9635423c1cd",
+    "state": "SUCCEEDED",
+    "plan": {
+      "project_id": "3ab7fdbd-c11e-46e3-8f32-a374ae775ce9",
+      "aspect": "16:9",
+      "output": "ARCHITECTURE_TWO_SCENE_SMOKE.mp4",
+      "scenes": [
+        {
+          "scene_id": "arrival",
+          "engine": "existing_clip",
+          "source": "arrival-source.mkv",
+          "source_sha256": "387a8920d8cd8d831c12ae58a1fd0950bf3567e8775f18daeff824707307416f",
+          "duration_seconds": 0.5,
+          "prompt": null,
+          "camera": null
+        },
+        {
+          "scene_id": "villa",
+          "engine": "existing_clip",
+          "source": "villa-source.mp4",
+          "source_sha256": "6f7d353c4ebcdeea4f496b915220f7bd2dec32b2f659a8892c692f5f910aa1a4",
+          "duration_seconds": 0.5,
+          "prompt": null,
+          "camera": null
+        }
+      ]
+    },
+    "required_assets": [
+      "external.ffmpeg.runtime"
+    ],
+    "missing": [],
+    "created_at": 1792826200.8241131,
+    "updated_at": 1792826200.8250873,
+    "started_at": 1792826200.8246262,
+    "receipt": {
+      "status": "TESTED_PASS",
+      "model_inference": false,
+      "source_sha256": null,
+      "scene_source_sha256s": [
+        "387a8920d8cd8d831c12ae58a1fd0950bf3567e8775f18daeff824707307416f",
+        "6f7d353c4ebcdeea4f496b915220f7bd2dec32b2f659a8892c692f5f910aa1a4"
+      ],
+      "scene_count": 2,
+      "output": {
+        "path": "ARCHITECTURE_TWO_SCENE_SMOKE.mp4",
+        "bytes": 15606,
+        "sha256": "835f5190912bc1c03a558486a898a555120f79276c97adcd1a6a8a693d2e8894"
+      },
+      "runtime": {
+        "ffmpeg_sha256": "ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41",
+        "ffprobe_sha256": "272f6ebc634a63d9c8b4ca68e964119d980f25154e5aa2c35e5487da48e9a58f",
+        "video_codec": "h264",
+        "pixel_format": "yuv420p",
+        "audio_codec": "aac",
+        "duration_seconds": 1.0,
+        "faststart": true
+      },
+      "scene_order": [
+        "arrival",
+        "villa"
+      ],
+      "aspect": "16:9",
+      "resolution": {
+        "width": 320,
+        "height": 180
+      }
+    },
+    "finished_at": 1792826200.8250852
+  }
+}

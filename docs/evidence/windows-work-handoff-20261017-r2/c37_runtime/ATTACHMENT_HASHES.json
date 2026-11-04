@@ -1,0 +1,19 @@
+{
+  "references": [
+    {
+      "filename": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+      "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+      "bytes": 309254
+    },
+    {
+      "filename": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+      "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce",
+      "bytes": 5207847
+    }
+  ],
+  "audio": {
+    "filename": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+  },
+  "video_unchanged_after_audio_import": true
+}

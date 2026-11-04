@@ -1,0 +1,56 @@
+{
+  "name": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip",
+  "bytes": 3166982020,
+  "sha256": "e6e05a2b74f806095a6afce13e3af46ddc586870917908250426f215cff1bbe1",
+  "parts": [
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-00",
+      "bytes": 524288000,
+      "sha256": "997cacc54e83824063488650ea5ee11aa6c797d6f74447a3f5e8a5ff59b1454d"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-01",
+      "bytes": 524288000,
+      "sha256": "cc64e0fd9a2996a63da49f5a5db8b7726ba1a106909bb15f34931849310bb642"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-02",
+      "bytes": 524288000,
+      "sha256": "d3889b279ccd6085dc0fb5611e06257fc3e446eb83ac356bb97e041cc006669f"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-03",
+      "bytes": 524288000,
+      "sha256": "e4e12701f2d8d4b3132e761de65c91ad0d36b26d1744c1cf0fecb8fd0e33c999"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-04",
+      "bytes": 524288000,
+      "sha256": "f5ba957cedddaf55fb0baddc5861f7c5e4e70f85991124b72c18c8c0a32bd7b1"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-05",
+      "bytes": 524288000,
+      "sha256": "4dae239a805a56afe76c77025cdc8d20267b559dd2c002d8a52644a8d024a5ac"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-06",
+      "bytes": 21254020,
+      "sha256": "cdf2df5bb9af994c801b4d8554d7252482ef5626acce587f92c0f835a785fc7d"
+    }
+  ],
+  "source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "manifest_sha256": "ec2b82e15eba653a977ce9ddfcf1fb0b697d2bd701c8a7e65aa37f51b68652ca",
+  "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+  "installer": {
+    "path": "MINDLE_MEDIA_AI_START_20261024_R3.zip",
+    "bytes": 2237,
+    "sha256": "48da7b56499f8088fdb95b90f029f12729c5d3b67f1985a21a3fa533d5a7f894"
+  },
+  "payload_files": 19341,
+  "post_runtime_hashes": "PASS",
+  "zip_crc": "PASS",
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "full_product_pass": false
+}

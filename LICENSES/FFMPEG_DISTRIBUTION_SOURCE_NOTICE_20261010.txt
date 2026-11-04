@@ -1,0 +1,34 @@
+MINDLE MEDIA AI — FFmpeg redistribution/source notice
+Date: 2026-10-13
+
+Distributed binary candidate:
+- Project: FFmpeg
+- Distributor/build scripts: BtbN/FFmpeg-Builds
+- Variant: win64-lgpl-shared
+- FFmpeg release branch addin: 8.1 -> release/8.1
+- Asset: ffmpeg-n8.1-latest-win64-lgpl-shared-8.1.zip
+- GitHub release id: 410636293
+- GitHub asset id: 633882496
+- Asset SHA-256: 10fa2fdcbbd4554c480a8e81af681f07c060b717921ea3e70ee78bd8c3b6cd7c
+- Build-scripts source commit referenced by the release tag at verification:
+  63ac3265b0789ea16c7b1f8351cd2ad195a28722
+
+Source locations retained for recipients:
+- FFmpeg source: https://github.com/FFmpeg/FFmpeg/tree/release/8.1
+- BtbN build scripts at verified commit:
+  https://github.com/BtbN/FFmpeg-Builds/tree/63ac3265b0789ea16c7b1f8351cd2ad195a28722
+- BtbN build instructions:
+  https://github.com/BtbN/FFmpeg-Builds/blob/63ac3265b0789ea16c7b1f8351cd2ad195a28722/README.md
+
+Build facts verified by Windows CI before distribution:
+- shared build
+- LGPL variant
+- no --enable-gpl
+- no --enable-nonfree
+- h264_mf encoder present
+- ffmpeg.exe and ffprobe.exe hashes recorded in Evidence
+
+The binary package's own LICENSE.txt and README/notice files must remain with the
+redistributed FFmpeg files. This notice must also remain in the MINDLE package.
+
+No System32 DLL copying is authorized by this notice.

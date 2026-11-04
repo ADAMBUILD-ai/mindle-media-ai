@@ -1,0 +1,34 @@
+{
+  "contract_version": "18.2",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_UI_SSOT_REGRESSION_CORRECTION_DIRECTIVE_v18.2_20261001.md",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_SSOT_REGRESSION_REVIEW_v18.2_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_SHORTFORM_ADDITIVE_SSOT_REGRESSION_EVIDENCE_v18_2_20261001.json",
+    "detail_directory": "evidence/pc_remote/pc-work-shortform-additive-v18_2-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "BEFORE_VIDEO_ACTION_ROW.html",
+      "AFTER_VIDEO_ACTION_ROW.html",
+      "SHORTFORM_ACTION_IDENTITY.json",
+      "SHORTFORM_ORDER_ASSERTION.json",
+      "LIVE_UI_FULLPAGE.png",
+      "LIVE_VIDEO_ACTION_ROW.png",
+      "UI_SSOT_PRESERVATION.json",
+      "V18_1_PASS_PRESERVATION.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "frozen_ssot_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "required_detail_file_count": 12,
+  "completion_results": [
+    "TESTED_PASS",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}

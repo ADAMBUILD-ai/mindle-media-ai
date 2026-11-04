@@ -1,0 +1,3 @@
+{"start": 0, "brightness": -4, "contrast": 0, "saturation": 0, "reason": "측정된 평균 노출 223.0이 176보다 높아 밝기를 조정합니다."} [end of text]
+
+

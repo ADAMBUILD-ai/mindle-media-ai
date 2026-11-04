@@ -1,0 +1,39 @@
+{
+  "contract_version": "21.0",
+  "date": "2026-10-03",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261003-V21.0",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
+  "review": "docs/commander/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_REVIEW_v21.0_20261003.md",
+  "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_FULL_REAL_USE_REAUDIT_EVIDENCE_v21_0_20261003.json",
+  "detail_directory": "evidence/pc_remote/media-ai-full-reaudit-v21_0-20261003/",
+  "required_evidence": [
+    "BASELINE_IDENTITY.json",
+    "RUNTIME_INSTANCE_INVENTORY.json",
+    "DUPLICATE_SOURCE_AUDIT.json",
+    "DESKTOP_SHORTCUT_ACTIVATION.json",
+    "DESKTOP_DOUBLE_CLICK_2_OF_2.json",
+    "WORKSPACE_DESKTOP_IDENTITY.json",
+    "UI_VISUAL_AUDIT.json",
+    "VIDEO_REAL_FUNCTION_AUDIT.json",
+    "PHOTO_REAL_FUNCTION_AUDIT.json",
+    "SHORTFORM_REAL_FUNCTION_AUDIT.json",
+    "SAVE_REOPEN_PERSISTENCE.json",
+    "ICON_FAVICON_AUDIT.json",
+    "ERROR_RECOVERY_AUDIT.json",
+    "REGRESSION_TEST_RESULTS.txt",
+    "REPRESENTATIVE_OPEN_SCREEN_GATE.json",
+    "OUTPUT_HASHES.sha256",
+    "REMOTE_PUSH_VERIFY.txt"
+  ],
+  "allowed_results": [
+    "FULL_REAL_USE_PASS",
+    "IMPROVEMENT_REQUIRED",
+    "BLOCKED",
+    "FAIL"
+  ],
+  "metadata_only_pass_forbidden": true,
+  "representative_real_use_overrides_prior_pass": true
+}

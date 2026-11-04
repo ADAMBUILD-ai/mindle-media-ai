@@ -1,0 +1,8 @@
+{
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_V32_ASSET_RECOVERY_UI_SSOT_AND_REAL_E2E_DIRECTIVE_v14.0_20261001.md",
+  "contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_CONTRACT_v14.0_20261001.json",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "commit_before_evidence": "b5da52a1053bb650fa6d1eaedf05b0689ccdcbc3",
+  "status": "PARTIAL_PASS_UI_SSOT_BLOCKED"
+}

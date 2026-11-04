@@ -1,0 +1,3405 @@
+{
+  "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "checks": [
+    {
+      "feature": "fresh_launch",
+      "status": "PASS",
+      "browser": "154.0.8037.57",
+      "server_instances": 1,
+      "token_required": false
+    },
+    {
+      "feature": "duplicate_server_port_rejected",
+      "status": "PASS",
+      "port": 45103
+    },
+    {
+      "feature": "photo_landscape_ratio",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/1d7c9bb2-2fb6-4108-92f8-102fe9b8a096/original_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "1d7c9bb2-2fb6-4108-92f8-102fe9b8a096",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "251050946b94d592575bca70949c0a49b2448e8ae40ee3fcc7adbeaa9377c2b7",
+        "width": 320
+      }
+    },
+    {
+      "feature": "photo_portrait_auto_fit",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/9d2c8f3b-4e1a-4a16-94c0-f0a23589f5eb/original_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 240,
+        "job_id": "9d2c8f3b-4e1a-4a16-94c0-f0a23589f5eb",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "535ff1cd11031d3baa198eafbaf0a3da0cd6153e01c6f3c4db0fe158628371f0",
+        "width": 120
+      },
+      "side_margin_pixels": 277.75
+    },
+    {
+      "feature": "photo_brightness",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/6a6527d0-a094-42eb-b89e-74b56e449cba/original_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "6a6527d0-a094-42eb-b89e-74b56e449cba",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "251050946b94d592575bca70949c0a49b2448e8ae40ee3fcc7adbeaa9377c2b7",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/d761b653-f5cc-4918-bd23-e611ae2e0a6b/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "d761b653-f5cc-4918-bd23-e611ae2e0a6b",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "fff69d96da19dbaf1636b55bd8bf8d590d032ee5a59d27d25fe383c19dce1e74",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "d761b653-f5cc-4918-bd23-e611ae2e0a6b",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "ee35dc1b-7bf3-4c3f-9266-828a45340d91_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/ee35dc1b-7bf3-4c3f-9266-828a45340d91_photo_edit.png",
+          "bytes": 24992,
+          "sha256": "f8bacf62d64f3a45cd51ec322e316973ef116127b4b8954d4ebe7dc034d78908"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/d761b653-f5cc-4918-bd23-e611ae2e0a6b/edited_photo.png",
+          "bytes": 10265,
+          "sha256": "fff69d96da19dbaf1636b55bd8bf8d590d032ee5a59d27d25fe383c19dce1e74"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/d761b653-f5cc-4918-bd23-e611ae2e0a6b/edited_photo.png",
+            "bytes": 10265,
+            "sha256": "fff69d96da19dbaf1636b55bd8bf8d590d032ee5a59d27d25fe383c19dce1e74"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            320,
+            180
+          ],
+          "options": {
+            "brightness": 30,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/d761b653-f5cc-4918-bd23-e611ae2e0a6b/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_contrast",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/d761b653-f5cc-4918-bd23-e611ae2e0a6b/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "d761b653-f5cc-4918-bd23-e611ae2e0a6b",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "fff69d96da19dbaf1636b55bd8bf8d590d032ee5a59d27d25fe383c19dce1e74",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/5ad27d47-34c6-46b7-947a-70f3559f8e18/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "5ad27d47-34c6-46b7-947a-70f3559f8e18",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "d3b26e7c67412b6cca9b4c19ac47873a8f072ebcd1d6211770a2dbf03ba4aedd",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "5ad27d47-34c6-46b7-947a-70f3559f8e18",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "4dbe6cd3-6643-47c6-b3c4-8a7392e393fb_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/4dbe6cd3-6643-47c6-b3c4-8a7392e393fb_photo_edit.png",
+          "bytes": 53347,
+          "sha256": "f6e2215c4f5cd9b86f7097f065229660230e70e4cb6bbe3e9b41c647f1f52589"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/5ad27d47-34c6-46b7-947a-70f3559f8e18/edited_photo.png",
+          "bytes": 17943,
+          "sha256": "d3b26e7c67412b6cca9b4c19ac47873a8f072ebcd1d6211770a2dbf03ba4aedd"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/5ad27d47-34c6-46b7-947a-70f3559f8e18/edited_photo.png",
+            "bytes": 17943,
+            "sha256": "d3b26e7c67412b6cca9b4c19ac47873a8f072ebcd1d6211770a2dbf03ba4aedd"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            320,
+            180
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 30,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/5ad27d47-34c6-46b7-947a-70f3559f8e18/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_highlights",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/5ad27d47-34c6-46b7-947a-70f3559f8e18/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "5ad27d47-34c6-46b7-947a-70f3559f8e18",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "d3b26e7c67412b6cca9b4c19ac47873a8f072ebcd1d6211770a2dbf03ba4aedd",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/a254ba85-ffd4-454d-9300-7e8fb2c16072/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "a254ba85-ffd4-454d-9300-7e8fb2c16072",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "d6a320ba12731765bd6784dc0cc4001c25a28f1cea316882ef0a16a2f2ff6636",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "a254ba85-ffd4-454d-9300-7e8fb2c16072",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "a0362c74-25ca-4b34-9403-9dd415db5a69_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/a0362c74-25ca-4b34-9403-9dd415db5a69_photo_edit.png",
+          "bytes": 73452,
+          "sha256": "8b0bf714e27f4bb9eae6f423db894503793eb82f28983e3d3134f4b1c16e01b6"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/a254ba85-ffd4-454d-9300-7e8fb2c16072/edited_photo.png",
+          "bytes": 38785,
+          "sha256": "d6a320ba12731765bd6784dc0cc4001c25a28f1cea316882ef0a16a2f2ff6636"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/a254ba85-ffd4-454d-9300-7e8fb2c16072/edited_photo.png",
+            "bytes": 38785,
+            "sha256": "d6a320ba12731765bd6784dc0cc4001c25a28f1cea316882ef0a16a2f2ff6636"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            320,
+            180
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 30,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/a254ba85-ffd4-454d-9300-7e8fb2c16072/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_shadows",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/a254ba85-ffd4-454d-9300-7e8fb2c16072/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "a254ba85-ffd4-454d-9300-7e8fb2c16072",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "d6a320ba12731765bd6784dc0cc4001c25a28f1cea316882ef0a16a2f2ff6636",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/68c86481-7b03-4289-b22b-1c9f76812366/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "68c86481-7b03-4289-b22b-1c9f76812366",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "1457651abaaa8bea7388cc9a1e4e7c8dadb54014a35ac35f7007f1991ef71c9b",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "68c86481-7b03-4289-b22b-1c9f76812366",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "f9eb1bc5-ab17-4f4c-8239-b13d80ba4452_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/f9eb1bc5-ab17-4f4c-8239-b13d80ba4452_photo_edit.png",
+          "bytes": 76973,
+          "sha256": "8227078cf0b4e7e8f7a601ce114a5a590e2a4153cbdcd7f63eac9a3a5017293a"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/68c86481-7b03-4289-b22b-1c9f76812366/edited_photo.png",
+          "bytes": 43716,
+          "sha256": "1457651abaaa8bea7388cc9a1e4e7c8dadb54014a35ac35f7007f1991ef71c9b"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/68c86481-7b03-4289-b22b-1c9f76812366/edited_photo.png",
+            "bytes": 43716,
+            "sha256": "1457651abaaa8bea7388cc9a1e4e7c8dadb54014a35ac35f7007f1991ef71c9b"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            320,
+            180
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 30,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/68c86481-7b03-4289-b22b-1c9f76812366/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_saturation",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/68c86481-7b03-4289-b22b-1c9f76812366/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "68c86481-7b03-4289-b22b-1c9f76812366",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "1457651abaaa8bea7388cc9a1e4e7c8dadb54014a35ac35f7007f1991ef71c9b",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/5d111750-1c0a-4a6d-bffc-0d9be8a31ce0/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "5d111750-1c0a-4a6d-bffc-0d9be8a31ce0",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "2e4a59748cfa82b6b7e7a68be4abb2a3ca9715e094e4cfc484f48dff4f7d5c5c",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "5d111750-1c0a-4a6d-bffc-0d9be8a31ce0",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "caa58dd3-5f27-416d-a70e-451047c38038_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/caa58dd3-5f27-416d-a70e-451047c38038_photo_edit.png",
+          "bytes": 81691,
+          "sha256": "c0fefa0b50a31be5695ce865c2ee16495ece937d37e18fa2f6a66cf98de09280"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/5d111750-1c0a-4a6d-bffc-0d9be8a31ce0/edited_photo.png",
+          "bytes": 50993,
+          "sha256": "2e4a59748cfa82b6b7e7a68be4abb2a3ca9715e094e4cfc484f48dff4f7d5c5c"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/5d111750-1c0a-4a6d-bffc-0d9be8a31ce0/edited_photo.png",
+            "bytes": 50993,
+            "sha256": "2e4a59748cfa82b6b7e7a68be4abb2a3ca9715e094e4cfc484f48dff4f7d5c5c"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            320,
+            180
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 30,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/5d111750-1c0a-4a6d-bffc-0d9be8a31ce0/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_temperature",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/5d111750-1c0a-4a6d-bffc-0d9be8a31ce0/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "5d111750-1c0a-4a6d-bffc-0d9be8a31ce0",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "2e4a59748cfa82b6b7e7a68be4abb2a3ca9715e094e4cfc484f48dff4f7d5c5c",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "2d7e3b150b241b6114effdec3284d5af52328ea79cbb9fc1a798c6771b473ec6",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "784420d0-3ef2-46bf-942b-d91b45620aee_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/784420d0-3ef2-46bf-942b-d91b45620aee_photo_edit.png",
+          "bytes": 81365,
+          "sha256": "2036f50526fee399bc4c59c749b807c687e77b4e887948cf9e67ad2649e88c26"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6/edited_photo.png",
+          "bytes": 50491,
+          "sha256": "2d7e3b150b241b6114effdec3284d5af52328ea79cbb9fc1a798c6771b473ec6"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6/edited_photo.png",
+            "bytes": 50491,
+            "sha256": "2d7e3b150b241b6114effdec3284d5af52328ea79cbb9fc1a798c6771b473ec6"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            320,
+            180
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 30,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_sharpness",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "2d7e3b150b241b6114effdec3284d5af52328ea79cbb9fc1a798c6771b473ec6",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/1cc0fd01-5e71-413f-a186-e999d9f732ed/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "1cc0fd01-5e71-413f-a186-e999d9f732ed",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "03c8c6cb3e762d5610a07daadccb059708c938b73d2cea641c08b0831073a89f",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "1cc0fd01-5e71-413f-a186-e999d9f732ed",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "a9223c80-c83a-4632-a0b6-4aabe23d067f_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/a9223c80-c83a-4632-a0b6-4aabe23d067f_photo_edit.png",
+          "bytes": 86730,
+          "sha256": "1e8528cbdca8c7209992746ae9664f7fa008d1f099f123df652180c689596ae9"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/1cc0fd01-5e71-413f-a186-e999d9f732ed/edited_photo.png",
+          "bytes": 57115,
+          "sha256": "03c8c6cb3e762d5610a07daadccb059708c938b73d2cea641c08b0831073a89f"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/1cc0fd01-5e71-413f-a186-e999d9f732ed/edited_photo.png",
+            "bytes": 57115,
+            "sha256": "03c8c6cb3e762d5610a07daadccb059708c938b73d2cea641c08b0831073a89f"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            320,
+            180
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 30,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/1cc0fd01-5e71-413f-a186-e999d9f732ed/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_rotate",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/1cc0fd01-5e71-413f-a186-e999d9f732ed/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "1cc0fd01-5e71-413f-a186-e999d9f732ed",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "03c8c6cb3e762d5610a07daadccb059708c938b73d2cea641c08b0831073a89f",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/1c593b6c-35f8-4b98-9ebd-0fd1e921a978/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "1c593b6c-35f8-4b98-9ebd-0fd1e921a978",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "e3b0349d369d7ea30ac3669dcfc7c9c59f0a5461dc7a7100e028da7ae13dc00d",
+        "width": 180
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "1c593b6c-35f8-4b98-9ebd-0fd1e921a978",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "rotate",
+        "input": {
+          "file_name": "39cf3b29-d381-46c1-9866-f146ed788bd2_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/39cf3b29-d381-46c1-9866-f146ed788bd2_photo_edit.png",
+          "bytes": 104570,
+          "sha256": "3eb724e646118064cd3d3cba128e3509e19902c71b7a9ae8052692e55bceebc1"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/1c593b6c-35f8-4b98-9ebd-0fd1e921a978/edited_photo.png",
+          "bytes": 74342,
+          "sha256": "e3b0349d369d7ea30ac3669dcfc7c9c59f0a5461dc7a7100e028da7ae13dc00d"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/1c593b6c-35f8-4b98-9ebd-0fd1e921a978/edited_photo.png",
+            "bytes": 74342,
+            "sha256": "e3b0349d369d7ea30ac3669dcfc7c9c59f0a5461dc7a7100e028da7ae13dc00d"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            180,
+            320
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 90,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/1c593b6c-35f8-4b98-9ebd-0fd1e921a978/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_flip-h",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/1c593b6c-35f8-4b98-9ebd-0fd1e921a978/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "1c593b6c-35f8-4b98-9ebd-0fd1e921a978",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "e3b0349d369d7ea30ac3669dcfc7c9c59f0a5461dc7a7100e028da7ae13dc00d",
+        "width": 180
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/1fe77e3c-c7d9-4761-bef3-92e5cfb56806/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "1fe77e3c-c7d9-4761-bef3-92e5cfb56806",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "5a6d0bea4b89ec3c285ae7ad353641fb284c06fc8983b71c719774868e5555af",
+        "width": 180
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "1fe77e3c-c7d9-4761-bef3-92e5cfb56806",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "flip-h",
+        "input": {
+          "file_name": "9da65cfc-129b-4ea7-ba0b-78ea2388e4ae_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/9da65cfc-129b-4ea7-ba0b-78ea2388e4ae_photo_edit.png",
+          "bytes": 105096,
+          "sha256": "fa810fd84cfa892846952d6aa4438557b5ee80ae34e1924d909a0bcd3341960e"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/1fe77e3c-c7d9-4761-bef3-92e5cfb56806/edited_photo.png",
+          "bytes": 66352,
+          "sha256": "5a6d0bea4b89ec3c285ae7ad353641fb284c06fc8983b71c719774868e5555af"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/1fe77e3c-c7d9-4761-bef3-92e5cfb56806/edited_photo.png",
+            "bytes": 66352,
+            "sha256": "5a6d0bea4b89ec3c285ae7ad353641fb284c06fc8983b71c719774868e5555af"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            180,
+            320
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": true,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/1fe77e3c-c7d9-4761-bef3-92e5cfb56806/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_flip-v",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/1fe77e3c-c7d9-4761-bef3-92e5cfb56806/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "1fe77e3c-c7d9-4761-bef3-92e5cfb56806",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "5a6d0bea4b89ec3c285ae7ad353641fb284c06fc8983b71c719774868e5555af",
+        "width": 180
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/fb26de47-b690-4a98-8858-b38e44bd4ec0/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "fb26de47-b690-4a98-8858-b38e44bd4ec0",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "3f956de58090d3f4f0d92fbaf3e0a6d6938e79d0eb4547bf7e4f4a3a900975a8",
+        "width": 180
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "fb26de47-b690-4a98-8858-b38e44bd4ec0",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "flip-v",
+        "input": {
+          "file_name": "29165d3a-bd2a-4c79-92e8-79bb563e76ee_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/29165d3a-bd2a-4c79-92e8-79bb563e76ee_photo_edit.png",
+          "bytes": 106190,
+          "sha256": "16278422c6c9e686bf684a22a0d83beb2d4280e9f077c1c197ed9152f560ad5b"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/fb26de47-b690-4a98-8858-b38e44bd4ec0/edited_photo.png",
+          "bytes": 74263,
+          "sha256": "3f956de58090d3f4f0d92fbaf3e0a6d6938e79d0eb4547bf7e4f4a3a900975a8"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/fb26de47-b690-4a98-8858-b38e44bd4ec0/edited_photo.png",
+            "bytes": 74263,
+            "sha256": "3f956de58090d3f4f0d92fbaf3e0a6d6938e79d0eb4547bf7e4f4a3a900975a8"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            180,
+            320
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": true,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/fb26de47-b690-4a98-8858-b38e44bd4ec0/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_auto",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/fb26de47-b690-4a98-8858-b38e44bd4ec0/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "fb26de47-b690-4a98-8858-b38e44bd4ec0",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "3f956de58090d3f4f0d92fbaf3e0a6d6938e79d0eb4547bf7e4f4a3a900975a8",
+        "width": 180
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/63b1e996-f262-4580-b6d1-5f7c7865b06e/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "63b1e996-f262-4580-b6d1-5f7c7865b06e",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "0d1ae9d5c9da9e8396013e1d3d5bc04b014c116b78551f14e7a938e5c021e3be",
+        "width": 180
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "63b1e996-f262-4580-b6d1-5f7c7865b06e",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "자동 사진 보정",
+        "input": {
+          "file_name": "91fb1d1d-218a-4d4f-b9df-e57be8d0d17b_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/91fb1d1d-218a-4d4f-b9df-e57be8d0d17b_photo_edit.png",
+          "bytes": 102552,
+          "sha256": "bb239ce96ee6b0e5223d2f30e8a8ecd9853699dbbff46f1ff1be592c4dca3959"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/63b1e996-f262-4580-b6d1-5f7c7865b06e/edited_photo.png",
+          "bytes": 73305,
+          "sha256": "0d1ae9d5c9da9e8396013e1d3d5bc04b014c116b78551f14e7a938e5c021e3be"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/63b1e996-f262-4580-b6d1-5f7c7865b06e/edited_photo.png",
+            "bytes": 73305,
+            "sha256": "0d1ae9d5c9da9e8396013e1d3d5bc04b014c116b78551f14e7a938e5c021e3be"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            180,
+            320
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 8,
+            "highlights": 0,
+            "shadows": 12,
+            "saturation": 8,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/63b1e996-f262-4580-b6d1-5f7c7865b06e/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_color",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/63b1e996-f262-4580-b6d1-5f7c7865b06e/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "63b1e996-f262-4580-b6d1-5f7c7865b06e",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "0d1ae9d5c9da9e8396013e1d3d5bc04b014c116b78551f14e7a938e5c021e3be",
+        "width": 180
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/21b94c5d-4b6a-4497-955c-1edc628953bf/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "21b94c5d-4b6a-4497-955c-1edc628953bf",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "e7c306e1ebe82d05f7d27a39545babeb85398fd964939174766b4802fc6f52bd",
+        "width": 180
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "21b94c5d-4b6a-4497-955c-1edc628953bf",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "color",
+        "input": {
+          "file_name": "ad978b5e-9747-4505-b147-76ee8c1ef530_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/ad978b5e-9747-4505-b147-76ee8c1ef530_photo_edit.png",
+          "bytes": 103583,
+          "sha256": "443f77297505e85f00d5b048c33fc878235adc7445ffda833437ea30c8687e2d"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/21b94c5d-4b6a-4497-955c-1edc628953bf/edited_photo.png",
+          "bytes": 74345,
+          "sha256": "e7c306e1ebe82d05f7d27a39545babeb85398fd964939174766b4802fc6f52bd"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/21b94c5d-4b6a-4497-955c-1edc628953bf/edited_photo.png",
+            "bytes": 74345,
+            "sha256": "e7c306e1ebe82d05f7d27a39545babeb85398fd964939174766b4802fc6f52bd"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            180,
+            320
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 10,
+            "temperature": 15,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/21b94c5d-4b6a-4497-955c-1edc628953bf/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_style",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/21b94c5d-4b6a-4497-955c-1edc628953bf/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "21b94c5d-4b6a-4497-955c-1edc628953bf",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "e7c306e1ebe82d05f7d27a39545babeb85398fd964939174766b4802fc6f52bd",
+        "width": 180
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/fcfc22ba-fb91-4d2a-b47c-a2733084cc2f/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "fcfc22ba-fb91-4d2a-b47c-a2733084cc2f",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "a30b1540bd1d409a41a6056056656aa4857cd865ff40d56f500cfa939f7412c9",
+        "width": 180
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "fcfc22ba-fb91-4d2a-b47c-a2733084cc2f",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "style",
+        "input": {
+          "file_name": "fcec01d0-1f56-4ac4-81f9-e10c0709fba8_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/fcec01d0-1f56-4ac4-81f9-e10c0709fba8_photo_edit.png",
+          "bytes": 50252,
+          "sha256": "3ceb61be3a53f86896b7f3cbb25e3adcbeb39f8a1527dd738cad36427a56255b"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/fcfc22ba-fb91-4d2a-b47c-a2733084cc2f/edited_photo.png",
+          "bytes": 39697,
+          "sha256": "a30b1540bd1d409a41a6056056656aa4857cd865ff40d56f500cfa939f7412c9"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/fcfc22ba-fb91-4d2a-b47c-a2733084cc2f/edited_photo.png",
+            "bytes": 39697,
+            "sha256": "a30b1540bd1d409a41a6056056656aa4857cd865ff40d56f500cfa939f7412c9"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            180,
+            320
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "mono",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/fcfc22ba-fb91-4d2a-b47c-a2733084cc2f/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_portrait",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/fcfc22ba-fb91-4d2a-b47c-a2733084cc2f/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "fcfc22ba-fb91-4d2a-b47c-a2733084cc2f",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "a30b1540bd1d409a41a6056056656aa4857cd865ff40d56f500cfa939f7412c9",
+        "width": 180
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/0068fb65-e08c-40ef-b179-452c1029575a/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "0068fb65-e08c-40ef-b179-452c1029575a",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "25aa16f1162c82fb18fde655458d9f7ab3131911800dafa6786b381e4a6d9554",
+        "width": 180
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "0068fb65-e08c-40ef-b179-452c1029575a",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "portrait",
+        "input": {
+          "file_name": "0a81dd30-ad4e-449e-b50c-9e8764deab7d_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/0a81dd30-ad4e-449e-b50c-9e8764deab7d_photo_edit.png",
+          "bytes": 56048,
+          "sha256": "8ac4a11f7aed927ae9494e47c911bf346c7c27a1019018eab69ab45a0594b922"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/0068fb65-e08c-40ef-b179-452c1029575a/edited_photo.png",
+          "bytes": 40577,
+          "sha256": "25aa16f1162c82fb18fde655458d9f7ab3131911800dafa6786b381e4a6d9554"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/0068fb65-e08c-40ef-b179-452c1029575a/edited_photo.png",
+            "bytes": 40577,
+            "sha256": "25aa16f1162c82fb18fde655458d9f7ab3131911800dafa6786b381e4a6d9554"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            180,
+            320
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 10,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": -25,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/0068fb65-e08c-40ef-b179-452c1029575a/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_crop",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/0068fb65-e08c-40ef-b179-452c1029575a/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "0068fb65-e08c-40ef-b179-452c1029575a",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "25aa16f1162c82fb18fde655458d9f7ab3131911800dafa6786b381e4a6d9554",
+        "width": 180
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "f82bbbd53474b0b8293127d8fb95da19b8244cc71f1648abb16c6b3f88aaf00c",
+        "width": 135
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "af3e56f9-4f69-4fcd-b678-b336bf85b748_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/af3e56f9-4f69-4fcd-b678-b336bf85b748_photo_edit.png",
+          "bytes": 42304,
+          "sha256": "ccc774878d9bf8ae2d50919fdf9315703f4f0f3183ab2dd37dc5dbaa6b454846"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78/edited_photo.png",
+          "bytes": 30830,
+          "sha256": "f82bbbd53474b0b8293127d8fb95da19b8244cc71f1648abb16c6b3f88aaf00c"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78/edited_photo.png",
+            "bytes": 30830,
+            "sha256": "f82bbbd53474b0b8293127d8fb95da19b8244cc71f1648abb16c6b3f88aaf00c"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            135,
+            320
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": {
+              "left": 0,
+              "top": 0,
+              "right": 75,
+              "bottom": 100
+            }
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_tool_resize",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "f82bbbd53474b0b8293127d8fb95da19b8244cc71f1648abb16c6b3f88aaf00c",
+        "width": 135
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/f859905c-2ef3-41e8-ac0e-d108db91b15c/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 379,
+        "job_id": "f859905c-2ef3-41e8-ac0e-d108db91b15c",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "266bdd22f078e0f700420f5507d929e347d6cae02a8f66fd9bbd4d8efea80fae",
+        "width": 160
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "f859905c-2ef3-41e8-ac0e-d108db91b15c",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "사진 보정",
+        "input": {
+          "file_name": "d7b60f16-db50-42f4-852a-7d5522b0404f_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/d7b60f16-db50-42f4-852a-7d5522b0404f_photo_edit.png",
+          "bytes": 57874,
+          "sha256": "02dfc28f731742b787595018c3cc48b383bad12418fa955da0e6ab593c8cd018"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/f859905c-2ef3-41e8-ac0e-d108db91b15c/edited_photo.png",
+          "bytes": 50352,
+          "sha256": "266bdd22f078e0f700420f5507d929e347d6cae02a8f66fd9bbd4d8efea80fae"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/f859905c-2ef3-41e8-ac0e-d108db91b15c/edited_photo.png",
+            "bytes": 50352,
+            "sha256": "266bdd22f078e0f700420f5507d929e347d6cae02a8f66fd9bbd4d8efea80fae"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            160,
+            379
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "highlights": 0,
+            "shadows": 0,
+            "saturation": 0,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": 160,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/f859905c-2ef3-41e8-ac0e-d108db91b15c/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_reset",
+      "status": "PASS"
+    },
+    {
+      "feature": "photo_reference_similarity",
+      "status": "PASS",
+      "result": "첨부 참고 이미지 색감 유사도 순서: portrait.png → landscape.png"
+    },
+    {
+      "feature": "reference_remove",
+      "status": "PASS"
+    },
+    {
+      "feature": "photo_command",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/48d9e6e9-9fc3-4b26-8e36-55b7ac0d7931/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 379,
+        "job_id": "48d9e6e9-9fc3-4b26-8e36-55b7ac0d7931",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "f496547c36ca1872cbc7bdd66b2502a446f327b46e9367dc7981a4c4616b96e6",
+        "width": 160
+      }
+    },
+    {
+      "feature": "photo_auto_entry_header",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/48d9e6e9-9fc3-4b26-8e36-55b7ac0d7931/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 379,
+        "job_id": "48d9e6e9-9fc3-4b26-8e36-55b7ac0d7931",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "f496547c36ca1872cbc7bdd66b2502a446f327b46e9367dc7981a4c4616b96e6",
+        "width": 160
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/e9402fac-a6c0-4e74-947d-b0df541f4ef1/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 379,
+        "job_id": "e9402fac-a6c0-4e74-947d-b0df541f4ef1",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "adb253a5c29c993c4f9d6090917fed3013e195a39044c560e8daa9f1faaeff78",
+        "width": 160
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "e9402fac-a6c0-4e74-947d-b0df541f4ef1",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "자동 사진 보정",
+        "input": {
+          "file_name": "cd89ce76-ec5c-4139-aa01-7f28b0a7a8d3_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/cd89ce76-ec5c-4139-aa01-7f28b0a7a8d3_photo_edit.png",
+          "bytes": 66351,
+          "sha256": "29b96668c2edb021b9d845829286c79503d2265232e46fc375a0074778ff6917"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/e9402fac-a6c0-4e74-947d-b0df541f4ef1/edited_photo.png",
+          "bytes": 56125,
+          "sha256": "adb253a5c29c993c4f9d6090917fed3013e195a39044c560e8daa9f1faaeff78"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/e9402fac-a6c0-4e74-947d-b0df541f4ef1/edited_photo.png",
+            "bytes": 56125,
+            "sha256": "adb253a5c29c993c4f9d6090917fed3013e195a39044c560e8daa9f1faaeff78"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            160,
+            379
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 8,
+            "highlights": 0,
+            "shadows": 12,
+            "saturation": 8,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/e9402fac-a6c0-4e74-947d-b0df541f4ef1/edited_photo.png"
+      }
+    },
+    {
+      "feature": "photo_auto_entry_transport",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/e9402fac-a6c0-4e74-947d-b0df541f4ef1/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 379,
+        "job_id": "e9402fac-a6c0-4e74-947d-b0df541f4ef1",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "adb253a5c29c993c4f9d6090917fed3013e195a39044c560e8daa9f1faaeff78",
+        "width": 160
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/f12310b0-e071-4d16-a46a-8190056c3acf/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 379,
+        "job_id": "f12310b0-e071-4d16-a46a-8190056c3acf",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "167bb79fabe7c16f493dd7bd8999ea1793e872845046bad4cfa1fab4afd78ceb",
+        "width": 160
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "f12310b0-e071-4d16-a46a-8190056c3acf",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "자동 사진 보정",
+        "input": {
+          "file_name": "242e3b59-688c-447c-9d96-aad8713d3d71_photo_edit.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/242e3b59-688c-447c-9d96-aad8713d3d71_photo_edit.png",
+          "bytes": 99994,
+          "sha256": "3750e602ff80aa9a8832d74fae7b3c00c430bfc4bb2fa2656015670f6d7d0679"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/f12310b0-e071-4d16-a46a-8190056c3acf/edited_photo.png",
+          "bytes": 75295,
+          "sha256": "167bb79fabe7c16f493dd7bd8999ea1793e872845046bad4cfa1fab4afd78ceb"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/f12310b0-e071-4d16-a46a-8190056c3acf/edited_photo.png",
+            "bytes": 75295,
+            "sha256": "167bb79fabe7c16f493dd7bd8999ea1793e872845046bad4cfa1fab4afd78ceb"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            160,
+            379
+          ],
+          "options": {
+            "brightness": 0,
+            "contrast": 8,
+            "highlights": 0,
+            "shadows": 12,
+            "saturation": 8,
+            "temperature": 0,
+            "sharpness": 0,
+            "rotation": 0,
+            "flipH": false,
+            "flipV": false,
+            "style": "neutral",
+            "resizeWidth": null,
+            "crop": null
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/f12310b0-e071-4d16-a46a-8190056c3acf/edited_photo.png"
+      }
+    },
+    {
+      "feature": "pending_edit_save_guard_duplicate_click",
+      "status": "PASS",
+      "blocked_message": "진행 중인 편집을 완료한 뒤 저장하세요.",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/ff88a86d-a34f-4952-9c23-5b112557af26/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 379,
+        "job_id": "ff88a86d-a34f-4952-9c23-5b112557af26",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "0fa79e944d3dd9a0e42c0e0cfabf5e662103b439149fb6f6dfdd48c16f5c2e81",
+        "width": 160
+      },
+      "new_jobs": 1
+    },
+    {
+      "feature": "invalid_import_keeps_previous",
+      "status": "PASS",
+      "error": "cannot identify image file '/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/4a03dff7-0781-4a90-852d-967def9e259c_invalid.png'"
+    },
+    {
+      "feature": "video_import_ratio",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/43be9d33-6080-43ce-9492-384d85f0d14f/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "43be9d33-6080-43ce-9492-384d85f0d14f",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      }
+    },
+    {
+      "feature": "video_seek_byte_range",
+      "status": "PASS",
+      "browser": {
+        "MediaError_code": null,
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/43be9d33-6080-43ce-9492-384d85f0d14f/original_video_preview.mp4",
+        "currentTime": 2.016,
+        "readyState": 1,
+        "seekable": [
+          [
+            0,
+            4.032
+          ]
+        ],
+        "videoWidth": 320
+      },
+      "http_status": 206,
+      "content_range": "bytes 0-31/136948"
+    },
+    {
+      "feature": "video_play_pause_seek_mute_start_end",
+      "status": "PASS"
+    },
+    {
+      "feature": "video_tool_rotate",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/24158470-f2ba-4e9c-af0c-ff17fd95b60b/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "24158470-f2ba-4e9c-af0c-ff17fd95b60b",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/d7c08225-34ac-4cfb-a00a-9d570aaa102e/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 320,
+        "job_id": "d7c08225-34ac-4cfb-a00a-9d570aaa102e",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "37a05a992fbb79be84cc3fa350f579988c6b046abc4a866e5b617cac6c483e17",
+        "width": 180
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "d7c08225-34ac-4cfb-a00a-9d570aaa102e",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "회전",
+        "input": {
+          "file_name": "0282a69d-ff9d-4e18-b463-74b69646cfe3_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/0282a69d-ff9d-4e18-b463-74b69646cfe3_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/d7c08225-34ac-4cfb-a00a-9d570aaa102e/edited_video.mp4",
+          "bytes": 138344,
+          "sha256": "37a05a992fbb79be84cc3fa350f579988c6b046abc4a866e5b617cac6c483e17"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/d7c08225-34ac-4cfb-a00a-9d570aaa102e/edited_video.mp4",
+            "bytes": 138344,
+            "sha256": "37a05a992fbb79be84cc3fa350f579988c6b046abc4a866e5b617cac6c483e17"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 0,
+            "duration": 0,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "rotate": true
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/d7c08225-34ac-4cfb-a00a-9d570aaa102e/edited_video.mp4"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 180,
+            "height": 320,
+            "pix_fmt": "yuv420p",
+            "duration": "4.000000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "4.032000"
+          }
+        ],
+        "format": {
+          "duration": "4.032000"
+        }
+      }
+    },
+    {
+      "feature": "video_tool_fade",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/9403c687-3ff4-43e3-a045-3b09b307768a/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "9403c687-3ff4-43e3-a045-3b09b307768a",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/9832e0c5-83a1-49a6-b5d8-274e49f5f5a8/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "9832e0c5-83a1-49a6-b5d8-274e49f5f5a8",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "6fb58a5983abe526b1d5c09b40da7d3e37e4bc15029cd1b0dc0b0d2c9c786f18",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "9832e0c5-83a1-49a6-b5d8-274e49f5f5a8",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "장면 전환",
+        "input": {
+          "file_name": "71ae27f3-8d48-4284-9fc2-1edcb8aadb96_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/71ae27f3-8d48-4284-9fc2-1edcb8aadb96_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/9832e0c5-83a1-49a6-b5d8-274e49f5f5a8/edited_video.mp4",
+          "bytes": 130273,
+          "sha256": "6fb58a5983abe526b1d5c09b40da7d3e37e4bc15029cd1b0dc0b0d2c9c786f18"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/9832e0c5-83a1-49a6-b5d8-274e49f5f5a8/edited_video.mp4",
+            "bytes": 130273,
+            "sha256": "6fb58a5983abe526b1d5c09b40da7d3e37e4bc15029cd1b0dc0b0d2c9c786f18"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 0,
+            "duration": 0,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "fade": true
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/9832e0c5-83a1-49a6-b5d8-274e49f5f5a8/edited_video.mp4"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 320,
+            "height": 180,
+            "pix_fmt": "yuv420p",
+            "duration": "4.000000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "4.032000"
+          }
+        ],
+        "format": {
+          "duration": "4.032000"
+        }
+      }
+    },
+    {
+      "feature": "video_tool_effect",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/6adca917-9948-4e0f-89bf-3a317a154a35/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "6adca917-9948-4e0f-89bf-3a317a154a35",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/c56aff7d-34da-4877-b0cf-2f6490de7295/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "c56aff7d-34da-4877-b0cf-2f6490de7295",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "49807b2a3f991464100a6934a2a10e39ba0c2499905240b2f64249b5d07d4a33",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "c56aff7d-34da-4877-b0cf-2f6490de7295",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "영상 효과",
+        "input": {
+          "file_name": "e5a9711c-623b-4409-b487-40be51b63d3c_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/e5a9711c-623b-4409-b487-40be51b63d3c_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/c56aff7d-34da-4877-b0cf-2f6490de7295/edited_video.mp4",
+          "bytes": 124147,
+          "sha256": "49807b2a3f991464100a6934a2a10e39ba0c2499905240b2f64249b5d07d4a33"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/c56aff7d-34da-4877-b0cf-2f6490de7295/edited_video.mp4",
+            "bytes": 124147,
+            "sha256": "49807b2a3f991464100a6934a2a10e39ba0c2499905240b2f64249b5d07d4a33"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 0,
+            "duration": 0,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "effect": true
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/c56aff7d-34da-4877-b0cf-2f6490de7295/edited_video.mp4"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 320,
+            "height": 180,
+            "pix_fmt": "yuv420p",
+            "duration": "4.000000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "4.032000"
+          }
+        ],
+        "format": {
+          "duration": "4.032000"
+        }
+      }
+    },
+    {
+      "feature": "video_tool_highlight",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/dd133f4b-39e5-42cd-bd8c-64eae237f25c/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "dd133f4b-39e5-42cd-bd8c-64eae237f25c",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/ea9e709f-4a62-4982-b22e-a3776160f1e4/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "ea9e709f-4a62-4982-b22e-a3776160f1e4",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "eab0ee515628bc7278b53b4937384dfb11d136ec80d639dcfdf802cf708f3108",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "ea9e709f-4a62-4982-b22e-a3776160f1e4",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "장면 변화 기반 하이라이트 추출",
+        "input": {
+          "file_name": "6b765c23-8701-4aba-8d49-bd6e27258773_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/6b765c23-8701-4aba-8d49-bd6e27258773_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/ea9e709f-4a62-4982-b22e-a3776160f1e4/edited_video.mp4",
+          "bytes": 130176,
+          "sha256": "eab0ee515628bc7278b53b4937384dfb11d136ec80d639dcfdf802cf708f3108"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/ea9e709f-4a62-4982-b22e-a3776160f1e4/edited_video.mp4",
+            "bytes": 130176,
+            "sha256": "eab0ee515628bc7278b53b4937384dfb11d136ec80d639dcfdf802cf708f3108"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 0,
+            "duration": 4.0,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "highlight": true,
+            "highlight_method": "frame_difference"
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/ea9e709f-4a62-4982-b22e-a3776160f1e4/edited_video.mp4"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 320,
+            "height": 180,
+            "pix_fmt": "yuv420p",
+            "duration": "4.000000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "4.000000"
+          }
+        ],
+        "format": {
+          "duration": "4.000000"
+        }
+      }
+    },
+    {
+      "feature": "video_tool_shortform",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/4c2fd6c4-9d4b-4e89-8137-eca1bec2e931/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "4c2fd6c4-9d4b-4e89-8137-eca1bec2e931",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/8ae8f685-d0e7-4f45-b696-a3b3ce1b02fc/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 640,
+        "job_id": "8ae8f685-d0e7-4f45-b696-a3b3ce1b02fc",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "064f314b5b095adb48782ffa85c61bc55dc2cce2d23c0744adc01b1b3ddb2341",
+        "width": 360
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "8ae8f685-d0e7-4f45-b696-a3b3ce1b02fc",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "30초 숏폼 변환",
+        "input": {
+          "file_name": "0ba88916-a7f8-4ad1-a33d-2f7b8cafef0a_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/0ba88916-a7f8-4ad1-a33d-2f7b8cafef0a_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/8ae8f685-d0e7-4f45-b696-a3b3ce1b02fc/edited_video.mp4",
+          "bytes": 164421,
+          "sha256": "064f314b5b095adb48782ffa85c61bc55dc2cce2d23c0744adc01b1b3ddb2341"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/8ae8f685-d0e7-4f45-b696-a3b3ce1b02fc/edited_video.mp4",
+            "bytes": 164421,
+            "sha256": "064f314b5b095adb48782ffa85c61bc55dc2cce2d23c0744adc01b1b3ddb2341"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 0,
+            "duration": 30,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "aspect": "9:16"
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/8ae8f685-d0e7-4f45-b696-a3b3ce1b02fc/edited_video.mp4"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 360,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "duration": "4.000000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "4.032000"
+          }
+        ],
+        "format": {
+          "duration": "4.032000"
+        }
+      }
+    },
+    {
+      "feature": "video_tool_trim",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/03476d82-d7da-4baa-a685-0f0cfa93a905/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "03476d82-d7da-4baa-a685-0f0cfa93a905",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/6853db38-dbe2-46e1-b282-3b144222eff7/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "6853db38-dbe2-46e1-b282-3b144222eff7",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "888c2afeb47675f51b50005e3cb7364a7bc609a04d6d1e9e317816553b4e08ff",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "6853db38-dbe2-46e1-b282-3b144222eff7",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "영상 편집",
+        "input": {
+          "file_name": "4d15151c-742a-4020-a7f1-63aa42f6da7d_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/4d15151c-742a-4020-a7f1-63aa42f6da7d_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/6853db38-dbe2-46e1-b282-3b144222eff7/edited_video.mp4",
+          "bytes": 65926,
+          "sha256": "888c2afeb47675f51b50005e3cb7364a7bc609a04d6d1e9e317816553b4e08ff"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/6853db38-dbe2-46e1-b282-3b144222eff7/edited_video.mp4",
+            "bytes": 65926,
+            "sha256": "888c2afeb47675f51b50005e3cb7364a7bc609a04d6d1e9e317816553b4e08ff"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 1,
+            "duration": 2,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "subtitle": ""
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/6853db38-dbe2-46e1-b282-3b144222eff7/edited_video.mp4"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 320,
+            "height": 180,
+            "pix_fmt": "yuv420p",
+            "duration": "2.000000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "2.000000"
+          }
+        ],
+        "format": {
+          "duration": "2.000000"
+        }
+      }
+    },
+    {
+      "feature": "video_tool_split",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/b0a5b3b4-f6d0-402e-a423-e404c6bc0208/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "b0a5b3b4-f6d0-402e-a423-e404c6bc0208",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/ce6eac48-8d2e-47dd-aaeb-fba22b42a008/split_1.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "ce6eac48-8d2e-47dd-aaeb-fba22b42a008",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "7bc4a8a396c8085325cc35e5bb3bd28c587d5fa5c72b0ec6dd6583c80a2c7e12",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "ce6eac48-8d2e-47dd-aaeb-fba22b42a008",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "영상 편집",
+        "input": {
+          "file_name": "286de6b3-ebdf-45a5-be4c-1eab280c00e8_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/286de6b3-ebdf-45a5-be4c-1eab280c00e8_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "split_1.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/ce6eac48-8d2e-47dd-aaeb-fba22b42a008/split_1.mp4",
+          "bytes": 63489,
+          "sha256": "7bc4a8a396c8085325cc35e5bb3bd28c587d5fa5c72b0ec6dd6583c80a2c7e12"
+        },
+        "outputs": [
+          {
+            "file_name": "split_1.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/ce6eac48-8d2e-47dd-aaeb-fba22b42a008/split_1.mp4",
+            "bytes": 63489,
+            "sha256": "7bc4a8a396c8085325cc35e5bb3bd28c587d5fa5c72b0ec6dd6583c80a2c7e12"
+          },
+          {
+            "file_name": "split_2.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/ce6eac48-8d2e-47dd-aaeb-fba22b42a008/split_2.mp4",
+            "bytes": 73954,
+            "sha256": "a61aae5365c1b5a8c22b56317c0dcd7a7bafcf6359866b4d5cef88eed0962f33"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": true,
+            "start": 2,
+            "duration": 0,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "subtitle": ""
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/ce6eac48-8d2e-47dd-aaeb-fba22b42a008/split_1.mp4"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 320,
+            "height": 180,
+            "pix_fmt": "yuv420p",
+            "duration": "2.000000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "2.000000"
+          }
+        ],
+        "format": {
+          "duration": "2.000000"
+        }
+      }
+    },
+    {
+      "feature": "video_tool_speed",
+      "status": "PASS",
+      "before": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/3f171fbd-db05-4608-89f4-d474fb836459/original_video_preview.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "3f171fbd-db05-4608-89f4-d474fb836459",
+        "operation": "import",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9",
+        "width": 320
+      },
+      "after": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/b2f46133-7a3b-48fc-a8e1-61c7b4171d9a/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "b2f46133-7a3b-48fc-a8e1-61c7b4171d9a",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "a7eee295fba3027e06d33addd1e4c97784fa1f711805c4e54d8c87366126fa9a",
+        "width": 320
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "b2f46133-7a3b-48fc-a8e1-61c7b4171d9a",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "영상 편집",
+        "input": {
+          "file_name": "8b2a4be2-5d13-4150-9ce3-908c33524a2d_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/8b2a4be2-5d13-4150-9ce3-908c33524a2d_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/b2f46133-7a3b-48fc-a8e1-61c7b4171d9a/edited_video.mp4",
+          "bytes": 98447,
+          "sha256": "a7eee295fba3027e06d33addd1e4c97784fa1f711805c4e54d8c87366126fa9a"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/b2f46133-7a3b-48fc-a8e1-61c7b4171d9a/edited_video.mp4",
+            "bytes": 98447,
+            "sha256": "a7eee295fba3027e06d33addd1e4c97784fa1f711805c4e54d8c87366126fa9a"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 0,
+            "duration": 0,
+            "speed": 1.5,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "subtitle": ""
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/b2f46133-7a3b-48fc-a8e1-61c7b4171d9a/edited_video.mp4"
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 320,
+            "height": 180,
+            "pix_fmt": "yuv420p",
+            "duration": "2.750000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "2.689000"
+          }
+        ],
+        "format": {
+          "duration": "2.750000"
+        }
+      }
+    },
+    {
+      "feature": "video_corrections_stabilize_denoise",
+      "status": "PASS",
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "5d0908db-1737-42f9-8e8a-072014d55fbc",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "영상 편집",
+        "input": {
+          "file_name": "6848b954-0e3b-4e48-afd1-edea649f70e5_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/6848b954-0e3b-4e48-afd1-edea649f70e5_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/5d0908db-1737-42f9-8e8a-072014d55fbc/edited_video.mp4",
+          "bytes": 236258,
+          "sha256": "3f970c5efea2bae1ba07770789a6d954be65f9c7e0c6ab13f52d4c58cbbd3a3d"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/5d0908db-1737-42f9-8e8a-072014d55fbc/edited_video.mp4",
+            "bytes": 236258,
+            "sha256": "3f970c5efea2bae1ba07770789a6d954be65f9c7e0c6ab13f52d4c58cbbd3a3d"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": true,
+            "denoise": true,
+            "split": false,
+            "start": 0,
+            "duration": 0,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 15,
+            "contrast": 15,
+            "saturation": 15,
+            "subtitle": ""
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/5d0908db-1737-42f9-8e8a-072014d55fbc/edited_video.mp4"
+      },
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/5d0908db-1737-42f9-8e8a-072014d55fbc/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "5d0908db-1737-42f9-8e8a-072014d55fbc",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "3f970c5efea2bae1ba07770789a6d954be65f9c7e0c6ab13f52d4c58cbbd3a3d",
+        "width": 320
+      }
+    },
+    {
+      "feature": "video_korean_subtitle_render",
+      "status": "PASS",
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "01d6f4bd-faba-4686-b678-697945a07c05",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "영상 편집",
+        "input": {
+          "file_name": "a62852e1-85a5-478a-97e4-40611b8c93d7_original_video_preview.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/a62852e1-85a5-478a-97e4-40611b8c93d7_original_video_preview.mp4",
+          "bytes": 136948,
+          "sha256": "b25a149ada84dfdfc95c4ac6cd88d491f9c4d5ed5fd2ed946ac90ea2679ee0f9"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/01d6f4bd-faba-4686-b678-697945a07c05/edited_video.mp4",
+          "bytes": 130275,
+          "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/01d6f4bd-faba-4686-b678-697945a07c05/edited_video.mp4",
+            "bytes": 130275,
+            "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 0,
+            "duration": 0,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 0,
+            "contrast": 0,
+            "saturation": 0,
+            "subtitle": "한국어 자막 실기 검증"
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/01d6f4bd-faba-4686-b678-697945a07c05/edited_video.mp4"
+      },
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/01d6f4bd-faba-4686-b678-697945a07c05/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "01d6f4bd-faba-4686-b678-697945a07c05",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "beb41228da5d81a910d503aec4de8f1815ae8b9d0bdb76700c62cca72769ed35",
+        "width": 320
+      }
+    },
+    {
+      "feature": "video_background_music",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/6fa8b7d1-f614-4c7e-ad90-2b7c17b4ed94/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "6fa8b7d1-f614-4c7e-ad90-2b7c17b4ed94",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "45e60f4fcf11db2d9bee522995512e0524a32fe9fbd7a3fa9a49c8f7ded64d82",
+        "width": 320
+      }
+    },
+    {
+      "feature": "background_music_state_after_followup_edit",
+      "status": "PASS",
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "d2fcd635-a9e3-4362-a816-98e1b50ebe30",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "AI 대화 편집 · 밝게 편집해줘",
+        "input": {
+          "file_name": "3b56c558-02d2-4a35-bce8-ac658d2a2d0b_edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/3b56c558-02d2-4a35-bce8-ac658d2a2d0b_edited_video.mp4",
+          "bytes": 126997,
+          "sha256": "45e60f4fcf11db2d9bee522995512e0524a32fe9fbd7a3fa9a49c8f7ded64d82"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/d2fcd635-a9e3-4362-a816-98e1b50ebe30/edited_video.mp4",
+          "bytes": 116363,
+          "sha256": "5956ef16833a73f5ab4b282b4393f5e0b088a7ceae0640438d6bb4b4d336b6c0"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/d2fcd635-a9e3-4362-a816-98e1b50ebe30/edited_video.mp4",
+            "bytes": 116363,
+            "sha256": "5956ef16833a73f5ab4b282b4393f5e0b088a7ceae0640438d6bb4b4d336b6c0"
+          },
+          {
+            "file_name": "56462cf4-bd1f-4777-854f-2fbc1ceb3cc4_배경 음악.wav",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/56462cf4-bd1f-4777-854f-2fbc1ceb3cc4_배경 음악.wav",
+            "bytes": 160078,
+            "sha256": "3d72ce8f73a8aa188f372c996a194d08d56234f4295fa38500077eafcbd74cfc"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "stabilize": false,
+            "denoise": false,
+            "split": false,
+            "start": 0,
+            "duration": 0,
+            "speed": 1,
+            "volume": 1,
+            "brightness": 15,
+            "contrast": 0,
+            "saturation": 0,
+            "backgroundVolume": 0.35
+          },
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/d2fcd635-a9e3-4362-a816-98e1b50ebe30/edited_video.mp4"
+      },
+      "track_text": "Audio Track · 추가한 배경음악"
+    },
+    {
+      "feature": "video_command",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/d2fcd635-a9e3-4362-a816-98e1b50ebe30/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 180,
+        "job_id": "d2fcd635-a9e3-4362-a816-98e1b50ebe30",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "5956ef16833a73f5ab4b282b4393f5e0b088a7ceae0640438d6bb4b4d336b6c0",
+        "width": 320
+      }
+    },
+    {
+      "feature": "unsupported_video_command_rejected",
+      "status": "PASS"
+    },
+    {
+      "feature": "failed_command_retained_for_retry",
+      "status": "PASS"
+    },
+    {
+      "feature": "video_command_chips_send_length_ratio",
+      "status": "PASS"
+    },
+    {
+      "feature": "photo_command_chips_style_tone_ratio_send",
+      "status": "PASS"
+    },
+    {
+      "feature": "corrected_edits_save_close_reopen",
+      "status": "PASS",
+      "project_id": "0325752c-3d86-48a9-89a7-2d960f4ca422",
+      "photo": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/79e260ff-89d7-48f4-91fc-a588efd1058c/edited_photo.png",
+        "error": null,
+        "fit": "contain",
+        "height": 379,
+        "job_id": "79e260ff-89d7-48f4-91fc-a588efd1058c",
+        "operation": "photo_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "0fab0fc2c3a3dadfadc896b586fb1fd2f983af12f0a6668a983c146a7f4df7fa",
+        "width": 160
+      },
+      "video": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45103/files/jobs/000b8ced-5704-4f4d-a70d-9d064024b59a/edited_video.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 640,
+        "job_id": "000b8ced-5704-4f4d-a70d-9d064024b59a",
+        "operation": "video_edit",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "6582651514e2bd2b655010477a53da45fcc6963d81971c7f519bf4c9dd65e02b",
+        "width": 360
+      },
+      "job_ids": [
+        "1d7c9bb2-2fb6-4108-92f8-102fe9b8a096",
+        "9d2c8f3b-4e1a-4a16-94c0-f0a23589f5eb",
+        "6a6527d0-a094-42eb-b89e-74b56e449cba",
+        "d761b653-f5cc-4918-bd23-e611ae2e0a6b",
+        "5ad27d47-34c6-46b7-947a-70f3559f8e18",
+        "a254ba85-ffd4-454d-9300-7e8fb2c16072",
+        "68c86481-7b03-4289-b22b-1c9f76812366",
+        "5d111750-1c0a-4a6d-bffc-0d9be8a31ce0",
+        "da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6",
+        "1cc0fd01-5e71-413f-a186-e999d9f732ed",
+        "1c593b6c-35f8-4b98-9ebd-0fd1e921a978",
+        "1fe77e3c-c7d9-4761-bef3-92e5cfb56806",
+        "fb26de47-b690-4a98-8858-b38e44bd4ec0",
+        "63b1e996-f262-4580-b6d1-5f7c7865b06e",
+        "21b94c5d-4b6a-4497-955c-1edc628953bf",
+        "fcfc22ba-fb91-4d2a-b47c-a2733084cc2f",
+        "0068fb65-e08c-40ef-b179-452c1029575a",
+        "ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78",
+        "f859905c-2ef3-41e8-ac0e-d108db91b15c",
+        "48d9e6e9-9fc3-4b26-8e36-55b7ac0d7931",
+        "e9402fac-a6c0-4e74-947d-b0df541f4ef1",
+        "f12310b0-e071-4d16-a46a-8190056c3acf",
+        "ff88a86d-a34f-4952-9c23-5b112557af26",
+        "43be9d33-6080-43ce-9492-384d85f0d14f",
+        "24158470-f2ba-4e9c-af0c-ff17fd95b60b",
+        "d7c08225-34ac-4cfb-a00a-9d570aaa102e",
+        "9403c687-3ff4-43e3-a045-3b09b307768a",
+        "9832e0c5-83a1-49a6-b5d8-274e49f5f5a8",
+        "6adca917-9948-4e0f-89bf-3a317a154a35",
+        "c56aff7d-34da-4877-b0cf-2f6490de7295",
+        "dd133f4b-39e5-42cd-bd8c-64eae237f25c",
+        "ea9e709f-4a62-4982-b22e-a3776160f1e4",
+        "4c2fd6c4-9d4b-4e89-8137-eca1bec2e931",
+        "8ae8f685-d0e7-4f45-b696-a3b3ce1b02fc",
+        "03476d82-d7da-4baa-a685-0f0cfa93a905",
+        "6853db38-dbe2-46e1-b282-3b144222eff7",
+        "b0a5b3b4-f6d0-402e-a423-e404c6bc0208",
+        "ce6eac48-8d2e-47dd-aaeb-fba22b42a008",
+        "3f171fbd-db05-4608-89f4-d474fb836459",
+        "b2f46133-7a3b-48fc-a8e1-61c7b4171d9a",
+        "c9d8299e-e204-48b8-8ba1-ca2ebc2e86c7",
+        "5d0908db-1737-42f9-8e8a-072014d55fbc",
+        "0f388ed7-9df9-4a37-af76-7466249f789a",
+        "01d6f4bd-faba-4686-b678-697945a07c05",
+        "1066bac8-e20b-49b2-aa3e-e2b5469a653c",
+        "6fa8b7d1-f614-4c7e-ad90-2b7c17b4ed94",
+        "d2fcd635-a9e3-4362-a816-98e1b50ebe30",
+        "80bdd7ad-2a2f-4d13-9498-7fff83abb739",
+        "000b8ced-5704-4f4d-a70d-9d064024b59a",
+        "e7d723d4-7368-42f0-982a-c6ee89024ff2",
+        "79e260ff-89d7-48f4-91fc-a588efd1058c"
+      ]
+    },
+    {
+      "feature": "corrected_edits_ui_export_integrity",
+      "status": "PASS",
+      "sha256": "c0dbb827e44b13af9673020c3e9dc7ae7a369b4e4b71368160d04254e553545a",
+      "project_id": "0325752c-3d86-48a9-89a7-2d960f4ca422",
+      "bytes": 6317540
+    },
+    {
+      "feature": "frozen_photo_segment",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45083/files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+        "error": null,
+        "fit": "contain",
+        "height": 270,
+        "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+        "operation": "segment",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+        "width": 480
+      },
+      "reused_run": 37738880868
+    },
+    {
+      "feature": "photo_background_removal_from_frozen_mask",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45083/files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png",
+        "error": null,
+        "fit": "contain",
+        "height": 270,
+        "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+        "operation": "segment",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "0866e968c0bc9c82ef0fd789562d3e8edfbaaf89a88476dae870afb657b8173a",
+        "width": 480
+      },
+      "runtime": {
+        "status": "TESTED_PASS",
+        "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+        "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+        "lane": "photo",
+        "operation": "segment",
+        "command": "왼쪽 인물을 실제로 분할해줘",
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "model": {
+          "identity": {
+            "repo_id": "facebook/sam2.1-hiera-base-plus",
+            "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+            "license": "apache-2.0",
+            "weight_name": "model.safetensors",
+            "weight_size_bytes": 323476296,
+            "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+          },
+          "private_cache": {
+            "repo_id": "MINDLE1846/MINDLE-MEDIA-AI-MODELS",
+            "revision": "ad63c52a4b9a3db7eaec9c5058c94ee1422757dd",
+            "path": "VERIFIED_MODEL_CACHE/sam21",
+            "read_only": true
+          }
+        },
+        "adapter": {
+          "id": "mindle.sam21.verified.cpu",
+          "version": "1.0.1",
+          "runtime_backend": "transformers-pytorch",
+          "device_requirement": "cpu"
+        },
+        "input": {
+          "file_name": "36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "bytes": 189281,
+          "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+        },
+        "runtime_result": {
+          "status": "TESTED_PASS",
+          "input_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+          "prompt_point": [
+            125,
+            146
+          ],
+          "selected_mask_index": 1,
+          "foreground_fraction": 0.016520061728395062,
+          "elapsed_ms": 4633.18,
+          "outputs": [
+            {
+              "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_mask.png",
+              "sha256": "8274d35d4ad0cd7dbcc0e8aa7c298cd46f55a772e53f5050e1cdb354cbe10379",
+              "bytes": 708
+            },
+            {
+              "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+              "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+              "bytes": 172645
+            }
+          ]
+        },
+        "primary_output": {
+          "file_name": "photo_overlay.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+          "bytes": 172645,
+          "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f"
+        },
+        "outputs": [
+          {
+            "file_name": "photo_mask.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_mask.png",
+            "bytes": 708,
+            "sha256": "8274d35d4ad0cd7dbcc0e8aa7c298cd46f55a772e53f5050e1cdb354cbe10379"
+          },
+          {
+            "file_name": "photo_overlay.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+            "bytes": 172645,
+            "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f"
+          },
+          {
+            "file_name": "photo_foreground_rgba.png",
+            "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png",
+            "bytes": 193445,
+            "sha256": "0866e968c0bc9c82ef0fd789562d3e8edfbaaf89a88476dae870afb657b8173a"
+          }
+        ],
+        "backend": {
+          "api_status": 201,
+          "delivery_gate": "DELIVERED",
+          "job_evidence": {
+            "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+            "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+            "evidence_status": "VERIFY_REQUIRED",
+            "runtime_status": "OUTPUT_VALIDATED",
+            "terminal_state": "succeeded",
+            "recorded_at": "2026-10-08T06:00:18.153165+00:00",
+            "started_at": "2026-10-08T06:00:18.152626+00:00",
+            "finished_at": "2026-10-08T06:00:18.153173+00:00",
+            "project_id": null,
+            "requested_operation": "segment",
+            "source_provenance": {
+              "source_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/inputs/36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+              "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+              "ingress": "approved-ui"
+            },
+            "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+            "reference_files": [],
+            "retry_provenance": {
+              "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+              "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+              "attempt": 1
+            },
+            "state_history": [
+              "queued",
+              "validating",
+              "preflight_ready",
+              "dispatched",
+              "running",
+              "output_validating",
+              "succeeded"
+            ],
+            "runtime": {
+              "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+              "hardware": "x86_64"
+            },
+            "adapter_id": "mindle.sam21.verified.cpu",
+            "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+            "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+            "license_source": "apache-2.0",
+            "runtime_backend": "transformers-pytorch",
+            "device_requirement": "cpu",
+            "execution_context": {
+              "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+              "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+              "lane": "photo",
+              "source_hashes": {
+                "source": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+              },
+              "nl_instruction": "왼쪽 인물을 실제로 분할해줘",
+              "reference_images": [],
+              "retry_provenance": {
+                "job_id": "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+                "evidence_id": "7a80d94c-34a1-4b3b-825c-140a77e721db",
+                "attempt": 0
+              },
+              "adapter_identity": {
+                "adapter_id": "mindle.sam21.verified.cpu",
+                "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+                "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+              }
+            },
+            "output_artifact": {
+              "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+              "type": ".png",
+              "size_bytes": 172645,
+              "sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+              "status": "validated"
+            },
+            "model_scout_delivery": {
+              "status": "DELIVERED",
+              "callback_id": "callback-ca5376bf-b8d2-4d44-8783-50f46182232c",
+              "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+              "output_sha256": "c5e56328a45d29724f437473a1c634b62255d2a81976317b7d28992e2e59a84f",
+              "output_path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_overlay.png",
+              "elapsed_ms": 4633.18
+            }
+          }
+        },
+        "execution_environment": {
+          "hardware": "CPU",
+          "gpu_used": false,
+          "paid_compute": false,
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "python": "3.11.16",
+          "process": "3.11.16"
+        },
+        "preview_output": {
+          "file_name": "photo_foreground_rgba.png",
+          "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png",
+          "bytes": 193445,
+          "sha256": "0866e968c0bc9c82ef0fd789562d3e8edfbaaf89a88476dae870afb657b8173a"
+        },
+        "background_removal": {
+          "engine": "Pillow_apply_verified_SAM_mask",
+          "model_rerun": false,
+          "source_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+          "mask_sha256": "8274d35d4ad0cd7dbcc0e8aa7c298cd46f55a772e53f5050e1cdb354cbe10379"
+        },
+        "preview_url": "/files/jobs/320d158c-28fb-4de7-b202-6f53ccdb6ef9/sam_photo/photo_foreground_rgba.png"
+      },
+      "model_rerun": false
+    },
+    {
+      "feature": "frozen_photo_upscale",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45083/files/jobs/9bfc5843-8d22-40e4-91eb-183a9e11ea03/intel_sisr_1032/upscaled_4x.png",
+        "error": null,
+        "fit": "contain",
+        "height": 1080,
+        "job_id": "aeb15991-38be-4e51-84d3-d5acf283b79f",
+        "operation": "upscale",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "a6dcc897c81f9cb581f8317a626e5f3e11eae5601cecb11fef7f1a8c5d0498f8",
+        "width": 1920
+      },
+      "reused_run": 37738880868
+    },
+    {
+      "feature": "frozen_tracking_h264_playback",
+      "status": "PASS",
+      "browser": {
+        "box": {
+          "height": 357,
+          "width": 734
+        },
+        "currentSrc": "http://127.0.0.1:45083/files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4",
+        "error": null,
+        "fit": "contain",
+        "height": 292,
+        "job_id": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+        "operation": "tracking",
+        "position": "50% 50%",
+        "ready": true,
+        "sha256": "451e9c9dd51a9e3f01412873b8293a9a0d60af542f7a971dd09529fc8de5ad4e",
+        "width": 512
+      },
+      "reused_run": 37738880868
+    },
+    {
+      "feature": "frozen_korean_stt_visible",
+      "status": "PASS",
+      "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+      "reused_run": 37738880868,
+      "inference_rerun": false
+    },
+    {
+      "feature": "full_browser_server_close",
+      "status": "PASS",
+      "old_port": 45083
+    },
+    {
+      "feature": "save_full_close_reopen_all_lanes",
+      "status": "PASS",
+      "project_id": "c276f6a4-4849-4f64-9661-57ec00f4c2cc",
+      "saved_sha256": "be346f60123cb18ad5dfc7c52e766968d046739ff928b3c1903a2245cf4bb561",
+      "jobs": [
+        "1d19ee90-daa1-47d0-afd5-a1b6ffa49d89",
+        "aeb15991-38be-4e51-84d3-d5acf283b79f",
+        "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+        "3ebbc7e6-050b-433d-bd63-938be99507fc"
+      ]
+    },
+    {
+      "feature": "ui_export_download_crc_all_hashes",
+      "status": "PASS",
+      "sha256": "40255d8cde6da26e1c4e6743dc73b50d6f809ea7ef8fe6b0d0d94e849ceb49bb",
+      "entries": [
+        "project.json",
+        "jobs/1d19ee90-daa1-47d0-afd5-a1b6ffa49d89/photo_mask.png",
+        "jobs/1d19ee90-daa1-47d0-afd5-a1b6ffa49d89/photo_overlay.png",
+        "jobs/1d19ee90-daa1-47d0-afd5-a1b6ffa49d89/photo_foreground_rgba.png",
+        "jobs/aeb15991-38be-4e51-84d3-d5acf283b79f/upscaled_4x.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_00_mask.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_00_overlay.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_01_mask.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_01_overlay.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_02_mask.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_02_overlay.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_03_mask.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_frame_03_overlay.png",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_overlays.mp4",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/tracking.json",
+        "jobs/e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91/track_1_overlays_browser_h264.mp4",
+        "jobs/3ebbc7e6-050b-433d-bd63-938be99507fc/korean_transcript.json"
+      ],
+      "bytes": 3067373
+    },
+    {
+      "feature": "save_failure_prevents_stale_export",
+      "status": "PASS",
+      "http_error": 422,
+      "export_request_sent": false
+    },
+    {
+      "feature": "http_idempotency",
+      "status": "PASS",
+      "job_id": "b602bbbc-cb17-403c-9720-5a74569768cf",
+      "replay_job_id": "b602bbbc-cb17-403c-9720-5a74569768cf",
+      "conflict_http": 422
+    },
+    {
+      "feature": "shell_projects",
+      "status": "PASS",
+      "content": "저장된 프로젝트\nc276f6a4-4849-4f64-9661-57ec00f4c2cc · 2026-10-08T08:53:33.946922+00:00 · 4 작업53d95cf3-33d6-4705-bd13-8693cbc0bf39 · 2026-10-08T08:53:29.722162+00:00 · 1 작업25800d1d-9fbe-458f-8df9-ef65595c7db0 · 2026-10-08T08:53:29.022419+00:00 · 1 작업0325752c-3d86-48a9-89a7-2d960f4ca422 · 2026-10-08T08:53:28.461056+00:00 · 51 작업새 프로젝트닫기"
+    },
+    {
+      "feature": "shell_history",
+      "status": "PASS",
+      "content": "실제 작업 내역\nphoto · import · TESTED_PASS · 1d7c9bb2-2fb6-4108-92f8-102fe9b8a096\nphoto · import · TESTED_PASS · 9d2c8f3b-4e1a-4a16-94c0-f0a23589f5eb\nphoto · import · TESTED_PASS · 6a6527d0-a094-42eb-b89e-74b56e449cba\nphoto · photo_edit · TESTED_PASS · d761b653-f5cc-4918-bd23-e611ae2e0a6b\nphoto · photo_edit · TESTED_PASS · 5ad27d47-34c6-46b7-947a-70f3559f8e18\nphoto · photo_edit · TESTED_PASS · a254ba85-ffd4-454d-9300-7e8fb2c16072\nphoto · photo_edit · TESTED_PASS · 68c86481-7b03-4289-b22b-1c9f76812366\nphoto · photo_edit · TESTED_PASS · 5d111750-1c0a-4a6d-bffc-0d9be8a31ce0\nphoto · photo_edit · TESTED_PASS · da3d2ea8-dd5d-4b7e-a22c-228c01fcbac6\nphoto · photo_edit · TESTED_PASS · 1cc0fd01-5e71-413f-a186-e999d9f732ed\nphoto · photo_edit · TESTED_PASS · 1c593b6c-35f8-4b98-9ebd-0fd1e921a978\nphoto · photo_edit · TESTED_PASS · 1fe77e3c-c7d9-4761-bef3-92e5cfb56806\nphoto · photo_edit · TESTED_PASS · fb26de47-b690-4a98-8858-b38e44bd4ec0\nphoto · photo_edit · TESTED_PASS · 63b1e996-f262-4580-b6d1-5f7c7865b06e\nphoto · photo_edit · TESTED_PASS · 21b94c5d-4b6a-4497-955c-1edc628953bf\nphoto · photo_edit · TESTED_PASS · fcfc22ba-fb91-4d2a-b47c-a2733084cc2f\nphoto · photo_edit · TESTED_PASS · 0068fb65-e08c-40ef-b179-452c1029575a\nphoto · photo_edit · TESTED_PASS · ee2dae89-2ff8-4c34-ba6e-5a796a5ccc78\nphoto · photo_edit · TESTED_PASS · f859905c-2ef3-41e8-ac0e-d108db91b15c\nphoto · photo_edit · TESTED_PASS · 48d9e6e9-9fc3-4b26-8e36-55b7ac0d7931\nphoto · photo_edit · TESTED_PASS · e9402fac-a6c0-4e74-947d-b0df541f4ef1\nphoto · photo_edit · TESTED_PASS · f12310b0-e071-4d16-a46a-8190056c3acf\nphoto · photo_edit · TESTED_PASS · ff88a86d-a34f-4952-9c23-5b112557af26\nvideo · import · TESTED_PASS · 43be9d33-6080-43ce-9492-384d85f0d14f\nvideo · import · TESTED_PASS · 24158470-f2ba-4e9c-af0c-ff17fd95b60b\nvideo · video_edit · TESTED_PASS · d7c08225-34ac-4cfb-a00a-9d570aaa102e\nvideo · import · TESTED_PASS · 9403c687-3ff4-43e3-a045-3b09b307768a\nvideo · video_edit · TESTED_PASS · 9832e0c5-83a1-49a6-b5d8-274e49f5f5a8\nvideo · import · TESTED_PASS · 6adca917-9948-4e0f-89bf-3a317a154a35\nvideo · video_edit · TESTED_PASS · c56aff7d-34da-4877-b0cf-2f6490de7295\nvideo · import · TESTED_PASS · dd133f4b-39e5-42cd-bd8c-64eae237f25c\nvideo · video_edit · TESTED_PASS · ea9e709f-4a62-4982-b22e-a3776160f1e4\nvideo · import · TESTED_PASS · 4c2fd6c4-9d4b-4e89-8137-eca1bec2e931\nvideo · video_edit · TESTED_PASS · 8ae8f685-d0e7-4f45-b696-a3b3ce1b02fc\nvideo · import · TESTED_PASS · 03476d82-d7da-4baa-a685-0f0cfa93a905\nvideo · video_edit · TESTED_PASS · 6853db38-dbe2-46e1-b282-3b144222eff7\nvideo · import · TESTED_PASS · b0a5b3b4-f6d0-402e-a423-e404c6bc0208\nvideo · video_edit · TESTED_PASS · ce6eac48-8d2e-47dd-aaeb-fba22b42a008\nvideo · import · TESTED_PASS · 3f171fbd-db05-4608-89f4-d474fb836459\nvideo · video_edit · TESTED_PASS · b2f46133-7a3b-48fc-a8e1-61c7b4171d9a\nvideo · import · TESTED_PASS · c9d8299e-e204-48b8-8ba1-ca2ebc2e86c7\nvideo · video_edit · TESTED_PASS · 5d0908db-1737-42f9-8e8a-072014d55fbc\nvideo · import · TESTED_PASS · 0f388ed7-9df9-4a37-af76-7466249f789a\nvideo · video_edit · TESTED_PASS · 01d6f4bd-faba-4686-b678-697945a07c05\nvideo · import · TESTED_PASS · 1066bac8-e20b-49b2-aa3e-e2b5469a653c\nvideo · video_edit · TESTED_PASS · 6fa8b7d1-f614-4c7e-ad90-2b7c17b4ed94\nvideo · video_edit · TESTED_PASS · d2fcd635-a9e3-4362-a816-98e1b50ebe30\nvideo · video_edit · TESTED_PASS · 80bdd7ad-2a2f-4d13-9498-7fff83abb739\nvideo · video_edit · TESTED_PASS · 000b8ced-5704-4f4d-a70d-9d064024b59a\nphoto · photo_edit · TESTED_PASS · e7d723d4-7368-42f0-982a-c6ee89024ff2\nphoto · photo_edit · TESTED_PASS · 79e260ff-89d7-48f4-91fc-a588efd1058c\nphoto · upscale · TESTED_PASS · aeb15991-38be-4e51-84d3-d5acf283b79f\nvideo · tracking · TESTED_PASS · e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91\nkorean_audio · transcribe · TESTED_PASS · 3ebbc7e6-050b-433d-bd63-938be99507fc\nphoto · segment · TESTED_PASS · 1d19ee90-daa1-47d0-afd5-a1b6ffa49d89\nphoto · photo_edit · TESTED_PASS · b602bbbc-cb17-403c-9720-5a74569768cf\n닫기"
+    },
+    {
+      "feature": "shell_storage",
+      "status": "PASS",
+      "content": "저장소\n/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/product_data\n저장된 프로젝트 4개\n닫기"
+    },
+    {
+      "feature": "shell_help",
+      "status": "PASS",
+      "content": "MINDLE MEDIA AI 도움말\n원본 불러오기 → 편집 도구 / AI 지시 → 프로젝트 저장 → 내보내기\n내보내기는 프로젝트와 모든 결과 파일을 ZIP으로 보관합니다.\n배경 제거·4배 업스케일·추적·한국어 STT는 준비된 모델 Runtime을 사용합니다.\n광고 숏폼 외부 연동은 현재 별도 검증 대기입니다.\n미구현 기능은 비활성화돼 있습니다.\n닫기"
+    },
+    {
+      "feature": "new_project_and_open_existing",
+      "status": "PASS",
+      "project_id": "c276f6a4-4849-4f64-9661-57ec00f4c2cc"
+    },
+    {
+      "feature": "external_unavailable_base_continues",
+      "status": "PASS",
+      "live_integration": "DEFERRED_EXTERNAL",
+      "outbound_marketing_calls": 0
+    },
+    {
+      "feature": "model_ui_dispatch_tracking",
+      "status": "PASS",
+      "actual_request": {
+        "method": "POST",
+        "path": "/api/jobs",
+        "lane": "video",
+        "operation": "tracking",
+        "request_id": "bc7f4dcd-a5c9-4d37-8ce5-84ddd8d978e4"
+      },
+      "model_unavailable_surface_verified": true,
+      "inference_pass_source_run": 37738880868,
+      "model_rerun": false
+    },
+    {
+      "feature": "model_ui_dispatch_transcribe",
+      "status": "PASS",
+      "actual_request": {
+        "method": "POST",
+        "path": "/api/jobs",
+        "lane": "korean_audio",
+        "operation": "transcribe",
+        "request_id": "befc4e26-62c7-410b-be28-7d8bcbe5a022"
+      },
+      "model_unavailable_surface_verified": true,
+      "inference_pass_source_run": 37738880868,
+      "model_rerun": false
+    },
+    {
+      "feature": "model_ui_dispatch_upscale",
+      "status": "PASS",
+      "actual_request": {
+        "method": "POST",
+        "path": "/api/jobs",
+        "lane": "photo",
+        "operation": "upscale",
+        "request_id": "81d4bb64-439e-40b9-b2e4-f6eca02cd0c7"
+      },
+      "model_unavailable_surface_verified": true,
+      "inference_pass_source_run": 37738880868,
+      "model_rerun": false
+    },
+    {
+      "feature": "data-photo-fullscreen",
+      "status": "PASS"
+    },
+    {
+      "feature": "data-video-fullscreen",
+      "status": "PASS"
+    },
+    {
+      "feature": "shell_home_title_owner_ui_lock",
+      "status": "PASS",
+      "title": "MINDLE MEDIA AI",
+      "photo_corrections": 7,
+      "shortform_entries": 1
+    },
+    {
+      "feature": "unimplemented_capability_declarations_corrected",
+      "status": "PASS",
+      "before_after": "NOT_IMPLEMENTED",
+      "batch": "NOT_IMPLEMENTED",
+      "timeline": "read-only-status"
+    },
+    {
+      "feature": "single_server_after_relaunch",
+      "status": "PASS",
+      "count": 1,
+      "port": 36971
+    },
+    {
+      "feature": "legacy_concat_original_ratio",
+      "status": "PASS",
+      "runtime": {
+        "engine": "ffmpeg",
+        "aspect": null,
+        "command": [
+          "ffmpeg",
+          "-y",
+          "-f",
+          "concat",
+          "-safe",
+          "0",
+          "-i",
+          "/home/runner/work/mindle-media-ai/mindle-media-ai/general_work_audit_runtime/legacy_concat.concat.txt",
+          "-vf",
+          "scale=trunc(iw/2)*2:trunc(ih/2)*2",
+          "-c:v",
+          "libx264",
+          "-pix_fmt",
+          "yuv420p",
+          "-movflags",
+          "+faststart",
+          "-crf",
+          "23",
+          "-c:a",
+          "aac",
+          "<output>"
+        ]
+      },
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_tag_string": "avc1",
+            "width": 320,
+            "height": 180,
+            "pix_fmt": "yuv420p",
+            "duration": "8.083333"
+          },
+          {
+            "codec_name": "aac",
+            "codec_tag_string": "mp4a",
+            "duration": "8.096000"
+          }
+        ],
+        "format": {
+          "duration": "8.096000"
+        }
+      }
+    }
+  ],
+  "approved_structure_preserved": true,
+  "disabled_unsupported_controls": true,
+  "error": null
+}

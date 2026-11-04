@@ -1,0 +1,115 @@
+{
+  "status": "PASS_EXACT_REMOTE_HANDOFF_READBACK",
+  "handoff_commit": "04efe4e139436c00c045941685eeae2d0776eca6",
+  "files": [
+    {
+      "path": "CURRENT_GENERAL_WORK_STATE.json",
+      "sha": "45630e9852e5624f98e115607a71f03b0ebb83fc",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json",
+      "sha": "bc4c9c2f34bc53aa4501159a648dda049e859e2d",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_DIRECTIVE.md",
+      "sha": "514f587ea9bf4abcc29151986eb642481dea8359",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_STATE.json",
+      "sha": "ad6b486f9f8b738feeb2516ab46c38c6346300d1",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+      "sha": "10748c699984c57ef7a456f24c5bed04df8a05d1",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_DIRECTIVE.md",
+      "sha": "747a8d74a97b408fd844414f41378f810964bdde",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_WORKER_COORDINATION_LOCK.json",
+      "sha": "78d08465aaed814ae62d733d80c6bd64e8270e18",
+      "exact": true
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_DIRECTIVE_v1.0_20261014.md",
+      "sha": "fcd96b2eabf3bb2e3b1944e55b8aa2face8a434e",
+      "exact": true
+    },
+    {
+      "path": "scripts/validate_pc_work_control_plane.py",
+      "sha": "6307f71caf07f4ab746037e4d0b3277085eb9232",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-resume-20261014/INDEPENDENT_CANDIDATE_READBACK.json",
+      "sha": "1baa01a6f4313edae38b88beac3b477d4fa5f3f4",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-resume-20261014/FINAL_BROWSER_RECEIPT.json",
+      "sha": "a6adecc466c053c454df28e207ee72ea6dc14e3d",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-resume-20261014/EVIDENCE.json",
+      "sha": "a82d9055f0e0bf7a52d0ee6706043a6d70f93e42",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-resume-20261014/FINAL_WINDOWS_ACTIONS.log",
+      "sha": "bce40455d33e8819ad1a264b446a91e56830cbea",
+      "exact": true
+    },
+    {
+      "path": "docs/evidence/media-ai-pc-resume-20261014/INDEPENDENT_READBACK_ACTIONS.log",
+      "sha": "04f0a76d4b0b9c0579a92b2f554300ad5ecd1554",
+      "exact": true
+    }
+  ],
+  "candidate": {
+    "status": "PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES",
+    "source_commit": "0e4e12a9e4c758f202c6ebb5085df5a542bb6314",
+    "producer_run": 38497304486,
+    "verifier_source": "80805203fdb1db3fd3df53725b79bb31c3d97fc6",
+    "zip_name": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip",
+    "zip_sha256": "8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527",
+    "zip_bytes": 1914052414,
+    "parts": 5,
+    "crc": "PASS",
+    "payload_files_checked": 19235,
+    "payload_manifest_sha256": "99e201b2a27ce89d6f109c0375520e5867cc8343b6be846aed9f4e202fb27769",
+    "launcher_sha256": "9d70283f16b48b74f62795f65dd0bfc9fbf1f29b00f3e980c6f7d972e91ce4d9",
+    "runtime_id": "0e4e12a9e4c7-e533e9ff57d4",
+    "ui_fingerprint": "e533e9ff57d46ff28b064109854f1fef864f106ded52e46d27acd4eb107d2df9",
+    "office_pc_pass": false,
+    "full_product_pass": false,
+    "scope": "CORRECTED_DEVELOPMENT_CANDIDATE_ONLY_NOT_FINAL_EMPLOYEE_RELEASE"
+  },
+  "pc_validator_run": 38500113192,
+  "pc_validator_result": "PC_WORK_CORRECTED_CANDIDATE_READY_FOR_LOCAL_ACCEPTANCE_PASS",
+  "build_gates": [
+    {
+      "run": 38500113222,
+      "build": "SKIPPED",
+      "gate": "SUCCESS"
+    },
+    {
+      "run": 38500113150,
+      "build": "SKIPPED",
+      "gate": "SUCCESS"
+    }
+  ],
+  "canonical_run": 38500118258,
+  "canonical_result": "success",
+  "main_unchanged": "797da297f588780ad2d608deea3b5af8f05af450",
+  "pr23_open_draft_hold": true,
+  "office_pc_pass": false,
+  "full_product_pass": false
+}

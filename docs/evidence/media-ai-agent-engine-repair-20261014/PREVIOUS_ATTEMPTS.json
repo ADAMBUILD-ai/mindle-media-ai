@@ -1,0 +1,58 @@
+[
+  {
+    "run": 38418895447,
+    "status": "FAILED_MODEL_MANIFEST_PATH",
+    "fixed": "pin immutable manifest independently of current Actions run id"
+  },
+  {
+    "run": 38419689914,
+    "status": "FAILED_MODEL_MANIFEST_PATH",
+    "fixed": "commit-based manifest fallback"
+  },
+  {
+    "run": 38420303176,
+    "status": "PASS_FOUR_FRESH_MODELS_SLOW_TRACKING_1024",
+    "tracking_ms": 697057.98
+  },
+  {
+    "run": 38421558738,
+    "status": "FAILED_512_BACKBONE_GEOMETRY",
+    "fixed": "512 backbone feature sizes and RoPE grid"
+  },
+  {
+    "run": 38422429712,
+    "status": "PASS_FOUR_FRESH_HTTP_ENGINES_512_MEMORY",
+    "tracking_ms": 207776.33
+  },
+  {
+    "run": 38423892003,
+    "status": "FAILED_WHISPER_TOKEN_CAPACITY_LONG_INPUT",
+    "fixed": "max_new_tokens440 plus prefix"
+  },
+  {
+    "run": 38425586338,
+    "status": "PASS_FRESH_37_44_SECOND_WHISPER_AND_CURRENT_ENGINE_CHECKPOINT"
+  },
+  {
+    "run": 38427092281,
+    "status": "PASS_PERSISTED_REFERENCE_ENGINE_AND_39_BROWSER_CHECKS"
+  },
+  {
+    "run": 38428951847,
+    "status": "PASS_89_PYTHON_AND_39_BROWSER_AND_ENGINE_GUARDS"
+  },
+  {
+    "run": 38432262883,
+    "status": "PASS_89_PYTHON_2_UI_40_BROWSER_TIMED_CAPTIONS"
+  },
+  {
+    "run": 38432262868,
+    "status": "LEGACY_PC_VALIDATOR_REJECTED_PAUSED_EPOCH",
+    "fixed": "job guard;run38432854039 gatePASS buildSKIPPED"
+  },
+  {
+    "run": 38432262912,
+    "status": "LEGACY_PC_VALIDATOR_REJECTED_PAUSED_EPOCH",
+    "fixed": "job guard;run38432854046 gatePASS buildSKIPPED"
+  }
+]

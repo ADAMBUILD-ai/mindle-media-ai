@@ -1,0 +1,39 @@
+import json,pathlib,hashlib,base64,datetime,zipfile,sys
+from playwright.sync_api import sync_playwright
+sys.stdout.reconfigure(encoding='utf-8')
+root=pathlib.Path('outputs/WINDOWS_WORK_HANDOFF_20261017_R2');ev=root/'c37_runtime';ev.mkdir(exist_ok=False);inp=pathlib.Path('outputs/EVIDENCE_20261015_CANDIDATE_R1/inputs').resolve();base='http://127.0.0.1:18768'
+def write(n,v):(ev/n).write_text(json.dumps(v,ensure_ascii=False,indent=2,default=str),encoding='utf-8')
+def sha(p):return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+with sync_playwright() as pw:
+ browser=pw.chromium.launch(channel='chrome',headless=False);page=browser.new_page(viewport={'width':1536,'height':1024},accept_downloads=True);page.set_default_timeout(120000)
+ identity=page.request.get(base+'/api/runtime-identity').json();assert identity['build_commit']=='c37c7819b1454996f3510f92184b1ef62faf3c78';assert identity['package_manifest_sha256']=='7a31da30969b9e7901da8f109c467f281e2550171c15e9ddf3a8ddf215ab3377'
+ old=page.request.get(base+'/api/projects/latest').json()['project'];oldfile=pathlib.Path(identity['data_root'])/'projects'/(old['project_id']+'.json');oldhash=sha(oldfile)
+ cloned=page.request.post(base+'/api/projects/save',data={'project_id':None,'job_ids':old['job_ids']});assert cloned.ok,cloned.text();clone=cloned.json()['project_id'];write('CLONE_RECEIPT.json',{'original_project':old['project_id'],'original_sha256':oldhash,'clone':clone,'response':cloned.json(),'model_jobs_reexecuted':False})
+ page.goto(base);page.wait_for_function('()=>window.mindleRestoreReady===true');page.wait_for_function('()=>!window.mindleEditPending("photo") && !window.mindleEditPending("video")')
+ while page.locator('[data-editor="photo"] [data-reference-remove]').count():page.locator('[data-editor="photo"] [data-reference-remove]').first.click()
+ with page.expect_file_chooser() as f:page.locator('[data-action="photo-reference"]').click()
+ f.value.set_files([str(inp/'portrait_autofit.png'),str(inp/'reference_architecture_crop.png')]);page.wait_for_timeout(300)
+ before=page.locator('[data-preview="video"] video').get_attribute('src')
+ with page.expect_file_chooser() as f:page.locator('[data-editor="video"] [data-action="load"]').click()
+ f.value.set_files(str(inp/'korean_original.wav'));page.wait_for_timeout(300);assert page.locator('[data-preview="video"] video').get_attribute('src')==before
+ with page.expect_response(lambda r:r.url.endswith('/api/projects/save') and r.request.method=='POST') as saved:page.locator('[data-editor="photo"] [data-action="save"]').click()
+ response=saved.value;body=response.json();assert response.ok and body['project_id']==clone
+ request=response.request.post_data_json;request_summary={'project_id':request['project_id'],'reference_names':{k:[x['filename'] for x in fs] for k,fs in request['workspace']['references'].items()},'audio_name':request['workspace']['audio']['filename']};write('ACTUAL_UI_SAVE.json',{'response':body,'request':request_summary,'at':datetime.datetime.now().astimezone().isoformat()})
+ page.wait_for_function('()=>!window.mindleEditPending("photo")');project=page.request.get(base+'/api/projects/'+clone).json()['project'];write('SAVED_PROJECT.json',project)
+ refs=project['workspace']['references']['photo'];assert len(refs)==2
+ hashes=[]
+ for item in refs:
+  assert sha(item['path'])==item['sha256']==sha(inp/item['file_name']);hashes.append({'filename':item['file_name'],'sha256':item['sha256'],'bytes':pathlib.Path(item['path']).stat().st_size})
+ audio=project['workspace']['audio'];assert sha(audio['path'])==audio['sha256']==sha(inp/'korean_original.wav')
+ write('ATTACHMENT_HASHES.json',{'references':hashes,'audio':{'filename':audio['file_name'],'sha256':audio['sha256']},'video_unchanged_after_audio_import':True})
+ geometry=page.evaluate('''()=>({viewport:{width:innerWidth,height:innerHeight,devicePixelRatio,visualViewportScale:visualViewport.scale,cssZoom:getComputedStyle(document.documentElement).zoom},title:document.title,video:{rect:document.querySelector('[data-editor=video]').getBoundingClientRect().toJSON()},photo:{rect:document.querySelector('[data-editor=photo]').getBoundingClientRect().toJSON()},preview:[...document.querySelectorAll('[data-preview]')].map(h=>({kind:h.dataset.preview,stage:h.getBoundingClientRect().toJSON(),overflow:getComputedStyle(h).overflow,child:[...h.children].map(v=>({tag:v.tagName,src:v.getAttribute('src'),naturalWidth:v.naturalWidth||v.videoWidth,naturalHeight:v.naturalHeight||v.videoHeight,rect:v.getBoundingClientRect().toJSON(),objectFit:getComputedStyle(v).objectFit,objectPosition:getComputedStyle(v).objectPosition}))})),features:{sevenAdjustments:document.querySelectorAll('[data-photo-adjust]').length,naturalLanguageInputs:document.querySelectorAll('[data-command]').length,adShortform:!!document.querySelector('[data-action=shortform-mode]')},styles:[...document.styleSheets].map(s=>s.href)})''');write('ACTUAL_C37_UI_GEOMETRY.json',geometry)
+ page.screenshot(path=str(ev/'C37_ACTUAL_UI.png'),full_page=True)
+ with page.expect_download(timeout=120000) as dl:page.locator('[data-editor="photo"] [data-action="export"]').click()
+ archive=ev/'C37_UI_EXPORT.zip';dl.value.save_as(archive)
+ video_src=page.locator('[data-preview="video"] video').get_attribute('src');entry=video_src.removeprefix('/files/')
+ with zipfile.ZipFile(archive) as z:
+  assert z.testzip() is None;assert 'project.json' in z.namelist();mp4=ev/'C37_ACTUAL_EXPORTED_VIDEO.mp4';mp4.write_bytes(z.read(entry));names=z.namelist()
+ write('ACTUAL_UI_EXPORT.json',{'clone':clone,'zip_bytes':archive.stat().st_size,'zip_sha256':sha(archive),'zip_crc':'PASS','entries':names,'mp4_zip_entry':entry,'mp4_bytes':mp4.stat().st_size,'mp4_sha256':sha(mp4),'trigger':'UI Export download in official Chrome','source':identity['build_commit']})
+ assert sha(oldfile)==oldhash;write('ORIGINAL_PROJECT_UNCHANGED.json',{'project':old['project_id'],'before_sha256':oldhash,'after_sha256':sha(oldfile),'match':True})
+ write('SESSION.json',{'browser':browser.version,'runtime_identity':identity,'clone_project':clone,'scope':'ACTUAL_OFFICE_C37_INSTALLED_RUNTIME_UI_SAVE_EXPORT','contains_transition_fix':False,'server_cold_restart_verified':False,'other_product_auto_browser_windows_still_open':True})
+ browser.close();print('C37_UI_SAVE_EXPORT_PASS',clone,flush=True)

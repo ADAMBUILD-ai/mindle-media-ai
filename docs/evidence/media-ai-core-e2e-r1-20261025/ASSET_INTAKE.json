@@ -1,0 +1,25 @@
+{
+  "work_id": "MEDIA-AI-CORE-E2E-R1-20261025",
+  "status": "BLOCKED_ASSET_INTAKE",
+  "eligible_photos": [
+    {"file":"model_scout/artifacts/public_architecture_fixtures/01_42756291.jpg","bytes":8967798,"sha256":"473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75","resolution":[4598,2678],"license":"CC BY-SA 4.0"},
+    {"file":"model_scout/artifacts/public_architecture_fixtures/02_39871464.jpg","bytes":20705297,"sha256":"9af5365ae7f166c45d8b577ffa07aac215f4cd7e0d0d04fff5183a77987061e9","resolution":[3448,4592],"license":"CC BY-SA 4.0"},
+    {"file":"model_scout/artifacts/public_architecture_fixtures/03_33975416.jpg","bytes":4117770,"sha256":"a08e803cec06f07d3f67e124e88ad6523edc94910c6ededc584f488c95624002","resolution":[4000,2810],"license":"CC BY-SA 3.0"},
+    {"file":"model_scout/artifacts/public_architecture_fixtures/04_44272315.jpg","bytes":9987297,"sha256":"b8df42e1844e31277da7bbd62a9eab1d3118589bb00d56fc4480cbd0c1db7aeb","resolution":[4224,3456],"license":"CC BY-SA 4.0"},
+    {"file":"model_scout/artifacts/public_architecture_fixtures/05_46280980.jpg","bytes":8083885,"sha256":"236093efaeb485806755654f01c0dae5f026ad9d24219f9f1e955cf86b94ec6b","resolution":[3576,3056],"license":"CC0"}
+  ],
+  "attribution_source": "model_scout/artifacts/public_architecture_fixtures/manifest.json",
+  "missing_required_inputs": [
+    "rights-cleared real architecture or resort video clips with scene labels",
+    "rights-cleared music with explicit product-use terms",
+    "approved final Korean narration script",
+    "requested narration/original/BGM volume values",
+    "approved long-speech policy"
+  ],
+  "excluded_substitutes": [
+    "synthetic gray exposure clips",
+    "generated color clips",
+    "test-tone BGM",
+    "invented narration text"
+  ]
+}

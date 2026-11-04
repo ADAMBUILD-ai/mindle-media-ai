@@ -1,0 +1,58 @@
+{
+  "status": "H264_PREVIEW_CREATED",
+  "model_output_preserved": true,
+  "ffmpeg_version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "encoder": "libx264",
+  "command": [
+    "ffmpeg",
+    "-y",
+    "-i",
+    "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+    "-map",
+    "0:v:0",
+    "-map",
+    "0:a?",
+    "-vf",
+    "scale=trunc(iw/2)*2:trunc(ih/2)*2",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "veryfast",
+    "-pix_fmt",
+    "yuv420p",
+    "-c:a",
+    "aac",
+    "-movflags",
+    "+faststart",
+    "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4"
+  ],
+  "input": {
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+    "sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69"
+  },
+  "output": {
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays_browser_h264.mp4",
+    "file_name": "track_1_overlays_browser_h264.mp4",
+    "bytes": 90218,
+    "sha256": "451e9c9dd51a9e3f01412873b8293a9a0d60af542f7a971dd09529fc8de5ad4e"
+  },
+  "ffprobe": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_tag_string": "avc1",
+        "width": 512,
+        "height": 292,
+        "pix_fmt": "yuv420p",
+        "duration": "2.000000"
+      }
+    ],
+    "format": {
+      "duration": "2.000000"
+    }
+  },
+  "faststart": true,
+  "gpu_used": false,
+  "paid_compute": false
+}

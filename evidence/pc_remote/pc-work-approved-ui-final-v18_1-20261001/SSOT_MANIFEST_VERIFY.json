@@ -1,0 +1,9 @@
+{
+  "path": "ui/ssot_manifest.json",
+  "status": "APPROVED_PINNED",
+  "approved_ui_asset": "assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+  "declared_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "canonical_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "approved_at": "2026-09-13",
+  "matches": true
+}

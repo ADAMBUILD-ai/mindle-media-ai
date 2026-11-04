@@ -1,0 +1,91 @@
+{
+  "reviewed_source": "08c5b1b449411f0ffa4e533aa98758bb5b1c65f0",
+  "fixed_source": "beb6c8d3afdf1a144d4f7cc218f545d601d439d3",
+  "old_failed_run": 40169533879,
+  "failure_class": "ACTUAL_EXECUTED_CONTROL_PLANE_CONTRACT_ERROR_NOT_BUDGET",
+  "old_failed_job": 121097388668,
+  "old_error": "GENERAL_WORK_HANDOFF_MISMATCH_BLOCKED: General Work epoch mismatch",
+  "cause": "General validator recognized only October 8 handoff and October 13 recovery; current General/PC state, worker and R3 contract use October 24 epoch.",
+  "local_validation": {
+    "control_and_selection_tests": 25,
+    "passed": 25,
+    "failed": 0,
+    "general_validator": "PASS_R3_REMOTE_VERIFIED_OWNER_PC_PENDING",
+    "independent_pc_validator": "PASS",
+    "yaml_parse": "PASS",
+    "syntax": "PASS"
+  },
+  "product_runtime_and_ui_changed": false,
+  "reused_engine": {
+    "source": "08c5b1b449411f0ffa4e533aa98758bb5b1c65f0",
+    "run": 40169533879,
+    "job": 121097388617,
+    "artifact": 12589967803,
+    "artifact_sha256": "e23684171a99461758db68a3385bbf9392be9f95416ab1b95d76d239b11ada55",
+    "scope": "PRIOR_ACTUAL_ENGINE_JOB_WITH_BYTE_IDENTICAL_PRODUCT_INPUTS_NOT_NEW_MODEL_INFERENCE"
+  },
+  "new_recovery": {
+    "run": 40172265928,
+    "started": true,
+    "selection_job": 121105426235,
+    "selection": "PASS",
+    "actual_browser_job": 121105505140,
+    "actual_browser": "PASS",
+    "engine_job": "SKIPPED_REUSING_VERIFIED_PRIOR_JOB",
+    "status": "completed",
+    "conclusion": "success",
+    "regression": {
+      "passed": 306,
+      "skipped": 5,
+      "failed": 0
+    },
+    "browser_checks": {
+      "passed": 40,
+      "failed": 0
+    },
+    "artifact": 12591121023,
+    "artifact_sha256": "782f7a9ded6811120e3d56f32e2ff1218f6e074298cc92d17382fcf75acfe43b",
+    "artifact_sha256_crc_readback": "PASS",
+    "receipt_source": "MATCH_FIXED_SOURCE",
+    "fresh_model_inference": false
+  },
+  "gates": {
+    "package_build_allowed": false,
+    "merge": false,
+    "deploy": false,
+    "budget_changed": false,
+    "office_pc_pass": false,
+    "full_product_pass": false
+  },
+  "files": [
+    {
+      "path": ".github/workflows/runtime-recovery.yml",
+      "sha256": "80db916a0057a11138308794956bd5fb0d7cb65b4b84b92bc00d43b1ae69abb6"
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_DIRECTIVE.md",
+      "sha256": "ac33158ea2efbab135225fb25d3b3230f387d912b9eaab5621e9cbd9ed0efa14"
+    },
+    {
+      "path": "model_scout/run_runtime_recovery_browser.py",
+      "sha256": "27a197ef4230a5b067bf10bbf990c507edfed5d0b921aab7a4865cefa7b6c1f4"
+    },
+    {
+      "path": "scripts/validate_general_work_control_plane.py",
+      "sha256": "ca5ae86c427410707e2e3977a46150949e7b615305457eb518d2ad63a97f9f1f"
+    },
+    {
+      "path": "scripts/select_runtime_recovery_checks.py",
+      "sha256": "fa3c7d7e11f76e4a6fef9924a3b64817fc975ac02fa4e4dbaf278134165dd2ec"
+    },
+    {
+      "path": "tests/test_general_work_control_plane.py",
+      "sha256": "e23c7b0ec0090f6b9f4e7afa32011e6ba11e87f687cf9ca28c69f5ace0ce4940"
+    },
+    {
+      "path": "tests/test_runtime_recovery_selection.py",
+      "sha256": "b5fd1e9b4277e2da45990f90f9dbc99da2160abd49d548bad4ca147c584624e3"
+    }
+  ],
+  "verdict": "PASS_TARGETED_CONTROL_PLANE_AND_ACTUAL_BROWSER_RECOVERY"
+}

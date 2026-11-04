@@ -1,0 +1,106 @@
+{
+  "schema": "MEDIA_R2_WORK_STATUS_RECOVERY_V1",
+  "status": "PARTIAL_30_SECOND_REAL_E2E_BLOCKED",
+  "tested_source": "d98db8cd61268b766563b6c426e3c55375570312",
+  "runtime_baseline_source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
+  "changed_files": [
+    ".github/workflows/pc-one-click-windows-build.yml",
+    ".github/workflows/remote-verified-runtime-package.yml",
+    ".github/workflows/windows-openvino-runtime.yml",
+    "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json",
+    "CURRENT_GENERAL_WORK_DIRECTIVE.md",
+    "CURRENT_GENERAL_WORK_STATE.json",
+    "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+    "CURRENT_PC_WORK_DIRECTIVE.md",
+    "CURRENT_PC_WORK_STATE.json",
+    "CURRENT_WORKER_COORDINATION_LOCK.json",
+    "CURRENT_MEDIA_WORK_STATUS.json",
+    "scripts/select_runtime_recovery_checks.py",
+    "scripts/validate_general_work_control_plane.py",
+    "scripts/validate_pc_work_control_plane.py",
+    "scripts/media_work_status.py",
+    "tests/test_general_work_control_plane.py",
+    "tests/test_media_work_status.py",
+    "tests/test_r2_package_gate.py",
+    "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
+    ".github/workflows/pc-one-click-windows-fallback.yml",
+    "tests/test_exact_checkout_bytes.py",
+    "scripts/restore_exact_status_source.py"
+  ],
+  "local": {
+    "python": {
+      "pass": 401,
+      "skip": 6
+    },
+    "ui_contracts": 31
+  },
+  "remote": {
+    "python": {
+      "pass": 402,
+      "skip": 5
+    },
+    "browser_checks": 41,
+    "canonical_run": 40199157084,
+    "windows_preflight_run": 40199152130,
+    "runtime_recovery_run": 40199152150
+  },
+  "engine_reuse": {
+    "source": "93a5e80ae214365043e91622920ce8e9f1ac0e9d",
+    "run": 40186056871,
+    "job": 121147027021,
+    "reason": "engine inputs unchanged; selected by checked selector"
+  },
+  "failed_attempts": [
+    {
+      "source": "b7a74e7a179d2d873c9905183cbb277a3b10f2a5",
+      "run": 40197924012,
+      "classification": "STARTED_VALIDATOR_FAILURE_CHECKOUT_BYTES",
+      "error": "CURRENT_WORK_SNAPSHOT_STALE_OR_FORGED"
+    },
+    {
+      "source": "1d75b9145df45d8adf24b57994e7dbe6eb48e44a",
+      "run": 40198446453,
+      "classification": "STARTED_VALIDATOR_FAILURE_INEFFECTIVE_CHECKOUT_RESTORE",
+      "error": "CURRENT_WORK_SNAPSHOT_STALE_OR_FORGED",
+      "additional": "Exact-byte regression also failed; superseded, not accepted as PASS."
+    }
+  ],
+  "windows_exact_bytes": {
+    "restored_files": 88,
+    "changed_working_bytes": 69,
+    "runtime_ui_verified_files": 59,
+    "expected_hashes_modified": false
+  },
+  "artifacts": [
+    {
+      "id": 12601025805,
+      "sha256": "6511cb074701b4722433f3ee706bb4b9cca2204806f0e67e52bbf1e2f2aa1b98"
+    },
+    {
+      "id": 12601970517,
+      "sha256": "112d405aae6466100905b4f94f2168b5917e51f2e99eb02439c33c5a5eab183e"
+    },
+    {
+      "id": 12601076338,
+      "sha256": "1a4ee540036dbfdd8d03cd044da0ad3dee5b48090c7004d1b3aae389f57b52cd"
+    }
+  ],
+  "gates": {
+    "general_preparation": "PASS",
+    "control_consistency": "PASS",
+    "windows_hosted_preflight": "PASS",
+    "real_asset_intake": "BLOCKED",
+    "fresh_model_inference_this_change": "NOT_EXECUTED",
+    "real_30_second_production": "BLOCKED",
+    "owner_pc_runtime": "NOT_EXECUTED",
+    "human_screen_hearing": "NOT_EXECUTED",
+    "full_product": "PARTIAL"
+  },
+  "build_gate": false,
+  "pr_draft": true,
+  "merged": false,
+  "new_windows_candidate": false,
+  "installed_models_changed": false,
+  "background_execution_claimed": false,
+  "local_pc_process_status": "NOT_OBSERVED"
+}

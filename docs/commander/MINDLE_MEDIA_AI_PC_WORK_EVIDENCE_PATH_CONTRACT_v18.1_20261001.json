@@ -1,0 +1,52 @@
+{
+  "contract_version": "18.1",
+  "date": "2026-10-01",
+  "status": "ACTIVE",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_F27E_HANDOFF_FINAL_UI_CONTINUATION_DIRECTIVE_v18.1_20261001.md",
+  "google_drive_handoff": {
+    "file_id": "1hyZJpzsDecHgUFwYq463K30JlEJ4jgHA",
+    "path": "/Google Drive/MINDLE_MEDIA_AI_HANDOFF/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+    "filename": "MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+    "size_bytes": 1737365,
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541"
+  },
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_HANDOFF_FINAL_UI_REVIEW_v18.1_20261001.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_GOOGLE_DRIVE_HANDOFF_FINAL_UI_EVIDENCE_v18_1_20261001.json",
+    "detail_directory": "evidence/pc_remote/pc-work-approved-ui-final-v18_1-20261001/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "DRIVE_HANDOFF_RECEIPT.json",
+      "COMMANDER_HANDOFF_HASH_VERIFY.json",
+      "LEGACY_INVALID_SSOT_9AAF.bin",
+      "APPROVED_SSOT_F27E.png",
+      "LIVE_UI_AFTER.png",
+      "LIVE_VS_APPROVED.png",
+      "VISUAL_DELTA_ANNOTATED.png",
+      "VISUAL_COMPLIANCE_MATRIX.json",
+      "SCREENSHOT_CHEAT_GATE.json",
+      "CSS_IMPLEMENTATION_RESULT.json",
+      "LIVE_SOURCE_IDENTITY.json",
+      "SSOT_MANIFEST_VERIFY.json",
+      "V14_PASS_PRESERVATION.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "zero_byte_binary_forbidden": true,
+  "required_detail_file_count": 17,
+  "completion_results": [
+    "TESTED_PASS",
+    "DRIVE_HANDOFF_ACCESS_BLOCKED",
+    "ASSET_HANDOFF_HASH_FAIL",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}

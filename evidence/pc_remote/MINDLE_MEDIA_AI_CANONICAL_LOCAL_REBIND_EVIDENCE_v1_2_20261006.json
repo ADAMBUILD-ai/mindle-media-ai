@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.2",
+  "date": "2026-10-06",
+  "status": "RECOVERY_PASS",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "neutral_exec_probe": "PASS",
+  "canonical_remote": "PASS",
+  "canonical_branch": "PASS",
+  "local_state_backup": "PASS",
+  "canonical_rebind": "PASS",
+  "tracked_worktree_clean": true,
+  "work_data_preserved": true,
+  "validator_result": "CONTROL_PLANE_PASS",
+  "validator_epoch": "MEDIA-AI-20261006-CANONICAL-LOCAL-REBIND-V1.2",
+  "final_result": "RECOVERY_PASS"
+}

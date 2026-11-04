@@ -1,0 +1,3 @@
+{"steps": [{"operation": "video_edit", "options": {"brightness": 10}}, {"operation": "video_edit", "options": {"contrast": 7}}, {"operation": "video_edit", "options": {"saturation": 5}}, {"operation": "transcribe"}, {"operation": "apply_subtitles"}, {"operation": "narrate", "text": "파일을 삭제해 줄게요"}, {"operation": "mix_narration", "length_policy": "reject"}]} [end of text]
+
+

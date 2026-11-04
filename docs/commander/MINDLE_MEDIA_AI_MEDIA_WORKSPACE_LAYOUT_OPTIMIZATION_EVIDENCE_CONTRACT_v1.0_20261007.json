@@ -1,0 +1,39 @@
+{
+  "contract_version": "1.0",
+  "date": "2026-10-07",
+  "status": "QUEUED_NEXT",
+  "next_control_plane_epoch": "MEDIA-AI-20261007-MEDIA-WORKSPACE-LAYOUT-OPTIMIZATION-V1",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "activation_condition": {
+    "current_epoch_must_be_closed": "MEDIA-AI-20261007-EMPLOYEE-PACKAGE-FINAL-CLOSEOUT-R2",
+    "commander_review_required": true,
+    "current_control_plane_must_be_explicitly_advanced": true,
+    "execute_while_r2_active": false
+  },
+  "directive": "docs/commander/MINDLE_MEDIA_AI_MEDIA_WORKSPACE_LAYOUT_OPTIMIZATION_DIRECTIVE_v1.0_20261007.md",
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_MEDIA_WORKSPACE_LAYOUT_OPTIMIZATION_REVIEW_v1.0_20261007.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_MEDIA_WORKSPACE_LAYOUT_OPTIMIZATION_EVIDENCE_v1_0_20261007.json",
+    "detail_directory": "evidence/pc_remote/media-ai-media-workspace-layout-optimization-v1_0-20261007/"
+  },
+  "required_screenshots": [
+    "VIDEO_1920x1080.png",
+    "VIDEO_1600x900.png",
+    "VIDEO_1366x768.png",
+    "PHOTO_1920x1080.png",
+    "PHOTO_1600x900.png",
+    "PHOTO_1366x768.png"
+  ],
+  "required_detail_files": [
+    "LAYOUT_MEASUREMENT.json",
+    "REGRESSION_TEST_RESULT.json",
+    "REMOTE_READBACK.txt"
+  ],
+  "required_worker_result": "PASS_MEDIA_WORKSPACE_LAYOUT_OPTIMIZATION_OWNER_REVIEW_READY",
+  "owner_final_approval_required": true,
+  "evidence_free_pass_forbidden": true,
+  "main_merge_forbidden": true,
+  "force_push_forbidden": true,
+  "new_repo_or_worktree_forbidden": true
+}

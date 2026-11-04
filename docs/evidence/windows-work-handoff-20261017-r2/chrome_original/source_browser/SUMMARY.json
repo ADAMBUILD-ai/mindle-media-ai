@@ -1,0 +1,14 @@
+{
+  "source_sha": "ef56f956db5cdaf9e9dd455a5a8c065ce4f15a56",
+  "browser": "155.0.8059.80",
+  "cases": 6,
+  "pass": 6,
+  "fail": 0,
+  "runtime_scope": "REAL_SOURCE_SERVER_AND_OFFICIAL_CHROME",
+  "candidate_contains_fix": false,
+  "package_build_allowed": false,
+  "models_rerun": false,
+  "owner_pc_c37_pass": false,
+  "full_product_pass": false,
+  "finished_at": "2026-10-17T14:37:15.241273+09:00"
+}

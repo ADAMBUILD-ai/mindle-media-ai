@@ -1,0 +1,7 @@
+# Source runtime reproduction
+
+Use a fresh root for each evidence run and run the product processes/browser inside the same orchestrator. Set WORKFLOW_REPO_ROOT and WORKFLOW_DATA_DIR, then invoke run_runtime.py with the development venv Python. It needs FFmpeg/ffprobe, Pillow, huggingface_hub, Playwright + Chromium138, and the espeak-ng1.51 runtime/executable/ko voice data. The harness expects ../tts-runtime/root/usr and ../browser-runtime/extracted/chromium and lib. It expects ../test-fonts/NotoSansCJKkr-Regular.otf for subtitle rendering. These are development harness resource locations, not employee setup instructions. No engine bundle or employee installer is created by this harness.
+
+The engines example contains deliberately nonfunctional hash/revision placeholders. Do not deploy it as a working manifest. Production loader uses data_dir/runtime-engines.json or the installed bundle RUNTIME_ENGINES.json, resolves relative packaged paths inside the package, and validates actual executable/voice data identity before synthesis.
+
+Tests:test_durable_workflows.py and test_workflow_http.py exercise actual queue/HTTP/owned subprocess/FFmpeg. Transient faults and long-running sleep workers are explicit test boundary injections. The full browser harness uses the real product API and generated fixtures, not endpoint stubs. Original/16:9/9:16 source tests are fixtures. No SAM/SISR/Whisper weight inference is repeated. Generated voice/MP4/ZIP are verification outputs, not employee packages.

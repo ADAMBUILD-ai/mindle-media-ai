@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-17",
+  "status": "OWNER_DESKTOP_LAYOUT_DIRECTION_RECONCILED_NOT_PIXEL_APPROVAL",
+  "owner_instruction_date": "2026-10-10",
+  "owner_instruction_provenance": "Retrieved direct user constraint: VIDEO left / PHOTO right horizontal split; landscape-first PHOTO, portrait Auto Fit centered original ratio",
+  "corroboration": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_IMPLEMENTATION_REVIEW_v1.0_20261007.md records preserved side-by-side implementation",
+  "legacy_reference_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "legacy_vs_actual_difference": "TRUE: F27E stacked vs candidate side-by-side",
+  "previous_global_failure_adjudication": "SUPERSEDED_AS_CURRENT_OWNER_LAYOUT_FAILURE; raw comparison facts preserved",
+  "current_direction": "VIDEO_LEFT_PHOTO_RIGHT",
+  "exact_current_visual_owner_approval": "NOT_CLAIMED",
+  "runtime_ui_source_changed": false,
+  "historical_evidence_not_deleted": true
+}

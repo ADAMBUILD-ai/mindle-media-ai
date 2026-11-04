@@ -1,0 +1,8 @@
+pytest -q
+RESULT: 51 passed in 3.64s after visual changes.
+
+node --test ui/ssot_structure.test.js ui/interaction.test.js
+RESULT: 2 passed, 0 failed after visual changes.
+
+live product server
+RESULT: loaded and rendered with approved_visual.css; live screenshot captured.

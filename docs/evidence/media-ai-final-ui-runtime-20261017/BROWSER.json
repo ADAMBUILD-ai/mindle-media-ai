@@ -1,0 +1,306 @@
+{
+  "browser": "138.0.7204.0",
+  "scope": "Linux production HTML/CSS/JS with generated H264/AAC fixture; API assets/latest fixtures; no Windows/EXE/hearing/backend Save/Export claim",
+  "results": [
+    {
+      "width": 1536,
+      "height": 1024,
+      "geometry": {
+        "topbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1536,
+          "height": 66,
+          "bottom": 66,
+          "right": 1536
+        },
+        "video": {
+          "x": 11,
+          "y": 66,
+          "width": 752,
+          "height": 862.25,
+          "bottom": 928.25,
+          "right": 763
+        },
+        "photo": {
+          "x": 773,
+          "y": 66,
+          "width": 752,
+          "height": 862.25,
+          "bottom": 928.25,
+          "right": 1525
+        },
+        "videoPreview": {
+          "x": 208,
+          "y": 152,
+          "width": 406,
+          "height": 228.375,
+          "bottom": 380.375,
+          "right": 614
+        },
+        "photoPreview": {
+          "x": 968,
+          "y": 152,
+          "width": 548,
+          "height": 308.25,
+          "bottom": 460.25,
+          "right": 1516
+        },
+        "photoTools": {
+          "x": 968,
+          "y": 508.25,
+          "width": 548,
+          "height": 257,
+          "bottom": 765.25,
+          "right": 1516
+        },
+        "reference": {
+          "x": 782,
+          "y": 773.25,
+          "width": 734,
+          "height": 37,
+          "bottom": 810.25,
+          "right": 1516
+        },
+        "timeline": {
+          "x": 208,
+          "y": 428.375,
+          "width": 406,
+          "height": 284,
+          "bottom": 712.375,
+          "right": 614
+        },
+        "videoInput": {
+          "x": 28,
+          "y": 750.375,
+          "width": 669,
+          "height": 38,
+          "bottom": 788.375,
+          "right": 697
+        },
+        "photoInput": {
+          "x": 790,
+          "y": 848.25,
+          "width": 669,
+          "height": 38,
+          "bottom": 886.25,
+          "right": 1459
+        },
+        "media": {
+          "error": 0,
+          "readyState": 4,
+          "width": 320,
+          "currentSrc": "http://127.0.0.1:33917/timeline_fixture.mp4",
+          "duration": 6
+        }
+      },
+      "frames": 6,
+      "waveform": "actual_AAC_decode",
+      "play": true,
+      "thumbnailSeek": true,
+      "newClearsTimeline": true,
+      "silentAudioNotInvented": true,
+      "pageErrors": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "geometry": {
+        "topbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1366,
+          "height": 66,
+          "bottom": 66,
+          "right": 1366
+        },
+        "video": {
+          "x": 11,
+          "y": 66,
+          "width": 667,
+          "height": 831.3125,
+          "bottom": 897.3125,
+          "right": 678
+        },
+        "photo": {
+          "x": 688,
+          "y": 66,
+          "width": 667,
+          "height": 831.3125,
+          "bottom": 897.3125,
+          "right": 1355
+        },
+        "videoPreview": {
+          "x": 180,
+          "y": 152,
+          "width": 356,
+          "height": 200.25,
+          "bottom": 352.25,
+          "right": 536
+        },
+        "photoPreview": {
+          "x": 853,
+          "y": 152,
+          "width": 493,
+          "height": 277.3125,
+          "bottom": 429.3125,
+          "right": 1346
+        },
+        "photoTools": {
+          "x": 853,
+          "y": 477.3125,
+          "width": 493,
+          "height": 257,
+          "bottom": 734.3125,
+          "right": 1346
+        },
+        "reference": {
+          "x": 697,
+          "y": 742.3125,
+          "width": 649,
+          "height": 37,
+          "bottom": 779.3125,
+          "right": 1346
+        },
+        "timeline": {
+          "x": 180,
+          "y": 400.25,
+          "width": 356,
+          "height": 284,
+          "bottom": 684.25,
+          "right": 536
+        },
+        "videoInput": {
+          "x": 28,
+          "y": 722.25,
+          "width": 584,
+          "height": 38,
+          "bottom": 760.25,
+          "right": 612
+        },
+        "photoInput": {
+          "x": 705,
+          "y": 817.3125,
+          "width": 584,
+          "height": 38,
+          "bottom": 855.3125,
+          "right": 1289
+        },
+        "media": {
+          "error": 0,
+          "readyState": 4,
+          "width": 320,
+          "currentSrc": "http://127.0.0.1:33917/timeline_fixture.mp4",
+          "duration": 6
+        }
+      },
+      "frames": 6,
+      "waveform": "actual_AAC_decode",
+      "play": true,
+      "thumbnailSeek": true,
+      "newClearsTimeline": true,
+      "silentAudioNotInvented": "not_repeated",
+      "pageErrors": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "geometry": {
+        "topbar": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 66,
+          "bottom": 66,
+          "right": 1920
+        },
+        "video": {
+          "x": 201,
+          "y": 66,
+          "width": 754,
+          "height": 863.375,
+          "bottom": 929.375,
+          "right": 955
+        },
+        "photo": {
+          "x": 965,
+          "y": 66,
+          "width": 754,
+          "height": 863.375,
+          "bottom": 929.375,
+          "right": 1719
+        },
+        "videoPreview": {
+          "x": 398,
+          "y": 152,
+          "width": 408,
+          "height": 229.5,
+          "bottom": 381.5,
+          "right": 806
+        },
+        "photoPreview": {
+          "x": 1160,
+          "y": 152,
+          "width": 550,
+          "height": 309.375,
+          "bottom": 461.375,
+          "right": 1710
+        },
+        "photoTools": {
+          "x": 1160,
+          "y": 509.375,
+          "width": 550,
+          "height": 257,
+          "bottom": 766.375,
+          "right": 1710
+        },
+        "reference": {
+          "x": 974,
+          "y": 774.375,
+          "width": 736,
+          "height": 37,
+          "bottom": 811.375,
+          "right": 1710
+        },
+        "timeline": {
+          "x": 398,
+          "y": 429.5,
+          "width": 408,
+          "height": 284,
+          "bottom": 713.5,
+          "right": 806
+        },
+        "videoInput": {
+          "x": 218,
+          "y": 751.5,
+          "width": 671,
+          "height": 38,
+          "bottom": 789.5,
+          "right": 889
+        },
+        "photoInput": {
+          "x": 982,
+          "y": 849.375,
+          "width": 671,
+          "height": 38,
+          "bottom": 887.375,
+          "right": 1653
+        },
+        "media": {
+          "error": 0,
+          "readyState": 4,
+          "width": 320,
+          "currentSrc": "http://127.0.0.1:33917/timeline_fixture.mp4",
+          "duration": 6
+        }
+      },
+      "frames": 6,
+      "waveform": "actual_AAC_decode",
+      "play": true,
+      "thumbnailSeek": true,
+      "newClearsTimeline": true,
+      "silentAudioNotInvented": "not_repeated",
+      "pageErrors": []
+    }
+  ]
+}

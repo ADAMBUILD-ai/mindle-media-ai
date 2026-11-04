@@ -1,0 +1,7 @@
+{
+  "token_env": "MARKETING_SHORTFORM_BRIDGE_TOKEN",
+  "present": false,
+  "value_recorded": false,
+  "unauthenticated_fallback_used": false,
+  "result": "MARKETING_AUTH_ENV_REQUIRED"
+}

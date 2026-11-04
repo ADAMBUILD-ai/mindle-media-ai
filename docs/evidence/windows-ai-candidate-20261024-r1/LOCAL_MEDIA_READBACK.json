@@ -1,0 +1,35 @@
+{
+  "export_bundles": [
+    {
+      "name": "AFTER_RESTART_EXPORT.zip",
+      "sha256": "db053e2d59eb6ce7d62c20986133e4e496c4ef1a49f123e43e621e610ff76d15",
+      "manifest_files_verified": 11,
+      "zip_crc": "PASS"
+    },
+    {
+      "name": "UI_AFTER_RESTART_EXPORT.zip",
+      "sha256": "f29db14aa2ea97ddd6faa2ca1855f106886a18b2e9f68753afe5a22814967d05",
+      "manifest_files_verified": 11,
+      "zip_crc": "PASS"
+    }
+  ],
+  "mp4_sha256": "043d0d2e9accd7fef171d02c506dc0c64abd272138df6343c2b72a2b27ec8755",
+  "mp4_bytes": 39450,
+  "streams": [
+    {
+      "type": "video",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "duration": "4.000000"
+    },
+    {
+      "type": "audio",
+      "codec": "aac",
+      "pix_fmt": null,
+      "duration": "4.006000"
+    }
+  ],
+  "faststart": true,
+  "full_decode": "PASS_FFMPEG_EXIT_0",
+  "human_hearing": false
+}

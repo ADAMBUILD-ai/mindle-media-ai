@@ -1,0 +1,16 @@
+{
+  "status": "REMOTE_WINDOWS_EXE_CHROME_QWEN_NEURAL_TTS_RESTART_EXPORT_PASS",
+  "source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+  "old_pid": 4968,
+  "new_pid": 7412,
+  "old_endpoint_closed": true,
+  "project_id": "7f05e21e-72c1-4851-8dca-9417b7944fa9",
+  "workflow_id": "ee31eefa-db70-43f7-9acd-b93c6e33850e",
+  "export_sha256": "db053e2d59eb6ce7d62c20986133e4e496c4ef1a49f123e43e621e610ff76d15",
+  "manifest_files_checked_after_actual_engine_use": 19333,
+  "cache_files_created": 0,
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "approved_ui_pixel_match": false,
+  "full_product_pass": false
+}

@@ -1,0 +1,318 @@
+{
+  "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+  "frozen_code": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
+  "core_code": "93a5e80ae214365043e91622920ce8e9f1ac0e9d",
+  "inherited_pc_preparation": "41469aa7c9ede9de95b333a56cc8f63e5a2f69c7",
+  "general_preparation": "GENERAL_PREPARATION_COMPLETE",
+  "overall": "PARTIAL",
+  "real_30_second_e2e": "BLOCKED_ASSET_INTAKE",
+  "source_readback": [
+    "src/media_ai/durable_workflows.py",
+    "src/media_ai/e2e_intake.py",
+    "src/media_ai/workflow_planner.py",
+    "src/media_ai/source_e2e.py",
+    "scripts/collect_media_pc_readiness.py",
+    "scripts/run_real_architecture_acceptance.py",
+    "tests/test_e2e_intake.py",
+    "tests/test_generated_plan_binding.py",
+    "tests/test_source_e2e.py",
+    "tests/test_durable_workflows.py",
+    "tests/test_real_architecture_acceptance.py",
+    ".github/workflows/runtime-recovery.yml",
+    "scripts/select_runtime_recovery_checks.py",
+    "tests/test_runtime_recovery_selection.py"
+  ],
+  "changed_code_files": [
+    "src/media_ai/durable_workflows.py",
+    "src/media_ai/e2e_intake.py",
+    "src/media_ai/workflow_planner.py",
+    "src/media_ai/source_e2e.py",
+    "scripts/collect_media_pc_readiness.py",
+    "scripts/run_real_architecture_acceptance.py",
+    "tests/test_e2e_intake.py",
+    "tests/test_generated_plan_binding.py",
+    "tests/test_source_e2e.py",
+    "tests/test_durable_workflows.py",
+    "tests/test_real_architecture_acceptance.py",
+    ".github/workflows/runtime-recovery.yml",
+    "scripts/select_runtime_recovery_checks.py",
+    "tests/test_runtime_recovery_selection.py"
+  ],
+  "local_python": {
+    "passed": 378,
+    "skipped": 6
+  },
+  "local_ui": {
+    "passed": 31
+  },
+  "remote_run": {
+    "id": 40186880120,
+    "source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
+    "status": "completed",
+    "conclusion": "success",
+    "python": {
+      "passed": 379,
+      "skipped": 5
+    },
+    "actual_browser": {
+      "passed": 41,
+      "fresh_model_inference": false
+    }
+  },
+  "jobs": [
+    {
+      "run_id": 40186880120,
+      "jobs": [
+        {
+          "id": 121149453646,
+          "name": "select-checks",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-25T10:57:38Z",
+          "completed_at": "2026-10-25T10:57:51Z"
+        },
+        {
+          "id": 121149504331,
+          "name": "actual-browser",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-25T10:57:54Z",
+          "completed_at": "2026-10-25T10:59:36Z"
+        },
+        {
+          "id": 121149505421,
+          "name": "adopted-real-engines",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-10-25T10:57:52Z",
+          "completed_at": "2026-10-25T10:57:51Z"
+        }
+      ]
+    },
+    {
+      "run_id": 40186883701,
+      "jobs": [
+        {
+          "id": 121149464460,
+          "name": "verify",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-25T10:57:42Z",
+          "completed_at": "2026-10-25T10:59:08Z"
+        }
+      ]
+    },
+    {
+      "run_id": 40186883689,
+      "jobs": [
+        {
+          "id": 121149464274,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-25T10:57:42Z",
+          "completed_at": "2026-10-25T10:57:49Z"
+        },
+        {
+          "id": 121149498887,
+          "name": "package Windows CPython 3.11 CPU runtime",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-10-25T10:57:50Z",
+          "completed_at": "2026-10-25T10:57:49Z"
+        }
+      ]
+    },
+    {
+      "run_id": 40186883685,
+      "jobs": [
+        {
+          "id": 121149464234,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-25T10:57:41Z",
+          "completed_at": "2026-10-25T10:57:49Z"
+        },
+        {
+          "id": 121149499624,
+          "name": "package",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-10-25T10:57:50Z",
+          "completed_at": "2026-10-25T10:57:49Z"
+        }
+      ]
+    },
+    {
+      "run_id": 40186880121,
+      "jobs": [
+        {
+          "id": 121149453954,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-25T10:57:39Z",
+          "completed_at": "2026-10-25T10:57:51Z"
+        },
+        {
+          "id": 121149506170,
+          "name": "build-and-e2e",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-10-25T10:57:52Z",
+          "completed_at": "2026-10-25T10:57:52Z"
+        }
+      ]
+    },
+    {
+      "run_id": 40186880144,
+      "jobs": [
+        {
+          "id": 121149454076,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-25T10:57:39Z",
+          "completed_at": "2026-10-25T10:57:52Z"
+        },
+        {
+          "id": 121149508869,
+          "name": "build-one-click-runtime",
+          "status": "completed",
+          "conclusion": "skipped",
+          "started_at": "2026-10-25T10:57:53Z",
+          "completed_at": "2026-10-25T10:57:52Z"
+        }
+      ]
+    }
+  ],
+  "prior_engine_evidence": {
+    "run": 40186056871,
+    "job": 121147027021,
+    "source": "93a5e80ae214365043e91622920ce8e9f1ac0e9d",
+    "conclusion": "success",
+    "reuse": "unchanged engine inputs and exact unchanged workflow job body; verified through GitHub API"
+  },
+  "actual_qwen_probe": {
+    "source": "93a5e80ae214365043e91622920ce8e9f1ac0e9d",
+    "status": "PASS_ACTUAL_PINNED_QWEN_PLAN_AND_BINDING",
+    "scope": "one fresh explicit brightness plan, not 30-second production",
+    "elapsed_seconds": 51.92348027229309
+  },
+  "lifecycle_probe": {
+    "source": "f94b473d8e139a526f46cd3646ef4d018af257fb",
+    "scope": "synthetic one-second Linux tooling only",
+    "old_pid": 55,
+    "new_pid": 101,
+    "actual_model_inference": false,
+    "native_windows": false
+  },
+  "failure_probe": {
+    "source": "f94b473d8e139a526f46cd3646ef4d018af257fb",
+    "cases": 4,
+    "new_published_jobs": 0,
+    "previous_project_preserved": true
+  },
+  "artifacts": [
+    {
+      "id": 12595824769,
+      "name": "runtime-recovery-check-selection",
+      "size_in_bytes": 528,
+      "url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12595824769",
+      "archive_download_url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12595824769/zip",
+      "expired": false,
+      "created_at": "2026-10-25T10:57:48Z",
+      "expires_at": "2027-01-23T10:57:35Z",
+      "updated_at": "2026-10-25T10:57:48Z",
+      "digest": "sha256:91c3bd5388b750da468656bbba1bbb760fe4946bae909e4de288ccf8f0896eae",
+      "workflow_run": {
+        "id": 40186880120,
+        "repository_id": 1367047667,
+        "head_repository_id": 1367047667,
+        "head_branch": "feature/ad-shortform-bridge-p0-20260926",
+        "head_sha": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa"
+      }
+    },
+    {
+      "id": 12595689748,
+      "name": "mindle-runtime-recovery-20261013",
+      "size_in_bytes": 5195767,
+      "url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12595689748",
+      "archive_download_url": "https://api.github.com/repos/ADAMBUILD-ai/mindle-media-ai/actions/artifacts/12595689748/zip",
+      "expired": false,
+      "created_at": "2026-10-25T10:59:34Z",
+      "expires_at": "2027-01-23T10:57:35Z",
+      "updated_at": "2026-10-25T10:59:34Z",
+      "digest": "sha256:26bf5f49eccdf782ae1c3f506f8dd3bc46d1bd9113d806d77ac0be9b1aec277e",
+      "workflow_run": {
+        "id": 40186880120,
+        "repository_id": 1367047667,
+        "head_repository_id": 1367047667,
+        "head_branch": "feature/ad-shortform-bridge-p0-20260926",
+        "head_sha": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa"
+      }
+    }
+  ],
+  "artifact_verification": {
+    "browser": {
+      "id": 12595689748,
+      "downloaded": true,
+      "sha256": "26bf5f49eccdf782ae1c3f506f8dd3bc46d1bd9113d806d77ac0be9b1aec277e",
+      "zip_crc": "PASS",
+      "receipt_source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa"
+    },
+    "selection": {
+      "id": 12595824769,
+      "downloaded": true,
+      "sha256": "91c3bd5388b750da468656bbba1bbb760fe4946bae909e4de288ccf8f0896eae",
+      "zip_crc": "PASS"
+    }
+  },
+  "build_gate": false,
+  "pr_draft_hold": true,
+  "main_merged": false,
+  "new_package_built": false,
+  "ui_modified": false,
+  "installed_models_changed": false,
+  "budget_changed": false,
+  "windows_model_approval": false,
+  "human_visual_review": "NOT_EXECUTED",
+  "human_audio_review": "NOT_EXECUTED",
+  "full_product_pass": false,
+  "code_file_sha256": {
+    "src/media_ai/durable_workflows.py": "b72611ae9fb4b848d791387aed4538aacd5761931cf99aaabfac7f5b93fe85bb",
+    "src/media_ai/e2e_intake.py": "611412175120ff7c4a27eb86128eb1f7e58279daa2c9a404924b50abda5e0ae8",
+    "src/media_ai/workflow_planner.py": "fad16c8cc27ce5b6d185a5464c760666ffec6cc97cbd0b346187d309ad7c4c08",
+    "src/media_ai/source_e2e.py": "7f44953fa2b0549c9cae1b645a3e37cac941d6654b07cb6c462b01d96b671b08",
+    "scripts/collect_media_pc_readiness.py": "ad6f164aa26aece11df8a649c1de2e6628aa34fa629f6abca7b3170c7106c755",
+    "scripts/run_real_architecture_acceptance.py": "a31bd3eb8204d8193334d46fcecf0935178800db63b8f6bcdf014d5256508f91",
+    "tests/test_e2e_intake.py": "2b1516b23e48a884299cb2392232974a3eaa4b49e14a0a107cda98906fefc139",
+    "tests/test_generated_plan_binding.py": "2027782a5a2e116298da93cb79ac18d8935fcbc780d4548ed23a84d543e28f0d",
+    "tests/test_source_e2e.py": "9c96fcdc1ac118d36c10758a4d4e20791c5d5d2f5ca81c30f1600a6402806595",
+    "tests/test_durable_workflows.py": "f15b373a1213e78b886802ca868a402706e5f36ce497350067af28ed256e0f8f",
+    "tests/test_real_architecture_acceptance.py": "9d37f8c3fee5ad724b8c8a7fd29f024817e9cda649d1fb73aad31f782242df41",
+    ".github/workflows/runtime-recovery.yml": "52e35a19c6eb3014e9c3f25d9495eaa07f4ef19f893c0ddf524ab2c6a7943283",
+    "scripts/select_runtime_recovery_checks.py": "52164440a965c24f5a3dce4d8b3eeb3309ca04fd619320f02ffc3fcc36d0b244",
+    "tests/test_runtime_recovery_selection.py": "e7c72114c76250a417ae056d14f6f3a17cadb33ed99d0b4a06fa3f97a02970c5"
+  },
+  "source_ui_identity": {
+    "method": "product_server._runtime_identity file-list algorithm",
+    "file_hashes": {
+      "ui/index.html": "f799d8b55801b380950e5226236f77d306fbaf8fd6105e123a7cc509da211469",
+      "ui/approved_visual.css": "0b449183cc7e0d445898eec58888d4488f58a0e89def859083cd91e574632401",
+      "ui/interaction.css": "4bdd277f469e1890c1cf5192beebb955b83135d914e2c4e3950d4d9ecb0459f0",
+      "ui/interaction.js": "0fff209f6f27c6380ce7d38e50cc33c5da434b97beb657b26331c189dfd0b0af",
+      "ui/product_integration.js": "ed5fd7ee6ee17e2271a9ea7b77ba3675cc9e6d40279076cbe537d0a4fc1915f0",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "8b019abf90e6085cac7e5847fd802ee1ed2254973261675461b4e1f8515aa7c2",
+      "ui/video_workspace.js": "0bf1ae5fe2cc0ac02e7f8b536acd793ea127114e6e99b4b20076deae0a84a1b6",
+      "ui/workspace_shell.js": "978845f44af3d1e879bd03f9828d1e4f9a05a415d62fc41bef9545252ff76c8b",
+      "ui/timeline_preview.js": "84667afe83a69c7444f07b43edc374c8dce312b1697be18b0df3990bbcc4b1ba",
+      "ui/workflow_execution.js": "2d5eeb10b73835bc102b419f3105dc0341274bda825b5c01388405794916a01e",
+      "ui/ai_core_status.js": "da74fa451ae91cc9ddd7f412e74b9e82612a10f93c70ea0f082d9ebc18ea07bd"
+    },
+    "workspace_ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495",
+    "approved_pixel_match": "NOT_VERIFIED_BY_HASH_ONLY"
+  }
+}

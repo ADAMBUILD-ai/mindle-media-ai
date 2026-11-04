@@ -1,0 +1,241 @@
+{
+  "verdict": "CORE_STRENGTHENED_ACTUAL_MODEL_DEFECT_FOUND_NOT_FULL_PRODUCT_ACCEPTED",
+  "tested_source": "79831e0cd21ed3bb5216437e34b4c28dcec4c054",
+  "local_python": {
+    "passed": 328,
+    "skipped": 6,
+    "failed": 0
+  },
+  "ui": {
+    "passed": 31,
+    "failed": 0
+  },
+  "qwen15_auto_decision": "FAIL_ACTUAL_INPUT_SENSITIVITY",
+  "qwen7b": "PASS_TWO_SYNTHETIC_EXPOSURE_CASES_ISOLATED_LINUX_EVALUATION",
+  "qwen7b_inference": "REAL_PINNED_GGUF_AND_EXECUTABLE_NO_MOCK",
+  "semantic_vision": "NOT_IMPLEMENTED",
+  "text_to_new_video": "NOT_IMPLEMENTED",
+  "qualification_scope": "TWO_SYNTHETIC_2_SECOND_VIDEOS_NOT_ARCHITECTURAL_CREATIVE_QUALITY",
+  "default_or_installed_models_replaced": false,
+  "windows_candidate_built": false,
+  "build_gate": false,
+  "pr23": "DRAFT_HOLD",
+  "main_merged": false,
+  "budget_changed": false,
+  "deployment": false,
+  "full_product_pass": false,
+  "files": [
+    {
+      "path": "INFERENCE_SOURCE_BINDING.json",
+      "bytes": 563,
+      "sha256": "a99b4c5bfc324f9d272c59928fd5fec6468049fa398a8632a3fe6f04a562c7d2"
+    },
+    {
+      "path": "LOCAL_PYTHON_REGRESSION.log",
+      "bytes": 432,
+      "sha256": "bdcb181a2f57cd14d2805e01d2b5f3d81bdc220d042ab4ef7116c0ebf83ebca6"
+    },
+    {
+      "path": "LOCAL_UI_REGRESSION.log",
+      "bytes": 2712,
+      "sha256": "6a55576019c6819237d0ca48b2362bfcbb3aa325f458b59e22b767d24a591574"
+    },
+    {
+      "path": "REMOTE_BROWSER_RECEIPT.json",
+      "bytes": 37462,
+      "sha256": "ce8244a244fc10495fbbefbb320c061dfa81ae56745c5bbaac65dcf64be3736e"
+    },
+    {
+      "path": "REMOTE_REGRESSION.log",
+      "bytes": 432,
+      "sha256": "f7d6e865d1d4dc397074a230297daad1c5da3560ea6ffa080a27cd14811ec242"
+    },
+    {
+      "path": "RESULT_KO.md",
+      "bytes": 10259,
+      "sha256": "5731e3a6e42f87b079bb2cfd39caad2489752a1563d2114a5de07f8df907cdab"
+    },
+    {
+      "path": "qwen15-exposure-guard-rejected/REAL_INFERENCE_RECEIPT.json",
+      "bytes": 8467,
+      "sha256": "64ea333971f9d469391926e0eac3cf1f22e7594728dfc608b97a1c805a5106b3"
+    },
+    {
+      "path": "qwen15-exposure-guard-rejected/dark/ACTUAL_QWEN_PLAN.json",
+      "bytes": 2772,
+      "sha256": "56691ac5ab2e5ea60b5baf02a2238914f326afd16ac64d7e1b26918f3d5f77b4"
+    },
+    {
+      "path": "qwen15-exposure-guard-rejected/dark/ACTUAL_QWEN_RESPONSE.txt",
+      "bytes": 383,
+      "sha256": "0d64f13f80a5ebfcec6e599a0fb2daa379bb835cfcf1af127f46438bd1c3efbb"
+    },
+    {
+      "path": "qwen15-exposure-guard-rejected/dark/ACTUAL_WORKFLOW.json",
+      "bytes": 10325,
+      "sha256": "6061f676835e6c5d559756bcc41ddc119ad31f4a39d227ecbd0e96586f4b0033"
+    },
+    {
+      "path": "qwen15-grounded-prompt-rejected/REAL_INFERENCE_RECEIPT.json",
+      "bytes": 6137,
+      "sha256": "54a153bcbb6f45998509a65ca8df28d39328995c4901321a442daf1df1f2d395"
+    },
+    {
+      "path": "qwen15-grounded-prompt-rejected/dark/RAW_RESPONSE.txt",
+      "bytes": 188,
+      "sha256": "a54b50e9a9297e7532d4eb85916d64433422cea2646acfa919108d2228c21c9f"
+    },
+    {
+      "path": "qwen15-grounded-prompt-rejected/dark/REJECTED_OR_ACCEPTED_DECISION.json",
+      "bytes": 604,
+      "sha256": "1deaf91dcef0e5beb3f844d0172017740a84b728d86e31715f74f24f4ce87a41"
+    },
+    {
+      "path": "qwen15-original-failed/REAL_INFERENCE_RECEIPT.json",
+      "bytes": 10316,
+      "sha256": "d5e2ef8e6e1fb58dac3dc8daf06da442b5ad8772633e713fce6c41e8d7fbeaea"
+    },
+    {
+      "path": "qwen15-original-failed/bright/ACTUAL_QWEN_PLAN.json",
+      "bytes": 2652,
+      "sha256": "571f301312de106856a0b15585b13ac2cf4bf5212ba9c5e5b4432be31f4e1226"
+    },
+    {
+      "path": "qwen15-original-failed/bright/ACTUAL_QWEN_RESPONSE.txt",
+      "bytes": 253,
+      "sha256": "6956fb9c512e99614cd61cf546375d5cc8b8c31ff704d62e02956d7820af1cd0"
+    },
+    {
+      "path": "qwen15-original-failed/bright/ACTUAL_WORKFLOW.json",
+      "bytes": 10068,
+      "sha256": "cb3eec6a40316da4833aa183579a5b6be083492414138ddb2447f114a6fbb417"
+    },
+    {
+      "path": "qwen15-original-failed/dark/ACTUAL_QWEN_PLAN.json",
+      "bytes": 2637,
+      "sha256": "e32b41567c37a3819db4f971c59edac960dbf2619fe52dd5a228eb774cf4b4e9"
+    },
+    {
+      "path": "qwen15-original-failed/dark/ACTUAL_QWEN_RESPONSE.txt",
+      "bytes": 242,
+      "sha256": "be671e46f15938bcb7d5bd7968a54ad504b834f866cd6a9b2861246c63c7b6a1"
+    },
+    {
+      "path": "qwen15-original-failed/dark/ACTUAL_WORKFLOW.json",
+      "bytes": 10029,
+      "sha256": "f76e3dbf5dfb33f9f5ee9988939e20cf18458aac2ad145de57ba90ec270a7b71"
+    },
+    {
+      "path": "qwen15-window-summary-rejected/REAL_INFERENCE_RECEIPT.json",
+      "bytes": 6137,
+      "sha256": "f36b5ac9e3aa6857eba03787c8ac52d596f0b7b94bbbaa4f573cc02e88d4f17d"
+    },
+    {
+      "path": "qwen15-window-summary-rejected/dark/RAW_RESPONSE.txt",
+      "bytes": 151,
+      "sha256": "45cd20cbc91da56721086f3ff778d4ee19257580f474f3eb57a67b513bd8547a"
+    },
+    {
+      "path": "qwen15-window-summary-rejected/dark/REJECTED_OR_ACCEPTED_DECISION.json",
+      "bytes": 567,
+      "sha256": "7a2927ac7ea000cc4758b2e769e62a4bae34952aa7068ca2f04a299fb6843474"
+    },
+    {
+      "path": "qwen7b-isolated-pass/REAL_INFERENCE_RECEIPT.json",
+      "bytes": 11416,
+      "sha256": "ee5ec92a78d0fb67283c4dce79144fff2cef0314fb1d46c6f5960d1b986eebb2"
+    },
+    {
+      "path": "qwen7b-isolated-pass/bright/ACTUAL_QWEN_PLAN.json",
+      "bytes": 2700,
+      "sha256": "bbf8cbdaa226ffeb15a4893920874e99afcd77549dd9117599d7759ccb80d9f2"
+    },
+    {
+      "path": "qwen7b-isolated-pass/bright/ACTUAL_QWEN_RESPONSE.txt",
+      "bytes": 169,
+      "sha256": "6623c4832b6ce28d1c9c113424d07f9c244d74057f49958609aeb083c0015c5a"
+    },
+    {
+      "path": "qwen7b-isolated-pass/bright/ACTUAL_WORKFLOW.json",
+      "bytes": 10295,
+      "sha256": "2288d2693ad0875cf2900e331f458aa9c5476be5a840dbcd40d09e019b90f84a"
+    },
+    {
+      "path": "qwen7b-isolated-pass/bright/PROJECT_EXPORT.zip",
+      "bytes": 8645,
+      "sha256": "d97777ace66a3a16d671fa496af0de85573e904ebf902845f13dc56ca4e02c09"
+    },
+    {
+      "path": "qwen7b-isolated-pass/bright/RAW_RESPONSE.txt",
+      "bytes": 169,
+      "sha256": "6623c4832b6ce28d1c9c113424d07f9c244d74057f49958609aeb083c0015c5a"
+    },
+    {
+      "path": "qwen7b-isolated-pass/bright/REJECTED_OR_ACCEPTED_DECISION.json",
+      "bytes": 506,
+      "sha256": "ec032ab995761a516fedb36833a106b8c8de6bf850581112eb4b206c8ceece59"
+    },
+    {
+      "path": "qwen7b-isolated-pass/bright/input.mp4",
+      "bytes": 2251,
+      "sha256": "76dda41cefa41eaedb6699223e0afe49f33971d9fe97bc3b1e73aa7ee3a8a150"
+    },
+    {
+      "path": "qwen7b-isolated-pass/bright/output.mp4",
+      "bytes": 2228,
+      "sha256": "875539e7795483a193bd88a24402be3304a366f8e7a88fc7a6f1a5ac5c5ea1c0"
+    },
+    {
+      "path": "qwen7b-isolated-pass/dark/ACTUAL_QWEN_PLAN.json",
+      "bytes": 2692,
+      "sha256": "d742b2d7d7ba8e5c1c0786aeb77002655289325338a1f11100ae696b461862f0"
+    },
+    {
+      "path": "qwen7b-isolated-pass/dark/ACTUAL_QWEN_RESPONSE.txt",
+      "bytes": 167,
+      "sha256": "2ba93406307a5912327661f1ba2fdb02f4e4f52c6ca217c91acdffe1afc2dd4f"
+    },
+    {
+      "path": "qwen7b-isolated-pass/dark/ACTUAL_WORKFLOW.json",
+      "bytes": 10256,
+      "sha256": "deae02ae40c4f9b83e94d71136a2f970752515ad37dc0b90eaa77c1d2bf38e43"
+    },
+    {
+      "path": "qwen7b-isolated-pass/dark/PROJECT_EXPORT.zip",
+      "bytes": 8651,
+      "sha256": "2878b12e83ab826e874c5cdea2204e7583b0c6592f65020d5d51f04183c89c38"
+    },
+    {
+      "path": "qwen7b-isolated-pass/dark/RAW_RESPONSE.txt",
+      "bytes": 167,
+      "sha256": "2ba93406307a5912327661f1ba2fdb02f4e4f52c6ca217c91acdffe1afc2dd4f"
+    },
+    {
+      "path": "qwen7b-isolated-pass/dark/REJECTED_OR_ACCEPTED_DECISION.json",
+      "bytes": 504,
+      "sha256": "f2ac0da23dcd17f5f4ab0de612703a5976e332ca9fbbe98e0326da12941057a9"
+    },
+    {
+      "path": "qwen7b-isolated-pass/dark/input.mp4",
+      "bytes": 2252,
+      "sha256": "9f0475a7776a5492e727b8fbb1b858ff837198c8b764d094f32fe33818820a1e"
+    },
+    {
+      "path": "qwen7b-isolated-pass/dark/output.mp4",
+      "bytes": 2228,
+      "sha256": "1f6240909c806689653641d3b72727ffbec34eb0d64cf22da9b74732ae1ee49e"
+    }
+  ],
+  "remote": {
+    "run": 40174455821,
+    "source": "79831e0cd21ed3bb5216437e34b4c28dcec4c054",
+    "status": "completed",
+    "conclusion": "success",
+    "python_passed": 329,
+    "python_skipped": 5,
+    "browser_checks_passed": 41,
+    "browser_artifact": 12591038996,
+    "browser_artifact_sha256": "f8a3ff1cfa25fa16a2034a18aa6b63bc7507e41f18f3b7f65e57ad90beacc929",
+    "download_sha_crc_source_match": true
+  }
+}

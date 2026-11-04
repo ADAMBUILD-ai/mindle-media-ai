@@ -1,0 +1,12 @@
+{
+  "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_EVIDENCE_PATH_ENFORCEMENT_NONCOMPLIANCE_CORRECTION_DIRECTIVE_v13.1_20261001.md",
+  "technical_scope": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FOUR_LANE_RECOVERY_AND_E2E_DIRECTIVE_v13.0_20261001.md",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_head": "7ef266e2750b8803b22949229734e5ee28331cb7",
+  "stale_branch_preserved": "backup/media-ai-stale-pc-work-20261001",
+  "stale_head": "f10875b441335c07816c48cc62b696effa9e0634",
+  "local_equals_remote": true,
+  "status": "PARTIAL_PASS_WITH_RUNTIME_BLOCKERS",
+  "required_files": ["MANIFEST.json", "CURRENT_PC_INVENTORY.txt", "CURRENT_VS_V32_MATRIX.json", "PHOTO_SEGMENTATION_RUN.json", "PHOTO_4X_RUN.json", "VIDEO_TRACKING_RUN.json", "KOREAN_STT_RUN.json", "PROJECT_SAVE_EXPORT_RUN.json", "UI_SSOT_REGRESSION_CHECK.json", "TEST_RESULTS.txt", "OUTPUT_HASHES.sha256", "REMOTE_PUSH_VERIFY.txt"]
+}

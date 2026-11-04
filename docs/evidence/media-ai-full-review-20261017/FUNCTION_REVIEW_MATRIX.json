@@ -1,0 +1,177 @@
+{
+  "baseline": "003dacb8f6ce8f6d9d3a711f17cabe53c61dff25",
+  "source_fix_commit": "same commit as this matrix",
+  "evidence_reuse_policy": "Reuse validated results; do not repeat completed expensive models",
+  "new_model_inference_calls": 0,
+  "features": [
+    {
+      "feature": "PHOTO segmentation",
+      "status": "PASS",
+      "engine": "SAM 2.1 / PyTorch CPU",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "PHOTO 4x",
+      "status": "PASS",
+      "engine": "Intel SISR1032 / OpenVINO CPU",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "VIDEO full-frame tracking",
+      "status": "PASS",
+      "engine": "SAM2VideoModel memory / same pinned SAM weight",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "Korean STT",
+      "status": "PASS",
+      "engine": "Whisper-small local CPU",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "VIDEO edit/subtitles/BGM",
+      "status": "PASS",
+      "engine": "FFmpeg/OpenCV/Pillow",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "PHOTO seven corrections/tools",
+      "status": "PASS",
+      "engine": "canvas/Pillow",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved actual execution evidence; no new inference; accuracy/WER not benchmarked"
+    },
+    {
+      "feature": "Reference binding",
+      "status": "PARTIAL",
+      "engine": "Crop template matching + RGB histogram",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Bytes connected; general semantic reference understanding not implemented"
+    },
+    {
+      "feature": "AI conversation",
+      "status": "PARTIAL",
+      "engine": "Fixed intent dispatcher + adopted operations",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Working dispatch; unrestricted generative planner not connected"
+    },
+    {
+      "feature": "Generative autonomous planner",
+      "status": "NOT_IMPLEMENTED",
+      "engine": "No authorized connected provider",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "No OpenAI connection/API call; not disguised as enabled agent"
+    },
+    {
+      "feature": "Durable queue/cancel/automatic retry",
+      "status": "NOT_IMPLEMENTED",
+      "engine": "Persisted task/job status exists",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "No durable multiagent queue; successful operation not full orchestration PASS"
+    },
+    {
+      "feature": "Task status and failed lifecycle",
+      "status": "PASS",
+      "engine": "ProductHttpServer/ProductJobService",
+      "evidence": "docs/evidence/media-ai-agent-engine-repair-20261014/FEATURE_ENGINE_MATRIX.json",
+      "scope": "Preserved lifecycle gates and failed job persistence; Node/Python coverage distinct from model inference"
+    },
+    {
+      "feature": "Cloud/local routing",
+      "status": "PASS",
+      "engine": "workspace_shell.js",
+      "evidence": "ui/cloud_navigation.test.js",
+      "scope": "Cloud explicitly unavailable notice; local storage route separate; no cloud connection PASS"
+    },
+    {
+      "feature": "VIDEO Preview/play/seek/decode",
+      "status": "PASS",
+      "engine": "H264/yuv420p/faststart",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/R9_PACKAGED_BROWSER_RECEIPT.json",
+      "scope": "Preserved remote Windows browser evidence, not Windows player/hearing"
+    },
+    {
+      "feature": "PHOTO portrait fit",
+      "status": "PASS",
+      "engine": "contain/center sizing",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/SHIPPED_PHOTO_GEOMETRY_MATRIX.json",
+      "scope": "Preserved measured geometry; no arbitrary visual redesign"
+    },
+    {
+      "feature": "Desktop UI direction",
+      "status": "PARTIAL",
+      "engine": "VIDEO left / PHOTO right",
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md",
+      "scope": "Latest Owner VIDEO-left/PHOTO-right preserved; dense grid source containment verified; 1366x768 requires page scrolling; new source not in c37."
+    },
+    {
+      "feature": "Pending references/audio save-cold-reopen-export",
+      "status": "PASS",
+      "engine": "c37 packaged EXE",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/WORKSPACE_CANDIDATE_EXE_COLD_REOPEN_EXPORT.json",
+      "scope": "Remote EXE proof preserved; bytes/SHA same; WAV fixture is silent"
+    },
+    {
+      "feature": "Project transition concurrency",
+      "status": "PASS",
+      "engine": "Production JS controller",
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md",
+      "scope": "Actual Windows Chrome 6 scenarios accepted at ef56 source; new dependency-failure handling 4 controller regressions; neither latest change in c37."
+    },
+    {
+      "feature": "ZIP dependencies/integrity",
+      "status": "PASS",
+      "engine": "Project manifest / atomic export",
+      "evidence": "docs/evidence/media-ai-r9-followup-20261016/WORKSPACE_CANDIDATE_INDEPENDENT_READBACK.json",
+      "scope": "Existing exact candidate and source regressions; no new-candidate claim"
+    },
+    {
+      "feature": "Launcher lock/lifecycle",
+      "status": "PARTIAL",
+      "engine": "Windows lock + EXE",
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md",
+      "scope": "Original exception acquired; source owner stop and separate subprocess cold lifecycle PASS; c37 has no owner shutdown route; actual byte-lock owner not established."
+    },
+    {
+      "feature": "Office PC cold restart/restore/export",
+      "status": "BLOCKED",
+      "engine": "Actual office Windows PC",
+      "evidence": "docs/evidence/media-ai-final-closeout-20261017/ENVIRONMENT_AND_R9_READBACK.json",
+      "scope": "No connected native PC execution surface; not a product failure assertion"
+    },
+    {
+      "feature": "Installed Windows player and hearing",
+      "status": "PARTIAL",
+      "engine": "Actual installed player",
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md",
+      "scope": "PotPlayer 1.7.22619 display/progression/forward-back seek PASS; human hearing unconfirmed."
+    },
+    {
+      "feature": "R9 original files/lock traceback",
+      "status": "PARTIAL",
+      "engine": "Original TXT/CSV/PNG/ZIP/logs",
+      "evidence": "docs/evidence/media-ai-windows-r2-general-review-20261017/GENERAL_REVIEW_KO.md",
+      "scope": "TXT/CSV/PNG and traceback acquired; 272 MB older R9 ZIP raw bytes still not acquired. DeployLock open permission and byte-lock timeout are distinct."
+    },
+    {
+      "feature": "Narration/TTS",
+      "status": "NOT_IMPLEMENTED",
+      "engine": "No TTS generation provider",
+      "evidence": "src/media_ai/product_runtime.py; ui/video_workspace.js",
+      "scope": "Audio import/BGM/STT do not imply generated narration; no new feature promised"
+    },
+    {
+      "feature": "Marketing HTTP/AVORA/ad MP4",
+      "status": "DEFERRED_EXTERNAL",
+      "engine": "Existing bridge preserved",
+      "evidence": "CURRENT_GENERAL_WORK_STATE.json",
+      "scope": "No external calls, unapproved asset, representative approval or live export claimed"
+    }
+  ],
+  "review_scope": "24 existing functional groups cross-checked against source and existing accepted runtime evidence; not a fresh 60-button or model run"
+}

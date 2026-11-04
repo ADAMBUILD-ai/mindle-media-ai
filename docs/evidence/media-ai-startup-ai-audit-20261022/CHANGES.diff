@@ -1,0 +1,296 @@
+--- a/scripts/build_employee_distribution_package.py
++++ b/scripts/build_employee_distribution_package.py
+@@ -155,7 +155,7 @@
+     # Retain the model source licenses checked by the preflight.
+     write_json(notices / 'MODEL_LICENSE_MANIFEST.json', {'sam21': 'Apache-2.0', 'whisper-small': 'MIT', 'intel-sisr-1032': 'Apache-2.0'})
+     (notices / 'THIRD_PARTY_NOTICES.txt').write_text('Python, PyTorch, Transformers, OpenVINO and transitive libraries: see retained LICENSES and runtime dist-info notices. FFmpeg: see tools/ffmpeg/LICENSES. Models: see MODEL_LICENSE_MANIFEST.json and model source licenses.\n', encoding='utf-8')
+-    files = [{'path': p.relative_to(root).as_posix(), 'bytes': p.stat().st_size, 'sha256': digest(p)} for p in sorted(root.rglob('*')) if p.is_file()]
++    files = [{'path': p.relative_to(root).as_posix(), 'bytes': p.stat().st_size, 'sha256': digest(p)} for p in sorted(root.rglob('*')) if p.is_file() and '__pycache__' not in p.relative_to(root).parts and p.suffix != '.pyc']
+     ui_names = ['index.html', 'approved_visual.css', 'interaction.css', 'interaction.js', 'product_integration.js', 'timeline_preview.js', 'workflow_execution.js', 'assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico']
+     ui_hash = hashlib.sha256('\n'.join('ui/' + n + ':' + digest(root / 'app/ui' / n) for n in ui_names).encode()).hexdigest()
+     commit = args.build_commit or subprocess.check_output(['git', '-c', 'safe.directory=' + repo.as_posix(), '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
+@@ -165,11 +165,11 @@
+                 'model_manifest_hash': digest(root / 'MODEL_MANIFEST.json'), 'files': files, 'release_gate': 'CLEAN_WINDOWS_TEST_REQUIRED'}
+     write_json(root / 'PACKAGE_MANIFEST.json', manifest)
+     (root / 'PACKAGE_SHA256SUMS.txt').write_text('\n'.join(f'{entry["sha256"]}  {entry["path"]}' for entry in files) + '\n', encoding='utf-8')
+-    subprocess.run([str(py / 'python.exe'), str(root / 'app/launcher/employee_package_launcher.py'), '--verify-only'], check=True)
++    subprocess.run([str(py / 'python.exe'), '-B', str(root / 'app/launcher/employee_package_launcher.py'), '--verify-only'], check=True)
+     archive = root.parent / (root.name + '.zip')
+     with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=1, allowZip64=True) as output:
+         for path in root.rglob('*'):
+-            if path.is_file(): output.write(path, NAME + '/' + path.relative_to(root).as_posix())
++            if path.is_file() and '__pycache__' not in path.relative_to(root).parts and path.suffix != '.pyc': output.write(path, NAME + '/' + path.relative_to(root).as_posix())
+     write_json(detail / 'PACKAGE_BUILD_MANIFEST.json', {'status': 'PACKAGE_BUILD_PARTIAL', 'zip_sha256': digest(archive), 'zip_bytes': archive.stat().st_size, 'manifest': manifest})
+     print('PACKAGE_BUILT_CLEAN_WINDOWS_TEST_REQUIRED')
+     return 0
+--- a/scripts/employee_package_launcher.py
++++ b/scripts/employee_package_launcher.py
+@@ -1,5 +1,8 @@
+ """Package-only entry point; stdlib bootstrap, no Git or user Python lookup."""
+ from __future__ import annotations
++import sys
++# Payload files are sealed; imports must never rewrite manifest-pinned bytecode.
++sys.dont_write_bytecode = True
+ import argparse
+ from contextlib import contextmanager
+ import hashlib
+@@ -9,7 +12,6 @@
+ import re
+ from pathlib import Path
+ import subprocess
+-import sys
+ import time
+ from urllib.request import urlopen
+ 
+@@ -161,7 +163,7 @@
+                     server_env = dict(os.environ)
+                     server_env.update(LOCALAPPDATA=str(data), APPDATA=str(data / 'appdata'),
+                                       HF_HUB_DISABLE_TELEMETRY='1')
+-                    process = subprocess.Popen([sys.executable, str(Path(__file__)), '--server', '--port', str(candidate), '--data-root', str(data)],
++                    process = subprocess.Popen([sys.executable, "-B", str(Path(__file__)), '--server', '--port', str(candidate), '--data-root', str(data)],
+                                                cwd=root, env=server_env, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW)
+                     log.close()
+                     # Full model/runtime integrity checks can exceed 90s on a cold disk.
+--- a/scripts/one_click_bootstrap.py
++++ b/scripts/one_click_bootstrap.py
+@@ -248,7 +248,7 @@
+     if not executable.is_file() or not launcher.is_file():
+         raise RuntimeError("패키지 내부 실행 파일이 누락되었습니다.")
+ 
+-    command = [str(executable), str(launcher)]
++    command = [str(executable), "-B", str(launcher)]
+     if args.no_browser:
+         command.append("--no-browser")
+         completed = subprocess.run(command, cwd=target, check=False)
+--- a/src/media_ai/durable_workflows.py
++++ b/src/media_ai/durable_workflows.py
+@@ -159,7 +159,7 @@
+             except Exception as error:
+                 with self.lock:
+                     value=self.get(row[0]);self._rollback(value);value.update(state='INTERRUPTED' if self.closed else 'FAILED',error=str(error));self._put(value)
+-    def _command(self,path):return [sys.executable,'-X','utf8','-m','media_ai.workflow_worker',str(path)]
++    def _command(self,path):return [sys.executable,'-B','-X','utf8','-m','media_ai.workflow_worker',str(path)]
+     def _run(self,identifier):
+         with self.lock:
+             value=self.get(identifier)
+--- a/src/media_ai/workflow_planner.py
++++ b/src/media_ai/workflow_planner.py
+@@ -27,9 +27,9 @@
+ def validate_plan_scope(command,steps):
+     """Reject model-invented actions; this gate never generates a plan."""
+     text=command.casefold()
+-    fields={'brightness':('밝기','brightness'),'contrast':('대비','contrast'),'saturation':('채도','saturation')}
++    fields={'brightness':('밝기','밝게','brightness'),'contrast':('대비','contrast'),'saturation':('채도','saturation')}
+     narration=any(word in text for word in ('나레이션','내레이션','narration','tts'))
+-    subtitles=any(word in text for word in ('받아쓰','자막','transcrib','subtitle'))
++    subtitles=any(word in text for word in ('받아쓰','자막','stt','transcrib','subtitle'))
+     for step in steps:
+         op=step['operation']
+         if op=='video_edit':
+@@ -42,6 +42,18 @@
+             raise ValueError('PLANNER_SCOPE_MISMATCH: 요청하지 않은 나레이션입니다.')
+         if op=='narrate' and step['text'] not in command:
+             raise ValueError('PLANNER_SCRIPT_NOT_IN_REQUEST: 명시한 원고만 합성할 수 있습니다.')
++    # A valid subset is not a completed plan: reject silently dropped requests.
++    actual_fields={key for step in steps if step['operation']=='video_edit' for key in step.get('options',{})}
++    expected_fields={key for key,words in fields.items() if any(word in text for word in words)}
++    operations={step['operation'] for step in steps}
++    if not expected_fields.issubset(actual_fields):
++        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 보정이 누락됐습니다.')
++    if narration and not {'narrate','mix_narration'}.issubset(operations):
++        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 나레이션 생성·합성이 누락됐습니다.')
++    if subtitles and 'transcribe' not in operations:
++        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 받아쓰기가 누락됐습니다.')
++    if any(word in text for word in ('자막','subtitle')) and 'apply_subtitles' not in operations:
++        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 자막 적용이 누락됐습니다.')
+     return steps
+ 
+ 
+@@ -50,6 +62,8 @@
+         return persist_plan(root,{'plan_source':'STRUCTURED_USER_PLAN_NOT_GENERATIVE','steps':validate_steps(request['steps'])},request)
+     command=str(request.get('command','')).strip()
+     if not command or len(command)>4000:raise ValueError('편집 지시는1~4000자입니다.')
++    if re.search(r'속도|자르|회전|전환|효과|배경음악|숏폼|추적|삭제|제거',re.sub(r'["“][^"”]*["”]', '', command)):
++        raise ValueError('PLANNER_UNSUPPORTED: 대화 계획기는 밝기·대비·채도·받아쓰기·자막·명시 원고 나레이션을 지원합니다. 그 밖의 편집은 해당 도구를 사용하세요.')
+     settings=engines_config(root).get('planner',{})
+     model=Path(settings.get('model_path',''));executable=Path(settings.get('executable',''))
+     if not model.is_file() or not executable.is_file() or not settings.get('license') or not re.fullmatch(r'[0-9a-f]{40}',str(settings.get('revision',''))):
+--- a/ui/index.html
++++ b/ui/index.html
+@@ -36,15 +36,15 @@
+           <label class="range-row">밝기<input type="range" data-video-option="brightness" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">대비<input type="range" data-video-option="contrast" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">채도<input type="range" data-video-option="saturation" min="-100" max="100" value="0"><output>0</output></label>
+           <label class="toggle-row">흔들림 보정 <input type="checkbox" data-video-toggle="stabilize"></label><label class="toggle-row">노이즈 제거 <input type="checkbox" data-video-toggle="denoise"></label>
+           <div data-video-controls hidden class="inline-controls"><label>시작 <input type="number" data-video-option="start" min="0" value="0"></label><label>길이 <input type="number" data-video-option="duration" min="0" value="0"></label><label>속도 <input type="number" data-video-option="speed" min="0.5" max="2" step="0.1" value="1"></label><label>음량 <input type="number" data-video-option="volume" min="0" max="2" step="0.1" value="1"></label></div>
+-          <div class="tool-grid compact video-extended"><button data-video-tool="shortform">숏폼</button><button data-video-tool="fade">전환</button><button data-video-tool="effect">AI 효과</button><button data-video-tool="subtitle">자막</button><button data-video-tool="auto-subtitle">자동 자막</button><button data-video-tool="highlight">하이라이트</button><button data-video-tool="bgm">배경음악</button></div>
++          <div class="tool-grid compact video-extended"><button data-video-tool="shortform">숏폼</button><button data-video-tool="fade">전환</button><button data-video-tool="effect" title="FFmpeg 영상 필터이며 생성형 AI 효과가 아닙니다.">AI 효과</button><button data-video-tool="subtitle">자막</button><button data-video-tool="auto-subtitle">자동 자막</button><button data-video-tool="highlight">하이라이트</button><button data-video-tool="bgm">배경음악</button></div>
+           <div data-subtitle-controls hidden><label>자막 <input data-video-subtitle placeholder="표시할 자막"></label></div><input type="file" data-bgm-input accept="audio/*" hidden><button data-video-apply class="apply-button">영상 편집 적용</button>
+         <div class="editor-actions">
+           
+-          <button type="button" data-action="ai-auto-edit" class="outline-cyan">✦ AI 자동 편집</button><button type="button" data-action="shortform-mode" aria-pressed="false" class="outline-purple">✦ 광고 숏폼</button>
++          <button type="button" data-action="ai-auto-edit" title="프레임의 움직임·노출·선명도를 분석하는 자동 편집입니다. 생성형 모델 추론은 아닙니다." class="outline-cyan">✦ AI 자동 편집</button><button type="button" data-action="shortform-mode" aria-pressed="false" class="outline-purple">✦ 광고 숏폼</button>
+           <button data-action="save" class="ghost-button">프로젝트 저장</button><button data-action="export" class="primary-blue">내보내기</button>
+         </div></aside>
+         <div data-timeline="video" class="timeline-panel" data-tracks="read-only-status" data-actions="seek-via-transport"><div class="timeline-ruler">00:00　00:05　00:10　00:15　00:20　00:25</div><div class="track film">영상 Track · 원본 영상</div><div class="track purple">Subtitle Track · 자막 없음</div><div class="track cyan">Effect Track · 효과 없음</div><div class="track green">Audio Track · 원본 오디오</div></div>
+-        <div class="command-card" data-command-panel><div class="ai-label">✦ AI 대화 편집</div><div class="command-line"><input data-command="video" aria-label="영상 AI 지시" placeholder="원하는 영상 편집을 자연어로 입력하세요"><button type="button" class="send-button">➤</button></div><button type="button" data-action="video-reference" class="reference-button">＋ 참고 이미지 추가</button><input type="file" data-reference-input="video" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list></ul><div class="command-chips"><button type="button">참고 이미지</button><button type="button">스타일</button><button type="button">길이</button><button type="button">비율</button></div></div>
++        <div class="command-card" data-command-panel><div class="ai-label">✦ AI 대화 편집</div><div class="command-line"><input data-command="video" aria-label="영상 AI 지시" placeholder="밝기·대비·채도·자막·원고 나레이션 지시"><button type="button" class="send-button">➤</button></div><button type="button" data-action="video-reference" class="reference-button">＋ 참고 이미지 추가</button><input type="file" data-reference-input="video" accept="image/*" multiple hidden><p data-command-error role="alert"></p><ul data-reference-list></ul><div class="command-chips"><button type="button">참고 이미지</button><button type="button">스타일</button><button type="button">길이</button><button type="button">비율</button></div></div>
+       </div>
+     </section>
+     <section id="photoWorkspace" data-editor="photo" class="editor-card photo-card" aria-label="PHOTO">
+@@ -54,16 +54,16 @@
+       </header>
+       <div data-layout="library-preview-below-tools" class="editor-grid">
+         <aside data-panel="photo-left" class="media-panel"><div class="panel-title">MEDIA</div><div class="library-actions"><button type="button" data-action="load" class="outline-purple">＋ 사진 불러오기</button><input type="file" data-primary-input="photo" accept="image/*" hidden></div><div class="asset-grid photo-assets"><span class="asset-photo-house">house.jpg</span><span class="asset-video-interior">interior.jpg</span><span class="asset-photo-landscape">landscape.jpg</span></div></aside>
+-        <section data-panel="photo-center" class="preview-column"><div data-preview="photo" class="preview-stage photo-stage" aria-label="사진 미리보기"><span class="preview-empty">PHOTO PREVIEW · LANDSCAPE FIRST</span></div><div class="photo-transport"><span class="fit-label">Auto Fit</span><span class="fit-label">Center</span><button data-photo-fullscreen>⛶</button><button data-action="photo-auto" class="outline-purple">✦ AI 보정</button></div></section>
++        <section data-panel="photo-center" class="preview-column"><div data-preview="photo" class="preview-stage photo-stage" aria-label="사진 미리보기"><span class="preview-empty">PHOTO PREVIEW · LANDSCAPE FIRST</span></div><div class="photo-transport"><span class="fit-label">Auto Fit</span><span class="fit-label">Center</span><button data-photo-fullscreen>⛶</button><button data-action="photo-auto" title="사진 픽셀 통계에 따른 자동 보정이며 모델 추론은 아닙니다." class="outline-purple">✦ AI 보정</button></div></section>
+         <aside data-panel="photo-right" class="tool-panel" aria-label="사진 편집 패널" data-tools="correction crop resize rotate flip segment upscale similar">
+           <div class="panel-title">기본 보정</div><div class="photo-adjust-grid">
+             <label class="range-row">밝기<input type="range" data-photo-adjust="brightness" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">대비<input type="range" data-photo-adjust="contrast" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">하이라이트<input type="range" data-photo-adjust="highlights" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">그림자<input type="range" data-photo-adjust="shadows" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">채도<input type="range" data-photo-adjust="saturation" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">색온도<input type="range" data-photo-adjust="temperature" min="-100" max="100" value="0"><output>0</output></label><label class="range-row">선명도<input type="range" data-photo-adjust="sharpness" min="-100" max="100" value="0"><output>0</output></label>
+           </div><div class="panel-title detail-title">세부 기능</div><div class="tool-grid compact photo-tools"><button data-photo-tool="auto">AI 보정</button><button data-photo-tool="segment">배경 제거</button><button data-photo-tool="color">색감 보정</button><button data-photo-tool="style">스타일 변환</button><button data-photo-tool="portrait">인물 보정</button><button data-photo-tool="similar">유사 이미지</button><button data-photo-tool="crop">크롭</button><button data-photo-tool="resize">크기 조절</button><button data-photo-tool="rotate">회전</button><button data-photo-tool="flip-h">좌우 반전</button><button data-photo-tool="flip-v">상하 반전</button><button data-photo-tool="upscale">해상도 향상</button></div>
+           <div data-crop-controls hidden class="inline-controls"><label>왼쪽 % <input data-crop="left" type="number" min="0" max="99" value="0"></label><label>위 % <input data-crop="top" type="number" min="0" max="99" value="0"></label><label>오른쪽 % <input data-crop="right" type="number" min="1" max="100" value="100"></label><label>아래 % <input data-crop="bottom" type="number" min="1" max="100" value="100"></label></div><div data-photo-resize-controls hidden class="inline-controls"><label>사진 폭 px <input data-photo-resize type="number" min="1" max="8000" value="512"></label><span>원본 비율 유지</span></div>
+           <div class="panel-actions"><button data-photo-reset>↻ 초기화</button><button data-photo-apply class="apply-button">적용하기</button></div><p data-photo-status role="status"></p>
+-        <div class="editor-actions"><button data-action="photo-auto" class="outline-purple">✦ AI 보정</button><button data-action="save" class="ghost-button">프로젝트 저장</button><button data-action="export" class="primary-pink">내보내기</button></div></aside>
++        <div class="editor-actions"><button data-action="photo-auto" title="사진 픽셀 통계에 따른 자동 보정이며 모델 추론은 아닙니다." class="outline-purple">✦ AI 보정</button><button data-action="save" class="ghost-button">프로젝트 저장</button><button data-action="export" class="primary-pink">내보내기</button></div></aside>
+         <section class="photo-reference-strip" aria-label="사진 참고 이미지"><strong>참고 이미지</strong><button type="button" data-action="photo-reference" class="reference-button">＋ 참고 이미지 추가</button><input type="file" data-reference-input="photo" accept="image/*" multiple hidden><ul data-reference-list aria-label="첨부한 사진 참고 이미지"></ul></section>
+-        <div class="command-card" data-command-panel><div class="ai-label">✦ AI 대화 편집</div><div class="command-line"><input data-command="photo" aria-label="사진 AI 지시" placeholder="원하는 사진 보정을 자연어로 입력하세요"><button type="button" class="send-button">➤</button></div><p data-command-error role="alert"></p><div class="command-chips"><button type="button">참고 이미지</button><button type="button">스타일</button><button type="button">톤 조정</button><button type="button">비율</button></div></div>
++        <div class="command-card" data-command-panel><div class="ai-label">✦ AI 대화 편집</div><div class="command-line"><input data-command="photo" aria-label="사진 AI 지시" placeholder="밝게·따뜻하게·배경 제거·4배 업스케일"><button type="button" class="send-button">➤</button></div><p data-command-error role="alert"></p><div class="command-chips"><button type="button">참고 이미지</button><button type="button">스타일</button><button type="button">톤 조정</button><button type="button">비율</button></div></div>
+       </div>
+     </section>
+   </main>
+--- a/ui/photo_workspace.js
++++ b/ui/photo_workspace.js
+@@ -80,7 +80,7 @@
+       const rendered=await renderPhoto();
+       const response=await fetch('/api/photo-edits',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({filename:'photo_edit.png',content_base64:rendered.base64,command:label,options:rendered.options})});
+       const result=await response.json();if(!response.ok) throw new Error(result.error||'사진 보정 저장 실패');
+-      await window.mindleAcceptResult(result);reset();say('보정 적용 완료 · 프로젝트 저장으로 보관할 수 있습니다.');
++      await window.mindleAcceptResult(result);reset();say((rendered.options.automaticAnalysis?'픽셀 통계 자동 보정 완료 · 모델 추론 아님':'사진 보정 완료 · 픽셀 편집')+' · 프로젝트 저장으로 보관할 수 있습니다.');
+     } catch(error) {say(error.message);} finally {busy=false;window.mindleEndEdit('photo');}
+   }
+   const adjust=(key,value)=>{const input=editor.querySelector(`[data-photo-adjust="${key}"]`);input.value=value;input.nextElementSibling.value=value;};
+@@ -143,7 +143,7 @@
+     if(/선명/.test(text)) {adjust('sharpness',25);known=true;}
+     if(/흑백/.test(text)) {style='mono';known=true;}
+     if(/보정/.test(text) && !known) {adjust('contrast',8);adjust('shadows',12);known=true;}
+-    if(known) await apply('AI 대화 편집 · '+text);
++    if(known) await apply('키워드 사진 보정 · '+text);
+     else say('지원하는 사진 지시: 따뜻하게·차갑게·밝게·어둡게·선명하게·흑백·배경 제거·4배 업스케일');
+     return true;
+   };
+--- a/ui/product_integration.js
++++ b/ui/product_integration.js
+@@ -100,8 +100,8 @@
+     try {await executeReady(editor,kind,detail);} finally {executing.delete(kind);}
+   }
+   async function executeReady(editor, kind, detail) {
++    if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
+     if(window.mindleWorkflowCommand && await window.mindleWorkflowCommand(editor,kind,detail)) return;
+-    if (kind === "video" && state.videoMode === "ad_shortform") return executeShortform(editor, detail);
+     const file = kind==='video' && /자막|STT|받아쓰기/.test(detail.command) && state.audio ? state.audio : state[kind];
+     if (!file) { message(editor, "먼저 실제 원본 파일을 불러오세요.", true); return; }
+     try {
+--- a/ui/video_workspace.js
++++ b/ui/video_workspace.js
+@@ -62,7 +62,7 @@
+       const extra={};if(/숏폼/.test(text)) extra.aspect='9:16';const sec=text.match(/(\d+)\s*초/);if(sec) extra.duration=Number(sec[1]);
+       if(/전환/.test(text)) extra.fade=true;if(/효과/.test(text)) extra.effect=true;if(/밝게/.test(text)) extra.brightness=15;
+       const speed=text.match(/([\d.]+)\s*배/);if(speed) extra.speed=Number(speed[1]);
+-      await apply(extra,'AI 대화 편집 · '+text);return true;
++      await apply(extra,'명시적 영상 편집 · '+text);return true;
+     }
+     if(/배경음악|잔잔/.test(text)) {if(editor.querySelector('[data-bgm-input]').files[0]) await apply({backgroundVolume:.2},'잔잔한 배경음악');else {editor.querySelector('[data-command-error]').textContent='배경음악 추가 버튼에서 사용할 음악을 선택하세요.';editor.querySelector('[data-command-error]').style.display='block';}return true;}
+     return false;
+--- a/ui/workflow_execution.js
++++ b/ui/workflow_execution.js
+@@ -22,15 +22,19 @@
+     if(kind!=='video')return false;
+     let steps=detail.steps;
+     if(!steps && /^계획 JSON\s*:/i.test(detail.command)){try{steps=JSON.parse(detail.command.replace(/^계획 JSON\s*:/i,'')).steps;}catch(_){show('실행 계획 JSON을 확인하세요.',true);return true;}}
+-    const narration=detail.command.match(/^나레이션\s*["“]([\s\S]+)["”]\s*(?:추가|생성)?$/);
+-    if(narration)steps=[{operation:'narrate',text:narration[1]},{operation:'mix_narration',length_policy:'reject'}];
+-    if(!steps && !/나레이션|순차|순서대로|실행 계획/.test(detail.command))return false;
++    // Explicit toolbar actions retain their deterministic processing. Free-form
++    // supported requests and unknown requests reach the model, never a silent
++    // keyword fallback that executes only part of the user's instruction.
++    const text=detail.command.trim();
++    const modelIntent=/밝기|밝게|대비|채도|자막|STT|받아쓰|나레이션|내레이션|narration|tts|순차|순서대로|실행 계획/i.test(text);
++    const manualIntent=/추적|tracking|숏폼|속도|자르|전환|효과|오디오|배경음악|잔잔|자동.*편집|하이라이트/i.test(text);
++    if(!steps && !modelIntent && manualIntent)return false;
+     const input=detail.input_job_id||editor.querySelector('[data-preview]').dataset.jobId;
+     if(!input){show('먼저 실제 원본 영상을 불러오세요.',true);return true;}
+     window.mindleBeginEdit('video');let ownsPending=true;
+     try{
+       const planResponse=await fetch('/api/workflows/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command:detail.command,...(steps?{steps}:{})})});const plan=await planResponse.json();if(!planResponse.ok)throw new Error(plan.error||'계획 생성 실패');
+-      show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획':'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → '));
++      show('실행 계획 · '+(plan.plan_source==='LOCAL_GENERATIVE_INFERENCE'?'로컬 생성형 계획 · '+(plan.model_id||'모델 정보 없음'):'사용자 지정 단계 · 생성형 추론 아님')+' · '+plan.steps.map(s=>({'video_edit':'영상 편집','transcribe':'한국어 받아쓰기','apply_subtitles':'자막 적용','narrate':'나레이션 생성','mix_narration':'나레이션 합성'}[s.operation])).join(' → '));
+       let background=null;const bgm=editor.querySelector('[data-bgm-input]').files[0];
+       if(bgm){background={filename:bgm.name,content_base64:await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.readAsDataURL(bgm);})};}
+       const response=await fetch('/api/workflows',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:crypto.randomUUID(),plan_id:plan.plan_id,input_job_id:input,...await window.mindleWorkflowContext(),steps:plan.steps.map(({step_id,...step})=>step),background,export:true})});let task=await response.json();if(!response.ok)throw new Error(task.error||'작업 요청 실패');
+--- a/ui/workflow_routing.test.js
++++ b/ui/workflow_routing.test.js
+@@ -0,0 +1,14 @@
++const test=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
++function setup(){
++ const status={style:{},dataset:{},replaceChildren(){}};
++ const editor={querySelector:()=>status};const calls=[];
++ const document={querySelector:()=>editor,createTextNode:x=>x,addEventListener(){}};
++ const window={mindleBeginEdit(){},mindleEndEdit(){}};
++ vm.runInNewContext(fs.readFileSync(__dirname+'/workflow_execution.js','utf8'),{window,document,fetch:async(url,opts)=>{calls.push({url,body:JSON.parse(opts.body)});return {ok:false,json:async()=>({error:'fixture boundary: inference not executed'})};}});
++ return {window,calls,editor:{querySelector:()=>({dataset:{jobId:'imported-video'}})}};
++}
++for(const command of ['대비를 13 높여 줘','밝기를 7 낮추고 자막을 넣어줘','"안녕하세요" 나레이션 추가','내레이션을 넣어 줘','할 수 없는 요청을 정직하게 거절해 줘']){
++ test(command+' reaches plan API without injected steps',async()=>{const s=setup();assert.equal(await s.window.mindleWorkflowCommand(s.editor,'video',{command}),true);assert.equal(s.calls[0].url,'/api/workflows/plan');assert.equal('steps' in s.calls[0].body,false);});
++}
++test('manual scene analysis and tracking stay in existing path',async()=>{for(const command of ['자동 편집','객체 추적','속도 2배']){const s=setup();assert.equal(await s.window.mindleWorkflowCommand(s.editor,'video',{command}),false);assert.equal(s.calls.length,0);}});
++test('PHOTO does not silently enter VIDEO model plan',async()=>{const s=setup();assert.equal(await s.window.mindleWorkflowCommand(s.editor,'photo',{command:'사진 분할'}),false);assert.equal(s.calls.length,0);});
+--- a/tests/test_local_planner_scope.py
++++ b/tests/test_local_planner_scope.py
+@@ -43,3 +43,12 @@
+     monkeypatch.setattr(planner.subprocess,'check_output',output)
+     result=planner.make_plan(tmp_path,{'command':'"한국어 원고" 나레이션 추가'})
+     assert result['steps'][0]['text']=='한국어 원고'
++
++@pytest.mark.parametrize('command,steps',[
++ ('밝기 5와 대비 9를 높여 줘.',[{'operation':'video_edit','options':{'brightness':5}}]),
++ ('밝기 5와 "안녕" 나레이션 넣어 줘.',[{'operation':'video_edit','options':{'brightness':5}}]),
++ ('자막을 넣어 줘.',[{'operation':'transcribe'}]),
++])
++def test_generated_partial_plan_is_not_success(command,steps):
++    with pytest.raises(ValueError,match='PLANNER_INCOMPLETE_PLAN'):
++        validate_plan_scope(command,steps)
+--- a/tests/test_payload_bytecode_relaunch.py
++++ b/tests/test_payload_bytecode_relaunch.py
+@@ -0,0 +1,34 @@
++"""Real import/relaunch integrity reproduction on host Python; not Windows EXE."""
++import ast
++import hashlib
++from pathlib import Path
++import py_compile
++import subprocess
++import sys
++
++ROOT=Path(__file__).parents[1]
++
++def test_writable_bytecode_breaks_seal_but_B_preserves_it(tmp_path):
++    module=tmp_path/'sample.py'; module.write_text('VALUE=42\n')
++    cache=Path(py_compile.compile(str(module),doraise=True))
++    # Emulate a cache carried from a different build path/version/mtime.
++    original=cache.read_bytes(); stale=bytearray(original); stale[8:12]=b'\0\0\0\0';cache.write_bytes(stale)
++    sealed=hashlib.sha256(cache.read_bytes()).hexdigest()
++    subprocess.run([sys.executable,'-B','-c','import sample; assert sample.VALUE==42'],cwd=tmp_path,check=True)
++    assert hashlib.sha256(cache.read_bytes()).hexdigest()==sealed
++    subprocess.run([sys.executable,'-c','import sample; assert sample.VALUE==42'],cwd=tmp_path,check=True)
++    assert hashlib.sha256(cache.read_bytes()).hexdigest()!=sealed
++
++def test_bootstrap_and_server_children_disable_bytecode():
++    for filename,needle in [('one_click_bootstrap.py','command = [str(executable), "-B", str(launcher)]'),('employee_package_launcher.py','[sys.executable, "-B", str(Path(__file__))')]:
++        text=(ROOT/'scripts'/filename).read_text()
++        ast.parse(text)
++        assert needle in text
++    tree=ast.parse((ROOT/'scripts/employee_package_launcher.py').read_text())
++    assignment=next(i for i,n in enumerate(tree.body) if isinstance(n,ast.Assign) and any(isinstance(t,ast.Attribute) and t.attr=='dont_write_bytecode' for t in n.targets))
++    assert assignment < next(i for i,n in enumerate(tree.body) if isinstance(n,ast.Import) and any(a.name=='argparse' for a in n.names))
++
++
++def test_workflow_child_disables_bytecode():
++    text=(ROOT/'src/media_ai/durable_workflows.py').read_text()
++    assert "[sys.executable,'-B','-X','utf8'" in text

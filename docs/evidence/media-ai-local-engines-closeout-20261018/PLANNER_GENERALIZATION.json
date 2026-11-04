@@ -1,0 +1,59 @@
+[
+  {
+    "command": "대비를 13 높여 주세요.",
+    "seconds": 7.3287830610024685,
+    "plan": {
+      "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+      "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "license": "Apache-2.0",
+      "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+      "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "raw_response_sha256": "0362ce63edb3693ae455ded0aa2118d4642e3fc0e163ece8114ccc5e69abbcf0",
+      "steps": [
+        {
+          "operation": "video_edit",
+          "options": {
+            "contrast": 13
+          },
+          "step_id": "5f646d6a-7f18-476a-9f24-729678c156f0"
+        }
+      ],
+      "plan_id": "6966a205-da0b-4500-bc1a-70efd4295e71",
+      "command_sha256": "0b8735347f17e4622b35521b2d0cf64263f6770410b3a916c8547c92311f781a"
+    }
+  },
+  {
+    "command": "채도를 9 높이고 밝기를 -6으로 보정해 주세요.",
+    "seconds": 8.100962300999527,
+    "plan": {
+      "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+      "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "license": "Apache-2.0",
+      "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+      "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "raw_response_sha256": "e9b05e1ab889486504e1f540c18c27e670f04d61c659ef067be9df0a061fdb49",
+      "steps": [
+        {
+          "operation": "video_edit",
+          "options": {
+            "saturation": 9
+          },
+          "step_id": "2b2d4ab8-ee83-49e7-83f7-a5af401d3d87"
+        },
+        {
+          "operation": "video_edit",
+          "options": {
+            "brightness": -6
+          },
+          "step_id": "1712234e-31ad-43b4-9670-86d30c58ee62"
+        }
+      ],
+      "plan_id": "d7340723-2fec-45dd-9e15-8383a467f9c9",
+      "command_sha256": "8d738b158eeaddd7b95e6341abce635b935301a4214b6cfbd815b5012fae5235"
+    }
+  }
+]

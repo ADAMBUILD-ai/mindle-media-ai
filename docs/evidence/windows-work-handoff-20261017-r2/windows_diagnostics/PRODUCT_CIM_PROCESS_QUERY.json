@@ -1,0 +1,6 @@
+{
+  "status": "BLOCKED",
+  "error": "클라이언트에서 CIM 리소스에 대한 액세스를 사용할 수 없습니다.",
+  "type": "Microsoft.Management.Infrastructure.CimException",
+  "fully_qualified_error_id": "Microsoft.Management.Infrastructure.CimException,Microsoft.Management.Infrastructure.CimCmdlets.GetCimInstanceCommand"
+}

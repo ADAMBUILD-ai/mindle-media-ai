@@ -1,0 +1,3 @@
+{"start": 0.0, "brightness": 0, "contrast": 0, "saturation": 0, "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."} [end of text]
+
+

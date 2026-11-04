@@ -12,7 +12,30 @@ permissions:
   contents: read
 
 jobs:
+  product-epoch-gate:
+    runs-on: ubuntu-latest
+    outputs:
+      package_allowed: ${{ steps.control.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - id: control
+        name: Honor active product Control Plane package lock
+        shell: python
+        run: |
+          import json, os
+          from pathlib import Path
+          state = json.loads(Path("CURRENT_PC_WORK_STATE.json").read_text())
+          general = json.loads(Path("CURRENT_GENERAL_WORK_STATE.json").read_text())
+          recovery = general.get("status") == "ACTIVE_OWNER_RUNTIME_RECOVERY" or bool(general.get("current_work"))
+          allowed = state.get("package_build_allowed") is True and not recovery
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write("allowed=" + str(allowed).lower() + "\n")
+          print("package_build_allowed=" + str(allowed).lower())
   package-windows-cpu-runtime:
+    needs: product-epoch-gate
+    if: needs.product-epoch-gate.outputs.package_allowed == 'true'
     name: package Windows CPython 3.11 CPU runtime
     runs-on: ubuntu-latest
     timeout-minutes: 15

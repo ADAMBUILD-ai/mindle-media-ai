@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RUN",
+  "scope": "Corruption, port collision, stale locks, browser association, CJK paths",
+  "reason": "Local Windows executor initialization failed; no current one-click artifact exists.",
+  "passed": false,
+  "observations": null
+}

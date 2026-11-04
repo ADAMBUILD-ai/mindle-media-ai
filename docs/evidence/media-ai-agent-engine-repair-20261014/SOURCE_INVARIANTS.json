@@ -1,0 +1,7 @@
+{
+  "baseline": "92ebfd2f91c9b75b3e387ad8e38e1c9615f33de2",
+  "photo_sam_adapter_ast_identical": true,
+  "historical_photo_receipts_untouched": true,
+  "no_model_weight_changes": true,
+  "ui_layout_css_html_unchanged_in_repair": true
+}

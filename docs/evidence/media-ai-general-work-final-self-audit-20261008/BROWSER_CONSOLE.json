@@ -1,0 +1,32 @@
+[
+  {
+    "level": "SEVERE",
+    "message": "http://127.0.0.1:36971/api/projects/save - Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)",
+    "source": "network",
+    "timestamp": 1791449614537
+  },
+  {
+    "level": "SEVERE",
+    "message": "http://127.0.0.1:36971/api/integrations/marketing/shortform - Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "source": "network",
+    "timestamp": 1791449616014
+  },
+  {
+    "level": "SEVERE",
+    "message": "http://127.0.0.1:36971/api/jobs - Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)",
+    "source": "network",
+    "timestamp": 1791449616671
+  },
+  {
+    "level": "SEVERE",
+    "message": "http://127.0.0.1:36971/api/jobs - Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)",
+    "source": "network",
+    "timestamp": 1791449616738
+  },
+  {
+    "level": "SEVERE",
+    "message": "http://127.0.0.1:36971/api/jobs - Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)",
+    "source": "network",
+    "timestamp": 1791449617328
+  }
+]

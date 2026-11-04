@@ -1,0 +1,58 @@
+{
+  "status": "PASS_EXACT_11_FILES",
+  "head": "64e5b7f58743fc3fc3d9749ec81acfa67336f712",
+  "files": [
+    {
+      "path": "CURRENT_GENERAL_WORK_STATE.json",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_DIRECTIVE.md",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_STATE.json",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_DIRECTIVE.md",
+      "exact": true
+    },
+    {
+      "path": "CURRENT_WORKER_COORDINATION_LOCK.json",
+      "exact": true
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_DIRECTIVE_v1.0_20261014.md",
+      "exact": true
+    },
+    {
+      "path": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_CANDIDATE_BUILD_AND_PC_ACCEPTANCE_EVIDENCE_CONTRACT_v1.0_20261014.json",
+      "exact": true
+    },
+    {
+      "path": "scripts/validate_pc_work_control_plane.py",
+      "exact": true
+    },
+    {
+      "path": ".github/workflows/pc-one-click-windows-build-e2e.yml",
+      "exact": true
+    }
+  ],
+  "candidate_workflow": "pc-one-click-windows-build-e2e.yml",
+  "candidate_first_run": 38489628984,
+  "candidate_first_result": "FAIL_MUTABLE_FFMPEG_HASH_NOT_BYPASSED",
+  "retry_source": "d0002cd864dab4a2de8abf62b4c394f7ac4bce30",
+  "retry_run": 38490382869,
+  "retry_status": "BUILD_RUNNING",
+  "office_pc_pass": false,
+  "final_product_pass": false
+}

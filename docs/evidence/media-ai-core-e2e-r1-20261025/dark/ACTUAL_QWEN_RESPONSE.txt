@@ -1,0 +1,3 @@
+{"start": 0, "brightness": 8, "contrast": 0, "saturation": 0, "reason": "측정된 노출 값 31이 80 미만이므로 밝기를 증가시킵니다."} [end of text]
+
+

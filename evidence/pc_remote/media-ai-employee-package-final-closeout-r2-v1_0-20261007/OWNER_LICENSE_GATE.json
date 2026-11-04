@@ -1,0 +1,8 @@
+{
+  "status": "OFFLINE_FULL_PACKAGE_LICENSE_GATE_BLOCKED",
+  "human_reply": "아직 확인되지 않았다",
+  "redistribution_entitlement_inferred": false,
+  "path": "B_SEPARATE_ONLINE_BOOTSTRAP",
+  "new_microsoft_binaries_added_to_package": false,
+  "bootstrap_installation_performed": false
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-13",
+  "source_commit": "733e1bf1a47236d9b83000974cf4d10845e0264f",
+  "underlying_runtime_verified_source": "1493cb5e6886dc2b6c35252fff246ad6eb48ebe9",
+  "status": "REWORK_AGENT_RUNTIME_CONTROL_AND_SEMANTIC_BINDING_REQUIRED",
+  "historical_models": 3,
+  "historical_model_operations": 4,
+  "historical_run": 38121146106,
+  "historical_artifact": 11695148490,
+  "historical_artifact_SHA256": "67de74e60a6c5b3c05194e6ab55451af81baac9e136699e47a869c0df64e8d32",
+  "source_files_checked": 11,
+  "control_probes": "INJECTED_ADAPTER_CONTROL_FLOW_ONLY",
+  "new_real_model_calls": 0,
+  "openai_api_calls": 0,
+  "current_owner_pc_runtime_pass": false,
+  "full_product_pass": false,
+  "approved_ui_changed": false,
+  "product_source_changed_in_this_audit": false,
+  "pr23": "HOLD / DO NOT MERGE",
+  "main_merge": false
+}

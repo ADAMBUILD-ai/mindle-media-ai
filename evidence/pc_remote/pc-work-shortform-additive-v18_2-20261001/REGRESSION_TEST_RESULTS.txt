@@ -1,0 +1,15 @@
+pytest -q
+RESULT: 51 passed in 8.69s
+
+node --test ui/ssot_structure.test.js ui/interaction.test.js
+RESULT: 2 passed, 0 failed
+
+shortform-specific assertions:
+PASS distinct AI 자동 편집 and 광고 숏폼 DOM controls
+PASS 광고 숏폼 owns data-action="shortform-mode"
+PASS order is AI 자동 편집 -> 광고 숏폼 -> 프로젝트 저장 -> 내보내기
+PASS exactly one 광고 숏폼 and no independent shortform editor
+PASS PHOTO row and F27E SSOT manifest preserved
+
+live browser verification:
+PASS http://127.0.0.1:8765/ rendered both controls visibly in the video action row

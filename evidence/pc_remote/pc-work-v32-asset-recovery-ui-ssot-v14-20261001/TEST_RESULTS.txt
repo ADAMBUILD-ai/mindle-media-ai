@@ -1,0 +1,10 @@
+{
+  "photo_segmentation": "TESTED_PASS",
+  "photo_4x": "TESTED_PASS",
+  "video_tracking": "TESTED_PASS",
+  "korean_stt": "TESTED_PASS",
+  "project_save_export_reopen": "TESTED_PASS",
+  "ui_ssot": "BLOCKED",
+  "overall": "PARTIAL_PASS_UI_SSOT_BLOCKED",
+  "note": "Video first attempt hit Windows path-length output creation; rerun with short runtime root passed."
+}

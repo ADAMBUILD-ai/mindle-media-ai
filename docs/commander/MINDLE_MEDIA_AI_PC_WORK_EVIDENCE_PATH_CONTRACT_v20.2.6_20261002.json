@@ -1,0 +1,60 @@
+{
+  "contract_version": "20.2.6",
+  "date": "2026-10-02",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261002-V20.2.6",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_EXACT_MIRROR_FINAL_DIRECTIVE_v20.2.6_20261002.md",
+  "workspace_is_only_ui_source": true,
+  "golden_ui_geometry_commit": "97900cc6c784e74b4224333fa2cc84d29c611f87",
+  "rejected_clipping_commit": "2ab174e03dc786c53f38ba956dea95f8e1ccd5a7",
+  "preserve_later_non_geometry": [
+    "brand_icon_assets",
+    "favicon_link",
+    "localhost_no_cache_headers",
+    "canonical_windows_launcher"
+  ],
+  "desktop_independent_ui_forbidden": true,
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_MIRROR_FINAL_REVIEW_v20.2.6_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_WORKSPACE_GOLDEN_TO_DESKTOP_MIRROR_FINAL_EVIDENCE_v20_2_6_20261002.json",
+    "detail_directory": "evidence/pc_remote/media-ai-workspace-mirror-v20_2_6-20261002/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CONTROL_PLANE_VALIDATION.txt",
+      "GOLDEN_COMMIT_IDENTITY.json",
+      "WORKSPACE_GOLDEN_CSS_RESTORE.json",
+      "V20_2_5_CLIPPING_REMOVAL_AUDIT.json",
+      "WORKSPACE_UI_HASH_MANIFEST.json",
+      "PHOTO_CENTER_RESTORE_AUDIT.json",
+      "VIDEO_BASELINE_PRESERVATION.json",
+      "WORKSPACE_FINAL_UI_TOP.png",
+      "WORKSPACE_FINAL_UI_PHOTO.png",
+      "WORKSPACE_UI_FINAL_LOCK.json",
+      "DESKTOP_DUPLICATE_UI_AUDIT.json",
+      "DESKTOP_SHORTCUT_TARGET.json",
+      "RUNTIME_IDENTITY_VERIFY.json",
+      "STALE_SERVER_PROCESS_AUDIT.json",
+      "DESKTOP_FINAL_UI_TOP.png",
+      "DESKTOP_FINAL_UI_PHOTO.png",
+      "WORKSPACE_VS_DESKTOP_IDENTITY.json",
+      "WORKSPACE_VS_DESKTOP_TOP_COMPARISON.png",
+      "WORKSPACE_VS_DESKTOP_PHOTO_COMPARISON.png",
+      "VIEWPORT_ZOOM_PARITY.json",
+      "ICON_FAVICON_PRESERVATION.json",
+      "FUNCTION_SMOKE_CHECK.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 26,
+  "allowed_results": [
+    "FINAL_WORKSPACE_DESKTOP_MIRROR_PASS",
+    "WORKSPACE_RESTORE_REQUIRED",
+    "DESKTOP_MIRROR_MISMATCH",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}

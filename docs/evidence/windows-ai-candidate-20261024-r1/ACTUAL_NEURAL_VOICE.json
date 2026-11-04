@@ -1,0 +1,57 @@
+{
+  "status": "TESTED_PASS",
+  "job_id": "1b1412c4-1cbe-4991-99b2-99890955d0a5",
+  "lane": "korean_audio",
+  "operation": "narration",
+  "command": "한국어 신경망 나레이션 생성",
+  "primary_output": {
+    "file_name": "narration.wav",
+    "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\isolated-localappdata\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R1\\workflows\\ee31eefa-db70-43f7-9acd-b93c6e33850e\\01-1\\sealed\\1b1412c4-1cbe-4991-99b2-99890955d0a5\\narration.wav",
+    "bytes": 131846,
+    "sha256": "4134a7503b4c46878cbd0f090dbcd27042fce08f0fe56781bf81303d8baeeda3"
+  },
+  "input": {
+    "file_name": "narration.txt",
+    "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\isolated-localappdata\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R1\\workflows\\ee31eefa-db70-43f7-9acd-b93c6e33850e\\01-1\\sealed\\1b1412c4-1cbe-4991-99b2-99890955d0a5\\narration.txt",
+    "bytes": 15,
+    "sha256": "0258ef96e9ab46cada62eed7038b34e8de91e5c23c7b2a964b24fb23c9e7bf24"
+  },
+  "outputs": [
+    {
+      "file_name": "narration.wav",
+      "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\isolated-localappdata\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R1\\workflows\\ee31eefa-db70-43f7-9acd-b93c6e33850e\\01-1\\sealed\\1b1412c4-1cbe-4991-99b2-99890955d0a5\\narration.wav",
+      "bytes": 131846,
+      "sha256": "4134a7503b4c46878cbd0f090dbcd27042fce08f0fe56781bf81303d8baeeda3"
+    },
+    {
+      "file_name": "narration.txt",
+      "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\isolated-localappdata\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R1\\workflows\\ee31eefa-db70-43f7-9acd-b93c6e33850e\\01-1\\sealed\\1b1412c4-1cbe-4991-99b2-99890955d0a5\\narration.txt",
+      "bytes": 15,
+      "sha256": "0258ef96e9ab46cada62eed7038b34e8de91e5c23c7b2a964b24fb23c9e7bf24"
+    }
+  ],
+  "runtime_result": {
+    "engine": "sherpa-onnx / Supertonic 3",
+    "engine_version": "1.13.8",
+    "engine_license": "Apache-2.0",
+    "model_license": "OpenRAIL-M (model); MIT (upstream code)",
+    "model_revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+    "model_archive_sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427",
+    "voice_data_sha256": "2be5aafd0665b433cd8e63653d487b1b9e292340c37ce5776168920208ce0ba9",
+    "runtime_sha256": "1b06d105893a1d9bc04937f09759e3170193030d0e3b2fe2b8471ffdf1fd004f",
+    "model_inference": true,
+    "synthesis": "local neural ONNX inference",
+    "text": "반갑습니다",
+    "voice": "ko/sid0",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_seconds": 1.4943537414965986,
+    "human_hearing": "NOT_VERIFIED",
+    "naturalness": "NOT_BENCHMARKED",
+    "base_video_job_id": "b7fe29b6-b98b-41bd-be26-61a4ff213494"
+  },
+  "sealed_artifacts": true,
+  "preview_url": "/files/workflows/ee31eefa-db70-43f7-9acd-b93c6e33850e/01-1/sealed/1b1412c4-1cbe-4991-99b2-99890955d0a5/narration.wav",
+  "input_url": "/files/workflows/ee31eefa-db70-43f7-9acd-b93c6e33850e/01-1/sealed/1b1412c4-1cbe-4991-99b2-99890955d0a5/narration.txt",
+  "reference_urls": []
+}

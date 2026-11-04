@@ -1,0 +1,25 @@
+MINDLE MEDIA AI — corrected Windows candidate FFmpeg source notice
+Date: 2026-10-14
+Scope: corrected candidate; not final employee release approval.
+
+Upstream distributor: BtbN/FFmpeg-Builds
+Variant: win64-lgpl-shared-8.1
+Pinned release: autobuild-2026-10-12-13-12
+Release id: 410614526
+Asset id: 633832737
+Asset: ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+Download: https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2026-10-12-13-12/ffmpeg-n8.1.3-18-g46d899d7a0-win64-lgpl-shared-8.1.zip
+Archive SHA-256 from upstream API metadata: fa628b9de20254fe7c80605a4c6af54d0bffdda0807363ee7557131c2b78e051
+Build-scripts tag commit: 63ac3265b0789ea16c7b1f8351cd2ad195a28722
+FFmpeg source commit: 46d899d7a02bc63237472cc4897258d5ddf274ac
+
+Exact source locations:
+https://github.com/FFmpeg/FFmpeg/tree/46d899d7a02bc63237472cc4897258d5ddf274ac
+https://github.com/BtbN/FFmpeg-Builds/tree/63ac3265b0789ea16c7b1f8351cd2ad195a28722
+https://github.com/BtbN/FFmpeg-Builds/blob/63ac3265b0789ea16c7b1f8351cd2ad195a28722/README.md
+
+Windows candidate workflow MUST independently verify archive hash, shared/LGPL configuration,
+no --enable-gpl/--enable-nonfree, h264_mf encoder and ffmpeg/ffprobe hashes before packaging.
+Keep upstream LICENSE.txt and README/notice files with distributed binaries.
+Keep historical 20261010 source notice as history; it does not identify this candidate archive.
+No copying DLLs from System32.

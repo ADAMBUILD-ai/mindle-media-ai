@@ -1,0 +1,209 @@
+"""Local-only generative adapter, with explicit plans kept distinct from inference."""
+from __future__ import annotations
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import re
+from uuid import uuid4
+from .durable_workflows import validate_steps
+from .planner_constraints import instruction_text, validate_edit_values, requested_edit_fields, validate_media_tool_values, requested_media_tool_fields, validate_narration_values
+from .workflow_worker import engines_config, tree_sha
+
+
+def invoke_local_json_plan(root, prompt, schema, *, max_tokens=768, timeout=120):
+    """Run the pinned local planner and return parsed JSON plus an identity receipt.
+
+    This is the single product boundary for generative planning. Callers supply a
+    constrained schema and must still validate the returned domain semantics.
+    """
+    settings=engines_config(root).get('planner',{})
+    model=Path(settings.get('model_path',''));executable=Path(settings.get('executable',''))
+    if not model.is_file() or not executable.is_file() or not settings.get('license') or not re.fullmatch(r'[0-9a-f]{40}',str(settings.get('revision',''))):
+        raise ValueError('LOCAL_GENERATIVE_MODEL_UNAVAILABLE: 로컬 생성형 모델·고정 revision·라이선스·llama-cli가 필요합니다. 분류기를 생성형 계획기로 대체하지 않습니다.')
+    for path,key in [(model,'model_sha256'),(executable,'executable_sha256')]:
+        with path.open('rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
+        if digest!=settings.get(key):raise ValueError('PLANNER_IDENTITY_MISMATCH')
+    if settings.get('runtime_sha256') and tree_sha(executable.parent)!=settings['runtime_sha256']:
+        raise ValueError('PLANNER_RUNTIME_IDENTITY_MISMATCH')
+    for part in settings.get('additional_model_files',[]):
+        path=Path(part['path'])
+        if not path.is_file():raise ValueError('PLANNER_ADDITIONAL_WEIGHT_MISSING')
+        with path.open('rb') as stream:actual=hashlib.file_digest(stream,'sha256').hexdigest()
+        if actual!=part.get('sha256'):raise ValueError('PLANNER_ADDITIONAL_WEIGHT_IDENTITY_MISMATCH')
+    context=settings.get('context_size')
+    if context is not None and (type(context) is not int or not 512<=context<=32768):raise ValueError('PLANNER_CONTEXT_INVALID')
+    audit=Path(root)/'workflows/inference-audit'/str(uuid4());audit.mkdir(parents=True)
+    (audit/'prompt.txt').write_bytes(prompt.encode('utf-8'))
+    status={'status':'STARTED','model_sha256':settings['model_sha256'],
+            'additional_model_sha256':[x['sha256'] for x in settings.get('additional_model_files',[])],
+            'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),
+            'context_size':context,'revision':settings['revision'],'max_tokens':max_tokens,'timeout_seconds':timeout}
+    output=''
+    try:
+        output=subprocess.check_output([
+            str(executable),'-m',str(model),'-p',prompt,'-n',str(max_tokens),
+            '--no-display-prompt','--no-conversation','--simple-io','--temp','0','-t','2',
+            '--json-schema',json.dumps(schema),*(['-c',str(context)] if context else []),
+        ],text=True,encoding='utf-8',timeout=timeout,stderr=subprocess.PIPE)
+        start=output.find('{')
+        if start < 0:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획이 JSON을 반환하지 않았습니다.')
+        try:parsed,_=json.JSONDecoder().raw_decode(output[start:])
+        except json.JSONDecodeError as error:raise ValueError('PLANNER_INVALID_JSON: 생성형 계획 JSON을 해석할 수 없습니다.') from error
+        status['status']='RESPONSE_RETURNED_NOT_DOMAIN_VALIDATED'
+        return parsed,output,settings
+    except Exception as error:
+        status.update(status='FAILED',error_type=type(error).__name__,error=str(error))
+        output=getattr(error,'output',None) or output
+        stderr=getattr(error,'stderr',None)
+        if stderr:(audit/'stderr.txt').write_bytes(stderr if isinstance(stderr,bytes) else stderr.encode('utf-8'))
+        raise
+    finally:
+        raw=output if isinstance(output,bytes) else output.encode('utf-8')
+        (audit/'response.txt').write_bytes(raw)
+        status['response_sha256']=hashlib.sha256(raw).hexdigest()
+        (audit/'INFERENCE.json').write_text(json.dumps(status,ensure_ascii=False,indent=2),encoding='utf-8')
+
+
+
+def capabilities(root):
+    config=engines_config(root)
+    planner=config.get('planner',{});tts=config.get('tts',{})
+    return {'generative_planner':'CONFIGURED_NOT_INFERENCE_VERIFIED' if planner else 'LOCAL_GENERATIVE_MODEL_UNAVAILABLE',
+            'generative_required_resources':'pinned local instruct GGUF + model-card/license + sha256 + llama-cli with JSON plan output; no provider API key used',
+            'tts':'CONFIGURED_NOT_SYNTHESIS_VERIFIED' if tts else 'TTS_ENGINE_UNAVAILABLE',
+            'neural_korean_tts':tts.get('engine')=='sherpa-supertonic',
+            'durable_queue':True,'running_cancel':True,'bounded_retry':True,'external_provider_connected':False}
+
+def persist_plan(root,value,request):
+    folder=Path(root)/'workflows/plans';folder.mkdir(parents=True,exist_ok=True)
+    value={**value,'plan_id':str(uuid4()),'command':str(request.get('command','')),'command_sha256':hashlib.sha256(str(request.get('command','')).encode()).hexdigest()}
+    (folder/(value['plan_id']+'.json')).write_text(json.dumps(value,ensure_ascii=False),encoding='utf-8')
+    return value
+
+def validate_plan_scope(command,steps):
+    """Reject model-invented actions; this gate never generates a plan."""
+    text=instruction_text(command)
+    if re.search(r'자막|받아쓰|stt|subtitle|transcrib|나레이션|내레이션|narration|tts',text) and re.search(r'지\s*마|말|않|금지|하지|없이|제외|빼고|do not|don.t|never|without',text):
+        raise ValueError('PLANNER_AMBIGUOUS_NEGATION: 음성·자막 부정 지시를 실행하지 않습니다. 수행할 작업만 명시하세요.')
+    fields={'brightness':('밝기','밝게','brightness'),'contrast':('대비','contrast'),'saturation':('채도','saturation')}
+    narration=any(word in text for word in ('나레이션','내레이션','narration','tts'))
+    subtitles=any(word in text for word in ('받아쓰','자막','stt','transcrib','subtitle'))
+    for step in steps:
+        op=step['operation']
+        if op=='video_edit':
+            options=step.get('options',{})
+            color_options={key:value for key,value in options.items() if key in fields}
+            if not options or any(not any(word in text for word in fields[key]) for key in color_options):
+                raise ValueError('PLANNER_SCOPE_MISMATCH: 요청하지 않은 영상 보정입니다.')
+        if op in {'transcribe','apply_subtitles'} and not subtitles:
+            raise ValueError('PLANNER_SCOPE_MISMATCH: 요청하지 않은 받아쓰기·자막입니다.')
+        if op in {'narrate','mix_narration'} and not narration:
+            raise ValueError('PLANNER_SCOPE_MISMATCH: 요청하지 않은 나레이션입니다.')
+    # A valid subset is not a completed plan: reject silently dropped requests.
+    actual_fields={key for step in steps if step['operation']=='video_edit' for key in step.get('options',{})}
+    expected_fields=requested_edit_fields(command)
+    operations={step['operation'] for step in steps}
+    if not expected_fields.issubset(actual_fields):
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 보정이 누락됐습니다.')
+    expected_tools=requested_media_tool_fields(command)
+    actual_tools={key for step in steps if step['operation']=='video_edit' for key in step.get('options',{}) if key in {'speed','start','duration','aspect','fade','backgroundVolume'}}
+    if any(step['operation']=='mix_narration' and 'background_volume' in step for step in steps):actual_tools.add('backgroundVolume')
+    if not expected_tools.issubset(actual_tools):
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 영상 도구가 누락됐습니다.')
+    if narration and not {'narrate','mix_narration'}.issubset(operations):
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 나레이션 생성·합성이 누락됐습니다.')
+    if subtitles and 'transcribe' not in operations:
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 받아쓰기가 누락됐습니다.')
+    if any(word in text for word in ('자막','subtitle')) and 'apply_subtitles' not in operations:
+        raise ValueError('PLANNER_INCOMPLETE_PLAN: 요청한 자막 적용이 누락됐습니다.')
+    validate_narration_values(command,steps)
+    validate_edit_values(command,steps)
+    validate_media_tool_values(command,steps)
+    return steps
+
+
+def make_plan(root,request):
+    if request.get('steps') is not None:
+        return persist_plan(root,{'plan_source':'STRUCTURED_USER_PLAN_NOT_GENERATIVE','steps':validate_steps(request['steps'])},request)
+    command=str(request.get('command','')).strip()
+    if not command or len(command)>4000:raise ValueError('편집 지시는1~4000자입니다.')
+    unsupported_text=re.sub(r'페이드\s*(?:인)?\s*(?:전환)?|fade|배경\s*음악|bgm|속도|배속|자르|구간|trim', '', re.sub(r'["“][^"”]*["”]', '', command), flags=re.I)
+    if re.search(r'회전|전환|효과|숏폼|추적|삭제|제거',unsupported_text):
+        raise ValueError('PLANNER_UNSUPPORTED: 대화 계획기는 밝기·대비·채도·구간 자르기·속도·비율·페이드·BGM·받아쓰기·자막·명시 원고 나레이션을 지원합니다. 그 밖의 편집은 해당 도구를 사용하세요.')
+    # Completion mode prevents interactive banners/prompt echoes contaminating JSON.
+    # The model still chooses the operations and values; the grammar only constrains
+    # the product's allowlisted wire format, never substitutes an intent classifier.
+    schema={'type':'object','properties':{'steps':{'type':'array','maxItems':8,'items':{'type':'object','properties':{
+        'operation':{'enum':['video_edit','transcribe','apply_subtitles','narrate','mix_narration']},
+        'options':{'type':'object','properties':{
+            **{key:{'type':'number'} for key in ('brightness','contrast','saturation','speed','start','duration','backgroundVolume')},
+            'aspect':{'enum':['16:9','9:16']},'fade':{'type':'boolean'}},'additionalProperties':False},
+        'text':{'type':'string'},'length_policy':{'enum':['reject','extend_video']},
+        'volume':{'type':'number'},'original_volume':{'type':'number'},'background_volume':{'type':'number'}
+    },'required':['operation'],'additionalProperties':False}},'error':{'type':'string'}},'required':['steps'],'additionalProperties':False}
+    instructions=('You translate Korean video edit requests into JSON. Output {"steps":[...]} only. '
+      'Allowed step shapes: {"operation":"video_edit","options":{"brightness":10}}, '
+      '{"operation":"video_edit","options":{"contrast":7}}, '
+      '{"operation":"video_edit","options":{"saturation":5}}, '
+      '{"operation":"transcribe"}, {"operation":"apply_subtitles"}, '
+      '{"operation":"narrate","text":"EXACT USER SCRIPT"}, '
+      '{"operation":"mix_narration","length_policy":"reject"}. '
+      'Choose ONLY the requested steps; numeric values above are examples, use actual user values. '
+      '밝기=brightness, 대비=contrast, 채도=saturation. '
+      'Edit values are signed relative correction points, not absolute settings or percentages. '
+      'For an explicit magnitude 0 to 100 use positive for 높이기/increase and negative for 낮추기/decrease. '
+      'Omit controls the user says to preserve; never repeat the same control. '
+      'For speed use the exact requested 0.5 to 2 ratio. For a trim from START seconds to END seconds use start=START and duration=END-START. '
+      'For an explicit 9:16 or 16:9 use aspect exactly. Fade means fade=true. '
+      'For BGM without narration use video_edit options.backgroundVolume. With narration put background_volume on mix_narration instead, never both. '
+      'Use the exact BGM percentage divided by 100, or 0.35 when no volume was specified. '
+      'Ambiguous magnitudes, absolute settings, unsupported units or negated speech/subtitle requests: return an error. '
+      'Speech to subtitles: transcribe THEN apply_subtitles. Narration: narrate THEN mix_narration. '
+      'Use exactly one complete quoted script for one narrate and one mix_narration; never shorten or repeat the script. '
+      'Narration volume and original_volume default to 1.0; change only when explicitly requested as percentages divided by 100. '
+      'If video extension requested use length_policy extend_video, otherwise reject. Never invent a narration script. '
+      'Unsupported request: {"error":"unsupported request"}. Do not output paths, commands or network actions.')
+    examples=[('대비를 4 높여 주세요.',{'steps':[{'operation':'video_edit','options':{'contrast':4}}]}),
+        ('음성을 받아쓰고 자막을 적용해 주세요.',{'steps':[{'operation':'transcribe'},{'operation':'apply_subtitles'}]}),
+        ('밝기를 3 높이고 "반갑습니다" 나레이션을 넣고 영상을 연장해 주세요.',{'steps':[{'operation':'video_edit','options':{'brightness':3}},{'operation':'narrate','text':'반갑습니다'},{'operation':'mix_narration','length_policy':'extend_video'}]}),
+        ('5초부터 12초까지 자르고 속도를 1.25배로 해 주세요.',{'steps':[{'operation':'video_edit','options':{'start':5,'duration':7,'speed':1.25}}]}),
+        ('"환영합니다" 나레이션과 배경음악을 넣어 주세요.',{'steps':[{'operation':'narrate','text':'환영합니다'},{'operation':'mix_narration','length_policy':'reject','background_volume':0.35}]}),
+        ('파일을 삭제해 줘.',{'steps':[],'error':'unsupported request'})]
+    prompt='<|im_start|>system\n'+instructions+'<|im_end|>\n'
+    for question,answer in examples:prompt+='<|im_start|>user\n'+question+'<|im_end|>\n<|im_start|>assistant\n'+json.dumps(answer,ensure_ascii=False)+'<|im_end|>\n'
+    prompt+='<|im_start|>user\n'+command+'<|im_end|>\n<|im_start|>assistant\n'
+    parsed,output,settings=invoke_local_json_plan(root,prompt,schema)
+    diagnostic=Path(root)/'workflows/planner-responses';diagnostic.mkdir(parents=True,exist_ok=True)
+    (diagnostic/(str(uuid4())+'.txt')).write_bytes(output.encode('utf-8'))
+    if parsed.get('error'):raise ValueError('PLANNER_UNSUPPORTED: '+str(parsed['error']))
+    steps=validate_steps(parsed['steps'])
+    validate_plan_scope(command,steps)
+    if any(s['operation']=='narrate' for s in steps) and not any(s['operation']=='mix_narration' for s in steps):
+        raise ValueError('PLANNER_INCOMPLETE_NARRATION_PLAN: 음성 생성 후 합성 단계가 필요합니다.')
+    validated_values={**validate_edit_values(command,steps),**validate_media_tool_values(command,steps),**validate_narration_values(command,steps)}
+    value=persist_plan(root,{'plan_source':'LOCAL_GENERATIVE_INFERENCE','model_sha256':settings['model_sha256'],'revision':settings['revision'],'license':settings['license'],'executable_sha256':settings['executable_sha256'],'runtime_sha256':settings.get('runtime_sha256'),'model_id':settings.get('model_id'),'additional_model_sha256':[x['sha256'] for x in settings.get('additional_model_files',[])],'context_size':settings.get('context_size'),'raw_response_sha256':hashlib.sha256(output.encode()).hexdigest(),'steps':steps,'validated_edit_values':validated_values},request)
+    (Path(root)/'workflows/plans'/(value['plan_id']+'.response.txt')).write_bytes(output.encode('utf-8'))
+    (Path(root)/'workflows/plans'/(value['plan_id']+'.prompt.txt')).write_bytes(prompt.encode('utf-8'))
+    return value
+
+
+def validate_generated_binding(root, plan):
+    """Bind normal generated workflows to their original request and actual reply."""
+    if plan.get('plan_source')!='LOCAL_GENERATIVE_INFERENCE' or plan.get('task_kind')=='MEASURED_GENERATIVE_AUTO_EDIT':
+        return
+    command=plan.get('command')
+    if not isinstance(command,str) or hashlib.sha256(command.encode('utf-8')).hexdigest()!=plan.get('command_sha256'):
+        raise ValueError('PLANNER_COMMAND_IDENTITY_MISMATCH: 새 계획을 생성하세요.')
+    path=Path(root)/'workflows/plans'/(str(plan['plan_id'])+'.response.txt')
+    raw=path.read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=plan.get('raw_response_sha256'):
+        raise ValueError('PLANNER_RESPONSE_IDENTITY_MISMATCH')
+    try:
+        text=raw.decode('utf-8');parsed,_=json.JSONDecoder().raw_decode(text[text.index('{'):])
+        if parsed.get('error'):raise ValueError('model error')
+        actual=validate_steps(parsed['steps']);validate_plan_scope(command,actual)
+        clean=lambda steps:[{key:value for key,value in step.items() if key!='step_id'} for step in steps]
+        if clean(actual)!=clean(plan['steps']):raise ValueError('saved decision changed')
+    except (ValueError,KeyError,TypeError,AttributeError) as error:
+        raise ValueError('PLANNER_RESPONSE_PLAN_MISMATCH: '+str(error)) from error

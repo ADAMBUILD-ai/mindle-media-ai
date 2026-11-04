@@ -1,0 +1,39 @@
+✔ ui/ai_core_status.test.js (83.15666ms)
+✔ cloud reports absent external integration without requesting local projects (3.484451ms)
+✔ local storage keeps its original project API route (1.163086ms)
+✔ approved cloud label remains and is routed separately from settings (0.391932ms)
+✔ ui/interaction.test.js (78.952772ms)
+✔ new/open project cannot clear an edit in progress or start a competing restore (8.205198ms)
+✔ save response cannot attach the old project to a new project (1.949133ms)
+✔ rejected duplicate save/export does not unlock the active save (1.459944ms)
+✔ in-flight restore excludes new/open/save and releases its guard when no project exists (1.597092ms)
+✔ rejected duplicate export cannot release the first export transition guard (2.798115ms)
+✔ failed preview restore preserves the previous input, preview, project and jobs (1.985778ms)
+✔ failed reference restore preserves the previous input, preview, project and jobs (1.210869ms)
+✔ failed audio restore preserves the previous input, preview, project and jobs (1.28445ms)
+✔ successful staged restore uses the actual output filename (1.524371ms)
+✔ new clears previous video tracks, clock, preview metadata and project status (1.482699ms)
+✔ photo-only clears previous video tracks, clock, preview metadata and project status (1.174083ms)
+✔ ui/ssot_structure.test.js (84.205353ms)
+✔ ui/workflow_media_tools.test.js (74.953364ms)
+✔ 대비를 13 높여 줘 reaches plan API without injected steps (3.46448ms)
+✔ 밝기를 7 낮추고 자막을 넣어줘 reaches plan API without injected steps (0.888251ms)
+✔ "안녕하세요" 나레이션 추가 reaches plan API without injected steps (0.677623ms)
+✔ 내레이션을 넣어 줘 reaches plan API without injected steps (0.610682ms)
+✔ 할 수 없는 요청을 정직하게 거절해 줘 reaches plan API without injected steps (0.634408ms)
+✔ 속도 2배 reaches plan API without injected steps (1.588198ms)
+✔ manual scene analysis and tracking stay in existing path (0.667548ms)
+✔ PHOTO does not silently enter VIDEO model plan (0.68219ms)
+✔ architecture promotion uses the bound architecture agent instead of fixed edit routing (1.462788ms)
+✔ verified values and model provenance are shown before queue submission (1.112941ms)
+✔ browser refresh reconnects the same architecture production and restores its project (1.244929ms)
+✔ AI history exposes a completed architecture production without creating new work (1.139661ms)
+✔ AI auto edit requires an input-bound model plan instead of deterministic fallback (0.655009ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130.135586

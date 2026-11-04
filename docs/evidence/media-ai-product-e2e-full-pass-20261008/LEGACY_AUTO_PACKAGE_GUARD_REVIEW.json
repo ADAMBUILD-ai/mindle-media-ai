@@ -1,0 +1,176 @@
+{
+  "status": "FIXED_AFTER_LEGACY_AUTO_RUNTIME_BUILDS",
+  "package_build_allowed": false,
+  "full_employee_R2_distribution_created": false,
+  "pre_guard_runs": [
+    {
+      "run_id": 37738139036,
+      "artifacts": [
+        {
+          "id": 11532329298,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-00",
+          "digest": "sha256:3624154fb71c4063fe9719fa74e5e48a54f289ed6d4aa1472e5ecf20e3f99b18"
+        },
+        {
+          "id": 11532324401,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-02",
+          "digest": "sha256:4d60056e534c41df33a12540935d5fb83dce36e0b57546e8c453495f1e9038c7"
+        },
+        {
+          "id": 11532304413,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-01",
+          "digest": "sha256:5ad155f4b888b3a5a15f737d1702286d874ff1f9bd870a46badbef71a959d227"
+        }
+      ]
+    },
+    {
+      "run_id": 37738221991,
+      "artifacts": [
+        {
+          "id": 11533070191,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-00",
+          "digest": "sha256:ce5548e6546a2b08015de526e5f2bfd306767497865d3a6fa1ed567901041286"
+        },
+        {
+          "id": 11533055229,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-02",
+          "digest": "sha256:1b370cd02e37f5764d8670ec63065260cfcdf488db6bb780e6354ef7d852518d"
+        },
+        {
+          "id": 11531779914,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-01",
+          "digest": "sha256:72930c0299f40c7159fcf213b3e662f045cc659c54c1d90c82e455efe2121bfc"
+        }
+      ]
+    },
+    {
+      "run_id": 37738309750,
+      "artifacts": [
+        {
+          "id": 11533220076,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-01",
+          "digest": "sha256:0c51137ca954c3e495f517a155465aafb31f3f000bc15dcd32ea3db72d0d7a97"
+        },
+        {
+          "id": 11533060491,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-00",
+          "digest": "sha256:33f506254a37b52f4cd14594c6655461b33c5fdfd2f3b125cbe4eebab51736ff"
+        },
+        {
+          "id": 11532198917,
+          "name": "mindle-media-verified-runtime-package-v28_1-part-02",
+          "digest": "sha256:728070c9fa60e9e544f99c447111b59ccdbf555b355026d566f68028472f15f3"
+        }
+      ]
+    }
+  ],
+  "effective_guard_commit": "d53416be8b2e362dd886969d12ba091ec8ad2efa",
+  "verified_guard_runs": [
+    {
+      "jobs": [
+        {
+          "id": 113184700992,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 37738880886,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Honor active product Control Plane package lock",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            }
+          ]
+        },
+        {
+          "id": 113184748510,
+          "name": "package",
+          "status": "completed",
+          "conclusion": "skipped",
+          "run_id": 37738880886,
+          "logs_url": null,
+          "steps": null
+        }
+      ]
+    },
+    {
+      "jobs": [
+        {
+          "id": 113184701027,
+          "name": "product-epoch-gate",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 37738880882,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Honor active product Control Plane package lock",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            }
+          ]
+        },
+        {
+          "id": 113184753649,
+          "name": "package Windows CPython 3.11 CPU runtime",
+          "status": "completed",
+          "conclusion": "skipped",
+          "run_id": 37738880882,
+          "logs_url": null,
+          "steps": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "scope": "SOURCE_WORKSPACE_ASSET_PERSISTENCE_ONLY",
+  "model_inference": false,
+  "packaged_exe_pass": false,
+  "owner_pc_pass": false,
+  "full_product_pass": false,
+  "runtime_identity": {
+    "repo_root": "D:\\a\\mindle-media-ai\\mindle-media-ai\\product",
+    "branch": "feature/ad-shortform-bridge-p0-20260926",
+    "head": "c443d0388e84a3fdc637299d19b1b3cc8260140d",
+    "workspace_ui_fingerprint": "173bce346682070c103bc612a841050c6773d14360f75d3634c888a71adefa6e",
+    "file_hashes": {
+      "ui/index.html": "64abc36dfec2d45a052d6abd00e4a6680bdde01326dfc305319096aa5cde8398",
+      "ui/approved_visual.css": "23695715beb425b35580f2c56dc7e657e3a3538d714a8183f532f77a56b1ebc0",
+      "ui/interaction.css": "8aa3983bf84ca7b004f3b1d6016ddaa6d48790236420a56a195c70defa57217f",
+      "ui/interaction.js": "df72202116df07de9e3c52ed4b9b4f23ebd8d40d2e32742aa26f98d187056e01",
+      "ui/product_integration.js": "fffb67e8a25db2eaae70b65302c19d75efa94b76756408ca70cf97191c7e10b7",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "8ea4fab024bd654e2b89472a00feb0a6f4349e8d2102e44be6d29c6c6d0e0330",
+      "ui/video_workspace.js": "4ff660178009e20e88f5a82d346f98305f0090a21c1c064db8ac42dfeabe848e",
+      "ui/workspace_shell.js": "3515718cd53197729add03b690f38f2c2431a1694477e309b84b7960d0ce13be"
+    },
+    "runtime_mode": "DEVELOPMENT_UI",
+    "model_root": null,
+    "git_identity_status": "AVAILABLE"
+  },
+  "chrome": "155.0.8059.40",
+  "save_response": {
+    "status": "SAVED",
+    "project_id": "0639ca3b-661d-4f13-97ee-308ff14af251",
+    "project": {
+      "file_name": "0639ca3b-661d-4f13-97ee-308ff14af251.json",
+      "path": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmp46dmgg1s\\data\\projects\\0639ca3b-661d-4f13-97ee-308ff14af251.json",
+      "bytes": 3828,
+      "sha256": "ddf55d9544e0a6e98acb8118dc07e4fc0a0c473201ac2aa4564f42f997933dee"
+    }
+  },
+  "before": {
+    "photo": [
+      {
+        "name": "photo-ref.png",
+        "bytes": 225,
+        "sha256": "a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e"
+      }
+    ],
+    "video": [
+      {
+        "name": "video-ref.png",
+        "bytes": 225,
+        "sha256": "e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18"
+      }
+    ],
+    "audio": {
+      "name": "input-ko.wav",
+      "bytes": 3244,
+      "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd"
+    }
+  },
+  "old_endpoint_closed": true,
+  "first_pid": 9900,
+  "second_pid": 5692,
+  "after": {
+    "photo": [
+      {
+        "name": "photo-ref.png",
+        "bytes": 225,
+        "sha256": "a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e"
+      }
+    ],
+    "video": [
+      {
+        "name": "video-ref.png",
+        "bytes": 225,
+        "sha256": "e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18"
+      }
+    ],
+    "audio": {
+      "name": "input-ko.wav",
+      "bytes": 3244,
+      "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd"
+    }
+  },
+  "project_id": "0639ca3b-661d-4f13-97ee-308ff14af251",
+  "export": {
+    "sha256": "1639628c610a8e6d00d9de28e49021aaf36ef37f70331e727689096d717ef6a5",
+    "bytes": 3735,
+    "crc": "PASS",
+    "manifest_files": 6
+  },
+  "new_project_clears_attachments": true,
+  "status": "PASS_SOURCE_PENDING_REFERENCES_AUDIO_SAVE_COLD_REOPEN_UI_EXPORT"
+}

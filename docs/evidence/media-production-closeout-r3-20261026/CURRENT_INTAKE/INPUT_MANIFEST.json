@@ -1,0 +1,32 @@
+{
+  "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+  "require_rights_evidence": true,
+  "duration_seconds": 30,
+  "aspect": "16:9",
+  "narration_script": null,
+  "voice_length_policy": null,
+  "volumes": {
+    "narration": null,
+    "original": null,
+    "bgm": null
+  },
+  "clips": [
+    {
+      "path": null,
+      "label": "",
+      "origin": null,
+      "source_or_owner": "",
+      "license_or_permission": "",
+      "rights_evidence": "",
+      "rights_status": null
+    }
+  ],
+  "bgm": {
+    "path": null,
+    "label": "",
+    "source_or_owner": "",
+    "license_or_permission": "",
+    "rights_evidence": "",
+    "rights_status": null
+  }
+}

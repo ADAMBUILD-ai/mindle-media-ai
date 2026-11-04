@@ -1,0 +1,160 @@
+{
+  "reason": "Unreferenced hidden copy staging files; complete model/executable paths retained. Original frozen base preserved.",
+  "files": [
+    {
+      "path": "runtime/site-packages/cv2/.opencv_videoio_ffmpeg4120_64.dll.R4nQTJ",
+      "bytes": 26476544,
+      "sha256": "32cfcd27fd2396d1d971edbc6f526c4c14b071df1c05a2b5ed11911f77e209a5"
+    },
+    {
+      "path": "runtime/site-packages/cv2/.opencv_videoio_ffmpeg4120_64.dll.3a0CQ0",
+      "bytes": 15990784,
+      "sha256": "31ef6022c859f17d7b2ff16490d578802817afede74d6d765f0ab0da7022e38e"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/.openvino_intel_gpu_plugin.dll.qqZ8qX",
+      "bytes": 10485760,
+      "sha256": "703f8d25c55d0644a4f6acdf2a0cfef2ca3b8df7ffe331d2c14085212342889f"
+    },
+    {
+      "path": "runtime/site-packages/openvino/libs/.openvino_intel_cpu_plugin.dll.oZTqLy",
+      "bytes": 19660800,
+      "sha256": "3f2ba8f7327dc4966bf3226bf21a9de5d5d4cbaa2a6709eb85e4d81e07de73be"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.libprotobuf.lib.neNxdk",
+      "bytes": 61603840,
+      "sha256": "92fc815c20e78d1e2990502f59fde982363153543e826e99b79583e06e58236d"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.dnnl.lib.26PPqg",
+      "bytes": 120848384,
+      "sha256": "667faa0f02b8b6381ee7f77982e2cf57493d23aa5533aa4f4e68ee783180c938"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.dnnl.lib.hN2Pnh",
+      "bytes": 157548544,
+      "sha256": "59bc4000be218992b9939c9999b3095fc895144e2549a00f68c6ad8844624b5e"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.libprotoc.lib.rp5Kzd",
+      "bytes": 139460608,
+      "sha256": "8989887dbe7fae1b88694a3a6d3f5ba7f58a8b877fa07ea1ca08caeab0c55a89"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.libprotobuf.lib.klTzk9",
+      "bytes": 47448064,
+      "sha256": "66599fd4aa2cdded5ee86f53af3fcdeb4863ce620d15e6fe9afbf8f361edfe8e"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.dnnl.lib.hN2Pnh.QWOREN",
+      "bytes": 78905344,
+      "sha256": "2eea50912618d5384274b597db4b740cf2cbf0688db25da18cbc55b664b087d2"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.torch_cpu.dll.pwycdd.jy34Af",
+      "bytes": 149946368,
+      "sha256": "7fe20e636009901d9d0993adf7686efc4bef673e87ad2bc66863adea2100550f"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.libprotoc.lib.JolRdE",
+      "bytes": 147324928,
+      "sha256": "dd5b73f8aebafe6f0f1ed33cfed4c3dba21cf2d181cb527ea1d3cc03ba9d5522"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.dnnl.lib.26PPqg.0CtGN8.qxdqYa",
+      "bytes": 40894464,
+      "sha256": "8394ea5932fe54f0a4f4db6230b623184e5e9f43d85f5adfa80af38e2e70d70a"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.dnnl.lib.26PPqg.0CtGN8.ob6uXf",
+      "bytes": 54001664,
+      "sha256": "b033a0faf649c5f805cf29af0f3a76b0d01e66851f4a8322d6b802601ff3a6ee"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.dnnl.lib.26PPqg.0CtGN8",
+      "bytes": 119013376,
+      "sha256": "ed8b4582861851008fc278b4a81876f72fa85909cf3c5714739d49092414dadc"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.torch_cpu.dll.pwycdd.nARR05",
+      "bytes": 15466496,
+      "sha256": "0fdd09cdb27cb40c46e903a9d3bc740dfb6e68b065c43ae326b1078f1beec9cc"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.libprotoc.lib.rp5Kzd.7Xr2HN",
+      "bytes": 47185920,
+      "sha256": "206a2abcfecdd01ac49de95991e0b1500c914ee61786190ce4f3d75f439690f6"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.torch_cpu.dll.pwycdd",
+      "bytes": 152043520,
+      "sha256": "2d12ec746f331f88089c0f75da145e2ae63ca664d8034fe2e3201f209cb8540e"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.libprotoc.lib.JolRdE.vXlRwb",
+      "bytes": 59768832,
+      "sha256": "5318d53e3daf953100cfb833a51ac1ec06220a2e4345e7ac8d553be0f378adaf"
+    },
+    {
+      "path": "runtime/site-packages/torch/lib/.torch_cpu.dll.qXythG",
+      "bytes": 119537664,
+      "sha256": "0c4a08c619ce523631e3b73b486c20df144d3ad59fc89c08e048f2cabf7fb462"
+    },
+    {
+      "path": "models/sam21/.model.safetensors.SzHHVx",
+      "bytes": 132382720,
+      "sha256": "3068953f339a1411c5d63db637514eaa413966d1b6bb38d4cfde71e1e341baa6"
+    },
+    {
+      "path": "models/sam21/.model.safetensors.KNZn2u",
+      "bytes": 104857600,
+      "sha256": "7f4317da8c0c393210a632d8e80524b0c219de5ddfa3aced45eff6d29d0ba962"
+    },
+    {
+      "path": "models/supertonic3/.vector_estimator.int8.onnx.t9HULN",
+      "bytes": 75759616,
+      "sha256": "ffba364a7802aee4f1e84a4085ef67fc4a8ec5f9d0de92a1894c25e25b8be1a8"
+    },
+    {
+      "path": "models/supertonic3/.vector_estimator.int8.onnx.Qih97g",
+      "bytes": 43778048,
+      "sha256": "42e3ed55c651e4bf3fa9b412ec8104d40e7491d703d7fcb06655a3881cb41405"
+    },
+    {
+      "path": "models/qwen2.5-1.5b-instruct/.model.gguf.keHPHK",
+      "bytes": 163315712,
+      "sha256": "1c4fc437318ce0b0cd1717226e851078d1a54972f4bf205505d2f076f7ad863e"
+    },
+    {
+      "path": "models/qwen2.5-1.5b-instruct/.model.gguf.keHPHK.l7bRoh",
+      "bytes": 154664960,
+      "sha256": "8de80555036f896018d86afc06fc0b50d6f3d97d5d993046288997c8f8bd3400"
+    },
+    {
+      "path": "models/whisper-small/.model.safetensors.mGKgaP",
+      "bytes": 142082048,
+      "sha256": "058e961c62e81db1d915f0ed674f4b1925fc4586db383fd2e24b67cf681a1e14"
+    },
+    {
+      "path": "models/whisper-small/.model.safetensors.mGKgaP.OVEb7z",
+      "bytes": 81788928,
+      "sha256": "9104dd9ad86c3731caba79ca1b170b5b9069f741d0897321dba9e841bbb0260f"
+    },
+    {
+      "path": "models/whisper-small/.model.safetensors.i9MSxB",
+      "bytes": 16777216,
+      "sha256": "392310e0b56ccb87da0c43d6cc4506d780172aeaff0b66b052d041972c8160ca"
+    },
+    {
+      "path": "tools/ffmpeg/.avcodec-62.dll.p0vLXr",
+      "bytes": 31195136,
+      "sha256": "ee159f3fafd7fd2205a6b7118f35b8749da622fe9aed5d388f9c91a46c3c7b95"
+    },
+    {
+      "path": "tools/ffmpeg/.avcodec-62.dll.p0vLXr.LcTFth",
+      "bytes": 25690112,
+      "sha256": "33f746ba46b0e90ee37191b4118bfb7bae9ef093e6b5ee352bcf4a166577795b"
+    }
+  ]
+}

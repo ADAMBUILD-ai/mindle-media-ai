@@ -1,0 +1,56 @@
+{
+  "commit": "cd5f5a37018de52b994c7ea9b272be83afcda53a",
+  "files": [
+    {
+      "path": "ui/index.html",
+      "exact": true,
+      "blob_sha": "3d799d90ec4965b32fdcb88c9b62bbc6e9b532ad"
+    },
+    {
+      "path": "ui/approved_visual.css",
+      "exact": true,
+      "blob_sha": "d93985f69b412e3eac4bbbe53c5c1e6e9bf995d9"
+    },
+    {
+      "path": "ui/product_integration.js",
+      "exact": true,
+      "blob_sha": "966683d082b0c01132e96201059568f5be36760f"
+    },
+    {
+      "path": "ui/photo_workspace.js",
+      "exact": true,
+      "blob_sha": "f78890788a95518e9ac1daa3b1157ec7d14a3269"
+    },
+    {
+      "path": "ui/video_workspace.js",
+      "exact": true,
+      "blob_sha": "d6431a674ebd2f36d9afcd0855662ca8c7c03a1f"
+    },
+    {
+      "path": "src/media_ai/product_runtime.py",
+      "exact": true,
+      "blob_sha": "43dbc45e997de6df261883921606c8c582fa9577"
+    },
+    {
+      "path": "src/media_ai/product_server.py",
+      "exact": true,
+      "blob_sha": "13a350589c8d2ebc700f2deb207c6c8143b1eb69"
+    },
+    {
+      "path": "src/media_ai/intel_sisr_verified_adapter.py",
+      "exact": true,
+      "blob_sha": "4f0e3e484517a901d9bbab409db8d5a3991923e4"
+    },
+    {
+      "path": "tests/test_photo_edit_project.py",
+      "exact": true,
+      "blob_sha": "871ca3a85ae19d8c916d99f3b400f2c43bf34f0d"
+    },
+    {
+      "path": "tests/test_employee_offline_mode.py",
+      "exact": true,
+      "blob_sha": "4e1c237bcdcadb21a7210a2a7c1e0503408113c7"
+    }
+  ],
+  "status": "PASS_EXACT_10_OF_10"
+}

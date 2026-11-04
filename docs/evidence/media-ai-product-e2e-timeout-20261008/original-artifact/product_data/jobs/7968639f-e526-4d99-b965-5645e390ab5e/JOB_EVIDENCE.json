@@ -1,0 +1,14 @@
+{
+  "status": "FAILED",
+  "job_id": "c9966b17-6741-4037-9b75-a5c1d077f95a",
+  "lane": "photo",
+  "operation": "upscale",
+  "error": "Cannot reach https://huggingface.co/api/models/MINDLE1846/MINDLE-MEDIA-AI-MODELS/revision/b59fce39b8731471456cf7d50406ef60785f3d14?blobs=True: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.",
+  "input": {
+    "file_name": "dfc28e7a-da39-4c0c-9937-f412c61ae81e_intel_sisr_1032_street_480x270.png",
+    "path": "/home/runner/work/mindle-media-ai/mindle-media-ai/product_e2e_evidence/product_data/inputs/dfc28e7a-da39-4c0c-9937-f412c61ae81e_intel_sisr_1032_street_480x270.png",
+    "bytes": 189281,
+    "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+  },
+  "state": "queued"
+}

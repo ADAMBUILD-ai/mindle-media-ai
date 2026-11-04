@@ -1,0 +1,78 @@
+{
+  "r9_sources_verified": {
+    "ui/index.html": {
+      "sha256": "64abc36dfec2d45a052d6abd00e4a6680bdde01326dfc305319096aa5cde8398",
+      "bytes": 13274,
+      "source_content_sha256": "858e38e79af28f035f81dc91303398005a5e44ea2747e388891a1fc7f80c1b73",
+      "git_checkout_line_endings_only": true
+    },
+    "ui/workspace_shell.js": {
+      "sha256": "3515718cd53197729add03b690f38f2c2431a1694477e309b84b7960d0ce13be",
+      "bytes": 3990,
+      "source_content_sha256": "1b721095c9ae3bd8fe0260c2a8f7e3a62e122cb976d4e74a44ea5139d0487fb4",
+      "git_checkout_line_endings_only": true
+    },
+    "ui/interaction.css": {
+      "sha256": "8aa3983bf84ca7b004f3b1d6016ddaa6d48790236420a56a195c70defa57217f",
+      "bytes": 1305,
+      "source_content_sha256": "c65c15ae17da41b2aac0c4d62d7a7156fcbf8bc8542d770890e2946923ef3f45",
+      "git_checkout_line_endings_only": true
+    },
+    "ui/interaction.js": {
+      "sha256": "df72202116df07de9e3c52ed4b9b4f23ebd8d40d2e32742aa26f98d187056e01",
+      "bytes": 8062,
+      "source_content_sha256": "17f587af4a0cd533503f94698b52cca44bc5b3130a449b4a1e803e7fe75fddf3",
+      "git_checkout_line_endings_only": true
+    },
+    "ui/product_integration.js": {
+      "sha256": "fffb67e8a25db2eaae70b65302c19d75efa94b76756408ca70cf97191c7e10b7",
+      "bytes": 22051,
+      "source_content_sha256": "7c8a54b1aa9cc87c6c3b6eece75b95ee7f4456ec5821b7aacc70aa3a0ac84cef",
+      "git_checkout_line_endings_only": true
+    },
+    "scripts/employee_package_launcher.py": {
+      "sha256": "033a3775f253b6976d991dd2e39d2cb8801316961596f36d7b1fb5e3594a6ca6",
+      "bytes": 9011,
+      "source_content_sha256": "8021c05e134258f11a57f9e2dfaa23b46118ec1893b8fb0c0b78d5bb8f87fe7a",
+      "git_checkout_line_endings_only": true
+    },
+    "src/media_ai/product_runtime.py": {
+      "sha256": "08f1985390da653b2df35b89d52197b78fd9b9aa9f984f8f8b3ffcd4a5a638ee",
+      "bytes": 58231,
+      "source_content_sha256": "0e863a425c9fee14c9791230bd5ef688a3eaeed022a81b85c5c7f68a2b155c09",
+      "git_checkout_line_endings_only": true
+    },
+    "src/media_ai/product_server.py": {
+      "sha256": "38811dbce6da492041f2643d8d1bc689f4f7bedf3bcaec9bc4eb47a1b6d070db",
+      "bytes": 19735,
+      "source_content_sha256": "085304c5931e72e17c0b85b02988ae15432c9bbc505caae9b02b6dce8145b259",
+      "git_checkout_line_endings_only": true
+    },
+    "ui/approved_visual.css": {
+      "sha256": "23695715beb425b35580f2c56dc7e657e3a3538d714a8183f532f77a56b1ebc0",
+      "bytes": 10043,
+      "source_content_sha256": "2e6c7f992c8ab412e0d70af433fa2cc1e3e625304cf4051ba37de4d7814e7757",
+      "git_checkout_line_endings_only": true,
+      "frozen_git_blob": "3e1334c14b84fcbd5845a7a7a693c3f6bfe5a5da"
+    }
+  },
+  "status": "PASS_WINDOWS_CANDIDATE_ZIP_CRC_AND_ALL_MANIFEST_BYTES",
+  "source_commit": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+  "producer_run": 38845082039,
+  "verifier_source": "6efade5727cc312ed64f4bd5409f50931b6fd819",
+  "zip_name": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip",
+  "zip_sha256": "5291760966d87089259de4d1030879fdf0a1a878d7b9f1fd12f7918f36656b30",
+  "zip_bytes": 1913893429,
+  "parts": 5,
+  "crc": "PASS",
+  "payload_files_checked": 19236,
+  "payload_manifest_sha256": "7a31da30969b9e7901da8f109c467f281e2550171c15e9ddf3a8ddf215ab3377",
+  "launcher_sha256": "24fe0ad565a5568b392b32040d7789cbd8abce7b60e8dade97666bbd1ec2888c",
+  "runtime_id": "c37c7819b145-cfb26b181119",
+  "ui_fingerprint": "cfb26b1811196c1abd19d5e59d33c420647ca122c060c753a7391ff43a8f8c2f",
+  "office_pc_pass": false,
+  "full_product_pass": false,
+  "scope": "CORRECTED_DEVELOPMENT_CANDIDATE_ONLY_NOT_FINAL_EMPLOYEE_RELEASE",
+  "generated_bytecode_cache_count": 1099,
+  "full_original_artifact": 12022943996
+}

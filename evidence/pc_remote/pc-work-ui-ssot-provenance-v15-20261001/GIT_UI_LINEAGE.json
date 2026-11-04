@@ -1,0 +1,15 @@
+{
+  "first_png_commit": "39b313bd9bfc60194609910c25a639c325a9b2ca",
+  "first_manifest_approved_pinned_commit": "39b313bd9bfc60194609910c25a639c325a9b2ca",
+  "original_pin_blob_sha": "293cc4d1a218b62442189e3c6f88ec81bb6ff38c",
+  "current_blob_sha": "293cc4d1a218b62442189e3c6f88ec81bb6ff38c",
+  "blob_changed_after_first_pin": false,
+  "manifest_expected_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "current_observed_sha256": "9aaf05be17a3b851717a8bcdbeaf9c589812cb02f4807e3e2c9d10e75709ad3d",
+  "conclusion": "MANIFEST_HASH_MISMATCH_AT_INITIAL_PIN",
+  "proof": [
+    "git log --diff-filter=A -- ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+    "git ls-tree 39b313bd9bfc60194609910c25a639c325a9b2ca ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+    "git ls-tree HEAD ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "status": "ACTIVE",
+  "date": "2026-10-08",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-PACKAGE-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_DIRECTIVE_v1.0_20261008.md",
+  "general_work_handoff": "docs/commander/MINDLE_MEDIA_AI_GENERAL_TO_PC_WORK_ONE_CLICK_HANDOFF_v1.0_20261008.md",
+  "general_work_baseline": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
+  "general_work_result": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
+  "required_final_result": "PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E",
+  "external_integration_status": "DEFERRED_EXTERNAL",
+  "package_strategy": "ONE_CLICK_RUNTIME_PACKAGE",
+  "normal_user_action": "DOUBLE_CLICK_ONLY",
+  "forbidden_employee_steps": [
+    "manual_zip_extraction",
+    "git_or_repo_clone",
+    "python_install",
+    "pip",
+    "terminal_commands",
+    "HF_TOKEN_entry",
+    "manual_model_download",
+    "manual_dependency_repair"
+  ],
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_PACKAGE_REVIEW_v1.0_20261008.md",
+    "evidence_json": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/EVIDENCE.json",
+    "detail_dir": "docs/evidence/media-ai-pc-work-one-click-runtime-20261008/"
+  },
+  "required_evidence": [
+    "PACKAGE_MANIFEST.json",
+    "LICENSE_AND_REDISTRIBUTION_AUDIT.json",
+    "WINDOWS_HOST_PROFILE.json",
+    "FIRST_DOUBLE_CLICK_RESULT.json",
+    "SECOND_DOUBLE_CLICK_SINGLE_INSTANCE_RESULT.json",
+    "BROWSER_AUTO_OPEN_RESULT.json",
+    "WINDOWS_RUNTIME_FUNCTION_E2E.json",
+    "SAVE_REOPEN_COLD_RELAUNCH_RESULT.json",
+    "EXPORT_INTEGRITY_RESULT.json",
+    "NEGATIVE_STARTUP_TESTS.json",
+    "PROCESS_PORT_LIFECYCLE.json",
+    "REGRESSION_RESULT.json",
+    "DELIVERY_ARTIFACT_SHA256.txt",
+    "REMOTE_READBACK.txt"
+  ],
+  "invariants": {
+    "approved_ui_preserved": true,
+    "main_merge_forbidden": true,
+    "force_push_forbidden": true,
+    "new_repo_or_worktree_forbidden": true,
+    "pr23_hold_do_not_merge": true,
+    "external_marketing_avora_not_required": true,
+    "old_complex_employee_installer_not_primary_path": true
+  }
+}

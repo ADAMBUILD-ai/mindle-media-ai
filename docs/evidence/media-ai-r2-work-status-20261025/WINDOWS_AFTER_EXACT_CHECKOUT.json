@@ -1,0 +1,40 @@
+{
+  "schema": "MINDLE_CURRENT_WORK_STATUS_V1",
+  "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
+  "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
+  "runtime_baseline": {
+    "status": "PASS_EXACT_RUNTIME_UI_BYTES",
+    "source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
+    "file_count": 59,
+    "changed_paths": [],
+    "workspace_ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495"
+  },
+  "general_status": "R2_GENERAL_PREPARATION_COMPLETE",
+  "pc_status": "R2_BLOCKED_ASSET_INTAKE",
+  "production_eligibility": "BLOCKED_ASSET_INTAKE",
+  "input_manifest": "docs/handoff/media-ai-core-e2e-r2-20261025/INPUT_MANIFEST.json",
+  "input_manifest_sha256": "63aad65ce08697195fcd58948905b37ecf5b5e77ce2e027c6b19baf9aef08993",
+  "intake_status": "BLOCKED_ASSET_INTAKE",
+  "input_errors": [
+    "exact Korean narration script missing or incompatible with quoted product command",
+    "explicit voice length policy missing",
+    "explicit narration volume required (0..2)",
+    "explicit original volume required (0..2)",
+    "explicit bgm volume required (0..1)",
+    "1..12 real video clips required",
+    "BGM and its permission record required",
+    "source coverage below 30 seconds"
+  ],
+  "next_action": "REGISTER_REAL_VIDEO_BGM_SCRIPT_VOLUMES_POLICY",
+  "source_lane": "ACTUAL_ASSET_INTAKE_REQUIRED",
+  "windows_lane": "WINDOWS_7B_AND_EXACT_CANDIDATE_APPROVAL_REQUIRED",
+  "production_execution_allowed": false,
+  "source_execution_started_by_this_check": false,
+  "local_pc_process_status": "NOT_OBSERVED",
+  "background_execution_claimed": false,
+  "package_build_allowed": false,
+  "installed_model_replacement_allowed": false,
+  "owner_acceptance": false,
+  "full_product_pass": false,
+  "historical_candidate_control": "R3 epoch/phase/identity remain consumed candidate evidence, not current R2 readiness"
+}

@@ -1,0 +1,457 @@
+{
+  "status": "PASS_PACKAGED_REPAIR_REGRESSION_NO_NEW_INFERENCE",
+  "base_url": "http://127.0.0.1:18768",
+  "runtime_identity": {
+    "product": "MINDLE MEDIA AI",
+    "distribution": "EMPLOYEE_WIN_X64",
+    "package_version": "ONE_CLICK_RUNTIME_R1",
+    "build_commit": "fef692312ae8d8e3070c97e013dacdd31a043172",
+    "package_manifest_sha256": "3facd08b16aeae044af39755c2d0d9638af4fe3fa0fec317b2dbc0bd863f2c17",
+    "ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
+    "model_manifest_hash": "2f2a3555b69639840f7efbd360063fc79c7a54b39f438b0af14d7c93455c5d6d",
+    "install_root": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE_MEDIA_AI\\runtime\\fef692312ae8-1261762e58ca",
+    "data_root": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA",
+    "runtime_mode": "LOCAL_OFFLINE_PACKAGE"
+  },
+  "ui_title": "MINDLE MEDIA AI",
+  "jobs": {
+    "photo_import": {
+      "status": "TESTED_PASS",
+      "job_id": "ff7d8b44-f7d9-4f20-8404-7076c4c144a6",
+      "lane": "photo",
+      "operation": "import",
+      "original_filename": "36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+        "bytes": 189281,
+        "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+      },
+      "primary_output": {
+        "file_name": "original_photo.png",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ff7d8b44-f7d9-4f20-8404-7076c4c144a6\\original_photo.png",
+        "bytes": 193570,
+        "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+      },
+      "outputs": [
+        {
+          "file_name": "c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "bytes": 189281,
+          "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+        },
+        {
+          "file_name": "original_photo.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ff7d8b44-f7d9-4f20-8404-7076c4c144a6\\original_photo.png",
+          "bytes": 193570,
+          "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          480,
+          270
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/ff7d8b44-f7d9-4f20-8404-7076c4c144a6/original_photo.png"
+    },
+    "video_import": {
+      "status": "TESTED_PASS",
+      "job_id": "e559afe4-6c03-4023-b53b-6c99a6e3d50c",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\e559afe4-6c03-4023-b53b-6c99a6e3d50c\\original_video_preview.mp4",
+        "bytes": 166739,
+        "sha256": "5fa352b9a30f30dbabc80a352362c810207b78c9757820afe9ba5c170d001c69"
+      },
+      "outputs": [
+        {
+          "file_name": "3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\e559afe4-6c03-4023-b53b-6c99a6e3d50c\\original_video_preview.mp4",
+          "bytes": 166739,
+          "sha256": "5fa352b9a30f30dbabc80a352362c810207b78c9757820afe9ba5c170d001c69"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4"
+    },
+    "basic_photo": {
+      "status": "TESTED_PASS",
+      "job_id": "0dcf8199-6011-4451-8ff6-6bad9964cb26",
+      "lane": "photo",
+      "operation": "photo_edit",
+      "command": "Windows 패키지 기본 사진 보정",
+      "input": {
+        "file_name": "db8fe919-30f0-4b39-8fd1-4b9137ae73bb_photo_edit.png",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\db8fe919-30f0-4b39-8fd1-4b9137ae73bb_photo_edit.png",
+        "bytes": 189281,
+        "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+      },
+      "primary_output": {
+        "file_name": "edited_photo.png",
+        "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\0dcf8199-6011-4451-8ff6-6bad9964cb26\\edited_photo.png",
+        "bytes": 193570,
+        "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_photo.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\0dcf8199-6011-4451-8ff6-6bad9964cb26\\edited_photo.png",
+          "bytes": 193570,
+          "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+        }
+      ],
+      "runtime_result": {
+        "engine": "browser_canvas_pixels_verified_by_Pillow",
+        "result_size": [
+          480,
+          270
+        ],
+        "options": {
+          "brightness": 10
+        },
+        "model_inference": false
+      },
+      "preview_url": "/files/jobs/0dcf8199-6011-4451-8ff6-6bad9964cb26/edited_photo.png"
+    }
+  },
+  "new_model_inference": false,
+  "scope": "R9_PACKAGED_REPAIR_REGRESSION",
+  "project_id": "9200506f-96a8-482a-8612-1cf0b60a4fdb",
+  "latest_project": {
+    "project_id": "9200506f-96a8-482a-8612-1cf0b60a4fdb",
+    "saved_at": "2026-10-15T23:26:42.182045+00:00",
+    "job_ids": [
+      "ff7d8b44-f7d9-4f20-8404-7076c4c144a6",
+      "e559afe4-6c03-4023-b53b-6c99a6e3d50c",
+      "0dcf8199-6011-4451-8ff6-6bad9964cb26"
+    ],
+    "jobs": [
+      {
+        "status": "TESTED_PASS",
+        "job_id": "ff7d8b44-f7d9-4f20-8404-7076c4c144a6",
+        "lane": "photo",
+        "operation": "import",
+        "original_filename": "36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+        "command": "원본 불러오기",
+        "input": {
+          "file_name": "c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "bytes": 189281,
+          "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+        },
+        "primary_output": {
+          "file_name": "original_photo.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ff7d8b44-f7d9-4f20-8404-7076c4c144a6\\original_photo.png",
+          "bytes": 193570,
+          "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+        },
+        "outputs": [
+          {
+            "file_name": "c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+            "bytes": 189281,
+            "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+          },
+          {
+            "file_name": "original_photo.png",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ff7d8b44-f7d9-4f20-8404-7076c4c144a6\\original_photo.png",
+            "bytes": 193570,
+            "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+          }
+        ],
+        "runtime_result": {
+          "result_size": [
+            480,
+            270
+          ],
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/ff7d8b44-f7d9-4f20-8404-7076c4c144a6/original_photo.png",
+        "input_url": "/files/inputs/c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+        "reference_urls": []
+      },
+      {
+        "status": "TESTED_PASS",
+        "job_id": "e559afe4-6c03-4023-b53b-6c99a6e3d50c",
+        "lane": "video",
+        "operation": "import",
+        "original_filename": "448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+        "command": "원본 불러오기",
+        "input": {
+          "file_name": "3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        "primary_output": {
+          "file_name": "original_video_preview.mp4",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\e559afe4-6c03-4023-b53b-6c99a6e3d50c\\original_video_preview.mp4",
+          "bytes": 166739,
+          "sha256": "5fa352b9a30f30dbabc80a352362c810207b78c9757820afe9ba5c170d001c69"
+        },
+        "outputs": [
+          {
+            "file_name": "3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+            "bytes": 315058,
+            "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+          },
+          {
+            "file_name": "original_video_preview.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\e559afe4-6c03-4023-b53b-6c99a6e3d50c\\original_video_preview.mp4",
+            "bytes": 166739,
+            "sha256": "5fa352b9a30f30dbabc80a352362c810207b78c9757820afe9ba5c170d001c69"
+          }
+        ],
+        "runtime_result": {
+          "result_size": [
+            672,
+            384
+          ],
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4",
+        "input_url": "/files/inputs/3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+        "reference_urls": []
+      },
+      {
+        "status": "TESTED_PASS",
+        "job_id": "0dcf8199-6011-4451-8ff6-6bad9964cb26",
+        "lane": "photo",
+        "operation": "photo_edit",
+        "command": "Windows 패키지 기본 사진 보정",
+        "input": {
+          "file_name": "db8fe919-30f0-4b39-8fd1-4b9137ae73bb_photo_edit.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\db8fe919-30f0-4b39-8fd1-4b9137ae73bb_photo_edit.png",
+          "bytes": 189281,
+          "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+        },
+        "primary_output": {
+          "file_name": "edited_photo.png",
+          "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\0dcf8199-6011-4451-8ff6-6bad9964cb26\\edited_photo.png",
+          "bytes": 193570,
+          "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_photo.png",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\0dcf8199-6011-4451-8ff6-6bad9964cb26\\edited_photo.png",
+            "bytes": 193570,
+            "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+          }
+        ],
+        "runtime_result": {
+          "engine": "browser_canvas_pixels_verified_by_Pillow",
+          "result_size": [
+            480,
+            270
+          ],
+          "options": {
+            "brightness": 10
+          },
+          "model_inference": false
+        },
+        "preview_url": "/files/jobs/0dcf8199-6011-4451-8ff6-6bad9964cb26/edited_photo.png",
+        "input_url": "/files/inputs/db8fe919-30f0-4b39-8fd1-4b9137ae73bb_photo_edit.png",
+        "reference_urls": []
+      }
+    ],
+    "status": "SAVED"
+  },
+  "latest_project_response": {
+    "project": {
+      "project_id": "9200506f-96a8-482a-8612-1cf0b60a4fdb",
+      "saved_at": "2026-10-15T23:26:42.182045+00:00",
+      "job_ids": [
+        "ff7d8b44-f7d9-4f20-8404-7076c4c144a6",
+        "e559afe4-6c03-4023-b53b-6c99a6e3d50c",
+        "0dcf8199-6011-4451-8ff6-6bad9964cb26"
+      ],
+      "jobs": [
+        {
+          "status": "TESTED_PASS",
+          "job_id": "ff7d8b44-f7d9-4f20-8404-7076c4c144a6",
+          "lane": "photo",
+          "operation": "import",
+          "original_filename": "36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "command": "원본 불러오기",
+          "input": {
+            "file_name": "c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+            "bytes": 189281,
+            "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+          },
+          "primary_output": {
+            "file_name": "original_photo.png",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ff7d8b44-f7d9-4f20-8404-7076c4c144a6\\original_photo.png",
+            "bytes": 193570,
+            "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+          },
+          "outputs": [
+            {
+              "file_name": "c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+              "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+              "bytes": 189281,
+              "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+            },
+            {
+              "file_name": "original_photo.png",
+              "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\ff7d8b44-f7d9-4f20-8404-7076c4c144a6\\original_photo.png",
+              "bytes": 193570,
+              "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+            }
+          ],
+          "runtime_result": {
+            "result_size": [
+              480,
+              270
+            ],
+            "model_inference": false,
+            "sampled_frames": 0
+          },
+          "preview_url": "/files/jobs/ff7d8b44-f7d9-4f20-8404-7076c4c144a6/original_photo.png",
+          "input_url": "/files/inputs/c75bf637-d5ca-4e74-b000-4df2a34d0aa5_36b38c8b-2ebd-4c8e-b26d-6f70f016f5b1_intel_sisr_1032_street_480x270.png",
+          "reference_urls": []
+        },
+        {
+          "status": "TESTED_PASS",
+          "job_id": "e559afe4-6c03-4023-b53b-6c99a6e3d50c",
+          "lane": "video",
+          "operation": "import",
+          "original_filename": "448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+          "command": "원본 불러오기",
+          "input": {
+            "file_name": "3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+            "bytes": 315058,
+            "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+          },
+          "primary_output": {
+            "file_name": "original_video_preview.mp4",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\e559afe4-6c03-4023-b53b-6c99a6e3d50c\\original_video_preview.mp4",
+            "bytes": 166739,
+            "sha256": "5fa352b9a30f30dbabc80a352362c810207b78c9757820afe9ba5c170d001c69"
+          },
+          "outputs": [
+            {
+              "file_name": "3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+              "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+              "bytes": 315058,
+              "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+            },
+            {
+              "file_name": "original_video_preview.mp4",
+              "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\e559afe4-6c03-4023-b53b-6c99a6e3d50c\\original_video_preview.mp4",
+              "bytes": 166739,
+              "sha256": "5fa352b9a30f30dbabc80a352362c810207b78c9757820afe9ba5c170d001c69"
+            }
+          ],
+          "runtime_result": {
+            "result_size": [
+              672,
+              384
+            ],
+            "model_inference": false,
+            "sampled_frames": 0
+          },
+          "preview_url": "/files/jobs/e559afe4-6c03-4023-b53b-6c99a6e3d50c/original_video_preview.mp4",
+          "input_url": "/files/inputs/3e916fdb-0b04-44fd-acf2-a39a5c35b585_448197c5-ae84-421a-89a6-713b2880171e_big_buck_bunny.mp4",
+          "reference_urls": []
+        },
+        {
+          "status": "TESTED_PASS",
+          "job_id": "0dcf8199-6011-4451-8ff6-6bad9964cb26",
+          "lane": "photo",
+          "operation": "photo_edit",
+          "command": "Windows 패키지 기본 사진 보정",
+          "input": {
+            "file_name": "db8fe919-30f0-4b39-8fd1-4b9137ae73bb_photo_edit.png",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\inputs\\db8fe919-30f0-4b39-8fd1-4b9137ae73bb_photo_edit.png",
+            "bytes": 189281,
+            "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+          },
+          "primary_output": {
+            "file_name": "edited_photo.png",
+            "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\0dcf8199-6011-4451-8ff6-6bad9964cb26\\edited_photo.png",
+            "bytes": 193570,
+            "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+          },
+          "outputs": [
+            {
+              "file_name": "edited_photo.png",
+              "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\jobs\\0dcf8199-6011-4451-8ff6-6bad9964cb26\\edited_photo.png",
+              "bytes": 193570,
+              "sha256": "26185d2f2d0933676a7f56ae0ce1267aed29de35961af105e0d8de0a2736260c"
+            }
+          ],
+          "runtime_result": {
+            "engine": "browser_canvas_pixels_verified_by_Pillow",
+            "result_size": [
+              480,
+              270
+            ],
+            "options": {
+              "brightness": 10
+            },
+            "model_inference": false
+          },
+          "preview_url": "/files/jobs/0dcf8199-6011-4451-8ff6-6bad9964cb26/edited_photo.png",
+          "input_url": "/files/inputs/db8fe919-30f0-4b39-8fd1-4b9137ae73bb_photo_edit.png",
+          "reference_urls": []
+        }
+      ],
+      "status": "SAVED"
+    }
+  },
+  "file_io": {
+    "photo_import": "PASS",
+    "video_import": "PASS",
+    "photo_preview_download": "PASS",
+    "video_preview_download": "PASS",
+    "export_download": "PASS"
+  },
+  "export": {
+    "status": "EXPORTED",
+    "project_id": "9200506f-96a8-482a-8612-1cf0b60a4fdb",
+    "export": {
+      "file_name": "9200506f-96a8-482a-8612-1cf0b60a4fdb_export.zip",
+      "path": "D:\\a\\mindle-media-ai\\mindle-media-ai\\build\\ci-localappdata\\MINDLE\\MEDIA_AI_DATA\\projects\\9200506f-96a8-482a-8612-1cf0b60a4fdb_export.zip",
+      "bytes": 1731226,
+      "sha256": "cde9558fdd718c1395141eb4e263d7dd974b9b0347acf513e245e09feff41e56"
+    },
+    "download_url": "/files/projects/9200506f-96a8-482a-8612-1cf0b60a4fdb_export.zip",
+    "sha256": "cde9558fdd718c1395141eb4e263d7dd974b9b0347acf513e245e09feff41e56",
+    "download_sha256": "cde9558fdd718c1395141eb4e263d7dd974b9b0347acf513e245e09feff41e56",
+    "zip_crc": "PASS",
+    "entry_count": 10
+  }
+}

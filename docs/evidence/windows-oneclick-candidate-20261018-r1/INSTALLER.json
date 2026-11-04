@@ -1,0 +1,10 @@
+{
+  "name": "MINDLE_MEDIA_AI_START_20261018_R1.zip",
+  "bytes": 3781,
+  "sha256": "e7d69d7c28d6b151fc9a293b69b5af1ed91f683f68f32d8b69948d21ea6fde1c",
+  "library_saved_files": 8,
+  "native_windows_installer_execution": "NOT_RUN",
+  "archive_reassembly": "PASS_EXACT_FULL_ZIP_SHA256",
+  "extractor": "Windows 10/11 built-in tar.exe; avoids PowerShell Expand-Archive 2GB API limit",
+  "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-5.1"
+}

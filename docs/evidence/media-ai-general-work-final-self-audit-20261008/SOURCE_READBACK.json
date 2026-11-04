@@ -1,0 +1,449 @@
+{
+  "source_commit": "92897f4ff943d30d788416dbb10324f3df2b9427",
+  "baseline": "985f3a7b464e53318a0f50b8655640ceb336d36b",
+  "changed_source_paths": 13,
+  "unchanged_baseline_blobs": 886,
+  "removed_paths": 0,
+  "protected": [
+    {
+      "path": "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json",
+      "baseline_sha": "3e5f4f3af73b3f852412f774c0cdad482c2dd0c9",
+      "remote_sha": "3e5f4f3af73b3f852412f774c0cdad482c2dd0c9",
+      "match": true
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_DIRECTIVE.md",
+      "baseline_sha": "ed4cb6858185e60b5010d0c98541d225cf583b76",
+      "remote_sha": "ed4cb6858185e60b5010d0c98541d225cf583b76",
+      "match": true
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_STATE.json",
+      "baseline_sha": "bd2b55e0f7e7fae5ed0b7cb501bed6eb7d7808dc",
+      "remote_sha": "bd2b55e0f7e7fae5ed0b7cb501bed6eb7d7808dc",
+      "match": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+      "baseline_sha": "32b3bc47b092f4c1a76e87de01189f3a4c7f8725",
+      "remote_sha": "32b3bc47b092f4c1a76e87de01189f3a4c7f8725",
+      "match": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_DIRECTIVE.md",
+      "baseline_sha": "20c2cb6024b540369a3f12aef66884ae3f2ae85b",
+      "remote_sha": "20c2cb6024b540369a3f12aef66884ae3f2ae85b",
+      "match": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_STATE.json",
+      "baseline_sha": "4d5e064f3a62ba96d71cc477746ea00c060c04af",
+      "remote_sha": "4d5e064f3a62ba96d71cc477746ea00c060c04af",
+      "match": true
+    },
+    {
+      "path": "CURRENT_WORKER_COORDINATION_LOCK.json",
+      "baseline_sha": "3829bf914065e3e2afffa870f9dbfd7abb6c4ad6",
+      "remote_sha": "3829bf914065e3e2afffa870f9dbfd7abb6c4ad6",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/ATTEMPT_37738139042_ACTIONS.log",
+      "baseline_sha": "374947524d1c3b8a8d74a42cb4f676164e4885af",
+      "remote_sha": "374947524d1c3b8a8d74a42cb4f676164e4885af",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/ATTEMPT_37738309658_ACTIONS.log",
+      "baseline_sha": "d72029930de9679b8b4ee6926ccc0103e0b2ac8c",
+      "remote_sha": "d72029930de9679b8b4ee6926ccc0103e0b2ac8c",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/BASELINE_CI_PASS.log",
+      "baseline_sha": "59bd2f514fd8905772dae971585d431ef7277400",
+      "remote_sha": "59bd2f514fd8905772dae971585d431ef7277400",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/EVIDENCE.json",
+      "baseline_sha": "24628a1e5e4a412cd4c8864cc1f8be9b1797f87e",
+      "remote_sha": "24628a1e5e4a412cd4c8864cc1f8be9b1797f87e",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/EXPORT_RESULT.json",
+      "baseline_sha": "eb50c8b7199a44b119002e140e1ff37318dcb2a8",
+      "remote_sha": "eb50c8b7199a44b119002e140e1ff37318dcb2a8",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/H264_PREVIEW_PROBE.json",
+      "baseline_sha": "ef537dd9e072de82cb5dd208a13f7142442755cd",
+      "remote_sha": "ef537dd9e072de82cb5dd208a13f7142442755cd",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/INDEPENDENT_ARTIFACT_AUDIT.json",
+      "baseline_sha": "2b0858660a32adc31b434351f60d7ca78de1af05",
+      "remote_sha": "2b0858660a32adc31b434351f60d7ca78de1af05",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/KOREAN_STT_RESULT.json",
+      "baseline_sha": "6d0d679515f46d5c7ea4912b615fa5c64839b356",
+      "remote_sha": "6d0d679515f46d5c7ea4912b615fa5c64839b356",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/KOREAN_STT_UI.png",
+      "baseline_sha": "35cb4f39f96c4bb5367e4bebf3f0094794555fab",
+      "remote_sha": "35cb4f39f96c4bb5367e4bebf3f0094794555fab",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/KOREAN_STT_UI_DOM.html",
+      "baseline_sha": "02c58bae23992ceb9736897414408cc3fa13a40b",
+      "remote_sha": "02c58bae23992ceb9736897414408cc3fa13a40b",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/LEGACY_AUTO_PACKAGE_GUARD_REVIEW.json",
+      "baseline_sha": "66bb58c2e53634c38c83da8a7bc5b8edd2467a28",
+      "remote_sha": "66bb58c2e53634c38c83da8a7bc5b8edd2467a28",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/PRODUCT_E2E_ACTIONS.log",
+      "baseline_sha": "f001357c8b2a3103416b2534881641701b1964ff",
+      "remote_sha": "f001357c8b2a3103416b2534881641701b1964ff",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/PRODUCT_E2E_RUN_RECEIPT.json",
+      "baseline_sha": "6df2aa0cd7340e48b10bdef7935a07cdc3d5f4c8",
+      "remote_sha": "6df2aa0cd7340e48b10bdef7935a07cdc3d5f4c8",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/REMOTE_READBACK.txt",
+      "baseline_sha": "1ee56d9bc47bd334ba64442e84a140c75f1579da",
+      "remote_sha": "1ee56d9bc47bd334ba64442e84a140c75f1579da",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/REOPENED_STT_UI.png",
+      "baseline_sha": "71c8a912f23abbbce608e084b3e25e0a897e9526",
+      "remote_sha": "71c8a912f23abbbce608e084b3e25e0a897e9526",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/REOPENED_UI.png",
+      "baseline_sha": "152a132434a04835ee9e0505240be6bc58ec9f1b",
+      "remote_sha": "152a132434a04835ee9e0505240be6bc58ec9f1b",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/REOPENED_UI_DOM.html",
+      "baseline_sha": "0fd7ba14ee63e20c2b06c773a076d1e46f1dcdc1",
+      "remote_sha": "0fd7ba14ee63e20c2b06c773a076d1e46f1dcdc1",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/RUNTIME_EVIDENCE_RAW.json",
+      "baseline_sha": "2cae05ec68705df488114932b389e38d1db1019e",
+      "remote_sha": "2cae05ec68705df488114932b389e38d1db1019e",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/SAVE_REOPEN_RESULT.json",
+      "baseline_sha": "a1eba1c385c7e3e7aa0d9061bab1f89dfbff24de",
+      "remote_sha": "a1eba1c385c7e3e7aa0d9061bab1f89dfbff24de",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/SHORTFORM_INTEGRATION_RESULT.json",
+      "baseline_sha": "2c1944f61b50be4e540b418c7c9364fabe5af934",
+      "remote_sha": "2c1944f61b50be4e540b418c7c9364fabe5af934",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/VIDEO_AFTER.png",
+      "baseline_sha": "9e830d3391c3f94df3ea15d2c1ad67690e61ec7f",
+      "remote_sha": "9e830d3391c3f94df3ea15d2c1ad67690e61ec7f",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/VIDEO_AFTER_DOM.html",
+      "baseline_sha": "c82d23b6c8ae1ab8e3989341c9ed03924674c4ae",
+      "remote_sha": "c82d23b6c8ae1ab8e3989341c9ed03924674c4ae",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/VIDEO_BEFORE.png",
+      "baseline_sha": "afeea3a391d75fb14b02f704633ba83069757b51",
+      "remote_sha": "afeea3a391d75fb14b02f704633ba83069757b51",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/VIDEO_BROWSER_DECODE_RESULT.json",
+      "baseline_sha": "3d714866e90a63bbca55cf0454e3b8825c11b4b6",
+      "remote_sha": "3d714866e90a63bbca55cf0454e3b8825c11b4b6",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/VIDEO_BROWSER_DIAGNOSTICS.json",
+      "baseline_sha": "6368cf0cf01167a139c5ec7178f43b163f3d4e94",
+      "remote_sha": "6368cf0cf01167a139c5ec7178f43b163f3d4e94",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/VIDEO_TRACKING_ARTIFACTS_MANIFEST.json",
+      "baseline_sha": "89eb9f7cd29b8a7b7ecaafd3d6af6441b0727621",
+      "remote_sha": "89eb9f7cd29b8a7b7ecaafd3d6af6441b0727621",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/media/c2b5e325-46c6-4ec9-9547-fef602e23e25_export.zip",
+      "baseline_sha": "812d5964e203f28142497bfcb5966a71120e705b",
+      "remote_sha": "812d5964e203f28142497bfcb5966a71120e705b",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-product-e2e-full-pass-20261008/media/track_1_overlays_browser_h264.mp4",
+      "baseline_sha": "e5f91871e6082e53299339ad21a96a24bee2da3b",
+      "remote_sha": "e5f91871e6082e53299339ad21a96a24bee2da3b",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/ACTIONS_RUN.log",
+      "baseline_sha": "6c1fb6556440f771d8b971210a26816924225d68",
+      "remote_sha": "6c1fb6556440f771d8b971210a26816924225d68",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/APPROVED_MP4_EXPORT_RESULT.json",
+      "baseline_sha": "08dc38bba147618b12354c25752f112370ce0247",
+      "remote_sha": "08dc38bba147618b12354c25752f112370ce0247",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/AVORA_APPROVED_ASSET_RESULT.json",
+      "baseline_sha": "08dc38bba147618b12354c25752f112370ce0247",
+      "remote_sha": "08dc38bba147618b12354c25752f112370ce0247",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/CONTROL_PLANE.log",
+      "baseline_sha": "781e0a4d5b9247802033fed0aa25e202dbc638ad",
+      "remote_sha": "781e0a4d5b9247802033fed0aa25e202dbc638ad",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/EVIDENCE.json",
+      "baseline_sha": "9a9b1da1e6fbf51c3319fe3209cfa472fe72c168",
+      "remote_sha": "9a9b1da1e6fbf51c3319fe3209cfa472fe72c168",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/MARKETING_HTTP_RESULT.json",
+      "baseline_sha": "26778dd761058fe5629477a64e354611235476db",
+      "remote_sha": "26778dd761058fe5629477a64e354611235476db",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/PROVIDER_REACHABILITY.json",
+      "baseline_sha": "8b23693509189a96a17ee16a71b683bb7c20f808",
+      "remote_sha": "8b23693509189a96a17ee16a71b683bb7c20f808",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/REGRESSION_RESULT.json",
+      "baseline_sha": "e00d8da90620b714fa27fc0c4bb86a0ae665095e",
+      "remote_sha": "e00d8da90620b714fa27fc0c4bb86a0ae665095e",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/REMOTE_READBACK.txt",
+      "baseline_sha": "bd4e1cd64502dc0e6523c22004948898264bd3af",
+      "remote_sha": "bd4e1cd64502dc0e6523c22004948898264bd3af",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/REPRESENTATIVE_APPROVAL_RESULT.json",
+      "baseline_sha": "08dc38bba147618b12354c25752f112370ce0247",
+      "remote_sha": "08dc38bba147618b12354c25752f112370ce0247",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/SHORTFORM_9X16_BROWSER_PREVIEW.json",
+      "baseline_sha": "08dc38bba147618b12354c25752f112370ce0247",
+      "remote_sha": "08dc38bba147618b12354c25752f112370ce0247",
+      "match": true
+    },
+    {
+      "path": "scripts/validate_general_work_control_plane.py",
+      "baseline_sha": "cd98cef11e66f7dc06b0e8b30840011f09745901",
+      "remote_sha": "cd98cef11e66f7dc06b0e8b30840011f09745901",
+      "match": true
+    },
+    {
+      "path": "scripts/validate_pc_work_control_plane.py",
+      "baseline_sha": "ec72635a5f6369c438f66ea921718775e99475a0",
+      "remote_sha": "ec72635a5f6369c438f66ea921718775e99475a0",
+      "match": true
+    },
+    {
+      "path": "src/media_ai/browser_preview.py",
+      "baseline_sha": "296d9c55220fa0a6b66c8c7821e36663f7e11915",
+      "remote_sha": "296d9c55220fa0a6b66c8c7821e36663f7e11915",
+      "match": true
+    },
+    {
+      "path": "src/media_ai/intel_sisr_verified_adapter.py",
+      "baseline_sha": "4f0e3e484517a901d9bbab409db8d5a3991923e4",
+      "remote_sha": "4f0e3e484517a901d9bbab409db8d5a3991923e4",
+      "match": true
+    },
+    {
+      "path": "src/media_ai/verified_model_adapters.py",
+      "baseline_sha": "6a4c6b0e7f1d0e67d2506bd4a755291529abc24c",
+      "remote_sha": "6a4c6b0e7f1d0e67d2506bd4a755291529abc24c",
+      "match": true
+    },
+    {
+      "path": "ui/approved_visual.css",
+      "baseline_sha": "d93985f69b412e3eac4bbbe53c5c1e6e9bf995d9",
+      "remote_sha": "d93985f69b412e3eac4bbbe53c5c1e6e9bf995d9",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+      "baseline_sha": "c32a55a14aebaf0433ad323436b41a96dd5e5798",
+      "remote_sha": "c32a55a14aebaf0433ad323436b41a96dd5e5798",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.svg",
+      "baseline_sha": "07b3099c9b5d810fcf4e36dc781c5c2b77699a2a",
+      "remote_sha": "07b3099c9b5d810fcf4e36dc781c5c2b77699a2a",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_1024.png",
+      "baseline_sha": "f87d5f7fe5ae2dc84bee5a93cb91b32d28a860f6",
+      "remote_sha": "f87d5f7fe5ae2dc84bee5a93cb91b32d28a860f6",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_128.png",
+      "baseline_sha": "37b856983d6fb6a0254b206c5c3db372d3a0ce87",
+      "remote_sha": "37b856983d6fb6a0254b206c5c3db372d3a0ce87",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_16.png",
+      "baseline_sha": "e6675d42e9907d2960fbca45d9f8449428b30e02",
+      "remote_sha": "e6675d42e9907d2960fbca45d9f8449428b30e02",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_256.png",
+      "baseline_sha": "15ee94b9a04eb31296c25104044d94589246895a",
+      "remote_sha": "15ee94b9a04eb31296c25104044d94589246895a",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_32.png",
+      "baseline_sha": "4a8b6b1341c8fc42db40f7aea2afcf2aafeaa5b9",
+      "remote_sha": "4a8b6b1341c8fc42db40f7aea2afcf2aafeaa5b9",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_48.png",
+      "baseline_sha": "c386c1befdf602e8fd00bffefafb199187ab6de5",
+      "remote_sha": "c386c1befdf602e8fd00bffefafb199187ab6de5",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_512.png",
+      "baseline_sha": "57fe32731aae984e78a2431b2708e1ce974c96ec",
+      "remote_sha": "57fe32731aae984e78a2431b2708e1ce974c96ec",
+      "match": true
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_64.png",
+      "baseline_sha": "5485a7255f1eee6297cc9b2908b7189871cf8675",
+      "remote_sha": "5485a7255f1eee6297cc9b2908b7189871cf8675",
+      "match": true
+    },
+    {
+      "path": "ui/assets/demo/photo-house.png",
+      "baseline_sha": "3d7f06736440aa16a2de428c0c185414c5a5efa0",
+      "remote_sha": "3d7f06736440aa16a2de428c0c185414c5a5efa0",
+      "match": true
+    },
+    {
+      "path": "ui/assets/demo/photo-landscape.png",
+      "baseline_sha": "360190c59d5fa9e01fd2e968e5993d061687b5d7",
+      "remote_sha": "360190c59d5fa9e01fd2e968e5993d061687b5d7",
+      "match": true
+    },
+    {
+      "path": "ui/assets/demo/photo-preview.png",
+      "baseline_sha": "5b0bf85382c8915c6dbf2ee6d3ad19d1bb3d0b89",
+      "remote_sha": "5b0bf85382c8915c6dbf2ee6d3ad19d1bb3d0b89",
+      "match": true
+    },
+    {
+      "path": "ui/assets/demo/video-beach.png",
+      "baseline_sha": "55cb0fc77ba002c68475d14e4e709d21a5d3a349",
+      "remote_sha": "55cb0fc77ba002c68475d14e4e709d21a5d3a349",
+      "match": true
+    },
+    {
+      "path": "ui/assets/demo/video-city.png",
+      "baseline_sha": "c27708c04bebf1c4faf07954df5f2f17f4a9405b",
+      "remote_sha": "c27708c04bebf1c4faf07954df5f2f17f4a9405b",
+      "match": true
+    },
+    {
+      "path": "ui/assets/demo/video-interior.png",
+      "baseline_sha": "7287d0e7fb6ae2231f3dde6629bb0cd31db6fc56",
+      "remote_sha": "7287d0e7fb6ae2231f3dde6629bb0cd31db6fc56",
+      "match": true
+    },
+    {
+      "path": "ui/assets/demo/video-preview.png",
+      "baseline_sha": "c6d3416d44c19938e77802c89fbe2b9117274ecc",
+      "remote_sha": "c6d3416d44c19938e77802c89fbe2b9117274ecc",
+      "match": true
+    },
+    {
+      "path": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+      "baseline_sha": "74e0ffb6b2ac6fc49305906048346ca82e6574b0",
+      "remote_sha": "74e0ffb6b2ac6fc49305906048346ca82e6574b0",
+      "match": true
+    },
+    {
+      "path": "ui/assets/ssot/README.md",
+      "baseline_sha": "2c0e95c3961b4d129b5ac613c4d38a1ad8f4c439",
+      "remote_sha": "2c0e95c3961b4d129b5ac613c4d38a1ad8f4c439",
+      "match": true
+    },
+    {
+      "path": "ui/interaction.css",
+      "baseline_sha": "0bcf600af93f58fc0abbc4d74c449ba72cac2363",
+      "remote_sha": "0bcf600af93f58fc0abbc4d74c449ba72cac2363",
+      "match": true
+    },
+    {
+      "path": "ui/ssot_manifest.json",
+      "baseline_sha": "696afb5dfcc0478304eca9359154353ef60f2684",
+      "remote_sha": "696afb5dfcc0478304eca9359154353ef60f2684",
+      "match": true
+    }
+  ],
+  "main": "797da297f588780ad2d608deea3b5af8f05af450",
+  "pr23": "OPEN DRAFT HOLD / DO NOT MERGE"
+}

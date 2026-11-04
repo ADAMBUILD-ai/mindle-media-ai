@@ -1,0 +1,48 @@
+[
+  {
+    "path": "C:\\Users\\R\\AppData\\Local",
+    "exists": true,
+    "kind": "directory",
+    "size": 0,
+    "file_attributes": 16,
+    "readonly": false,
+    "reparse": false,
+    "created_utc": "2026-06-29T03:37:54.629581+00:00",
+    "modified_utc": "2026-10-09T23:37:27.359167+00:00"
+  },
+  {
+    "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI",
+    "exists": true,
+    "kind": "directory",
+    "size": 0,
+    "file_attributes": 16,
+    "readonly": false,
+    "reparse": false,
+    "created_utc": "2026-10-09T23:37:27.359167+00:00",
+    "modified_utc": "2026-10-09T23:38:04.980670+00:00"
+  },
+  {
+    "path": "C:\\Users\\R\\AppData\\Local\\MINDLE_MEDIA_AI\\deploy.lock",
+    "exists": true,
+    "kind": "file",
+    "size": 1,
+    "file_attributes": 32,
+    "readonly": false,
+    "reparse": false,
+    "created_utc": "2026-10-09T23:38:04.980670+00:00",
+    "modified_utc": "2026-10-09T23:38:04.980670+00:00",
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+  },
+  {
+    "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\launch.lock",
+    "exists": true,
+    "kind": "file",
+    "size": 1,
+    "file_attributes": 32,
+    "readonly": false,
+    "reparse": false,
+    "created_utc": "2026-10-09T23:41:52.000563+00:00",
+    "modified_utc": "2026-10-09T23:41:52.000563+00:00",
+    "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+  }
+]

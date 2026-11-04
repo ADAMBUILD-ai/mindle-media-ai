@@ -1,0 +1,38 @@
+{
+  "request": {
+    "approval_id": "NEW-APPROVAL",
+    "authorized_parent": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "attempts_allowed": 1,
+    "changed_files": [
+      "work-window-connection"
+    ],
+    "unresolved_by_test_r2": {
+      "work-window-connection": "work window disconnected"
+    },
+    "package_build_allowed": true
+  },
+  "decision": {
+    "status": "REBUILD_REJECTED_GATE_FALSE",
+    "candidate": {
+      "source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+      "producer_run": 39985471598,
+      "readback_run": 39987617196,
+      "transport_run": 39989419656,
+      "zip_name": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip",
+      "zip_bytes": 3166947613,
+      "zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
+      "manifest_sha256": "2c6c3345539473e77cab56b10105448d0c23b651875dca45e8d49217b781dc07",
+      "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+      "runtime_id": "2e5e9197d78c-473763a9ef2d-ai-r2",
+      "installer_sha256": "747ddd1eb7aa1cef93f235af2128d9aeef68399e15c362a30260d36b1a4e9b44"
+    },
+    "reasons": [
+      "repository control planes remain false"
+    ],
+    "stages": {
+      "producer": 39985471598,
+      "readback": 39987617196,
+      "transport": 39989419656
+    }
+  }
+}

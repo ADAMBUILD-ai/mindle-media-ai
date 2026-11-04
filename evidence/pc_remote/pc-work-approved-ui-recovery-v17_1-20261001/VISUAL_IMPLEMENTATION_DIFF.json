@@ -1,0 +1,8 @@
+{
+  "status": "NOT_APPLIED",
+  "approved_visual_css_added": false,
+  "index_markup_changed": false,
+  "backend_changed": false,
+  "model_identity_changed": false,
+  "reason": "The directive forbids guessing or implementing from memory when the exact approved source cannot be materialized."
+}

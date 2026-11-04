@@ -1,0 +1,61 @@
+✔ new/open project cannot clear an edit in progress or start a competing restore (6.2487ms)
+✔ save response cannot attach the old project to a new project (2.5572ms)
+✔ rejected duplicate save/export does not unlock the active save (1.562ms)
+✔ in-flight restore excludes new/open/save and releases its guard when no project exists (1.4043ms)
+✔ rejected duplicate export cannot release the first export transition guard (1.4976ms)
+✔ failed preview restore preserves the previous input, preview, project and jobs (2.0364ms)
+✔ failed reference restore preserves the previous input, preview, project and jobs (1.6132ms)
+✔ failed audio restore preserves the previous input, preview, project and jobs (1.5857ms)
+✔ successful staged restore uses the actual output filename (1.3839ms)
+✖ new clears previous video tracks, clock, preview metadata and project status (2.5541ms)
+✖ photo-only clears previous video tracks, clock, preview metadata and project status (1.746ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 9
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.2265
+
+✖ failing tests:
+
+test at work\transition-browser-20261017\source\ui\project_lifecycle.test.js:180:3
+✖ new clears previous video tracks, clock, preview metadata and project status (2.5541ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Effect Track · 영상 효과'
+  - 'Effect Track · 효과 없음'
+                    ^
+  
+      at TestContext.<anonymous> (C:\Users\R\Documents\Codex\2026-10-10\mindle-media-ai-ui-photo-video\work\transition-browser-20261017\source\ui\project_lifecycle.test.js:195:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Effect Track · 영상 효과',
+    expected: 'Effect Track · 효과 없음',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at work\transition-browser-20261017\source\ui\project_lifecycle.test.js:180:3
+✖ photo-only clears previous video tracks, clock, preview metadata and project status (1.746ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Subtitle Track · old subtitle'
+  - 'Subtitle Track · 자막 없음'
+                      ^
+  
+      at TestContext.<anonymous> (C:\Users\R\Documents\Codex\2026-10-10\mindle-media-ai-ui-photo-video\work\transition-browser-20261017\source\ui\project_lifecycle.test.js:194:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Subtitle Track · old subtitle',
+    expected: 'Subtitle Track · 자막 없음',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

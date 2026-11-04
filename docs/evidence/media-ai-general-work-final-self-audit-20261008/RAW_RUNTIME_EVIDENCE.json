@@ -1,0 +1,14 @@
+{
+  "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "status": "PASS_MINDLE_MEDIA_AI_GENERAL_WORK_FINAL_SELF_AUDIT_READY_FOR_PC_WORK",
+  "source_commit": "92897f4ff943d30d788416dbb10324f3df2b9427",
+  "run_id": "37752630381",
+  "checks": 75,
+  "error": null,
+  "external": "DEFERRED_EXTERNAL",
+  "models_rerun": false,
+  "package_built": false,
+  "main_changed": false,
+  "pr23": "HOLD / DO NOT MERGE",
+  "ui_layout_colors_changed": false
+}

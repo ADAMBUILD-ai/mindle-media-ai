@@ -1,0 +1,315 @@
+{
+  "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+  "saved_at": "2026-10-17T05:37:10.128279+00:00",
+  "job_ids": [
+    "12dffbba-2a58-447a-84c2-ddeae063b656",
+    "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+    "196a52f5-caba-4c91-9def-f2db218ad591",
+    "147dbb88-5b3d-455e-bb95-1d0f9dc81339",
+    "37155182-1527-4152-8d07-7b0d01a1a5b8"
+  ],
+  "jobs": [
+    {
+      "status": "TESTED_PASS",
+      "job_id": "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "lane": "photo",
+      "operation": "import",
+      "original_filename": "portrait_autofit.png",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "primary_output": {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\12dffbba-2a58-447a-84c2-ddeae063b656\\original_photo.png",
+        "bytes": 309254,
+        "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+      },
+      "outputs": [
+        {
+          "file_name": "f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+        },
+        {
+          "file_name": "original_photo.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\12dffbba-2a58-447a-84c2-ddeae063b656\\original_photo.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          480,
+          960
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+      "input_url": "/files/inputs/f562423e-479e-4aa8-9127-ec245522248d_portrait_autofit.png",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+      "lane": "video",
+      "operation": "import",
+      "original_filename": "video_original.mp4",
+      "command": "원본 불러오기",
+      "input": {
+        "file_name": "fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      "primary_output": {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\17ae7aa2-fcd6-4217-bc16-adcb6448d35a\\original_video_preview.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "outputs": [
+        {
+          "file_name": "fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+          "bytes": 315058,
+          "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+        },
+        {
+          "file_name": "original_video_preview.mp4",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\17ae7aa2-fcd6-4217-bc16-adcb6448d35a\\original_video_preview.mp4",
+          "bytes": 268992,
+          "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+        }
+      ],
+      "runtime_result": {
+        "result_size": [
+          672,
+          384
+        ],
+        "model_inference": false,
+        "sampled_frames": 0
+      },
+      "preview_url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+      "input_url": "/files/inputs/fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "196a52f5-caba-4c91-9def-f2db218ad591",
+      "lane": "photo",
+      "operation": "photo_edit",
+      "command": "사진 보정",
+      "input": {
+        "file_name": "5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+        "bytes": 351382,
+        "sha256": "7816db7a8f399ee05a6891942cda55f0b8dc75059a660196c5c22369a84170e3"
+      },
+      "primary_output": {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\196a52f5-caba-4c91-9def-f2db218ad591\\edited_photo.png",
+        "bytes": 298684,
+        "sha256": "ea16044f0606f1a3db19b703babf0fa3aef07bac7c72f17631c14a266dacfa9e"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_photo.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\196a52f5-caba-4c91-9def-f2db218ad591\\edited_photo.png",
+          "bytes": 298684,
+          "sha256": "ea16044f0606f1a3db19b703babf0fa3aef07bac7c72f17631c14a266dacfa9e"
+        }
+      ],
+      "runtime_result": {
+        "engine": "browser_canvas_pixels_verified_by_Pillow",
+        "result_size": [
+          480,
+          960
+        ],
+        "options": {
+          "brightness": 15,
+          "contrast": 0,
+          "highlights": 0,
+          "shadows": 0,
+          "saturation": 0,
+          "temperature": 0,
+          "sharpness": 0,
+          "rotation": 0,
+          "flipH": false,
+          "flipV": false,
+          "style": "neutral",
+          "resizeWidth": null,
+          "crop": null,
+          "automaticAnalysis": null
+        },
+        "model_inference": false
+      },
+      "preview_url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+      "input_url": "/files/inputs/5f6c435f-5629-467d-bc7b-943f8b922544_photo_edit.png",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "147dbb88-5b3d-455e-bb95-1d0f9dc81339",
+      "lane": "video",
+      "operation": "video_edit",
+      "command": "영상 효과",
+      "input": {
+        "file_name": "49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+        "bytes": 268992,
+        "sha256": "0111b2bc374243780e7410ded4556781adbde573b1b1e9e5aac62822cd041549"
+      },
+      "primary_output": {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\147dbb88-5b3d-455e-bb95-1d0f9dc81339\\edited_video.mp4",
+        "bytes": 224410,
+        "sha256": "c9116610aa826eb37b0fd3b8f6ed1e399cac2de8935ff584412c570bf9d9a7e5"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_video.mp4",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\147dbb88-5b3d-455e-bb95-1d0f9dc81339\\edited_video.mp4",
+          "bytes": 224410,
+          "sha256": "c9116610aa826eb37b0fd3b8f6ed1e399cac2de8935ff584412c570bf9d9a7e5"
+        }
+      ],
+      "runtime_result": {
+        "engine": "FFmpeg",
+        "options": {
+          "stabilize": false,
+          "denoise": false,
+          "split": false,
+          "start": 0,
+          "duration": 0,
+          "speed": 1,
+          "volume": 1,
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "effect": true
+        },
+        "model_inference": false,
+        "sampled_frames": 0,
+        "analysis": null
+      },
+      "preview_url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+      "input_url": "/files/inputs/49f32a39-448a-4153-9254-681b613fb610_fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+      "reference_urls": []
+    },
+    {
+      "status": "TESTED_PASS",
+      "job_id": "37155182-1527-4152-8d07-7b0d01a1a5b8",
+      "lane": "photo",
+      "operation": "photo_edit",
+      "command": "AI 대화 편집 · 따뜻하게 보정해줘",
+      "input": {
+        "file_name": "2fd56656-55b4-452b-a117-77c81995d0f8_photo_edit.png",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\inputs\\2fd56656-55b4-452b-a117-77c81995d0f8_photo_edit.png",
+        "bytes": 351628,
+        "sha256": "8468418e8eee2ab5aa9f9f68f2e30aa76c25e5f87bd87c2aa8d2e7347bac984d"
+      },
+      "primary_output": {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\37155182-1527-4152-8d07-7b0d01a1a5b8\\edited_photo.png",
+        "bytes": 298987,
+        "sha256": "455e41715da6888ce20f20e9e2e3576cd936a8c484c17ab218a64ff3509e806f"
+      },
+      "outputs": [
+        {
+          "file_name": "edited_photo.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\jobs\\37155182-1527-4152-8d07-7b0d01a1a5b8\\edited_photo.png",
+          "bytes": 298987,
+          "sha256": "455e41715da6888ce20f20e9e2e3576cd936a8c484c17ab218a64ff3509e806f"
+        }
+      ],
+      "runtime_result": {
+        "engine": "browser_canvas_pixels_verified_by_Pillow",
+        "result_size": [
+          480,
+          960
+        ],
+        "options": {
+          "brightness": 0,
+          "contrast": 0,
+          "highlights": 0,
+          "shadows": 0,
+          "saturation": 0,
+          "temperature": 20,
+          "sharpness": 0,
+          "rotation": 0,
+          "flipH": false,
+          "flipV": false,
+          "style": "neutral",
+          "resizeWidth": null,
+          "crop": null,
+          "automaticAnalysis": null
+        },
+        "model_inference": false
+      },
+      "preview_url": "/files/jobs/37155182-1527-4152-8d07-7b0d01a1a5b8/edited_photo.png",
+      "input_url": "/files/inputs/2fd56656-55b4-452b-a117-77c81995d0f8_photo_edit.png",
+      "reference_urls": []
+    }
+  ],
+  "status": "SAVED",
+  "workspace": {
+    "schema": "MINDLE_WORKSPACE_ASSETS_V1",
+    "references": {
+      "photo": [
+        {
+          "file_name": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\projects\\5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets\\b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+          "original_filename": "portrait_autofit.png",
+          "mime_type": "image/png",
+          "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png"
+        },
+        {
+          "file_name": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\projects\\5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets\\8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+          "bytes": 5207847,
+          "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce",
+          "original_filename": "reference_architecture_crop.png",
+          "mime_type": "image/png",
+          "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png"
+        }
+      ],
+      "video": [
+        {
+          "file_name": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\projects\\5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets\\b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+          "bytes": 309254,
+          "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780",
+          "original_filename": "portrait_autofit.png",
+          "mime_type": "image/png",
+          "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png"
+        },
+        {
+          "file_name": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+          "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\projects\\5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets\\8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+          "bytes": 5207847,
+          "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce",
+          "original_filename": "reference_architecture_crop.png",
+          "mime_type": "image/png",
+          "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png"
+        }
+      ]
+    },
+    "audio": {
+      "file_name": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+      "path": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\TRANSITION_BROWSER_20261017_R6\\data\\projects\\5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets\\e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+      "bytes": 798778,
+      "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+      "original_filename": "korean_original.wav",
+      "mime_type": "audio/wav",
+      "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav"
+    }
+  }
+}

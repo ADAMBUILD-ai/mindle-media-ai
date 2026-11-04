@@ -1,0 +1,60 @@
+{
+  "status": "PASS_ACTUAL_PINNED_QWEN_PLAN_AND_BINDING",
+  "source_commit": "93a5e80ae214365043e91622920ce8e9f1ac0e9d",
+  "command": "밝기 3 높여 줘",
+  "actual_model_inference": true,
+  "fixture_inference": false,
+  "scope": "GENERATED_PLAN_AND_BINDING_ONLY",
+  "real_30_second_e2e": "NOT_EXECUTED",
+  "windows_inference": false,
+  "new_supertonic_inference": false,
+  "full_product_pass": false,
+  "tampered_plan_rejected": "PLANNER_RESPONSE_PLAN_MISMATCH: saved decision changed",
+  "model_identity": {
+    "executable": "/tmp/media-ai-verified-engines/llama/llama-b11716/llama-completion",
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "model_path": "/tmp/media-ai-verified-engines/qwen7b/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf",
+    "model_sha256": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+    "revision": "bb5d59e06d9551d752d08b292a50eb208b07ab1f",
+    "license": "Apache-2.0",
+    "model_id": "Qwen/Qwen2.5-7B-Instruct-GGUF",
+    "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+    "context_size": 4096,
+    "additional_model_files": [
+      {
+        "path": "/tmp/media-ai-verified-engines/qwen7b/qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf",
+        "sha256": "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+      }
+    ]
+  },
+  "plan": {
+    "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+    "model_sha256": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+    "revision": "bb5d59e06d9551d752d08b292a50eb208b07ab1f",
+    "license": "Apache-2.0",
+    "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+    "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+    "model_id": "Qwen/Qwen2.5-7B-Instruct-GGUF",
+    "additional_model_sha256": [
+      "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+    ],
+    "context_size": 4096,
+    "raw_response_sha256": "57ec10652aeacfc9a2f53d11dd5b59c2967a128d5d7d12a749e0a2835946738f",
+    "steps": [
+      {
+        "operation": "video_edit",
+        "options": {
+          "brightness": 3
+        },
+        "step_id": "f9e15803-f2e1-4189-bfcd-d79f3d2455c4"
+      }
+    ],
+    "validated_edit_values": {
+      "brightness": 3.0
+    },
+    "plan_id": "1fc246c5-730d-4730-8f3d-73400b4be8c8",
+    "command": "밝기 3 높여 줘",
+    "command_sha256": "300f124e43055f200ceb0d1ea49b00b7478c28544be2cf5d757be4d28e1f070d"
+  },
+  "elapsed_seconds": 51.92348027229309
+}

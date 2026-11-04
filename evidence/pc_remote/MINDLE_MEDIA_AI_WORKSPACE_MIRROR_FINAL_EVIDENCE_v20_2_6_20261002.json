@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "control_plane_epoch": "MEDIA-AI-20261002-V20.2.6",
+  "head": "aff9bcccaf5dc7f5e32f85ee51b2e35a417e8e78",
+  "workspace_golden_css": "97900cc6c784e74b4224333fa2cc84d29c611f87",
+  "implementation": "workspace golden UI restored; canonical runtime identity enforced",
+  "tests": {"workspace_mirror": "PASS", "node": "2/2 PASS", "pytest": "52/52 PASS", "control_plane": "PASS"},
+  "blocking_evidence": ["six required native Windows PNG captures", "browser-JS numeric geometry comparison"]
+}

@@ -1,0 +1,1342 @@
+{
+  "workflows": [
+    {
+      "input_job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+      "input_sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e",
+      "steps": [
+        {
+          "operation": "narrate",
+          "text": "한국어 음성과 배경음악을 함께 확인합니다.",
+          "step_id": "2aff3730-6496-402b-9e54-350f6067eab9"
+        },
+        {
+          "operation": "mix_narration",
+          "length_policy": "extend_video",
+          "original_volume": 0.2,
+          "step_id": "9f1a8a6b-9b59-40e1-be73-d99e4a686ce3"
+        }
+      ],
+      "workspace": null,
+      "job_ids": [],
+      "background": {
+        "file_name": "background.wav",
+        "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/background.wav",
+        "bytes": 44178,
+        "sha256": "2323e5b605ee29574a76a293ee4274f32690edc1c32f6201643a81415a4c06f1"
+      },
+      "project_id": "175134bd-9b28-4d3e-a070-44e2d2b98180",
+      "export": {
+        "status": "EXPORTED",
+        "project_id": "175134bd-9b28-4d3e-a070-44e2d2b98180",
+        "export": {
+          "file_name": "175134bd-9b28-4d3e-a070-44e2d2b98180_export.zip",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/commit/projects/175134bd-9b28-4d3e-a070-44e2d2b98180_export.zip",
+          "bytes": 1037645,
+          "sha256": "a781dd568c389d40fd7b1edf9850054605def5eb0e7a0ab4c0427b10d2953c66"
+        }
+      },
+      "workflow_id": "c2ffb1f3-25f0-42a5-9582-37dbcd148e65",
+      "request_id": "bgm-integration",
+      "state": "SUCCEEDED",
+      "records": [
+        {
+          "status": "TESTED_PASS",
+          "job_id": "f454d33b-ac50-4fa3-9924-b242fd1779d6",
+          "lane": "korean_audio",
+          "operation": "narration",
+          "command": "한국어 신경망 나레이션 생성",
+          "primary_output": {
+            "file_name": "narration.wav",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/00-1/sealed/f454d33b-ac50-4fa3-9924-b242fd1779d6/narration.wav",
+            "bytes": 360470,
+            "sha256": "5d98ab997ea4fa0db961d1a0e183d600b7fb96d3ca8045e3fccf5bf826d024bf"
+          },
+          "input": {
+            "file_name": "narration.txt",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/00-1/sealed/f454d33b-ac50-4fa3-9924-b242fd1779d6/narration.txt",
+            "bytes": 59,
+            "sha256": "36f2d4f4dbfc816afe51766655c3fa1e51d5fe206ed9f5c31bb7773d7cd64b45"
+          },
+          "outputs": [
+            {
+              "file_name": "narration.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/00-1/sealed/f454d33b-ac50-4fa3-9924-b242fd1779d6/narration.wav",
+              "bytes": 360470,
+              "sha256": "5d98ab997ea4fa0db961d1a0e183d600b7fb96d3ca8045e3fccf5bf826d024bf"
+            },
+            {
+              "file_name": "narration.txt",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/00-1/sealed/f454d33b-ac50-4fa3-9924-b242fd1779d6/narration.txt",
+              "bytes": 59,
+              "sha256": "36f2d4f4dbfc816afe51766655c3fa1e51d5fe206ed9f5c31bb7773d7cd64b45"
+            }
+          ],
+          "runtime_result": {
+            "engine": "sherpa-onnx / Supertonic 3",
+            "engine_version": "1.13.8",
+            "engine_license": "Apache-2.0",
+            "model_license": "OpenRAIL-M (model); MIT (upstream code)",
+            "model_revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+            "model_archive_sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427",
+            "voice_data_sha256": "56dd586123097a75024c304de344513e72100c967d66b71670ca3bceff1af130",
+            "runtime_sha256": "1c686b41ae4a423909e31e9c1303adda8d8c06615cfc09c8636cf6c4a00c6028",
+            "model_inference": true,
+            "synthesis": "local neural ONNX inference",
+            "text": "한국어 음성과 배경음악을 함께 확인합니다.",
+            "voice": "ko/sid0",
+            "sample_rate": 44100,
+            "channels": 1,
+            "duration_seconds": 4.086462585034013,
+            "human_hearing": "NOT_VERIFIED",
+            "naturalness": "NOT_BENCHMARKED",
+            "base_video_job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d"
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "c2ffb1f3-25f0-42a5-9582-37dbcd148e65"
+        },
+        {
+          "status": "TESTED_PASS",
+          "job_id": "dd3caca4-1648-49dc-9d58-90dc240556cf",
+          "lane": "video",
+          "operation": "video_edit",
+          "command": "나레이션·원본 오디오·BGM 합성",
+          "input": {
+            "file_name": "92674b05-abb0-4a7b-949f-ab7227586260_mix_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/92674b05-abb0-4a7b-949f-ab7227586260_mix_video.mp4",
+            "bytes": 115367,
+            "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+          },
+          "primary_output": {
+            "file_name": "narrated_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/narrated_video.mp4",
+            "bytes": 116472,
+            "sha256": "e7b85ae89ec8c9d7ee6c91a412dd62ad0df763fa22be574482cfeed04fca8ff4"
+          },
+          "outputs": [
+            {
+              "file_name": "narrated_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/narrated_video.mp4",
+              "bytes": 116472,
+              "sha256": "e7b85ae89ec8c9d7ee6c91a412dd62ad0df763fa22be574482cfeed04fca8ff4"
+            },
+            {
+              "file_name": "aae8edc4-56e5-49cb-9f6e-5e5dab2ffa18_mix_voice.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/aae8edc4-56e5-49cb-9f6e-5e5dab2ffa18_mix_voice.wav",
+              "bytes": 360470,
+              "sha256": "5d98ab997ea4fa0db961d1a0e183d600b7fb96d3ca8045e3fccf5bf826d024bf"
+            },
+            {
+              "file_name": "79aa4b34-3930-4f1a-8a04-67bd1c49c9ce_mix_background.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/79aa4b34-3930-4f1a-8a04-67bd1c49c9ce_mix_background.wav",
+              "bytes": 44178,
+              "sha256": "2323e5b605ee29574a76a293ee4274f32690edc1c32f6201643a81415a4c06f1"
+            }
+          ],
+          "runtime_result": {
+            "engine": "FFmpeg",
+            "model_inference": false,
+            "options": {
+              "narrationVolume": 1.0,
+              "originalVolume": 0.2,
+              "lengthPolicy": "extend_video",
+              "narration_job_id": "f454d33b-ac50-4fa3-9924-b242fd1779d6",
+              "backgroundVolume": 0.2,
+              "originalAudioIncluded": true
+            },
+            "duration_seconds": 4.086,
+            "video_codec": "h264",
+            "pixel_format": "yuv420p",
+            "audio_codec": "aac",
+            "human_hearing": "NOT_VERIFIED"
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "c2ffb1f3-25f0-42a5-9582-37dbcd148e65"
+        }
+      ],
+      "attempts": [
+        {
+          "step_id": "2aff3730-6496-402b-9e54-350f6067eab9",
+          "attempt": 1,
+          "started_at": 1792291565.169375,
+          "state": "SUCCEEDED",
+          "worker_pid": 474,
+          "finished_at": 1792291567.5388525,
+          "returncode": 0
+        },
+        {
+          "step_id": "9f1a8a6b-9b59-40e1-be73-d99e4a686ce3",
+          "attempt": 1,
+          "started_at": 1792291567.542091,
+          "state": "SUCCEEDED",
+          "worker_pid": 511,
+          "finished_at": 1792291568.2022257,
+          "returncode": 0
+        }
+      ],
+      "created_at": 1792291565.1172843,
+      "current_step": 1,
+      "input_record": {
+        "status": "TESTED_PASS",
+        "job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+        "lane": "video",
+        "operation": "import",
+        "original_filename": "input.mp4",
+        "command": "원본 불러오기",
+        "input": {
+          "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+          "bytes": 117376,
+          "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+        },
+        "primary_output": {
+          "file_name": "original_video_preview.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+          "bytes": 115367,
+          "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+        },
+        "outputs": [
+          {
+            "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+            "bytes": 117376,
+            "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+          },
+          {
+            "file_name": "original_video_preview.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+            "bytes": 115367,
+            "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+          }
+        ],
+        "runtime_result": {
+          "result_size": [
+            320,
+            180
+          ],
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4"
+      },
+      "plan_receipt": {
+        "plan_source": "STRUCTURED_USER_PLAN_NOT_GENERATIVE"
+      },
+      "base_records": [],
+      "previous_project": null,
+      "previous_project_sha256": null,
+      "previous_project_raw": null,
+      "updated_at": 1792291568.257468,
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "dd3caca4-1648-49dc-9d58-90dc240556cf",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "나레이션·원본 오디오·BGM 합성",
+        "input": {
+          "file_name": "92674b05-abb0-4a7b-949f-ab7227586260_mix_video.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/92674b05-abb0-4a7b-949f-ab7227586260_mix_video.mp4",
+          "bytes": 115367,
+          "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+        },
+        "primary_output": {
+          "file_name": "narrated_video.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/narrated_video.mp4",
+          "bytes": 116472,
+          "sha256": "e7b85ae89ec8c9d7ee6c91a412dd62ad0df763fa22be574482cfeed04fca8ff4"
+        },
+        "outputs": [
+          {
+            "file_name": "narrated_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/narrated_video.mp4",
+            "bytes": 116472,
+            "sha256": "e7b85ae89ec8c9d7ee6c91a412dd62ad0df763fa22be574482cfeed04fca8ff4"
+          },
+          {
+            "file_name": "aae8edc4-56e5-49cb-9f6e-5e5dab2ffa18_mix_voice.wav",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/aae8edc4-56e5-49cb-9f6e-5e5dab2ffa18_mix_voice.wav",
+            "bytes": 360470,
+            "sha256": "5d98ab997ea4fa0db961d1a0e183d600b7fb96d3ca8045e3fccf5bf826d024bf"
+          },
+          {
+            "file_name": "79aa4b34-3930-4f1a-8a04-67bd1c49c9ce_mix_background.wav",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/c2ffb1f3-25f0-42a5-9582-37dbcd148e65/01-1/sealed/dd3caca4-1648-49dc-9d58-90dc240556cf/79aa4b34-3930-4f1a-8a04-67bd1c49c9ce_mix_background.wav",
+            "bytes": 44178,
+            "sha256": "2323e5b605ee29574a76a293ee4274f32690edc1c32f6201643a81415a4c06f1"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "model_inference": false,
+          "options": {
+            "narrationVolume": 1.0,
+            "originalVolume": 0.2,
+            "lengthPolicy": "extend_video",
+            "narration_job_id": "f454d33b-ac50-4fa3-9924-b242fd1779d6",
+            "backgroundVolume": 0.2,
+            "originalAudioIncluded": true
+          },
+          "duration_seconds": 4.086,
+          "video_codec": "h264",
+          "pixel_format": "yuv420p",
+          "audio_codec": "aac",
+          "human_hearing": "NOT_VERIFIED"
+        },
+        "sealed_artifacts": true,
+        "workflow_id": "c2ffb1f3-25f0-42a5-9582-37dbcd148e65"
+      },
+      "finished_at": 1792291568.2574642
+    },
+    {
+      "input_job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+      "input_sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de",
+      "steps": [
+        {
+          "operation": "mix_narration",
+          "voice_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+          "volume": 0.5,
+          "original_volume": 1,
+          "length_policy": "reject",
+          "step_id": "4bc89ec8-48f1-40c7-b907-d5a31d57e730"
+        }
+      ],
+      "workspace": {
+        "schema": "MINDLE_WORKSPACE_ASSETS_V1",
+        "references": {
+          "photo": [
+            {
+              "file_name": "b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/workspace-inputs/projects/4de7ad5d-b91f-4e8e-b232-e32d7515c900_assets/b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png",
+              "bytes": 110,
+              "sha256": "b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9",
+              "original_filename": "reference.png",
+              "mime_type": "image/png"
+            }
+          ],
+          "video": []
+        },
+        "audio": null
+      },
+      "job_ids": [
+        "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+        "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+        "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+        "097a5077-cc7a-4356-ad11-3e437916c442"
+      ],
+      "background": null,
+      "project_id": "4de7ad5d-b91f-4e8e-b232-e32d7515c900",
+      "export": {
+        "status": "EXPORTED",
+        "project_id": "4de7ad5d-b91f-4e8e-b232-e32d7515c900",
+        "export": {
+          "file_name": "4de7ad5d-b91f-4e8e-b232-e32d7515c900_export.zip",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/commit/projects/4de7ad5d-b91f-4e8e-b232-e32d7515c900_export.zip",
+          "bytes": 1455512,
+          "sha256": "1f3825eab04321f89591a2d0515bcdc9096344c776aaf74b7c521f9f151e71b4"
+        }
+      },
+      "workflow_id": "2c8d2670-0c3a-4260-9219-79822ac3ba15",
+      "request_id": "0027f598-7957-419f-ab7e-fef96465b0a7",
+      "state": "SUCCEEDED",
+      "records": [
+        {
+          "status": "TESTED_PASS",
+          "job_id": "f381420d-d348-45ad-9623-ab179a8e2869",
+          "lane": "video",
+          "operation": "video_edit",
+          "command": "나레이션·원본 오디오·BGM 합성",
+          "input": {
+            "file_name": "436ab953-eeb6-4539-a98f-cb5dd4a27665_mix_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/436ab953-eeb6-4539-a98f-cb5dd4a27665_mix_video.mp4",
+            "bytes": 112040,
+            "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+          },
+          "primary_output": {
+            "file_name": "narrated_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/narrated_video.mp4",
+            "bytes": 110561,
+            "sha256": "7b6f79bcf5c050f80ac3cb01a815a2b463123598ef4b8127574d4f60f191f3f4"
+          },
+          "outputs": [
+            {
+              "file_name": "narrated_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/narrated_video.mp4",
+              "bytes": 110561,
+              "sha256": "7b6f79bcf5c050f80ac3cb01a815a2b463123598ef4b8127574d4f60f191f3f4"
+            },
+            {
+              "file_name": "54bb7a1e-b465-4f5b-bf7d-b028447908a7_mix_voice.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/54bb7a1e-b465-4f5b-bf7d-b028447908a7_mix_voice.wav",
+              "bytes": 249568,
+              "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+            }
+          ],
+          "runtime_result": {
+            "engine": "FFmpeg",
+            "model_inference": false,
+            "options": {
+              "brightness": 10,
+              "narrationVolume": 0.5,
+              "originalVolume": 1.0,
+              "lengthPolicy": "reject",
+              "narration_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+              "backgroundVolume": null,
+              "originalAudioIncluded": true
+            },
+            "duration_seconds": 4.04,
+            "video_codec": "h264",
+            "pixel_format": "yuv420p",
+            "audio_codec": "aac",
+            "human_hearing": "NOT_VERIFIED"
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "2c8d2670-0c3a-4260-9219-79822ac3ba15"
+        }
+      ],
+      "attempts": [
+        {
+          "step_id": "4bc89ec8-48f1-40c7-b907-d5a31d57e730",
+          "attempt": 1,
+          "started_at": 1792291563.65288,
+          "state": "SUCCEEDED",
+          "worker_pid": 376,
+          "finished_at": 1792291564.265544,
+          "returncode": 0
+        }
+      ],
+      "created_at": 1792291563.6480615,
+      "current_step": 0,
+      "input_record": {
+        "status": "TESTED_PASS",
+        "job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "순차 작업",
+        "input": {
+          "file_name": "69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+          "bytes": 115367,
+          "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+        },
+        "primary_output": {
+          "file_name": "edited_video.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+          "bytes": 112040,
+          "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+        },
+        "outputs": [
+          {
+            "file_name": "edited_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+            "bytes": 112040,
+            "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "options": {
+            "brightness": 10
+          },
+          "model_inference": false,
+          "sampled_frames": 0,
+          "analysis": null
+        },
+        "sealed_artifacts": true,
+        "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+      },
+      "plan_receipt": {
+        "plan_source": "STRUCTURED_USER_PLAN_NOT_GENERATIVE",
+        "steps": [
+          {
+            "operation": "mix_narration",
+            "voice_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+            "volume": 0.5,
+            "original_volume": 1,
+            "length_policy": "reject",
+            "step_id": "c9017f17-d769-4cad-91c2-065b602b9ee2"
+          }
+        ],
+        "plan_id": "8741c03e-b6b7-4654-9cb4-8fe8d17f901c",
+        "command_sha256": "76ac8655dda8794e20b29d20eb06d737d7073b87ae6c902389c29b2bd20fa0a3"
+      },
+      "base_records": [
+        {
+          "status": "TESTED_PASS",
+          "job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+          "lane": "video",
+          "operation": "import",
+          "original_filename": "input.mp4",
+          "command": "원본 불러오기",
+          "input": {
+            "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+            "bytes": 117376,
+            "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+          },
+          "primary_output": {
+            "file_name": "original_video_preview.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+            "bytes": 115367,
+            "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+          },
+          "outputs": [
+            {
+              "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+              "bytes": 117376,
+              "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+            },
+            {
+              "file_name": "original_video_preview.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+              "bytes": 115367,
+              "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+            }
+          ],
+          "runtime_result": {
+            "result_size": [
+              320,
+              180
+            ],
+            "model_inference": false,
+            "sampled_frames": 0
+          },
+          "preview_url": "/files/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4"
+        },
+        {
+          "status": "TESTED_PASS",
+          "job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+          "lane": "video",
+          "operation": "video_edit",
+          "command": "순차 작업",
+          "input": {
+            "file_name": "69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+            "bytes": 115367,
+            "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+          },
+          "primary_output": {
+            "file_name": "edited_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+            "bytes": 112040,
+            "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+          },
+          "outputs": [
+            {
+              "file_name": "edited_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+              "bytes": 112040,
+              "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+            }
+          ],
+          "runtime_result": {
+            "engine": "FFmpeg",
+            "options": {
+              "brightness": 10
+            },
+            "model_inference": false,
+            "sampled_frames": 0,
+            "analysis": null
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+        },
+        {
+          "status": "TESTED_PASS",
+          "job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+          "lane": "korean_audio",
+          "operation": "narration",
+          "command": "한국어 신경망 나레이션 생성",
+          "primary_output": {
+            "file_name": "narration.wav",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav",
+            "bytes": 249568,
+            "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+          },
+          "input": {
+            "file_name": "narration.txt",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt",
+            "bytes": 46,
+            "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a"
+          },
+          "outputs": [
+            {
+              "file_name": "narration.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav",
+              "bytes": 249568,
+              "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+            },
+            {
+              "file_name": "narration.txt",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt",
+              "bytes": 46,
+              "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a"
+            }
+          ],
+          "runtime_result": {
+            "engine": "sherpa-onnx / Supertonic 3",
+            "engine_version": "1.13.8",
+            "engine_license": "Apache-2.0",
+            "model_license": "OpenRAIL-M (model); MIT (upstream code)",
+            "model_revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+            "model_archive_sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427",
+            "voice_data_sha256": "56dd586123097a75024c304de344513e72100c967d66b71670ca3bceff1af130",
+            "runtime_sha256": "1c686b41ae4a423909e31e9c1303adda8d8c06615cfc09c8636cf6c4a00c6028",
+            "model_inference": true,
+            "synthesis": "local neural ONNX inference",
+            "text": "안녕하세요. 민들레 미디어입니다.",
+            "voice": "ko/sid0",
+            "sample_rate": 44100,
+            "channels": 1,
+            "duration_seconds": 2.8290702947845805,
+            "human_hearing": "NOT_VERIFIED",
+            "naturalness": "NOT_BENCHMARKED",
+            "base_video_job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823"
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+        },
+        {
+          "status": "TESTED_PASS",
+          "job_id": "097a5077-cc7a-4356-ad11-3e437916c442",
+          "lane": "video",
+          "operation": "video_edit",
+          "command": "나레이션·원본 오디오·BGM 합성",
+          "input": {
+            "file_name": "e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+            "bytes": 112040,
+            "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+          },
+          "primary_output": {
+            "file_name": "narrated_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+            "bytes": 110587,
+            "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc"
+          },
+          "outputs": [
+            {
+              "file_name": "narrated_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+              "bytes": 110587,
+              "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc"
+            },
+            {
+              "file_name": "281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+              "bytes": 249568,
+              "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+            }
+          ],
+          "runtime_result": {
+            "engine": "FFmpeg",
+            "model_inference": false,
+            "options": {
+              "brightness": 10,
+              "narrationVolume": 1.0,
+              "originalVolume": 1.0,
+              "lengthPolicy": "extend_video",
+              "narration_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+              "backgroundVolume": null,
+              "originalAudioIncluded": true
+            },
+            "duration_seconds": 4.04,
+            "video_codec": "h264",
+            "pixel_format": "yuv420p",
+            "audio_codec": "aac",
+            "human_hearing": "NOT_VERIFIED"
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+        }
+      ],
+      "previous_project": {
+        "project_id": "4de7ad5d-b91f-4e8e-b232-e32d7515c900",
+        "saved_at": "2026-10-18T02:46:03.229390+00:00",
+        "job_ids": [
+          "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+          "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+          "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+          "097a5077-cc7a-4356-ad11-3e437916c442"
+        ],
+        "jobs": [
+          {
+            "status": "TESTED_PASS",
+            "job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+            "lane": "video",
+            "operation": "import",
+            "original_filename": "input.mp4",
+            "command": "원본 불러오기",
+            "input": {
+              "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+              "bytes": 117376,
+              "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+            },
+            "primary_output": {
+              "file_name": "original_video_preview.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+              "bytes": 115367,
+              "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+            },
+            "outputs": [
+              {
+                "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+                "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+                "bytes": 117376,
+                "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+              },
+              {
+                "file_name": "original_video_preview.mp4",
+                "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+                "bytes": 115367,
+                "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+              }
+            ],
+            "runtime_result": {
+              "result_size": [
+                320,
+                180
+              ],
+              "model_inference": false,
+              "sampled_frames": 0
+            },
+            "preview_url": "/files/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4"
+          },
+          {
+            "status": "TESTED_PASS",
+            "job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+            "lane": "video",
+            "operation": "video_edit",
+            "command": "순차 작업",
+            "input": {
+              "file_name": "69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+              "bytes": 115367,
+              "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+            },
+            "primary_output": {
+              "file_name": "edited_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+              "bytes": 112040,
+              "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+            },
+            "outputs": [
+              {
+                "file_name": "edited_video.mp4",
+                "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+                "bytes": 112040,
+                "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+              }
+            ],
+            "runtime_result": {
+              "engine": "FFmpeg",
+              "options": {
+                "brightness": 10
+              },
+              "model_inference": false,
+              "sampled_frames": 0,
+              "analysis": null
+            },
+            "sealed_artifacts": true
+          },
+          {
+            "status": "TESTED_PASS",
+            "job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+            "lane": "korean_audio",
+            "operation": "narration",
+            "command": "한국어 신경망 나레이션 생성",
+            "primary_output": {
+              "file_name": "narration.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav",
+              "bytes": 249568,
+              "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+            },
+            "input": {
+              "file_name": "narration.txt",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt",
+              "bytes": 46,
+              "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a"
+            },
+            "outputs": [
+              {
+                "file_name": "narration.wav",
+                "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav",
+                "bytes": 249568,
+                "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+              },
+              {
+                "file_name": "narration.txt",
+                "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt",
+                "bytes": 46,
+                "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a"
+              }
+            ],
+            "runtime_result": {
+              "engine": "sherpa-onnx / Supertonic 3",
+              "engine_version": "1.13.8",
+              "engine_license": "Apache-2.0",
+              "model_license": "OpenRAIL-M (model); MIT (upstream code)",
+              "model_revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+              "model_archive_sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427",
+              "voice_data_sha256": "56dd586123097a75024c304de344513e72100c967d66b71670ca3bceff1af130",
+              "runtime_sha256": "1c686b41ae4a423909e31e9c1303adda8d8c06615cfc09c8636cf6c4a00c6028",
+              "model_inference": true,
+              "synthesis": "local neural ONNX inference",
+              "text": "안녕하세요. 민들레 미디어입니다.",
+              "voice": "ko/sid0",
+              "sample_rate": 44100,
+              "channels": 1,
+              "duration_seconds": 2.8290702947845805,
+              "human_hearing": "NOT_VERIFIED",
+              "naturalness": "NOT_BENCHMARKED",
+              "base_video_job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823"
+            },
+            "sealed_artifacts": true
+          },
+          {
+            "status": "TESTED_PASS",
+            "job_id": "097a5077-cc7a-4356-ad11-3e437916c442",
+            "lane": "video",
+            "operation": "video_edit",
+            "command": "나레이션·원본 오디오·BGM 합성",
+            "input": {
+              "file_name": "e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+              "bytes": 112040,
+              "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+            },
+            "primary_output": {
+              "file_name": "narrated_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+              "bytes": 110587,
+              "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc"
+            },
+            "outputs": [
+              {
+                "file_name": "narrated_video.mp4",
+                "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+                "bytes": 110587,
+                "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc"
+              },
+              {
+                "file_name": "281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+                "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+                "bytes": 249568,
+                "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+              }
+            ],
+            "runtime_result": {
+              "engine": "FFmpeg",
+              "model_inference": false,
+              "options": {
+                "brightness": 10,
+                "narrationVolume": 1.0,
+                "originalVolume": 1.0,
+                "lengthPolicy": "extend_video",
+                "narration_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+                "backgroundVolume": null,
+                "originalAudioIncluded": true
+              },
+              "duration_seconds": 4.04,
+              "video_codec": "h264",
+              "pixel_format": "yuv420p",
+              "audio_codec": "aac",
+              "human_hearing": "NOT_VERIFIED"
+            },
+            "sealed_artifacts": true
+          }
+        ],
+        "status": "SAVED",
+        "workspace": {
+          "schema": "MINDLE_WORKSPACE_ASSETS_V1",
+          "references": {
+            "photo": [
+              {
+                "file_name": "b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png",
+                "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/workspace-inputs/projects/4de7ad5d-b91f-4e8e-b232-e32d7515c900_assets/b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png",
+                "bytes": 110,
+                "sha256": "b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9",
+                "original_filename": "reference.png",
+                "mime_type": "image/png"
+              }
+            ],
+            "video": []
+          },
+          "audio": null
+        },
+        "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+      },
+      "previous_project_sha256": "9eae12fe66e54193045050445409dd85384d96b4e8c3d474f428ea378b3d244b",
+      "previous_project_raw": "{\"project_id\": \"4de7ad5d-b91f-4e8e-b232-e32d7515c900\", \"saved_at\": \"2026-10-18T02:46:03.229390+00:00\", \"job_ids\": [\"ddaef597-c6f3-4630-8db5-f8b60b11a98d\", \"7b6b6f26-879f-4dfe-ab8e-05fa1c731823\", \"28c5a922-40da-4f5d-95f5-c61570a8cbfa\", \"097a5077-cc7a-4356-ad11-3e437916c442\"], \"jobs\": [{\"status\": \"TESTED_PASS\", \"job_id\": \"ddaef597-c6f3-4630-8db5-f8b60b11a98d\", \"lane\": \"video\", \"operation\": \"import\", \"original_filename\": \"input.mp4\", \"command\": \"원본 불러오기\", \"input\": {\"file_name\": \"0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4\", \"bytes\": 117376, \"sha256\": \"c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7\"}, \"primary_output\": {\"file_name\": \"original_video_preview.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4\", \"bytes\": 115367, \"sha256\": \"8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e\"}, \"outputs\": [{\"file_name\": \"0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4\", \"bytes\": 117376, \"sha256\": \"c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7\"}, {\"file_name\": \"original_video_preview.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4\", \"bytes\": 115367, \"sha256\": \"8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e\"}], \"runtime_result\": {\"result_size\": [320, 180], \"model_inference\": false, \"sampled_frames\": 0}, \"preview_url\": \"/files/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4\"}, {\"status\": \"TESTED_PASS\", \"job_id\": \"7b6b6f26-879f-4dfe-ab8e-05fa1c731823\", \"lane\": \"video\", \"operation\": \"video_edit\", \"command\": \"순차 작업\", \"input\": {\"file_name\": \"69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4\", \"bytes\": 115367, \"sha256\": \"8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e\"}, \"primary_output\": {\"file_name\": \"edited_video.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4\", \"bytes\": 112040, \"sha256\": \"3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de\"}, \"outputs\": [{\"file_name\": \"edited_video.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4\", \"bytes\": 112040, \"sha256\": \"3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de\"}], \"runtime_result\": {\"engine\": \"FFmpeg\", \"options\": {\"brightness\": 10}, \"model_inference\": false, \"sampled_frames\": 0, \"analysis\": null}, \"sealed_artifacts\": true}, {\"status\": \"TESTED_PASS\", \"job_id\": \"28c5a922-40da-4f5d-95f5-c61570a8cbfa\", \"lane\": \"korean_audio\", \"operation\": \"narration\", \"command\": \"한국어 신경망 나레이션 생성\", \"primary_output\": {\"file_name\": \"narration.wav\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav\", \"bytes\": 249568, \"sha256\": \"9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9\"}, \"input\": {\"file_name\": \"narration.txt\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt\", \"bytes\": 46, \"sha256\": \"6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a\"}, \"outputs\": [{\"file_name\": \"narration.wav\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav\", \"bytes\": 249568, \"sha256\": \"9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9\"}, {\"file_name\": \"narration.txt\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt\", \"bytes\": 46, \"sha256\": \"6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a\"}], \"runtime_result\": {\"engine\": \"sherpa-onnx / Supertonic 3\", \"engine_version\": \"1.13.8\", \"engine_license\": \"Apache-2.0\", \"model_license\": \"OpenRAIL-M (model); MIT (upstream code)\", \"model_revision\": \"3cadd1ee6394adea1bd021217a0e650ede09a323\", \"model_archive_sha256\": \"82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427\", \"voice_data_sha256\": \"56dd586123097a75024c304de344513e72100c967d66b71670ca3bceff1af130\", \"runtime_sha256\": \"1c686b41ae4a423909e31e9c1303adda8d8c06615cfc09c8636cf6c4a00c6028\", \"model_inference\": true, \"synthesis\": \"local neural ONNX inference\", \"text\": \"안녕하세요. 민들레 미디어입니다.\", \"voice\": \"ko/sid0\", \"sample_rate\": 44100, \"channels\": 1, \"duration_seconds\": 2.8290702947845805, \"human_hearing\": \"NOT_VERIFIED\", \"naturalness\": \"NOT_BENCHMARKED\", \"base_video_job_id\": \"7b6b6f26-879f-4dfe-ab8e-05fa1c731823\"}, \"sealed_artifacts\": true}, {\"status\": \"TESTED_PASS\", \"job_id\": \"097a5077-cc7a-4356-ad11-3e437916c442\", \"lane\": \"video\", \"operation\": \"video_edit\", \"command\": \"나레이션·원본 오디오·BGM 합성\", \"input\": {\"file_name\": \"e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4\", \"bytes\": 112040, \"sha256\": \"3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de\"}, \"primary_output\": {\"file_name\": \"narrated_video.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4\", \"bytes\": 110587, \"sha256\": \"a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc\"}, \"outputs\": [{\"file_name\": \"narrated_video.mp4\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4\", \"bytes\": 110587, \"sha256\": \"a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc\"}, {\"file_name\": \"281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav\", \"bytes\": 249568, \"sha256\": \"9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9\"}], \"runtime_result\": {\"engine\": \"FFmpeg\", \"model_inference\": false, \"options\": {\"brightness\": 10, \"narrationVolume\": 1.0, \"originalVolume\": 1.0, \"lengthPolicy\": \"extend_video\", \"narration_job_id\": \"28c5a922-40da-4f5d-95f5-c61570a8cbfa\", \"backgroundVolume\": null, \"originalAudioIncluded\": true}, \"duration_seconds\": 4.04, \"video_codec\": \"h264\", \"pixel_format\": \"yuv420p\", \"audio_codec\": \"aac\", \"human_hearing\": \"NOT_VERIFIED\"}, \"sealed_artifacts\": true}], \"status\": \"SAVED\", \"workspace\": {\"schema\": \"MINDLE_WORKSPACE_ASSETS_V1\", \"references\": {\"photo\": [{\"file_name\": \"b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png\", \"path\": \"/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/workspace-inputs/projects/4de7ad5d-b91f-4e8e-b232-e32d7515c900_assets/b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png\", \"bytes\": 110, \"sha256\": \"b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9\", \"original_filename\": \"reference.png\", \"mime_type\": \"image/png\"}], \"video\": []}, \"audio\": null}, \"workflow_id\": \"f45ab67b-55a6-48e5-a528-d63569b09d95\"}",
+      "updated_at": 1792291564.3313491,
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "f381420d-d348-45ad-9623-ab179a8e2869",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "나레이션·원본 오디오·BGM 합성",
+        "input": {
+          "file_name": "436ab953-eeb6-4539-a98f-cb5dd4a27665_mix_video.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/436ab953-eeb6-4539-a98f-cb5dd4a27665_mix_video.mp4",
+          "bytes": 112040,
+          "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+        },
+        "primary_output": {
+          "file_name": "narrated_video.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/narrated_video.mp4",
+          "bytes": 110561,
+          "sha256": "7b6f79bcf5c050f80ac3cb01a815a2b463123598ef4b8127574d4f60f191f3f4"
+        },
+        "outputs": [
+          {
+            "file_name": "narrated_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/narrated_video.mp4",
+            "bytes": 110561,
+            "sha256": "7b6f79bcf5c050f80ac3cb01a815a2b463123598ef4b8127574d4f60f191f3f4"
+          },
+          {
+            "file_name": "54bb7a1e-b465-4f5b-bf7d-b028447908a7_mix_voice.wav",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/2c8d2670-0c3a-4260-9219-79822ac3ba15/00-1/sealed/f381420d-d348-45ad-9623-ab179a8e2869/54bb7a1e-b465-4f5b-bf7d-b028447908a7_mix_voice.wav",
+            "bytes": 249568,
+            "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "model_inference": false,
+          "options": {
+            "brightness": 10,
+            "narrationVolume": 0.5,
+            "originalVolume": 1.0,
+            "lengthPolicy": "reject",
+            "narration_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+            "backgroundVolume": null,
+            "originalAudioIncluded": true
+          },
+          "duration_seconds": 4.04,
+          "video_codec": "h264",
+          "pixel_format": "yuv420p",
+          "audio_codec": "aac",
+          "human_hearing": "NOT_VERIFIED"
+        },
+        "sealed_artifacts": true,
+        "workflow_id": "2c8d2670-0c3a-4260-9219-79822ac3ba15"
+      },
+      "finished_at": 1792291564.3313444
+    },
+    {
+      "input_job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+      "input_sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e",
+      "steps": [
+        {
+          "operation": "video_edit",
+          "options": {
+            "brightness": 10
+          },
+          "step_id": "027ee1bc-bd00-4ad9-b9fa-d2f9eb9afd95"
+        },
+        {
+          "operation": "narrate",
+          "text": "안녕하세요. 민들레 미디어입니다.",
+          "step_id": "f91244cb-4781-42db-a08e-78669a3c52f6"
+        },
+        {
+          "operation": "mix_narration",
+          "length_policy": "extend_video",
+          "step_id": "5362fcd1-c4be-4f54-8795-72ee92411dc0"
+        }
+      ],
+      "workspace": {
+        "schema": "MINDLE_WORKSPACE_ASSETS_V1",
+        "references": {
+          "photo": [
+            {
+              "file_name": "b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/workspace-inputs/projects/4de7ad5d-b91f-4e8e-b232-e32d7515c900_assets/b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png",
+              "bytes": 110,
+              "sha256": "b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9",
+              "original_filename": "reference.png",
+              "mime_type": "image/png"
+            }
+          ],
+          "video": []
+        },
+        "audio": null
+      },
+      "job_ids": [
+        "ddaef597-c6f3-4630-8db5-f8b60b11a98d"
+      ],
+      "background": null,
+      "project_id": "4de7ad5d-b91f-4e8e-b232-e32d7515c900",
+      "export": {
+        "status": "EXPORTED",
+        "project_id": "4de7ad5d-b91f-4e8e-b232-e32d7515c900",
+        "export": {
+          "file_name": "4de7ad5d-b91f-4e8e-b232-e32d7515c900_export.zip",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/commit/projects/4de7ad5d-b91f-4e8e-b232-e32d7515c900_export.zip",
+          "bytes": 1088476,
+          "sha256": "2b63ce25734c4b86d69aad5f22e627568bd1696eab2bc0b8148b98feea3040e0"
+        }
+      },
+      "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95",
+      "request_id": "704e0b38-4612-49c7-aea7-6c2f3e75fe55",
+      "state": "SUCCEEDED",
+      "records": [
+        {
+          "status": "TESTED_PASS",
+          "job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823",
+          "lane": "video",
+          "operation": "video_edit",
+          "command": "순차 작업",
+          "input": {
+            "file_name": "69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/69acac02-e237-4fa5-865b-a4f5c26a7dc2_original_video_preview.mp4",
+            "bytes": 115367,
+            "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+          },
+          "primary_output": {
+            "file_name": "edited_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+            "bytes": 112040,
+            "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+          },
+          "outputs": [
+            {
+              "file_name": "edited_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/00-1/sealed/7b6b6f26-879f-4dfe-ab8e-05fa1c731823/edited_video.mp4",
+              "bytes": 112040,
+              "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+            }
+          ],
+          "runtime_result": {
+            "engine": "FFmpeg",
+            "options": {
+              "brightness": 10
+            },
+            "model_inference": false,
+            "sampled_frames": 0,
+            "analysis": null
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+        },
+        {
+          "status": "TESTED_PASS",
+          "job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+          "lane": "korean_audio",
+          "operation": "narration",
+          "command": "한국어 신경망 나레이션 생성",
+          "primary_output": {
+            "file_name": "narration.wav",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav",
+            "bytes": 249568,
+            "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+          },
+          "input": {
+            "file_name": "narration.txt",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt",
+            "bytes": 46,
+            "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a"
+          },
+          "outputs": [
+            {
+              "file_name": "narration.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav",
+              "bytes": 249568,
+              "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+            },
+            {
+              "file_name": "narration.txt",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.txt",
+              "bytes": 46,
+              "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a"
+            }
+          ],
+          "runtime_result": {
+            "engine": "sherpa-onnx / Supertonic 3",
+            "engine_version": "1.13.8",
+            "engine_license": "Apache-2.0",
+            "model_license": "OpenRAIL-M (model); MIT (upstream code)",
+            "model_revision": "3cadd1ee6394adea1bd021217a0e650ede09a323",
+            "model_archive_sha256": "82fa96f91c4ef8abaae3a14a3f4153facf88bed821d1f7331cec2700f432c427",
+            "voice_data_sha256": "56dd586123097a75024c304de344513e72100c967d66b71670ca3bceff1af130",
+            "runtime_sha256": "1c686b41ae4a423909e31e9c1303adda8d8c06615cfc09c8636cf6c4a00c6028",
+            "model_inference": true,
+            "synthesis": "local neural ONNX inference",
+            "text": "안녕하세요. 민들레 미디어입니다.",
+            "voice": "ko/sid0",
+            "sample_rate": 44100,
+            "channels": 1,
+            "duration_seconds": 2.8290702947845805,
+            "human_hearing": "NOT_VERIFIED",
+            "naturalness": "NOT_BENCHMARKED",
+            "base_video_job_id": "7b6b6f26-879f-4dfe-ab8e-05fa1c731823"
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+        },
+        {
+          "status": "TESTED_PASS",
+          "job_id": "097a5077-cc7a-4356-ad11-3e437916c442",
+          "lane": "video",
+          "operation": "video_edit",
+          "command": "나레이션·원본 오디오·BGM 합성",
+          "input": {
+            "file_name": "e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+            "bytes": 112040,
+            "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+          },
+          "primary_output": {
+            "file_name": "narrated_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+            "bytes": 110587,
+            "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc"
+          },
+          "outputs": [
+            {
+              "file_name": "narrated_video.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+              "bytes": 110587,
+              "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc"
+            },
+            {
+              "file_name": "281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+              "bytes": 249568,
+              "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+            }
+          ],
+          "runtime_result": {
+            "engine": "FFmpeg",
+            "model_inference": false,
+            "options": {
+              "brightness": 10,
+              "narrationVolume": 1.0,
+              "originalVolume": 1.0,
+              "lengthPolicy": "extend_video",
+              "narration_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+              "backgroundVolume": null,
+              "originalAudioIncluded": true
+            },
+            "duration_seconds": 4.04,
+            "video_codec": "h264",
+            "pixel_format": "yuv420p",
+            "audio_codec": "aac",
+            "human_hearing": "NOT_VERIFIED"
+          },
+          "sealed_artifacts": true,
+          "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+        }
+      ],
+      "attempts": [
+        {
+          "step_id": "027ee1bc-bd00-4ad9-b9fa-d2f9eb9afd95",
+          "attempt": 1,
+          "started_at": 1792291559.6302605,
+          "state": "SUCCEEDED",
+          "worker_pid": 234,
+          "finished_at": 1792291560.0888362,
+          "returncode": 0
+        },
+        {
+          "step_id": "f91244cb-4781-42db-a08e-78669a3c52f6",
+          "attempt": 1,
+          "started_at": 1792291560.0920181,
+          "state": "SUCCEEDED",
+          "worker_pid": 285,
+          "finished_at": 1792291562.5624948,
+          "returncode": 0
+        },
+        {
+          "step_id": "5362fcd1-c4be-4f54-8795-72ee92411dc0",
+          "attempt": 1,
+          "started_at": 1792291562.5660565,
+          "state": "SUCCEEDED",
+          "worker_pid": 306,
+          "finished_at": 1792291563.2246397,
+          "returncode": 0
+        }
+      ],
+      "created_at": 1792291559.619179,
+      "current_step": 2,
+      "input_record": {
+        "status": "TESTED_PASS",
+        "job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+        "lane": "video",
+        "operation": "import",
+        "original_filename": "input.mp4",
+        "command": "원본 불러오기",
+        "input": {
+          "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+          "bytes": 117376,
+          "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+        },
+        "primary_output": {
+          "file_name": "original_video_preview.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+          "bytes": 115367,
+          "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+        },
+        "outputs": [
+          {
+            "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+            "bytes": 117376,
+            "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+          },
+          {
+            "file_name": "original_video_preview.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+            "bytes": 115367,
+            "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+          }
+        ],
+        "runtime_result": {
+          "result_size": [
+            320,
+            180
+          ],
+          "model_inference": false,
+          "sampled_frames": 0
+        },
+        "preview_url": "/files/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4"
+      },
+      "plan_receipt": {
+        "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+        "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+        "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+        "license": "Apache-2.0",
+        "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+        "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+        "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+        "raw_response_sha256": "a324c6bb66871ca4ceaac06085bcda726be2af3aa5af8b8c34d2f44180207c89",
+        "steps": [
+          {
+            "operation": "video_edit",
+            "options": {
+              "brightness": 10
+            },
+            "step_id": "7cb146f4-2d92-4cc8-858c-f6a3d7daaa44"
+          },
+          {
+            "operation": "narrate",
+            "text": "안녕하세요. 민들레 미디어입니다.",
+            "step_id": "eca46333-fc0e-4ac2-833d-06e6f714a66c"
+          },
+          {
+            "operation": "mix_narration",
+            "length_policy": "extend_video",
+            "step_id": "2df2c03c-adc0-4fa7-ab7b-e7cfe8cc3597"
+          }
+        ],
+        "plan_id": "00a8d0ad-9e95-4b87-96f8-a76fffbe6b33",
+        "command_sha256": "932c79b7b6d45a570de8671b34bca567113fdc6f6d5bf071d839de84e8a293ee"
+      },
+      "base_records": [
+        {
+          "status": "TESTED_PASS",
+          "job_id": "ddaef597-c6f3-4630-8db5-f8b60b11a98d",
+          "lane": "video",
+          "operation": "import",
+          "original_filename": "input.mp4",
+          "command": "원본 불러오기",
+          "input": {
+            "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+            "bytes": 117376,
+            "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+          },
+          "primary_output": {
+            "file_name": "original_video_preview.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+            "bytes": 115367,
+            "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+          },
+          "outputs": [
+            {
+              "file_name": "0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/inputs/0a8646bd-4ec8-4413-b4cb-b5cd2885287f_input.mp4",
+              "bytes": 117376,
+              "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7"
+            },
+            {
+              "file_name": "original_video_preview.mp4",
+              "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4",
+              "bytes": 115367,
+              "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e"
+            }
+          ],
+          "runtime_result": {
+            "result_size": [
+              320,
+              180
+            ],
+            "model_inference": false,
+            "sampled_frames": 0
+          },
+          "preview_url": "/files/jobs/ddaef597-c6f3-4630-8db5-f8b60b11a98d/original_video_preview.mp4"
+        }
+      ],
+      "previous_project": null,
+      "previous_project_sha256": null,
+      "previous_project_raw": null,
+      "updated_at": 1792291563.2740958,
+      "result": {
+        "status": "TESTED_PASS",
+        "job_id": "097a5077-cc7a-4356-ad11-3e437916c442",
+        "lane": "video",
+        "operation": "video_edit",
+        "command": "나레이션·원본 오디오·BGM 합성",
+        "input": {
+          "file_name": "e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/e5d9f7f9-c7f2-464f-ba3e-733eeed7512f_mix_video.mp4",
+          "bytes": 112040,
+          "sha256": "3138bdf083e947f4c66cc6a5dcef4d2e610e2b3861cc8054c1498f9bb489b7de"
+        },
+        "primary_output": {
+          "file_name": "narrated_video.mp4",
+          "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+          "bytes": 110587,
+          "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc"
+        },
+        "outputs": [
+          {
+            "file_name": "narrated_video.mp4",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/narrated_video.mp4",
+            "bytes": 110587,
+            "sha256": "a6fbd6e435df1d4e999b5bc70f03bc2a5a654b886b39a2f68016a761eb7737cc"
+          },
+          {
+            "file_name": "281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+            "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/local-engines-closeout-r2/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/02-1/sealed/097a5077-cc7a-4356-ad11-3e437916c442/281cec0c-ad20-43f9-a276-c912a4246575_mix_voice.wav",
+            "bytes": 249568,
+            "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9"
+          }
+        ],
+        "runtime_result": {
+          "engine": "FFmpeg",
+          "model_inference": false,
+          "options": {
+            "brightness": 10,
+            "narrationVolume": 1.0,
+            "originalVolume": 1.0,
+            "lengthPolicy": "extend_video",
+            "narration_job_id": "28c5a922-40da-4f5d-95f5-c61570a8cbfa",
+            "backgroundVolume": null,
+            "originalAudioIncluded": true
+          },
+          "duration_seconds": 4.04,
+          "video_codec": "h264",
+          "pixel_format": "yuv420p",
+          "audio_codec": "aac",
+          "human_hearing": "NOT_VERIFIED"
+        },
+        "sealed_artifacts": true,
+        "workflow_id": "f45ab67b-55a6-48e5-a528-d63569b09d95"
+      },
+      "finished_at": 1792291563.274092
+    }
+  ]
+}

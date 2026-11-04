@@ -1,0 +1,7 @@
+{
+  "video_controls_present": ["load", "ai-auto-edit", "shortform-mode", "save", "export", "reference", "timeline"],
+  "photo_controls_present": ["load", "ai-image-generation", "save", "export", "reference", "before-after", "batch", "correction"],
+  "automated_result": "ui_and_bridge_tests_passed",
+  "runtime_result": "visual_shell_loaded"
+}
+

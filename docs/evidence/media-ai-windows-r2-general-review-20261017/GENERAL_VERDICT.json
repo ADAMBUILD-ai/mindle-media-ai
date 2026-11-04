@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-17",
+  "handoff_commit": "bfd08648213f79c980c6e749a990222c955645b5",
+  "source_fix_commit": "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
+  "status": "PARTIAL_PRODUCT_ACCEPTANCE_SOURCE_REPAIRS_VERIFIED",
+  "independent_readback": {
+    "transport_objects": 109,
+    "original_manifest_files": 92,
+    "zip_reconstructions": 3,
+    "all_hash_crc_pass": true,
+    "c37_export_manifest_files_checked": 129
+  },
+  "chrome_six": {
+    "status": "PASS_ACCEPTED_ORIGINAL_EVIDENCE",
+    "executed_source": "ef56f956db5cdaf9e9dd455a5a8c065ce4f15a56",
+    "two_executed_controllers_match_after_crlf_normalization": true,
+    "not_new_six_case_rerun": true
+  },
+  "c37_office": {
+    "exe_launch": "PASS_BOUNDED",
+    "save_reopen_export": "PASS_BOUNDED_NOT_COLD_RESTART",
+    "player_display_progress_seek": "PASS_ACCEPTED_ORIGINAL_EVIDENCE",
+    "human_hearing": "UNCONFIRMED_OWNER_RESPONSE",
+    "full_server_restart": "BLOCKED_EXACT_PID_AND_STOP_NOT_AVAILABLE_IN_C37"
+  },
+  "deploy_lock": {
+    "cli": "FILE_OPEN_ERRNO13_IN_RESTRICTED_CONTEXT",
+    "native": "BYTE_LOCK_TIMEOUT_AFTER_DUPLICATE_LAUNCH",
+    "r9": "ORIGINAL_TRACE_ALSO_DEPLOY_LOCK_BYTE_LOCK_TIMEOUT",
+    "owner_of_byte_lock": "NOT_CONFIRMED",
+    "acl_or_stale_lock_defect": "NOT_PROVEN",
+    "bootstrap_changed": false
+  },
+  "new_source": {
+    "normal_owner_stop_and_self_pid": "PASS_REAL_SOURCE_SUBPROCESS_RESTART_REOPEN_EXPORT",
+    "ui_asset_density": "PASS_BOUNDED_LIBRARY_AND_SCROLL_ACCESS_LINUX_CHROMIUM",
+    "canonical_1536_1024": "DENSE_PANEL_BOTTOM_1086_TO_885_SAME_FONT",
+    "low_1366_768": "ACCESSIBLE_WITH_PAGE_SCROLL_NOT_ALL_CONTROLS_SIMULTANEOUSLY_IN_VIEW",
+    "exact_windows_ui_approval": false,
+    "candidate_contains_new_repairs": false
+  },
+  "regression": {
+    "python_pass": 46,
+    "python_skipped_native_windows": 2,
+    "python_fail": 0,
+    "node_pass": 10,
+    "new_model_inference": 0,
+    "commands": [
+      "pytest -q tests/test_runtime_owner_lifecycle.py tests/test_product_server_paths.py tests/test_general_work_gaps.py tests/test_workspace_assets.py tests/test_launcher_lock_lifecycle.py tests/test_export_atomicity.py tests/test_export_project_dependencies.py tests/test_agent_execution_order.py",
+      "node --test ui/*.test.js",
+      "python scripts/check_owner_runtime_lifecycle.py --root . --out docs/evidence/media-ai-windows-r2-general-review-20261017"
+    ]
+  },
+  "r9_large_original_zip": "INDEX_HASH_ONLY_272MB_ZIP_NOT_ACQUIRED",
+  "package_build_allowed": false,
+  "owner_pc_runtime_pass": false,
+  "final_product_pass": false,
+  "openai_connected": false,
+  "marketing_avora": "DEFERRED_EXTERNAL",
+  "pr23": "HOLD_DO_NOT_MERGE"
+}

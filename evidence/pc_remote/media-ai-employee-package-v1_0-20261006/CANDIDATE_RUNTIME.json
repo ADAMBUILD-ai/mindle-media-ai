@@ -1,0 +1,13 @@
+{
+  "candidate_only": true,
+  "dependency_conflicts": [
+    "openvino: numpy<2.3.0,>=1.16.6; observed 2.4.6"
+  ],
+  "cpu_variant_change": "2.14.0+cu126 -> 2.14.0+cpu",
+  "numpy_change": null,
+  "wheel_hashes": {
+    "torch-2.14.0+cpu-cp311-cp311-win_amd64.whl": "8e2c47c6556c7d5a85848634372bb2252907d411e9cad669c99406856d536eb5",
+    "openvino-2025.1.0-18503-cp311-cp311-win_amd64.whl": "a58dcd786287fb506f87f622f21df88df7e569970e69896dfb2aeba805a47290",
+    "openvino_telemetry-2023.2.1-py3-none-any.whl": "496340f94d470dcec9d8b70b7f66097f71134ca1138b22e3a6d68d2cf3e10de2"
+  }
+}

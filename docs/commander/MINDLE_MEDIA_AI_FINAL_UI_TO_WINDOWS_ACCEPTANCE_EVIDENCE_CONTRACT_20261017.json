@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-17",
+  "parent_source": "40de8cac09a8546e9a56121061c0d016f1515cb1",
+  "source": "same commit as this contract",
+  "approved_reference_sha256": "cfeed43d4864dfe4cc1505dbb37d1ac44871d51cd10907f27cb2abe3694ae339",
+  "package_build_allowed": false,
+  "office_windows_executed": false,
+  "final_ui_match": "FAIL",
+  "final_product_pass": false,
+  "pr23": "HOLD_DO_NOT_MERGE",
+  "required": [
+    "resolved approved visual deltas",
+    "valid follow-up candidate build authorization",
+    "source/EXE/manifest/ZIP SHA256 readback",
+    "own PID/instance before stop",
+    "PID gone and endpoint unavailable",
+    "new EXE PID/instance",
+    "same project_id and restored asset hashes",
+    "Export CRC/manifest/MP4",
+    "installed player version,display,seek,independent human hearing"
+  ],
+  "evidence": "docs/evidence/media-ai-final-ui-runtime-20261017/RESULT_KO.md"
+}

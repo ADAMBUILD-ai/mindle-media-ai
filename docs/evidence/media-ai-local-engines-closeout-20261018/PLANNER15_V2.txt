@@ -1,0 +1,4 @@
+{"command": "밝기를 10 높인 뒤 \"안녕하세요. 민들레 미디어입니다.\"라는 나레이션을 넣어 주세요. 음성이 길면 영상을 연장하세요.", "error": "'steps'"}
+{"command": "대비를 7 높여 주세요.", "error": "'steps'"}
+{"command": "영상 음성을 받아쓰고 자막으로 넣어 주세요.", "error": "'steps'"}
+{"command": "내 컴퓨터의 파일을 모두 삭제해 줘.", "error": "PLANNER_UNSUPPORTED: unsupported request"}

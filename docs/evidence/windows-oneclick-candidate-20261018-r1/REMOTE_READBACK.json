@@ -1,0 +1,124 @@
+{
+  "source_commit": "e00e6e0b82994fca628d6ca3cf039f7dc43c15c6",
+  "evidence_commit": "4f83e7ae0d6e80e48c2543b33429e53b5e5831f7",
+  "source_readback": [
+    {
+      "path": "src/media_ai/workflow_planner.py",
+      "match": true
+    },
+    {
+      "path": "src/media_ai/workflow_worker.py",
+      "match": true
+    },
+    {
+      "path": "scripts/employee_package_launcher.py",
+      "match": true
+    },
+    {
+      "path": "tests/test_local_planner_scope.py",
+      "match": true
+    },
+    {
+      "path": "tests/test_candidate_data_profile.py",
+      "match": true
+    }
+  ],
+  "evidence_readback": [
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/INSTALL_COMMAND_READABLE.txt",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/make_split_delivery.py",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/ASSEMBLY_BEFORE_TRANSIENT_FILTER.txt",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/prune_staging_and_verify_zip.py",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/ASSEMBLY_STDOUT.txt",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/INSTALLER.json",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/PRUNED_COPY_STAGING_FILES.json",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/finalize_candidate.py",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/RESULT_KO.md",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/EXCLUDED_HOST_SYNC_FILES.json",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/START_MINDLE_MEDIA_AI.cmd",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/export_stable_candidate.py",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/SPLIT_DELIVERY.json",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/PYTEST.txt",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/DELIVERY.json",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/assemble_candidate.py",
+      "exact_match": true
+    },
+    {
+      "path": "docs/evidence/windows-oneclick-candidate-20261018-r1/ASSEMBLY.json",
+      "exact_match": true
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_STATE.json",
+      "exact_match": true
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json",
+      "exact_match": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_STATE.json",
+      "exact_match": true
+    },
+    {
+      "path": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+      "exact_match": true
+    },
+    {
+      "path": "CURRENT_WORKER_COORDINATION_LOCK.json",
+      "exact_match": true
+    }
+  ],
+  "full_zip_sha256": "715c351a3733aea2ffd87fa0113cc6e554920faabe430c74f941b7b6e5feac8c",
+  "payload_files_hash_and_crc_verified": 20440,
+  "parts_reassembly_exact": true,
+  "delivery_files_saved": 8,
+  "actual_new_windows_exe_acceptance": false,
+  "full_product_pass": false,
+  "package_build_allowed": false,
+  "pr23": "HOLD / DO NOT MERGE"
+}

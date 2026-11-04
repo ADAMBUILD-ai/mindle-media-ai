@@ -1,0 +1,78 @@
+{
+  "CHECK_SELECTION.json": {
+    "bytes": 4937,
+    "sha256": "064bc4e42dcb8b9370b7e93a77a677649e4ed952304d017dc071097770186ee8"
+  },
+  "CURRENT_CHECK.json": {
+    "bytes": 1878,
+    "sha256": "ba7c7f42bc613051b461a2aac09273e37f0ed5eff5d8618d4fad4b9786c4ab3f"
+  },
+  "EXACT_BYTES_TESTS.log": {
+    "bytes": 99,
+    "sha256": "b2bb7c736fd764c58b5c084c02be00c2655a150d19312641f7648c97349df7df"
+  },
+  "GENERAL_CONTROL.log": {
+    "bytes": 258,
+    "sha256": "f863bd6934008ba0d1d9ca6b42635f3d81dd7d730352386f8d08e672b6cca087"
+  },
+  "LOCAL_PYTHON.log": {
+    "bytes": 512,
+    "sha256": "0b1cc5afdc63bf117c161c2eec35ed379c72b3d57f52c57fbb62e633dce24d1b"
+  },
+  "LOCAL_UI.log": {
+    "bytes": 2713,
+    "sha256": "f3132e0832047b6fdea3aaa065416d6a199675eceee9138faaa595e2bb6fbe8e"
+  },
+  "PC_CONTROL.log": {
+    "bytes": 209,
+    "sha256": "05335cc952f4ecf382cb4084342bb354e3f8b1f9dbbb88a62ae23ac731d78b70"
+  },
+  "PREFLIGHT.json": {
+    "bytes": 1878,
+    "sha256": "ba7c7f42bc613051b461a2aac09273e37f0ed5eff5d8618d4fad4b9786c4ab3f"
+  },
+  "REMOTE_GENERAL_GATE.log": {
+    "bytes": 258,
+    "sha256": "f863bd6934008ba0d1d9ca6b42635f3d81dd7d730352386f8d08e672b6cca087"
+  },
+  "REMOTE_REGRESSION.log": {
+    "bytes": 512,
+    "sha256": "b2eec4b577ef572da76d282d22b80b0992bb325ceae8d8c3fad4a56fdf0b6681"
+  },
+  "REMOTE_RUNTIME_RECEIPT.json": {
+    "bytes": 37462,
+    "sha256": "b1fb7929d48c4c1c9c8f1eee6bd683b3fba3d02c69e210dc45e0e1e0c1322e20"
+  },
+  "RESULT_KO.md": {
+    "bytes": 4755,
+    "sha256": "0778391390ceaf7075374212ced97dbf608d765e00295f733e3087bd1eb81d7b"
+  },
+  "SOURCE_VALIDATION.json": {
+    "bytes": 3535,
+    "sha256": "edf7427e66b7e7985f9553d3f24df88558f6ae9afcbbfb4ba2515ccac2b3b7bd"
+  },
+  "WINDOWS_AFTER_EXACT_CHECKOUT.json": {
+    "bytes": 1918,
+    "sha256": "a1d784710201f318ff2b83d4b9956d1dcd22c445db394c46ac733f78eefaad1c"
+  },
+  "WINDOWS_BEFORE_EXACT_CHECKOUT.json": {
+    "bytes": 1885,
+    "sha256": "ce529899f323ca5d1b3a25251c9ebc36be0b239510ed13fc3b7ce4a336446868"
+  },
+  "WINDOWS_CONTROL_PLANE_VALIDATOR_RESULT.txt": {
+    "bytes": 212,
+    "sha256": "8e1ab940a78202ca233ac891b858f15061aa2b25b2403d248d6b018c7af26ac6"
+  },
+  "WINDOWS_EXACT_SOURCE_BYTES.json": {
+    "bytes": 24738,
+    "sha256": "0f980b179b52f36c648d7446f797ad2acc158c05aacbd7fd6209c55aef0970fc"
+  },
+  "WINDOWS_REDISTRIBUTION_PREFLIGHT.json": {
+    "bytes": 2335,
+    "sha256": "bc64fe67514c57c17eb3b0af9413b507ff59249f5dc5e3f63d90658b85e82d69"
+  },
+  "WINDOWS_REMOTE_WINDOWS_RUNNER_PROFILE.json": {
+    "bytes": 431,
+    "sha256": "5b1ea9faf6a4ee5c48f2c79a0c61368204c36fc370737b5d6c8c1a8b622e861c"
+  }
+}

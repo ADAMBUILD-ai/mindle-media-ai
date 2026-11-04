@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-17T05:58:26.014Z",
+  "trigger": "Normal Explorer file-path Enter",
+  "exe": "c37-PC-20261017/MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0/MINDLE_MEDIA_AI_RUN.exe",
+  "env_override": false,
+  "windows": [
+    {
+      "app": "process:C:\\Windows\\explorer.exe",
+      "id": 1771602,
+      "title": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0 - 파일 탐색기"
+    }
+  ]
+}

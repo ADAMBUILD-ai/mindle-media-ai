@@ -1,0 +1,11 @@
+test_archive_traversal_is_rejected (test_ai_candidate_build_policy.PackagePolicy.test_archive_traversal_is_rejected) ... ok
+test_cache_and_copy_staging_excluded_but_legitimate_numpy_preserved (test_ai_candidate_build_policy.PackagePolicy.test_cache_and_copy_staging_excluded_but_legitimate_numpy_preserved) ... ok
+test_seal_refuses_generated_unlisted_cache (test_ai_candidate_build_policy.PackagePolicy.test_seal_refuses_generated_unlisted_cache) ... ok
+test_seal_refuses_modified_pinned_result (test_ai_candidate_build_policy.PackagePolicy.test_seal_refuses_modified_pinned_result) ... ok
+test_happy_seal_outputs_starter_and_exact_parts (test_ai_candidate_build_policy.SealedDelivery.test_happy_seal_outputs_starter_and_exact_parts) ... SEALED efa3ca6cda4badf2579391eee953a88b857eb38b406730d46bbdd77f3a2636eb
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.007s
+
+OK

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-01",
+  "status": "DELIVERED_TO_GOOGLE_DRIVE",
+  "source": {
+    "system": "ChatGPT Library",
+    "filename": "네온 다크 테마 AI 미디어 편집기.png",
+    "size_bytes": 1737365,
+    "mime_type": "image/png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541"
+  },
+  "handoff": {
+    "provider": "Google Drive",
+    "library_path": "/Google Drive/MINDLE_MEDIA_AI_HANDOFF/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+    "drive_file_id": "1hyZJpzsDecHgUFwYq463K30JlEJ4jgHA",
+    "library_file_ref": "external-gdrive:file:1hyZJpzsDecHgUFwYq463K30JlEJ4jgHA",
+    "filename": "MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+    "size_bytes": 1737365,
+    "mime_type": "image/png"
+  },
+  "pc_target": "incoming/commander/MINDLE_MEDIA_AI_APPROVED_UI_F27E_20260913.png",
+  "verification_required": {
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "decodable_png": true,
+    "non_zero": true
+  },
+  "rule": "PC Work must retrieve this exact Google Drive file; local search and substitute generation are forbidden."
+}

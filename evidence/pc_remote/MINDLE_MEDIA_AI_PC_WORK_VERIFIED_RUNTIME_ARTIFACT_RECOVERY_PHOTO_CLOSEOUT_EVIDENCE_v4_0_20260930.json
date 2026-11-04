@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-30",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_head": "be3c826bac00c0066cde1f68ff4f231397b42345",
+  "directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_VERIFIED_RUNTIME_ARTIFACT_RECOVERY_PHOTO_CLOSEOUT_DIRECTIVE_v4.0_20260930.md",
+    "commit": "be3c826bac00c0066cde1f68ff4f231397b42345"
+  },
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO"
+  },
+  "runtime_recovery": {
+    "local_complete_package": false,
+    "local_sam_payload": false,
+    "local_whisper_small_payload": false,
+    "local_intel_sisr_payload": false,
+    "prior_runtime_package_run": 36089930051,
+    "artifact_download_attempt": {
+      "artifact_id": 10845890220,
+      "part": "00",
+      "expected_bytes": 419251182,
+      "expected_digest": "sha256:5d0fb6ba466b9ad77a6ebaac0e15eb730994f1968def25405f1a535643114ee4",
+      "local_result": "C:\\Users\\PC\\Downloads\\미확인 306151.crdownload",
+      "local_bytes": 15380,
+      "status": "INCOMPLETE_DOWNLOAD"
+    },
+    "openvino_runtime_zip": {
+      "path": "C:\\Users\\PC\\Downloads\\mindle-media-openvino-2025_1_0-cp311-win_amd64.zip",
+      "bytes": 38058409,
+      "contents": ["WINDOWS_OPENVINO_RUNTIME_MANIFEST.json", "openvino-2025.1.0-18503-cp311-cp311-win_amd64.whl"],
+      "model_payload_present": false
+    },
+    "direct_huggingface_retry": false
+  },
+  "ui": {
+    "server": "http://127.0.0.1:8765/",
+    "native_photo_chooser": "VERIFY_REQUIRED",
+    "chooser_detail": "photo import control visible; no Windows chooser surfaced in browser automation; no bypass used"
+  },
+  "lanes": {
+    "runtime_package_recovery": "REWORK",
+    "photo_segmentation": "REWORK",
+    "photo_4x": "REWORK",
+    "video_tracking": "VERIFY_REQUIRED",
+    "korean_stt": "VERIFY_REQUIRED",
+    "preview": "VERIFY_REQUIRED",
+    "project_save": "VERIFY_REQUIRED",
+    "export": "VERIFY_REQUIRED",
+    "shortform_live_e2e": "VERIFY_REQUIRED"
+  },
+  "prior_photo_jobs": {
+    "segmentation": {"job_id": "6b410fb0-1471-4b8d-baea-858fcf5820e0", "status": "FAILED", "http_status": 422},
+    "upscale": {"job_id": "d243b8ba-79f3-4bef-843c-b7a5e8acd791", "status": "FAILED", "http_status": 422}
+  },
+  "fabricated_inputs_outputs_or_approval": false,
+  "evidence_paths": {
+    "review_md": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_VERIFIED_RUNTIME_ARTIFACT_RECOVERY_PHOTO_CLOSEOUT_REVIEW_v4.0_20260930.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_PC_WORK_VERIFIED_RUNTIME_ARTIFACT_RECOVERY_PHOTO_CLOSEOUT_EVIDENCE_v4_0_20260930.json",
+    "cycle_manifest": "evidence/pc_remote/pc-work-verified-runtime-photo-v4-20260930/manifest.json",
+    "next_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_VERIFIED_RUNTIME_ARTIFACT_RECOVERY_NEXT_DIRECTIVE_v4.1_20260930.md"
+  },
+  "final_commit_sha": "b75be81fdbe32c4d335e27a8b1198ad5db288bb8"
+}

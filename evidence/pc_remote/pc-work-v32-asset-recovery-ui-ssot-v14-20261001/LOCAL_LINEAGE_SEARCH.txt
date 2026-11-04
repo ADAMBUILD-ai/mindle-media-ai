@@ -1,0 +1,7 @@
+Canonical branch was rebound to origin/feature/ad-shortform-bridge-p0-20260926 at b5da52a1053bb650fa6d1eaedf05b0689ccdcbc3.
+Stale local branch preserved as backup/media-ai-stale-pc-work-20261001 at f10875b441335c07816c48cc62b696effa9e0634.
+Targeted local filesystem and Git object searches under Documents/Codex found the current UI asset hash 9AAF05BE17A3B851717A8BCDBEAF9C589812CB02F4807E3E2C9D10E75709AD3D, but no approved f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541 binary.
+The exact v30 runtime package was recovered from the local outputs package and used read-only.
+Backup branch inspection: backup/media-ai-stale-pc-work-20261001 does not contain ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png.
+Known Codex worktree search roots 2026-09-15, 2026-09-25, 2026-09-30, and 2026-10-01 were checked for same-name PNG candidates with the current 1,737,390-byte size. Two candidates were found, both hash 9aaf05be17a3b851717a8bcdbeaf9c589812cb02f4807e3e2c9d10e75709ad3d; no f27e... candidate was found.
+Git history contains the current UI path in historical commits but no f27e... blob. The approved manifest and Master retain f27e..., while docs/01_UI_SSOT_FINAL.md explicitly says the approved source asset is absent; this is an unresolved source-lineage inconsistency, not a reason to replace the current binary.

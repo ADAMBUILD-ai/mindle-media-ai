@@ -1,0 +1,399 @@
+{
+  "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "baseline_commit": "985f3a7b464e53318a0f50b8655640ceb336d36b",
+  "runtime_source_commit": "92897f4ff943d30d788416dbb10324f3df2b9427",
+  "open_active_base_gaps": 0,
+  "findings": [
+    {
+      "id": "G01",
+      "problem": "Export continued after save failure and could export an older project",
+      "paths": [
+        "ui/product_integration.js"
+      ],
+      "verification": [
+        "save_failure_prevents_stale_export"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "save_failure_prevents_stale_export"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G02",
+      "problem": "Missing media was silently omitted from ZIP; corrupted media was not checked",
+      "paths": [
+        "src/media_ai/product_runtime.py"
+      ],
+      "verification": [
+        "test_export_rejects_missing_or_changed_media",
+        "ui_export_download_crc_all_hashes",
+        "corrected_edits_ui_export_integrity"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "ui_export_download_crc_all_hashes",
+        "corrected_edits_ui_export_integrity"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G03",
+      "problem": "Unknown job IDs were silently ignored; unchecked project IDs and non-atomic save endangered stored data",
+      "paths": [
+        "src/media_ai/product_runtime.py"
+      ],
+      "verification": [
+        "test_unknown_jobs_and_invalid_project_id_cannot_overwrite",
+        "save_full_close_reopen_all_lanes",
+        "corrected_edits_save_close_reopen"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "save_full_close_reopen_all_lanes",
+        "corrected_edits_save_close_reopen"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G04",
+      "problem": "Corrupt input replaced the current File and preview even after decoding failed",
+      "paths": [
+        "ui/product_integration.js"
+      ],
+      "verification": [
+        "invalid_import_keeps_previous"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "invalid_import_keeps_previous"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G05",
+      "problem": "UI result events returned before edited File state was ready; pending edits could be saved prematurely",
+      "paths": [
+        "ui/product_integration.js",
+        "ui/photo_workspace.js",
+        "ui/video_workspace.js"
+      ],
+      "verification": [
+        "pending_edit_save_guard_duplicate_click",
+        "corrected_edits_save_close_reopen"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "pending_edit_save_guard_duplicate_click",
+        "corrected_edits_save_close_reopen"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G06",
+      "problem": "Repeated HTTP requests could create duplicate jobs; conflicting reuse was not rejected",
+      "paths": [
+        "src/media_ai/product_server.py"
+      ],
+      "verification": [
+        "test_same_request_replayed_and_conflict_rejected",
+        "test_failed_request_is_retryable",
+        "http_idempotency"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "http_idempotency"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G07",
+      "problem": "Navigation and command chips had no runtime handlers",
+      "paths": [
+        "ui/workspace_shell.js",
+        "ui/index.html"
+      ],
+      "verification": [
+        "shell_projects",
+        "shell_history",
+        "shell_storage",
+        "shell_help",
+        "new_project_and_open_existing",
+        "video_command_chips_send_length_ratio",
+        "photo_command_chips_style_tone_ratio_send"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "shell_projects",
+        "shell_history",
+        "shell_storage",
+        "shell_help",
+        "new_project_and_open_existing",
+        "video_command_chips_send_length_ratio",
+        "photo_command_chips_style_tone_ratio_send"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G08",
+      "problem": "Unsupported controls appeared usable (settings/account/native window/templates/generation/pan/undo/redo/VIDEO reference)",
+      "paths": [
+        "ui/index.html"
+      ],
+      "verification": [
+        "UI_CONTROLS.json"
+      ],
+      "disposition": "NOT_IMPLEMENTED; explicitly disabled with reason, labels/layout/colors retained; not claimed as delivered features",
+      "status": "CLOSED_DISABLED",
+      "actual_runtime_checks": [],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G09",
+      "problem": "VIDEO unknown commands fell through to SAM tracking",
+      "paths": [
+        "ui/product_integration.js"
+      ],
+      "verification": [
+        "unsupported_video_command_rejected"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "unsupported_video_command_rejected"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G10",
+      "problem": "Command/reference input was cleared before runtime outcome; focus could resurrect earlier text",
+      "paths": [
+        "ui/interaction.js"
+      ],
+      "verification": [
+        "failed_command_retained_for_retry",
+        "unsupported_video_command_rejected"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "failed_command_retained_for_retry",
+        "unsupported_video_command_rejected"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G11",
+      "problem": "Base editor startup required private HF token; missing model requests did not consistently fail before worker/network work",
+      "paths": [
+        "src/media_ai/product_server.py",
+        "src/media_ai/product_runtime.py"
+      ],
+      "verification": [
+        "test_base_product_needs_no_hf_token",
+        "fresh_launch",
+        "model_ui_dispatch_tracking",
+        "model_ui_dispatch_transcribe",
+        "model_ui_dispatch_upscale"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "fresh_launch",
+        "model_ui_dispatch_tracking",
+        "model_ui_dispatch_transcribe",
+        "model_ui_dispatch_upscale"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G12",
+      "problem": "Korean subtitle renderer hardcoded Windows Malgun font on Linux",
+      "paths": [
+        "src/media_ai/product_runtime.py"
+      ],
+      "verification": [
+        "test_subtitle_font_and_split_validation_use_actual_ffmpeg",
+        "video_korean_subtitle_render"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "video_korean_subtitle_render"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G13",
+      "problem": "Legacy FFmpeg concat list used literal backslash-n and mishandled apostrophes; default imposed 16:9 and omitted browser encoding requirements",
+      "paths": [
+        "src/media_ai/video.py",
+        "src/media_ai/cli.py"
+      ],
+      "verification": [
+        "test_legacy_video_concat_newlines_and_original_ratio",
+        "legacy_concat_original_ratio"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "legacy_concat_original_ratio"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G14",
+      "problem": "Windows separators were not sanitized when storing a filename on another OS",
+      "paths": [
+        "src/media_ai/product_runtime.py"
+      ],
+      "verification": [
+        "test_windows_filename_is_sanitized_on_any_os"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G15",
+      "problem": "Background removal showed a red SAM overlay rather than transparent foreground",
+      "paths": [
+        "src/media_ai/product_runtime.py",
+        "src/media_ai/product_server.py",
+        "ui/product_integration.js"
+      ],
+      "verification": [
+        "test_background_removal_uses_mask_without_changing_segmentation",
+        "photo_background_removal_from_frozen_mask",
+        "ui_export_download_crc_all_hashes"
+      ],
+      "frozen_model_untouched": true,
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "photo_background_removal_from_frozen_mask",
+        "ui_export_download_crc_all_hashes"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G16",
+      "problem": "Actual Chrome VIDEO seek failed because media HTTP endpoint lacked byte-range support",
+      "paths": [
+        "src/media_ai/product_server.py"
+      ],
+      "verification": [
+        "test_actual_http_byte_ranges_allow_browser_seek",
+        "video_seek_byte_range",
+        "video_play_pause_seek_mute_start_end"
+      ],
+      "first_real_failure_run": 37750027825,
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "video_seek_byte_range",
+        "video_play_pause_seek_mute_start_end"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G17",
+      "problem": "Selecting the same source again did not fire file change after the first import",
+      "paths": [
+        "ui/product_integration.js"
+      ],
+      "verification": [
+        "video_tool_rotate",
+        "video_tool_fade",
+        "video_tool_effect",
+        "video_tool_highlight",
+        "video_tool_shortform",
+        "video_tool_trim",
+        "video_tool_split",
+        "video_tool_speed"
+      ],
+      "first_real_failure_run": 37750501514,
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "video_tool_rotate",
+        "video_tool_fade",
+        "video_tool_effect",
+        "video_tool_highlight",
+        "video_tool_shortform",
+        "video_tool_trim",
+        "video_tool_split",
+        "video_tool_speed"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G18",
+      "problem": "Reference Blob URLs were not revoked on rejected attachment/removal",
+      "paths": [
+        "ui/interaction.js"
+      ],
+      "verification": [
+        "reference_remove",
+        "photo_reference_similarity"
+      ],
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "reference_remove",
+        "photo_reference_similarity"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G19",
+      "problem": "DOM attributes claimed enabled before-after/batch/keyframe/mask/multitrack editing despite absent runtime controls",
+      "paths": [
+        "ui/index.html"
+      ],
+      "verification": [
+        "unimplemented_capability_declarations_corrected"
+      ],
+      "disposition": "before-after/batch NOT_IMPLEMENTED; timeline explicitly read-only status with actual transport seek; existing labels/layout/colors preserved",
+      "status": "CLOSED_INACTIVE_DECLARATION",
+      "actual_runtime_checks": [
+        "unimplemented_capability_declarations_corrected"
+      ],
+      "regression_source": "REGRESSION.log"
+    },
+    {
+      "id": "G20",
+      "problem": "Follow-up VIDEO edit retained actual BGM but omitted backgroundVolume from saved options, so Audio Track incorrectly displayed original audio",
+      "paths": [
+        "ui/video_workspace.js"
+      ],
+      "before_runtime_evidence": [
+        {
+          "job_id": "75615cc7-a03e-446d-81d2-3ae4a967287c",
+          "backgroundVolume": null,
+          "has_background_output": true
+        }
+      ],
+      "verification": [
+        "background_music_state_after_followup_edit",
+        "corrected_edits_save_close_reopen"
+      ],
+      "fix": "Store explicit default backgroundVolume when selected BGM is reused",
+      "status": "CLOSED_FIXED",
+      "actual_runtime_checks": [
+        "background_music_state_after_followup_edit",
+        "corrected_edits_save_close_reopen"
+      ],
+      "regression_source": "REGRESSION.log"
+    }
+  ],
+  "deferred": [
+    "real Marketing HTTP",
+    "approved AVORA assets",
+    "external 9:16 advertising Preview",
+    "Representative Approval",
+    "approved ad MP4 Export",
+    "PC Work one-click packaging and Windows lifecycle verification"
+  ],
+  "disabled_features_not_claimed_delivered": true,
+  "audit_harness_corrections": [
+    {
+      "run": 37749458686,
+      "reason": "Wait for real asynchronous reference image decode before checking ranked search result; timeout budget unchanged"
+    },
+    {
+      "reason": "Await complete multi-job project restoration before inspecting final media state; preserve saved derivative records instead of overwriting them with audit fixture records"
+    }
+  ]
+}

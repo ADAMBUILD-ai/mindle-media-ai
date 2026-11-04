@@ -1,0 +1,3 @@
+{"steps": [{"operation": "transcribe"}, {"operation": "apply_subtitles"}]} [end of text]
+
+

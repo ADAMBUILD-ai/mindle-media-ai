@@ -1,0 +1,44 @@
+{
+  "full_zip": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip",
+  "full_zip_bytes": 3177192286,
+  "full_zip_sha256": "715c351a3733aea2ffd87fa0113cc6e554920faabe430c74f941b7b6e5feac8c",
+  "parts": [
+    {
+      "name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip.part-00",
+      "bytes": 524288000,
+      "sha256": "fab4ffab8be43aa5b17b8ea9f5bd993bc82eb90ef05c95837d17db2d780f3b27"
+    },
+    {
+      "name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip.part-01",
+      "bytes": 524288000,
+      "sha256": "55905a8091178d8e4a7220df58fd4f4051e0ed8ff6f697fc3cae222e28849dcf"
+    },
+    {
+      "name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip.part-02",
+      "bytes": 524288000,
+      "sha256": "0ea96245062cdcf56d976c409c1ffb73807904a0d3be517f3049aed94c1bd750"
+    },
+    {
+      "name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip.part-03",
+      "bytes": 524288000,
+      "sha256": "af307f77f4558a6b7a49882afa7d28b3efb1b7ab0e306f0a9e30c1ae2d7d460a"
+    },
+    {
+      "name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip.part-04",
+      "bytes": 524288000,
+      "sha256": "d328fee2298b797ea299539b12f233d7d99e659d5f98cf536a26a26a962a8038"
+    },
+    {
+      "name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip.part-05",
+      "bytes": 524288000,
+      "sha256": "697c2734a5dbf6f62900f976747a8495835642a96832a93303ac4e02cb538c48"
+    },
+    {
+      "name": "MINDLE_MEDIA_AI_PC_TEST_20261018_R1.zip.part-06",
+      "bytes": 31464286,
+      "sha256": "ca971dfd5eae8a2f208746f1328975aff7646e9c6607fb64d0aeebfafa56677e"
+    }
+  ],
+  "source": "e00e6e0b82994fca628d6ca3cf039f7dc43c15c6",
+  "native_windows_acceptance": "PENDING"
+}

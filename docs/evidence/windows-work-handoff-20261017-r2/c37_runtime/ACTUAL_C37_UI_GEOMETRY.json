@@ -1,0 +1,113 @@
+{
+  "viewport": {
+    "width": 1536,
+    "height": 1024,
+    "devicePixelRatio": 1,
+    "visualViewportScale": 1,
+    "cssZoom": "1"
+  },
+  "title": "MINDLE MEDIA AI",
+  "video": {
+    "rect": {
+      "x": 14,
+      "y": 78,
+      "width": 740.5,
+      "height": 1064,
+      "top": 78,
+      "right": 754.5,
+      "bottom": 1142,
+      "left": 14
+    }
+  },
+  "photo": {
+    "rect": {
+      "x": 766.5,
+      "y": 78,
+      "width": 740.5,
+      "height": 1064,
+      "top": 78,
+      "right": 1507,
+      "bottom": 1142,
+      "left": 766.5
+    }
+  },
+  "preview": [
+    {
+      "kind": "video",
+      "stage": {
+        "x": 163,
+        "y": 161,
+        "width": 400.5,
+        "height": 225.28125,
+        "top": 161,
+        "right": 563.5,
+        "bottom": 386.28125,
+        "left": 163
+      },
+      "overflow": "hidden",
+      "child": [
+        {
+          "tag": "VIDEO",
+          "src": "/files/jobs/784c8709-9ecc-424e-a2bd-735c3c80033a/edited_video.mp4",
+          "naturalWidth": 672,
+          "naturalHeight": 384,
+          "rect": {
+            "x": 164,
+            "y": 162,
+            "width": 398.5,
+            "height": 227.703125,
+            "top": 162,
+            "right": 562.5,
+            "bottom": 389.703125,
+            "left": 164
+          },
+          "objectFit": "contain",
+          "objectPosition": "50% 50%"
+        }
+      ]
+    },
+    {
+      "kind": "photo",
+      "stage": {
+        "x": 915.5,
+        "y": 161,
+        "width": 400.5,
+        "height": 225.28125,
+        "top": 161,
+        "right": 1316,
+        "bottom": 386.28125,
+        "left": 915.5
+      },
+      "overflow": "hidden",
+      "child": [
+        {
+          "tag": "IMG",
+          "src": "/files/jobs/bc6e90d6-5381-4b71-b69d-ab7389841242/edited_photo.png",
+          "naturalWidth": 480,
+          "naturalHeight": 960,
+          "rect": {
+            "x": 916.5,
+            "y": 162,
+            "width": 398.5,
+            "height": 223.28125,
+            "top": 162,
+            "right": 1315,
+            "bottom": 385.28125,
+            "left": 916.5
+          },
+          "objectFit": "contain",
+          "objectPosition": "50% 50%"
+        }
+      ]
+    }
+  ],
+  "features": {
+    "sevenAdjustments": 7,
+    "naturalLanguageInputs": 2,
+    "adShortform": true
+  },
+  "styles": [
+    "http://127.0.0.1:18768/approved_visual.css",
+    "http://127.0.0.1:18768/interaction.css"
+  ]
+}

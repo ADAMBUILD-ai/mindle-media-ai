@@ -1,0 +1,50 @@
+{
+  "schema": "MINDLE_MEDIA_AI_CHAT_HANDOVER_V1",
+  "date_kst": "2026-10-24",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "verified_baseline_head": "cce3431c9a32687f0e3adc62f8ebefd5d944bd10",
+  "product_source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+  "runtime_id": "2e5e9197d78c-473763a9ef2d-ai-r2",
+  "zip_sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
+  "zip_bytes": 3166947613,
+  "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+  "manifest_sha256": "2c6c3345539473e77cab56b10105448d0c23b651875dca45e8d49217b781dc07",
+  "current_epoch": "MEDIA-AI-20261013-OWNER-RUNTIME-RECOVERY-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_ACCEPTANCE_20261024.md",
+  "contract": "docs/commander/MINDLE_MEDIA_AI_PC_TEST_R2_EVIDENCE_CONTRACT_20261024.json",
+  "native_run": 39985471598,
+  "readback_run": 39987617196,
+  "transport_run": 39989419656,
+  "current_connection": "USER_REPORTED_PC_WORK_WINDOW_UNAVAILABLE_NOT_A_PRODUCT_RUNTIME_VERDICT",
+  "completed": [
+    "TEST_R2_BUILD",
+    "NATIVE_WINDOWS_EXE_CHROME_QWEN_NEURAL_TTS",
+    "OWN_SERVER_SHUTDOWN_NEW_PID_REOPEN_UI_EXPORT",
+    "19333_PAYLOAD_SHA_CACHE_ZERO",
+    "INDEPENDENT_READBACK_CRC",
+    "9_FILES_SAVED"
+  ],
+  "remaining": [
+    "OFFICE_PC_PHYSICAL_ACCEPTANCE",
+    "INSTALLED_PLAYER_HUMAN_HEARING",
+    "APPROVED_UI_FINAL_COMPARISON"
+  ],
+  "historical_followup": [
+    "R9_RAW_LOG_LOCK_WRITER",
+    "LEGACY_SSOT_FIELDS_NOT_ALL_MOVED_TO_HISTORY"
+  ],
+  "package_build_allowed": false,
+  "owner_pc_runtime_pass": false,
+  "human_hearing": false,
+  "approved_ui_pixel_match": false,
+  "full_product_pass": false,
+  "pr23_hold_do_not_merge": true,
+  "main_merge_forbidden": true,
+  "force_push_forbidden": true,
+  "external_marketing_avora": "DEFERRED_EXTERNAL",
+  "future_blender_local_generation": "PLAN_ONLY_NOT_IMPLEMENTED_OR_APPROVED_IN_THIS_HANDOVER",
+  "snapshot_files": 69,
+  "repository_tree_entries": 1624,
+  "duplicate_candidate_builds_performed_for_handover": 0
+}

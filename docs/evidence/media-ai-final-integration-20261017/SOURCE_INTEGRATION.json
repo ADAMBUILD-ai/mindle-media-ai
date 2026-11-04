@@ -1,0 +1,56 @@
+{
+  "source_sha": "c1956f48abdba52c55a20932dadad16d56bd672a",
+  "baseline": "7116244481c8159fadaf45f6a6fcc20dededa876",
+  "contains": [
+    "84cf58014eafa2aabd5eed763881424ab3a70c1f",
+    "30203975e8fe8e6e3ee15dc1450a2486aa5e90e9",
+    "7116244481c8159fadaf45f6a6fcc20dededa876"
+  ],
+  "changed_files": [
+    "ui/product_integration.js",
+    "ui/project_lifecycle.test.js",
+    "tests/test_runtime_owner_lifecycle.py"
+  ],
+  "actual_tested_ui_file_hashes": {
+    "ui/index.html": "64abc36dfec2d45a052d6abd00e4a6680bdde01326dfc305319096aa5cde8398",
+    "ui/approved_visual.css": "23695715beb425b35580f2c56dc7e657e3a3538d714a8183f532f77a56b1ebc0",
+    "ui/interaction.css": "35f2bacd4c0de5733ae905abfe4c20188098274c6f4638f379f3860e9f29f261",
+    "ui/interaction.js": "df72202116df07de9e3c52ed4b9b4f23ebd8d40d2e32742aa26f98d187056e01",
+    "ui/product_integration.js": "6fd3a62fdfae49fe18d9dfca011746b7589b968a1ad905e9503321ca36c64e4c",
+    "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+    "ui/photo_workspace.js": "8ea4fab024bd654e2b89472a00feb0a6f4349e8d2102e44be6d29c6c6d0e0330",
+    "ui/video_workspace.js": "4ff660178009e20e88f5a82d346f98305f0090a21c1c064db8ac42dfeabe848e",
+    "ui/workspace_shell.js": "8254c166773dd8049b6a2241bb77cd28b11167db7627c61fdc2afe18d195bb78"
+  },
+  "tested_source_mapping": "Browser ran before commit at 7116244 plus patch; every tested production UI file SHA matches fetched immutable c1956f4 source bytes",
+  "node": "16 PASS, including 2 new failures reproduced before fix",
+  "python": "46 PASS, including real HTTP save/edit/download busy-shutdown rejection",
+  "browser_boundaries": [
+    {
+      "case": "open_photo_only_clears_video_state",
+      "pass": true
+    },
+    {
+      "case": "new_clears_all_project_state",
+      "pass": true
+    },
+    {
+      "case": "restore_dependency_failure_preserves_save_export_retry",
+      "pass": true
+    },
+    {
+      "case": "dense_ui_1024",
+      "pass": true
+    },
+    {
+      "case": "dense_ui_720",
+      "pass": true
+    }
+  ],
+  "browser_export_download": "BLOCKED canceled, same failure with plain TXT control; server Export and direct HTTP archive CRC pass recorded separately",
+  "package_build_allowed": false,
+  "new_candidate": null,
+  "c37_contains_fixes": false,
+  "model_calls": 0,
+  "full_product_pass": false
+}

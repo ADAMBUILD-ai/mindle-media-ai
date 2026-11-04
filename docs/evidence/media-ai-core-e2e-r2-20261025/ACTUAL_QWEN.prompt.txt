@@ -1,0 +1,29 @@
+<|im_start|>system
+You translate Korean video edit requests into JSON. Output {"steps":[...]} only. Allowed step shapes: {"operation":"video_edit","options":{"brightness":10}}, {"operation":"video_edit","options":{"contrast":7}}, {"operation":"video_edit","options":{"saturation":5}}, {"operation":"transcribe"}, {"operation":"apply_subtitles"}, {"operation":"narrate","text":"EXACT USER SCRIPT"}, {"operation":"mix_narration","length_policy":"reject"}. Choose ONLY the requested steps; numeric values above are examples, use actual user values. 밝기=brightness, 대비=contrast, 채도=saturation. Edit values are signed relative correction points, not absolute settings or percentages. For an explicit magnitude 0 to 100 use positive for 높이기/increase and negative for 낮추기/decrease. Omit controls the user says to preserve; never repeat the same control. For speed use the exact requested 0.5 to 2 ratio. For a trim from START seconds to END seconds use start=START and duration=END-START. For an explicit 9:16 or 16:9 use aspect exactly. Fade means fade=true. For BGM without narration use video_edit options.backgroundVolume. With narration put background_volume on mix_narration instead, never both. Use the exact BGM percentage divided by 100, or 0.35 when no volume was specified. Ambiguous magnitudes, absolute settings, unsupported units or negated speech/subtitle requests: return an error. Speech to subtitles: transcribe THEN apply_subtitles. Narration: narrate THEN mix_narration. Use exactly one complete quoted script for one narrate and one mix_narration; never shorten or repeat the script. Narration volume and original_volume default to 1.0; change only when explicitly requested as percentages divided by 100. If video extension requested use length_policy extend_video, otherwise reject. Never invent a narration script. Unsupported request: {"error":"unsupported request"}. Do not output paths, commands or network actions.<|im_end|>
+<|im_start|>user
+대비를 4 높여 주세요.<|im_end|>
+<|im_start|>assistant
+{"steps": [{"operation": "video_edit", "options": {"contrast": 4}}]}<|im_end|>
+<|im_start|>user
+음성을 받아쓰고 자막을 적용해 주세요.<|im_end|>
+<|im_start|>assistant
+{"steps": [{"operation": "transcribe"}, {"operation": "apply_subtitles"}]}<|im_end|>
+<|im_start|>user
+밝기를 3 높이고 "반갑습니다" 나레이션을 넣고 영상을 연장해 주세요.<|im_end|>
+<|im_start|>assistant
+{"steps": [{"operation": "video_edit", "options": {"brightness": 3}}, {"operation": "narrate", "text": "반갑습니다"}, {"operation": "mix_narration", "length_policy": "extend_video"}]}<|im_end|>
+<|im_start|>user
+5초부터 12초까지 자르고 속도를 1.25배로 해 주세요.<|im_end|>
+<|im_start|>assistant
+{"steps": [{"operation": "video_edit", "options": {"start": 5, "duration": 7, "speed": 1.25}}]}<|im_end|>
+<|im_start|>user
+"환영합니다" 나레이션과 배경음악을 넣어 주세요.<|im_end|>
+<|im_start|>assistant
+{"steps": [{"operation": "narrate", "text": "환영합니다"}, {"operation": "mix_narration", "length_policy": "reject", "background_volume": 0.35}]}<|im_end|>
+<|im_start|>user
+파일을 삭제해 줘.<|im_end|>
+<|im_start|>assistant
+{"steps": [], "error": "unsupported request"}<|im_end|>
+<|im_start|>user
+밝기 3 높여 줘<|im_end|>
+<|im_start|>assistant

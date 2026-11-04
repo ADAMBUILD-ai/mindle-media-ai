@@ -1,0 +1,34 @@
+{
+  "schema": "MINDLE_MEDIA_AI_MEASURED_SCENE_GROUNDING_V1",
+  "date": "2026-10-24",
+  "parent_remote_head": "76b96083a9a6a97b06ea3498008c5c1f708f7580",
+  "status": "MEASURED_SCENE_GROUNDING_SOURCE_PASS_WINDOWS_CANDIDATE_NOT_BUILT",
+  "grounding": {
+    "decoded_pixels": true,
+    "measurements": ["exposure", "motion", "sharpness", "usable_ratio", "orientation"],
+    "measured_range_selection": true,
+    "measurement_model_inference": false,
+    "semantic_understanding": false,
+    "source_range_enforced": true,
+    "sha256_keyed_persistent_cache": true,
+    "duplicate_analysis_on_submit": false,
+    "browser_refresh_reconnects_same_production": true,
+    "refresh_creates_duplicate_production": false,
+    "architecture_history_reopen_and_cancel": true
+  },
+  "tests": {
+    "python_passed": 230,
+    "python_skipped": 6,
+    "python_failed": 0,
+    "node": "PASS",
+    "real_selected_range_mp4": "PASS",
+    "new_path_real_qwen_inference": "NOT_RUN"
+  },
+  "gates": {
+    "test_r2": "REUSE_TEST_R2",
+    "package_build_allowed": false,
+    "workflow_changed": false,
+    "pr_23": "HOLD_DO_NOT_MERGE",
+    "main_merge": false
+  }
+}

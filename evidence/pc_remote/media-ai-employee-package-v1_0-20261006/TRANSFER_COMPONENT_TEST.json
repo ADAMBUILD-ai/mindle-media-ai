@@ -1,0 +1,9 @@
+{
+  "status": "COMPONENT_TEST_PASS",
+  "employee_package_test": "NOT_RUN",
+  "fixture_bytes": 2500000,
+  "part_mib": 1,
+  "part_count": 3,
+  "normal_reassembly_hash_verified": true,
+  "corrupted_first_part_rejected": true
+}

@@ -1,0 +1,48 @@
+{
+  "contract_version": "20.2.5",
+  "date": "2026-10-02",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261002-V20.2.5",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_FINAL_CORRECTION_DIRECTIVE_v20.2.5_20261002.md",
+  "scope": "row height convergence and bottom visibility only",
+  "video_height_reference": "video-right",
+  "photo_height_reference": "photo-center",
+  "geometry_tolerance_px": 2,
+  "launcher_icon_frozen": true,
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_REVIEW_v20.2.5_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_ROW_HEIGHT_BOTTOM_VISIBILITY_EVIDENCE_v20_2_5_20261002.json",
+    "detail_directory": "evidence/pc_remote/media-ai-row-height-v20_2_5-20261002/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CONTROL_PLANE_VALIDATION.txt",
+      "CSS_CONFLICT_CLEANUP.json",
+      "GEOMETRY_BEFORE.json",
+      "GEOMETRY_AFTER.json",
+      "VIDEO_REFERENCE_RIGHT_AUDIT.json",
+      "PHOTO_REFERENCE_CENTER_AUDIT.json",
+      "PANEL_OVERFLOW_AUDIT.json",
+      "PAGE_BOTTOM_VISIBILITY_AUDIT.json",
+      "BEFORE_VIDEO_ROW.png",
+      "AFTER_VIDEO_ROW.png",
+      "BEFORE_PHOTO_ROW_BOTTOM.png",
+      "AFTER_PHOTO_ROW_BOTTOM.png",
+      "AFTER_FULL_UI_TOP.png",
+      "AFTER_FULL_UI_BOTTOM.png",
+      "LAUNCHER_ICON_PRESERVATION.json",
+      "FUNCTION_REGRESSION_AUDIT.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 20,
+  "allowed_results": [
+    "ROW_HEIGHT_READY_FOR_REPRESENTATIVE",
+    "ROW_HEIGHT_CORRECTION_REQUIRED",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}

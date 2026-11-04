@@ -1,0 +1,15 @@
+{
+  "source_commit": "4bc645f4026ea8d0f1af4bfb09d614ac1166de58",
+  "recorded_at_utc": "2026-10-18T01:12:18.009297+00:00",
+  "tts_project": "https://github.com/espeak-ng/espeak-ng",
+  "language_reference": "https://github.com/espeak-ng/espeak-ng/blob/master/docs/languages.md",
+  "license": "GPL-3.0-or-later (upstream declaration)",
+  "ubuntu_package": "espeak-ng1.51+dfsg-12build1",
+  "model_scout_main": "54e1cdfea0714102820626a8a19d9a366b439a72",
+  "model_scout_config": "config/runtime-executors.json",
+  "configured_default_model": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+  "stt_tts_named_executor": "openai/whisper-tiny",
+  "model_scout_generative_not_adopted": true,
+  "new_adopted_model_inference_calls": 0,
+  "external_api_key_connected": false
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-17",
+  "scope": "OWNER_PASTED_PC_WORK_REPORT_NOT_INDEPENDENT_BYTE_READBACK",
+  "reported_browser_scenarios": 6,
+  "reported_browser_result": "PASS",
+  "reported_checks": [
+    "edit/save/reopen/export transition and duplicate request guard",
+    "new project first save project_id=null",
+    "previous project file SHA preserved",
+    "reference/audio restoration",
+    "normal export and ZIP CRC"
+  ],
+  "source_commit_of_executed_files": "NOT_PROVIDED_IN_PASTED_REPORT",
+  "report_path": "C:/Users/R/Documents/Codex/2026-10-10/mindle-media-ai-ui-photo-video/outputs/MINDLE_FINAL_ACCEPTANCE_20261017_R1/RESULT_KO.txt",
+  "zip_path": "C:/Users/R/Documents/Codex/2026-10-10/mindle-media-ai-ui-photo-video/outputs/MINDLE_FINAL_ACCEPTANCE_20261017_R1.zip",
+  "original_bytes_sha_and_traceback": "NOT_ACQUIRED",
+  "candidate_reported": "c37",
+  "windows_final_acceptance": "BLOCKED_REPORTED_DEPLOY_LOCK_WRITE_OPEN_PERMISSION_ERROR",
+  "source_mapping": {
+    "file": "scripts/one_click_bootstrap.py",
+    "class": "DeployLock",
+    "operation": "path.open(\"a+b\")",
+    "path": "%LOCALAPPDATA%/MINDLE_MEDIA_AI/deploy.lock",
+    "call_order": "main -> DeployLock -> materialize -> ensure_vc_runtime -> package launcher -> product server",
+    "interpretation": "Deployment lock stage; not the launch.lock context manager and not evidence of a model inference failure. Confirm precise failing stage with original traceback."
+  },
+  "root_cause": "UNCONFIRMED_ACCESS_DENIAL_VS_SHARING_VS_EXECUTION_CONTEXT",
+  "no_product_patch_until_reproduced": true,
+  "candidate_contains_transition_fix": false,
+  "package_build_allowed": false,
+  "owner_pc_runtime_pass": false,
+  "final_product_pass": false
+}

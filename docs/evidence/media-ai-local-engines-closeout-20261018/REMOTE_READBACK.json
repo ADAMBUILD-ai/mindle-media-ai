@@ -1,0 +1,416 @@
+{
+  "source_commit": "3a889d9af5e0e91b4efc8132eb86e11251f1ced5",
+  "evidence_commit": "d860fff50019e3c0a8dd57f78944b0cc57c613b0",
+  "text_files_verified": 69,
+  "text_readback": [
+    {
+      "path": "src/media_ai/workflow_planner.py",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "src/media_ai/workflow_worker.py",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "tests/test_local_planner_scope.py",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/SUPERTONIC_README.md",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/QWEN15_MODEL.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/NODE.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PLANNER_ACTUAL.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PLANNER_GENERALIZATION.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/server-1.log",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/RUNTIME.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PLANNER15_V2.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PLANNER_GENERALIZATION_LOG.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/VERIFIED_RUNTIME_ENGINES.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/SUPERTONIC_LICENSE",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/BROWSER.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/MEDIA_PROBE.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/browser_workflow.cjs",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/RESULT_KO.md",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/RUNTIME_STDOUT.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/LLAMA_RELEASE_IDENTITY.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/BEFORE_HARNESS_EXPECTATION.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/SOURCE_HASHES.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/TASK.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/BROWSER_REOPEN.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/SHERPA_INSTALL.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PROVENANCE.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PYTEST.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/BGM_TASK.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/QWEN_LICENSE",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/SOURCES.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/GENERAL_VALIDATOR.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PLANNER15_V3.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/QWEN15_LICENSE",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/QWEN_README.md",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/run_runtime.py",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/QWEN15_README.md",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/ALL_TASKS.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/browser_reopen.cjs",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PLANNER_GENERALIZATION_STDOUT.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/reopen-server.log",
+      "exact_text_match": true,
+      "method": "independent raw HTTP byte SHA256 (empty log connector unsupported)"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PLANNER_CASES.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/ARTIFACTS.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/server-2.log",
+      "exact_text_match": true,
+      "method": "independent raw HTTP byte SHA256 (empty log connector unsupported)"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/SUPERTONIC_ASSET.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PLANNER15_ACTUAL.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PC_VALIDATOR.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/REPRODUCE.md",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/generalization-plans/d7340723-2fec-45dd-9e15-8383a467f9c9.response.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/generalization-plans/d7340723-2fec-45dd-9e15-8383a467f9c9.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/generalization-plans/6966a205-da0b-4500-bc1a-70efd4295e71.response.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/generalization-plans/6966a205-da0b-4500-bc1a-70efd4295e71.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-raw-responses/ab0d8864-f757-4656-9b60-3fc50fe68c03.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-raw-responses/94a046ff-a9d8-4c03-99dd-0868b1284f4d.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-raw-responses/14febf9a-bb96-4945-9d04-8749b2854280.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-raw-responses/a5e9fafc-456b-4828-b5fb-7ddc271fc8ba.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-plans/00a8d0ad-9e95-4b87-96f8-a76fffbe6b33.response.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-plans/8741c03e-b6b7-4654-9cb4-8fe8d17f901c.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-plans/00a8d0ad-9e95-4b87-96f8-a76fffbe6b33.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-plans/1a95793a-533f-416d-8211-921266438bfc.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-plans/1a95793a-533f-416d-8211-921266438bfc.response.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-plans/d6c5c3f4-e942-4838-b009-e82e34e47c87.response.txt",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/runtime-plans/d6c5c3f4-e942-4838-b009-e82e34e47c87.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_STATE.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "CURRENT_PC_WORK_STATE.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "CURRENT_WORKER_COORDINATION_LOCK.json",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "CURRENT_GENERAL_WORK_DIRECTIVE.md",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    },
+    {
+      "path": "CURRENT_PC_WORK_DIRECTIVE.md",
+      "exact_text_match": true,
+      "method": "GitHub connector exact UTF-8 readback"
+    }
+  ],
+  "binary_and_empty_log_readback": [
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/KOREAN_NARRATION.wav",
+      "bytes": 249568,
+      "sha256": "9e1eff1387bbb880e0a4ff87fa792c03ab770b36b438e6738f2ab28fd4dce1f9",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/NARRATED_EXPORT.mp4",
+      "bytes": 110561,
+      "sha256": "7b6f79bcf5c050f80ac3cb01a815a2b463123598ef4b8127574d4f60f191f3f4",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/PROJECT_EXPORT.zip",
+      "bytes": 1455512,
+      "sha256": "b389915329aa7d51bf2ef679024daef471f48ea0b9e00e482f839ee88c2eaf5c",
+      "match": true,
+      "zip_crc": "PASS",
+      "manifest_files": 15
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/BROWSER_COMPLETED.png",
+      "bytes": 354257,
+      "sha256": "c55fb781b3de09bea928f267e5a8b899b0ee4646b9b61b485400685c5e1f9f6f",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/BROWSER_REOPEN_FONT_READY.png",
+      "bytes": 400283,
+      "sha256": "40d6e5bfd68a28c1c12c8f44b909759185dd7f54052633a6f8c762940918cdaf",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/UI_AUTORESTORED_1536.png",
+      "bytes": 419429,
+      "sha256": "9b85d243d790d3f3b188fac62ec173c31d6c2b7acc2549f46e902a8478357048",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/reopen-server.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "docs/evidence/media-ai-local-engines-closeout-20261018/server-2.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    }
+  ],
+  "restrictions": {
+    "pr23": {
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "merged_at": null
+    },
+    "main_sha": "797da297f588780ad2d608deea3b5af8f05af450",
+    "main_unchanged": true
+  },
+  "package_build_allowed": false,
+  "full_product_pass": false
+}

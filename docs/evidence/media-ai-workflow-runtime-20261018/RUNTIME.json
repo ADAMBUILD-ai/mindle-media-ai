@@ -1,0 +1,195 @@
+{
+  "status": "PASS_SOURCE_PRODUCT_RUNTIME_NOT_WINDOWS",
+  "plan_source": "STRUCTURED_USER_PLAN_NOT_GENERATIVE",
+  "generative_inference": "BLOCKED_LOCAL_MODEL_ABSENT",
+  "workflow_id": "a95261f9-83bf-4008-86c4-175a1c749023",
+  "project_id": "88c01c49-cb5c-47b7-b169-a70c8f096faa",
+  "attempts": [
+    {
+      "step_id": "71866f16-9062-4047-aabd-3f92af496618",
+      "attempt": 1,
+      "started_at": 1792285771.5836291,
+      "state": "SUCCEEDED",
+      "worker_pid": 1779,
+      "finished_at": 1792285772.2515676,
+      "returncode": 0
+    }
+  ],
+  "voice": {
+    "channels": 1,
+    "sample_rate": 22050,
+    "frames": 68828,
+    "seconds": 3.121451247165533,
+    "sha256": "6c825f21d64f099b63367bb5e5bc6dd32c7a941d0a1bdefcdf0ccdbca2a0e3ed",
+    "bytes": 137700
+  },
+  "engine": {
+    "engine": "eSpeak NG",
+    "engine_version": "eSpeak NG text-to-speech: 1.51  Data at: /usr/lib/x86_64-linux-gnu/espeak-ng-data",
+    "engine_license": "GPL-3.0-or-later",
+    "engine_sha256": "34191438b1e0f8f5aac5d4fdc5df574762b6fbb3c7a219a8c6f14feceb1bd076",
+    "voice_data_sha256": "2efc1cebba007a3f5b28ae3232b89f1f12b6639254c869e660881a9d46815a26",
+    "model_inference": false,
+    "synthesis": "local formant synthesis, not neural TTS",
+    "text": "안녕하세요. 민들레 미디어입니다.",
+    "voice": "ko",
+    "sample_rate": 22050,
+    "channels": 1,
+    "duration_seconds": 3.121451247165533,
+    "human_hearing": "NOT_VERIFIED",
+    "naturalness": "NOT_BENCHMARKED",
+    "base_video_job_id": "146ec501-6fc5-4198-93b7-aef019696350"
+  },
+  "mp4": {
+    "file_name": "narrated_video.mp4",
+    "path": "/workspace/scratch/b0ed3e0d34af/product/work-data/workflow-runtime-verification-r10/workflows/a95261f9-83bf-4008-86c4-175a1c749023/00-1/sealed/591eb16c-8fa4-4b49-bad7-63b62be8ef8f/narrated_video.mp4",
+    "bytes": 115850,
+    "sha256": "fd0c328cbdd84b7dffcc4e50563b1b9c58bf5705e71225898e56e774a837d179"
+  },
+  "mix": {
+    "engine": "FFmpeg",
+    "model_inference": false,
+    "options": {
+      "brightness": 10,
+      "subtitle": "한국어 나레이션 검증",
+      "narrationVolume": 0.5,
+      "originalVolume": 1.0,
+      "lengthPolicy": "reject",
+      "narration_job_id": "c0edcf1e-b470-4ab9-a46c-9f9871c6c93b",
+      "backgroundVolume": null,
+      "originalAudioIncluded": true
+    },
+    "duration_seconds": 4.04,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "human_hearing": "NOT_VERIFIED"
+  },
+  "first_stop": {
+    "pid": 1480,
+    "instance": "001b7a09-3397-4723-a931-10dd13e88205",
+    "exit": 0,
+    "endpoint_unavailable": true
+  },
+  "second_stop": {
+    "pid": 1958,
+    "instance": "7bb8d3e0-6461-456a-88dd-8aee4f922fe4",
+    "exit": 0,
+    "endpoint_unavailable": true
+  },
+  "export": {
+    "sha256": "3a4af46d0fa13ed1545658af5eaeaf2a9847b38c8828fdf2b030032d2745df7e",
+    "bytes": 1320427,
+    "crc": "PASS",
+    "files": [
+      {
+        "role": "output",
+        "job_id": "d02cfa24-9ee9-4532-bf23-77026ae48e94",
+        "archive_path": "jobs/d02cfa24-9ee9-4532-bf23-77026ae48e94/e4a8636e-f82c-4267-849d-c3b57d14ef79_input.mp4",
+        "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7",
+        "bytes": 117376
+      },
+      {
+        "role": "output",
+        "job_id": "d02cfa24-9ee9-4532-bf23-77026ae48e94",
+        "archive_path": "jobs/d02cfa24-9ee9-4532-bf23-77026ae48e94/original_video_preview.mp4",
+        "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e",
+        "bytes": 115367
+      },
+      {
+        "role": "input",
+        "job_id": "d02cfa24-9ee9-4532-bf23-77026ae48e94",
+        "archive_path": "inputs/d02cfa24-9ee9-4532-bf23-77026ae48e94/e4a8636e-f82c-4267-849d-c3b57d14ef79_input.mp4",
+        "sha256": "c4c91909dfdb439bc593e37fed108f0190970ba1b60e471cb274b72ec8edfbe7",
+        "bytes": 117376
+      },
+      {
+        "role": "output",
+        "job_id": "146ec501-6fc5-4198-93b7-aef019696350",
+        "archive_path": "jobs/146ec501-6fc5-4198-93b7-aef019696350/edited_video.mp4",
+        "sha256": "48a266c55da45763e7ebda0430dd7c539dabc80c44e1b5ded690f3a7ecf0ce15",
+        "bytes": 115532
+      },
+      {
+        "role": "input",
+        "job_id": "146ec501-6fc5-4198-93b7-aef019696350",
+        "archive_path": "inputs/146ec501-6fc5-4198-93b7-aef019696350/04368df0-b348-418f-9443-067f9d87f7cb_original_video_preview.mp4",
+        "sha256": "8acb1acc3a10597b4c677d893d4c962b354982da0cb1b67a7446a03871df736e",
+        "bytes": 115367
+      },
+      {
+        "role": "output",
+        "job_id": "c0edcf1e-b470-4ab9-a46c-9f9871c6c93b",
+        "archive_path": "jobs/c0edcf1e-b470-4ab9-a46c-9f9871c6c93b/narration.wav",
+        "sha256": "6c825f21d64f099b63367bb5e5bc6dd32c7a941d0a1bdefcdf0ccdbca2a0e3ed",
+        "bytes": 137700
+      },
+      {
+        "role": "output",
+        "job_id": "c0edcf1e-b470-4ab9-a46c-9f9871c6c93b",
+        "archive_path": "jobs/c0edcf1e-b470-4ab9-a46c-9f9871c6c93b/narration.txt",
+        "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a",
+        "bytes": 46
+      },
+      {
+        "role": "input",
+        "job_id": "c0edcf1e-b470-4ab9-a46c-9f9871c6c93b",
+        "archive_path": "inputs/c0edcf1e-b470-4ab9-a46c-9f9871c6c93b/narration.txt",
+        "sha256": "6e3debf8a22d8f037e810f4bf72db7ee5838e40853a97d316736d9d8d12bf20a",
+        "bytes": 46
+      },
+      {
+        "role": "output",
+        "job_id": "3931301b-03d0-41f6-a09c-e628e7400a01",
+        "archive_path": "jobs/3931301b-03d0-41f6-a09c-e628e7400a01/narrated_video.mp4",
+        "sha256": "37a4bd1a0e52dfaaba4db134048c185ebc9abf98c33599a60f8e26b447e3e6d8",
+        "bytes": 116921
+      },
+      {
+        "role": "output",
+        "job_id": "3931301b-03d0-41f6-a09c-e628e7400a01",
+        "archive_path": "jobs/3931301b-03d0-41f6-a09c-e628e7400a01/9b0a9831-e133-4d96-b3c9-114bb4746e77_mix_voice.wav",
+        "sha256": "6c825f21d64f099b63367bb5e5bc6dd32c7a941d0a1bdefcdf0ccdbca2a0e3ed",
+        "bytes": 137700
+      },
+      {
+        "role": "input",
+        "job_id": "3931301b-03d0-41f6-a09c-e628e7400a01",
+        "archive_path": "inputs/3931301b-03d0-41f6-a09c-e628e7400a01/d38902fb-54a2-44cc-90f3-1cc624fd0562_mix_video.mp4",
+        "sha256": "48a266c55da45763e7ebda0430dd7c539dabc80c44e1b5ded690f3a7ecf0ce15",
+        "bytes": 115532
+      },
+      {
+        "role": "output",
+        "job_id": "591eb16c-8fa4-4b49-bad7-63b62be8ef8f",
+        "archive_path": "jobs/591eb16c-8fa4-4b49-bad7-63b62be8ef8f/narrated_video.mp4",
+        "sha256": "fd0c328cbdd84b7dffcc4e50563b1b9c58bf5705e71225898e56e774a837d179",
+        "bytes": 115850
+      },
+      {
+        "role": "output",
+        "job_id": "591eb16c-8fa4-4b49-bad7-63b62be8ef8f",
+        "archive_path": "jobs/591eb16c-8fa4-4b49-bad7-63b62be8ef8f/407d8162-3423-4841-882e-9d672396ec23_mix_voice.wav",
+        "sha256": "6c825f21d64f099b63367bb5e5bc6dd32c7a941d0a1bdefcdf0ccdbca2a0e3ed",
+        "bytes": 137700
+      },
+      {
+        "role": "input",
+        "job_id": "591eb16c-8fa4-4b49-bad7-63b62be8ef8f",
+        "archive_path": "inputs/591eb16c-8fa4-4b49-bad7-63b62be8ef8f/c4fbb41a-f062-4579-a4ed-4fed23dd8a21_mix_video.mp4",
+        "sha256": "48a266c55da45763e7ebda0430dd7c539dabc80c44e1b5ded690f3a7ecf0ce15",
+        "bytes": 115532
+      },
+      {
+        "role": "workspace_reference",
+        "job_id": "workspace",
+        "archive_path": "workspace/references/photo/000_b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9.png",
+        "sha256": "b263dcf18bb97afb6a1c3190470a8548a6bded7261bb5605c6255402d1e118c9",
+        "bytes": 110
+      }
+    ]
+  },
+  "human_hearing": "NOT_VERIFIED",
+  "windows_exe": "NOT_EXECUTED",
+  "marketing_avora": "DEFERRED_EXTERNAL"
+}

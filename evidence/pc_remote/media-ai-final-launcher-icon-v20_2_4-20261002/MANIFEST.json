@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "control_plane_epoch": "MEDIA-AI-20261002-V20.2.4",
+  "head": "4502bd4",
+  "reason": "native desktop screenshots unavailable on this host; no screenshots fabricated"
+}

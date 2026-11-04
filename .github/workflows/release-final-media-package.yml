@@ -1,0 +1,60 @@
+name: Publish final MINDLE MEDIA AI Windows package
+
+on:
+  push:
+    branches:
+      - feature/ad-shortform-bridge-p0-20260926
+    paths:
+      - ".github/workflows/release-final-media-package.yml"
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    env:
+      SOURCE_RUN_ID: "38121146106"
+      FINAL_SHA256: "7136c1512001b371cce86883b0f63a2373d4a77c720ec31d926001dc3d344061"
+      TAG: "media-final-20261013"
+      ASSET: "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download verified split delivery parts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: mindle-media-one-click-win-x64-part-*
+          merge-multiple: true
+          run-id: ${{ env.SOURCE_RUN_ID }}
+          github-token: ${{ github.token }}
+          path: delivery-parts
+
+      - name: Reassemble and verify final package
+        shell: pwsh
+        run: |
+          $parts = Get-ChildItem delivery-parts -Recurse -File -Filter "*.part-*" | Sort-Object Name
+          if ($parts.Count -ne 5) { throw "Expected 5 delivery parts, found $($parts.Count)" }
+          $out = [IO.File]::Create($env:ASSET)
+          try {
+            foreach ($part in $parts) {
+              $input = [IO.File]::OpenRead($part.FullName)
+              try { $input.CopyTo($out) } finally { $input.Dispose() }
+            }
+          } finally { $out.Dispose() }
+          $actual = (Get-FileHash $env:ASSET -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($actual -ne $env:FINAL_SHA256) { throw "Final SHA mismatch expected=$env:FINAL_SHA256 actual=$actual" }
+          Write-Host "FINAL_PACKAGE_VERIFIED $actual"
+
+      - name: Publish durable GitHub Release asset
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view $env:TAG --repo ${{ github.repository }} *> $null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $env:TAG --repo ${{ github.repository }} --title "MINDLE MEDIA AI Final Windows Package 2026-10-13" --notes "Verified from Actions run $env:SOURCE_RUN_ID. No product rebuild. SHA256: $env:FINAL_SHA256"
+          }
+          gh release upload $env:TAG $env:ASSET --repo ${{ github.repository }} --clobber

@@ -1,0 +1,68 @@
+✖ new/open project cannot clear an edit in progress or start a competing restore (7.31019ms)
+✖ save response cannot attach the old project to a new project (3.795808ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.006682
+
+✖ failing tests:
+
+test at ../../../tmp/tmp0bo0w0wc/project_lifecycle.test.js:74:1
+✖ new/open project cannot clear an edit in progress or start a competing restore (7.31019ms)
+  AssertionError [ERR_ASSERTION]: pending photo must stay in its project
+  + actual - expected
+  
+  + null
+  - File {
+  -   Symbol(kHandle): Blob {},
+  -   Symbol(kLength): 5,
+  -   Symbol(kType): 'image/png',
+  -   Symbol(state): FileState {
+  -     lastModified: 1792214414741,
+  -     name: 'photo.png'
+  -   },
+  -   mindleAudio: {}
+  - }
+  
+      at TestContext.<anonymous> (/tmp/tmp0bo0w0wc/project_lifecycle.test.js:79:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: { mindleAudio: {} },
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../tmp/tmp0bo0w0wc/project_lifecycle.test.js:88:1
+✖ save response cannot attach the old project to a new project (3.795808ms)
+  AssertionError [ERR_ASSERTION]: new project must wait for the save response
+  + actual - expected
+  
+  + null
+  - File {
+  -   Symbol(kHandle): Blob {},
+  -   Symbol(kLength): 5,
+  -   Symbol(kType): 'image/png',
+  -   Symbol(state): FileState {
+  -     lastModified: 1792214414747,
+  -     name: 'photo.png'
+  -   },
+  -   mindleAudio: {}
+  - }
+  
+      at TestContext.<anonymous> (/tmp/tmp0bo0w0wc/project_lifecycle.test.js:94:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: { mindleAudio: {} },
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

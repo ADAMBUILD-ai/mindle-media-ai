@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-14",
+  "kind": "OWNER_SUPPLIED_PC_PREPARATION_REPORT",
+  "source": "Current user message 2026-10-14 09:17 KST",
+  "reported_environment": {
+    "cpu": "Ryzen 7 5800X",
+    "ram_gb_approx": 32,
+    "gpu": "RTX 3060 12GB",
+    "helper_normal": true,
+    "setup_refresh_error_this_work": false
+  },
+  "reported_preparation": {
+    "backups_crc_verified": true,
+    "inputs": 8,
+    "button_candidates": 60
+  },
+  "reported_local_files": [
+    "C:/Users/R/Documents/Codex/2026-10-10/mindle-media-ai-ui-photo-video/outputs/EVIDENCE_20261014_PREPARATION_R1/FINAL_SUMMARY_KO.txt",
+    "C:/Users/R/Documents/Codex/2026-10-10/mindle-media-ai-ui-photo-video/outputs/MINDLE_MEDIA_AI_PC_PREPARATION_20261014.zip"
+  ],
+  "local_file_bytes_read_by_general": false,
+  "product_local_execution": "NOT_EXECUTED",
+  "old_helper_error": "HISTORICAL_NOT_CURRENT",
+  "final_product_pass": false,
+  "owner_pc_pass": false
+}

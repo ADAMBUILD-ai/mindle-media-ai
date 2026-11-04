@@ -1,0 +1,30 @@
+{
+  "status": "BLOCKED_ASSET_INTAKE",
+  "errors": [
+    "exact Korean narration script missing or incompatible with quoted product command",
+    "explicit voice length policy missing",
+    "explicit narration volume required (0..2)",
+    "explicit original volume required (0..2)",
+    "explicit bgm volume required (0..1)",
+    "video: supplied scene/track label missing",
+    ": provenance/permission missing",
+    ": real capture declaration missing",
+    ": rights evidence reference missing",
+    ": local path missing",
+    "audio: supplied scene/track label missing",
+    ": provenance/permission missing",
+    ": rights evidence reference missing",
+    ": local path missing",
+    "source coverage below 30 seconds"
+  ],
+  "verified_assets": [],
+  "rights_review": "DECLARATIONS_ONLY_REQUIRES_OWNER_CONFIRMATION",
+  "scene_labels": "USER_SUPPLIED_NOT_MODEL_VISION",
+  "human_visual_review": "NOT_EXECUTED",
+  "human_audio_review": "NOT_EXECUTED",
+  "full_product_pass": false,
+  "manifest_path": "/workspace/scratch/4e99f0098e8e/media-ltx/docs/evidence/media-production-closeout-r3-20261026/CURRENT_INTAKE/INPUT_MANIFEST.json",
+  "manifest_sha256": "5669afe9e837b932566ad554cc1adc39b1755696aad1189803eddc0f61161a4d",
+  "authoritative_input": "INPUT_MANIFEST",
+  "historical_intake_reports_are_not_authority": true
+}

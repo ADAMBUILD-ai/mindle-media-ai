@@ -1,0 +1,22 @@
+{
+  "source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
+  "changed_paths": [
+    ".github/workflows/runtime-recovery.yml",
+    "scripts/run_real_architecture_acceptance.py",
+    "scripts/select_runtime_recovery_checks.py",
+    "src/media_ai/e2e_intake.py",
+    "src/media_ai/source_e2e.py",
+    "tests/test_e2e_intake.py",
+    "tests/test_runtime_recovery_selection.py",
+    "tests/test_source_e2e.py"
+  ],
+  "engine_inputs_unchanged": true,
+  "run_engines": false,
+  "reused_engine_job": {
+    "run_id": 40186056871,
+    "source": "93a5e80ae214365043e91622920ce8e9f1ac0e9d",
+    "job_id": 121147027021,
+    "conclusion": "success"
+  },
+  "full_product_pass": false
+}

@@ -1,0 +1,14 @@
+{
+  "status": "REJECTED",
+  "input_sha256": "615dd2306e5f4b2ac4a9ce8965082ab118514f2c17b87f84083493dbd854c208",
+  "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+  "raw_response_sha256": "45cd20cbc91da56721086f3ff778d4ee19257580f474f3eb57a67b513bd8547a",
+  "decision": {
+    "start": 0.0,
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "reason": "평균 노출 31이 범위 안에 있어 유지합니다."
+  },
+  "error": "AI_AUTO_IGNORED_EXPOSURE: 측정한 과소·과다 노출을 무시한 판단입니다."
+}

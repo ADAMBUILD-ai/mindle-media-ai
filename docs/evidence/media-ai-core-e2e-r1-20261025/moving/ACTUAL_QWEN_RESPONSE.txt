@@ -1,0 +1,3 @@
+{"start": 0, "brightness": 0, "contrast": 0, "saturation": 0, "reason": "측정된 평균 노출 105.73이 80과 176의 범위 안에 있어 보정하지 않습니다."} [end of text]
+
+

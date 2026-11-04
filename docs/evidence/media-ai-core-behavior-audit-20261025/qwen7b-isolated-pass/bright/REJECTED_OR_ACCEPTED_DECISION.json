@@ -1,0 +1,13 @@
+{
+  "status": "ACCEPTED_DECISION_NOT_EXECUTION",
+  "input_sha256": "72a3e33c2f923296a142e8c34754b67ce1861a76dc4d28694729baaef8292ee5",
+  "model_sha256": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+  "raw_response_sha256": "6623c4832b6ce28d1c9c113424d07f9c244d74057f49958609aeb083c0015c5a",
+  "decision": {
+    "start": 0,
+    "brightness": -4,
+    "contrast": 0,
+    "saturation": 0,
+    "reason": "측정된 평균 노출 223.0이 176보다 높아 밝기를 조정합니다."
+  }
+}

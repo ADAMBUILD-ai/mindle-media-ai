@@ -1,0 +1,11 @@
+{
+  "source_review": "evidence/pc_remote/pc-work-v32-asset-recovery-ui-ssot-v14-20261001/",
+  "photo_segmentation": "TESTED_PASS preserved",
+  "photo_4x": "TESTED_PASS preserved",
+  "video_tracking": "TESTED_PASS preserved",
+  "korean_stt": "TESTED_PASS preserved",
+  "project_save_export_reopen": "TESTED_PASS preserved",
+  "adopted_models_unchanged": true,
+  "runtime_backend_changed_in_v17_1": false,
+  "preserved": true
+}

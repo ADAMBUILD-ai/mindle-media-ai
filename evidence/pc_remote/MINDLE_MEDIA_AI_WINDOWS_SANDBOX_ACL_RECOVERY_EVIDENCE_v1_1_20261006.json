@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.1",
+  "date": "2026-10-06",
+  "status": "HOST_SANDBOX_ACL_RECOVERY_PASS_CANONICAL_REPO_VALIDATION_PENDING",
+  "control_plane_epoch": "MEDIA-AI-20261006-WINDOWS-SANDBOX-ACL-RECOVERY-V1.1",
+  "observed_failure_before_recovery": "helper_unknown_error: apply deny-read ACLs",
+  "confirmed_corrupt_state": {
+    "path": "C:\\Users\\PC\\.codex\\.sandbox\\deny_read_acl_state.json",
+    "length_bytes": 22,
+    "all_null": true,
+    "classification": "CASE_A_EXACT_MALFORMED_22B_ALL_NUL"
+  },
+  "environment_neutral_exec_probe": {
+    "path": "C:\\MINDLE_WORK_TEST\\acl_probe.txt",
+    "expected": "MINDLE_PC_WORK_ACL_PROBE_PASS",
+    "readback": "MINDLE_PC_WORK_ACL_PROBE_PASS",
+    "result": "PASS"
+  },
+  "verdict": "HOST_SANDBOX_ACL_RECOVERY_PASS",
+  "product_files_changed": false,
+  "package_build_started": false,
+  "next_required_action": "Canonical repository read-only probe and control-plane validator.",
+  "final_recovery_pass": false
+}

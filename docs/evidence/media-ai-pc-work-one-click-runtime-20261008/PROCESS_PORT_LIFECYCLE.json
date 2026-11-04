@@ -1,0 +1,7 @@
+{
+  "status": "NOT_RUN",
+  "scope": "Observed single-instance PIDs, port and health URL",
+  "reason": "Local Windows executor initialization failed; no current one-click artifact exists.",
+  "passed": false,
+  "observations": null
+}

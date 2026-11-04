@@ -1,0 +1,6 @@
+WARNING:root:Failed to generate the client ID file: [WinError 5] �׼����� �źεǾ����ϴ�: 'C:\\Users\\PC\\AppData\\Local\\Intel Corporation'
+WARNING:root:Failed to create directory for openvino_telemetry file: [WinError 5] �׼����� �źεǾ����ϴ�: 'C:\\Users\\PC\\AppData\\Local\\Intel Corporation'
+WARNING:root:Could not create directory for storing client ID. No data will be sent.
+PACKAGE_LOCAL_IMPORTS_NO_USER_SITE_VERIFIED
+torch= 2.14.0+cpu openvino= 2025.1.0-18503-6fec06580ab-releases/2025/1 numpy= 2.4.6
+['C:\\Users\\PC\\Documents\\Codex\\mindle-employee-runtime-v1-20261006\\python\\Lib', 'C:\\Users\\PC\\Documents\\Codex\\mindle-employee-runtime-v1-20261006\\python\\DLLs', 'C:\\Users\\PC\\Documents\\Codex\\mindle-employee-runtime-v1-20261006\\python', 'C:\\Users\\PC\\Documents\\Codex\\mindle-employee-runtime-v1-20261006\\python\\Lib\\site-packages']

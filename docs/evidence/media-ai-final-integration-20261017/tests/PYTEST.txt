@@ -1,0 +1,100 @@
+......F.......................................                           [100%]
+================================== FAILURES ===================================
+_______ test_owner_stop_does_not_interrupt_real_inflight_requests[save] _______
+
+live = (<media_ai.product_server.ProductHttpServer object at 0x00000212B3CD9100>, <Thread(Thread-21 (serve_forever), started daemon 11504)>, 'http://127.0.0.1:2719')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000212B3CD8380>
+operation = 'save'
+
+    @pytest.mark.parametrize('operation', ['save', 'edit', 'download'])
+    def test_owner_stop_does_not_interrupt_real_inflight_requests(live, monkeypatch, operation):
+        """Pause a real request at the I/O boundary, never add a product bypass."""
+        from concurrent.futures import ThreadPoolExecutor
+        from io import BytesIO
+        import base64
+        from PIL import Image
+        from media_ai.product_server import Handler
+        server, worker, base = live
+        body, headers = control(base)
+        entered, release = threading.Event(), threading.Event()
+        def gate(action):
+            def delayed(*args, **kwargs):
+                entered.set()
+                assert release.wait(3), 'test must release the held request'
+                return action(*args, **kwargs)
+            return delayed
+        if operation == 'save':
+            monkeypatch.setattr(server.service, 'save_project', gate(server.service.save_project))
+            request = lambda: call(base, '/api/projects/save', {'project_id': None, 'job_ids': []})
+        elif operation == 'edit':
+            image = BytesIO(); Image.new('RGB', (4, 3), 'blue').save(image, 'PNG')
+            monkeypatch.setattr(server.service, 'store_photo_edit', gate(server.service.store_photo_edit))
+            request = lambda: call(base, '/api/photo-edits', {'filename': 'edit.png',
+                'content_base64': base64.b64encode(image.getvalue()).decode(), 'options': {}})
+        else:
+            path = server.data_dir / 'download.bin'; path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'unchanged actual download')
+            monkeypatch.setattr(Handler, '_file', gate(Handler._file))
+            def request():
+                with urlopen(base + '/files/download.bin', timeout=5) as response:
+                    return response.status, response.read(), response.headers
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            pending = pool.submit(request)
+            try:
+                assert entered.wait(3)
+                with pytest.raises(HTTPError) as error:
+                    call(base, '/api/runtime/shutdown', body, headers)
+                assert error.value.code == 409
+                assert worker.is_alive() and not server.stopping
+                assert not pending.done()
+            finally:
+                release.set()
+>           status, result, _ = pending.result(timeout=5)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_runtime_owner_lifecycle.py:127: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\concurrent\futures\thread.py:59: in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_runtime_owner_lifecycle.py:103: in <lambda>
+    request = lambda: call(base, '/api/projects/save', {'project_id': None, 'job_ids': []})
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_runtime_owner_lifecycle.py:28: in call
+    with urlopen(req, timeout=5) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:215: in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:521: in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:630: in http_response
+    response = self.parent.error(
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:559: in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:492: in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <urllib.request.HTTPDefaultErrorHandler object at 0x00000212B3CDA030>
+req = <urllib.request.Request object at 0x00000212D72C9550>
+fp = <http.client.HTTPResponse object at 0x00000212D72C92A0>, code = 422
+msg = 'Unprocessable Entity'
+hdrs = <http.client.HTTPMessage object at 0x00000212D72CA300>
+
+    def http_error_default(self, req, fp, code, msg, hdrs):
+>       raise HTTPError(req.full_url, code, msg, hdrs, fp)
+E       urllib.error.HTTPError: HTTP Error 422: Unprocessable Entity
+
+C:\Users\R\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:639: HTTPError
+=========================== short test summary info ===========================
+FAILED tests/test_runtime_owner_lifecycle.py::test_owner_stop_does_not_interrupt_real_inflight_requests[save]
+1 failed, 45 passed in 7.19s

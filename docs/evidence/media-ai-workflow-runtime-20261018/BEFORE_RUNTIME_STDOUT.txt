@@ -1,0 +1,11 @@
+page.waitForFunction: Timeout 45000ms exceeded.
+    at /workspace/scratch/b0ed3e0d34af/product/docs/evidence/media-ai-workflow-runtime-20261018/browser_workflow.cjs:7:161 {
+  log: [],
+  name: 'TimeoutError'
+}
+Traceback (most recent call last):
+  File "/workspace/scratch/b0ed3e0d34af/product/docs/evidence/media-ai-workflow-runtime-20261018/run_runtime.py", line 42, in <module>
+    subprocess.run(['node',str(OUT/'browser_workflow.cjs')],env=browser_env,check=True,timeout=90)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['node', '/workspace/scratch/b0ed3e0d34af/product/docs/evidence/media-ai-workflow-runtime-20261018/browser_workflow.cjs']' returned non-zero exit status 1.

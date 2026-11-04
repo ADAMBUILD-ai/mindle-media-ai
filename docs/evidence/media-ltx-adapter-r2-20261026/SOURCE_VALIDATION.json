@@ -1,0 +1,81 @@
+{
+  "work_id": "MEDIA-LTX-SOURCE-ADAPTER-R2-20261026",
+  "status": "SOURCE_COMPONENT_IMPLEMENTED_REAL_MODEL_E2E_NOT_EXECUTED",
+  "base_source": "4adb2e55b46271c5ae33ba61339b9951b213698e",
+  "upstream_revision": "8ffed888f3a9afdfbf137fa6193bf1cdc1cd657b",
+  "changed_source_sha256": {
+    "external_assets/media-production/ltx_remote_adapter.py": {
+      "bytes": 26528,
+      "sha256": "3a3f8974e9121aad120004c6a358dd23cfc1d7c1f8c9ec0ff7a4ae81c3b7389c"
+    },
+    "external_assets/media-production/ltx_source_config.template.json": {
+      "bytes": 336,
+      "sha256": "1d8147cd506c7621bc0f7f498c816ffd255a160f737386f27a962cc2aed2ee37"
+    },
+    "scripts/run_ltx_source_evaluation.py": {
+      "bytes": 2931,
+      "sha256": "83b87ce576f600b3e55f8e7cec8a5db0f70cd2bd8ffe968552619bdcef83e95f"
+    },
+    "tests/test_ltx_remote_adapter.py": {
+      "bytes": 19758,
+      "sha256": "e7547e8f584fababe760205fb5966eebf4b36feef87b9b24d45a25cd670507d0"
+    },
+    "docs/commander/MEDIA_LTX_SOURCE_ADAPTER_R2_KO.md": {
+      "bytes": 7302,
+      "sha256": "cc3abfef6aa19bd8ef95d57bc49c4c7b2a57d847c678d658673757b92827d2b9"
+    }
+  },
+  "local_tests": {
+    "all_pass": 432,
+    "all_skip": 6,
+    "new_http_adapter_tests_pass": 31,
+    "runtime_seconds": 50.54
+  },
+  "transport_test": "ACTUAL_LOOPBACK_HTTP_TO_TEST_DOUBLE_NOT_LTX_MODEL",
+  "media_persistence_test": "REAL_FFMPEG_IMPORT_SAVE_DISTINCT_PROCESS_REOPEN_EXPORT",
+  "core_bytes": "PASS_59_UNCHANGED_FILES",
+  "remote_ci": {
+    "canonical": {
+      "run": 40248381507,
+      "job": 121334721310,
+      "status": "SUCCESS",
+      "source": "b1aea66941277f20323f3a0116bbf60499eff365",
+      "python_pass": 433,
+      "python_skip": 5,
+      "ui_contract_pass": 2,
+      "fresh_model_inference": false,
+      "actual_browser_e2e_this_run": false
+    },
+    "windows_preflight": {
+      "run": 40248377862,
+      "status": "SUCCESS",
+      "scope": "EXISTING_CORE_CONTROL_AND_COMPILE_NOT_NEW_ADAPTER_RUNTIME"
+    },
+    "package_gate": {
+      "run": 40248377865,
+      "status": "SUCCESS",
+      "build_job": "SKIPPED"
+    }
+  },
+  "gates": {
+    "source_component": "PASS_LOCAL_CONTRACT",
+    "actual_ltx_server": "NOT_EXECUTED",
+    "model_inference": "NOT_EXECUTED",
+    "owner_pc": "NOT_EXECUTED",
+    "human_visual_listening": "NOT_EXECUTED",
+    "real_30_second_e2e": "BLOCKED_ASSET_INTAKE",
+    "product_ui_activation": "NOT_ENABLED"
+  },
+  "build_gate": false,
+  "installed_model_changes": false,
+  "new_windows_candidate": false,
+  "pr_draft_hold": true,
+  "full_product_pass": false,
+  "limitations": [
+    "Remote API cannot independently attest the actual loaded runtime or weights.",
+    "File identity verification checks the approved list, not model-manifest completeness.",
+    "Offline settings checks do not prove network silence.",
+    "Only neutral-camera image-to-video on the approved loopback engine is implemented."
+  ],
+  "tested_source": "b1aea66941277f20323f3a0116bbf60499eff365"
+}

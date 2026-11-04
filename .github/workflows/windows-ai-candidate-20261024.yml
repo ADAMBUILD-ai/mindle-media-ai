@@ -1,0 +1,101 @@
+name: Owner authorized Windows AI candidate 20261024 R1
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths: [.github/workflows/windows-ai-candidate-20261024.yml]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: owner-ai-candidate-20261024-r1
+  cancel-in-progress: false
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      allowed: ${{ steps.authorization.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - id: authorization
+        shell: python
+        run: |
+          import json,os,subprocess
+          from pathlib import Path
+          authorization=json.loads(Path('docs/commander/WINDOWS_AI_CANDIDATE_20261024_AUTHORIZATION.json').read_text())
+          parent=subprocess.check_output(['git','rev-parse','HEAD^'],text=True).strip()
+          assert authorization['authorized_parent']==parent
+          assert authorization['scope']=='ONE_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE'
+          assert os.environ['GITHUB_RUN_ATTEMPT']=='1', 'one authorized attempt only'
+          for name in ['CURRENT_PC_WORK_STATE.json','CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json','CURRENT_GENERAL_WORK_STATE.json','CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json']:
+              state=json.loads(Path(name).read_text())
+              assert state['package_build_allowed'] is False
+              assert state['owner_windows_candidate_20261024']['authorization']==authorization['id']
+          with open(os.environ['GITHUB_OUTPUT'],'a') as out:out.write('allowed=true\n')
+  build:
+    needs: gate
+    if: needs.gate.outputs.allowed == 'true'
+    runs-on: windows-latest
+    timeout-minutes: 90
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preserve evidence directory
+        run: New-Item -ItemType Directory -Force evidence-new | Out-Null
+      - name: Recover byte-pinned c37 runtime only
+        uses: actions/download-artifact@v4
+        with:
+          pattern: mindle-media-one-click-win-x64-part-*
+          merge-multiple: true
+          run-id: 38845082039
+          github-token: ${{ github.token }}
+          path: build/base-parts
+      - name: Build current bootstrap EXE
+        shell: pwsh
+        run: |
+          python -m pip install --disable-pip-version-check pyinstaller==6.16.0 playwright==1.55.0
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          pyinstaller --clean --noconfirm --onefile --noconsole --name MINDLE_MEDIA_AI_RUN --icon ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico scripts/one_click_bootstrap.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Assemble fresh isolated candidate with verified local engines
+        run: python -B scripts/build_ai_windows_candidate.py assemble
+      - name: Actual Windows EXE Chrome inference and cold restart
+        shell: pwsh
+        run: |
+          $env:LOCALAPPDATA = [IO.Path]::GetFullPath('build/isolated-localappdata')
+          New-Item -ItemType Directory -Force $env:LOCALAPPDATA | Out-Null
+          python -B scripts/accept_ai_windows_candidate.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Seal post-runtime hashes CRC and split delivery
+        run: python -B scripts/build_ai_windows_candidate.py seal
+      - name: Preserve truthful job status
+        if: always()
+        shell: pwsh
+        run: |
+          [ordered]@{source=$env:GITHUB_SHA;run=$env:GITHUB_RUN_ID;job_status='${{ job.status }}';office_pc_acceptance=$false;human_hearing=$false;full_product_pass=$false} | ConvertTo-Json | Set-Content evidence-new/JOB_STATUS.json -Encoding utf8
+      - name: Upload actual execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-evidence
+          path: evidence-new/**
+          if-no-files-found: error
+          retention-days: 90
+      - name: Upload verified candidate parts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-delivery
+          path: |
+            build/MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-*
+            build/MINDLE_MEDIA_AI_PC_TEST_20261024_R1/DELIVERY_MANIFEST.json
+            build/MINDLE_MEDIA_AI_START_20261024_R1.zip
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30

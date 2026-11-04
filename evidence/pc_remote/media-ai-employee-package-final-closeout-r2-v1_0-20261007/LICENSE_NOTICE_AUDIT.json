@@ -1,0 +1,10 @@
+{
+  "status": "GENERATED_NOT_FULL_REDISTRIBUTION_PASS",
+  "unresolved": [
+    "Owner Visual Studio redistribution entitlement",
+    "Existing Python/NumPy embedded Microsoft DLLs",
+    "Complete FFmpeg static dependency corresponding source"
+  ],
+  "runtime_component_count": 33,
+  "model_count": 3
+}

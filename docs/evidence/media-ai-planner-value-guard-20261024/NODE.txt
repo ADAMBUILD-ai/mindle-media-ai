@@ -1,0 +1,34 @@
+PASS: 3 model commands reach model router; unsupported command stays handled
+✔ tests/test_photo_route_20261008.cjs (77.757918ms)
+✔ cloud reports absent external integration without requesting local projects (2.415112ms)
+✔ local storage keeps its original project API route (0.935762ms)
+✔ approved cloud label remains and is routed separately from settings (0.738133ms)
+✔ ui/interaction.test.js (77.410163ms)
+✔ new/open project cannot clear an edit in progress or start a competing restore (7.1409ms)
+✔ save response cannot attach the old project to a new project (3.375561ms)
+✔ rejected duplicate save/export does not unlock the active save (1.653124ms)
+✔ in-flight restore excludes new/open/save and releases its guard when no project exists (1.508545ms)
+✔ rejected duplicate export cannot release the first export transition guard (2.048209ms)
+✔ failed preview restore preserves the previous input, preview, project and jobs (3.64649ms)
+✔ failed reference restore preserves the previous input, preview, project and jobs (1.445891ms)
+✔ failed audio restore preserves the previous input, preview, project and jobs (1.297617ms)
+✔ successful staged restore uses the actual output filename (1.45199ms)
+✔ new clears previous video tracks, clock, preview metadata and project status (1.64443ms)
+✔ photo-only clears previous video tracks, clock, preview metadata and project status (1.174812ms)
+✔ ui/ssot_structure.test.js (69.149264ms)
+✔ 대비를 13 높여 줘 reaches plan API without injected steps (3.370344ms)
+✔ 밝기를 7 낮추고 자막을 넣어줘 reaches plan API without injected steps (0.773757ms)
+✔ "안녕하세요" 나레이션 추가 reaches plan API without injected steps (0.686145ms)
+✔ 내레이션을 넣어 줘 reaches plan API without injected steps (0.60992ms)
+✔ 할 수 없는 요청을 정직하게 거절해 줘 reaches plan API without injected steps (0.614277ms)
+✔ manual scene analysis and tracking stay in existing path (1.904152ms)
+✔ PHOTO does not silently enter VIDEO model plan (0.793186ms)
+✔ verified values and model provenance are shown before queue submission (0.977655ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.990372

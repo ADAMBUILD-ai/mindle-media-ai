@@ -1,0 +1,240 @@
+[
+  {
+    "path": "chrome_original/RESULT_KO.txt",
+    "bytes": 3594,
+    "sha256": "cdd51573b49e6f7e7d1c32f57efab25bdecd65762a4760fc94382ae55ebbe150",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\RESULT_KO.txt",
+    "source_mtime_utc": "2026-10-17T05:43:47.999655+00:00"
+  },
+  {
+    "path": "chrome_original/receipt.json",
+    "bytes": 1654,
+    "sha256": "c91b564c7f3aaef1db72dc8d5f941ebd00b5218680ff09d859106373b037dc2e",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\receipt.json",
+    "source_mtime_utc": "2026-10-17T05:43:47.999655+00:00"
+  },
+  {
+    "path": "chrome_original/SOURCE_PRESERVATION.json",
+    "bytes": 430,
+    "sha256": "6b6de52739a63c2627b8add10eaa1af290ed77a812655d7abd272e5ad8238836",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\SOURCE_PRESERVATION.json",
+    "source_mtime_utc": "2026-10-17T05:43:47.965657+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/CASES.json",
+    "bytes": 26424,
+    "sha256": "843e7a153cf8be28e7c086b722e6ccf8d3f74ad70ec93dc079ccd9acbe64fb52",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\CASES.json",
+    "source_mtime_utc": "2026-10-17T05:37:15.124138+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/SUMMARY.json",
+    "bytes": 413,
+    "sha256": "da57962f75b0e24f07e85fcd1c09fce1a28e99c2b0e38a3020a0f394c68fa13d",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\SUMMARY.json",
+    "source_mtime_utc": "2026-10-17T05:37:15.243275+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/BROWSER_SESSION.json",
+    "bytes": 1847,
+    "sha256": "8f647137aa24f22a1b35f1c6bc3845a78080c95a1875499956354122c96de4c7",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\BROWSER_SESSION.json",
+    "source_mtime_utc": "2026-10-17T05:36:42.099238+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/SERVER.json",
+    "bytes": 1676,
+    "sha256": "d5394cdf5c1f8b1c38872e25932553c2905704db01adbf94002689e7178541f8",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\SERVER.json",
+    "source_mtime_utc": "2026-10-17T05:36:40.156970+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/HTTP_REQUESTS.json",
+    "bytes": 51122,
+    "sha256": "4f4a83fcd2cbe2bfb0ca30807e20d9955edd0e14d28252b1912b576d848e0f14",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\HTTP_REQUESTS.json",
+    "source_mtime_utc": "2026-10-17T05:37:14.189656+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/SERVER_REQUEST_LOG.json",
+    "bytes": 53901,
+    "sha256": "740a9242b1cecd8ced8feb6fcf6fae0672bbabd0d466a0370c43f3a7b20860bf",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\SERVER_REQUEST_LOG.json",
+    "source_mtime_utc": "2026-10-17T05:37:15.586411+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/FIRST_SAVE_OLD_PROJECT_PRESERVED.json",
+    "bytes": 744,
+    "sha256": "e30a1a1b22a276eafa3b4b1e42cb6696f52660acc4f9dc8171d77980639fbab0",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\FIRST_SAVE_OLD_PROJECT_PRESERVED.json",
+    "source_mtime_utc": "2026-10-17T05:37:00.679548+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/FINAL_SAVED_PROJECT.json",
+    "bytes": 15775,
+    "sha256": "b00894c3e709ccd0be04533ded39beefddf0f45442db9ced2b785b195c85b881",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\FINAL_SAVED_PROJECT.json",
+    "source_mtime_utc": "2026-10-17T05:37:11.854442+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/PAGE_ERRORS.json",
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\PAGE_ERRORS.json",
+    "source_mtime_utc": "2026-10-17T05:37:15.241273+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/FINAL_NORMAL_REOPEN_EXPORT.png",
+    "bytes": 492845,
+    "sha256": "52c664365e2f190e36538e8d7536d60f56068245c6f5507789affaa2eccf1b64",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\FINAL_NORMAL_REOPEN_EXPORT.png",
+    "source_mtime_utc": "2026-10-17T05:37:15.112137+00:00"
+  },
+  {
+    "path": "chrome_original/source_browser/NORMAL_EXPORT.zip",
+    "bytes": 15196966,
+    "sha256": "3664bee30cc90e7154514795f9f5588bde252902fa8c76cf936850e95578c4bc",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\source_browser\\NORMAL_EXPORT.zip",
+    "source_mtime_utc": "2026-10-17T05:37:14.948531+00:00"
+  },
+  {
+    "path": "chrome_original/earlier_attempts/TRANSITION_COMBINED_20261017_R6.log",
+    "bytes": 263,
+    "sha256": "20c21db74008cd23d23926cd325d3b95fb065f5202c07f7eb27651fc60f8bc38",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\earlier_attempts\\TRANSITION_COMBINED_20261017_R6.log",
+    "source_mtime_utc": "2026-10-17T05:37:15.124138+00:00"
+  },
+  {
+    "path": "chrome_original/harness/browser_transitions.py",
+    "bytes": 14167,
+    "sha256": "15ce7507dac184301d14e5d96c2c74f933c3b57ae8bc833ac36c45d40d269a5a",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\harness\\browser_transitions.py",
+    "source_mtime_utc": "2026-10-17T05:36:37.204083+00:00"
+  },
+  {
+    "path": "chrome_original/harness/run_combined.py",
+    "bytes": 1271,
+    "sha256": "e54bf45be348a336ce92013dbb88634f8e98b7b25ba9640eed0fa54c4018b80f",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\harness\\run_combined.py",
+    "source_mtime_utc": "2026-10-17T05:36:37.211089+00:00"
+  },
+  {
+    "path": "chrome_original/harness/launch_c37_office.py",
+    "bytes": 1787,
+    "sha256": "6a161508f851a07aab8eb114715c9fd86a94d09b629cc29cd48e4c566014fd84",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\harness\\launch_c37_office.py",
+    "source_mtime_utc": "2026-10-17T05:41:12.030922+00:00"
+  },
+  {
+    "path": "chrome_original/c37_office/LAUNCH.json",
+    "bytes": 423,
+    "sha256": "32d795223383829b4e3f393a91c221625e8969e8f417cd4bcbcbd5aafc0a073f",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\c37_office\\LAUNCH.json",
+    "source_mtime_utc": "2026-10-17T05:41:13.622099+00:00"
+  },
+  {
+    "path": "chrome_original/c37_office/EXE_EXCEPTION.json",
+    "bytes": 2288,
+    "sha256": "887aac8c711ed98ecc41a216005300f8204911d30d82045811c8fe74b09dca62",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\c37_office\\EXE_EXCEPTION.json",
+    "source_mtime_utc": "2026-10-17T05:41:48.179572+00:00"
+  },
+  {
+    "path": "chrome_original/c37_office/EXE_EXCEPTION_0.jpg",
+    "bytes": 32359,
+    "sha256": "7d7f89ebb06530a9c1d969d3f4bd828f743321e244e84f5942a096af25a3f7bd",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\c37_office\\EXE_EXCEPTION_0.jpg",
+    "source_mtime_utc": "2026-10-17T05:41:48.181572+00:00"
+  },
+  {
+    "path": "chrome_original/c37_office/LOCK_OPEN_DIAGNOSTICS.json",
+    "bytes": 529,
+    "sha256": "9260fbeb8913be2a70d665833ed82c4e1881fa0ae8b15c45c1d8324ee39d6831",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\c37_office\\LOCK_OPEN_DIAGNOSTICS.json",
+    "source_mtime_utc": "2026-10-17T05:42:20.336408+00:00"
+  },
+  {
+    "path": "chrome_original/c37_office/LOCK_ACL.json",
+    "bytes": 1485,
+    "sha256": "fb002f30ca6618347bcd82f6dc12264962cee693a423453de1ce4741139277b9",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\c37_office\\LOCK_ACL.json",
+    "source_mtime_utc": "2026-10-17T05:42:43.371405+00:00"
+  },
+  {
+    "path": "chrome_original/c37_office/LOCAL_PACKAGE_RECEIPT.json",
+    "bytes": 415,
+    "sha256": "e243a80af354f0d747105a6e62773eb587657e915162556f9c0b217554b5a8f5",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1\\c37_office\\LOCAL_PACKAGE_RECEIPT.json",
+    "source_mtime_utc": "2026-10-17T05:39:06.258823+00:00"
+  },
+  {
+    "path": "chrome_original/MINDLE_FINAL_ACCEPTANCE_20261017_R1.zip",
+    "bytes": 43305442,
+    "sha256": "232d69cbb6e9a06d9281a5ba00a39903b477b4e1362f5891589edc16a32a1853",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\outputs\\MINDLE_FINAL_ACCEPTANCE_20261017_R1.zip",
+    "source_mtime_utc": "2026-10-17T05:43:49.686585+00:00"
+  },
+  {
+    "path": "executed_source/product_integration.js",
+    "bytes": 22890,
+    "sha256": "9535a5c7c83ac52e39cf17fdd77a4178bd3c39fbc875212434c931fdbe3be4ad",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\transition-browser-20261017\\source\\ui\\product_integration.js",
+    "source_mtime_utc": "2026-10-17T05:28:34.978594+00:00"
+  },
+  {
+    "path": "executed_source/workspace_shell.js",
+    "bytes": 3998,
+    "sha256": "8254c166773dd8049b6a2241bb77cd28b11167db7627c61fdc2afe18d195bb78",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\transition-browser-20261017\\source\\ui\\workspace_shell.js",
+    "source_mtime_utc": "2026-10-17T05:28:34.984598+00:00"
+  },
+  {
+    "path": "executed_source/c37_reference_one_click_bootstrap.py",
+    "bytes": 10607,
+    "sha256": "93b0a279e4fb540680648130b32f557a3f62c29e24db4196afc67b39e0118aba",
+    "source_local": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video\\work\\transition-browser-20261017\\source\\scripts\\one_click_bootstrap.py",
+    "source_mtime_utc": "2026-10-17T05:28:34.845062+00:00"
+  },
+  {
+    "path": "chrome_original\\scenarios\\01.json",
+    "bytes": 4992,
+    "sha256": "fab207cec96c340bd704da6f6eda3450856fe4e48f7d806ed8a0bd4b448a65e3",
+    "derived_from": "chrome_original/source_browser/CASES.json",
+    "scenario_reexecuted": false
+  },
+  {
+    "path": "chrome_original\\scenarios\\02.json",
+    "bytes": 4886,
+    "sha256": "16c42844f89cbb886ab0c9deddd9fd7b52ff4fb0d02fdaf8f73395e2ea3c4dbb",
+    "derived_from": "chrome_original/source_browser/CASES.json",
+    "scenario_reexecuted": false
+  },
+  {
+    "path": "chrome_original\\scenarios\\03.json",
+    "bytes": 3291,
+    "sha256": "2da06086ba907e1f345cb96ae5775a31751f4888b2f8a865126f090a3b78169c",
+    "derived_from": "chrome_original/source_browser/CASES.json",
+    "scenario_reexecuted": false
+  },
+  {
+    "path": "chrome_original\\scenarios\\04.json",
+    "bytes": 1727,
+    "sha256": "e03486c8a2e0a6919e3da129d1de32410c9716db5e7dc82ecf773901e30fc6f4",
+    "derived_from": "chrome_original/source_browser/CASES.json",
+    "scenario_reexecuted": false
+  },
+  {
+    "path": "chrome_original\\scenarios\\05.json",
+    "bytes": 3373,
+    "sha256": "f9d71dcfef96e62973119fd5d29a11ca4a42c7daa20dbab87b6a51b7b0d13893",
+    "derived_from": "chrome_original/source_browser/CASES.json",
+    "scenario_reexecuted": false
+  },
+  {
+    "path": "chrome_original\\scenarios\\06.json",
+    "bytes": 6832,
+    "sha256": "587b520f520015819d24bb9436b70b3ad99e8ba47c74803cc0340a3132d5d268",
+    "derived_from": "chrome_original/source_browser/CASES.json",
+    "scenario_reexecuted": false
+  }
+]

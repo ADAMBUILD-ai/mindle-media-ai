@@ -1,0 +1,20 @@
+{
+  "player": "PotPlayer",
+  "engine_dll_file_version": "1.7.22619.0",
+  "exe_version_metadata": "0.0.0.0; unavailable",
+  "input": "c37_runtime/C37_ACTUAL_EXPORTED_VIDEO.mp4",
+  "sha256": "c8fb412095b59d9970e836a662ee92874197d1f3fe88f7b4eb448cf4ec86543b",
+  "video_display": "PASS",
+  "time_progression": "PASS; observed 0 to 2 seconds and different frames",
+  "seek_forward": "PASS; 00:00:04 / 00:00:05, OSD 82%",
+  "seek_backward": "PASS; 00:00:01 / 00:00:05, OSD 24%",
+  "audio_stream": "AAC 2.0 present; not hearing evidence",
+  "human_hearing": "BLOCKED; witness/time reply not received",
+  "observed_at_utc": "2026-10-17T06:15:51.464Z",
+  "current_state": "paused after backward seek",
+  "evidence": [
+    "PLAYER_FRAME_A.jpg",
+    "PLAYER_SEEK_FORWARD.jpg",
+    "PLAYER_SEEK_BACKWARD.jpg"
+  ]
+}

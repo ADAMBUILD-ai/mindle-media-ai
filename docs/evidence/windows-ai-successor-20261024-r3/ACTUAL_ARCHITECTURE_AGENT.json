@@ -1,0 +1,317 @@
+{
+  "plan": {
+    "plan_id": "720db184-9d33-4625-a1a4-22ad68a4e976",
+    "project_id": "cfe94a70-9a61-40f8-ad82-b20147a374d4",
+    "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+    "command_sha256": "9bfa7420f9e263b5fb4605b7c3dab2b4ca0156a4f435fc216091f2a25dadf750",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "license": "Apache-2.0",
+    "executable_sha256": "cfbe37629352def818bb1c917419d7433abfe53a77151d0154bf5e7d4858ff37",
+    "runtime_sha256": "157a0fd4db57575fc74df46d8e82d547e7d9114d7cb21dcf2da74aee29317bed",
+    "raw_response_sha256": "90ac30156a577351cb0c94330e6d22aa31434d0ab847e933398ed7ce3ef94c3b",
+    "catalog": [
+      {
+        "source_id": "input-01",
+        "job_id": "a08dcd67-c727-4c3f-8672-7520eefc00d6",
+        "filename": "original_video_preview.mp4",
+        "path": "C:\\Users\\runneradmin\\AppData\\Local\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R3\\jobs\\a08dcd67-c727-4c3f-8672-7520eefc00d6\\original_video_preview.mp4",
+        "sha256": "71187e43f41af6292b34032263d9e22ea61f3cc9b4dbedb5b84c1984b1537b07",
+        "duration_seconds": 4.01,
+        "width": 320,
+        "height": 180,
+        "orientation": "landscape",
+        "visual_profile": {
+          "method": "measured_scene_window_v1",
+          "model_inference": false,
+          "semantic_understanding": false,
+          "sample_count": 4,
+          "usable_ratio": 1.0,
+          "mean_exposure": 29.0,
+          "mean_motion": 0.0,
+          "mean_sharpness": 0.0,
+          "measured_best_start": 0.0,
+          "measured_window_seconds": 3.0
+        }
+      },
+      {
+        "source_id": "input-02",
+        "job_id": "470995d1-0547-4443-a370-f580c8b79234",
+        "filename": "original_video_preview.mp4",
+        "path": "C:\\Users\\runneradmin\\AppData\\Local\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R3\\jobs\\470995d1-0547-4443-a370-f580c8b79234\\original_video_preview.mp4",
+        "sha256": "d809b96f828eee3a5ece87a8027c4d56e6f140fceead5a7a9e3347af36c7156a",
+        "duration_seconds": 4.01,
+        "width": 320,
+        "height": 180,
+        "orientation": "landscape",
+        "visual_profile": {
+          "method": "measured_scene_window_v1",
+          "model_inference": false,
+          "semantic_understanding": false,
+          "sample_count": 4,
+          "usable_ratio": 1.0,
+          "mean_exposure": 76.0008,
+          "mean_motion": 0.0008,
+          "mean_sharpness": 0.0005,
+          "measured_best_start": 0.0,
+          "measured_window_seconds": 3.0
+        }
+      }
+    ],
+    "constraint_adjustments": [
+      {
+        "field": "scene.duration_seconds",
+        "reason": "EXPLICIT_TOTAL_DURATION",
+        "model_total_seconds": 4.0,
+        "applied_total_seconds": 2.0,
+        "method": "PROPORTIONAL_WITH_SOURCE_CAPS"
+      }
+    ],
+    "aspect": "16:9",
+    "scenes": [
+      {
+        "scene_id": "scene-01",
+        "source_id": "input-01",
+        "duration_seconds": 1.0,
+        "start_seconds": 0.0,
+        "selection": {
+          "method": "measured_scene_window_v1",
+          "model_inference": false,
+          "semantic_understanding": false,
+          "sample_count": 4,
+          "selected_sample_count": 1,
+          "mean_score": 0.0,
+          "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+        }
+      },
+      {
+        "scene_id": "scene-02",
+        "source_id": "input-02",
+        "duration_seconds": 1.0,
+        "start_seconds": 0.5,
+        "selection": {
+          "method": "measured_scene_window_v1",
+          "model_inference": false,
+          "semantic_understanding": false,
+          "sample_count": 4,
+          "selected_sample_count": 1,
+          "mean_score": 0.0034,
+          "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+        }
+      }
+    ],
+    "total_duration_seconds": 2.0,
+    "validated_request": {
+      "duration_seconds": 2.0,
+      "aspect": "16:9"
+    },
+    "project_job_ids": [
+      "a08dcd67-c727-4c3f-8672-7520eefc00d6",
+      "470995d1-0547-4443-a370-f580c8b79234"
+    ]
+  },
+  "production": {
+    "production_id": "c2439428-670d-4c00-aee9-6c77f3f2f085",
+    "request_key": "architecture-plan:720db184-9d33-4625-a1a4-22ad68a4e976",
+    "fingerprint": "320bd248023eaec9d2ab15bb063d28f4c93deb93b60ad0ecef58c56a4d2849a7",
+    "state": "SUCCEEDED",
+    "plan": {
+      "project_id": "cfe94a70-9a61-40f8-ad82-b20147a374d4",
+      "aspect": "16:9",
+      "output": "C:\\Users\\runneradmin\\AppData\\Local\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R3\\architecture-agent\\outputs\\720db184-9d33-4625-a1a4-22ad68a4e976.mp4",
+      "scenes": [
+        {
+          "scene_id": "scene-01",
+          "engine": "existing_clip",
+          "source": "C:\\Users\\runneradmin\\AppData\\Local\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R3\\jobs\\a08dcd67-c727-4c3f-8672-7520eefc00d6\\original_video_preview.mp4",
+          "source_sha256": "71187e43f41af6292b34032263d9e22ea61f3cc9b4dbedb5b84c1984b1537b07",
+          "duration_seconds": 1.0,
+          "prompt": null,
+          "camera": null,
+          "start_seconds": 0.0
+        },
+        {
+          "scene_id": "scene-02",
+          "engine": "existing_clip",
+          "source": "C:\\Users\\runneradmin\\AppData\\Local\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R3\\jobs\\470995d1-0547-4443-a370-f580c8b79234\\original_video_preview.mp4",
+          "source_sha256": "d809b96f828eee3a5ece87a8027c4d56e6f140fceead5a7a9e3347af36c7156a",
+          "duration_seconds": 1.0,
+          "prompt": null,
+          "camera": null,
+          "start_seconds": 0.5
+        }
+      ]
+    },
+    "required_assets": [
+      "external.ffmpeg.runtime"
+    ],
+    "missing": [],
+    "created_at": 1792832690.8427632,
+    "updated_at": 1792832691.108886,
+    "plan_id": "720db184-9d33-4625-a1a4-22ad68a4e976",
+    "planner_receipt": {
+      "plan_id": "720db184-9d33-4625-a1a4-22ad68a4e976",
+      "project_id": "cfe94a70-9a61-40f8-ad82-b20147a374d4",
+      "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+      "command_sha256": "9bfa7420f9e263b5fb4605b7c3dab2b4ca0156a4f435fc216091f2a25dadf750",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "license": "Apache-2.0",
+      "executable_sha256": "cfbe37629352def818bb1c917419d7433abfe53a77151d0154bf5e7d4858ff37",
+      "runtime_sha256": "157a0fd4db57575fc74df46d8e82d547e7d9114d7cb21dcf2da74aee29317bed",
+      "raw_response_sha256": "90ac30156a577351cb0c94330e6d22aa31434d0ab847e933398ed7ce3ef94c3b",
+      "catalog": [
+        {
+          "source_id": "input-01",
+          "job_id": "a08dcd67-c727-4c3f-8672-7520eefc00d6",
+          "filename": "original_video_preview.mp4",
+          "path": "C:\\Users\\runneradmin\\AppData\\Local\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R3\\jobs\\a08dcd67-c727-4c3f-8672-7520eefc00d6\\original_video_preview.mp4",
+          "sha256": "71187e43f41af6292b34032263d9e22ea61f3cc9b4dbedb5b84c1984b1537b07",
+          "duration_seconds": 4.01,
+          "width": 320,
+          "height": 180,
+          "orientation": "landscape",
+          "visual_profile": {
+            "method": "measured_scene_window_v1",
+            "model_inference": false,
+            "semantic_understanding": false,
+            "sample_count": 4,
+            "usable_ratio": 1.0,
+            "mean_exposure": 29.0,
+            "mean_motion": 0.0,
+            "mean_sharpness": 0.0,
+            "measured_best_start": 0.0,
+            "measured_window_seconds": 3.0
+          }
+        },
+        {
+          "source_id": "input-02",
+          "job_id": "470995d1-0547-4443-a370-f580c8b79234",
+          "filename": "original_video_preview.mp4",
+          "path": "C:\\Users\\runneradmin\\AppData\\Local\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R3\\jobs\\470995d1-0547-4443-a370-f580c8b79234\\original_video_preview.mp4",
+          "sha256": "d809b96f828eee3a5ece87a8027c4d56e6f140fceead5a7a9e3347af36c7156a",
+          "duration_seconds": 4.01,
+          "width": 320,
+          "height": 180,
+          "orientation": "landscape",
+          "visual_profile": {
+            "method": "measured_scene_window_v1",
+            "model_inference": false,
+            "semantic_understanding": false,
+            "sample_count": 4,
+            "usable_ratio": 1.0,
+            "mean_exposure": 76.0008,
+            "mean_motion": 0.0008,
+            "mean_sharpness": 0.0005,
+            "measured_best_start": 0.0,
+            "measured_window_seconds": 3.0
+          }
+        }
+      ],
+      "constraint_adjustments": [
+        {
+          "field": "scene.duration_seconds",
+          "reason": "EXPLICIT_TOTAL_DURATION",
+          "model_total_seconds": 4.0,
+          "applied_total_seconds": 2.0,
+          "method": "PROPORTIONAL_WITH_SOURCE_CAPS"
+        }
+      ],
+      "aspect": "16:9",
+      "scenes": [
+        {
+          "scene_id": "scene-01",
+          "source_id": "input-01",
+          "duration_seconds": 1.0,
+          "start_seconds": 0.0,
+          "selection": {
+            "method": "measured_scene_window_v1",
+            "model_inference": false,
+            "semantic_understanding": false,
+            "sample_count": 4,
+            "selected_sample_count": 1,
+            "mean_score": 0.0,
+            "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+          }
+        },
+        {
+          "scene_id": "scene-02",
+          "source_id": "input-02",
+          "duration_seconds": 1.0,
+          "start_seconds": 0.5,
+          "selection": {
+            "method": "measured_scene_window_v1",
+            "model_inference": false,
+            "semantic_understanding": false,
+            "sample_count": 4,
+            "selected_sample_count": 1,
+            "mean_score": 0.0034,
+            "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+          }
+        }
+      ],
+      "total_duration_seconds": 2.0,
+      "validated_request": {
+        "duration_seconds": 2.0,
+        "aspect": "16:9"
+      },
+      "project_job_ids": [
+        "a08dcd67-c727-4c3f-8672-7520eefc00d6",
+        "470995d1-0547-4443-a370-f580c8b79234"
+      ]
+    },
+    "started_at": 1792832690.8593414,
+    "receipt": {
+      "status": "TESTED_PASS",
+      "model_inference": false,
+      "source_sha256": null,
+      "scene_source_sha256s": [
+        "71187e43f41af6292b34032263d9e22ea61f3cc9b4dbedb5b84c1984b1537b07",
+        "d809b96f828eee3a5ece87a8027c4d56e6f140fceead5a7a9e3347af36c7156a"
+      ],
+      "scene_count": 2,
+      "output": {
+        "path": "C:\\Users\\runneradmin\\AppData\\Local\\MINDLE\\MEDIA_AI_CANDIDATE_20261024_R3\\architecture-agent\\outputs\\720db184-9d33-4625-a1a4-22ad68a4e976.mp4",
+        "bytes": 63904,
+        "sha256": "f1d57627072a67c7f89704ff4ceb614f0b7517081c27be52d9d0fa0d741cd614"
+      },
+      "runtime": {
+        "ffmpeg_sha256": "4b7264e5ac33ea34b02d280a0fe5c19e88d48d27195908fae8394358d907fad0",
+        "ffprobe_sha256": "92309742b67c7af463f232a6f2839f84c46ea63be5544f2883997b9e182cc1b2",
+        "video_codec": "h264",
+        "pixel_format": "yuv420p",
+        "audio_codec": "aac",
+        "duration_seconds": 2.0,
+        "faststart": true
+      },
+      "scene_order": [
+        "scene-01",
+        "scene-02"
+      ],
+      "scene_ranges": [
+        {
+          "scene_id": "scene-01",
+          "start_seconds": 0.0,
+          "duration_seconds": 1.0
+        },
+        {
+          "scene_id": "scene-02",
+          "start_seconds": 0.5,
+          "duration_seconds": 1.0
+        }
+      ],
+      "aspect": "16:9",
+      "resolution": {
+        "width": 1280,
+        "height": 720
+      },
+      "job_id": "26a4a57f-863b-4638-baa8-3c640322e3fa",
+      "project_id": "cfe94a70-9a61-40f8-ad82-b20147a374d4",
+      "planner_model_inference": true,
+      "planner_plan_id": "720db184-9d33-4625-a1a4-22ad68a4e976"
+    },
+    "finished_at": 1792832691.108886
+  }
+}

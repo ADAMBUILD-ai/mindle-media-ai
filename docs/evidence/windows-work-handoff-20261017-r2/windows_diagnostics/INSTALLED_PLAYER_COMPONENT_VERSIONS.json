@@ -1,0 +1,20 @@
+[
+  {
+    "file": "PotPlayer64.dll",
+    "ProductName": "Street",
+    "FileVersion": "1, 7, 22619, 0",
+    "ProductVersion": "1.7.0.0"
+  },
+  {
+    "file": "PotPlayer64.exe",
+    "ProductName": "PotPlayer",
+    "FileVersion": "0, 0, 0, 0",
+    "ProductVersion": "0, 0, 0, 0"
+  },
+  {
+    "file": "PotPlayerMini64.exe",
+    "ProductName": "PotPlayer",
+    "FileVersion": "0, 0, 0, 0",
+    "ProductVersion": "0, 0, 0, 0"
+  }
+]

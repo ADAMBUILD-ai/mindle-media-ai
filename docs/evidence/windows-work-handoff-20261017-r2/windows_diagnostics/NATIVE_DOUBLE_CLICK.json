@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-17T05:56:04.586Z",
+  "target": "MINDLE_MEDIA_AI_RUN.exe",
+  "exe_sha256": "24fe0ad565a5568b392b32040d7789cbd8abce7b60e8dade97666bbd1ec2888c",
+  "trigger": "Explorer actual double click",
+  "env_override": false,
+  "windows": [
+    {
+      "app": "process:C:\\Windows\\explorer.exe",
+      "id": 1771602,
+      "title": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0 - 파일 탐색기"
+    }
+  ]
+}

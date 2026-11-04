@@ -1,0 +1,83 @@
+{
+  "task_kind": "MEASURED_GENERATIVE_AUTO_EDIT",
+  "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+  "input_job_id": "72f16191-e50e-46a8-bc16-65360aa3cd24",
+  "input_sha256": "ec0b7618b8a515f1d142b9bda789c67c5757b4cbe38d6a26e0f1e47e7951827b",
+  "input_artifact": {
+    "file_name": "original_video_preview.mp4",
+    "path": "/tmp/media-ai-core-e2e-r1-five-cases/static/data/jobs/72f16191-e50e-46a8-bc16-65360aa3cd24/original_video_preview.mp4",
+    "bytes": 4644,
+    "sha256": "ec0b7618b8a515f1d142b9bda789c67c5757b4cbe38d6a26e0f1e47e7951827b"
+  },
+  "analysis": {
+    "method": "measured_scene_window_v1",
+    "model_inference": false,
+    "semantic_understanding": false,
+    "source_duration": 2.0,
+    "requested_duration": 30.0,
+    "start": 0.0,
+    "duration": 2.0,
+    "sample_count": 2,
+    "samples": [
+      {
+        "second": 0.0,
+        "motion": 0.0,
+        "exposure": 104.2987,
+        "sharpness": 3021.1652,
+        "score": 10.0,
+        "usable": true
+      },
+      {
+        "second": 1.0,
+        "motion": 0.0,
+        "exposure": 104.2987,
+        "sharpness": 3021.1652,
+        "score": 10.0,
+        "usable": true
+      }
+    ],
+    "reason": "Motion, exposure and sharpness measured from decoded source frames; highest mean window score."
+  },
+  "decision": {
+    "start": 0,
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "reason": "측정된 노출 104.2987이 범위 [80, 176] 안에 있어 유지합니다."
+  },
+  "steps": [
+    {
+      "operation": "video_edit",
+      "options": {
+        "start": 0,
+        "brightness": 0,
+        "contrast": 0,
+        "saturation": 0,
+        "duration": 2.0
+      },
+      "step_id": "6551b99d-3321-4d54-a4c3-0c8adac3e0c9"
+    }
+  ],
+  "validated_edit_values": {
+    "start": 0,
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "duration": 2.0
+  },
+  "model_id": "Qwen/Qwen2.5-7B-Instruct-GGUF",
+  "model_sha256": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+  "additional_model_sha256": [
+    "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+  ],
+  "context_size": 4096,
+  "revision": "bb5d59e06d9551d752d08b292a50eb208b07ab1f",
+  "license": "Apache-2.0",
+  "executable_sha256": "7119bef261611b26f326f7c4da4dc3fdeb7bb28e2faf1ec392bda7b21215ef52",
+  "runtime_sha256": "2fe617a6b6e10211303ea1db242c54cb1eb8d92e2dcdf497ad93c5214846f5e3",
+  "raw_response_sha256": "f05ee8c8a0d5084540dc68a7eead570b454cfb98aab914eab79ab9710b15d192",
+  "semantic_understanding": false,
+  "output_quality": "REQUIRED_BEFORE_PUBLICATION",
+  "plan_id": "0d86e002-d986-4688-9f93-7cf7b6130d38",
+  "command_sha256": "5d83fb3831cf805642b6d6a711d1791e00475af662055e1dfb914db7fe537d57"
+}

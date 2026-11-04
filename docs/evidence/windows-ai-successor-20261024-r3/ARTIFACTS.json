@@ -1,0 +1,30 @@
+{
+  "source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "run": 40079944004,
+  "artifacts": [
+    {
+      "id": 12555286407,
+      "name": "mindle-media-ai-successor-r3-readback",
+      "bytes": 1011,
+      "digest": "sha256:20d0e0d9f1c4b641562d11136b32c579ae844d9d1ca8faf25505801a0171ce89"
+    },
+    {
+      "id": 12555196797,
+      "name": "mindle-media-ai-successor-r3-verified-delivery",
+      "bytes": 3166985747,
+      "digest": "sha256:795752da0fef92b40aa53e81fd602496b730b12f234274a02d9f1477b9f7cc6c"
+    },
+    {
+      "id": 12554493489,
+      "name": "mindle-media-ai-successor-r3-evidence",
+      "bytes": 2071969,
+      "digest": "sha256:b0b02f9e88719aac2502c9dd21e2e043d071c2c6aef01eb332e5fa8dcead149c"
+    },
+    {
+      "id": 12553999779,
+      "name": "mindle-media-ai-successor-r3-producer-delivery",
+      "bytes": 3166985747,
+      "digest": "sha256:1021ed45e9b3df02a8b79b2f97b4250247fccc1033653dfc298607c596f89ce4"
+    }
+  ]
+}

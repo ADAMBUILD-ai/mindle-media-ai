@@ -1,0 +1,47 @@
+{
+  "browser": {
+    "MediaError": {
+      "code": 4,
+      "message": "PipelineStatus::DEMUXER_ERROR_NO_SUPPORTED_STREAMS: FFmpegDemuxer: no supported streams"
+    },
+    "canPlayType": {
+      "h264": "probably",
+      "mp4": "maybe",
+      "mp4v": ""
+    },
+    "currentSrc": "http://127.0.0.1:36741/files/jobs/2254e776-51ff-47a9-8b48-e60cc8b2b83e/sam_video/track_1_overlays.mp4",
+    "currentTime": 0,
+    "duration": null,
+    "jobId": "e6dd3b92-9b98-4d9f-82e1-dfeb64c51d91",
+    "networkState": 3,
+    "operation": "tracking",
+    "paused": true,
+    "readyState": 0,
+    "videoHeight": 0,
+    "videoWidth": 0
+  },
+  "http": {
+    "status": 200,
+    "Content-Type": "video/mp4",
+    "sha256": "41a9c54966fe89a636873839402fdc3d2530fbb80e8eb2c3559f0fc815acbe69"
+  },
+  "browser_console": [],
+  "ffprobe": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "mpeg4",
+        "codec_tag_string": "mp4v",
+        "width": 512,
+        "height": 292,
+        "pix_fmt": "yuv420p",
+        "duration": "2.000000"
+      }
+    ],
+    "format": {
+      "duration": "2.000000"
+    }
+  },
+  "captured_before_codec_repair": true,
+  "source_run": 37735046818
+}

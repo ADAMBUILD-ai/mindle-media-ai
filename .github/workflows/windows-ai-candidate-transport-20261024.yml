@@ -1,0 +1,373 @@
+name: Byte identical bounded candidate transport 20261024
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths: [.github/workflows/windows-ai-candidate-transport-20261024.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: mindle-media-ai-candidate-20261024-part-*
+          merge-multiple: true
+          run-id: 39987617196
+          github-token: ${{ github.token }}
+          path: verified-parts
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-readback
+          run-id: 39987617196
+          github-token: ${{ github.token }}
+          path: verified-metadata
+      - name: Preserve final SHA while splitting transport-only chunks
+        run: python -B scripts/chunk_verified_candidate_transport.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transport-manifest
+          path: transport/TRANSPORT.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-00
+          path: transport/transfer-00.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-01
+          path: transport/transfer-01.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-02
+          path: transport/transfer-02.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-03
+          path: transport/transfer-03.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-04
+          path: transport/transfer-04.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-05
+          path: transport/transfer-05.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-06
+          path: transport/transfer-06.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-07
+          path: transport/transfer-07.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-08
+          path: transport/transfer-08.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-09
+          path: transport/transfer-09.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-10
+          path: transport/transfer-10.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-11
+          path: transport/transfer-11.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-12
+          path: transport/transfer-12.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-13
+          path: transport/transfer-13.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-14
+          path: transport/transfer-14.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-15
+          path: transport/transfer-15.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-16
+          path: transport/transfer-16.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-17
+          path: transport/transfer-17.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-18
+          path: transport/transfer-18.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-19
+          path: transport/transfer-19.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-20
+          path: transport/transfer-20.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-21
+          path: transport/transfer-21.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-22
+          path: transport/transfer-22.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-23
+          path: transport/transfer-23.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-24
+          path: transport/transfer-24.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-25
+          path: transport/transfer-25.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-26
+          path: transport/transfer-26.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-27
+          path: transport/transfer-27.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-28
+          path: transport/transfer-28.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-29
+          path: transport/transfer-29.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-30
+          path: transport/transfer-30.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-31
+          path: transport/transfer-31.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-32
+          path: transport/transfer-32.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-33
+          path: transport/transfer-33.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-34
+          path: transport/transfer-34.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-35
+          path: transport/transfer-35.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-36
+          path: transport/transfer-36.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-37
+          path: transport/transfer-37.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-38
+          path: transport/transfer-38.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-39
+          path: transport/transfer-39.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-40
+          path: transport/transfer-40.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-41
+          path: transport/transfer-41.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-42
+          path: transport/transfer-42.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-43
+          path: transport/transfer-43.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-44
+          path: transport/transfer-44.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-45
+          path: transport/transfer-45.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-46
+          path: transport/transfer-46.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-candidate-20261024-transfer-47
+          path: transport/transfer-47.bin
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30

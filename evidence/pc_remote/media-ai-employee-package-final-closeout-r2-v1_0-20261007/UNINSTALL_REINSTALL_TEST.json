@@ -1,0 +1,17 @@
+{
+  "status": "PASS_TEMPORARY_PROFILE_FROZEN_REUSE_DEFAULT_PENDING",
+  "actual_uninstall": {
+    "install_removed": true,
+    "data_preserved": true,
+    "desktop_shortcut_removed": true
+  },
+  "actual_reinstall_preservation": {
+    "status": "PASS_TEMPORARY_PROFILE",
+    "files_checked": 17,
+    "mismatches": [],
+    "desktop_shortcut_exists": true,
+    "scope": "Allowed workspace profile; default Windows profile not verified"
+  },
+  "retained_hashes": 17,
+  "R2_default_profile_gate": "PENDING"
+}

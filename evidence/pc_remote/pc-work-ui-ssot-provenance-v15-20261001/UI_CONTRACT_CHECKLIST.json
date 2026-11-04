@@ -1,0 +1,17 @@
+{
+  "status": "PASS_STRUCTURAL_LIVE_UI",
+  "checks": {
+    "dark_navy": "NOT_OBSERVED_IN_LIVE_BEHAVIOR_ONLY_UI",
+    "upper_video_lower_photo": true,
+    "left_media_and_natural_language": true,
+    "center_preview_work_area": true,
+    "right_editing_panel": true,
+    "video_timeline": true,
+    "independent_photo_video_command_fields": true,
+    "reference_upload_control": true,
+    "project_save": true,
+    "export": true,
+    "additive_ad_shortform_only": true
+  },
+  "source": "live DOM at http://127.0.0.1:8765/ plus ui/index.html"
+}

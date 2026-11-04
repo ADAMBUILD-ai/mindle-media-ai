@@ -1,0 +1,24 @@
+{
+  "response": {
+    "status": "SAVED",
+    "project_id": "78a2aa14-15bb-4bf3-809d-8b27a85f11f9",
+    "project": {
+      "file_name": "78a2aa14-15bb-4bf3-809d-8b27a85f11f9.json",
+      "path": "C:\\Users\\R\\AppData\\Local\\MINDLE\\MEDIA_AI_DATA\\projects\\78a2aa14-15bb-4bf3-809d-8b27a85f11f9.json",
+      "bytes": 167819,
+      "sha256": "e7674e4a67900f5b62e3f939eaaa3d857960664f9fe902bd169c1de3c6861d8c"
+    }
+  },
+  "request": {
+    "project_id": "78a2aa14-15bb-4bf3-809d-8b27a85f11f9",
+    "reference_names": {
+      "photo": [
+        "portrait_autofit.png",
+        "reference_architecture_crop.png"
+      ],
+      "video": []
+    },
+    "audio_name": "korean_original.wav"
+  },
+  "at": "2026-10-17T15:02:57.265077+09:00"
+}

@@ -1,0 +1,16 @@
+{
+  "source_commit": "3a889d9af5e0e91b4efc8132eb86e11251f1ced5",
+  "parent": "31380cea4b34d6f2edb4cccf55460bb799ad33b8",
+  "recorded_utc": "2026-10-18T02:50:28.152597+00:00",
+  "environment": "Linux x86_64 source runtime; no Windows EXE or human hearing",
+  "dependencies": {
+    "sherpa-onnx": "1.13.8",
+    "numpy": "2.2.6",
+    "pytest": "9.1.1",
+    "Pillow": "12.3.0"
+  },
+  "build_gate": false,
+  "pr23": "HOLD / DO NOT MERGE",
+  "full_product_pass": false,
+  "current_windows_candidate_contains_these_changes": false
+}

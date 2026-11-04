@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "network_download": false,
+    "paid_api": false,
+    "build_gate": false,
+    "activation_rule": "Materialized bytes, exact SHA-256, license review, hardware preflight, runtime evidence and human quality review are required before activation."
+  },
+  "assets": [
+    {
+      "asset_id": "mindle.blender.camera-render-driver.v1",
+      "kind": "owned_blender_driver",
+      "state": "SOURCE_APPROVED_PENDING_MATERIALIZATION",
+      "source_url": "repo://external_assets/media-production/blender/media_ai_blender_camera_render.py",
+      "upstream_revision": "MINDLE-OWNED-V1",
+      "license_id": "MINDLE-INTERNAL",
+      "license_url": "repo://external_assets/media-production/README.md",
+      "enabled": false,
+      "local_path": "blender/media_ai_blender_camera_render.py",
+      "sha256": "f4df254e3f054c650b1ea12f849183d7ca4c048f350432f79bbbf9608472c5b3",
+      "notes": "Fixed camera render contract only; Blender Windows runtime has not been accepted."
+    },
+    {
+      "asset_id": "external.blender.runtime",
+      "kind": "program",
+      "state": "SOURCE_APPROVED_PENDING_MATERIALIZATION",
+      "source_url": "https://www.blender.org/download/",
+      "upstream_revision": "PIN_REQUIRED_BEFORE_MATERIALIZATION",
+      "license_id": "GPL-3.0-or-later",
+      "license_url": "https://www.blender.org/about/license/",
+      "enabled": false,
+      "notes": "Install location and executable hash must be pinned on the target PC."
+    },
+    {
+      "asset_id": "external.ffmpeg.runtime",
+      "kind": "program",
+      "state": "PRODUCT_RUNTIME_VERIFIED",
+      "source_url": "https://ffmpeg.org/download.html",
+      "upstream_revision": "TARGET_BINARY_HASH_RECORDED_PER_PACKAGE",
+      "license_id": "LGPL-2.1-or-later-or-GPL-build-dependent",
+      "license_url": "https://ffmpeg.org/legal.html",
+      "enabled": true,
+      "notes": "Existing MEDIA export runtime; every packaged binary still requires build configuration and hash evidence."
+    },
+    {
+      "asset_id": "external.comfyui.runtime",
+      "kind": "local_orchestrator",
+      "state": "SOURCE_APPROVED_PENDING_MATERIALIZATION",
+      "source_url": "https://github.com/Comfy-Org/ComfyUI",
+      "upstream_revision": "PIN_REQUIRED_BEFORE_MATERIALIZATION",
+      "license_id": "GPL-3.0",
+      "license_url": "https://github.com/Comfy-Org/ComfyUI/blob/master/LICENSE",
+      "enabled": false,
+      "notes": "Must run as an isolated MEDIA-owned loopback process; no custom nodes until separately approved."
+    },
+    {
+      "asset_id": "external.wan22.ti2v-5b",
+      "kind": "video_generation_model",
+      "state": "SOURCE_APPROVED_PENDING_MATERIALIZATION",
+      "source_url": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B",
+      "upstream_revision": "PIN_REQUIRED_BEFORE_WEIGHT_DOWNLOAD",
+      "license_id": "Apache-2.0",
+      "license_url": "https://github.com/Wan-Video/Wan2.2/blob/main/LICENSE.txt",
+      "enabled": false,
+      "notes": "No model bytes acquired; 12 GB RTX 3060 feasibility must be proven through the selected ComfyUI workflow."
+    },
+    {
+      "asset_id": "external.ltx.desktop",
+      "kind": "video_generation_application",
+      "state": "DEFERRED_HARDWARE",
+      "source_url": "https://github.com/Lightricks/LTX-Desktop",
+      "upstream_revision": "DEFERRED_NO_PIN",
+      "license_id": "Apache-2.0",
+      "license_url": "https://github.com/Lightricks/LTX-Desktop/blob/main/LICENSE",
+      "enabled": false,
+      "notes": "Official recommended Windows local generation requires at least 24 GB VRAM; deferred for the reported RTX 3060 12 GB PC."
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "status": "ACTIVE",
+  "date": "2026-10-08",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-ONE-CLICK-RUNTIME-BLOCKER-RECOVERY-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_BLOCKER_RECOVERY_DIRECTIVE_v1.0_20261008.md",
+  "general_work_baseline": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
+  "pc_preflight_head": "dbc57ebbc6a576b4f5c1089f12797812f538afa3",
+  "starting_result": "BLOCKED_RUNTIME_REDISTRIBUTION_OR_DEPENDENCY",
+  "required_final_result": "PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E",
+  "external_integration_status": "DEFERRED_EXTERNAL",
+  "required_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_ONE_CLICK_RUNTIME_BLOCKER_RECOVERY_REVIEW_v1.0_20261008.md",
+    "evidence_json": "docs/evidence/media-ai-pc-work-one-click-runtime-blocker-recovery-20261008/EVIDENCE.json",
+    "detail_dir": "docs/evidence/media-ai-pc-work-one-click-runtime-blocker-recovery-20261008/"
+  },
+  "required_evidence": [
+    "PC_EXEC_TOOL_RECOVERY_RESULT.json",
+    "VC_RUNTIME_DEPENDENCY_AUDIT.json",
+    "FFMPEG_REDISTRIBUTION_AUDIT.json",
+    "PACKAGE_MANIFEST.json",
+    "FIRST_DOUBLE_CLICK_RESULT.json",
+    "SECOND_DOUBLE_CLICK_SINGLE_INSTANCE_RESULT.json",
+    "WINDOWS_RUNTIME_FUNCTION_E2E.json",
+    "SAVE_REOPEN_COLD_RELAUNCH_RESULT.json",
+    "EXPORT_INTEGRITY_RESULT.json",
+    "DELIVERY_ARTIFACT_SHA256.txt",
+    "REGRESSION_RESULT.json",
+    "REMOTE_READBACK.txt"
+  ],
+  "invariants": {
+    "one_click_only": true,
+    "approved_ui_preserved": true,
+    "manual_employee_dependency_repair_forbidden": true,
+    "system32_dll_copy_forbidden": true,
+    "old_unresolved_gpl_ffmpeg_not_final": true,
+    "external_marketing_avora_deferred": true,
+    "main_merge_forbidden": true,
+    "force_push_forbidden": true,
+    "new_repo_or_worktree_forbidden": true,
+    "pr23_hold_do_not_merge": true
+  }
+}

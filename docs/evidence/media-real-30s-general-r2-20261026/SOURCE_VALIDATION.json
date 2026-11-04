@@ -1,0 +1,62 @@
+{
+  "work_id": "MEDIA-REAL-30S-EXECUTION-R2-20261026",
+  "parent_source": "1aa25b2e1935e485a75542c218b8ad10d23696fe",
+  "status": "GENERAL_ACCEPTANCE_GATE_FIX_VERIFIED_REAL_PRODUCTION_BLOCKED",
+  "environment": "Linux General Work, not owner Windows PC",
+  "reproduced_before_fix": {
+    "video_seconds": 1,
+    "audio_seconds": 30,
+    "container_seconds": 30,
+    "old_result": "PASS_TECHNICAL_ONLY",
+    "assessment": "FALSE_POSITIVE_TECHNICAL_ACCEPTANCE"
+  },
+  "new_verification": {
+    "actual_started": true,
+    "exit_code": 0,
+    "pytest_pass": 57,
+    "pytest_skip": 0,
+    "tests": [
+      "tests/test_source_e2e.py",
+      "tests/test_media_work_status.py",
+      "tests/test_prepare_media_production_intake.py"
+    ],
+    "evidence": "FOCUSED_REGRESSION.log",
+    "real_child_process_restart_reopen_export": "PASS_SYNTHETIC_CONTRACT_ONLY",
+    "syntax": "PASS_4_FILES",
+    "git_diff_check": "PASS"
+  },
+  "changed_file_sha256": {
+    "src/media_ai/source_e2e.py": "7616a7727fbd2adeb64d3274dc2c14d00eb157b0c1121226b7b0e21b4637b050",
+    "scripts/media_work_status.py": "e727da5e3ff3645f85080977d96d426f83e483a43e99dfe2bd1a2863f2391da8",
+    "tests/test_source_e2e.py": "d15e1b64ef18c8fb0d848df0ae191d737e1de9cdfd55eaab7c3802718ed76f0d",
+    "tests/test_media_work_status.py": "e3497d3e0ae10d554e4de50e7dcb3311c34b5697ea568dd3cc17d36ee05ba0d4",
+    "CURRENT_MEDIA_WORK_STATUS.json": "068a4398c104d11e6b0bee147b420a531adae22c2fbb2cb75b859772242a8c17",
+    "CURRENT_GENERAL_WORK_STATE.json": "c5aebeb5a9ad77e09f10fc75e1368500d453d1fbee061493e6e5ce50c695c8c1",
+    "CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json": "6f16ed5f22db2c86a577a4202a6b9bc35c4137d5f6bf0950290a0184dba253ff",
+    "CURRENT_PC_WORK_STATE.json": "d34f4ec26bccd519959757804ef0a8fd5d4ba44b4e4bd2c6849a71e5fa44e363",
+    "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json": "0bb914388635cc707d0f11a660adc9126df7adcc1ffb94ddef7c9d71028ae34b",
+    "CURRENT_WORKER_COORDINATION_LOCK.json": "85ddae865ed13176202c5a87f63e7088d1a31bb24cdbd0091a33491a3d1ff9f9"
+  },
+  "source_authority": {
+    "foundation_evidence_rewritten": false,
+    "base_runtime_commit": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
+    "delta": "Only source_e2e acceptance tool hash explicitly overlaid after regression; all other runtime/UI hashes preserved",
+    "ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495"
+  },
+  "reused_success": {
+    "run": 40250290046,
+    "source": "1606e67fae51ae889c88e63b05991ca948ada773",
+    "scope": "Historical 446/5, unaffected paths only; changed acceptance code validated by new local focused tests",
+    "new_ci_started": false
+  },
+  "actual_input_received": false,
+  "actual_model_inference_started": false,
+  "real_30s_production": "BLOCKED_ASSET_INTAKE",
+  "owner_visual_audio_review": "NOT_EXECUTED",
+  "package_build_allowed": false,
+  "model_installation_or_replacement": false,
+  "main_merge": false,
+  "deployment": false,
+  "pr_23_draft_hold": true,
+  "source_intake_zip_rebuilt": false
+}

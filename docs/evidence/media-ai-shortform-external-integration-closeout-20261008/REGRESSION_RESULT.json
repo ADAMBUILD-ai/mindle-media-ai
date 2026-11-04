@@ -1,0 +1,12 @@
+{
+  "status": "FROZEN_BASE_PASS_REUSED",
+  "product_runtime_UI_changed": false,
+  "base_gates_rerun": false,
+  "photo_models_rerun": false,
+  "source_run": 37738880868,
+  "source_commit": "99a9cd4fcdced32a728db06f0692a394c9a4dfd2",
+  "previous_python_pass": 66,
+  "previous_UI_pass": 2,
+  "control_plane": "PASS",
+  "new_epoch_routing_only": true
+}

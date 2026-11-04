@@ -116,3 +116,54 @@ recommendation never turns on production automatically.
 The UI uses capability names, not model names. Any execution error, timeout,
 or memory shortage must surface the selected fallback and preserve the command
 text for retry; it must not appear as a successful model result.
+
+## Owned external production asset boundary
+
+Blender, ComfyUI, and local video-generation models enter MEDIA through the
+registry in `external_assets/media-production/ASSET_REGISTRY.json`. A registry
+entry is evidence of identity and policy only. It cannot become enabled unless
+its state is `RUNTIME_READY` or `PRODUCT_RUNTIME_VERIFIED`; model and program
+downloads remain a separate, reviewed materialization step.
+
+Blender receives only a structured request through the hash-pinned MEDIA camera
+render driver. User text cannot select another Python script or a Python/shell
+expression. The driver selects an existing camera, applies bounded frame and
+resolution values, renders, and hashes its output receipt.
+
+ComfyUI must listen on an explicit loopback address and isolated MEDIA-owned
+port. Its API workflow bytes are hash-pinned and only named node inputs may be
+overridden. Because ComfyUI's interrupt endpoint affects global execution, the
+adapter rejects cancellation unless MEDIA owns that isolated process and the
+prompt identifier. Output paths must resolve inside the owned output root.
+
+Wan activation additionally requires pinned model bytes, an official exported
+API workflow, target-PC hardware evidence, a real generated clip, and human
+quality review. LTX Desktop remains hardware-deferred. None of these pending
+assets may replace the existing FFmpeg edit/export path or appear as successful
+AI generation in the UI.
+
+Architecture-video production plans contain one to twelve ordered scenes. Each
+scene fixes its engine (`existing_clip`, `blender`, or `wan22`), source SHA-256,
+bounded duration, and engine-specific camera or prompt. The output must remain
+an MP4 under the owned job root. Preflight returns `BLOCKED_INPUT` for an invalid
+or changed source and `BLOCKED_ASSET` when any exact runtime is disabled.
+
+Only a ready plan may enter delivery. The delivery adapter rechecks pinned
+FFmpeg and FFprobe executable hashes, source hash stability, and output path
+containment; it invokes a fixed argument vector without a shell. Published MP4
+must decode as H.264/yuv420p, use AAC when an audio stream exists, and place the
+`moov` atom before `mdat` for browser preview. This technical receipt does not
+certify generated-scene quality or human hearing.
+
+Multi-scene delivery normalizes ordered clips to a bounded even resolution and
+24 fps, preserves aspect ratio with centered padding, supplies silence for a
+clip without audio, and concatenates paired video/audio streams in plan order.
+The output cannot reuse any source path. Its receipt includes the ordered scene
+IDs and every source hash, and the measured duration must match the planned sum.
+
+The architecture-production ledger persists request fingerprint, plan, asset
+requirements, state, and final receipt in SQLite with full synchronous writes.
+Identical request keys replay the same record; a different plan under the same
+key is rejected. A process restart converts `RUNNING` and `CANCEL_REQUESTED` to
+`INTERRUPTED`, never success. Completion is allowed only from `RUNNING` after
+the published output path, size, and SHA-256 match the delivery receipt.

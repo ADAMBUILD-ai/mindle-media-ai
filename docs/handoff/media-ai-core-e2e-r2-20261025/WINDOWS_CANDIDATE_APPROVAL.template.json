@@ -1,0 +1,12 @@
+{
+  "approved": false,
+  "scope": "APPROVED_WINDOWS_CANDIDATE_E2E",
+  "source_sha": null,
+  "manifest_sha256": null,
+  "candidate_exe_sha256": null,
+  "package_manifest_sha256": null,
+  "windows_7b_adoption_approved": false,
+  "approved_by": null,
+  "approved_at": null,
+  "notes": "Unapproved template. Requires actual approved candidate and Windows model adoption. Does not open a Build Gate or permit installed-model replacement/deployment."
+}

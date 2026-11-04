@@ -1,0 +1,37 @@
+{
+  "schema": "MINDLE_MEDIA_AI_ARCHITECTURE_AGENT_VALIDATION_V1",
+  "date": "2026-10-24",
+  "base_remote_head": "5b8746ce9887bddc785a4da632b69580f8b174c4",
+  "status": "SOURCE_INTEGRATION_PASS_NEW_CANDIDATE_NOT_BUILT",
+  "tests": {
+    "python": {"passed": 229, "skipped": 6, "failed": 0},
+    "node": {"status": "PASS"},
+    "real_ffmpeg_assembly": true,
+    "new_path_real_qwen_inference": false,
+    "planner_test_response_kind": "EXPLICIT_FIXTURE_NOT_MODEL_INFERENCE"
+  },
+  "implemented": [
+    "shared pinned local JSON planner boundary",
+    "asset-bound architecture scene planner",
+    "explicit duration and aspect semantic validation",
+    "persistent idempotent production ledger",
+    "cancel-aware FFmpeg assembly",
+    "project preservation and rollback",
+    "existing approved command UI routing",
+    "honest runtime AI capability reporting"
+  ],
+  "gates": {
+    "test_r2_action": "REUSE_TEST_R2",
+    "package_build_allowed": false,
+    "workflow_changed": false,
+    "pr_23": "HOLD_DO_NOT_MERGE",
+    "main_merge": false
+  },
+  "remaining": [
+    "actual Qwen inference on the new architecture planning path",
+    "approved Windows candidate build authorization",
+    "office PC restart, reopen, export and installed-player acceptance",
+    "human audio listening",
+    "Blender and Wan runtime materialization and GPU evidence"
+  ]
+}

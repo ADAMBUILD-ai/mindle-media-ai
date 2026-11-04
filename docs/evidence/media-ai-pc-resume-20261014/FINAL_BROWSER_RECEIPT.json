@@ -1,0 +1,264 @@
+{
+  "status": "FINAL_UI_BROWSER_FUNCTION_PASS",
+  "base_url": "http://127.0.0.1:18768",
+  "checks": {
+    "final_ui_geometry": "PASS",
+    "photo_live_and_apply": "PASS",
+    "photo_background_button": "PASS",
+    "video_play_and_edit": "PASS"
+  },
+  "browser": {
+    "channel": "chrome",
+    "version": "154.0.8037.58"
+  },
+  "codec_capability": {
+    "h264": "probably",
+    "aac": "probably",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+  },
+  "media_before_play": {
+    "MediaError_code": null,
+    "readyState": 4,
+    "videoWidth": 320,
+    "currentSrc": "http://127.0.0.1:18768/files/jobs/37f3e9c3-2843-4bf6-952b-ee687fe6d172/original_video_preview.mp4",
+    "currentTime": 0
+  },
+  "media_after_play": {
+    "MediaError_code": null,
+    "readyState": 4,
+    "videoWidth": 320,
+    "currentSrc": "http://127.0.0.1:18768/files/jobs/37f3e9c3-2843-4bf6-952b-ee687fe6d172/original_video_preview.mp4",
+    "currentTime": 1.549331
+  },
+  "http_responses": [
+    {
+      "url": "http://127.0.0.1:18768/api/projects/latest",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/bc3f464f-64e1-4e3a-9774-1fd1004e8b3e/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/bc3f464f-64e1-4e3a-9774-1fd1004e8b3e/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/d522df4f-e8c0-4ef8-ad6f-1f07b3d3076a/original_video_preview.mp4",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/d522df4f-e8c0-4ef8-ad6f-1f07b3d3076a/original_video_preview.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/eb7c294f-5a0c-45b2-9571-3211b5572c32/edited_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/d522df4f-e8c0-4ef8-ad6f-1f07b3d3076a/original_video_preview.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/eb7c294f-5a0c-45b2-9571-3211b5572c32/edited_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/b0d88c17-e015-49b2-a4dc-809609cabf72/sam_photo/photo_overlay.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/b0d88c17-e015-49b2-a4dc-809609cabf72/sam_photo/photo_overlay.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/6470f86d-3949-462d-8ba5-642eb4a8f4ba/intel_sisr_1032/upscaled_4x.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/6470f86d-3949-462d-8ba5-642eb4a8f4ba/intel_sisr_1032/upscaled_4x.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/c5f97efc-143e-4d13-9b37-5042c7be8f4d/sam_video/track_1_overlays_browser_h264.mp4",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/39ca9ed4-b495-4784-bb5e-5fbd0127e917/subtitle_audio.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/c5f97efc-143e-4d13-9b37-5042c7be8f4d/sam_video/track_1_overlays_browser_h264.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/c5f97efc-143e-4d13-9b37-5042c7be8f4d/sam_video/track_1_overlays_browser_h264.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/media/import",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/d7ad174e-8a23-47a5-a07e-1bb318f4fc26/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/d7ad174e-8a23-47a5-a07e-1bb318f4fc26/original_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/photo-edits",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/177d412f-7f39-4a5a-a68b-96742fb9f605/edited_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/177d412f-7f39-4a5a-a68b-96742fb9f605/edited_photo.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/tasks/67cfd3c5-9650-4015-8bf1-e70547802937",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/jobs",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/a74f3ba1-5080-4ab5-a215-e55ca7d7b3b7/sam_photo/photo_foreground_rgba.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/a74f3ba1-5080-4ab5-a215-e55ca7d7b3b7/sam_photo/photo_foreground_rgba.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/media/import",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/37f3e9c3-2843-4bf6-952b-ee687fe6d172/original_video_preview.mp4",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/37f3e9c3-2843-4bf6-952b-ee687fe6d172/original_video_preview.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/37f3e9c3-2843-4bf6-952b-ee687fe6d172/original_video_preview.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/video-edits",
+      "status": 201
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/851bbd1d-e547-4d1e-8d1b-8abf3b257b68/edited_video.mp4",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/851bbd1d-e547-4d1e-8d1b-8abf3b257b68/edited_video.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:18768/api/assets",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:18768/files/jobs/851bbd1d-e547-4d1e-8d1b-8abf3b257b68/edited_video.mp4",
+      "status": 206
+    }
+  ],
+  "page_errors": []
+}

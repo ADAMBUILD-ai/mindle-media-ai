@@ -1,0 +1,37 @@
+{
+  "scope": "SYNTHETIC_LIFECYCLE_TOOLING_ONLY",
+  "source_commit": "f94b473d8e139a526f46cd3646ef4d018af257fb",
+  "actual_model_inference": false,
+  "real_30_second_e2e": false,
+  "native_windows_candidate": false,
+  "full_product_pass": false,
+  "first_process": {
+    "server_pid": 55,
+    "server_instance_id": "4e890af1-5fa6-44db-b360-0604c03e810a"
+  },
+  "original_input": {
+    "file_name": "0ea40c29-e4f5-481e-8d96-60d4f6107f27_SYNTHETIC_TOOLING_ONLY.mp4",
+    "path": "/tmp/media-ai-r2-owned-lifecycle-proof/isolated-data/inputs/0ea40c29-e4f5-481e-8d96-60d4f6107f27_SYNTHETIC_TOOLING_ONLY.mp4",
+    "bytes": 1672,
+    "sha256": "904d464e3c115f3538f8e07c00d528a57fb92fa7e6270847db111b6973ab7723"
+  },
+  "transcoded_preview": {
+    "file_name": "original_video_preview.mp4",
+    "path": "/tmp/media-ai-r2-owned-lifecycle-proof/isolated-data/jobs/8de5bcc1-cd03-4ec4-9053-e62cd0899066/original_video_preview.mp4",
+    "bytes": 1673,
+    "sha256": "8de3745d6e96fe44018d8c01600e6db898e07fa0d70017ce96d27c97fff9b39f"
+  },
+  "old_process_exit_verified": true,
+  "second_process": {
+    "server_pid": 101,
+    "server_instance_id": "d7df2a45-db86-40ba-8c5a-f4c8c30a0a38"
+  },
+  "export": {
+    "status": "PASS",
+    "file_count": 3,
+    "project_id": "2c44b9f7-e6a8-41c2-904a-942bf8670567",
+    "sha256": "85dbc8ce3939796e7bd4bb7c7e57cdcac19568f8c4e3ea2f54592c4c4fe3096d"
+  },
+  "project_id": "2c44b9f7-e6a8-41c2-904a-942bf8670567",
+  "status": "PASS_TOOLING_ONLY"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "case": "dense_ui_1024",
+    "within_viewport_after_individual_scroll": true,
+    "evidence": "AFTER_R1/RESULT.json accessible bounding boxes",
+    "scope": "Existing recorded bounds; no browser rerun"
+  },
+  {
+    "case": "dense_ui_720",
+    "within_viewport_after_individual_scroll": true,
+    "evidence": "AFTER_R1/RESULT.json accessible bounding boxes",
+    "scope": "Existing recorded bounds; no browser rerun"
+  }
+]

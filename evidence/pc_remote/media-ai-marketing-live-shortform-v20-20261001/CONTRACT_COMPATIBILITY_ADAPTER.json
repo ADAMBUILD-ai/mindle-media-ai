@@ -1,0 +1,11 @@
+{
+  "status": "IMPLEMENTED_STATIC_TESTED",
+  "client": "src/media_ai/marketing_shortform_client.py",
+  "request_adapter": "src/media_ai/marketing_shortform_gateway.py",
+  "normalizer": "src/media_ai/shortform_bridge.py::normalize_marketing_contract",
+  "mappings": ["product_or_project -> external MARKETING_EXTERNAL identity", "resolved_assets -> approved media_assets", "scene_id -> id", "generic -> other", "handoff_ready + approve -> representative_approved"],
+  "raw_contract_mutated": false,
+  "publish_allowed": false,
+  "ad_spend_allowed": false,
+  "static_test": "PASS"
+}

@@ -1,0 +1,129 @@
+{
+  "source_commit": "92a281f8c5eee70e4e23d14949f2f2c9b728da82",
+  "archives": [
+    {
+      "id": 11832017391,
+      "sha256": "4be0e73e435c6654128c378c3b7d2d48519629c23bfd73d8395cce7c952e274a",
+      "crc": "PASS"
+    },
+    {
+      "id": 11830894580,
+      "sha256": "1826ea036c2ebdf934ab9145fbb42d35cf26477c9db62cedec3389799f935e3c",
+      "crc": "PASS"
+    }
+  ],
+  "outputs": [
+    {
+      "operation": "upscale",
+      "file": "upscaled_4x.png",
+      "sha256": "a6dcc897c81f9cb581f8317a626e5f3e11eae5601cecb11fef7f1a8c5d0498f8"
+    },
+    {
+      "operation": "tracking",
+      "file": "track_1_overlays.mp4",
+      "sha256": "e5cc872b66b5dca8127ad7c0a4c924209eeeae054f93826c4566a5ae54411b51",
+      "probe": {
+        "codec_name": "h264",
+        "width": 672,
+        "height": 384,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1",
+        "duration": "5.208333",
+        "nb_frames": "125"
+      },
+      "faststart": true
+    },
+    {
+      "operation": "tracking",
+      "file": "tracking.json",
+      "sha256": "f12906d8cc89d3be350de68461e2279e93594798a7d2cc7941a4c05a4c2b8d85"
+    },
+    {
+      "operation": "tracking",
+      "file": "tracking_frames.mp4",
+      "sha256": "5d7c95868bcca93d5bf4c46185a803fa4b032d20768804517e439d90d754319b",
+      "probe": {
+        "codec_name": "mpeg4",
+        "width": 672,
+        "height": 384,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1",
+        "duration": "5.208333",
+        "nb_frames": "125"
+      },
+      "role": "INTERNAL_RAW_INTERMEDIATE"
+    },
+    {
+      "operation": "tracking",
+      "file": "track_1_overlays_browser_h264.mp4",
+      "sha256": "cf626da71ad964b93ccc77e84c7ee5f55973823041cb856308ba26645c6776c2",
+      "probe": {
+        "codec_name": "h264",
+        "width": 672,
+        "height": 384,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1",
+        "duration": "5.208333",
+        "nb_frames": "125"
+      },
+      "faststart": true
+    },
+    {
+      "operation": "transcribe",
+      "file": "subtitle_audio.wav",
+      "sha256": "bfb552bdf285de465eadc55ec07aa790a87c028820ce01207fb9905b525fda8a"
+    },
+    {
+      "operation": "transcribe",
+      "file": "korean_transcript.json",
+      "sha256": "4687156fc4ff00e2db8ef3ff09955ca2f2f3e39cfdfe25203fc728db48493e6f"
+    },
+    {
+      "operation": "segment",
+      "file": "13fe4d79-5cd8-438c-a926-fb4d32b00df5_target_crop.png",
+      "sha256": "e1ea7aaa3a1f7fe6ff8e41ff91079746fca93dd2ce5c99a90a7918b0571df06b"
+    },
+    {
+      "operation": "segment",
+      "file": "photo_mask.png",
+      "sha256": "574b1cab87cc4e98c5621627ec682dd2f5362dc2353d19779b57c8b6af6be6f4"
+    },
+    {
+      "operation": "segment",
+      "file": "photo_overlay.png",
+      "sha256": "f666b0c7a1d162617df930e4323abab99d22229b5de04ce30114446f42020f9d"
+    },
+    {
+      "operation": "video_edit",
+      "file": "edited_video.mp4",
+      "sha256": "c3c1246aa33d50c953e29c3aafbd382ba6d7b4ed83f540b6a73cff131efda1db",
+      "probe": {
+        "codec_name": "h264",
+        "width": 672,
+        "height": 384,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1",
+        "duration": "37.458333",
+        "nb_frames": "899"
+      },
+      "faststart": true
+    }
+  ],
+  "exports": [
+    {
+      "file": "c16a401e-5014-496b-a4e4-1b05b0b26fb7_export.zip",
+      "sha256": "5cd110fc658b4056df3ae86621a762b41be7eaa7aea55c08fcbdf6e40d0be580",
+      "all_output_hashes_checked": 37,
+      "crc": "PASS",
+      "source": "browser"
+    },
+    {
+      "file": "6f42a03d-e575-4b2a-aa7b-cbbcff1a4227_export.zip",
+      "sha256": "479e70c059a102a73480901cc9c5be241ce755c773e6fdce246c0ea67ffde5bc",
+      "all_output_hashes_checked": 11,
+      "crc": "PASS",
+      "source": "engine"
+    }
+  ],
+  "status": "PASS_INDEPENDENT_ARCHIVES_ALL_OUTPUTS_AND_EXPORTS"
+}

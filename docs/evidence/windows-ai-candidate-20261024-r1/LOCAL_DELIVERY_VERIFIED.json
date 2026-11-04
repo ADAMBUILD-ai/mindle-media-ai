@@ -1,0 +1,8 @@
+{
+  "sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
+  "parts": 7,
+  "bytes": 3166947613,
+  "installer_sha256": "747ddd1eb7aa1cef93f235af2128d9aeef68399e15c362a30260d36b1a4e9b44",
+  "final_source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+  "all_parts_and_installer": "PASS"
+}

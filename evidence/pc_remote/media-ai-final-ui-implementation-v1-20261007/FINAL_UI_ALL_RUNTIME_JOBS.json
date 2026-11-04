@@ -1,0 +1,3172 @@
+{
+  "7e3de2a0-c977-4a0a-9608-bebee57745c8": {
+    "status": "TESTED_PASS",
+    "job_id": "7e3de2a0-c977-4a0a-9608-bebee57745c8",
+    "evidence_id": "b2893ea1-6318-47a1-ac0d-910791bb435f",
+    "lane": "photo",
+    "operation": "upscale",
+    "command": "세로 사진 4배 업스케일",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license": "apache-2.0",
+        "weight_name": "single-image-super-resolution-1032.bin",
+        "weight_size_bytes": 119436,
+        "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+        "read_only": true,
+        "sha384_verified": true
+      }
+    },
+    "adapter": {
+      "id": "intel-open-model-zoo-sisr-1032",
+      "version": "1.1.0",
+      "runtime_backend": "openvino-cpu",
+      "device_requirement": "CPU"
+    },
+    "input": {
+      "file_name": "75652512-f232-4570-82bc-9704262c316b_portrait.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\75652512-f232-4570-82bc-9704262c316b_portrait.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "runtime_result": {
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b6c1ce13-ba0f-48f0-95d5-be9559fb6fad\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 2132893,
+          "sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850",
+          "dimensions": [
+            1152,
+            2048
+          ]
+        }
+      ],
+      "tiles": 3,
+      "scale": 4,
+      "elapsed_ms": 8983.99999999674
+    },
+    "primary_output": {
+      "file_name": "upscaled_4x.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b6c1ce13-ba0f-48f0-95d5-be9559fb6fad\\intel_sisr_1032\\upscaled_4x.png",
+      "bytes": 2132893,
+      "sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850"
+    },
+    "outputs": [
+      {
+        "file_name": "upscaled_4x.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b6c1ce13-ba0f-48f0-95d5-be9559fb6fad\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 2132893,
+        "sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "7e3de2a0-c977-4a0a-9608-bebee57745c8",
+        "evidence_id": "b2893ea1-6318-47a1-ac0d-910791bb435f",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T12:02:44.373078+00:00",
+        "started_at": "2026-10-07T12:02:44.210079+00:00",
+        "finished_at": "2026-10-07T12:02:44.373078+00:00",
+        "project_id": null,
+        "requested_operation": "upscale",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\75652512-f232-4570-82bc-9704262c316b_portrait.png",
+          "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "7e3de2a0-c977-4a0a-9608-bebee57745c8",
+          "evidence_id": "b2893ea1-6318-47a1-ac0d-910791bb435f",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "intel-open-model-zoo-sisr-1032",
+        "model_or_program_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license_source": "apache-2.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU",
+        "execution_context": {
+          "job_id": "7e3de2a0-c977-4a0a-9608-bebee57745c8",
+          "evidence_id": "b2893ea1-6318-47a1-ac0d-910791bb435f",
+          "lane": "photo",
+          "source_hashes": {
+            "source": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+          },
+          "nl_instruction": "세로 사진 4배 업스케일",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "7e3de2a0-c977-4a0a-9608-bebee57745c8",
+            "evidence_id": "b2893ea1-6318-47a1-ac0d-910791bb435f",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "intel-open-model-zoo-sisr-1032",
+            "model_or_program_id": "openvinotoolkit/open_model_zoo",
+            "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b6c1ce13-ba0f-48f0-95d5-be9559fb6fad\\intel_sisr_1032\\upscaled_4x.png",
+          "type": ".png",
+          "size_bytes": 2132893,
+          "sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-2331dde3-004d-4524-8513-12f96429b7e3",
+          "input_sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730",
+          "output_sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b6c1ce13-ba0f-48f0-95d5-be9559fb6fad\\intel_sisr_1032\\upscaled_4x.png",
+          "elapsed_ms": 8983.99999999674
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/b6c1ce13-ba0f-48f0-95d5-be9559fb6fad/intel_sisr_1032/upscaled_4x.png"
+  },
+  "5617e9c8-a275-4e10-803a-2a55c609102b": {
+    "status": "TESTED_PASS",
+    "job_id": "5617e9c8-a275-4e10-803a-2a55c609102b",
+    "evidence_id": "86888e1b-2049-4e7d-b327-97f584994d20",
+    "lane": "korean_audio",
+    "operation": "transcribe",
+    "command": "자동으로 한국어 자막 넣어줘",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "license": "mit",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 966995080,
+        "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\models\\whisper-small",
+        "read_only": true
+      }
+    },
+    "adapter": {
+      "id": "mindle.whisper.ko.verified.cpu",
+      "version": "1.0.0",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu"
+    },
+    "input": {
+      "file_name": "58f05c7d-52b4-4f93-bc5f-a03db9e9f0f7_korean.wav",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\58f05c7d-52b4-4f93-bc5f-a03db9e9f0f7_korean.wav",
+      "bytes": 798778,
+      "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+    },
+    "runtime_result": {
+      "status": "TESTED_PASS",
+      "input_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\58f05c7d-52b4-4f93-bc5f-a03db9e9f0f7_korean.wav",
+      "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+      "sample_rate": 16000,
+      "duration_seconds": 12.48,
+      "reference": null,
+      "text": "다림이 수직 간격은 15m이며 공사는 2011년 8월에 마무리되었으며 해당 다리의 통행 금지는 2017년 3월까지이다.",
+      "word_error_rate": null,
+      "elapsed_ms": 61366.22,
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\01bbdcfe-3620-4f64-96d2-5fce074a4850\\whisper\\korean_transcript.json",
+          "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+          "bytes": 260
+        }
+      ]
+    },
+    "primary_output": {
+      "file_name": "korean_transcript.json",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\01bbdcfe-3620-4f64-96d2-5fce074a4850\\whisper\\korean_transcript.json",
+      "bytes": 260,
+      "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+    },
+    "outputs": [
+      {
+        "file_name": "korean_transcript.json",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\01bbdcfe-3620-4f64-96d2-5fce074a4850\\whisper\\korean_transcript.json",
+        "bytes": 260,
+        "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "5617e9c8-a275-4e10-803a-2a55c609102b",
+        "evidence_id": "86888e1b-2049-4e7d-b327-97f584994d20",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T12:05:59.368252+00:00",
+        "started_at": "2026-10-07T12:05:59.350073+00:00",
+        "finished_at": "2026-10-07T12:05:59.368252+00:00",
+        "project_id": null,
+        "requested_operation": "transcribe",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\58f05c7d-52b4-4f93-bc5f-a03db9e9f0f7_korean.wav",
+          "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "5617e9c8-a275-4e10-803a-2a55c609102b",
+          "evidence_id": "86888e1b-2049-4e7d-b327-97f584994d20",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "mindle.whisper.ko.verified.cpu",
+        "model_or_program_id": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "license_source": "mit",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu",
+        "execution_context": {
+          "job_id": "5617e9c8-a275-4e10-803a-2a55c609102b",
+          "evidence_id": "86888e1b-2049-4e7d-b327-97f584994d20",
+          "lane": "korean_audio",
+          "source_hashes": {
+            "source": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+          },
+          "nl_instruction": "자동으로 한국어 자막 넣어줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "5617e9c8-a275-4e10-803a-2a55c609102b",
+            "evidence_id": "86888e1b-2049-4e7d-b327-97f584994d20",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "mindle.whisper.ko.verified.cpu",
+            "model_or_program_id": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\01bbdcfe-3620-4f64-96d2-5fce074a4850\\whisper\\korean_transcript.json",
+          "type": ".json",
+          "size_bytes": 260,
+          "sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-63fdc01e-35a0-492c-8708-e3d41709e5de",
+          "input_sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a",
+          "output_sha256": "f6d12a97f1ff85bc5110fe8d1372fac66e8db71c6cbdead773c1f05e55c8c506",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\01bbdcfe-3620-4f64-96d2-5fce074a4850\\whisper\\korean_transcript.json",
+          "elapsed_ms": 61366.22
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/01bbdcfe-3620-4f64-96d2-5fce074a4850/whisper/korean_transcript.json"
+  },
+  "216c55b7-1b33-4d3d-9444-d9efedd9baff": {
+    "status": "TESTED_PASS",
+    "job_id": "216c55b7-1b33-4d3d-9444-d9efedd9baff",
+    "evidence_id": "8e4ab5f1-e5f8-4449-815d-d9501f2e9a6e",
+    "lane": "photo",
+    "operation": "segment",
+    "command": "배경을 제거해줘",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license": "apache-2.0",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 323476296,
+        "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\models\\sam21",
+        "read_only": true
+      }
+    },
+    "adapter": {
+      "id": "mindle.sam21.verified.cpu",
+      "version": "1.0.1",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu"
+    },
+    "input": {
+      "file_name": "8f441f8a-cf14-4569-9525-ac6737eae311_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\8f441f8a-cf14-4569-9525-ac6737eae311_photo.png",
+      "bytes": 311919,
+      "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+    },
+    "runtime_result": {
+      "status": "TESTED_PASS",
+      "input_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\8f441f8a-cf14-4569-9525-ac6737eae311_photo.png",
+      "input_sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2",
+      "prompt_point": [
+        256,
+        146
+      ],
+      "selected_mask_index": 0,
+      "foreground_fraction": 0.1444777397260274,
+      "elapsed_ms": 97475.23,
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4ab9cec0-ea2f-4c42-b67a-75f539858ec5\\sam_photo\\photo_mask.png",
+          "sha256": "187d3bfa3fe45b7c1d1c17afa62ae4e44927656afd16f32082e9ec7dbce550e2",
+          "bytes": 1596
+        },
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4ab9cec0-ea2f-4c42-b67a-75f539858ec5\\sam_photo\\photo_overlay.png",
+          "sha256": "084680826c376a0572c4a7614efdc5cd6e5a2b5beeefb2f1a46aaa983001203a",
+          "bytes": 227330
+        }
+      ]
+    },
+    "primary_output": {
+      "file_name": "photo_overlay.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4ab9cec0-ea2f-4c42-b67a-75f539858ec5\\sam_photo\\photo_overlay.png",
+      "bytes": 227330,
+      "sha256": "084680826c376a0572c4a7614efdc5cd6e5a2b5beeefb2f1a46aaa983001203a"
+    },
+    "outputs": [
+      {
+        "file_name": "photo_mask.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4ab9cec0-ea2f-4c42-b67a-75f539858ec5\\sam_photo\\photo_mask.png",
+        "bytes": 1596,
+        "sha256": "187d3bfa3fe45b7c1d1c17afa62ae4e44927656afd16f32082e9ec7dbce550e2"
+      },
+      {
+        "file_name": "photo_overlay.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4ab9cec0-ea2f-4c42-b67a-75f539858ec5\\sam_photo\\photo_overlay.png",
+        "bytes": 227330,
+        "sha256": "084680826c376a0572c4a7614efdc5cd6e5a2b5beeefb2f1a46aaa983001203a"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "216c55b7-1b33-4d3d-9444-d9efedd9baff",
+        "evidence_id": "8e4ab5f1-e5f8-4449-815d-d9501f2e9a6e",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T12:09:03.128040+00:00",
+        "started_at": "2026-10-07T12:09:03.116054+00:00",
+        "finished_at": "2026-10-07T12:09:03.128040+00:00",
+        "project_id": null,
+        "requested_operation": "segment",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\8f441f8a-cf14-4569-9525-ac6737eae311_photo.png",
+          "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "216c55b7-1b33-4d3d-9444-d9efedd9baff",
+          "evidence_id": "8e4ab5f1-e5f8-4449-815d-d9501f2e9a6e",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "mindle.sam21.verified.cpu",
+        "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license_source": "apache-2.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu",
+        "execution_context": {
+          "job_id": "216c55b7-1b33-4d3d-9444-d9efedd9baff",
+          "evidence_id": "8e4ab5f1-e5f8-4449-815d-d9501f2e9a6e",
+          "lane": "photo",
+          "source_hashes": {
+            "source": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+          },
+          "nl_instruction": "배경을 제거해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "216c55b7-1b33-4d3d-9444-d9efedd9baff",
+            "evidence_id": "8e4ab5f1-e5f8-4449-815d-d9501f2e9a6e",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "mindle.sam21.verified.cpu",
+            "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+            "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4ab9cec0-ea2f-4c42-b67a-75f539858ec5\\sam_photo\\photo_overlay.png",
+          "type": ".png",
+          "size_bytes": 227330,
+          "sha256": "084680826c376a0572c4a7614efdc5cd6e5a2b5beeefb2f1a46aaa983001203a",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-c249b0ac-b370-4c01-9927-d5890a068493",
+          "input_sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2",
+          "output_sha256": "084680826c376a0572c4a7614efdc5cd6e5a2b5beeefb2f1a46aaa983001203a",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4ab9cec0-ea2f-4c42-b67a-75f539858ec5\\sam_photo\\photo_overlay.png",
+          "elapsed_ms": 97475.23
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/4ab9cec0-ea2f-4c42-b67a-75f539858ec5/sam_photo/photo_overlay.png"
+  },
+  "efbd3552-4845-4ba9-b5f9-8cd1d3954da0": {
+    "status": "TESTED_PASS",
+    "job_id": "efbd3552-4845-4ba9-b5f9-8cd1d3954da0",
+    "evidence_id": "6bfbf534-7393-4a45-97a8-9f4a9ab01e9d",
+    "lane": "video",
+    "operation": "tracking",
+    "command": "대상을 추적해줘",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license": "apache-2.0",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 323476296,
+        "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\models\\sam21",
+        "read_only": true
+      }
+    },
+    "adapter": {
+      "id": "mindle.sam21.verified.cpu",
+      "version": "1.0.1",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu"
+    },
+    "input": {
+      "file_name": "2cd44563-9b45-4ced-804f-d2f98ee164b3_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\2cd44563-9b45-4ced-804f-d2f98ee164b3_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "runtime_result": {
+      "status": "TESTED_PASS",
+      "input_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\2cd44563-9b45-4ced-804f-d2f98ee164b3_video_16x9.mp4",
+      "input_sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8",
+      "track_id": 1,
+      "sampled_frames": 4,
+      "samples": [
+        {
+          "track_id": 1,
+          "source_frame_index": 0,
+          "prompt_point": [
+            256,
+            144
+          ],
+          "centroid": [
+            252,
+            140
+          ],
+          "selected_mask_index": 0,
+          "foreground_fraction": 0.1423611111111111,
+          "iou_with_previous_sample": null,
+          "elapsed_ms": 93551.12,
+          "mask_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_00_mask.png",
+          "mask_sha256": "946f5837cb5297bafb5ca7d9325eb12e369132a701b8d1c612ca69209b25404f",
+          "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_00_overlay.png",
+          "overlay_sha256": "b300649dda3c7cb0f545f23e40f75d48f3f8c5faa5b137921d7a094f202c220c"
+        },
+        {
+          "track_id": 1,
+          "source_frame_index": 16,
+          "prompt_point": [
+            252,
+            140
+          ],
+          "centroid": [
+            251,
+            178
+          ],
+          "selected_mask_index": 0,
+          "foreground_fraction": 0.13804796006944445,
+          "iou_with_previous_sample": 0.5208180079446815,
+          "elapsed_ms": 89567.87,
+          "mask_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_01_mask.png",
+          "mask_sha256": "7383ce2620e020e5567d45d56dbd0af2fc0803c12cbe9128389b2ed1abf17e50",
+          "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_01_overlay.png",
+          "overlay_sha256": "a07c97335ab0a436be8887b1d3bc9100384187360f632120e640431e0721e31e"
+        },
+        {
+          "track_id": 1,
+          "source_frame_index": 31,
+          "prompt_point": [
+            251,
+            178
+          ],
+          "centroid": [
+            253,
+            174
+          ],
+          "selected_mask_index": 0,
+          "foreground_fraction": 0.12864854600694445,
+          "iou_with_previous_sample": 0.7384731002166128,
+          "elapsed_ms": 83815.6,
+          "mask_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_02_mask.png",
+          "mask_sha256": "cec1bf6acbff0edb7f2d7c1d902779fd1b2d0e4079b4ab39cf81ca89eaafdba1",
+          "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_02_overlay.png",
+          "overlay_sha256": "226e1bb7cb50895c127beebbd72100363cd48e64e7d7523f1404c63da889376e"
+        },
+        {
+          "track_id": 1,
+          "source_frame_index": 47,
+          "prompt_point": [
+            253,
+            174
+          ],
+          "centroid": [
+            258,
+            140
+          ],
+          "selected_mask_index": 0,
+          "foreground_fraction": 0.13865152994791666,
+          "iou_with_previous_sample": 0.5251712262508222,
+          "elapsed_ms": 85560.45,
+          "mask_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_03_mask.png",
+          "mask_sha256": "8991eb0364ccef311d185cf9a9a3273e83738ce4a3186c38d3b413da41c1ab19",
+          "overlay_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_03_overlay.png",
+          "overlay_sha256": "65758f14e800e6bf8cee6a264c80927056e5d6e9931dad893426c641b672a4b9"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_overlays.mp4",
+          "sha256": "10819a8d8d6b5d1d702bec9535c0abfd61cb10548e14cd348e0baaed250bd0db",
+          "bytes": 76049
+        },
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\tracking.json",
+          "sha256": "6fba93f8fa353662131837816a72e28afad6822797fe71bdfb771e632f87197a",
+          "bytes": 4195
+        }
+      ]
+    },
+    "primary_output": {
+      "file_name": "track_1_overlays.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_overlays.mp4",
+      "bytes": 76049,
+      "sha256": "10819a8d8d6b5d1d702bec9535c0abfd61cb10548e14cd348e0baaed250bd0db"
+    },
+    "outputs": [
+      {
+        "file_name": "track_1_frame_00_mask.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_00_mask.png",
+        "bytes": 1596,
+        "sha256": "946f5837cb5297bafb5ca7d9325eb12e369132a701b8d1c612ca69209b25404f"
+      },
+      {
+        "file_name": "track_1_frame_00_overlay.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_00_overlay.png",
+        "bytes": 224850,
+        "sha256": "b300649dda3c7cb0f545f23e40f75d48f3f8c5faa5b137921d7a094f202c220c"
+      },
+      {
+        "file_name": "track_1_frame_01_mask.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_01_mask.png",
+        "bytes": 1412,
+        "sha256": "7383ce2620e020e5567d45d56dbd0af2fc0803c12cbe9128389b2ed1abf17e50"
+      },
+      {
+        "file_name": "track_1_frame_01_overlay.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_01_overlay.png",
+        "bytes": 203931,
+        "sha256": "a07c97335ab0a436be8887b1d3bc9100384187360f632120e640431e0721e31e"
+      },
+      {
+        "file_name": "track_1_frame_02_mask.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_02_mask.png",
+        "bytes": 1457,
+        "sha256": "cec1bf6acbff0edb7f2d7c1d902779fd1b2d0e4079b4ab39cf81ca89eaafdba1"
+      },
+      {
+        "file_name": "track_1_frame_02_overlay.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_02_overlay.png",
+        "bytes": 203604,
+        "sha256": "226e1bb7cb50895c127beebbd72100363cd48e64e7d7523f1404c63da889376e"
+      },
+      {
+        "file_name": "track_1_frame_03_mask.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_03_mask.png",
+        "bytes": 1451,
+        "sha256": "8991eb0364ccef311d185cf9a9a3273e83738ce4a3186c38d3b413da41c1ab19"
+      },
+      {
+        "file_name": "track_1_frame_03_overlay.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_frame_03_overlay.png",
+        "bytes": 202300,
+        "sha256": "65758f14e800e6bf8cee6a264c80927056e5d6e9931dad893426c641b672a4b9"
+      },
+      {
+        "file_name": "track_1_overlays.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_overlays.mp4",
+        "bytes": 76049,
+        "sha256": "10819a8d8d6b5d1d702bec9535c0abfd61cb10548e14cd348e0baaed250bd0db"
+      },
+      {
+        "file_name": "tracking.json",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\tracking.json",
+        "bytes": 4195,
+        "sha256": "6fba93f8fa353662131837816a72e28afad6822797fe71bdfb771e632f87197a"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "efbd3552-4845-4ba9-b5f9-8cd1d3954da0",
+        "evidence_id": "6bfbf534-7393-4a45-97a8-9f4a9ab01e9d",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T12:16:16.044277+00:00",
+        "started_at": "2026-10-07T12:16:16.018269+00:00",
+        "finished_at": "2026-10-07T12:16:16.044277+00:00",
+        "project_id": null,
+        "requested_operation": "tracking",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\2cd44563-9b45-4ced-804f-d2f98ee164b3_video_16x9.mp4",
+          "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "efbd3552-4845-4ba9-b5f9-8cd1d3954da0",
+          "evidence_id": "6bfbf534-7393-4a45-97a8-9f4a9ab01e9d",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "mindle.sam21.verified.cpu",
+        "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+        "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+        "license_source": "apache-2.0",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu",
+        "execution_context": {
+          "job_id": "efbd3552-4845-4ba9-b5f9-8cd1d3954da0",
+          "evidence_id": "6bfbf534-7393-4a45-97a8-9f4a9ab01e9d",
+          "lane": "video",
+          "source_hashes": {
+            "source": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+          },
+          "nl_instruction": "대상을 추적해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "efbd3552-4845-4ba9-b5f9-8cd1d3954da0",
+            "evidence_id": "6bfbf534-7393-4a45-97a8-9f4a9ab01e9d",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "mindle.sam21.verified.cpu",
+            "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+            "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_overlays.mp4",
+          "type": ".mp4",
+          "size_bytes": 76049,
+          "sha256": "10819a8d8d6b5d1d702bec9535c0abfd61cb10548e14cd348e0baaed250bd0db",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-cb2ab472-4983-47a9-ab64-107513015f00",
+          "input_sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8",
+          "output_sha256": "10819a8d8d6b5d1d702bec9535c0abfd61cb10548e14cd348e0baaed250bd0db",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9acfd2d8-fb5a-4f2b-aa4f-060977aafec2\\sam_video\\track_1_overlays.mp4",
+          "elapsed_ms": 0.0
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/9acfd2d8-fb5a-4f2b-aa4f-060977aafec2/sam_video/track_1_overlays.mp4"
+  },
+  "001f4cfc-926f-43a2-9aa1-6896fd1a1ca1": {
+    "status": "TESTED_PASS",
+    "job_id": "001f4cfc-926f-43a2-9aa1-6896fd1a1ca1",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "4764aaf5-2dca-4f4d-bb74-e6796b1354dd_portrait.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\4764aaf5-2dca-4f4d-bb74-e6796b1354dd_portrait.png",
+      "bytes": 210622,
+      "sha256": "2847adff0282a54012fea18e3e329d2bb4d30f36fcc85ccdf55640e7ec088568"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\001f4cfc-926f-43a2-9aa1-6896fd1a1ca1\\original_photo.png",
+      "bytes": 210622,
+      "sha256": "2847adff0282a54012fea18e3e329d2bb4d30f36fcc85ccdf55640e7ec088568"
+    },
+    "outputs": [
+      {
+        "file_name": "4764aaf5-2dca-4f4d-bb74-e6796b1354dd_portrait.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\4764aaf5-2dca-4f4d-bb74-e6796b1354dd_portrait.png",
+        "bytes": 210622,
+        "sha256": "2847adff0282a54012fea18e3e329d2bb4d30f36fcc85ccdf55640e7ec088568"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\001f4cfc-926f-43a2-9aa1-6896fd1a1ca1\\original_photo.png",
+        "bytes": 210622,
+        "sha256": "2847adff0282a54012fea18e3e329d2bb4d30f36fcc85ccdf55640e7ec088568"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        288,
+        512
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/001f4cfc-926f-43a2-9aa1-6896fd1a1ca1/original_photo.png"
+  },
+  "cfd0747d-2f23-4d28-b1cb-e725d4d3d03e": {
+    "status": "TESTED_PASS",
+    "job_id": "cfd0747d-2f23-4d28-b1cb-e725d4d3d03e",
+    "lane": "video",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "cd470d52-7504-4139-b94d-f5ddd39b7686_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\cd470d52-7504-4139-b94d-f5ddd39b7686_video.mp4",
+      "bytes": 315058,
+      "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\cfd0747d-2f23-4d28-b1cb-e725d4d3d03e\\original_video_preview.mp4",
+      "bytes": 431738,
+      "sha256": "152c1568238623811a96bd4208279b11bfd3de0acdbac834596b329e37c8ee52"
+    },
+    "outputs": [
+      {
+        "file_name": "cd470d52-7504-4139-b94d-f5ddd39b7686_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\cd470d52-7504-4139-b94d-f5ddd39b7686_video.mp4",
+        "bytes": 315058,
+        "sha256": "4e28622467284da93f7575189c84f0e762b170bb7cf19667ca52929f93dcc238"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\cfd0747d-2f23-4d28-b1cb-e725d4d3d03e\\original_video_preview.mp4",
+        "bytes": 431738,
+        "sha256": "152c1568238623811a96bd4208279b11bfd3de0acdbac834596b329e37c8ee52"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        672,
+        384
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/cfd0747d-2f23-4d28-b1cb-e725d4d3d03e/original_video_preview.mp4"
+  },
+  "762ae397-f115-4d87-af64-e08f242b1d23": {
+    "status": "TESTED_PASS",
+    "job_id": "762ae397-f115-4d87-af64-e08f242b1d23",
+    "lane": "photo",
+    "operation": "photo_edit",
+    "command": "AI 대화 편집 · 이 사진을 조금 따뜻하게 보정해줘",
+    "input": {
+      "file_name": "aac4f599-e898-4a33-9f2e-f6b976d31243_photo_edit.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\aac4f599-e898-4a33-9f2e-f6b976d31243_photo_edit.png",
+      "bytes": 272143,
+      "sha256": "3a8b5e5fd16dcaadf86b951979d74031766213617b0e7fddaa0b35a693a33ec4"
+    },
+    "primary_output": {
+      "file_name": "edited_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\762ae397-f115-4d87-af64-e08f242b1d23\\edited_photo.png",
+      "bytes": 231887,
+      "sha256": "30efe627836770b9afa6678016e06a9c2de8c51b9e7e4d9d0a74326c1a254e1a"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\762ae397-f115-4d87-af64-e08f242b1d23\\edited_photo.png",
+        "bytes": 231887,
+        "sha256": "30efe627836770b9afa6678016e06a9c2de8c51b9e7e4d9d0a74326c1a254e1a"
+      }
+    ],
+    "runtime_result": {
+      "engine": "browser_canvas_pixels_verified_by_Pillow",
+      "result_size": [
+        288,
+        512
+      ],
+      "options": {
+        "brightness": 0,
+        "contrast": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "saturation": 0,
+        "temperature": 20,
+        "sharpness": 0,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "neutral",
+        "crop": null
+      },
+      "model_inference": false
+    },
+    "preview_url": "/files/jobs/762ae397-f115-4d87-af64-e08f242b1d23/edited_photo.png"
+  },
+  "a5fe7d08-0b60-4441-bbc0-d766938a29d5": {
+    "status": "TESTED_PASS",
+    "job_id": "a5fe7d08-0b60-4441-bbc0-d766938a29d5",
+    "lane": "video",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "383ae0ff-946d-4a0e-949e-8dda97d938ef_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\383ae0ff-946d-4a0e-949e-8dda97d938ef_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a5fe7d08-0b60-4441-bbc0-d766938a29d5\\original_video_preview.mp4",
+      "bytes": 242806,
+      "sha256": "76646857227ba34993ca142f54cb7b19ab4d2bd2fe2b84e43911544ea7fb5e06"
+    },
+    "outputs": [
+      {
+        "file_name": "383ae0ff-946d-4a0e-949e-8dda97d938ef_video_16x9.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\383ae0ff-946d-4a0e-949e-8dda97d938ef_video_16x9.mp4",
+        "bytes": 287597,
+        "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a5fe7d08-0b60-4441-bbc0-d766938a29d5\\original_video_preview.mp4",
+        "bytes": 242806,
+        "sha256": "76646857227ba34993ca142f54cb7b19ab4d2bd2fe2b84e43911544ea7fb5e06"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        640,
+        360
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/a5fe7d08-0b60-4441-bbc0-d766938a29d5/original_video_preview.mp4"
+  },
+  "45eccb4d-1ec4-4dc7-b9f7-b45280025351": {
+    "status": "TESTED_PASS",
+    "job_id": "45eccb4d-1ec4-4dc7-b9f7-b45280025351",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "trim_speed",
+    "input": {
+      "file_name": "77144e09-4eeb-4ed3-99f8-ba74a0f5da12_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\77144e09-4eeb-4ed3-99f8-ba74a0f5da12_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\45eccb4d-1ec4-4dc7-b9f7-b45280025351\\edited_video.mp4",
+      "bytes": 79890,
+      "sha256": "3635a266245a3402425584ad06cec0bec1e1cf913f38e0065017540966407716"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\45eccb4d-1ec4-4dc7-b9f7-b45280025351\\edited_video.mp4",
+        "bytes": 79890,
+        "sha256": "3635a266245a3402425584ad06cec0bec1e1cf913f38e0065017540966407716"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "start": 0.25,
+        "duration": 0.5,
+        "speed": 2
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/45eccb4d-1ec4-4dc7-b9f7-b45280025351/edited_video.mp4"
+  },
+  "20394b04-52f2-4bbf-8003-29dacd99635f": {
+    "status": "TESTED_PASS",
+    "job_id": "20394b04-52f2-4bbf-8003-29dacd99635f",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "rotate",
+    "input": {
+      "file_name": "3ae362b5-3657-4fd7-b1e5-cf74ab300bf2_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\3ae362b5-3657-4fd7-b1e5-cf74ab300bf2_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\20394b04-52f2-4bbf-8003-29dacd99635f\\edited_video.mp4",
+      "bytes": 239634,
+      "sha256": "34a4f0ac4fb4b0220794401df1483e279351bfa2f4b9336e248cb552b9f78184"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\20394b04-52f2-4bbf-8003-29dacd99635f\\edited_video.mp4",
+        "bytes": 239634,
+        "sha256": "34a4f0ac4fb4b0220794401df1483e279351bfa2f4b9336e248cb552b9f78184"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "rotate": true
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/20394b04-52f2-4bbf-8003-29dacd99635f/edited_video.mp4"
+  },
+  "21082551-547c-4956-9458-bda1e588e288": {
+    "status": "TESTED_PASS",
+    "job_id": "21082551-547c-4956-9458-bda1e588e288",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "shortform",
+    "input": {
+      "file_name": "d879b66d-f248-41d7-adbb-b9c6d54e833c_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\d879b66d-f248-41d7-adbb-b9c6d54e833c_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\21082551-547c-4956-9458-bda1e588e288\\edited_video.mp4",
+      "bytes": 54448,
+      "sha256": "4215a109701f215519229a491eac4adaa18cbd4b1dc60121d3b70db3522a9786"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\21082551-547c-4956-9458-bda1e588e288\\edited_video.mp4",
+        "bytes": 54448,
+        "sha256": "4215a109701f215519229a491eac4adaa18cbd4b1dc60121d3b70db3522a9786"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "aspect": "9:16",
+        "duration": 1
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/21082551-547c-4956-9458-bda1e588e288/edited_video.mp4"
+  },
+  "f06b7066-f787-4411-b37c-f4f4cdfa9b7d": {
+    "status": "TESTED_PASS",
+    "job_id": "f06b7066-f787-4411-b37c-f4f4cdfa9b7d",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "color_transition_effect",
+    "input": {
+      "file_name": "8b058bc6-3997-4c94-8579-833e2b98e7e4_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\8b058bc6-3997-4c94-8579-833e2b98e7e4_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\f06b7066-f787-4411-b37c-f4f4cdfa9b7d\\edited_video.mp4",
+      "bytes": 229923,
+      "sha256": "cca1ade611c2c544ee777338a3ff9056c02b9feb613fffd8c0e34ec480c161f6"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\f06b7066-f787-4411-b37c-f4f4cdfa9b7d\\edited_video.mp4",
+        "bytes": 229923,
+        "sha256": "cca1ade611c2c544ee777338a3ff9056c02b9feb613fffd8c0e34ec480c161f6"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "brightness": 10,
+        "contrast": 10,
+        "saturation": 10,
+        "fade": true,
+        "effect": true
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/f06b7066-f787-4411-b37c-f4f4cdfa9b7d/edited_video.mp4"
+  },
+  "37793b3f-9cd0-41dc-a1ef-4b4f7918e4b2": {
+    "status": "TESTED_PASS",
+    "job_id": "37793b3f-9cd0-41dc-a1ef-4b4f7918e4b2",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "korean_subtitle",
+    "input": {
+      "file_name": "b5e57218-ddd8-4308-a3ba-78cc95d39678_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\b5e57218-ddd8-4308-a3ba-78cc95d39678_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\37793b3f-9cd0-41dc-a1ef-4b4f7918e4b2\\edited_video.mp4",
+      "bytes": 235922,
+      "sha256": "657f170bef09cbb8e3026b4d76dfbfebc38bd60528867180ed29df5eae82fed3"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\37793b3f-9cd0-41dc-a1ef-4b4f7918e4b2\\edited_video.mp4",
+        "bytes": 235922,
+        "sha256": "657f170bef09cbb8e3026b4d76dfbfebc38bd60528867180ed29df5eae82fed3"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "subtitle": "안녕하세요 MINDLE MEDIA AI"
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/37793b3f-9cd0-41dc-a1ef-4b4f7918e4b2/edited_video.mp4"
+  },
+  "b298ee22-832a-42c6-88c3-12aeed4d9607": {
+    "status": "TESTED_PASS",
+    "job_id": "b298ee22-832a-42c6-88c3-12aeed4d9607",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "배경음악 연결 검증",
+    "input": {
+      "file_name": "9e84662e-54ed-4e97-9257-f14f9ddafecc_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\9e84662e-54ed-4e97-9257-f14f9ddafecc_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b298ee22-832a-42c6-88c3-12aeed4d9607\\edited_video.mp4",
+      "bytes": 258297,
+      "sha256": "0514097357820f78866fa9d2ea9f7dbe9594c40d9a17e1c26ebc40d938561cae"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b298ee22-832a-42c6-88c3-12aeed4d9607\\edited_video.mp4",
+        "bytes": 258297,
+        "sha256": "0514097357820f78866fa9d2ea9f7dbe9594c40d9a17e1c26ebc40d938561cae"
+      },
+      {
+        "file_name": "cda0ddd4-3efc-4037-8d1d-f03bdb230ac8_korean.wav",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\cda0ddd4-3efc-4037-8d1d-f03bdb230ac8_korean.wav",
+        "bytes": 798778,
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "backgroundVolume": 0.35
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/b298ee22-832a-42c6-88c3-12aeed4d9607/edited_video.mp4"
+  },
+  "604f5281-4832-4d58-b1bf-3061e94a68e8": {
+    "status": "TESTED_PASS",
+    "job_id": "604f5281-4832-4d58-b1bf-3061e94a68e8",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "31a6110a-b3f5-4e17-8c99-dfda91b39b5a_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\31a6110a-b3f5-4e17-8c99-dfda91b39b5a_photo.png",
+      "bytes": 311919,
+      "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\604f5281-4832-4d58-b1bf-3061e94a68e8\\original_photo.png",
+      "bytes": 230931,
+      "sha256": "c19fef14ac15a143e5fc16dca80985bab0216214ee0919b88869e451734ab6c4"
+    },
+    "outputs": [
+      {
+        "file_name": "31a6110a-b3f5-4e17-8c99-dfda91b39b5a_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\31a6110a-b3f5-4e17-8c99-dfda91b39b5a_photo.png",
+        "bytes": 311919,
+        "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\604f5281-4832-4d58-b1bf-3061e94a68e8\\original_photo.png",
+        "bytes": 230931,
+        "sha256": "c19fef14ac15a143e5fc16dca80985bab0216214ee0919b88869e451734ab6c4"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        512,
+        292
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/604f5281-4832-4d58-b1bf-3061e94a68e8/original_photo.png"
+  },
+  "a4268f54-e1a9-4414-8488-44caa725ea85": {
+    "status": "TESTED_PASS",
+    "job_id": "a4268f54-e1a9-4414-8488-44caa725ea85",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "77d3d255-18ae-412d-b57b-75bf8424a793_portrait.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\77d3d255-18ae-412d-b57b-75bf8424a793_portrait.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a4268f54-e1a9-4414-8488-44caa725ea85\\original_photo.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "outputs": [
+      {
+        "file_name": "77d3d255-18ae-412d-b57b-75bf8424a793_portrait.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\77d3d255-18ae-412d-b57b-75bf8424a793_portrait.png",
+        "bytes": 177550,
+        "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a4268f54-e1a9-4414-8488-44caa725ea85\\original_photo.png",
+        "bytes": 177550,
+        "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        288,
+        512
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/a4268f54-e1a9-4414-8488-44caa725ea85/original_photo.png"
+  },
+  "76ff5ab3-7c39-4d0a-8d58-8a71bcd0da95": {
+    "status": "TESTED_PASS",
+    "job_id": "76ff5ab3-7c39-4d0a-8d58-8a71bcd0da95",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "eb924b07-e5a0-4f5f-a98a-22b246e79685_square.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\eb924b07-e5a0-4f5f-a98a-22b246e79685_square.png",
+      "bytes": 221673,
+      "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\76ff5ab3-7c39-4d0a-8d58-8a71bcd0da95\\original_photo.png",
+      "bytes": 221673,
+      "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+    },
+    "outputs": [
+      {
+        "file_name": "eb924b07-e5a0-4f5f-a98a-22b246e79685_square.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\eb924b07-e5a0-4f5f-a98a-22b246e79685_square.png",
+        "bytes": 221673,
+        "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\76ff5ab3-7c39-4d0a-8d58-8a71bcd0da95\\original_photo.png",
+        "bytes": 221673,
+        "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        400,
+        400
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/76ff5ab3-7c39-4d0a-8d58-8a71bcd0da95/original_photo.png"
+  },
+  "8dc53f03-42b5-46c2-bf66-fa6fafb11f60": {
+    "status": "TESTED_PASS",
+    "job_id": "8dc53f03-42b5-46c2-bf66-fa6fafb11f60",
+    "lane": "photo",
+    "operation": "photo_edit",
+    "command": "사진 보정",
+    "input": {
+      "file_name": "6f472782-1367-4756-9c22-b8b616100955_photo_edit.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\6f472782-1367-4756-9c22-b8b616100955_photo_edit.png",
+      "bytes": 279975,
+      "sha256": "6342f39d2ea7533cc0efe190714a4354492a1de436b4747408cf87d1a5efb947"
+    },
+    "primary_output": {
+      "file_name": "edited_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\8dc53f03-42b5-46c2-bf66-fa6fafb11f60\\edited_photo.png",
+      "bytes": 230782,
+      "sha256": "375155868d35194b230740ed9c1df3fbe123fd7fedca59cec02520c9a70170d1"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\8dc53f03-42b5-46c2-bf66-fa6fafb11f60\\edited_photo.png",
+        "bytes": 230782,
+        "sha256": "375155868d35194b230740ed9c1df3fbe123fd7fedca59cec02520c9a70170d1"
+      }
+    ],
+    "runtime_result": {
+      "engine": "browser_canvas_pixels_verified_by_Pillow",
+      "result_size": [
+        400,
+        400
+      ],
+      "options": {
+        "brightness": 100,
+        "contrast": 100,
+        "highlights": 100,
+        "shadows": 100,
+        "saturation": 100,
+        "temperature": 100,
+        "sharpness": 100,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "neutral",
+        "crop": null
+      },
+      "model_inference": false
+    },
+    "preview_url": "/files/jobs/8dc53f03-42b5-46c2-bf66-fa6fafb11f60/edited_photo.png"
+  },
+  "8c1aba20-e73b-4969-a00e-cfcfb98b2d75": {
+    "status": "TESTED_PASS",
+    "job_id": "8c1aba20-e73b-4969-a00e-cfcfb98b2d75",
+    "evidence_id": "43b18404-61ca-48ed-9586-4c2d371540c9",
+    "lane": "photo",
+    "operation": "upscale",
+    "command": "4배 업스케일해줘",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license": "apache-2.0",
+        "weight_name": "single-image-super-resolution-1032.bin",
+        "weight_size_bytes": 119436,
+        "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+        "read_only": true,
+        "sha384_verified": true
+      }
+    },
+    "adapter": {
+      "id": "intel-open-model-zoo-sisr-1032",
+      "version": "1.1.0",
+      "runtime_backend": "openvino-cpu",
+      "device_requirement": "CPU"
+    },
+    "input": {
+      "file_name": "c59217a3-9b76-4c0d-b1e7-868d5337d1d7_eb924b07-e5a0-4f5f-a98a-22b246e79685_square.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\c59217a3-9b76-4c0d-b1e7-868d5337d1d7_eb924b07-e5a0-4f5f-a98a-22b246e79685_square.png",
+      "bytes": 221673,
+      "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+    },
+    "runtime_result": {
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a84a9b6b-2883-4d0b-9c5f-d387c3ca15a4\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 2602838,
+          "sha256": "a00d6d128cae071e477701608b9e2e0eabe11308991db83cf4f5a99a86ed28b8",
+          "dimensions": [
+            1600,
+            1600
+          ]
+        }
+      ],
+      "tiles": 2,
+      "scale": 4,
+      "elapsed_ms": 3921.9999999913853
+    },
+    "primary_output": {
+      "file_name": "upscaled_4x.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a84a9b6b-2883-4d0b-9c5f-d387c3ca15a4\\intel_sisr_1032\\upscaled_4x.png",
+      "bytes": 2602838,
+      "sha256": "a00d6d128cae071e477701608b9e2e0eabe11308991db83cf4f5a99a86ed28b8"
+    },
+    "outputs": [
+      {
+        "file_name": "upscaled_4x.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a84a9b6b-2883-4d0b-9c5f-d387c3ca15a4\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 2602838,
+        "sha256": "a00d6d128cae071e477701608b9e2e0eabe11308991db83cf4f5a99a86ed28b8"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "8c1aba20-e73b-4969-a00e-cfcfb98b2d75",
+        "evidence_id": "43b18404-61ca-48ed-9586-4c2d371540c9",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T11:48:23.071538+00:00",
+        "started_at": "2026-10-07T11:48:23.022432+00:00",
+        "finished_at": "2026-10-07T11:48:23.071538+00:00",
+        "project_id": "c42c04f6-bc38-4b56-9c86-8c8678977ab1",
+        "requested_operation": "upscale",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\c59217a3-9b76-4c0d-b1e7-868d5337d1d7_eb924b07-e5a0-4f5f-a98a-22b246e79685_square.png",
+          "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "8c1aba20-e73b-4969-a00e-cfcfb98b2d75",
+          "evidence_id": "43b18404-61ca-48ed-9586-4c2d371540c9",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "intel-open-model-zoo-sisr-1032",
+        "model_or_program_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license_source": "apache-2.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU",
+        "execution_context": {
+          "job_id": "8c1aba20-e73b-4969-a00e-cfcfb98b2d75",
+          "evidence_id": "43b18404-61ca-48ed-9586-4c2d371540c9",
+          "lane": "photo",
+          "source_hashes": {
+            "source": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+          },
+          "nl_instruction": "4배 업스케일해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "8c1aba20-e73b-4969-a00e-cfcfb98b2d75",
+            "evidence_id": "43b18404-61ca-48ed-9586-4c2d371540c9",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "intel-open-model-zoo-sisr-1032",
+            "model_or_program_id": "openvinotoolkit/open_model_zoo",
+            "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a84a9b6b-2883-4d0b-9c5f-d387c3ca15a4\\intel_sisr_1032\\upscaled_4x.png",
+          "type": ".png",
+          "size_bytes": 2602838,
+          "sha256": "a00d6d128cae071e477701608b9e2e0eabe11308991db83cf4f5a99a86ed28b8",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-1cca7a5c-58e7-47fb-89b1-11c333859bf2",
+          "input_sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44",
+          "output_sha256": "a00d6d128cae071e477701608b9e2e0eabe11308991db83cf4f5a99a86ed28b8",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\a84a9b6b-2883-4d0b-9c5f-d387c3ca15a4\\intel_sisr_1032\\upscaled_4x.png",
+          "elapsed_ms": 3921.9999999913853
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/a84a9b6b-2883-4d0b-9c5f-d387c3ca15a4/intel_sisr_1032/upscaled_4x.png"
+  },
+  "404de3f4-7738-4202-8593-070ed61650f5": {
+    "status": "TESTED_PASS",
+    "job_id": "404de3f4-7738-4202-8593-070ed61650f5",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "cf15c512-8b26-482e-bcc0-af20faa9e722_portrait.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\cf15c512-8b26-482e-bcc0-af20faa9e722_portrait.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\404de3f4-7738-4202-8593-070ed61650f5\\original_photo.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "outputs": [
+      {
+        "file_name": "cf15c512-8b26-482e-bcc0-af20faa9e722_portrait.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\cf15c512-8b26-482e-bcc0-af20faa9e722_portrait.png",
+        "bytes": 177550,
+        "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\404de3f4-7738-4202-8593-070ed61650f5\\original_photo.png",
+        "bytes": 177550,
+        "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        288,
+        512
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/404de3f4-7738-4202-8593-070ed61650f5/original_photo.png"
+  },
+  "964e61cc-249c-44e8-9df6-b46efcc74ef3": {
+    "status": "TESTED_PASS",
+    "job_id": "964e61cc-249c-44e8-9df6-b46efcc74ef3",
+    "evidence_id": "afc45c63-0f33-4ea7-b7f8-55b404933f58",
+    "lane": "photo",
+    "operation": "upscale",
+    "command": "4배 업스케일해줘",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license": "apache-2.0",
+        "weight_name": "single-image-super-resolution-1032.bin",
+        "weight_size_bytes": 119436,
+        "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+        "read_only": true,
+        "sha384_verified": true
+      }
+    },
+    "adapter": {
+      "id": "intel-open-model-zoo-sisr-1032",
+      "version": "1.1.0",
+      "runtime_backend": "openvino-cpu",
+      "device_requirement": "CPU"
+    },
+    "input": {
+      "file_name": "8e7296bb-f6bf-4ef6-8582-26946aba49c2_portrait.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\8e7296bb-f6bf-4ef6-8582-26946aba49c2_portrait.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "runtime_result": {
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\3ea72fca-33ee-46cf-9751-6afd987c9caf\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 2132893,
+          "sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850",
+          "dimensions": [
+            1152,
+            2048
+          ]
+        }
+      ],
+      "tiles": 3,
+      "scale": 4,
+      "elapsed_ms": 6391.00000000326
+    },
+    "primary_output": {
+      "file_name": "upscaled_4x.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\3ea72fca-33ee-46cf-9751-6afd987c9caf\\intel_sisr_1032\\upscaled_4x.png",
+      "bytes": 2132893,
+      "sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850"
+    },
+    "outputs": [
+      {
+        "file_name": "upscaled_4x.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\3ea72fca-33ee-46cf-9751-6afd987c9caf\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 2132893,
+        "sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "964e61cc-249c-44e8-9df6-b46efcc74ef3",
+        "evidence_id": "afc45c63-0f33-4ea7-b7f8-55b404933f58",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T11:51:12.746516+00:00",
+        "started_at": "2026-10-07T11:51:12.676998+00:00",
+        "finished_at": "2026-10-07T11:51:12.746516+00:00",
+        "project_id": "c42c04f6-bc38-4b56-9c86-8c8678977ab1",
+        "requested_operation": "upscale",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\8e7296bb-f6bf-4ef6-8582-26946aba49c2_portrait.png",
+          "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "964e61cc-249c-44e8-9df6-b46efcc74ef3",
+          "evidence_id": "afc45c63-0f33-4ea7-b7f8-55b404933f58",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "intel-open-model-zoo-sisr-1032",
+        "model_or_program_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license_source": "apache-2.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU",
+        "execution_context": {
+          "job_id": "964e61cc-249c-44e8-9df6-b46efcc74ef3",
+          "evidence_id": "afc45c63-0f33-4ea7-b7f8-55b404933f58",
+          "lane": "photo",
+          "source_hashes": {
+            "source": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+          },
+          "nl_instruction": "4배 업스케일해줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "964e61cc-249c-44e8-9df6-b46efcc74ef3",
+            "evidence_id": "afc45c63-0f33-4ea7-b7f8-55b404933f58",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "intel-open-model-zoo-sisr-1032",
+            "model_or_program_id": "openvinotoolkit/open_model_zoo",
+            "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\3ea72fca-33ee-46cf-9751-6afd987c9caf\\intel_sisr_1032\\upscaled_4x.png",
+          "type": ".png",
+          "size_bytes": 2132893,
+          "sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-61ba9b51-2e31-4356-9da2-397fe86dbf3f",
+          "input_sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730",
+          "output_sha256": "b0d59194915e39992d77e1833ccdd66b137425493319a82f7e443bb9a58a6850",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\3ea72fca-33ee-46cf-9751-6afd987c9caf\\intel_sisr_1032\\upscaled_4x.png",
+          "elapsed_ms": 6391.00000000326
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/3ea72fca-33ee-46cf-9751-6afd987c9caf/intel_sisr_1032/upscaled_4x.png"
+  },
+  "e48550ac-ffa3-490b-a404-a1e934817cfe": {
+    "status": "TESTED_PASS",
+    "job_id": "e48550ac-ffa3-490b-a404-a1e934817cfe",
+    "lane": "video",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "a663d49f-fba5-4a11-97e4-5a9f238be257_korean_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\a663d49f-fba5-4a11-97e4-5a9f238be257_korean_video.mp4",
+      "bytes": 258297,
+      "sha256": "0514097357820f78866fa9d2ea9f7dbe9594c40d9a17e1c26ebc40d938561cae"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\e48550ac-ffa3-490b-a404-a1e934817cfe\\original_video_preview.mp4",
+      "bytes": 235155,
+      "sha256": "45e964ba11b74673a7f27a785edd07f1e0d2830a05a4a07bf828460ead2a4244"
+    },
+    "outputs": [
+      {
+        "file_name": "a663d49f-fba5-4a11-97e4-5a9f238be257_korean_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\a663d49f-fba5-4a11-97e4-5a9f238be257_korean_video.mp4",
+        "bytes": 258297,
+        "sha256": "0514097357820f78866fa9d2ea9f7dbe9594c40d9a17e1c26ebc40d938561cae"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\e48550ac-ffa3-490b-a404-a1e934817cfe\\original_video_preview.mp4",
+        "bytes": 235155,
+        "sha256": "45e964ba11b74673a7f27a785edd07f1e0d2830a05a4a07bf828460ead2a4244"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        640,
+        360
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/e48550ac-ffa3-490b-a404-a1e934817cfe/original_video_preview.mp4"
+  },
+  "45ed3cb9-f520-483c-a9d0-282b046b65ee": {
+    "status": "TESTED_PASS",
+    "job_id": "45ed3cb9-f520-483c-a9d0-282b046b65ee",
+    "lane": "photo",
+    "operation": "photo_edit",
+    "command": "color",
+    "input": {
+      "file_name": "6c76dcff-678f-4718-8260-1d1b94e8e485_photo_edit.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\6c76dcff-678f-4718-8260-1d1b94e8e485_photo_edit.png",
+      "bytes": 298102,
+      "sha256": "c8dc16747c842e037ff9079284a9c2cb81d27f1d213be4cfaac5fac3652bfb02"
+    },
+    "primary_output": {
+      "file_name": "edited_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\45ed3cb9-f520-483c-a9d0-282b046b65ee\\edited_photo.png",
+      "bytes": 248385,
+      "sha256": "0fc3a228c248929ebe00c81f299475a7fa5e446bd43681cd489548dead0e4114"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\45ed3cb9-f520-483c-a9d0-282b046b65ee\\edited_photo.png",
+        "bytes": 248385,
+        "sha256": "0fc3a228c248929ebe00c81f299475a7fa5e446bd43681cd489548dead0e4114"
+      }
+    ],
+    "runtime_result": {
+      "engine": "browser_canvas_pixels_verified_by_Pillow",
+      "result_size": [
+        512,
+        292
+      ],
+      "options": {
+        "brightness": 0,
+        "contrast": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "saturation": 10,
+        "temperature": 15,
+        "sharpness": 0,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "neutral",
+        "resizeWidth": null,
+        "crop": null
+      },
+      "model_inference": false
+    },
+    "preview_url": "/files/jobs/45ed3cb9-f520-483c-a9d0-282b046b65ee/edited_photo.png"
+  },
+  "f983239e-4b11-4bb1-97d0-8bb4e1945ca9": {
+    "status": "TESTED_PASS",
+    "job_id": "f983239e-4b11-4bb1-97d0-8bb4e1945ca9",
+    "lane": "photo",
+    "operation": "photo_edit",
+    "command": "style",
+    "input": {
+      "file_name": "a8ef45b0-81c3-4ac0-9eab-36886a493f49_photo_edit.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\a8ef45b0-81c3-4ac0-9eab-36886a493f49_photo_edit.png",
+      "bytes": 153594,
+      "sha256": "25e3ce0ffa85cf5a8ffe79a78a499e23ee7a66c67eea0cbc334a47fd8761c4d3"
+    },
+    "primary_output": {
+      "file_name": "edited_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\f983239e-4b11-4bb1-97d0-8bb4e1945ca9\\edited_photo.png",
+      "bytes": 118977,
+      "sha256": "78da353f37608321e7358ff02d9bb5f270ba9349f2bc0c42ea13d38b32a55945"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\f983239e-4b11-4bb1-97d0-8bb4e1945ca9\\edited_photo.png",
+        "bytes": 118977,
+        "sha256": "78da353f37608321e7358ff02d9bb5f270ba9349f2bc0c42ea13d38b32a55945"
+      }
+    ],
+    "runtime_result": {
+      "engine": "browser_canvas_pixels_verified_by_Pillow",
+      "result_size": [
+        512,
+        292
+      ],
+      "options": {
+        "brightness": 0,
+        "contrast": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "saturation": 0,
+        "temperature": 0,
+        "sharpness": 0,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "mono",
+        "resizeWidth": null,
+        "crop": null
+      },
+      "model_inference": false
+    },
+    "preview_url": "/files/jobs/f983239e-4b11-4bb1-97d0-8bb4e1945ca9/edited_photo.png"
+  },
+  "bc0e72b7-3fc3-4704-816d-1e0d97e3e096": {
+    "status": "TESTED_PASS",
+    "job_id": "bc0e72b7-3fc3-4704-816d-1e0d97e3e096",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "흔들림 보정 및 노이즈 제거",
+    "input": {
+      "file_name": "240bcbc0-96f3-4eb0-8bcc-8b1b3d8b47ef_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\240bcbc0-96f3-4eb0-8bcc-8b1b3d8b47ef_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\bc0e72b7-3fc3-4704-816d-1e0d97e3e096\\edited_video.mp4",
+      "bytes": 231592,
+      "sha256": "845751895a933fb44b0f5b71d70348857bd55c54ea3a16c68015792f2da09a36"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\bc0e72b7-3fc3-4704-816d-1e0d97e3e096\\edited_video.mp4",
+        "bytes": 231592,
+        "sha256": "845751895a933fb44b0f5b71d70348857bd55c54ea3a16c68015792f2da09a36"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "stabilize": true,
+        "denoise": true
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/bc0e72b7-3fc3-4704-816d-1e0d97e3e096/edited_video.mp4"
+  },
+  "211005ed-7873-4f8e-84e1-033ba7893bae": {
+    "status": "TESTED_PASS",
+    "job_id": "211005ed-7873-4f8e-84e1-033ba7893bae",
+    "lane": "photo",
+    "operation": "photo_edit",
+    "command": "portrait",
+    "input": {
+      "file_name": "e4005d19-b1e3-480b-a3cb-5bf8b4f59b48_photo_edit.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\e4005d19-b1e3-480b-a3cb-5bf8b4f59b48_photo_edit.png",
+      "bytes": 150078,
+      "sha256": "c53a7d1db03e25bfe21724f8be98eb8c1c9e836b44f5a383f725e2af2277a30c"
+    },
+    "primary_output": {
+      "file_name": "edited_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\211005ed-7873-4f8e-84e1-033ba7893bae\\edited_photo.png",
+      "bytes": 113720,
+      "sha256": "532c019ef8e0a8c503f0dd13cdd6381556c5ac5899ec238d62dda00574f38bef"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\211005ed-7873-4f8e-84e1-033ba7893bae\\edited_photo.png",
+        "bytes": 113720,
+        "sha256": "532c019ef8e0a8c503f0dd13cdd6381556c5ac5899ec238d62dda00574f38bef"
+      }
+    ],
+    "runtime_result": {
+      "engine": "browser_canvas_pixels_verified_by_Pillow",
+      "result_size": [
+        512,
+        292
+      ],
+      "options": {
+        "brightness": 0,
+        "contrast": 0,
+        "highlights": 0,
+        "shadows": 10,
+        "saturation": 0,
+        "temperature": 0,
+        "sharpness": -25,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "neutral",
+        "resizeWidth": null,
+        "crop": null
+      },
+      "model_inference": false
+    },
+    "preview_url": "/files/jobs/211005ed-7873-4f8e-84e1-033ba7893bae/edited_photo.png"
+  },
+  "8275301b-2d55-48cb-a211-5484694cedde": {
+    "status": "TESTED_PASS",
+    "job_id": "8275301b-2d55-48cb-a211-5484694cedde",
+    "lane": "photo",
+    "operation": "photo_edit",
+    "command": "사진 보정",
+    "input": {
+      "file_name": "3363a86b-fd7a-4eb1-b0eb-329d0606e80c_photo_edit.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\3363a86b-fd7a-4eb1-b0eb-329d0606e80c_photo_edit.png",
+      "bytes": 129818,
+      "sha256": "2e050476c5b020e2616fd133118bf04316bdd0268b41e267b9e53eea8c506093"
+    },
+    "primary_output": {
+      "file_name": "edited_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\8275301b-2d55-48cb-a211-5484694cedde\\edited_photo.png",
+      "bytes": 92488,
+      "sha256": "20da47e71c4f24d000667bcb83e97b2eab7848b2b900e75bfa76b1437e1e4ab2"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\8275301b-2d55-48cb-a211-5484694cedde\\edited_photo.png",
+        "bytes": 92488,
+        "sha256": "20da47e71c4f24d000667bcb83e97b2eab7848b2b900e75bfa76b1437e1e4ab2"
+      }
+    ],
+    "runtime_result": {
+      "engine": "browser_canvas_pixels_verified_by_Pillow",
+      "result_size": [
+        410,
+        292
+      ],
+      "options": {
+        "brightness": 0,
+        "contrast": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "saturation": 0,
+        "temperature": 0,
+        "sharpness": 0,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "neutral",
+        "resizeWidth": null,
+        "crop": {
+          "left": 10,
+          "top": 0,
+          "right": 90,
+          "bottom": 100
+        }
+      },
+      "model_inference": false
+    },
+    "preview_url": "/files/jobs/8275301b-2d55-48cb-a211-5484694cedde/edited_photo.png"
+  },
+  "62d5e0cb-38dd-482d-a960-523ca0222e4c": {
+    "status": "TESTED_PASS",
+    "job_id": "62d5e0cb-38dd-482d-a960-523ca0222e4c",
+    "lane": "photo",
+    "operation": "photo_edit",
+    "command": "사진 보정",
+    "input": {
+      "file_name": "56c4454e-c19c-414f-a955-0fb5e4c22abb_photo_edit.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\56c4454e-c19c-414f-a955-0fb5e4c22abb_photo_edit.png",
+      "bytes": 38258,
+      "sha256": "f8cfd9d3e98650253263aba461539f9a99c9e838a18a8b02048fc204246bca54"
+    },
+    "primary_output": {
+      "file_name": "edited_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\62d5e0cb-38dd-482d-a960-523ca0222e4c\\edited_photo.png",
+      "bytes": 29225,
+      "sha256": "fa88e10d3dcf2d3db8f1c4d8e4021ac4b9ccd53533428dea58c9e218794738e5"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\62d5e0cb-38dd-482d-a960-523ca0222e4c\\edited_photo.png",
+        "bytes": 29225,
+        "sha256": "fa88e10d3dcf2d3db8f1c4d8e4021ac4b9ccd53533428dea58c9e218794738e5"
+      }
+    ],
+    "runtime_result": {
+      "engine": "browser_canvas_pixels_verified_by_Pillow",
+      "result_size": [
+        205,
+        146
+      ],
+      "options": {
+        "brightness": 0,
+        "contrast": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "saturation": 0,
+        "temperature": 0,
+        "sharpness": 0,
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "style": "neutral",
+        "resizeWidth": 205,
+        "crop": null
+      },
+      "model_inference": false
+    },
+    "preview_url": "/files/jobs/62d5e0cb-38dd-482d-a960-523ca0222e4c/edited_photo.png"
+  },
+  "d7ce007e-e7b8-4ef8-afd2-f6d9e25c7ec3": {
+    "status": "TESTED_PASS",
+    "job_id": "d7ce007e-e7b8-4ef8-afd2-f6d9e25c7ec3",
+    "evidence_id": "cb2de15a-202a-4418-935c-02150f1c1dd4",
+    "lane": "photo",
+    "operation": "upscale",
+    "command": "투명 사진 4배 업스케일",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license": "apache-2.0",
+        "weight_name": "single-image-super-resolution-1032.bin",
+        "weight_size_bytes": 119436,
+        "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+        "read_only": true,
+        "sha384_verified": true
+      }
+    },
+    "adapter": {
+      "id": "intel-open-model-zoo-sisr-1032",
+      "version": "1.1.0",
+      "runtime_backend": "openvino-cpu",
+      "device_requirement": "CPU"
+    },
+    "input": {
+      "file_name": "9e3500c7-bc4a-495a-bc87-0d02e3c1d2a5_alpha.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\9e3500c7-bc4a-495a-bc87-0d02e3c1d2a5_alpha.png",
+      "bytes": 164,
+      "sha256": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527"
+    },
+    "runtime_result": {
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\fa868318-0a81-4ea4-9ad7-4f358939b6ee\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 6129,
+          "sha256": "01851976729e6100c6a35d882ea549fbd042f29548ddff5f6f6fd040f5e9288f",
+          "dimensions": [
+            192,
+            108
+          ]
+        }
+      ],
+      "tiles": 1,
+      "scale": 4,
+      "elapsed_ms": 2733.9999999967404
+    },
+    "primary_output": {
+      "file_name": "upscaled_4x.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\fa868318-0a81-4ea4-9ad7-4f358939b6ee\\intel_sisr_1032\\upscaled_4x.png",
+      "bytes": 6129,
+      "sha256": "01851976729e6100c6a35d882ea549fbd042f29548ddff5f6f6fd040f5e9288f"
+    },
+    "outputs": [
+      {
+        "file_name": "upscaled_4x.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\fa868318-0a81-4ea4-9ad7-4f358939b6ee\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 6129,
+        "sha256": "01851976729e6100c6a35d882ea549fbd042f29548ddff5f6f6fd040f5e9288f"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "d7ce007e-e7b8-4ef8-afd2-f6d9e25c7ec3",
+        "evidence_id": "cb2de15a-202a-4418-935c-02150f1c1dd4",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T14:10:34.011563+00:00",
+        "started_at": "2026-10-07T14:10:33.938415+00:00",
+        "finished_at": "2026-10-07T14:10:34.011563+00:00",
+        "project_id": null,
+        "requested_operation": "upscale",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\9e3500c7-bc4a-495a-bc87-0d02e3c1d2a5_alpha.png",
+          "sha256": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "d7ce007e-e7b8-4ef8-afd2-f6d9e25c7ec3",
+          "evidence_id": "cb2de15a-202a-4418-935c-02150f1c1dd4",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "intel-open-model-zoo-sisr-1032",
+        "model_or_program_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license_source": "apache-2.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU",
+        "execution_context": {
+          "job_id": "d7ce007e-e7b8-4ef8-afd2-f6d9e25c7ec3",
+          "evidence_id": "cb2de15a-202a-4418-935c-02150f1c1dd4",
+          "lane": "photo",
+          "source_hashes": {
+            "source": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527"
+          },
+          "nl_instruction": "투명 사진 4배 업스케일",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "d7ce007e-e7b8-4ef8-afd2-f6d9e25c7ec3",
+            "evidence_id": "cb2de15a-202a-4418-935c-02150f1c1dd4",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "intel-open-model-zoo-sisr-1032",
+            "model_or_program_id": "openvinotoolkit/open_model_zoo",
+            "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\fa868318-0a81-4ea4-9ad7-4f358939b6ee\\intel_sisr_1032\\upscaled_4x.png",
+          "type": ".png",
+          "size_bytes": 6129,
+          "sha256": "01851976729e6100c6a35d882ea549fbd042f29548ddff5f6f6fd040f5e9288f",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-4b0b9944-82ef-4c76-844f-28dcfc9f7494",
+          "input_sha256": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527",
+          "output_sha256": "01851976729e6100c6a35d882ea549fbd042f29548ddff5f6f6fd040f5e9288f",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\fa868318-0a81-4ea4-9ad7-4f358939b6ee\\intel_sisr_1032\\upscaled_4x.png",
+          "elapsed_ms": 2733.9999999967404
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/fa868318-0a81-4ea4-9ad7-4f358939b6ee/intel_sisr_1032/upscaled_4x.png"
+  },
+  "de44c569-f338-4c25-a54d-33df5729a432": {
+    "status": "TESTED_PASS",
+    "job_id": "de44c569-f338-4c25-a54d-33df5729a432",
+    "evidence_id": "6e4647cd-3d37-495a-9b5c-e9d203846495",
+    "lane": "korean_audio",
+    "operation": "transcribe",
+    "command": "자동으로 자막 넣어줘",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "license": "mit",
+        "weight_name": "model.safetensors",
+        "weight_size_bytes": 966995080,
+        "weight_sha256": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\models\\whisper-small",
+        "read_only": true
+      }
+    },
+    "adapter": {
+      "id": "mindle.whisper.ko.verified.cpu",
+      "version": "1.0.0",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu"
+    },
+    "input": {
+      "file_name": "subtitle_audio.wav",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\subtitle_audio.wav",
+      "bytes": 63566,
+      "sha256": "118f43b2c239a6dfe89cbf7da2ad9b87e29dc3c0cb43f1edae6621f97ce872b3"
+    },
+    "runtime_result": {
+      "status": "TESTED_PASS",
+      "input_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\subtitle_audio.wav",
+      "input_sha256": "118f43b2c239a6dfe89cbf7da2ad9b87e29dc3c0cb43f1edae6621f97ce872b3",
+      "sample_rate": 16000,
+      "duration_seconds": 1.984,
+      "reference": null,
+      "text": "다리미 수직가",
+      "word_error_rate": null,
+      "elapsed_ms": 74602.83,
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\whisper\\korean_transcript.json",
+          "sha256": "7463082fca9a614909342d316505e103e8a0ee8180079310b02157cc75187d99",
+          "bytes": 135
+        }
+      ]
+    },
+    "primary_output": {
+      "file_name": "korean_transcript.json",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\whisper\\korean_transcript.json",
+      "bytes": 135,
+      "sha256": "7463082fca9a614909342d316505e103e8a0ee8180079310b02157cc75187d99"
+    },
+    "outputs": [
+      {
+        "file_name": "subtitle_audio.wav",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\subtitle_audio.wav",
+        "bytes": 63566,
+        "sha256": "118f43b2c239a6dfe89cbf7da2ad9b87e29dc3c0cb43f1edae6621f97ce872b3"
+      },
+      {
+        "file_name": "korean_transcript.json",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\whisper\\korean_transcript.json",
+        "bytes": 135,
+        "sha256": "7463082fca9a614909342d316505e103e8a0ee8180079310b02157cc75187d99"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "de44c569-f338-4c25-a54d-33df5729a432",
+        "evidence_id": "6e4647cd-3d37-495a-9b5c-e9d203846495",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T14:11:40.973244+00:00",
+        "started_at": "2026-10-07T14:11:40.968248+00:00",
+        "finished_at": "2026-10-07T14:11:40.973244+00:00",
+        "project_id": "63106009-2474-457c-8d82-4a03592e583a",
+        "requested_operation": "transcribe",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\subtitle_audio.wav",
+          "sha256": "118f43b2c239a6dfe89cbf7da2ad9b87e29dc3c0cb43f1edae6621f97ce872b3",
+          "ingress": "approved-ui-extracted-audio",
+          "derived_from": {
+            "file_name": "88d79b2d-8216-4075-9fbc-12f4242b3117_korean_video.mp4",
+            "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\88d79b2d-8216-4075-9fbc-12f4242b3117_korean_video.mp4",
+            "bytes": 258297,
+            "sha256": "0514097357820f78866fa9d2ea9f7dbe9594c40d9a17e1c26ebc40d938561cae"
+          }
+        },
+        "input_sha256": "118f43b2c239a6dfe89cbf7da2ad9b87e29dc3c0cb43f1edae6621f97ce872b3",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "de44c569-f338-4c25-a54d-33df5729a432",
+          "evidence_id": "6e4647cd-3d37-495a-9b5c-e9d203846495",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "mindle.whisper.ko.verified.cpu",
+        "model_or_program_id": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "license_source": "mit",
+        "runtime_backend": "transformers-pytorch",
+        "device_requirement": "cpu",
+        "execution_context": {
+          "job_id": "de44c569-f338-4c25-a54d-33df5729a432",
+          "evidence_id": "6e4647cd-3d37-495a-9b5c-e9d203846495",
+          "lane": "korean_audio",
+          "source_hashes": {
+            "source": "118f43b2c239a6dfe89cbf7da2ad9b87e29dc3c0cb43f1edae6621f97ce872b3"
+          },
+          "nl_instruction": "자동으로 자막 넣어줘",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "de44c569-f338-4c25-a54d-33df5729a432",
+            "evidence_id": "6e4647cd-3d37-495a-9b5c-e9d203846495",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "mindle.whisper.ko.verified.cpu",
+            "model_or_program_id": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\whisper\\korean_transcript.json",
+          "type": ".json",
+          "size_bytes": 135,
+          "sha256": "7463082fca9a614909342d316505e103e8a0ee8180079310b02157cc75187d99",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-42479afb-1439-405e-b483-0ea84fc91425",
+          "input_sha256": "118f43b2c239a6dfe89cbf7da2ad9b87e29dc3c0cb43f1edae6621f97ce872b3",
+          "output_sha256": "7463082fca9a614909342d316505e103e8a0ee8180079310b02157cc75187d99",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\1b905353-f58e-41d5-9292-427d1427f2ac\\whisper\\korean_transcript.json",
+          "elapsed_ms": 74602.83
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/1b905353-f58e-41d5-9292-427d1427f2ac/whisper/korean_transcript.json"
+  },
+  "4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba": {
+    "status": "TESTED_PASS",
+    "job_id": "4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "자동 자막 적용",
+    "input": {
+      "file_name": "1d739242-83bf-44b6-bb2c-fa5027802d15_korean_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\1d739242-83bf-44b6-bb2c-fa5027802d15_korean_video.mp4",
+      "bytes": 258297,
+      "sha256": "0514097357820f78866fa9d2ea9f7dbe9594c40d9a17e1c26ebc40d938561cae"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba\\edited_video.mp4",
+      "bytes": 232588,
+      "sha256": "59f33eb30c67635293b6782192c56eed6dca8a300cf71a6ab58f789c9455c89d"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba\\edited_video.mp4",
+        "bytes": 232588,
+        "sha256": "59f33eb30c67635293b6782192c56eed6dca8a300cf71a6ab58f789c9455c89d"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "stabilize": false,
+        "denoise": false,
+        "split": false,
+        "start": 0,
+        "duration": 0,
+        "speed": 1,
+        "volume": 1,
+        "brightness": 0,
+        "contrast": 0,
+        "saturation": 0,
+        "subtitle": "다리미 수직가"
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/4bbf8db2-f25c-4c33-b5cf-78d9ffbf34ba/edited_video.mp4"
+  },
+  "79f766a6-33cf-41f1-b47b-3a2d933fe0bd": {
+    "status": "TESTED_PASS",
+    "job_id": "79f766a6-33cf-41f1-b47b-3a2d933fe0bd",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "흔들림 보정 및 노이즈 제거",
+    "input": {
+      "file_name": "2a77092b-652c-40dc-bc39-6672031258c9_video_16x9.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\2a77092b-652c-40dc-bc39-6672031258c9_video_16x9.mp4",
+      "bytes": 287597,
+      "sha256": "f35cce4c1da1101c9f6b1f6f86eeaa9fcab418e7ebf49e3898ebc1638e385af8"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\79f766a6-33cf-41f1-b47b-3a2d933fe0bd\\edited_video.mp4",
+      "bytes": 231592,
+      "sha256": "845751895a933fb44b0f5b71d70348857bd55c54ea3a16c68015792f2da09a36"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\79f766a6-33cf-41f1-b47b-3a2d933fe0bd\\edited_video.mp4",
+        "bytes": 231592,
+        "sha256": "845751895a933fb44b0f5b71d70348857bd55c54ea3a16c68015792f2da09a36"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "stabilize": true,
+        "denoise": true
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/79f766a6-33cf-41f1-b47b-3a2d933fe0bd/edited_video.mp4"
+  },
+  "aab56198-a8b7-44ba-8dc9-2d1ad097839a": {
+    "status": "TESTED_PASS",
+    "job_id": "aab56198-a8b7-44ba-8dc9-2d1ad097839a",
+    "evidence_id": "4d8ffbde-bc34-4acd-8bc2-d0d6a8a50cbc",
+    "lane": "photo",
+    "operation": "upscale",
+    "command": "투명 사진 4배 업스케일",
+    "state_history": [
+      "queued",
+      "validating",
+      "preflight_ready",
+      "dispatched",
+      "running",
+      "output_validating",
+      "succeeded"
+    ],
+    "model": {
+      "identity": {
+        "repo_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license": "apache-2.0",
+        "weight_name": "single-image-super-resolution-1032.bin",
+        "weight_size_bytes": 119436,
+        "weight_sha256": "74eca73d78683dd7cd3f568a8f07cd6bd0058706008d596e095b38668f10c37f"
+      },
+      "local_recovered_package": {
+        "root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI\\omz\\intel\\single-image-super-resolution-1032\\FP32",
+        "read_only": true,
+        "sha384_verified": true
+      }
+    },
+    "adapter": {
+      "id": "intel-open-model-zoo-sisr-1032",
+      "version": "1.1.0",
+      "runtime_backend": "openvino-cpu",
+      "device_requirement": "CPU"
+    },
+    "input": {
+      "file_name": "f7ddb45a-4079-4065-a823-7631e65eee94_alpha.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\f7ddb45a-4079-4065-a823-7631e65eee94_alpha.png",
+      "bytes": 164,
+      "sha256": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527"
+    },
+    "runtime_result": {
+      "outputs": [
+        {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b38fb2f0-286f-43b1-9503-8c5591219b81\\intel_sisr_1032\\upscaled_4x.png",
+          "bytes": 5684,
+          "sha256": "676fda753bc466f360202054ce794340508610384983af1d88a3db3c5d4ba770",
+          "dimensions": [
+            192,
+            108
+          ]
+        }
+      ],
+      "tiles": 1,
+      "scale": 4,
+      "elapsed_ms": 3343.9999999973224
+    },
+    "primary_output": {
+      "file_name": "upscaled_4x.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b38fb2f0-286f-43b1-9503-8c5591219b81\\intel_sisr_1032\\upscaled_4x.png",
+      "bytes": 5684,
+      "sha256": "676fda753bc466f360202054ce794340508610384983af1d88a3db3c5d4ba770"
+    },
+    "outputs": [
+      {
+        "file_name": "upscaled_4x.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b38fb2f0-286f-43b1-9503-8c5591219b81\\intel_sisr_1032\\upscaled_4x.png",
+        "bytes": 5684,
+        "sha256": "676fda753bc466f360202054ce794340508610384983af1d88a3db3c5d4ba770"
+      }
+    ],
+    "backend": {
+      "api_status": 201,
+      "delivery_gate": "DELIVERED",
+      "job_evidence": {
+        "job_id": "aab56198-a8b7-44ba-8dc9-2d1ad097839a",
+        "evidence_id": "4d8ffbde-bc34-4acd-8bc2-d0d6a8a50cbc",
+        "evidence_status": "VERIFY_REQUIRED",
+        "runtime_status": "OUTPUT_VALIDATED",
+        "terminal_state": "succeeded",
+        "recorded_at": "2026-10-07T14:12:38.694716+00:00",
+        "started_at": "2026-10-07T14:12:38.624714+00:00",
+        "finished_at": "2026-10-07T14:12:38.695716+00:00",
+        "project_id": null,
+        "requested_operation": "upscale",
+        "source_provenance": {
+          "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\f7ddb45a-4079-4065-a823-7631e65eee94_alpha.png",
+          "sha256": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527",
+          "ingress": "approved-ui"
+        },
+        "input_sha256": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527",
+        "reference_files": [],
+        "retry_provenance": {
+          "job_id": "aab56198-a8b7-44ba-8dc9-2d1ad097839a",
+          "evidence_id": "4d8ffbde-bc34-4acd-8bc2-d0d6a8a50cbc",
+          "attempt": 1
+        },
+        "state_history": [
+          "queued",
+          "validating",
+          "preflight_ready",
+          "dispatched",
+          "running",
+          "output_validating",
+          "succeeded"
+        ],
+        "runtime": {
+          "platform": "Windows-10-10.0.19045-SP0",
+          "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+        },
+        "adapter_id": "intel-open-model-zoo-sisr-1032",
+        "model_or_program_id": "openvinotoolkit/open_model_zoo",
+        "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d",
+        "license_source": "apache-2.0",
+        "runtime_backend": "openvino-cpu",
+        "device_requirement": "CPU",
+        "execution_context": {
+          "job_id": "aab56198-a8b7-44ba-8dc9-2d1ad097839a",
+          "evidence_id": "4d8ffbde-bc34-4acd-8bc2-d0d6a8a50cbc",
+          "lane": "photo",
+          "source_hashes": {
+            "source": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527"
+          },
+          "nl_instruction": "투명 사진 4배 업스케일",
+          "reference_images": [],
+          "retry_provenance": {
+            "job_id": "aab56198-a8b7-44ba-8dc9-2d1ad097839a",
+            "evidence_id": "4d8ffbde-bc34-4acd-8bc2-d0d6a8a50cbc",
+            "attempt": 0
+          },
+          "adapter_identity": {
+            "adapter_id": "intel-open-model-zoo-sisr-1032",
+            "model_or_program_id": "openvinotoolkit/open_model_zoo",
+            "revision": "a6946b6d6ce42cbf4278df20275fab199655fc7d"
+          }
+        },
+        "output_artifact": {
+          "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b38fb2f0-286f-43b1-9503-8c5591219b81\\intel_sisr_1032\\upscaled_4x.png",
+          "type": ".png",
+          "size_bytes": 5684,
+          "sha256": "676fda753bc466f360202054ce794340508610384983af1d88a3db3c5d4ba770",
+          "status": "validated"
+        },
+        "model_scout_delivery": {
+          "status": "DELIVERED",
+          "callback_id": "callback-bb46d84c-0773-4ef6-ad7e-28a477ff1cd4",
+          "input_sha256": "3af2568d71dd08df1c751356b4c0a96ae54f9aa3861db3a4cfbcb17480899527",
+          "output_sha256": "676fda753bc466f360202054ce794340508610384983af1d88a3db3c5d4ba770",
+          "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\b38fb2f0-286f-43b1-9503-8c5591219b81\\intel_sisr_1032\\upscaled_4x.png",
+          "elapsed_ms": 3343.9999999973224
+        }
+      }
+    },
+    "execution_environment": {
+      "hardware": "CPU",
+      "gpu_used": false,
+      "paid_compute": false,
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.11.9",
+      "process": "3.11.9"
+    },
+    "preview_url": "/files/jobs/b38fb2f0-286f-43b1-9503-8c5591219b81/intel_sisr_1032/upscaled_4x.png"
+  },
+  "79c92748-2223-457a-aa5b-6bce0698ace3": {
+    "status": "TESTED_PASS",
+    "job_id": "79c92748-2223-457a-aa5b-6bce0698ace3",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "9a4c06a5-be26-4a4e-a916-2357de6e8793_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\9a4c06a5-be26-4a4e-a916-2357de6e8793_photo.png",
+      "bytes": 311919,
+      "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\79c92748-2223-457a-aa5b-6bce0698ace3\\original_photo.png",
+      "bytes": 230931,
+      "sha256": "c19fef14ac15a143e5fc16dca80985bab0216214ee0919b88869e451734ab6c4"
+    },
+    "outputs": [
+      {
+        "file_name": "9a4c06a5-be26-4a4e-a916-2357de6e8793_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\9a4c06a5-be26-4a4e-a916-2357de6e8793_photo.png",
+        "bytes": 311919,
+        "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\79c92748-2223-457a-aa5b-6bce0698ace3\\original_photo.png",
+        "bytes": 230931,
+        "sha256": "c19fef14ac15a143e5fc16dca80985bab0216214ee0919b88869e451734ab6c4"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        512,
+        292
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/79c92748-2223-457a-aa5b-6bce0698ace3/original_photo.png"
+  },
+  "85ef0162-aeda-4280-9023-1da4858c2b19": {
+    "status": "TESTED_PASS",
+    "job_id": "85ef0162-aeda-4280-9023-1da4858c2b19",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "b41f999a-4137-4904-92cd-b82c787a54a3_portrait.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\b41f999a-4137-4904-92cd-b82c787a54a3_portrait.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\85ef0162-aeda-4280-9023-1da4858c2b19\\original_photo.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "outputs": [
+      {
+        "file_name": "b41f999a-4137-4904-92cd-b82c787a54a3_portrait.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\b41f999a-4137-4904-92cd-b82c787a54a3_portrait.png",
+        "bytes": 177550,
+        "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\85ef0162-aeda-4280-9023-1da4858c2b19\\original_photo.png",
+        "bytes": 177550,
+        "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        288,
+        512
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/85ef0162-aeda-4280-9023-1da4858c2b19/original_photo.png"
+  },
+  "f5c656b1-1218-4470-96c8-eafdc3449ae5": {
+    "status": "TESTED_PASS",
+    "job_id": "f5c656b1-1218-4470-96c8-eafdc3449ae5",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "26987130-abd0-4904-b3ec-465e5ee47bf8_square.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\26987130-abd0-4904-b3ec-465e5ee47bf8_square.png",
+      "bytes": 221673,
+      "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\f5c656b1-1218-4470-96c8-eafdc3449ae5\\original_photo.png",
+      "bytes": 221673,
+      "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+    },
+    "outputs": [
+      {
+        "file_name": "26987130-abd0-4904-b3ec-465e5ee47bf8_square.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\26987130-abd0-4904-b3ec-465e5ee47bf8_square.png",
+        "bytes": 221673,
+        "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\f5c656b1-1218-4470-96c8-eafdc3449ae5\\original_photo.png",
+        "bytes": 221673,
+        "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        400,
+        400
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/f5c656b1-1218-4470-96c8-eafdc3449ae5/original_photo.png"
+  },
+  "3fcdf93c-4578-4ea1-95e2-3a09dc5eaaf4": {
+    "status": "TESTED_PASS",
+    "job_id": "3fcdf93c-4578-4ea1-95e2-3a09dc5eaaf4",
+    "lane": "video",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "40e00b8f-ff94-48af-97ea-0065d653a388_video_9x16.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\40e00b8f-ff94-48af-97ea-0065d653a388_video_9x16.mp4",
+      "bytes": 105685,
+      "sha256": "1e07f89065142a182a9bdad4437d6d976a5849ccae820be0f3e8c5930f988144"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\3fcdf93c-4578-4ea1-95e2-3a09dc5eaaf4\\original_video_preview.mp4",
+      "bytes": 91080,
+      "sha256": "ba9efc47130f8e02e9abbce7f9598bdea53f4e32e7750be781100421c4e1dc3e"
+    },
+    "outputs": [
+      {
+        "file_name": "40e00b8f-ff94-48af-97ea-0065d653a388_video_9x16.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\40e00b8f-ff94-48af-97ea-0065d653a388_video_9x16.mp4",
+        "bytes": 105685,
+        "sha256": "1e07f89065142a182a9bdad4437d6d976a5849ccae820be0f3e8c5930f988144"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\3fcdf93c-4578-4ea1-95e2-3a09dc5eaaf4\\original_video_preview.mp4",
+        "bytes": 91080,
+        "sha256": "ba9efc47130f8e02e9abbce7f9598bdea53f4e32e7750be781100421c4e1dc3e"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        360,
+        640
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/3fcdf93c-4578-4ea1-95e2-3a09dc5eaaf4/original_video_preview.mp4"
+  },
+  "cf0bc3eb-1a40-4bfa-9c8b-1388894c76e0": {
+    "status": "TESTED_PASS",
+    "job_id": "cf0bc3eb-1a40-4bfa-9c8b-1388894c76e0",
+    "lane": "video",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "13171553-5848-4802-b0d1-36b33884de26_video_1x1.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\13171553-5848-4802-b0d1-36b33884de26_video_1x1.mp4",
+      "bytes": 106637,
+      "sha256": "df684079c975e85d159a544528dd3e74207ccb9ae1e6941bcc7db2a1c888c6b5"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\cf0bc3eb-1a40-4bfa-9c8b-1388894c76e0\\original_video_preview.mp4",
+      "bytes": 91343,
+      "sha256": "d33bd4d39aa811bfc9e623b9bcbb8d188aa3a22dbce4a399ce3fe94712502751"
+    },
+    "outputs": [
+      {
+        "file_name": "13171553-5848-4802-b0d1-36b33884de26_video_1x1.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\13171553-5848-4802-b0d1-36b33884de26_video_1x1.mp4",
+        "bytes": 106637,
+        "sha256": "df684079c975e85d159a544528dd3e74207ccb9ae1e6941bcc7db2a1c888c6b5"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\cf0bc3eb-1a40-4bfa-9c8b-1388894c76e0\\original_video_preview.mp4",
+        "bytes": 91343,
+        "sha256": "d33bd4d39aa811bfc9e623b9bcbb8d188aa3a22dbce4a399ce3fe94712502751"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        360,
+        360
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/cf0bc3eb-1a40-4bfa-9c8b-1388894c76e0/original_video_preview.mp4"
+  },
+  "50790de6-9a6b-4b03-b1f9-10932a6479ed": {
+    "status": "TESTED_PASS",
+    "job_id": "50790de6-9a6b-4b03-b1f9-10932a6479ed",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "299d2d14-d070-4177-89a9-4a4d916e57a8_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\299d2d14-d070-4177-89a9-4a4d916e57a8_photo.png",
+      "bytes": 311919,
+      "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\50790de6-9a6b-4b03-b1f9-10932a6479ed\\original_photo.png",
+      "bytes": 230931,
+      "sha256": "c19fef14ac15a143e5fc16dca80985bab0216214ee0919b88869e451734ab6c4"
+    },
+    "outputs": [
+      {
+        "file_name": "299d2d14-d070-4177-89a9-4a4d916e57a8_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\299d2d14-d070-4177-89a9-4a4d916e57a8_photo.png",
+        "bytes": 311919,
+        "sha256": "601d49f7472611e1e75e9ae20c70afe01fe0fb38fe8cc0e12ef78d158aec91d2"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\50790de6-9a6b-4b03-b1f9-10932a6479ed\\original_photo.png",
+        "bytes": 230931,
+        "sha256": "c19fef14ac15a143e5fc16dca80985bab0216214ee0919b88869e451734ab6c4"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        512,
+        292
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/50790de6-9a6b-4b03-b1f9-10932a6479ed/original_photo.png"
+  },
+  "ac8df4b6-fc9a-4bb3-af41-c872047051d8": {
+    "status": "TESTED_PASS",
+    "job_id": "ac8df4b6-fc9a-4bb3-af41-c872047051d8",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "e1cf33a4-83ad-43f6-a9ac-27591757fbc9_portrait.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\e1cf33a4-83ad-43f6-a9ac-27591757fbc9_portrait.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\ac8df4b6-fc9a-4bb3-af41-c872047051d8\\original_photo.png",
+      "bytes": 177550,
+      "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+    },
+    "outputs": [
+      {
+        "file_name": "e1cf33a4-83ad-43f6-a9ac-27591757fbc9_portrait.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\e1cf33a4-83ad-43f6-a9ac-27591757fbc9_portrait.png",
+        "bytes": 177550,
+        "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\ac8df4b6-fc9a-4bb3-af41-c872047051d8\\original_photo.png",
+        "bytes": 177550,
+        "sha256": "190b683d880723f14297f439cb4a38e566057cd18725ecf6023160949b3e7730"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        288,
+        512
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/ac8df4b6-fc9a-4bb3-af41-c872047051d8/original_photo.png"
+  },
+  "4a87c0a3-4fba-4b8a-a0cb-9574746f7f7b": {
+    "status": "TESTED_PASS",
+    "job_id": "4a87c0a3-4fba-4b8a-a0cb-9574746f7f7b",
+    "lane": "photo",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "3d957693-c274-4f57-874e-37915c945ae2_square.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\3d957693-c274-4f57-874e-37915c945ae2_square.png",
+      "bytes": 221673,
+      "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+    },
+    "primary_output": {
+      "file_name": "original_photo.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4a87c0a3-4fba-4b8a-a0cb-9574746f7f7b\\original_photo.png",
+      "bytes": 221673,
+      "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+    },
+    "outputs": [
+      {
+        "file_name": "3d957693-c274-4f57-874e-37915c945ae2_square.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\3d957693-c274-4f57-874e-37915c945ae2_square.png",
+        "bytes": 221673,
+        "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+      },
+      {
+        "file_name": "original_photo.png",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\4a87c0a3-4fba-4b8a-a0cb-9574746f7f7b\\original_photo.png",
+        "bytes": 221673,
+        "sha256": "88608752811ce15d6ad3c7f2f29cd6fad98e8f5fb955ea4183d8045132b5ef44"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        400,
+        400
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/4a87c0a3-4fba-4b8a-a0cb-9574746f7f7b/original_photo.png"
+  },
+  "c1999494-1542-4f8a-aa71-0fb1cca85e84": {
+    "status": "TESTED_PASS",
+    "job_id": "c1999494-1542-4f8a-aa71-0fb1cca85e84",
+    "lane": "video",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "d6618a0a-f2fd-4dcb-ae88-8014ffed6b3c_video_9x16.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\d6618a0a-f2fd-4dcb-ae88-8014ffed6b3c_video_9x16.mp4",
+      "bytes": 105681,
+      "sha256": "72944e7bb9a0ce369073285bb38b7348c9900a23c4e8188e0e0394f8ca09b56c"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\c1999494-1542-4f8a-aa71-0fb1cca85e84\\original_video_preview.mp4",
+      "bytes": 91076,
+      "sha256": "380a9e9b2458ff40a170a10c16acc859f7c6ac8fd4162453cbb76c3fc74f0833"
+    },
+    "outputs": [
+      {
+        "file_name": "d6618a0a-f2fd-4dcb-ae88-8014ffed6b3c_video_9x16.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\d6618a0a-f2fd-4dcb-ae88-8014ffed6b3c_video_9x16.mp4",
+        "bytes": 105681,
+        "sha256": "72944e7bb9a0ce369073285bb38b7348c9900a23c4e8188e0e0394f8ca09b56c"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\c1999494-1542-4f8a-aa71-0fb1cca85e84\\original_video_preview.mp4",
+        "bytes": 91076,
+        "sha256": "380a9e9b2458ff40a170a10c16acc859f7c6ac8fd4162453cbb76c3fc74f0833"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        360,
+        640
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/c1999494-1542-4f8a-aa71-0fb1cca85e84/original_video_preview.mp4"
+  },
+  "9623f310-7a4a-4d28-bba5-f6cdc26388a7": {
+    "status": "TESTED_PASS",
+    "job_id": "9623f310-7a4a-4d28-bba5-f6cdc26388a7",
+    "lane": "video",
+    "operation": "import",
+    "command": "원본 불러오기",
+    "input": {
+      "file_name": "449f1d29-d151-4280-8373-7b567da72763_video_1x1.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\449f1d29-d151-4280-8373-7b567da72763_video_1x1.mp4",
+      "bytes": 106633,
+      "sha256": "49058fc8a16ca703c18c8d5519a439fc2d3b9b2de33b1691746f60e444d653c9"
+    },
+    "primary_output": {
+      "file_name": "original_video_preview.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9623f310-7a4a-4d28-bba5-f6cdc26388a7\\original_video_preview.mp4",
+      "bytes": 91339,
+      "sha256": "9fb9d28b186b7a3a671f668e17539ea22c272eac34add19df3b8c3a5ae8868c6"
+    },
+    "outputs": [
+      {
+        "file_name": "449f1d29-d151-4280-8373-7b567da72763_video_1x1.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\449f1d29-d151-4280-8373-7b567da72763_video_1x1.mp4",
+        "bytes": 106633,
+        "sha256": "49058fc8a16ca703c18c8d5519a439fc2d3b9b2de33b1691746f60e444d653c9"
+      },
+      {
+        "file_name": "original_video_preview.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9623f310-7a4a-4d28-bba5-f6cdc26388a7\\original_video_preview.mp4",
+        "bytes": 91339,
+        "sha256": "9fb9d28b186b7a3a671f668e17539ea22c272eac34add19df3b8c3a5ae8868c6"
+      }
+    ],
+    "runtime_result": {
+      "result_size": [
+        360,
+        360
+      ],
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/9623f310-7a4a-4d28-bba5-f6cdc26388a7/original_video_preview.mp4"
+  },
+  "9494d9aa-a08c-4ee7-b135-64c2999554dc": {
+    "status": "TESTED_PASS",
+    "job_id": "9494d9aa-a08c-4ee7-b135-64c2999554dc",
+    "lane": "video",
+    "operation": "video_edit",
+    "command": "AI 대화 편집 · 30초 숏폼으로 만들어줘",
+    "input": {
+      "file_name": "bf715bf1-f8c3-468a-bdc9-9c38b175a4d7_449f1d29-d151-4280-8373-7b567da72763_video_1x1.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\inputs\\bf715bf1-f8c3-468a-bdc9-9c38b175a4d7_449f1d29-d151-4280-8373-7b567da72763_video_1x1.mp4",
+      "bytes": 91339,
+      "sha256": "9fb9d28b186b7a3a671f668e17539ea22c272eac34add19df3b8c3a5ae8868c6"
+    },
+    "primary_output": {
+      "file_name": "edited_video.mp4",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9494d9aa-a08c-4ee7-b135-64c2999554dc\\edited_video.mp4",
+      "bytes": 84970,
+      "sha256": "d71c81c2a7c1379b1c751d5fd8f9cdd476d1761c98a0e6517cd5238b63e19df5"
+    },
+    "outputs": [
+      {
+        "file_name": "edited_video.mp4",
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai\\work\\final-ui-runtime-data\\jobs\\9494d9aa-a08c-4ee7-b135-64c2999554dc\\edited_video.mp4",
+        "bytes": 84970,
+        "sha256": "d71c81c2a7c1379b1c751d5fd8f9cdd476d1761c98a0e6517cd5238b63e19df5"
+      }
+    ],
+    "runtime_result": {
+      "engine": "FFmpeg",
+      "options": {
+        "stabilize": false,
+        "denoise": false,
+        "split": false,
+        "start": 0,
+        "duration": 30,
+        "speed": 1,
+        "volume": 1,
+        "brightness": 0,
+        "contrast": 0,
+        "saturation": 0,
+        "aspect": "9:16"
+      },
+      "model_inference": false,
+      "sampled_frames": 0
+    },
+    "preview_url": "/files/jobs/9494d9aa-a08c-4ee7-b135-64c2999554dc/edited_video.mp4"
+  }
+}

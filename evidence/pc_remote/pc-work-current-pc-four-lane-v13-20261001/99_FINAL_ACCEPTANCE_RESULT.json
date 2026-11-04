@@ -1,0 +1,12 @@
+{
+  "result": "PARTIAL_PASS",
+  "tested_pass": false,
+  "branch_rebind": "PASS",
+  "static_validation": "PASS",
+  "real_product_lanes": "BLOCKED",
+  "save_export": "BLOCKED",
+  "ui_ssot_changed": false,
+  "remote_push_verified": false,
+  "reason": "Required approved runtime caches and real approved inputs are absent on the current PC; UI SSOT baseline hash also requires reconciliation.",
+  "next_selective_recovery": "Materialize approved SAM/Whisper/Intel assets and OpenVINO, provide approved video/Korean audio, reconcile UI SSOT asset, then rerun four lanes and Save/Export."
+}

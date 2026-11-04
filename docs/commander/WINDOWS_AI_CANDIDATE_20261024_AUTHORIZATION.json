@@ -1,0 +1,19 @@
+{
+  "id": "MEDIA-AI-20261024-OWNER-WINDOWS-AI-CANDIDATE-R1",
+  "authorized_parent": "8b694818c3bd401194695e427ae410dc7c04cb72",
+  "scope": "ONE_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE",
+  "owner_instruction": "추가 후보 재작까지 진행한다.",
+  "authorization_source": "Current owner conversation, 2026-10-24 KST",
+  "attempts_allowed": 1,
+  "workflow": ".github/workflows/windows-ai-candidate-20261024.yml",
+  "global_package_build_allowed": false,
+  "candidate_changes": ["bytecode-safe bootstrap/server/worker", "latest project transition repairs", "Qwen planning routing", "Supertonic neural Korean TTS"],
+  "required_checks": ["frozen base CRC and all manifest hashes", "fresh native EXE", "actual Windows Chrome and Qwen/Supertonic", "save shutdown PID exit endpoint close new PID reopen Export", "post-runtime payload hashes and cache absence", "ZIP CRC"],
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "approved_ui_pixel_match": false,
+  "main_merge_forbidden": true,
+  "pr23_hold_do_not_merge": true,
+  "employee_final_release_forbidden": true,
+  "external_marketing_avora_status": "DEFERRED_EXTERNAL"
+}

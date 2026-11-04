@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "status": "ACTIVE",
+  "date": "2026-10-08",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261008-PC-WORK-REMOTE-WINDOWS-FALLBACK-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_REMOTE_WINDOWS_FALLBACK_AND_LOCAL_ACCEPTANCE_DIRECTIVE_v1.0_20261008.md",
+  "execution_mode": "REMOTE_WINDOWS_FALLBACK",
+  "local_helper_status": "PC_EXECUTION_ENVIRONMENT_STILL_BLOCKED_SETUP_REFRESH",
+  "work_must_continue": true,
+  "general_work_baseline": "9f0bdaf7b8c3c9f7c8ea7df5b132dceb4199ddbb",
+  "remote_intermediate_pass": "PASS_REMOTE_WINDOWS_ONE_CLICK_BUILD_AND_AUTOMATION_READY_LOCAL_ACCEPTANCE_PENDING",
+  "final_pass": "PASS_MINDLE_MEDIA_AI_ONE_CLICK_RUNTIME_WINDOWS_E2E",
+  "required_remote_outputs": [
+    "REMOTE_WINDOWS_RUNNER_PROFILE.json",
+    "CONTROL_PLANE_VALIDATOR_RESULT.txt",
+    "VC_RUNTIME_DEPENDENCY_AUDIT.json",
+    "FFMPEG_DISTRIBUTION_AUDIT.json",
+    "ONE_CLICK_BUILD_RESULT.json",
+    "PACKAGE_MANIFEST.json",
+    "DELIVERY_ARTIFACT_SHA256.txt",
+    "REMOTE_WINDOWS_RUNTIME_E2E.json",
+    "SINGLE_INSTANCE_RESULT.json",
+    "REMOTE_EXPORT_INTEGRITY.json",
+    "REGRESSION_RESULT.json",
+    "REMOTE_READBACK.txt"
+  ],
+  "local_only_remaining_gate": "LOCAL_ACCEPTANCE_STATUS.json",
+  "invariants": {
+    "local_helper_failure_must_not_stop_remote_work": true,
+    "approved_ui_preserved": true,
+    "system32_dll_copy_forbidden": true,
+    "unresolved_old_ffmpeg_not_final": true,
+    "manual_employee_setup_forbidden": true,
+    "external_marketing_avora_deferred": true,
+    "main_merge_forbidden": true,
+    "force_push_forbidden": true,
+    "new_repo_or_worktree_forbidden": true,
+    "pr23_hold_do_not_merge": true
+  }
+}

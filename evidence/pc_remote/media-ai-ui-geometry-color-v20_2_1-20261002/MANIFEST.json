@@ -1,0 +1,12 @@
+{
+  "epoch": "MEDIA-AI-20261002-V20.2.1",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "runtime": "http://127.0.0.1:8768/",
+  "source_files": ["ui/index.html", "ui/approved_visual.css"],
+  "review": "docs/commander/MINDLE_MEDIA_AI_FINAL_UI_GEOMETRY_COLOR_CORRECTION_REVIEW_v20.2.1_20261002.md",
+  "screenshots": {
+    "windows_visual_capture": "verified_in_CUA_session; binary export unavailable in this environment",
+    "representative_approval": "pending"
+  }
+}
+

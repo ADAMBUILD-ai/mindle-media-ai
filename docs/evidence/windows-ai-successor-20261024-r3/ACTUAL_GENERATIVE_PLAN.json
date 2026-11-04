@@ -1,0 +1,34 @@
+{
+  "plan_source": "LOCAL_GENERATIVE_INFERENCE",
+  "model_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+  "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+  "license": "Apache-2.0",
+  "executable_sha256": "cfbe37629352def818bb1c917419d7433abfe53a77151d0154bf5e7d4858ff37",
+  "runtime_sha256": "157a0fd4db57575fc74df46d8e82d547e7d9114d7cb21dcf2da74aee29317bed",
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+  "raw_response_sha256": "702296254534575f86ea4023a2e923d84af7366da5eb2133b1cfaccb739b6890",
+  "steps": [
+    {
+      "operation": "video_edit",
+      "options": {
+        "brightness": 3
+      },
+      "step_id": "20d64a1d-35a2-4c0b-b9e3-9f03dcc0d98f"
+    },
+    {
+      "operation": "narrate",
+      "text": "반갑습니다",
+      "step_id": "95224197-8561-44a0-91e2-c52e4917a168"
+    },
+    {
+      "operation": "mix_narration",
+      "length_policy": "extend_video",
+      "step_id": "778367e1-b053-4865-90a1-3dbb217ca702"
+    }
+  ],
+  "validated_edit_values": {
+    "brightness": 3.0
+  },
+  "plan_id": "14e77fc3-16a6-4afe-b70b-bbd694fc8dbe",
+  "command_sha256": "ef59a149baba4776caad1e725cb86c6da39c294279046e487bbea75880bdf103"
+}

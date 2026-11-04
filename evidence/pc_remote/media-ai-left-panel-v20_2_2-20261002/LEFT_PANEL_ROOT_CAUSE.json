@@ -1,0 +1,1 @@
+{"cause":"left panels used natural-height internal blocks while outer row stretched","fix":"left panels and command cards now use column flex with remaining-height distribution","outer_row_changed":false}

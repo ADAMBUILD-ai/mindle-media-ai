@@ -1,0 +1,203 @@
+﻿2026-10-08T07:35:06.4904035Z Current runner version: '2.337.0'
+2026-10-08T07:35:06.4925925Z ##[group]Runner Image Provisioner
+2026-10-08T07:35:06.4926714Z Hosted Compute Agent
+2026-10-08T07:35:06.4927198Z Version: 20261002.596
+2026-10-08T07:35:06.4927735Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T07:35:06.4928333Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T07:35:06.4928909Z Worker ID: {0ce555d5-2b9e-4eb5-9255-2a3370eadf27}
+2026-10-08T07:35:06.4929519Z Region: westus3
+2026-10-08T07:35:06.4930013Z Cloud: Azure
+2026-10-08T07:35:06.4930484Z ##[endgroup]
+2026-10-08T07:35:06.4931689Z ##[group]Operating System
+2026-10-08T07:35:06.4932227Z Ubuntu
+2026-10-08T07:35:06.4932900Z 24.04.5
+2026-10-08T07:35:06.4933336Z LTS
+2026-10-08T07:35:06.4933749Z ##[endgroup]
+2026-10-08T07:35:06.4934268Z ##[group]Runner Image
+2026-10-08T07:35:06.4934801Z Image: ubuntu-24.04
+2026-10-08T07:35:06.4935291Z Version: 20261004.327.1
+2026-10-08T07:35:06.4936347Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T07:35:06.4937619Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T07:35:06.4938437Z ##[endgroup]
+2026-10-08T07:35:06.4939459Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T07:35:06.4941322Z Actions: read
+2026-10-08T07:35:06.4941901Z Contents: read
+2026-10-08T07:35:06.4942394Z Metadata: read
+2026-10-08T07:35:06.4942963Z ##[endgroup]
+2026-10-08T07:35:06.4944824Z Secret source: Actions
+2026-10-08T07:35:06.4945557Z Cache mode: write
+2026-10-08T07:35:06.4946223Z Prepare workflow directory
+2026-10-08T07:35:06.5221475Z Prepare all required actions
+2026-10-08T07:35:06.5266295Z Getting action download info
+2026-10-08T07:35:06.9321426Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-08T07:35:07.1301539Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-08T07:35:07.2385552Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-08T07:35:07.4599798Z Complete job name: external-shortform-closeout
+2026-10-08T07:35:07.5213997Z ##[group]Run actions/checkout@v4
+2026-10-08T07:35:07.5214631Z with:
+2026-10-08T07:35:07.5215008Z   ref: 144abf748fda7630304ebec6a338c4d7e7c9095b
+2026-10-08T07:35:07.5215516Z   repository: ADAMBUILD-ai/mindle-media-ai
+2026-10-08T07:35:07.5218781Z   token: ***
+2026-10-08T07:35:07.5219124Z   ssh-strict: true
+2026-10-08T07:35:07.5219471Z   ssh-user: git
+2026-10-08T07:35:07.5219871Z   persist-credentials: true
+2026-10-08T07:35:07.5220247Z   clean: true
+2026-10-08T07:35:07.5220593Z   sparse-checkout-cone-mode: true
+2026-10-08T07:35:07.5220995Z   fetch-depth: 1
+2026-10-08T07:35:07.5221331Z   fetch-tags: false
+2026-10-08T07:35:07.5221681Z   show-progress: true
+2026-10-08T07:35:07.5222047Z   lfs: false
+2026-10-08T07:35:07.5222377Z   submodules: false
+2026-10-08T07:35:07.5222912Z   set-safe-directory: true
+2026-10-08T07:35:07.5223309Z   allow-unsafe-pr-checkout: false
+2026-10-08T07:35:07.5223916Z ##[endgroup]
+2026-10-08T07:35:07.6070127Z Syncing repository: ADAMBUILD-ai/mindle-media-ai
+2026-10-08T07:35:07.6072389Z ##[group]Getting Git version info
+2026-10-08T07:35:07.6073549Z Working directory is '/home/runner/work/mindle-media-ai/mindle-media-ai'
+2026-10-08T07:35:07.6074916Z [command]/usr/bin/git version
+2026-10-08T07:35:07.6172802Z git version 2.55.0
+2026-10-08T07:35:07.6189527Z ##[endgroup]
+2026-10-08T07:35:07.6202917Z Temporarily overriding HOME='/home/runner/work/_temp/71b93b8e-1081-43cf-93d7-5226b5996199' before making global git config changes
+2026-10-08T07:35:07.6205027Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T07:35:07.6208402Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mindle-media-ai/mindle-media-ai
+2026-10-08T07:35:07.6259723Z Deleting the contents of '/home/runner/work/mindle-media-ai/mindle-media-ai'
+2026-10-08T07:35:07.6268334Z ##[group]Initializing the repository
+2026-10-08T07:35:07.6273503Z [command]/usr/bin/git init /home/runner/work/mindle-media-ai/mindle-media-ai
+2026-10-08T07:35:07.6368198Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T07:35:07.6369632Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T07:35:07.6371034Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T07:35:07.6372327Z hint: call:
+2026-10-08T07:35:07.6373304Z hint:
+2026-10-08T07:35:07.6374558Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T07:35:07.6375767Z hint:
+2026-10-08T07:35:07.6377045Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T07:35:07.6378763Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T07:35:07.6379960Z hint:
+2026-10-08T07:35:07.6380786Z hint: 	git branch -m <name>
+2026-10-08T07:35:07.6381876Z hint:
+2026-10-08T07:35:07.6383217Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T07:35:07.6385156Z Initialized empty Git repository in /home/runner/work/mindle-media-ai/mindle-media-ai/.git/
+2026-10-08T07:35:07.6388098Z [command]/usr/bin/git remote add origin https://github.com/ADAMBUILD-ai/mindle-media-ai
+2026-10-08T07:35:07.6442744Z ##[endgroup]
+2026-10-08T07:35:07.6443775Z ##[group]Disabling automatic garbage collection
+2026-10-08T07:35:07.6448552Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T07:35:07.6480135Z ##[endgroup]
+2026-10-08T07:35:07.6485489Z ##[group]Setting up auth
+2026-10-08T07:35:07.6486583Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T07:35:07.6520797Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T07:35:07.6875737Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T07:35:07.6910098Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T07:35:07.7105081Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T07:35:07.7138383Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T07:35:07.7337983Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T07:35:07.7374749Z ##[endgroup]
+2026-10-08T07:35:07.7375439Z ##[group]Fetching the repository
+2026-10-08T07:35:07.7381986Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 144abf748fda7630304ebec6a338c4d7e7c9095b
+2026-10-08T07:35:12.1077229Z From https://github.com/ADAMBUILD-ai/mindle-media-ai
+2026-10-08T07:35:12.1085585Z  * branch            144abf748fda7630304ebec6a338c4d7e7c9095b -> FETCH_HEAD
+2026-10-08T07:35:12.1087392Z ##[endgroup]
+2026-10-08T07:35:12.1087880Z ##[group]Determining the checkout info
+2026-10-08T07:35:12.1088368Z ##[endgroup]
+2026-10-08T07:35:12.1090184Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T07:35:12.1140852Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T07:35:12.1167485Z ##[group]Checking out the ref
+2026-10-08T07:35:12.1170085Z [command]/usr/bin/git checkout --progress --force 144abf748fda7630304ebec6a338c4d7e7c9095b
+2026-10-08T07:35:12.7304184Z Note: switching to '144abf748fda7630304ebec6a338c4d7e7c9095b'.
+2026-10-08T07:35:12.7304751Z 
+2026-10-08T07:35:12.7305080Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T07:35:12.7305759Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T07:35:12.7306428Z state without impacting any branches by switching back to a branch.
+2026-10-08T07:35:12.7307555Z 
+2026-10-08T07:35:12.7307826Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T07:35:12.7308397Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T07:35:12.7308714Z 
+2026-10-08T07:35:12.7308864Z   git switch -c <new-branch-name>
+2026-10-08T07:35:12.7309131Z 
+2026-10-08T07:35:12.7309304Z Or undo this operation with:
+2026-10-08T07:35:12.7309523Z 
+2026-10-08T07:35:12.7309681Z   git switch -
+2026-10-08T07:35:12.7309920Z 
+2026-10-08T07:35:12.7310242Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T07:35:12.7310626Z 
+2026-10-08T07:35:12.7310998Z HEAD is now at 144abf7 fix(ci): route new external closeout epoch without rerunning frozen base E2E
+2026-10-08T07:35:12.7332880Z ##[endgroup]
+2026-10-08T07:35:12.7380018Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T07:35:12.7404477Z 144abf748fda7630304ebec6a338c4d7e7c9095b
+2026-10-08T07:35:12.7684945Z ##[group]Run actions/setup-python@v5
+2026-10-08T07:35:12.7685257Z with:
+2026-10-08T07:35:12.7685523Z   python-version: 3.11
+2026-10-08T07:35:12.7685750Z   check-latest: false
+2026-10-08T07:35:12.7688169Z   token: ***
+2026-10-08T07:35:12.7688389Z   update-environment: true
+2026-10-08T07:35:12.7688634Z   allow-prereleases: false
+2026-10-08T07:35:12.7688889Z   freethreaded: false
+2026-10-08T07:35:12.7689111Z ##[endgroup]
+2026-10-08T07:35:12.8750461Z ##[group]Installed versions
+2026-10-08T07:35:12.8819788Z (node:2085) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T07:35:12.8820444Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T07:35:12.8821053Z Successfully set up CPython (3.11.17)
+2026-10-08T07:35:12.8821719Z ##[endgroup]
+2026-10-08T07:35:12.8999245Z ##[group]Run python model_scout/run_shortform_external_closeout.py
+2026-10-08T07:35:12.8999823Z [36;1mpython model_scout/run_shortform_external_closeout.py[0m
+2026-10-08T07:35:12.9613854Z shell: /usr/bin/bash -e {0}
+2026-10-08T07:35:12.9614220Z env:
+2026-10-08T07:35:12.9614517Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-08T07:35:12.9614933Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-08T07:35:12.9615321Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-08T07:35:12.9615674Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-08T07:35:12.9616014Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-08T07:35:12.9616364Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-08T07:35:12.9616675Z   MARKETING_SHORTFORM_BASE_URL: 
+2026-10-08T07:35:12.9616924Z   MARKETING_SHORTFORM_BRIDGE_TOKEN: 
+2026-10-08T07:35:12.9617182Z   MARKETING_SHORTFORM_HEALTH_PATH: 
+2026-10-08T07:35:12.9617508Z ##[endgroup]
+2026-10-08T07:35:13.5747727Z BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION
+2026-10-08T07:35:13.5748264Z provider_configured=false token_present=false
+2026-10-08T07:35:13.5832703Z ##[error]Process completed with exit code 3.
+2026-10-08T07:35:13.5907658Z ##[group]Run actions/upload-artifact@v4
+2026-10-08T07:35:13.5907908Z with:
+2026-10-08T07:35:13.5908149Z   name: mindle-media-shortform-external-closeout-evidence
+2026-10-08T07:35:13.5908568Z   path: docs/evidence/media-ai-shortform-external-integration-closeout-20261008/**
+2026-10-08T07:35:13.5908913Z   retention-days: 90
+2026-10-08T07:35:13.5909104Z   if-no-files-found: error
+2026-10-08T07:35:13.5909299Z   compression-level: 6
+2026-10-08T07:35:13.5909488Z   overwrite: false
+2026-10-08T07:35:13.5909680Z   include-hidden-files: false
+2026-10-08T07:35:13.5909886Z env:
+2026-10-08T07:35:13.5910097Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-08T07:35:13.5910439Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-08T07:35:13.5910780Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-08T07:35:13.5911078Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-08T07:35:13.5911611Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-08T07:35:13.5911916Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-08T07:35:13.5912178Z ##[endgroup]
+2026-10-08T07:35:13.7275123Z (node:2097) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T07:35:13.7275779Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T07:35:13.7348373Z With the provided path, there will be 9 files uploaded
+2026-10-08T07:35:13.7353392Z Artifact name is valid!
+2026-10-08T07:35:13.7353949Z Root directory input is valid!
+2026-10-08T07:35:14.0672293Z Beginning upload of artifact content to blob storage
+2026-10-08T07:35:14.0896403Z (node:2097) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-08T07:35:14.2866216Z Uploaded bytes 3030
+2026-10-08T07:35:14.3447534Z Finished uploading artifact content to blob storage!
+2026-10-08T07:35:14.3448368Z SHA256 digest of uploaded artifact zip is 3857b9c4b8056d3c311a3b9fbe34c6d1f280e1b75b627ff2a40f9868b00c7fd8
+2026-10-08T07:35:14.3450038Z Finalizing artifact upload
+2026-10-08T07:35:14.5988208Z Artifact mindle-media-shortform-external-closeout-evidence.zip successfully finalized. Artifact ID 11534494818
+2026-10-08T07:35:14.5989030Z Artifact mindle-media-shortform-external-closeout-evidence has been successfully uploaded! Final size is 3030 bytes. Artifact ID is 11534494818
+2026-10-08T07:35:14.5993886Z Artifact download URL: https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/37744311046/artifacts/11534494818
+2026-10-08T07:35:14.6163796Z Post job cleanup.
+2026-10-08T07:35:14.6864502Z [command]/usr/bin/git version
+2026-10-08T07:35:14.6899860Z git version 2.55.0
+2026-10-08T07:35:14.6928659Z Temporarily overriding HOME='/home/runner/work/_temp/47df1057-1754-485a-91fe-1d1f94918fc9' before making global git config changes
+2026-10-08T07:35:14.6929838Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T07:35:14.6932747Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mindle-media-ai/mindle-media-ai
+2026-10-08T07:35:14.6966995Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T07:35:14.6997733Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T07:35:14.7216472Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T07:35:14.7243595Z http.https://github.com/.extraheader
+2026-10-08T07:35:14.7252878Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T07:35:14.7287342Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T07:35:14.7519785Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T07:35:14.7557091Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T07:35:14.7949791Z Cleaning up orphan processes
+2026-10-08T07:35:14.8207676Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

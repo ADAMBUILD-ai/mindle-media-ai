@@ -1,0 +1,46 @@
+{
+  "contract_version": "20.2.3",
+  "date": "2026-10-02",
+  "status": "ACTIVE",
+  "epoch": "MEDIA-AI-20261002-V20.2.3",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_DESKTOP_LAUNCHER_CACHE_VIEWPORT_PARITY_CORRECTION_DIRECTIVE_v20.2.3_20261002.md",
+  "scope": "desktop launcher/cache/viewport parity only",
+  "frozen_ui_baseline": "v20.2.2",
+  "icon_design_phase": "BLOCKED_PENDING_UI_AND_LAUNCHER_APPROVAL",
+  "exact_required_paths": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_WINDOWS_LAUNCHER_PARITY_REVIEW_v20.2.3_20261002.md",
+    "evidence_json": "evidence/pc_remote/MINDLE_MEDIA_AI_WINDOWS_LAUNCHER_PARITY_EVIDENCE_v20_2_3_20261002.json",
+    "detail_directory": "evidence/pc_remote/media-ai-launcher-parity-v20_2_3-20261002/",
+    "required_detail_files": [
+      "MANIFEST.json",
+      "CONTROL_PLANE_VALIDATION.txt",
+      "DESKTOP_SHORTCUT_BEFORE.json",
+      "WORKER_LAUNCH_IDENTITY.json",
+      "DESKTOP_ICON_LAUNCH_IDENTITY.json",
+      "LAUNCH_PARITY_DIFF.json",
+      "CACHE_DIAGNOSIS.json",
+      "SERVER_STATIC_CACHE_POLICY.json",
+      "CANONICAL_LAUNCHER_VERIFY.json",
+      "DESKTOP_SHORTCUT_AFTER.json",
+      "CANONICAL_LAUNCH_AFTER.png",
+      "DESKTOP_ICON_LAUNCH_AFTER.png",
+      "PARITY_SIDE_BY_SIDE.png",
+      "VIEWPORT_PARITY.json",
+      "BOTTOM_CLIPPING_AUDIT.json",
+      "V20_2_2_UI_PRESERVATION.json",
+      "SHORTFORM_PRESERVATION.json",
+      "REGRESSION_TEST_RESULTS.txt",
+      "OUTPUT_HASHES.sha256",
+      "REMOTE_PUSH_VERIFY.txt"
+    ]
+  },
+  "required_detail_file_count": 20,
+  "allowed_results": [
+    "LAUNCHER_PARITY_READY_FOR_REPRESENTATIVE",
+    "LAUNCHER_PARITY_CORRECTION_REQUIRED",
+    "FAIL"
+  ],
+  "remote_readback_required": true
+}

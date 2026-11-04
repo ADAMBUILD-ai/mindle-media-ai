@@ -1,0 +1,222 @@
+[
+  {
+    "path": "C:/Users/R/AppData/Local",
+    "owner": "DESKTOP-류영환\\R",
+    "protected": false,
+    "rules": [
+      {
+        "identity": "DESKTOP-류영환\\CodexSandboxUsers",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": false
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": false
+      },
+      {
+        "identity": "DESKTOP-류영환\\CodexSandboxUsers",
+        "rights": "ReadAndExecute, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "268435456",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "DESKTOP-류영환\\R",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "NT AUTHORITY\\SYSTEM",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "BUILTIN\\Administrators",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      }
+    ]
+  },
+  {
+    "path": "C:/Users/R/AppData/Local/MINDLE_MEDIA_AI",
+    "owner": "DESKTOP-류영환\\CodexSandboxOnline",
+    "protected": false,
+    "rules": [
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": false
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": false
+      },
+      {
+        "identity": "DESKTOP-류영환\\CodexSandboxUsers",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "268435456",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "DESKTOP-류영환\\R",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "NT AUTHORITY\\SYSTEM",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "BUILTIN\\Administrators",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      }
+    ]
+  },
+  {
+    "path": "C:/Users/R/AppData/Local/MINDLE_MEDIA_AI/deploy.lock",
+    "owner": "DESKTOP-류영환\\CodexSandboxOnline",
+    "protected": false,
+    "rules": [
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "DESKTOP-류영환\\CodexSandboxUsers",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "DESKTOP-류영환\\R",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "NT AUTHORITY\\SYSTEM",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "BUILTIN\\Administrators",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      }
+    ]
+  },
+  {
+    "path": "C:/Users/R/AppData/Local/MINDLE/MEDIA_AI_DATA/launch.lock",
+    "owner": "DESKTOP-류영환\\CodexSandboxOnline",
+    "protected": false,
+    "rules": [
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "DESKTOP-류영환\\CodexSandboxUsers",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "Modify, Synchronize",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "DESKTOP-류영환\\R",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "NT AUTHORITY\\SYSTEM",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      },
+      {
+        "identity": "BUILTIN\\Administrators",
+        "rights": "FullControl",
+        "type": "Allow",
+        "inherited": true
+      }
+    ]
+  }
+]

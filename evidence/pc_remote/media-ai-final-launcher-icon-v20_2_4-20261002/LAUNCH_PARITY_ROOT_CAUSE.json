@@ -1,0 +1,5 @@
+{
+  "status": "FIXED",
+  "before": "stale .url with historical ui_refresh query and default shell icon",
+  "after": "repository-owned launcher with current HEAD ui_build query and branded ICO"
+}

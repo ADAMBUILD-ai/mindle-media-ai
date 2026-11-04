@@ -1,0 +1,88 @@
+{
+  "epoch": "MEDIA-AI-20261008-GENERAL-WORK-FINAL-SELF-AUDIT-R1",
+  "checks": [
+    {
+      "category": "dead code / duplicate implementations",
+      "finding": "ProductJobService is the active HTTP implementation. Legacy MediaRuntime/Pillow/OpenCV helpers and adapter-boundary definitions remain separate, with VERIFY_REQUIRED evidence; do not mistake them for adopted model inference. Test-only fake workers live in tests only.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "event binding",
+      "finding": "One interaction binding per editor; manual pixel/video results now await one shared accept function. workspace_shell only binds otherwise unhandled shell/chip/fullscreen controls.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "localhost",
+      "finding": "Active HTTP binds loopback intentionally, browser APIs use relative URLs; ephemeral audit ports verified. Missing Marketing runtime is explicitly deferred and guarded before outbound work in this epoch.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "developer paths / Git",
+      "finding": "Development runtime identity optionally queries Git but authoritative file hashes survive no Git. Fixed UI root is supplied by launcher. No active POST handler uses developer-specific absolute paths.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "Python / pip / HF token",
+      "finding": "Development uses Python and installed dependencies. Local verified runtime mode uses controlled runtime roots and prohibits model network acquisition; no employee token. No pip invocation exists in active product POST or UI. Base launch no longer requires HF token; model-unavailable state is explicit. Actual Windows employee packaging is not a General Work PASS.",
+      "status": "PARTIAL",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "dependency conflicts",
+      "finding": "Audit Actions installs source pyproject metadata with OpenCV4.12/NumPy2.2.6/HFhub0.36 and pip check; Torch/OpenVINO/Whisper/SAM inference receipts reused from immutable prior product runner without re-download. Bundled Windows dependency assembly deferred to PC Work.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "FFmpeg / fonts / codec",
+      "finding": "Controlled package path selects tools/ffmpeg executables; development PATH selects ffmpeg/ffprobe. Actual CI FFmpeg H264/yuv420p outputs decode. CPU preview preserves mp4v originals. Korean font fallback requires actual installed CJK font and fails explicitly if absent.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "Windows path / UTF8",
+      "finding": "subprocess argument arrays preserve spaces; actual Korean source/output paths and apostrophe concat filename exercised. Windows paths normalized for stored basename. Actual Windows drawtext escaping and one-click launcher verification belong to PC Work, not claimed here.",
+      "status": "PARTIAL",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "server lifecycle",
+      "finding": "Port bind collision rejected; audit fully closes browser and server, confirms old port closed, starts one server and checks saved media. Production main closes socket in finally. Browser tab close is not native process shutdown; native window close button is disabled. Legacy package launcher is not executed in this epoch.",
+      "status": "PARTIAL",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "storage",
+      "finding": "Project IDs UUID validated; unknown jobs fail; atomic temp+replace protects previous JSON. Export rejects missing/corrupt output files and verifies all archived hashes. Input/output directories preserve data; no new deletion/overwrite of source artifacts.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "external / stale epochs",
+      "finding": "External bridge retained, live Marketing/AVORA deferred. Product workflow selects General Work only. Prior base model job/external probe are skipped; both package jobs gated false. Control Plane documents/validators unchanged.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "UI attributes / placeholders",
+      "finding": "Static demo asset spans are illustrations, not input media or interactive controls. False before-after/batch enabled declarations are corrected to not-implemented; editable keyframe/mask/multitrack declarations removed. Actual track status and transport seek remain. Unimplemented buttons are disabled with reasons.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    },
+    {
+      "category": "retry / idempotency",
+      "finding": "Mutation lock and exact request ID/fingerprint replay prevent duplicated successful requests within a running server; conflict returns422; failure can retry. Replay cache is intentionally session-local; restart preserves saved projects/jobs, not HTTP retry keys. Failed command/reference input remains visible for retry.",
+      "status": "PASS",
+      "scope": "General Work source audit; runtime coverage in RUNTIME_E2E_RECEIPT.json; future PC Work excluded"
+    }
+  ],
+  "definition_inventory": "CODE_DEFINITION_INVENTORY.json",
+  "actual_windows_or_package_execution": false,
+  "package_built": false,
+  "test_mocks_as_runtime_pass": false,
+  "unimplemented_controls_status": "NOT_IMPLEMENTED_DISABLED"
+}

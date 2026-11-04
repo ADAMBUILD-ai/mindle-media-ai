@@ -1,0 +1,11 @@
+{
+  "media": {
+    "error": 0,
+    "readyState": 4,
+    "videoWidth": 320,
+    "currentSrc": "http://127.0.0.1:18768/files/workflows/ee31eefa-db70-43f7-9acd-b93c6e33850e/02-1/sealed/1c32b9a4-3c7b-4d29-97ef-9fbefc4382d5/narrated_video.mp4",
+    "currentTime": 0.875252
+  },
+  "ui_export_sha256": "f29db14aa2ea97ddd6faa2ca1855f106886a18b2e9f68753afe5a22814967d05",
+  "human_hearing": false
+}

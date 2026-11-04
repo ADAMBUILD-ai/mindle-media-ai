@@ -1,0 +1,10 @@
+{
+  "source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+  "run": 39985471598,
+  "remote_readback_files": 12,
+  "packaging_tests": 5,
+  "status": "RUNNING_NOT_YET_ACCEPTED",
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "full_product_pass": false
+}

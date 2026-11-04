@@ -21,13 +21,13 @@ class CommandPanelState {
     if (!REFERENCE_IMAGE_EXTENSIONS.has(extension)) { this.error = "JPG, PNG, WEBP, TIFF 이미지만 첨부할 수 있습니다."; return false; }
     if (this.references.length >= this.maxReferences) { this.error = `참고 이미지는 최대 ${this.maxReferences}개까지 첨부할 수 있습니다.`; return false; }
     if (this.references.some((reference) => reference.name.toLowerCase() === name.toLowerCase())) { this.error = "같은 참고 이미지는 한 번만 첨부할 수 있습니다."; return false; }
-    this.references.push({ name, type: file.type, preview: file.preview || null }); this.error = null; return true;
+    this.references.push({ name, type: file.type, preview: file.preview || null, ...(file.file ? {file:file.file} : {}) }); this.error = null; return true;
   }
-  remove(index) { this.references.splice(index, 1); this.error = null; }
+  remove(index) { const removed=this.references.splice(index, 1)[0]; if(removed?.preview && typeof URL !== 'undefined') URL.revokeObjectURL(removed.preview); this.error = null; }
   submit() {
     if (!this.text.trim()) { this.error = "AI 지시를 입력하세요."; this.phase = "expanded"; throw new Error("command required"); }
     this.error = null; this.phase = "executing";
-    return { kind: this.kind, command: this.text.trim(), references: this.references.map(({ name, type }) => ({ name, type })) };
+    return { kind: this.kind, command: this.text.trim(), references: this.references.map(({ name, type, file }) => ({ name, type, ...(file ? {file} : {}) })) };
   }
   complete() { this.phase = "collapsed"; this.text = ""; this.references = []; this.error = null; }
   fail(message = "작업을 완료하지 못했습니다. 지시 내용을 확인해 주세요.") { this.phase = "expanded"; this.error = message; }
@@ -37,6 +37,12 @@ class EditorActionState {
   constructor(kind) { this.kind = kind; this.saved = false; this.exports = 0; }
   save() { this.saved = true; return { action: "save", kind: this.kind, result: "edit-state-saved" }; }
   export() { this.exports += 1; return { action: "export", kind: this.kind, result: "result-file-requested", sequence: this.exports }; }
+}
+
+class ShortformModeState {
+  constructor() { this.mode = "general"; }
+  toggle() { this.mode = this.mode === "general" ? "ad_shortform" : "general"; return this.mode; }
+  isShortform() { return this.mode === "ad_shortform"; }
 }
 
 class AdapterFeatureState {
@@ -59,14 +65,16 @@ class AdapterFeatureState {
 
 const videoCommand = new CommandPanelState("video");
 const photoCommand = new CommandPanelState("photo");
+const shortformMode = new ShortformModeState();
 
-function renderPanel(root, state) {
+function renderPanel(root, state, referenceRoot = root) {
   root.dataset.phase = state.phase;
   root.querySelector("[data-command]").value = state.text;
   root.querySelector("[data-command-error]").textContent = state.error || "";
-  const list = root.querySelector("[data-reference-list]");
+  const list = referenceRoot.querySelector("[data-reference-list]");
   list.replaceChildren(...state.references.map((ref, index) => {
     const item = document.createElement("li"); item.className = "reference-thumbnail"; item.textContent = ref.name;
+    if (ref.preview) { const image=document.createElement("img"); image.src=ref.preview; image.alt=ref.name; item.prepend(image); }
     const remove = document.createElement("button"); remove.type = "button"; remove.textContent = "제거"; remove.dataset.referenceRemove = String(index);
     item.append(" ", remove); return item;
   }));
@@ -76,22 +84,48 @@ function bindEditor(kind) {
   const editor = document.querySelector(`[data-editor="${kind}"]`); if (!editor) return;
   const state = kind === "video" ? videoCommand : photoCommand; const actions = new EditorActionState(kind);
   const command = editor.querySelector("[data-command]"); const fileInput = editor.querySelector("[data-reference-input]"); const panel = editor.querySelector("[data-command-panel]");
-  const sync = () => renderPanel(panel, state);
-  command.addEventListener("focus", () => { state.focus(); sync(); });
+  const sync = () => renderPanel(panel, state, editor);
+  if (kind === "video") {
+    const shortformButton = editor.querySelector("[data-action='shortform-mode']");
+    if (shortformButton) shortformButton.addEventListener("click", () => {
+      const mode = shortformMode.toggle();
+      shortformButton.setAttribute("aria-pressed", String(mode === "ad_shortform"));
+      editor.dataset.videoMode = mode;
+      editor.dispatchEvent(new CustomEvent("mindle:mode", { detail: { mode } }));
+    });
+  }
+  command.addEventListener("focus", () => { state.setText(command.value);state.focus();sync(); });
   command.addEventListener("input", (event) => { state.setText(event.target.value); sync(); });
+  const submit = () => {
+    try {
+      const detail = state.submit();
+      // Preserve the command/reference input for retry after a runtime failure.
+      state.phase='expanded'; sync();
+      editor.dispatchEvent(new CustomEvent("mindle:command", { detail }));
+    } catch (_) { sync(); }
+  };
   command.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" || event.shiftKey) return; event.preventDefault();
-    try { editor.dispatchEvent(new CustomEvent("mindle:command", { detail: state.submit() })); state.complete(); } catch (_) {} sync();
+    submit();
   });
+  panel.querySelector(".send-button").addEventListener("click", submit);
   editor.querySelector("[data-action$='reference']").addEventListener("click", () => fileInput.click());
-  fileInput.addEventListener("change", (event) => {
-    [...event.target.files].forEach((file) => state.attach({ name: file.name, type: file.type, preview: URL.createObjectURL(file) })); fileInput.value = ""; sync();
+  editor.addEventListener('mindle:restore-references',event=>{
+    while(state.references.length) state.remove(0);
+    for(const file of event.detail.files) state.attach({name:file.name,type:file.type,preview:URL.createObjectURL(file),file});sync();
   });
-  panel.addEventListener("click", (event) => { const index = event.target.dataset.referenceRemove; if (index !== undefined) { state.remove(Number(index)); sync(); } });
-  editor.querySelector("[data-action='save']").addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:save", { detail: actions.save() })));
+  fileInput.addEventListener("change", (event) => {
+    [...event.target.files].forEach((file) => {const preview=URL.createObjectURL(file);if(!state.attach({ name:file.name,type:file.type,preview,file })) URL.revokeObjectURL(preview);}); fileInput.value = ""; sync();
+  });
+  editor.addEventListener("click", (event) => { const index = event.target.dataset.referenceRemove; if (index !== undefined) { state.remove(Number(index)); sync(); } });
+  editor.querySelectorAll("[data-action='save']").forEach((button) => button.addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:save", { detail: actions.save() }))));
   editor.querySelector("[data-action='export']").addEventListener("click", () => editor.dispatchEvent(new CustomEvent("mindle:export", { detail: actions.export() })));
   sync();
 }
 
-if (typeof document !== "undefined") ["video", "photo"].forEach(bindEditor);
-if (typeof module !== "undefined") module.exports = { CommandPanelState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand };
+if (typeof document !== "undefined") {
+  window.mindleReferenceFiles = kind => (kind === 'photo' ? photoCommand : videoCommand).references.map(ref => ref.file).filter(Boolean);
+  ["video", "photo"].forEach(bindEditor);
+}
+if (typeof module !== "undefined") module.exports = { CommandPanelState, ShortformModeState, EditorActionState, AdapterFeatureState, MAX_REFERENCES, REFERENCE_IMAGE_EXTENSIONS, videoCommand, photoCommand, shortformMode };
+

@@ -1,0 +1,557 @@
+{
+  "status": "PASS_MINDLE_MEDIA_AI_FINAL_UI_IMPLEMENTATION",
+  "scope": "Latest direct human final UI directive, thirteen acceptance checks; not R2 package closure",
+  "authority": "2026-10-07 direct user message authorizes immediate final UI changes; historical queued directive and R2 control files retained",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "starting_remote_commit": "eda5b83eaaba1fc74f4f99bc4cd7316f3f6e77fb",
+  "final_implementation_commit": "cd5f5a37018de52b994c7ea9b272be83afcda53a",
+  "physical_git_head": "b39ca305839f7d9f2fe1cb8ae25c8212159b91be",
+  "local_git_head_synchronized": false,
+  "control_plane_validator": "CONTROL_PLANE_PASS; existing R2 epoch unchanged",
+  "runtime_url": "http://127.0.0.1:18768/",
+  "runtime_launch": "existing package runtime/python/python.exe imports canonical source src; local package vault; CPU; isolated network-denied model workers",
+  "runtime_identity": {
+    "repo_root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai",
+    "branch": null,
+    "head": null,
+    "workspace_ui_fingerprint": "0f09002fd514c80dc93d59f8192046f0b545664a81d01d6c655a598b99ff4ea4",
+    "file_hashes": {
+      "ui/index.html": "150e040703e90fd805f53014a052af10b46177bdb313bdf3ea97c32a6aa838c8",
+      "ui/approved_visual.css": "91acbea5fffdebcf1b8452cfabe237d0b3db020da556673b8ee59a14cfb55cdd",
+      "ui/interaction.css": "0bc0ea4f5f8068af556cd3ddd3979ea0696087eb731c805890409160d2ea1128",
+      "ui/interaction.js": "51964f7e17643987de0137b0e436fb5a761e2784a49d039adf431167e0fb5d4b",
+      "ui/product_integration.js": "1eb7472d342b558772d772aec45b7cfbb2367dd5623ca783e73ba9b2f2f02d6e",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "b747effba167a2c3e85854d88ede9b6964474bd02f0076bf17f229173f09bbe9",
+      "ui/video_workspace.js": "7726df7e4d30ec95dd36e16ef5c7562f097279de78cbd00170b3e1799543b55f"
+    },
+    "runtime_mode": "DEVELOPMENT_UI_WITH_PACKAGE_MODELS",
+    "model_root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+    "git_identity_status": "UNAVAILABLE"
+  },
+  "checks": [
+    {
+      "number": 1,
+      "item": "VIDEO 16:9",
+      "status": "PASS",
+      "evidence": "640x360 decoded; real preview; burned Korean caption visible"
+    },
+    {
+      "number": 2,
+      "item": "PHOTO landscape",
+      "status": "PASS",
+      "evidence": "512x292; contain; full image"
+    },
+    {
+      "number": 3,
+      "item": "PHOTO portrait Auto Fit",
+      "status": "PASS",
+      "evidence": "288x512; centered dark navy margins"
+    },
+    {
+      "number": 4,
+      "item": "Original aspect ratios",
+      "status": "PASS",
+      "evidence": "media element fits host; object-fit contain; explicit crop only"
+    },
+    {
+      "number": 5,
+      "item": "Portrait margins",
+      "status": "PASS",
+      "evidence": "actual full-page screenshot"
+    },
+    {
+      "number": 6,
+      "item": "PHOTO basic adjustments",
+      "status": "PASS",
+      "evidence": "7 controls rendered into PNG; crop/resize/color/style/portrait actual UI jobs"
+    },
+    {
+      "number": 7,
+      "item": "AI conversation editing",
+      "status": "PASS",
+      "evidence": "warm photo actual pixels; Korean video automatic caption; 30-second shortform command actual 360x640 output"
+    },
+    {
+      "number": 8,
+      "item": "Shortform maintained",
+      "status": "PASS",
+      "evidence": "local padded 9:16 output; advertisement mode reports Marketing AI unavailable and retains basic editing"
+    },
+    {
+      "number": 9,
+      "item": "VIDEO functions maintained",
+      "status": "PASS",
+      "evidence": "4 tracks; trim/split/speed/rotation/color/fade/effect/subtitle/audio/BGM/highlight/save/export controls retained and decoded outputs"
+    },
+    {
+      "number": 10,
+      "item": "PHOTO functions maintained",
+      "status": "PASS",
+      "evidence": "7 sliders; 12 tools incl resize; models; attached reference color search; generation control retained with honest unavailable notice"
+    },
+    {
+      "number": 11,
+      "item": "Paired alignment",
+      "status": "PASS",
+      "evidence": "4 actual viewports; equal header/preview/AI baselines; no hidden controls"
+    },
+    {
+      "number": 12,
+      "item": "Save/export",
+      "status": "PASS",
+      "evidence": "actual UI save/export; server stop/restart; reopen; ZIP CRC and project jobs verified"
+    },
+    {
+      "number": 13,
+      "item": "Product title",
+      "status": "PASS",
+      "evidence": "MINDLE MEDIA AI; no SSOT product title"
+    }
+  ],
+  "tests": {
+    "python": "58 passed in 13.28s",
+    "node": "2 passed; three JS syntax checks passed"
+  },
+  "model_regression": "PASS_FOUR_ISOLATED_MODEL_OPERATIONS",
+  "remote_source_readback": {
+    "commit": "cd5f5a37018de52b994c7ea9b272be83afcda53a",
+    "files": [
+      {
+        "path": "ui/index.html",
+        "exact": true,
+        "blob_sha": "3d799d90ec4965b32fdcb88c9b62bbc6e9b532ad"
+      },
+      {
+        "path": "ui/approved_visual.css",
+        "exact": true,
+        "blob_sha": "d93985f69b412e3eac4bbbe53c5c1e6e9bf995d9"
+      },
+      {
+        "path": "ui/product_integration.js",
+        "exact": true,
+        "blob_sha": "966683d082b0c01132e96201059568f5be36760f"
+      },
+      {
+        "path": "ui/photo_workspace.js",
+        "exact": true,
+        "blob_sha": "f78890788a95518e9ac1daa3b1157ec7d14a3269"
+      },
+      {
+        "path": "ui/video_workspace.js",
+        "exact": true,
+        "blob_sha": "d6431a674ebd2f36d9afcd0855662ca8c7c03a1f"
+      },
+      {
+        "path": "src/media_ai/product_runtime.py",
+        "exact": true,
+        "blob_sha": "43dbc45e997de6df261883921606c8c582fa9577"
+      },
+      {
+        "path": "src/media_ai/product_server.py",
+        "exact": true,
+        "blob_sha": "13a350589c8d2ebc700f2deb207c6c8143b1eb69"
+      },
+      {
+        "path": "src/media_ai/intel_sisr_verified_adapter.py",
+        "exact": true,
+        "blob_sha": "4f0e3e484517a901d9bbab409db8d5a3991923e4"
+      },
+      {
+        "path": "tests/test_photo_edit_project.py",
+        "exact": true,
+        "blob_sha": "871ca3a85ae19d8c916d99f3b400f2c43bf34f0d"
+      },
+      {
+        "path": "tests/test_employee_offline_mode.py",
+        "exact": true,
+        "blob_sha": "4e1c237bcdcadb21a7210a2a7c1e0503408113c7"
+      }
+    ],
+    "status": "PASS_EXACT_10_OF_10"
+  },
+  "viewport_matrix": [
+    {
+      "alignment": [
+        {
+          "aiTop": 1465.825023651123,
+          "headerHeight": 100,
+          "headerTop": 69.99999904632568,
+          "previewHeight": 360,
+          "previewTop": 170.0000038146973
+        },
+        {
+          "aiTop": 1465.825023651123,
+          "headerHeight": 100,
+          "headerTop": 69.99999904632568,
+          "previewHeight": 360,
+          "previewTop": 170.0000038146973
+        }
+      ],
+      "hiddenControls": [],
+      "horizontalOverflow": false,
+      "media": [
+        {
+          "element": [
+            894,
+            358.3999938964844
+          ],
+          "fit": "contain",
+          "host": [
+            895.6000366210938,
+            360
+          ],
+          "inside": true,
+          "natural": [
+            640,
+            360
+          ],
+          "position": "50% 50%"
+        },
+        {
+          "element": [
+            894,
+            358.3999938964844
+          ],
+          "fit": "contain",
+          "host": [
+            895.6000366210938,
+            360
+          ],
+          "inside": true,
+          "natural": [
+            288,
+            512
+          ],
+          "position": "50% 50%"
+        }
+      ],
+      "viewport": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "alignment": [
+        {
+          "aiTop": 1239.137523651123,
+          "headerHeight": 100,
+          "headerTop": 61.99999928474426,
+          "previewHeight": 261.1125183105469,
+          "previewTop": 162.0000038146973
+        },
+        {
+          "aiTop": 1239.137523651123,
+          "headerHeight": 100,
+          "headerTop": 61.99999928474426,
+          "previewHeight": 261.1125183105469,
+          "previewTop": 162.0000038146973
+        }
+      ],
+      "hiddenControls": [],
+      "horizontalOverflow": false,
+      "media": [
+        {
+          "element": [
+            617.2000122070312,
+            259.51251220703125
+          ],
+          "fit": "contain",
+          "host": [
+            618.7999877929688,
+            261.1125183105469
+          ],
+          "inside": true,
+          "natural": [
+            640,
+            360
+          ],
+          "position": "50% 50%"
+        },
+        {
+          "element": [
+            617.2000122070312,
+            259.51251220703125
+          ],
+          "fit": "contain",
+          "host": [
+            618.7999877929688,
+            261.1125183105469
+          ],
+          "inside": true,
+          "natural": [
+            288,
+            512
+          ],
+          "position": "50% 50%"
+        }
+      ],
+      "viewport": [
+        1366,
+        768
+      ]
+    },
+    {
+      "alignment": [
+        {
+          "aiTop": 1204.024974822998,
+          "headerHeight": 130,
+          "headerTop": 55.99999904632568,
+          "previewHeight": 204,
+          "previewTop": 186.0000038146973
+        },
+        {
+          "aiTop": 1204.024974822998,
+          "headerHeight": 130,
+          "headerTop": 55.99999904632568,
+          "previewHeight": 204,
+          "previewTop": 186.0000038146973
+        }
+      ],
+      "hiddenControls": [],
+      "horizontalOverflow": false,
+      "media": [
+        {
+          "element": [
+            451,
+            202.40000915527344
+          ],
+          "fit": "contain",
+          "host": [
+            452.6000061035156,
+            204
+          ],
+          "inside": true,
+          "natural": [
+            640,
+            360
+          ],
+          "position": "50% 50%"
+        },
+        {
+          "element": [
+            451,
+            202.40000915527344
+          ],
+          "fit": "contain",
+          "host": [
+            452.6000061035156,
+            204
+          ],
+          "inside": true,
+          "natural": [
+            288,
+            512
+          ],
+          "position": "50% 50%"
+        }
+      ],
+      "viewport": [
+        1000,
+        600
+      ]
+    },
+    {
+      "alignment": [
+        {
+          "aiTop": 1180.024974822998,
+          "headerHeight": 130,
+          "headerTop": 55.99999904632568,
+          "previewHeight": 180,
+          "previewTop": 186.0000038146973
+        },
+        {
+          "aiTop": 1180.024974822998,
+          "headerHeight": 130,
+          "headerTop": 55.99999904632568,
+          "previewHeight": 180,
+          "previewTop": 186.0000038146973
+        }
+      ],
+      "hiddenControls": [],
+      "horizontalOverflow": false,
+      "media": [
+        {
+          "element": [
+            351,
+            178.40000915527344
+          ],
+          "fit": "contain",
+          "host": [
+            352.6000061035156,
+            180
+          ],
+          "inside": true,
+          "natural": [
+            640,
+            360
+          ],
+          "position": "50% 50%"
+        },
+        {
+          "element": [
+            351,
+            178.40000915527344
+          ],
+          "fit": "contain",
+          "host": [
+            352.6000061035156,
+            180
+          ],
+          "inside": true,
+          "natural": [
+            288,
+            512
+          ],
+          "position": "50% 50%"
+        }
+      ],
+      "viewport": [
+        800,
+        480
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "FINAL_UI_FINAL_SCREEN.jpg",
+      "bytes": 200003,
+      "sha256": "f15542dffb1d81ce266449ed94cc489be69c8d50a99ac2589b2628df2054c580"
+    },
+    {
+      "file": "FINAL_UI_PORTRAIT_AUTO_FIT.jpg",
+      "bytes": 200257,
+      "sha256": "43bbe14bea95585514b48fb39d2ef6597edb85b0660c94db8ff74c52cb4df8e8"
+    },
+    {
+      "file": "FINAL_UI_LANDSCAPE.jpg",
+      "bytes": 216664,
+      "sha256": "fa7df87ffd65881451112aab1a2401dd3a863ae66985cc25329d92a7559d2622"
+    },
+    {
+      "file": "FINAL_UI_SQUARE.jpg",
+      "bytes": 206929,
+      "sha256": "c94e4028ad06fcab5abfeafe699f61f7e56fc055a4be0495bd0a327c7d0c80a1"
+    },
+    {
+      "file": "FINAL_UI_VIDEO_9x16.jpg",
+      "bytes": 180054,
+      "sha256": "3e0f8fcf969e0937c9505c243c6cfd5a17e0c8fb8627c74dbf8d64a29cd50634"
+    },
+    {
+      "file": "FINAL_UI_VIDEO_1x1.jpg",
+      "bytes": 186019,
+      "sha256": "75b72be4004203e9494aa92b2c74a7e96bb448c17c6c47e174c20bbaee2a983f"
+    },
+    {
+      "file": "FINAL_UI_REDUCED_HEIGHT.jpg",
+      "bytes": 152228,
+      "sha256": "f31305163c07f8ace727f45ffa49730b49a9cc3b2b491fbd9239baa2def965e2"
+    },
+    {
+      "file": "FINAL_UI_BURNED_CAPTION_FRAME.png",
+      "bytes": 426992,
+      "sha256": "eeec09f1dedf9f1df36c3b6c1ac0bf6316f981e78e8dd144bae5911dfc78e37c"
+    },
+    {
+      "file": "FINAL_UI_RUNTIME_FUNCTION_TEST.json",
+      "bytes": 5568,
+      "sha256": "fdb6d11855f7197ec77185e6f4a4d147850256ebaf6657f3e741b207317da6fb"
+    },
+    {
+      "file": "FINAL_UI_SPLIT_HIGHLIGHT_TEST.json",
+      "bytes": 4155,
+      "sha256": "00da91bc5649fabc33a05317d087a5a78b38edeb9c526b9de9a5f41c140fffc6"
+    },
+    {
+      "file": "FINAL_UI_ISOLATED_MODEL_TEST.json",
+      "bytes": 12448,
+      "sha256": "9dee703dffa218cac4a160d98ef9fe5f9765e7243a2b2e7fc09ac3c6aab6d64b"
+    },
+    {
+      "file": "FINAL_UI_ALPHA_STABILIZE_TEST.json",
+      "bytes": 9428,
+      "sha256": "cc435cdfa6f1b25e1562098a8a6f371acdc7d11c1fead497326276c4c5170144"
+    },
+    {
+      "file": "FINAL_UI_AUTOSUBTITLE_RESULT.json",
+      "bytes": 2038,
+      "sha256": "03c3933fd27049cbd9dc1b314f6757e5f7df1b37035c2590444f283cc24880f9"
+    },
+    {
+      "file": "FINAL_UI_VIEWPORT_MATRIX.json",
+      "bytes": 4708,
+      "sha256": "1a343a4e1756007c5f71b331a28bf8ca007c3a19be86836f1de2707b80d79014"
+    },
+    {
+      "file": "FINAL_UI_SOURCE_READBACK.json",
+      "bytes": 1514,
+      "sha256": "18e55ff2c8c5016c980b6b335361270cb791674315194e255ca991a2a62fa2f7"
+    },
+    {
+      "file": "FINAL_UI_RUNTIME_IDENTITY.json",
+      "bytes": 1299,
+      "sha256": "e4e9dcaf10271cd483b8d633657543311294bd473ecdadbbad1942bc9e182084"
+    },
+    {
+      "file": "FINAL_UI_FINAL_REOPEN_EXPORT.json",
+      "bytes": 756,
+      "sha256": "dce40c91315c12bb800cd3298473a6b6ae94d1638978e54dbcb0561a5692df30"
+    },
+    {
+      "file": "FINAL_UI_VISUAL_CASES.json",
+      "bytes": 21887,
+      "sha256": "62c600bfc445e8c6177216e990aaaa19ddf197d8f928dffd7e052d72e971f77e"
+    },
+    {
+      "file": "FINAL_UI_ALL_RUNTIME_JOBS.json",
+      "bytes": 153183,
+      "sha256": "a36b60ebb7d8ca3021bd654dd7100ad4ddff13f22e1b8389d595f3c08ab965ef"
+    }
+  ],
+  "failures_observed_and_corrected": [
+    {
+      "job_id": "67e05cf2-c466-4b70-b055-69847a858a7a",
+      "operation": "transcribe",
+      "error": "Input provenance does not match the artifact"
+    },
+    {
+      "job_id": "50a9cd9e-d490-4640-9631-26d8fee56505",
+      "operation": "transcribe",
+      "error": "Input provenance does not match the artifact"
+    }
+  ],
+  "additional_rework_history": [
+    "Initial mixed native model process remained pending; fresh isolated workers passed four model operations.",
+    "OpenVINO telemetry profile setup corrected before successful workers.",
+    "Extracted audio provenance mismatch corrected; repeated real UI automatic subtitle chain passed.",
+    "CSS logical block size overrode contain box; constrained media element and rechecked actual full frame at all four viewports.",
+    "Alpha bicubic interpolation overshot alpha maximum; linear alpha resize verified original 0..220 range."
+  ],
+  "limitations": [
+    "Development source UI uses existing package Python/model vault/FFmpeg; this is not a rebuilt employee package.",
+    "No new image generation model: generation button explicitly reports unavailable.",
+    "AI conversation uses Korean intent rules and verified SAM/Whisper/Intel operations; no unrestricted LLM editor claim.",
+    "Similar image search compares color histograms of attached references locally; no semantic or internet search claim.",
+    "Portrait correction softens the whole photo and shadows; no face detection claim.",
+    "Automatic captions currently burn recognized text over the clip; no timestamp alignment or WER quality claim.",
+    "Video effect and scene transition use FFmpeg vignette/fade; highlight uses frame differences.",
+    "Original queued responsive directive desktop launch/installer gate has not been closed; no responsive-directive completion string is asserted.",
+    "R2 package remains held: VS redistribution entitlement not verified; System32 MSVC dependency; default-host shortcut/install gate and FFmpeg source audit remain unresolved."
+  ],
+  "fixture_attribution": [
+    {
+      "title": "Big Buck Bunny",
+      "copyright": "2008 Blender Foundation",
+      "license": "CC BY 3.0",
+      "source": "https://peach.blender.org/",
+      "changes": "stills, crops, scaled copies, short clips, color edits, overlays and padded aspect fixtures"
+    },
+    {
+      "title": "FLEURS Korean speech",
+      "copyright": "Google",
+      "license": "CC BY 4.0",
+      "changes": "PCM audio reused as speech in technical test video, not background music quality evidence"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "candidate": {
+    "source": "fef692312ae8d8e3070c97e013dacdd31a043172",
+    "producer_run": 38822776656,
+    "readback_run": 38824641294,
+    "readback_artifact": 12014421906,
+    "zip": "MINDLE_MEDIA_AI_ONE_CLICK_WIN_X64_v1.0.zip",
+    "zip_bytes": 1913892012,
+    "parts": 5,
+    "zip_sha256": "79b8fc38a5dade14a5974b132f265ba52476058f574b9d6c1795aa000aed7fe6",
+    "payload_manifest_sha256": "3facd08b16aeae044af39755c2d0d9638af4fe3fa0fec317b2dbc0bd863f2c17",
+    "launcher_sha256": "dd3f485a13a869acac87c3094381c9b97f872e461044af685e768afe9cadbe5a",
+    "runtime_id": "fef692312ae8-1261762e58ca",
+    "ui_fingerprint": "1261762e58cacdc2fee1c7a01819b91551fe258c1abaffe6d0978b9e8490467e",
+    "manifest_files_verified": 19236
+  },
+  "artifacts": [
+    {
+      "id": 12014975182,
+      "name": "mindle-media-one-click-win-x64-part-01",
+      "bytes": 417639822,
+      "digest": "sha256:2d1af768ac7dc3fef5c248d4c4954b513f8c317fd21c258db0f7a703658f651d",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38822776656/artifacts/12014975182"
+    },
+    {
+      "id": 12014935292,
+      "name": "mindle-media-one-click-win-x64-part-02",
+      "bytes": 414018475,
+      "digest": "sha256:c48e7b4f2caa72c824207fc98f6ff3b2a4e7c34300fcd7fdab97ac2d6fd60353",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38822776656/artifacts/12014935292"
+    },
+    {
+      "id": 12014845525,
+      "name": "mindle-media-one-click-win-x64-part-04",
+      "bytes": 231462533,
+      "digest": "sha256:91599eebad99c8b6922c66d29f74bfa2f5ba466d47ca802c1731798e7f0ee7d2",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38822776656/artifacts/12014845525"
+    },
+    {
+      "id": 12014760114,
+      "name": "mindle-media-one-click-win-x64-part-00",
+      "bytes": 419031448,
+      "digest": "sha256:2f156911c28d18778f57b56e262e28fd1bb90bcc42ccf3b740fab01f704a966a",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38822776656/artifacts/12014760114"
+    },
+    {
+      "id": 12014381356,
+      "name": "mindle-media-one-click-win-x64-part-03",
+      "bytes": 411944563,
+      "digest": "sha256:926e9c08680751d3141f1cc3667198cddf5f18400cb535c218417f41831638c6",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38822776656/artifacts/12014381356"
+    },
+    {
+      "id": 12013184989,
+      "name": "mindle-media-one-click-windows-launcher-manifests",
+      "bytes": 7997164,
+      "digest": "sha256:12e057316e0e1c9407338277657198fbe823abef662b4bce59d62c9ef62cb215",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38822776656/artifacts/12013184989"
+    },
+    {
+      "id": 12012804966,
+      "name": "mindle-media-one-click-windows-evidence",
+      "bytes": 6654818,
+      "digest": "sha256:625da62c05423d6b765171eeb7ad9b6ccd1d5a7edddcd876f1cbea467627394d",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/actions/runs/38822776656/artifacts/12012804966"
+    }
+  ],
+  "scope": "DEVELOPMENT_VERIFICATION_ONLY",
+  "package_build_allowed": false,
+  "owner_pc_runtime_pass": false,
+  "final_product_pass": false
+}

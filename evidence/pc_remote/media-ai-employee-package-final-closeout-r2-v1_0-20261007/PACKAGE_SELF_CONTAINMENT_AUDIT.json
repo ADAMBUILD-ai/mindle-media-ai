@@ -1,0 +1,217 @@
+{
+  "status": "RUNTIME_DEPENDENCY_LEAK",
+  "offline_self_containment_pass": false,
+  "implementation_commit": "0371cb72ee00802b5b9bd17bd05c809858cba813",
+  "binary_count": 136,
+  "scope": "Retained direct PE audit; package native binaries unchanged during R2; delay imports and complete dynamic module trace remain separate",
+  "dependencies": [
+    {
+      "binary": "runtime/python/DLLs/_msi.pyd",
+      "dependency": "cabinet.dll",
+      "category": "WINDOWS_OS_INBOX"
+    },
+    {
+      "binary": "runtime/python/DLLs/_msi.pyd",
+      "dependency": "msi.dll",
+      "category": "WINDOWS_OS_INBOX"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/_pyopenvino.cp311-win_amd64.pyd",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/frontend/jax/py_jax_frontend.cp311-win_amd64.pyd",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/frontend/onnx/py_onnx_frontend.cp311-win_amd64.pyd",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/frontend/paddle/py_paddle_frontend.cp311-win_amd64.pyd",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/frontend/pytorch/py_pytorch_frontend.cp311-win_amd64.pyd",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/frontend/tensorflow/py_tensorflow_frontend.cp311-win_amd64.pyd",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_auto_batch_plugin.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_auto_plugin.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_c.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_hetero_plugin.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_intel_cpu_plugin.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_intel_gpu_plugin.dll",
+      "dependency": "opencl.dll",
+      "category": "OPTIONAL_GPU_BACKEND_NOT_USED_BY_CPU_SISR"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_intel_gpu_plugin.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_intel_npu_plugin.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_ir_frontend.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_jax_frontend.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_onnx_frontend.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_paddle_frontend.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_pytorch_frontend.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_tensorflow_frontend.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/openvino_tensorflow_lite_frontend.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/tbb12.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/tbbbind_2_5.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/tbbmalloc.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/openvino/libs/tbbmalloc_proxy.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/torch/bin/protoc.exe",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/torch/lib/c10.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/torch/lib/torch_cpu.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/torch/lib/torch_cpu.dll",
+      "dependency": "vcruntime140_threads.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/torch/lib/torch_python.dll",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/torch/lib/torch_python.dll",
+      "dependency": "msvcp140_atomic_wait.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/torchvision/image_stable.pyd",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "runtime/site-packages/torchvision/_C_stable.pyd",
+      "dependency": "msvcp140.dll",
+      "category": "UNBUNDLED_NATIVE_RUNTIME"
+    },
+    {
+      "binary": "tools/ffmpeg/ffmpeg.exe",
+      "dependency": "avicap32.dll",
+      "category": "WINDOWS_OS_INBOX"
+    },
+    {
+      "binary": "tools/ffmpeg/ffprobe.exe",
+      "dependency": "avicap32.dll",
+      "category": "WINDOWS_OS_INBOX"
+    },
+    {
+      "binary": "tools/ffmpeg/bin/ffmpeg.exe",
+      "dependency": "avicap32.dll",
+      "category": "WINDOWS_OS_INBOX"
+    },
+    {
+      "binary": "tools/ffmpeg/bin/ffplay.exe",
+      "dependency": "avicap32.dll",
+      "category": "WINDOWS_OS_INBOX"
+    },
+    {
+      "binary": "tools/ffmpeg/bin/ffprobe.exe",
+      "dependency": "avicap32.dll",
+      "category": "WINDOWS_OS_INBOX"
+    }
+  ],
+  "license_entitlement": "USER_CONFIRMED_UNVERIFIED",
+  "online_bootstrap": "SEPARATE_CONSENT_GATED_TOOL_ONLY",
+  "default_profile_host_gate": "PENDING"
+}

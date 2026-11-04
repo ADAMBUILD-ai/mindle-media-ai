@@ -1,0 +1,42 @@
+name: MINDLE MEDIA AI one-click launcher smoke
+
+on:
+  push:
+    branches:
+      - feature/ad-shortform-bridge-p0-20260926
+    paths:
+      - ".github/workflows/pc-one-click-launcher-smoke.yml"
+      - "scripts/one_click_launcher/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  launcher-smoke:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Publish one-click launcher
+        shell: pwsh
+        run: |
+          dotnet publish scripts/one_click_launcher/MindleMediaAiRun.csproj -c Release -r win-x64 --self-contained true -o launcher_publish
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (-not (Test-Path launcher_publish/MINDLE_MEDIA_AI_RUN.exe)) { throw "MINDLE_MEDIA_AI_RUN.exe missing" }
+          $hash=(Get-FileHash launcher_publish/MINDLE_MEDIA_AI_RUN.exe -Algorithm SHA256).Hash.ToLower()
+          $size=(Get-Item launcher_publish/MINDLE_MEDIA_AI_RUN.exe).Length
+          @{status="LAUNCHER_EXE_BUILD_PASS";file="MINDLE_MEDIA_AI_RUN.exe";bytes=$size;sha256=$hash} | ConvertTo-Json | Set-Content launcher_publish/LAUNCHER_BUILD_RESULT.json -Encoding utf8
+          Get-Content launcher_publish/LAUNCHER_BUILD_RESULT.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MINDLE_MEDIA_AI_RUN_launcher_smoke
+          path: |
+            launcher_publish/MINDLE_MEDIA_AI_RUN.exe
+            launcher_publish/LAUNCHER_BUILD_RESULT.json
+          retention-days: 14
+          if-no-files-found: error
+          compression-level: 0

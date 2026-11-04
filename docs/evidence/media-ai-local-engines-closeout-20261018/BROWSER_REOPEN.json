@@ -1,0 +1,49 @@
+{
+  "status": "PASS_SOURCE_BROWSER_REOPEN_NOT_WINDOWS",
+  "geometry": {
+    "viewport": [
+      1536,
+      1024
+    ],
+    "zoom": 1,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1536,
+      "height": 66
+    },
+    "video": {
+      "x": 11,
+      "y": 66,
+      "width": 752,
+      "height": 929.375
+    },
+    "photo": {
+      "x": 773,
+      "y": 66,
+      "width": 752,
+      "height": 929.375
+    },
+    "videoPreview": {
+      "x": 208,
+      "y": 152,
+      "width": 406,
+      "height": 228.375
+    },
+    "photoPreview": {
+      "x": 968,
+      "y": 152,
+      "width": 548,
+      "height": 308.25
+    }
+  },
+  "playback": {
+    "error": 0,
+    "readyState": 4,
+    "currentTime": 0.251622,
+    "duration": 2.82907,
+    "currentSrc": "http://127.0.0.1:45925/files/workflows/f45ab67b-55a6-48e5-a528-d63569b09d95/01-1/sealed/28c5a922-40da-4f5d-95f5-c61570a8cbfa/narration.wav"
+  },
+  "humanHearing": "NOT_VERIFIED",
+  "fontconfig": "/workspace/scratch/b0ed3e0d34af/test-fonts/fonts.conf"
+}

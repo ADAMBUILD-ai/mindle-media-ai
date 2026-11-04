@@ -1,0 +1,58 @@
+{
+  "name": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip",
+  "bytes": 3166947613,
+  "sha256": "c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606",
+  "parts": [
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-00",
+      "bytes": 524288000,
+      "sha256": "0f2a3a438ae76fc857da79932fb025a2091b4af9df5cd2b336c168f2f1076c59"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-01",
+      "bytes": 524288000,
+      "sha256": "a3e7cc7c2e171c5ccecc589c92ffdd98791095251289ae3920d204fc95b8f4b5"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-02",
+      "bytes": 524288000,
+      "sha256": "f85a8219c0c769e0e2770f2d18966c12da76f878f99a328486c11622e37af0ad"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-03",
+      "bytes": 524288000,
+      "sha256": "1961cb3b717cf7ad1793d7bd5bd92a5d69a4228eafb8dd806c60e341c87c1ad0"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-04",
+      "bytes": 524288000,
+      "sha256": "a73dd9a639c7d3dec697b0c689a1c308c4a1ee18ec1a4d0f1a56c810d78f2992"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-05",
+      "bytes": 524288000,
+      "sha256": "8ffd45e965cbdf9bcc9edc30440be0fa94f761739f078ae1c00194ff6c6b36f0"
+    },
+    {
+      "path": "MINDLE_MEDIA_AI_PC_TEST_20261024_R1.zip.part-06",
+      "bytes": 21219613,
+      "sha256": "1c525ec6209b16639156a35a32fd78e092b1a8897c79f245ce72bbe89b7aa169"
+    }
+  ],
+  "source_archive_sha256": "b8f16230463e14cfff72e9dd241028a8d47329f98c168097ba2cdb58d07cfee3",
+  "source": "2e5e9197d78c9b975686c1e419d2b68ce5f65226",
+  "manifest_sha256": "2c6c3345539473e77cab56b10105448d0c23b651875dca45e8d49217b781dc07",
+  "exe_sha256": "701654240d8f2795957f78f7d1cc9d7fd23d3195f49a0d39ede1d8b8a3a915a5",
+  "exterior_checksum_metadata_corrected": true,
+  "product_payload_changed": false,
+  "post_update_all_payload_hashes": "PASS",
+  "zip_crc": "PASS",
+  "installer": {
+    "path": "MINDLE_MEDIA_AI_START_20261024_R1.zip",
+    "bytes": 2365,
+    "sha256": "747ddd1eb7aa1cef93f235af2128d9aeef68399e15c362a30260d36b1a4e9b44"
+  },
+  "office_pc_acceptance": false,
+  "human_hearing": false,
+  "full_product_pass": false
+}

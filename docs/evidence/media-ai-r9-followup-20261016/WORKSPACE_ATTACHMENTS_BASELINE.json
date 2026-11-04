@@ -1,0 +1,69 @@
+{
+  "scope": "SOURCE_WORKSPACE_ASSET_PERSISTENCE_ONLY",
+  "model_inference": false,
+  "packaged_exe_pass": false,
+  "owner_pc_pass": false,
+  "full_product_pass": false,
+  "runtime_identity": {
+    "repo_root": "D:\\a\\mindle-media-ai\\mindle-media-ai\\baseline",
+    "branch": "",
+    "head": "55003e0d2d8cf2d4f79411064bf96b644656f510",
+    "workspace_ui_fingerprint": "121db9ccfe779c590953bd536ad1aa568dd5fde26cf66e21723e30837903e1ff",
+    "file_hashes": {
+      "ui/index.html": "64abc36dfec2d45a052d6abd00e4a6680bdde01326dfc305319096aa5cde8398",
+      "ui/approved_visual.css": "23695715beb425b35580f2c56dc7e657e3a3538d714a8183f532f77a56b1ebc0",
+      "ui/interaction.css": "8aa3983bf84ca7b004f3b1d6016ddaa6d48790236420a56a195c70defa57217f",
+      "ui/interaction.js": "6af9ed221fd1fda97a2167bbefaa29a4327b510e03c2dc11a2447009a84c1408",
+      "ui/product_integration.js": "b2ad8e010290e31c1202a253ad00deee3c3b04e4c6e98ca76cd6ea9572bde1c4",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "8ea4fab024bd654e2b89472a00feb0a6f4349e8d2102e44be6d29c6c6d0e0330",
+      "ui/video_workspace.js": "4ff660178009e20e88f5a82d346f98305f0090a21c1c064db8ac42dfeabe848e",
+      "ui/workspace_shell.js": "3515718cd53197729add03b690f38f2c2431a1694477e309b84b7960d0ce13be"
+    },
+    "runtime_mode": "DEVELOPMENT_UI",
+    "model_root": null,
+    "git_identity_status": "AVAILABLE"
+  },
+  "chrome": "155.0.8059.40",
+  "save_response": {
+    "status": "SAVED",
+    "project_id": "3b21633e-6dd8-4d31-97fe-cb6f08ecc3b0",
+    "project": {
+      "file_name": "3b21633e-6dd8-4d31-97fe-cb6f08ecc3b0.json",
+      "path": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpwsii1sei\\data\\projects\\3b21633e-6dd8-4d31-97fe-cb6f08ecc3b0.json",
+      "bytes": 2114,
+      "sha256": "ae7290a3b8704898f9991ffb2be05b8471eb3865f121f4943a30396879e0b4cd"
+    }
+  },
+  "before": {
+    "photo": [
+      {
+        "name": "photo-ref.png",
+        "bytes": 225,
+        "sha256": "a8710232c057ff34e506967ad518da19ef432cf5c5ec14c4ce3d8e5c5da4e50e"
+      }
+    ],
+    "video": [
+      {
+        "name": "video-ref.png",
+        "bytes": 225,
+        "sha256": "e2d2c040e809268be49ce9c652659d6d89bb05e625abd325f8989e078d107d18"
+      }
+    ],
+    "audio": {
+      "name": "input-ko.wav",
+      "bytes": 3244,
+      "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd"
+    }
+  },
+  "old_endpoint_closed": true,
+  "first_pid": 8512,
+  "second_pid": 6912,
+  "after": {
+    "photo": [],
+    "video": [],
+    "audio": null
+  },
+  "project_id": "3b21633e-6dd8-4d31-97fe-cb6f08ecc3b0",
+  "status": "CONFIRMED_BASELINE_DEFECT_PENDING_ATTACHMENTS_LOST"
+}

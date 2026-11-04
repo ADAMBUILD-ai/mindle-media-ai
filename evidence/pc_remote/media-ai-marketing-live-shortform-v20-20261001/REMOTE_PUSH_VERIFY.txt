@@ -1,0 +1,8 @@
+PASS
+remote_branch: origin/feature/ad-shortform-bridge-p0-20260926
+remote_head_before_finalization: 08175d970d92c046498b14949d5cc8d423b1711c
+review_path_remote: PRESENT
+machine_evidence_path_remote: PRESENT
+detail_directory_remote: PRESENT
+detail_file_count_remote: 16
+remote_readback: VERIFIED

@@ -1,0 +1,4 @@
+PASS: node --test ui/ssot_structure.test.js ui/interaction.test.js (2/2 tests).
+PASS: pytest -q (51 passed).
+PASS: live local product server loaded canonical UI at http://127.0.0.1:8765/.
+PASS: no UI geometry/layout/code change in v15 cycle.

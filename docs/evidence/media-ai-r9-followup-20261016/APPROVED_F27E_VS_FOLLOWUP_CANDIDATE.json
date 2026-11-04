@@ -1,0 +1,53 @@
+{
+  "status": "FAIL_LAYOUT_MATCH_AGAINST_PINNED_F27E",
+  "candidate_source": "c37c7819b1454996f3510f92184b1ef62faf3c78",
+  "verification_run": 38851276116,
+  "artifact_id": 12025910982,
+  "viewport": {
+    "width": 1536,
+    "height": 1024,
+    "devicePixelRatio": 1,
+    "zoom": 1
+  },
+  "approved": {
+    "file": "APPROVED_ORIGINAL_F27E.png",
+    "sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+    "bytes": 1737365,
+    "size": [
+      1536,
+      1024
+    ]
+  },
+  "actual": {
+    "file": "CURRENT_UI_1536x1024.png",
+    "sha256": "4ec7c0ae683de41f4d01e33e0eb94b03c0a957a31e246c38f742cca3f65cae20",
+    "bytes": 527067,
+    "size": [
+      1536,
+      1024
+    ]
+  },
+  "differences": [
+    {
+      "element": "VIDEO/PHOTO placement",
+      "approved": "VIDEO top, PHOTO bottom",
+      "actual": "VIDEO left, PHOTO right"
+    },
+    {
+      "element": "global navigation",
+      "approved": "left global sidebar",
+      "actual": "top VIDEO/PHOTO pills and per-panel asset controls"
+    },
+    {
+      "element": "reference command input",
+      "approved": "inside left asset column",
+      "actual": "below timeline/preview area"
+    }
+  ],
+  "css_cause": ".dual-workspace grid-template-columns:minmax(0,1fr) minmax(0,1fr) in ui/approved_visual.css",
+  "visual_source_modified": false,
+  "later_approval_vs_pinned_original_conflict": "No later replacement original independently acquired; do not arbitrarily redesign",
+  "office_pc_visual_pass": false,
+  "R9_originals_status": "BLOCKED_NOT_ACQUIRED",
+  "R9_lock_exception_cause": "BLOCKED_ORIGINAL_LOGS_NOT_ACQUIRED"
+}

@@ -1,0 +1,178 @@
+{
+  "status": "TESTED_PASS",
+  "job_id": "d74ac5db-048a-42d0-969c-ece95f931a11",
+  "evidence_id": "625c9382-a563-439b-82b0-d2d595e4ef87",
+  "lane": "photo",
+  "operation": "segment",
+  "command": "왼쪽 인물을 분리해줘",
+  "state_history": [
+    "queued",
+    "validating",
+    "preflight_ready",
+    "dispatched",
+    "running",
+    "output_validating",
+    "succeeded"
+  ],
+  "model": {
+    "identity": {
+      "repo_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license": "apache-2.0",
+      "weight_name": "model.safetensors",
+      "weight_size_bytes": 323476296,
+      "weight_sha256": "2012733a0de5d03efd1bba550a2847c4551be9ef2e0d497c83074df66189f780"
+    },
+    "local_recovered_package": {
+      "root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-25\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\mindle-media-v30-runtime\\package\\package\\models\\sam21",
+      "read_only": true
+    }
+  },
+  "adapter": {
+    "id": "mindle.sam21.verified.cpu",
+    "version": "1.0.1",
+    "runtime_backend": "transformers-pytorch",
+    "device_requirement": "cpu"
+  },
+  "input": {
+    "file_name": "caedeb49-b8ac-4698-b268-d2373e650f72_photo.png",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\caedeb49-b8ac-4698-b268-d2373e650f72_photo.png",
+    "bytes": 189281,
+    "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+  },
+  "runtime_result": {
+    "status": "TESTED_PASS",
+    "input_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\caedeb49-b8ac-4698-b268-d2373e650f72_photo.png",
+    "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+    "prompt_point": [
+      125,
+      146
+    ],
+    "selected_mask_index": 1,
+    "foreground_fraction": 0.016512345679012344,
+    "elapsed_ms": 52096.75,
+    "outputs": [
+      {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\a2687ab4-f1db-44c7-bce9-1bd1655dea2e\\sam_photo\\photo_mask.png",
+        "sha256": "e60a09ff17a2ea5750feff00f90341e055b47a753a520daebe81ddf7807e592e",
+        "bytes": 647
+      },
+      {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\a2687ab4-f1db-44c7-bce9-1bd1655dea2e\\sam_photo\\photo_overlay.png",
+        "sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91",
+        "bytes": 174450
+      }
+    ]
+  },
+  "primary_output": {
+    "file_name": "photo_overlay.png",
+    "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\a2687ab4-f1db-44c7-bce9-1bd1655dea2e\\sam_photo\\photo_overlay.png",
+    "bytes": 174450,
+    "sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91"
+  },
+  "outputs": [
+    {
+      "file_name": "photo_mask.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\a2687ab4-f1db-44c7-bce9-1bd1655dea2e\\sam_photo\\photo_mask.png",
+      "bytes": 647,
+      "sha256": "e60a09ff17a2ea5750feff00f90341e055b47a753a520daebe81ddf7807e592e"
+    },
+    {
+      "file_name": "photo_overlay.png",
+      "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\a2687ab4-f1db-44c7-bce9-1bd1655dea2e\\sam_photo\\photo_overlay.png",
+      "bytes": 174450,
+      "sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91"
+    }
+  ],
+  "backend": {
+    "api_status": 201,
+    "delivery_gate": "DELIVERED",
+    "job_evidence": {
+      "job_id": "d74ac5db-048a-42d0-969c-ece95f931a11",
+      "evidence_id": "625c9382-a563-439b-82b0-d2d595e4ef87",
+      "evidence_status": "VERIFY_REQUIRED",
+      "runtime_status": "OUTPUT_VALIDATED",
+      "terminal_state": "succeeded",
+      "recorded_at": "2026-10-01T04:12:14.050941+00:00",
+      "started_at": "2026-10-01T04:12:14.042940+00:00",
+      "finished_at": "2026-10-01T04:12:14.050941+00:00",
+      "project_id": null,
+      "requested_operation": "segment",
+      "source_provenance": {
+        "source_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\inputs\\caedeb49-b8ac-4698-b268-d2373e650f72_photo.png",
+        "sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+        "ingress": "approved-ui"
+      },
+      "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+      "reference_files": [],
+      "retry_provenance": {
+        "job_id": "d74ac5db-048a-42d0-969c-ece95f931a11",
+        "evidence_id": "625c9382-a563-439b-82b0-d2d595e4ef87",
+        "attempt": 1
+      },
+      "state_history": [
+        "queued",
+        "validating",
+        "preflight_ready",
+        "dispatched",
+        "running",
+        "output_validating",
+        "succeeded"
+      ],
+      "runtime": {
+        "platform": "Windows-10-10.0.19045-SP0",
+        "hardware": "AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD"
+      },
+      "adapter_id": "mindle.sam21.verified.cpu",
+      "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+      "revision": "b7320756a13354e7530a63935656d35b2f91a290",
+      "license_source": "apache-2.0",
+      "runtime_backend": "transformers-pytorch",
+      "device_requirement": "cpu",
+      "execution_context": {
+        "job_id": "d74ac5db-048a-42d0-969c-ece95f931a11",
+        "evidence_id": "625c9382-a563-439b-82b0-d2d595e4ef87",
+        "lane": "photo",
+        "source_hashes": {
+          "source": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f"
+        },
+        "nl_instruction": "왼쪽 인물을 분리해줘",
+        "reference_images": [],
+        "retry_provenance": {
+          "job_id": "d74ac5db-048a-42d0-969c-ece95f931a11",
+          "evidence_id": "625c9382-a563-439b-82b0-d2d595e4ef87",
+          "attempt": 0
+        },
+        "adapter_identity": {
+          "adapter_id": "mindle.sam21.verified.cpu",
+          "model_or_program_id": "facebook/sam2.1-hiera-base-plus",
+          "revision": "b7320756a13354e7530a63935656d35b2f91a290"
+        }
+      },
+      "output_artifact": {
+        "path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\a2687ab4-f1db-44c7-bce9-1bd1655dea2e\\sam_photo\\photo_overlay.png",
+        "type": ".png",
+        "size_bytes": 174450,
+        "sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91",
+        "status": "validated"
+      },
+      "model_scout_delivery": {
+        "status": "DELIVERED",
+        "callback_id": "callback-cfbd616a-8748-4e46-a850-13f1d36f9fce",
+        "input_sha256": "8ecec108e674b51d36d5323dc2f99240a55913b87003aeb754307da8553edb6f",
+        "output_sha256": "205cf3e653c6496303f535d8ddc15d51ea8d53922dad11322ef9ec4968655a91",
+        "output_path": "C:\\Users\\PC\\Documents\\Codex\\2026-09-15\\referenced-chatgpt-conversation-this-is-an\\work\\mindle-media-ai\\evidence\\pc_remote\\pc-work-v32-asset-recovery-ui-ssot-v14-20261001\\runtime-data\\jobs\\a2687ab4-f1db-44c7-bce9-1bd1655dea2e\\sam_photo\\photo_overlay.png",
+        "elapsed_ms": 52096.75
+      }
+    }
+  },
+  "execution_environment": {
+    "hardware": "CPU",
+    "gpu_used": false,
+    "paid_compute": false,
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.11.9",
+    "process": "3.11.9"
+  }
+}

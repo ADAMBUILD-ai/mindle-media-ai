@@ -1,0 +1,92 @@
+{
+  "scope": "REAL_SOURCE_HTTP_PROCESS_LIFECYCLE_GENERATED_FIXTURES",
+  "packaged_exe_pass": false,
+  "office_pc_pass": false,
+  "model_inference": false,
+  "first_identity": {
+    "repo_root": "/workspace/scratch/b0ed3e0d34af/media-audit",
+    "branch": null,
+    "head": null,
+    "workspace_ui_fingerprint": "76fb7de07880d50bf7eaf9c6ca7820d5f3953638023acd4a5037c8d7dd0dc179",
+    "file_hashes": {
+      "ui/index.html": "858e38e79af28f035f81dc91303398005a5e44ea2747e388891a1fc7f80c1b73",
+      "ui/approved_visual.css": "2e6c7f992c8ab412e0d70af433fa2cc1e3e625304cf4051ba37de4d7814e7757",
+      "ui/interaction.css": "4bdd277f469e1890c1cf5192beebb955b83135d914e2c4e3950d4d9ecb0459f0",
+      "ui/interaction.js": "17f587af4a0cd533503f94698b52cca44bc5b3130a449b4a1e803e7fe75fddf3",
+      "ui/product_integration.js": "1a5384471c9d9b84fbc64e3ff76d4e373e79c05ccc8668cc5e802948d224c173",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "bfce1bda1a1986a8cc217d0ec8d31a3553049c48714b879346b913138cbb6937",
+      "ui/video_workspace.js": "49e392d9afe4af464b40bbdfc8d7d4ba519b4cb1ffa0271cb43697e836d64d58",
+      "ui/workspace_shell.js": "f7bd1fce6be3fbcb478ee54dc084f5cc6236db9b56ab02fdb079d5389afe6776"
+    },
+    "runtime_mode": "DEVELOPMENT_UI",
+    "model_root": null,
+    "git_identity_status": "UNAVAILABLE",
+    "server_pid": 138,
+    "server_instance_id": "b2d59051-b065-42f1-ba14-df264f9fdee2",
+    "server_started_at": "2026-10-17T06:46:27.502421+00:00",
+    "server_command": [
+      "/workspace/scratch/b0ed3e0d34af/audit-venv/bin/python",
+      "/workspace/scratch/b0ed3e0d34af/media-audit/src/media_ai/product_server.py",
+      "--root",
+      "/workspace/scratch/b0ed3e0d34af/media-audit",
+      "--data-dir",
+      "/tmp/mindle_owner_stop_ca3edz49",
+      "--port",
+      "0"
+    ],
+    "owner_shutdown_supported": true
+  },
+  "first_stop": {
+    "pid_exited": 138,
+    "exit_code": 0,
+    "endpoint_closed": true
+  },
+  "second_identity": {
+    "repo_root": "/workspace/scratch/b0ed3e0d34af/media-audit",
+    "branch": null,
+    "head": null,
+    "workspace_ui_fingerprint": "76fb7de07880d50bf7eaf9c6ca7820d5f3953638023acd4a5037c8d7dd0dc179",
+    "file_hashes": {
+      "ui/index.html": "858e38e79af28f035f81dc91303398005a5e44ea2747e388891a1fc7f80c1b73",
+      "ui/approved_visual.css": "2e6c7f992c8ab412e0d70af433fa2cc1e3e625304cf4051ba37de4d7814e7757",
+      "ui/interaction.css": "4bdd277f469e1890c1cf5192beebb955b83135d914e2c4e3950d4d9ecb0459f0",
+      "ui/interaction.js": "17f587af4a0cd533503f94698b52cca44bc5b3130a449b4a1e803e7fe75fddf3",
+      "ui/product_integration.js": "1a5384471c9d9b84fbc64e3ff76d4e373e79c05ccc8668cc5e802948d224c173",
+      "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+      "ui/photo_workspace.js": "bfce1bda1a1986a8cc217d0ec8d31a3553049c48714b879346b913138cbb6937",
+      "ui/video_workspace.js": "49e392d9afe4af464b40bbdfc8d7d4ba519b4cb1ffa0271cb43697e836d64d58",
+      "ui/workspace_shell.js": "f7bd1fce6be3fbcb478ee54dc084f5cc6236db9b56ab02fdb079d5389afe6776"
+    },
+    "runtime_mode": "DEVELOPMENT_UI",
+    "model_root": null,
+    "git_identity_status": "UNAVAILABLE",
+    "server_pid": 154,
+    "server_instance_id": "7b17359f-e72d-4633-8cf1-a13480c4685a",
+    "server_started_at": "2026-10-17T06:46:28.363487+00:00",
+    "server_command": [
+      "/workspace/scratch/b0ed3e0d34af/audit-venv/bin/python",
+      "/workspace/scratch/b0ed3e0d34af/media-audit/src/media_ai/product_server.py",
+      "--root",
+      "/workspace/scratch/b0ed3e0d34af/media-audit",
+      "--data-dir",
+      "/tmp/mindle_owner_stop_ca3edz49",
+      "--port",
+      "0"
+    ],
+    "owner_shutdown_supported": true
+  },
+  "project_id": "608700a0-e855-4146-ba0d-b6a75fd09737",
+  "export": {
+    "sha256": "0858b658955e829366cba8e4e87f560b2f7c4fdb885aee5f74f95a7c29a6e117",
+    "bytes": 3208,
+    "crc": "PASS",
+    "manifest_files": 5
+  },
+  "second_stop": {
+    "pid_exited": 154,
+    "exit_code": 0,
+    "endpoint_closed": true
+  },
+  "status": "PASS_SOURCE_PROCESS_OWNER_STOP_RESTART_REOPEN_EXPORT"
+}

@@ -1,0 +1,9 @@
+{
+  "path": "ui/ssot_manifest.json",
+  "status": "APPROVED_PINNED",
+  "declared_sha256": "f27eeb5031d83d7015494bc1683a981488ac4806627dc91c21f1c8c523df2541",
+  "canonical_file_sha256": "9aaf05be17a3b851717a8bcdbeaf9c589812cb02f4807e3e2c9d10e75709ad3d",
+  "matches": false,
+  "metadata_updated": false,
+  "reason": "The exact handoff asset is absent, so metadata was not silently changed."
+}

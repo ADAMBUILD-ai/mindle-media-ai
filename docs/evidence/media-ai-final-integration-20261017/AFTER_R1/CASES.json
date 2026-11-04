@@ -1,0 +1,201 @@
+[
+  {
+    "case": "open_photo_only_clears_video_state",
+    "before": {
+      "files": [
+        {
+          "name": "original_photo.png",
+          "size": 309254
+        },
+        {
+          "name": "edited_video.mp4",
+          "size": 210128
+        },
+        {
+          "name": "korean_original.wav",
+          "size": 798778
+        }
+      ],
+      "previews": [
+        {
+          "job": "657aa858-dbbf-44cf-a1aa-45c142f6ca71",
+          "operation": "video_edit",
+          "children": 1
+        },
+        {
+          "job": "8749f70d-ae96-48ea-9ad6-6e729fb9d585",
+          "operation": "import",
+          "children": 1
+        }
+      ],
+      "tracks": [
+        "영상 Track · 편집 결과",
+        "Subtitle Track · Boundary subtitle",
+        "Effect Track · 영상 효과",
+        "Audio Track · 원본 오디오"
+      ],
+      "time": "00:00:00",
+      "duration": "/ 00:00:02",
+      "ruler": "00:00:00　00:00:00　00:00:00　00:00:01　00:00:01　00:00:02",
+      "seek": "0",
+      "inputs": [
+        {
+          "key": "video",
+          "files": []
+        },
+        {
+          "key": null,
+          "files": []
+        },
+        {
+          "key": "video",
+          "files": []
+        },
+        {
+          "key": "photo",
+          "files": []
+        },
+        {
+          "key": "photo",
+          "files": []
+        }
+      ],
+      "refs": [
+        [
+          "reference_architecture_crop.png"
+        ],
+        []
+      ],
+      "projectStatus": [
+        null,
+        "saved"
+      ]
+    },
+    "after": {
+      "files": [
+        {
+          "name": "original_photo.png",
+          "size": 309254
+        },
+        null,
+        null
+      ],
+      "previews": [
+        {
+          "job": null,
+          "operation": null,
+          "children": 0
+        },
+        {
+          "job": "c8cc38c1-66da-4fc2-bf29-296b500126b0",
+          "operation": "import",
+          "children": 1
+        }
+      ],
+      "tracks": [
+        "영상 Track · 원본 영상",
+        "Subtitle Track · 자막 없음",
+        "Effect Track · 효과 없음",
+        "Audio Track · 원본 오디오"
+      ],
+      "time": "00:00:00",
+      "duration": "/ 00:00:00",
+      "ruler": "00:00　00:05　00:10　00:15　00:20　00:25",
+      "seek": "0",
+      "inputs": [
+        {
+          "key": "video",
+          "files": []
+        },
+        {
+          "key": null,
+          "files": []
+        },
+        {
+          "key": "video",
+          "files": []
+        },
+        {
+          "key": "photo",
+          "files": []
+        },
+        {
+          "key": "photo",
+          "files": []
+        }
+      ],
+      "refs": [
+        [],
+        []
+      ],
+      "projectStatus": [
+        null,
+        "reopened"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "case": "new_clears_all_project_state",
+    "after": {
+      "files": [
+        null,
+        null,
+        null
+      ],
+      "previews": [
+        {
+          "job": null,
+          "operation": null,
+          "children": 0
+        },
+        {
+          "job": null,
+          "operation": null,
+          "children": 0
+        }
+      ],
+      "tracks": [
+        "영상 Track · 원본 영상",
+        "Subtitle Track · 자막 없음",
+        "Effect Track · 효과 없음",
+        "Audio Track · 원본 오디오"
+      ],
+      "time": "00:00:00",
+      "duration": "/ 00:00:00",
+      "ruler": "00:00　00:05　00:10　00:15　00:20　00:25",
+      "seek": "0",
+      "inputs": [
+        {
+          "key": "video",
+          "files": []
+        },
+        {
+          "key": null,
+          "files": []
+        },
+        {
+          "key": "video",
+          "files": []
+        },
+        {
+          "key": "photo",
+          "files": []
+        },
+        {
+          "key": "photo",
+          "files": []
+        }
+      ],
+      "refs": [
+        [],
+        []
+      ],
+      "projectStatus": [
+        null,
+        null
+      ]
+    },
+    "pass": true
+  }
+]

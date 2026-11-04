@@ -1,0 +1,9 @@
+{
+  "ui/index.html": "197ff6fea2b1a5678c093aafdd2874e6dd36b026ef66f5455239a52023954fb1",
+  "ui/approved_visual.css": "ed20b2d89308bf4ddc746eb9b6f4804180488e7192b3f9e69b163795de0fdab2",
+  "ui/product_integration.js": "206d3373261a023c76a2723ca0e13288f5b4bb183a28a3df7f40d526f2c74227",
+  "ui/timeline_preview.js": "84667afe83a69c7444f07b43edc374c8dce312b1697be18b0df3990bbcc4b1ba",
+  "src/media_ai/product_server.py": "af6486a95e14f3c1be68cbf472779a1a6246cbfcd5034ddb767c86e51d8415e3",
+  "scripts/build_one_click_runtime_layout.py": "359ebd1d8f592a4effc5ff494973742ca56f97565de28aa775ea8428a1bf20b3",
+  "scripts/build_employee_distribution_package.py": "95bf4be7e6570635e5fa89b39a6698b5f7c45f44ea67adea479cd299ca5f188f"
+}

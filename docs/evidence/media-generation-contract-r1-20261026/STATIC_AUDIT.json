@@ -1,0 +1,329 @@
+{
+  "status": "PASS_STATIC_SOURCE_AUDIT_ONLY",
+  "generation_execution": "NOT_EXECUTED",
+  "media_integration": "NOT_IMPLEMENTED_LTX_NOT_EXECUTED_WAN",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/generation-queue",
+      "function": "route_get_generation_queue",
+      "source": "ltx_remote_routes",
+      "line": 66
+    },
+    {
+      "method": "POST",
+      "path": "/api/generation-queue/reorder",
+      "function": "route_reorder_generation_queue",
+      "source": "ltx_remote_routes",
+      "line": 83
+    },
+    {
+      "method": "POST",
+      "path": "/api/generation-queue/done/clear",
+      "function": "route_clear_generation_queue_done",
+      "source": "ltx_remote_routes",
+      "line": 104
+    },
+    {
+      "method": "POST",
+      "path": "/api/generation-queue/failed/clear",
+      "function": "route_clear_generation_queue_failed",
+      "source": "ltx_remote_routes",
+      "line": 121
+    },
+    {
+      "method": "POST",
+      "path": "/api/generation-queue/done/{generation_id}/seen",
+      "function": "route_mark_generation_queue_done_seen",
+      "source": "ltx_remote_routes",
+      "line": 138
+    },
+    {
+      "method": "POST",
+      "path": "/api/generation-queue/done/{generation_id}/dismiss",
+      "function": "route_dismiss_generation_queue_done",
+      "source": "ltx_remote_routes",
+      "line": 152
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/text-to-video",
+      "function": "route_create_text_to_video",
+      "source": "ltx_remote_routes",
+      "line": 166
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/image-to-video",
+      "function": "route_create_image_to_video",
+      "source": "ltx_remote_routes",
+      "line": 183
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/recipes/{recipe_id}",
+      "function": "route_create_lora_recipe",
+      "source": "ltx_remote_routes",
+      "line": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/audio-to-video",
+      "function": "route_create_audio_to_video",
+      "source": "ltx_remote_routes",
+      "line": 220
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/retake",
+      "function": "route_create_retake",
+      "source": "ltx_remote_routes",
+      "line": 237
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/extend",
+      "function": "route_create_extend",
+      "source": "ltx_remote_routes",
+      "line": 252
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/edit/preflight",
+      "function": "route_preflight_edit",
+      "source": "ltx_remote_routes",
+      "line": 267
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/ic-lora-recipes/{recipe_id}",
+      "function": "route_create_ic_lora_recipe",
+      "source": "ltx_remote_routes",
+      "line": 279
+    },
+    {
+      "method": "GET",
+      "path": "/api/generations/recent-features",
+      "function": "route_list_recent_features",
+      "source": "ltx_remote_routes",
+      "line": 297
+    },
+    {
+      "method": "GET",
+      "path": "/api/generations",
+      "function": "route_list_generations",
+      "source": "ltx_remote_routes",
+      "line": 311
+    },
+    {
+      "method": "GET",
+      "path": "/api/generations/{generation_id}",
+      "function": "route_get_generation",
+      "source": "ltx_remote_routes",
+      "line": 328
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/{generation_id}/retry",
+      "function": "route_retry_generation",
+      "source": "ltx_remote_routes",
+      "line": 341
+    },
+    {
+      "method": "POST",
+      "path": "/api/generations/{generation_id}/cancel",
+      "function": "route_cancel_generation",
+      "source": "ltx_remote_routes",
+      "line": 355
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/generations/{generation_id}",
+      "function": "route_delete_generation",
+      "source": "ltx_remote_routes",
+      "line": 369
+    },
+    {
+      "method": "GET",
+      "path": "/api/assets",
+      "function": "route_list_phone_assets",
+      "source": "ltx_assets",
+      "line": 263
+    },
+    {
+      "method": "GET",
+      "path": "/api/assets/{asset_id}",
+      "function": "route_get_phone_asset",
+      "source": "ltx_assets",
+      "line": 284
+    },
+    {
+      "method": "POST",
+      "path": "/api/assets/{asset_id}/trim-audio",
+      "function": "route_phone_trim_audio",
+      "source": "ltx_assets",
+      "line": 299
+    },
+    {
+      "method": "POST",
+      "path": "/api/assets/{asset_id}/trim-video",
+      "function": "route_phone_trim_video",
+      "source": "ltx_assets",
+      "line": 313
+    },
+    {
+      "method": "POST",
+      "path": "/api/assets/{asset_id}/extract-audio",
+      "function": "route_phone_extract_audio",
+      "source": "ltx_assets",
+      "line": 327
+    },
+    {
+      "method": "POST",
+      "path": "/api/assets/upload",
+      "function": "route_upload_asset",
+      "source": "ltx_assets",
+      "line": 414
+    },
+    {
+      "method": "GET",
+      "path": "/api/assets/{asset_id}/bytes",
+      "function": "route_asset_bytes",
+      "source": "ltx_assets",
+      "line": 488
+    },
+    {
+      "method": "HEAD",
+      "path": "/api/assets/{asset_id}/bytes",
+      "function": "route_asset_bytes",
+      "source": "ltx_assets",
+      "line": 488
+    },
+    {
+      "method": "GET",
+      "path": "/api/assets/{asset_id}/thumbnail/bytes",
+      "function": "route_asset_thumbnail_bytes",
+      "source": "ltx_assets",
+      "line": 499
+    },
+    {
+      "method": "HEAD",
+      "path": "/api/assets/{asset_id}/thumbnail/bytes",
+      "function": "route_asset_thumbnail_bytes",
+      "source": "ltx_assets",
+      "line": 499
+    }
+  ],
+  "wan_cli_options": {
+    "--task": 109,
+    "--size": 115,
+    "--frame_num": 122,
+    "--ckpt_dir": 128,
+    "--offload_model": 133,
+    "--ulysses_size": 139,
+    "--t5_fsdp": 144,
+    "--t5_cpu": 149,
+    "--dit_fsdp": 154,
+    "--save_file": 159,
+    "--prompt": 164,
+    "--use_prompt_extend": 169,
+    "--prompt_extend_method": 174,
+    "--prompt_extend_model": 180,
+    "--prompt_extend_target_lang": 185,
+    "--base_seed": 191,
+    "--image": 196,
+    "--sample_solver": 201,
+    "--sample_steps": 207,
+    "--sample_shift": 209,
+    "--sample_guide_scale": 214,
+    "--convert_model_dtype": 219,
+    "--src_root_path": 226,
+    "--refert_num": 231,
+    "--replace_flag": 237,
+    "--use_relighting_lora": 242,
+    "--num_clip": 249,
+    "--audio": 255,
+    "--enable_tts": 260,
+    "--tts_prompt_audio": 265,
+    "--tts_prompt_text": 270,
+    "--tts_text": 275,
+    "--pose_video": 280,
+    "--start_from_ref": 285,
+    "--infer_frames": 291
+  },
+  "media_engine_assets": {
+    "existing_clip": [
+      "external.ffmpeg.runtime"
+    ],
+    "blender": [
+      "mindle.blender.camera-render-driver.v1",
+      "external.blender.runtime",
+      "external.ffmpeg.runtime"
+    ],
+    "wan22": [
+      "external.comfyui.runtime",
+      "external.wan22.ti2v-5b",
+      "external.ffmpeg.runtime"
+    ]
+  },
+  "sources": {
+    "ltx_remote": {
+      "github_blob_sha": "18cf27eb62f4f8bc22d7c352b855f15d86112871",
+      "sha256": "171f9e340f806a43c35a6188882459de4554143c289b9226ce47501bd8557841",
+      "url": "https://github.com/Lightricks/LTX-Desktop/blob/v1.3.1/docs/remote-lan.md"
+    },
+    "ltx_remote_routes": {
+      "github_blob_sha": "0796b5349e7eb5420dbb2741037cf05efa38a5c0",
+      "sha256": "1a596a766b478c4736513171af1707652096ca779ca2c6a98dea17c94851ad8b",
+      "url": "https://github.com/Lightricks/LTX-Desktop/blob/v1.3.1/backend/remote/generations.py"
+    },
+    "ltx_app": {
+      "github_blob_sha": "6e5de97eea5e4550da99905d2e17d43c6c38c7fb",
+      "sha256": "c16f24aeb776243d85a7899a2ea9daa1cf0190e76bf7e2226a1cdfd139fd7b94",
+      "url": "https://github.com/Lightricks/LTX-Desktop/blob/8ffed888f3a9afdfbf137fa6193bf1cdc1cd657b/backend/remote/app.py"
+    },
+    "ltx_dto": {
+      "github_blob_sha": "6521e90e9c59b5360fd0e102efc5757dbaa0abaa",
+      "sha256": "e4b4fdd93af6ce737c280b3fa305b2eea90ed038cc4f44ac61c5336fb5eb5378",
+      "url": "https://github.com/Lightricks/LTX-Desktop/blob/8ffed888f3a9afdfbf137fa6193bf1cdc1cd657b/backend/remote/dto.py"
+    },
+    "ltx_assistant_doc": {
+      "github_blob_sha": "c7f2a357e6f060593f2e1a997abb3df9368f0275",
+      "sha256": "1d09af1fd635a763e7914ba94a9a1508f0dce6c4a722d6fa59015b8d9a7ff3e1",
+      "url": "https://github.com/Lightricks/LTX-Desktop/blob/8ffed888f3a9afdfbf137fa6193bf1cdc1cd657b/docs/desktop-assistant.md"
+    },
+    "ltx_assets": {
+      "github_blob_sha": "14a402026cd99a94d9b5e74ee374473c12e93dbb",
+      "sha256": "6c41f763997307b221277f889e02e5f20a7c746ff49b0783bcf07af2b9693c7e",
+      "url": "https://github.com/Lightricks/LTX-Desktop/blob/8ffed888f3a9afdfbf137fa6193bf1cdc1cd657b/backend/_routes/assets.py"
+    },
+    "wan_code": {
+      "github_blob_sha": "3a5cbcdd208e0acbe5c2c90478551660407ea26c",
+      "sha256": "cae024b99a3d105fe273a8dfe724ea656f9c1a876ccc8534a8c2fbfb716950e7",
+      "url": "https://github.com/Wan-Video/Wan2.2/blob/1ea34ff48f87168174e12956e200b1d908b1c5ff/generate.py"
+    },
+    "src/media_ai/architectural_video_pipeline.py": {
+      "github_blob_sha": "f30676f1f0b162ffc484f370a7c16984bdf0c6f0",
+      "sha256": "8fab05dcf78a334aca0a423f61f009b50278b0338f955fed8d5c325c474c9a2f",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/blob/fb445c3ea98f6d9ea4c0bfd6fbffa3be3d5dd471/src/media_ai/architectural_video_pipeline.py"
+    },
+    "registry": {
+      "github_blob_sha": "4a80b1f3721c816d37671a1ca0cd779d2a84e019",
+      "sha256": "5b9bf0efb3eb9e6ddab3cab61edb814713de0007eb61c7fe0a63b9d27f4e092c",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/blob/fb445c3ea98f6d9ea4c0bfd6fbffa3be3d5dd471/external_assets/media-production/ASSET_REGISTRY.json"
+    },
+    "media_contract": {
+      "github_blob_sha": "5bdc8d9f5ded3d64403254ffeccb77fa52034844",
+      "sha256": "254aeac38c75ca5635ff11c66178f0535a99542b48b280db79ab7cc0b2967dac",
+      "url": "https://github.com/ADAMBUILD-ai/mindle-media-ai/blob/fb445c3ea98f6d9ea4c0bfd6fbffa3be3d5dd471/docs/07_ADAPTER_CONTRACTS.md"
+    }
+  },
+  "assertions": {
+    "required_ltx_routes_present": true,
+    "wan_explicit_cli_options_present": true,
+    "media_ltx_engine_absent": true
+  },
+  "credentials_used": false,
+  "installed_or_downloaded_models": false,
+  "external_programs_started": false
+}

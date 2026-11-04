@@ -1,0 +1,44 @@
+[
+  {
+    "case": "valid",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "status": "PASS",
+    "output": "PC_WORK_CORRECTED_WINDOWS_CANDIDATE_GATE_PASS\nLOCAL_READINESS=USER_REPORTED_NORMAL; LOCAL_PRODUCT_PASS=false; FINAL_PRODUCT_PASS=false\n"
+  },
+  {
+    "case": "wrong_pc_epoch",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "status": "PASS",
+    "output": "PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: epoch mismatch\n"
+  },
+  {
+    "case": "wrong_verified_source",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "status": "PASS",
+    "output": "PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: verified core mismatch\n"
+  },
+  {
+    "case": "openai_false_pass",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "status": "PASS",
+    "output": "PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: unsupported final PASS\n"
+  },
+  {
+    "case": "wrong_candidate_workflow",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "status": "PASS",
+    "output": "PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: candidate scope mismatch\n"
+  },
+  {
+    "case": "merge_hold_removed",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "status": "PASS",
+    "output": "PC_WORK_CONTROL_PLANE_MISMATCH_BLOCKED: invariant mismatch\n"
+  }
+]

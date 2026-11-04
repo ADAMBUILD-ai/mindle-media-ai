@@ -1,0 +1,63 @@
+2026-10-15 MINDLE MEDIA AI 실제 사무실 PC 검증 후보 결과
+
+실행 ID: PC-20261015-2c8112c9-de2c-4292-99da-2b209c8c1998
+시작: 2026-10-15T03:41:54.378094+09:00
+현재 결과: 부분 엔진/파일 검증 성공, 사무실 전체 기능/제품 전체 PASS 보류
+후보 source: 0e4e12a9e4c758f202c6ebb5085df5a542bb6314
+개발 검수기 source: 123d19d638d3e2418108e2c9721f711ee300e3e2
+아티팩트 run: 38497304486 (launcher-manifests + part00~04만 사용)
+ZIP SHA256: 8d844a686fdd2f8630b97384cf8d224fbb4195061819a5a79f4576097aeaf527
+Runtime: 0e4e12a9e4c7-e533e9ff57d4
+
+PASS — 이번 PC에서 실제로 관측/실행한 범위
+• 지정 ZIP SHA/CRC, launcher SHA, source/runtime identity 일치. 새 폴더에 압축해제.
+• 탐색기 실제 더블클릭. 해당 후보 Runtime 서버 HTTP200 및 자동 열린 Chrome 창 관측.
+  다중 실행 입력 후 포트별 후보 identity는 1개. 전체 host PID 열거는 제한됨.
+• Chrome 설치 버전155.0.8059.40. 실제 클릭은 Codex 내장 브라우저에서 수행.
+  Chrome/Edge/Windows 플레이어 재생 완료로 확대하지 않음.
+• SAM 사진분할: 새 request/job, 실제 reference crop 결합, mask/overlay/배경 제거 출력.
+• Intel SISR: 480×960 → 1920×3840 (각 축4배), 실제 OpenVINO 출력.
+• SAM2 Video: 125/125 frames, 24fps, 672×384, 전체 memory 추적.
+• Whisper-small: 원본 WAV12.48초, 44.1kHz stereo37.44초, 영상음성37.45초 실제 처리.
+  16kHz mono 정규화, 25초 이후 구간 포함. 37.44초 fixture는 기존12.48초의3회 반복.
+• 준비 입력8개 모두 실제 설치 서비스에서 사용. 영상/세로사진2개는 UI에서 import;
+  나머지는 실제 제품 HTTP 호출로 검수. API 검수를 UI 클릭으로 계산하지 않음.
+• 영상 trim/split/rotate/speed/fade/effect/denoise+stabilize/9:16/한글구간자막/BGM/후속편집
+  11개 실제 서비스 호출 성공. 모든 출력 H264/yuv420p/faststart, 해당 BGM 출력 AAC.
+• BGM 후속편집 RMS 비율0.997 — 중복 혼합 증가 관측 안 됨(API 경로).
+• 실제 프로젝트 API 저장·동일 서버 GET readback. 실제 Export ZIP38,476,431bytes,
+  CRC 정상, project.json 포함, 출력28개 및 참고 파일 해시 일치.
+• 실제 MP4 HTTP 다운로드/Range206, 파일SHA일치, FFmpeg 실제 decode/seek 성공.
+
+버튼60개 최종 판정
+• 전부 live DOM에서 enabled active 후보로 관측.
+• 실제 클릭9개: PASS8, FAIL1. 나머지51개 BLOCKED, 실제 클릭하지 않음.
+• 클라우드 표기 버튼이 로컬 저장소 창을 여는 잘못 연결된 기능 FAIL.
+• disabled/status-only/unsupported를 임의로 성공 수에 넣지 않음.
+
+FAIL / 검토 필요
+• 마지막 채팅 승인 이미지와 후보의 PHOTO 도구/참고Strip/VIDEO Timeline 구조 차이.
+  후보는 FINAL_UI_20261013을 선언함. 더 최신 승인본이 있다면 owner 기준 확정 필요.
+• Export ZIP에서14개 작업의 원본 입력 경로가 파일로 포함되지 않음(이동성 검토).
+  출력/참고CRC·SHA 성공과 구분.
+
+BLOCKED
+• Windows 도구 앱 승인 시간초과 후 Chrome URL 검증 정책 차단. 추가 UI 입력 중지.
+• 남은51버튼, 사진7보정 실제 픽셀변화, 정확한 브라우저 MediaError/readyState/seek/audio,
+  앱·서버·브라우저 완전종료 및 EXE 재더블클릭·cold Reopen, Windows플레이어.
+• 엔진 실행 성공과 대상/음질/문장 정확도 품질 승인은 별개. 승인 주석/정답문장 미제공.
+
+DEFERRED
+• OpenAI 생성형 계획/키 연결, 외부 Marketing HTTP, 승인 AVORA, 승인 광고 완성 Export.
+
+검수기
+• 최신 scripts/validate_local_pc_acceptance.py exit0,
+  EVIDENCE_COMPLETE_REQUIRES_RUNTIME_REVIEW. 증거 완전성만 의미.
+• owner_pc_pass=false / full_product_pass=false 유지.
+
+재개 조건
+주소창이 보이는 일반 Chrome/Edge 탭 또는 URL이 검증되는 브라우저 제어 연결을 확보한 뒤
+남은 실제 클릭·재생·완전종료/재열기를 이어야 함. 현재 후보 코드/알고리즘/가중치/Timeout
+수정·재빌드·직원 패키지 재생성·main 병합·force push·PR23 변경·키 연결 없음.
+
+추가 무결성 확인: 모델·편집 실행 후 설치 패키지19,235개 파일 SHA검사 PASS, 변경0개.

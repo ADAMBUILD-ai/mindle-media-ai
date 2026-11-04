@@ -1,0 +1,9 @@
+{
+  "tested_source_commit": "79831e0cd21ed3bb5216437e34b4c28dcec4c054",
+  "observed_git_head_at_probe_start": "ac15d4ca342f847c364a6cd51b3088535eb51190",
+  "method": "ALL_RECORDED_RUNTIME_AND_UI_FILE_SHA256_MATCH_COMMITTED_SOURCE",
+  "explanation": "The probe started on a working tree before the behavior fix commit was recorded. Its complete runtime/UI content manifest matches the fixed immutable commit. The raw observed Git HEAD is preserved, not rewritten.",
+  "matched_source_files": 54,
+  "all_match": true,
+  "windows_candidate_includes_source": false
+}

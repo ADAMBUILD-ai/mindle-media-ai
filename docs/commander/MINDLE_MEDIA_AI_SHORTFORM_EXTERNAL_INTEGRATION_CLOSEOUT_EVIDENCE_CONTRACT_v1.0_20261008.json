@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "status": "ACTIVE",
+  "date": "2026-10-08",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "canonical_branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261008-SHORTFORM-EXTERNAL-INTEGRATION-CLOSEOUT-R1",
+  "active_directive": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_DIRECTIVE_v1.0_20261008.md",
+  "required_final_result": "PASS_MINDLE_MEDIA_AI_FULL_PRODUCT_E2E_RUNTIME_VERIFIED",
+  "previous_result": "BLOCKED_EXTERNAL_SHORTFORM_INTEGRATION",
+  "frozen_pass": [
+    "PHOTO_SEGMENT_AND_4X",
+    "VIDEO_H264_BROWSER_PLAYBACK",
+    "KOREAN_STT_UI",
+    "SAVE_CLOSE_REOPEN",
+    "BASE_EXPORT",
+    "PYTHON_66_UI_2"
+  ],
+  "required_external_inputs": [
+    "MARKETING_SHORTFORM_BASE_URL repository/environment variable reachable from runner",
+    "MARKETING_SHORTFORM_BRIDGE_TOKEN Actions secret",
+    "approved AVORA asset/reference and approval provenance",
+    "representative approval execution path"
+  ],
+  "exact_outputs": {
+    "review": "docs/commander/MINDLE_MEDIA_AI_SHORTFORM_EXTERNAL_INTEGRATION_CLOSEOUT_REVIEW_v1.0_20261008.md",
+    "evidence_json": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/EVIDENCE.json",
+    "detail_dir": "docs/evidence/media-ai-shortform-external-integration-closeout-20261008/"
+  },
+  "required_files": [
+    "PROVIDER_REACHABILITY.json",
+    "MARKETING_HTTP_RESULT.json",
+    "AVORA_APPROVED_ASSET_RESULT.json",
+    "SHORTFORM_9X16_BROWSER_PREVIEW.json",
+    "REPRESENTATIVE_APPROVAL_RESULT.json",
+    "APPROVED_MP4_EXPORT_RESULT.json",
+    "REGRESSION_RESULT.json",
+    "REMOTE_READBACK.txt"
+  ],
+  "prohibitions": {
+    "mock_as_pass": true,
+    "plaintext_secret": true,
+    "ui_redesign": true,
+    "main_merge": true,
+    "force_push": true,
+    "new_repo_or_worktree": true,
+    "employee_package_rebuild": true
+  }
+}

@@ -1,0 +1,30 @@
+REMOTE_CONTROL_PLANE_VALIDATION
+Date: 2026-10-06
+
+Repository:
+ADAMBUILD-ai/mindle-media-ai
+
+Canonical branch:
+feature/ad-shortform-bridge-p0-20260926
+
+Remote HEAD:
+21c5f5c81def8909163add19553721a7139943c8
+
+Validated remote authority files:
+- CURRENT_PC_WORK_DIRECTIVE.md
+- CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json
+- CURRENT_PC_WORK_STATE.json
+- CURRENT_WORKER_COORDINATION_LOCK.json
+- scripts/validate_pc_work_control_plane.py
+
+Expected epoch:
+MEDIA-AI-20261006-WINDOWS-SANDBOX-ACL-RECOVERY-V1.1
+
+Result:
+REMOTE_CONTROL_PLANE_CONSISTENCY_PASS
+
+Notes:
+- CURRENT/LOCK/STATE/WORKER-LOCK all reference the same recovery epoch.
+- CURRENT/LOCK/STATE reference the same active directive.
+- CURRENT/LOCK/STATE reference the same active evidence contract.
+- Validator was updated at commit 21c5f5c81def8909163add19553721a7139943c8 to validate this exact epoch.

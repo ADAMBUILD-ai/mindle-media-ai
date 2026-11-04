@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-17T14:54:27.891652+09:00",
+  "tool": "Codex exec_command / PowerShell / bundled Python",
+  "user": "R",
+  "LOCALAPPDATA": "C:\\Users\\R\\AppData\\Local\\Packages\\sandbox.{APPCONTAINER_ID_REDACTED}\\AC",
+  "USERPROFILE": "C:\\Users\\R",
+  "cwd": "C:\\Users\\R\\Documents\\Codex\\2026-10-10\\mindle-media-ai-ui-photo-video",
+  "python": "C:\\Users\\R\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "token": {
+    "is_appcontainer": 1,
+    "is_elevated": 0,
+    "elevation_type": 3,
+    "user_sid": "<USER_OR_APPCONTAINER_SID_REDACTED>",
+    "integrity_sid": "S-1-16-4096",
+    "appcontainer_sid": "<USER_OR_APPCONTAINER_SID_REDACTED>"
+  },
+  "historical_exe_env_override": "Previous launch script explicitly set LOCALAPPDATA=C:/Users/R/AppData/Local; not repeated in this collection."
+}

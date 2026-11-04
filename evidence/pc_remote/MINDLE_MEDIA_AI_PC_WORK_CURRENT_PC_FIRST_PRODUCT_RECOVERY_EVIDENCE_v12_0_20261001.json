@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-01",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "directive": {
+    "path": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CURRENT_PC_FIRST_PRODUCT_RECOVERY_DIRECTIVE_v12.0_20261001.md",
+    "commit": "2c82b1d3b3ddc9254cede9c6fb0505ed321af138"
+  },
+  "verdict": {
+    "MEDIA_AI_PC_UI_FINAL": "REWORK",
+    "SHORTFORM_LIVE_E2E": "VERIFY_REQUIRED",
+    "UI_SSOT_CHANGED": "NO",
+    "CURRENT_PC_RECOVERY": "PARTIAL_INVENTORY_ONLY"
+  },
+  "runtime_inventory": {
+    "python_version": "3.11.9",
+    "python_path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "python_processes_observed": 10,
+    "ffmpeg_path_lookup": "NOT_FOUND",
+    "product_runtime_paths": ["src/media_ai/product_server.py", "src/media_ai/product_runtime.py", "ui/index.html", "ui/product_integration.js"],
+    "verified_model_payload_found_in_searched_workspace_downloads": false,
+    "untracked_work_data_excluded_from_commit": true
+  },
+  "inputs": [
+    {"name": "01_42756291.jpg", "bytes": 8967798, "sha256": "473107c3388f26b2ffe3cc920fb6931f1446c8d59b61f6986fcc24a135821d75"},
+    {"name": "01_input_128.png", "bytes": 38721, "sha256": "112d9ed220e4a990bc86efaafef8a2575548c65be39b432a67ac95471a73bcd2"}
+  ],
+  "lanes": {
+    "photo_segmentation": {"required_runtime": "verified SAM 2.1 local payload", "job_id": "6b410fb0-1471-4b8d-baea-858fcf5820e0", "result": "FAILED_HF_ACCESS_WINERROR_10013", "status": "REWORK"},
+    "photo_4x": {"required_runtime": "verified Intel SISR/OpenVINO or approved alternative cache", "job_id": "d243b8ba-79f3-4bef-843c-b7a5e8acd791", "result": "FAILED_PERPETUAL_USE_ALTERNATIVE_CACHE_REVISION_REQUIRED", "status": "REWORK"},
+    "video_tracking": {"required_runtime": "verified SAM 2.1 local payload and approved video input", "result": "NO_APPROVED_INPUT_OR_OUTPUT", "status": "VERIFY_REQUIRED"},
+    "korean_stt": {"required_runtime": "verified Whisper-small local payload and approved spoken-audio input", "result": "NO_APPROVED_INPUT_OR_OUTPUT", "status": "VERIFY_REQUIRED"},
+    "preview_save_export": {"required_runtime": "successful TESTED_PASS real job", "result": "UI_ROUTES_PRESENT_BUT_NO_SUCCESSFUL_JOB", "status": "VERIFY_REQUIRED"},
+    "shortform": {"required_runtime": "approved Marketing Contract v1 and assets", "result": "NOT_PRESENT_FAIL_CLOSED", "status": "VERIFY_REQUIRED"}
+  },
+  "old_artifact_10797756522_universal_prerequisite": false,
+  "fabricated_results_or_approvals": false,
+  "mixed_generation_reassembly": false,
+  "evidence_commit_sha": "5f74a2e"
+}

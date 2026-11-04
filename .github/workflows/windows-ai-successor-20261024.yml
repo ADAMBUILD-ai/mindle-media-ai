@@ -1,0 +1,127 @@
+name: Owner authorized Windows AI successor 20261024 R3 inference-byte fix
+on:
+  push:
+    branches: [feature/ad-shortform-bridge-p0-20260926]
+    paths: [.github/workflows/windows-ai-successor-20261024.yml]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: owner-ai-successor-20261024-r3
+  cancel-in-progress: false
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      allowed: ${{ steps.authorization.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - id: authorization
+        shell: python
+        run: |
+          import json,os,subprocess
+          from pathlib import Path
+          authorization=json.loads(Path('docs/commander/WINDOWS_AI_SUCCESSOR_20261024_AUTHORIZATION.json').read_text())
+          parent=subprocess.check_output(['git','rev-parse','HEAD^'],text=True).strip()
+          assert authorization['authorized_parent']==parent
+          assert authorization['scope']=='ONE_SUCCESSOR_DEVELOPMENT_CANDIDATE_NOT_EMPLOYEE_RELEASE'
+          assert authorization['attempts_allowed']==1 and os.environ['GITHUB_RUN_ATTEMPT']=='1'
+          assert authorization['reuse_base_zip_sha256']=='c3cfda25e2f36f97024a57b586a20914be3b21a2b481f25e1652c8931ece3606'
+          assert authorization['engine_download_allowed'] is False and authorization['engine_rebuild_allowed'] is False
+          for name in ['CURRENT_PC_WORK_STATE.json','CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json','CURRENT_GENERAL_WORK_STATE.json','CURRENT_GENERAL_WORK_CONTROL_PLANE_LOCK.json']:
+              state=json.loads(Path(name).read_text())
+              assert state['package_build_allowed'] is True
+              assert state['owner_windows_ai_successor_20261024']['authorization']==authorization['id']
+          with open(os.environ['GITHUB_OUTPUT'],'a') as out:out.write('allowed=true\n')
+  build:
+    needs: gate
+    if: needs.gate.outputs.allowed == 'true'
+    runs-on: windows-latest
+    timeout-minutes: 90
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install browser harness only
+        run: python -m pip install --disable-pip-version-check playwright==1.55.0
+      - name: Download byte-verified TEST R2 base
+        uses: actions/download-artifact@v4
+        with:
+          pattern: mindle-media-ai-candidate-20261024-part-*
+          merge-multiple: true
+          run-id: 39987617196
+          github-token: ${{ github.token }}
+          path: build/base-r2
+      - name: Reuse verified AI engine space and overlay current source
+        run: python -B scripts/build_ai_windows_successor.py assemble
+      - name: Actual Windows Qwen Supertonic architecture-agent acceptance
+        run: python -B scripts/accept_ai_windows_successor.py
+      - name: Seal post-runtime payload
+        run: python -B scripts/build_ai_windows_successor.py seal
+      - name: Preserve truthful job status
+        if: always()
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force evidence-r3 | Out-Null
+          [ordered]@{source=$env:GITHUB_SHA;run=$env:GITHUB_RUN_ID;job_status='${{ job.status }}';office_pc_acceptance=$false;human_hearing=$false;full_product_pass=$false} | ConvertTo-Json | Set-Content evidence-r3/JOB_STATUS.json -Encoding utf8
+      - name: Upload producer evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-successor-r3-evidence
+          path: evidence-r3/**
+          if-no-files-found: error
+          retention-days: 90
+      - name: Upload producer delivery for independent readback
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-successor-r3-producer-delivery
+          path: |
+            build/MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-*
+            build/MINDLE_MEDIA_AI_START_20261024_R3.zip
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30
+  readback:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-ai-successor-r3-producer-delivery
+          path: producer-delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: mindle-media-ai-successor-r3-evidence
+          path: producer-evidence
+      - name: Independent ZIP CRC and every payload hash readback
+        run: python -B scripts/verify_ai_windows_successor.py
+      - name: Upload independent evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-successor-r3-readback
+          path: readback-r3/**
+          if-no-files-found: error
+          retention-days: 90
+      - name: Upload verified successor delivery
+        uses: actions/upload-artifact@v4
+        with:
+          name: mindle-media-ai-successor-r3-verified-delivery
+          path: |
+            verified-delivery/MINDLE_MEDIA_AI_PC_TEST_20261024_R3.zip.part-*
+            verified-delivery/MINDLE_MEDIA_AI_START_20261024_R3.zip
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 30

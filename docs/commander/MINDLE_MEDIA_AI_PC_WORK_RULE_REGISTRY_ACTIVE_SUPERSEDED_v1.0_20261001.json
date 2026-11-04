@@ -1,0 +1,43 @@
+{
+  "version": "RECOVERY-5.0",
+  "date": "2026-10-06",
+  "repository": "ADAMBUILD-ai/mindle-media-ai",
+  "branch": "feature/ad-shortform-bridge-p0-20260926",
+  "control_plane_epoch": "MEDIA-AI-20261006-CONTROL-PLANE-RECOVERY-V1.0",
+  "precedence": [
+    "CURRENT_PC_WORK_DIRECTIVE.md",
+    "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+    "CURRENT_PC_WORK_STATE.json",
+    "scripts/validate_pc_work_control_plane.py",
+    "active.directive",
+    "active.evidence_contract"
+  ],
+  "active": {
+    "entrypoint": "CURRENT_PC_WORK_DIRECTIVE.md",
+    "lock": "CURRENT_PC_WORK_CONTROL_PLANE_LOCK.json",
+    "state": "CURRENT_PC_WORK_STATE.json",
+    "directive": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_AND_ENVIRONMENT_DIAGNOSTIC_DIRECTIVE_v1.0_20261006.md",
+    "evidence_contract": "docs/commander/MINDLE_MEDIA_AI_PC_WORK_CONTROL_PLANE_RECOVERY_EVIDENCE_CONTRACT_v1.0_20261006.json"
+  },
+  "active_preflight": null,
+  "parent_directive": null,
+  "technical_base_directive": null,
+  "historical_execution_forbidden": true,
+  "reference_only": [
+    "docs/commander/MINDLE_MEDIA_AI_EMPLOYEE_DISTRIBUTION_FULL_WINDOWS_PACKAGE_DIRECTIVE_v1.0_20261006.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_BRANCH_REBIND_AND_STALE_WORKTREE_RECOVERY_DIRECTIVE_v1.0_20261001.md",
+    "docs/commander/MINDLE_MEDIA_AI_FULL_PRODUCT_REAL_USE_REAUDIT_AND_IMPROVEMENT_DIRECTIVE_v21.0_20261003.md",
+    "docs/commander/MINDLE_MEDIA_AI_PC_WORK_SINGLE_RUNTIME_LAUNCHER_AND_UI_COLLISION_REPAIR_DIRECTIVE_v21.0A_20261005.md"
+  ],
+  "default_for_unlisted_pc_work_docs": "HISTORY_ONLY",
+  "actual_windows_execution_required": true,
+  "environment_probe_first": true,
+  "no_lane_collision": true,
+  "result_vocabulary": [
+    "RECOVERY_PASS",
+    "WORK_ENVIRONMENT_ACL_HELPER_BLOCKED",
+    "LOCAL_BINDING_MISMATCH",
+    "CONTROL_PLANE_MISMATCH_BLOCKED",
+    "FAIL"
+  ]
+}

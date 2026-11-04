@@ -1,0 +1,26 @@
+[
+  {
+    "path": "ui/index.html",
+    "baseline_sha": "fc841a9f644102594d2f3a1c705cec329848668b",
+    "verified_runtime_sha": "fc841a9f644102594d2f3a1c705cec329848668b",
+    "identical": true
+  },
+  {
+    "path": "ui/approved_visual.css",
+    "baseline_sha": "3e1334c14b84fcbd5845a7a7a693c3f6bfe5a5da",
+    "verified_runtime_sha": "3e1334c14b84fcbd5845a7a7a693c3f6bfe5a5da",
+    "identical": true
+  },
+  {
+    "path": "ui/interaction.css",
+    "baseline_sha": "0bcf600af93f58fc0abbc4d74c449ba72cac2363",
+    "verified_runtime_sha": "0bcf600af93f58fc0abbc4d74c449ba72cac2363",
+    "identical": true
+  },
+  {
+    "path": "ui/ssot_manifest.json",
+    "baseline_sha": "696afb5dfcc0478304eca9359154353ef60f2684",
+    "verified_runtime_sha": "696afb5dfcc0478304eca9359154353ef60f2684",
+    "identical": true
+  }
+]

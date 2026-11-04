@@ -1,0 +1,1630 @@
+[
+  {
+    "url": "/",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.542165+09:00"
+  },
+  {
+    "url": "/approved_visual.css",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.780491+09:00"
+  },
+  {
+    "url": "/interaction.css",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.782491+09:00"
+  },
+  {
+    "url": "/interaction.js",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.782491+09:00"
+  },
+  {
+    "url": "/product_integration.js",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.783996+09:00"
+  },
+  {
+    "url": "/photo_workspace.js",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.785004+09:00"
+  },
+  {
+    "url": "/video_workspace.js",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.785004+09:00"
+  },
+  {
+    "url": "/workspace_shell.js",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.786002+09:00"
+  },
+  {
+    "url": "/api/projects/latest",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.867348+09:00"
+  },
+  {
+    "url": "/assets/demo/video-preview.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.929976+09:00"
+  },
+  {
+    "url": "/assets/demo/photo-preview.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.930975+09:00"
+  },
+  {
+    "url": "/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.942487+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:41.943993+09:00"
+  },
+  {
+    "url": "/api/media/import",
+    "method": "POST",
+    "time": "2026-10-17T14:36:42.237371+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": "portrait_autofit.png",
+    "command": null,
+    "options": null
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:42.319559+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:42.325069+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:42.326071+09:00"
+  },
+  {
+    "url": "/api/media/import",
+    "method": "POST",
+    "time": "2026-10-17T14:36:42.418274+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": "video_original.mp4",
+    "command": null,
+    "options": null
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:42.734371+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:42.737479+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:42.742480+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:36:45.256992+09:00",
+    "project_id": null,
+    "job_ids": [
+      "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "17ae7aa2-fcd6-4217-bc16-adcb6448d35a"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ],
+        "video": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ]
+      },
+      "audio": {
+        "filename": "korean_original.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.390370+09:00"
+  },
+  {
+    "url": "/api/media/import",
+    "method": "POST",
+    "time": "2026-10-17T14:36:45.675503+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": "portrait_autofit.png",
+    "command": null,
+    "options": null
+  },
+  {
+    "url": "/files/jobs/905f6a21-66e5-4334-abbe-06eb8ad3efb7/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.719667+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.721674+09:00"
+  },
+  {
+    "url": "/files/jobs/905f6a21-66e5-4334-abbe-06eb8ad3efb7/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.722676+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:36:45.774349+09:00",
+    "project_id": null,
+    "job_ids": [
+      "905f6a21-66e5-4334-abbe-06eb8ad3efb7"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [],
+        "video": []
+      },
+      "audio": null
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.839248+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.922934+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.938575+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.944081+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.947614+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.955128+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.967258+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.975321+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.987816+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:45.994321+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.222051+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.306086+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.320093+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.322093+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.327163+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.331165+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.337164+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.349171+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.355171+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.367550+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.373549+09:00"
+  },
+  {
+    "url": "/api/photo-edits",
+    "method": "POST",
+    "time": "2026-10-17T14:36:46.592118+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": "photo_edit.png",
+    "command": "사진 보정",
+    "options": {
+      "brightness": 15,
+      "contrast": 0,
+      "highlights": 0,
+      "shadows": 0,
+      "saturation": 0,
+      "temperature": 0,
+      "sharpness": 0,
+      "rotation": 0,
+      "flipH": false,
+      "flipV": false,
+      "style": "neutral",
+      "resizeWidth": null,
+      "crop": null,
+      "automaticAnalysis": null
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:46.689159+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:47.040387+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:47.570052+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:47.576052+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:47.578050+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:36:50.871224+09:00",
+    "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "job_ids": [
+      "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+      "196a52f5-caba-4c91-9def-f2db218ad591"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ],
+        "video": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ]
+      },
+      "audio": {
+        "filename": "korean_original.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.023874+09:00"
+  },
+  {
+    "url": "/api/projects/37f363e5-b51d-4096-bd41-1247362a2048",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.105044+09:00"
+  },
+  {
+    "url": "/files/jobs/905f6a21-66e5-4334-abbe-06eb8ad3efb7/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.121564+09:00"
+  },
+  {
+    "url": "/files/jobs/905f6a21-66e5-4334-abbe-06eb8ad3efb7/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.123069+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.127588+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.204184+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.288307+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.303847+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.304852+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.309858+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.315369+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.321370+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.325618+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.340132+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.345165+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.356233+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.362231+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.436453+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.504284+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.519887+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.525012+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.530019+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.531018+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.536528+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.541528+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.553037+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.559086+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.571283+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:51.577326+09:00"
+  },
+  {
+    "url": "/api/video-edits",
+    "method": "POST",
+    "time": "2026-10-17T14:36:51.695007+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": "fd60f568-8509-4001-92ec-6680c75ff802_video_original.mp4",
+    "command": "영상 효과",
+    "options": {
+      "stabilize": false,
+      "denoise": false,
+      "split": false,
+      "start": 0,
+      "duration": 0,
+      "speed": 1,
+      "volume": 1,
+      "brightness": 0,
+      "contrast": 0,
+      "saturation": 0,
+      "effect": true
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:52.053993+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:52.370247+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:52.860064+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:52.865063+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:52.867065+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:36:55.512473+09:00",
+    "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "job_ids": [
+      "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+      "196a52f5-caba-4c91-9def-f2db218ad591",
+      "147dbb88-5b3d-455e-bb95-1d0f9dc81339"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ],
+        "video": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ]
+      },
+      "audio": {
+        "filename": "korean_original.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.637561+09:00"
+  },
+  {
+    "url": "/api/projects/37f363e5-b51d-4096-bd41-1247362a2048",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.704075+09:00"
+  },
+  {
+    "url": "/files/jobs/905f6a21-66e5-4334-abbe-06eb8ad3efb7/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.720079+09:00"
+  },
+  {
+    "url": "/files/jobs/905f6a21-66e5-4334-abbe-06eb8ad3efb7/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.721079+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.726080+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.803769+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.871316+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.891327+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.893340+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.898358+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.901359+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.907359+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.910359+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.916365+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.921366+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.927365+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.939709+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.941708+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.947716+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.960226+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:55.965226+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.037310+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.104314+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.124831+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.130341+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.136342+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.143342+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.148343+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.153342+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.167343+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.173349+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.186455+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:36:56.192456+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:36:58.205714+09:00",
+    "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "job_ids": [
+      "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+      "196a52f5-caba-4c91-9def-f2db218ad591",
+      "147dbb88-5b3d-455e-bb95-1d0f9dc81339"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ],
+        "video": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ]
+      },
+      "audio": {
+        "filename": "korean_original.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:59.370121+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:36:59.670543+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:00.319566+09:00"
+  },
+  {
+    "url": "/api/media/import",
+    "method": "POST",
+    "time": "2026-10-17T14:37:00.551540+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": "portrait_autofit.png",
+    "command": null,
+    "options": null
+  },
+  {
+    "url": "/files/jobs/33e169df-1eb8-4419-99c2-f938c4e726d4/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:00.588567+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:37:00.590567+09:00"
+  },
+  {
+    "url": "/files/jobs/33e169df-1eb8-4419-99c2-f938c4e726d4/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:00.592567+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:37:00.654546+09:00",
+    "project_id": null,
+    "job_ids": [
+      "33e169df-1eb8-4419-99c2-f938c4e726d4"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [],
+        "video": []
+      },
+      "audio": null
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:00.720805+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:37:00.786944+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:00.953074+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:01.270601+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:37:01.636502+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:01.902306+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:37:01.970703+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:01.988217+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:01.990217+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:01.994215+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:01.999216+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:02.001215+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:02.007216+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:02.013215+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:02.019215+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:02.032220+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:02.037731+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:37:02.048734+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:37:02.054735+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:37:04.425705+09:00",
+    "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "job_ids": [
+      "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+      "196a52f5-caba-4c91-9def-f2db218ad591",
+      "147dbb88-5b3d-455e-bb95-1d0f9dc81339"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ],
+        "video": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ]
+      },
+      "audio": {
+        "filename": "korean_original.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    }
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.570267+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.636973+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.653980+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.659979+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.663979+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.669980+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.674979+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.680979+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.693984+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.699489+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.712494+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:37:04.719496+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:37:06.531106+09:00",
+    "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "job_ids": [
+      "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+      "196a52f5-caba-4c91-9def-f2db218ad591",
+      "147dbb88-5b3d-455e-bb95-1d0f9dc81339"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ],
+        "video": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ]
+      },
+      "audio": {
+        "filename": "korean_original.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    }
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37/export",
+    "method": "POST",
+    "time": "2026-10-17T14:37:06.724272+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": null,
+    "command": null,
+    "options": null
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:07.304953+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:07.602593+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:08.219885+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:08.790393+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:08.987637+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.054135+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.069646+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.071644+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.076646+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.082645+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.084646+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.090645+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.096645+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.101646+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.114646+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.119646+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.133649+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.139651+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.219449+09:00"
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.287444+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.305954+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.310954+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.315954+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.321953+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.326962+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.331961+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.334964+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.346473+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.355481+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.365566+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.372075+09:00"
+  },
+  {
+    "url": "/api/photo-edits",
+    "method": "POST",
+    "time": "2026-10-17T14:37:09.489786+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": "photo_edit.png",
+    "command": "AI 대화 편집 · 따뜻하게 보정해줘",
+    "options": {
+      "brightness": 0,
+      "contrast": 0,
+      "highlights": 0,
+      "shadows": 0,
+      "saturation": 0,
+      "temperature": 20,
+      "sharpness": 0,
+      "rotation": 0,
+      "flipH": false,
+      "flipV": false,
+      "style": "neutral",
+      "resizeWidth": null,
+      "crop": null,
+      "automaticAnalysis": null
+    }
+  },
+  {
+    "url": "/files/jobs/37155182-1527-4152-8d07-7b0d01a1a5b8/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.525870+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.530874+09:00"
+  },
+  {
+    "url": "/files/jobs/37155182-1527-4152-8d07-7b0d01a1a5b8/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.532875+09:00"
+  },
+  {
+    "url": "/api/projects",
+    "method": "GET",
+    "time": "2026-10-17T14:37:09.769602+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:37:11.736374+09:00",
+    "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "job_ids": [
+      "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+      "196a52f5-caba-4c91-9def-f2db218ad591",
+      "147dbb88-5b3d-455e-bb95-1d0f9dc81339",
+      "37155182-1527-4152-8d07-7b0d01a1a5b8"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ],
+        "video": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ]
+      },
+      "audio": {
+        "filename": "korean_original.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    }
+  },
+  {
+    "url": "/",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.862450+09:00"
+  },
+  {
+    "url": "/approved_visual.css",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.886448+09:00"
+  },
+  {
+    "url": "/interaction.css",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.890451+09:00"
+  },
+  {
+    "url": "/interaction.js",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.892447+09:00"
+  },
+  {
+    "url": "/product_integration.js",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.896448+09:00"
+  },
+  {
+    "url": "/photo_workspace.js",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.899447+09:00"
+  },
+  {
+    "url": "/video_workspace.js",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.903447+09:00"
+  },
+  {
+    "url": "/workspace_shell.js",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.906449+09:00"
+  },
+  {
+    "url": "/assets/demo/video-city.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.910448+09:00"
+  },
+  {
+    "url": "/assets/demo/video-beach.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.913448+09:00"
+  },
+  {
+    "url": "/assets/demo/video-interior.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.915453+09:00"
+  },
+  {
+    "url": "/assets/demo/video-preview.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.918452+09:00"
+  },
+  {
+    "url": "/assets/demo/photo-house.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.920453+09:00"
+  },
+  {
+    "url": "/assets/demo/photo-landscape.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.923452+09:00"
+  },
+  {
+    "url": "/assets/demo/photo-preview.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.925454+09:00"
+  },
+  {
+    "url": "/api/projects/latest",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.928453+09:00"
+  },
+  {
+    "url": "/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.933964+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.953149+09:00"
+  },
+  {
+    "url": "/files/jobs/12dffbba-2a58-447a-84c2-ddeae063b656/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.956150+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.961149+09:00"
+  },
+  {
+    "url": "/files/jobs/17ae7aa2-fcd6-4217-bc16-adcb6448d35a/original_video_preview.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.964152+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.970151+09:00"
+  },
+  {
+    "url": "/files/jobs/196a52f5-caba-4c91-9def-f2db218ad591/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.973148+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.980149+09:00"
+  },
+  {
+    "url": "/files/jobs/147dbb88-5b3d-455e-bb95-1d0f9dc81339/edited_video.mp4",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.983150+09:00"
+  },
+  {
+    "url": "/files/jobs/37155182-1527-4152-8d07-7b0d01a1a5b8/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.991153+09:00"
+  },
+  {
+    "url": "/files/jobs/37155182-1527-4152-8d07-7b0d01a1a5b8/edited_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:11.993152+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:12.003153+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:12.010342+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:12.023328+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:12.029326+09:00"
+  },
+  {
+    "url": "/files/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37_assets/e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a.wav",
+    "method": "GET",
+    "time": "2026-10-17T14:37:12.041332+09:00"
+  },
+  {
+    "url": "/api/assets",
+    "method": "GET",
+    "time": "2026-10-17T14:37:12.048333+09:00"
+  },
+  {
+    "url": "/files/jobs/905f6a21-66e5-4334-abbe-06eb8ad3efb7/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:12.070369+09:00"
+  },
+  {
+    "url": "/files/jobs/33e169df-1eb8-4419-99c2-f938c4e726d4/original_photo.png",
+    "method": "GET",
+    "time": "2026-10-17T14:37:12.073363+09:00"
+  },
+  {
+    "url": "/api/projects/save",
+    "method": "POST",
+    "time": "2026-10-17T14:37:14.088624+09:00",
+    "project_id": "5cc2d033-bc7d-4e94-be24-8a95b1a9aa37",
+    "job_ids": [
+      "12dffbba-2a58-447a-84c2-ddeae063b656",
+      "17ae7aa2-fcd6-4217-bc16-adcb6448d35a",
+      "196a52f5-caba-4c91-9def-f2db218ad591",
+      "147dbb88-5b3d-455e-bb95-1d0f9dc81339",
+      "37155182-1527-4152-8d07-7b0d01a1a5b8"
+    ],
+    "filename": null,
+    "command": null,
+    "options": null,
+    "workspace": {
+      "references": {
+        "photo": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ],
+        "video": [
+          {
+            "filename": "portrait_autofit.png",
+            "sha256": "b79d4cf1c04e6b5a8a97348147ad5cbcfd18c999490decc2d5b660e0b8bd3780"
+          },
+          {
+            "filename": "reference_architecture_crop.png",
+            "sha256": "8cfee5d3c97bee9ca72b907ef170423060c25326e24a912a3253aa01d26a65ce"
+          }
+        ]
+      },
+      "audio": {
+        "filename": "korean_original.wav",
+        "sha256": "e6bc095e55046de927d7c937f036f96ebb506570648ad9ae7c6576febfc4746a"
+      }
+    }
+  },
+  {
+    "url": "/api/projects/5cc2d033-bc7d-4e94-be24-8a95b1a9aa37/export",
+    "method": "POST",
+    "time": "2026-10-17T14:37:14.187662+09:00",
+    "project_id": null,
+    "job_ids": null,
+    "filename": null,
+    "command": null,
+    "options": null
+  }
+]

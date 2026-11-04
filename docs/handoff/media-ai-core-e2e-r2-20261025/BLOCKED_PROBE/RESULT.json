@@ -1,0 +1,19 @@
+{
+  "execution_id": "cbe2a3e1-928c-4b8f-b2c9-66e24a9e63f4",
+  "started_at": "2026-10-25T10:24:41.211321+00:00",
+  "ended_at": "2026-10-25T10:24:41.213322+00:00",
+  "status": "BLOCKED_ASSET_INTAKE",
+  "first_blocking_gate": "INPUT_MANIFEST",
+  "not_executed": [
+    "server mutation",
+    "Qwen",
+    "FFmpeg assembly",
+    "Supertonic",
+    "mix",
+    "save",
+    "restart",
+    "reopen",
+    "export"
+  ],
+  "full_product_pass": false
+}

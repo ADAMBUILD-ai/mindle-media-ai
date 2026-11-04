@@ -1,0 +1,23 @@
+{
+  "date_kst": "2026-10-24",
+  "status": "SOURCE_PASS_WINDOWS_CANDIDATE_NOT_INCLUDED",
+  "layout_authority": "VIDEO_LEFT_PHOTO_RIGHT",
+  "r3_candidate_source": "9f5d304ce825ad622bcd64df6ad3c8f154dfd3b6",
+  "r3_run": 40079944004,
+  "changes": [
+    "owned header banner treatment",
+    "actual photo thumbnail",
+    "actual video frame tile",
+    "asset filename readability layer",
+    "actual timeline visual separation"
+  ],
+  "ui_node_tests": {"passed": 27, "failed": 0},
+  "related_python_tests": {"passed": 22, "skipped": 1, "failed": 0},
+  "post_change_chrome_pixel_capture": "BLOCKED_LOCAL_BROWSER_BINARY_ABSENT",
+  "package_build_allowed": false,
+  "included_in_r3": false,
+  "office_pc_acceptance": false,
+  "approved_ui_pixel_match": false,
+  "full_product_pass": false,
+  "pr23_hold_do_not_merge": true
+}

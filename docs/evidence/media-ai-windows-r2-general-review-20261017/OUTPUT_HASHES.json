@@ -1,0 +1,70 @@
+{
+  "INDEPENDENT_TRANSFER.json": {
+    "bytes": 22266,
+    "sha256": "d5cc30b8a2ea087ec561d4d769ddcd2ecf499d70397b24533561dc2bde244b69"
+  },
+  "GENERAL_REVIEW_KO.md": {
+    "bytes": 5394,
+    "sha256": "c1ce8552d3a31516add9409db10f24ccb15ca854bb68a8cb675df91562bec5f9"
+  },
+  "SOURCE_REPAIR_CONTRACT.json": {
+    "bytes": 1624,
+    "sha256": "9eef1c4e7e8e6917b5c50dd14847f0afc155d3c5a4885094643712ccdcb8aaf1"
+  },
+  "INDEPENDENT_ZIPS.json": {
+    "bytes": 578,
+    "sha256": "4ccae51157ec2b24331c34c9d7a71e8b78f8aa869f107b65a25c360c2f246a30"
+  },
+  "ORIGINAL_MANIFEST_READBACK.json": {
+    "bytes": 132,
+    "sha256": "39da51d3cf2a64e9fbb2e17e62707898f1c5c18679012532e537ea9f65e08d87"
+  },
+  "GENERAL_VERDICT.json": {
+    "bytes": 2664,
+    "sha256": "d382fd8fbc1f28a10ea14a5bc2487bd641196583d9f3a0a373ab9a7d75d841b0"
+  },
+  "SOURCE_FINGERPRINTS.json": {
+    "bytes": 624,
+    "sha256": "ca87cae645eb4f7a6d3a9033514988a14f8e84b93512460ef13aeb5eaa32042c"
+  },
+  "UI_DENSE_AFTER_1366.png": {
+    "bytes": 484765,
+    "sha256": "c8bf823728f7e53447944174004b2ffd8b0c77d9ab8dd45d1ac62ad48f452c50"
+  },
+  "ACCEPTED_CHROME_SIX.json": {
+    "bytes": 661,
+    "sha256": "92d4fdec079501f9711580e962d6568d70e3aac08647368e9db42f73e8ba183a"
+  },
+  "UI_GEOMETRY_AFTER.json": {
+    "bytes": 3565,
+    "sha256": "eb767342f58d243ad3756a13a30b382aba72cc1da58bee7e870512f8bf111ee8"
+  },
+  "UI_DENSE_BEFORE_1536.png": {
+    "bytes": 595254,
+    "sha256": "7d84b3e60c2cf5a7b9a5a3ca0965ca6b257a6c8fb0b9898845a4c8c5685fdc8f"
+  },
+  "SOURCE_OWNER_LIFECYCLE.json": {
+    "bytes": 4203,
+    "sha256": "1514d38d3da51918ce7f95e6b829799c7ee6acadffba414fbf8acb9c7b243001"
+  },
+  "UI_GEOMETRY_BEFORE.json": {
+    "bytes": 3567,
+    "sha256": "fe761a696438c52c39b2df48bd22070c1ed84b7c492acca2c5cc380e750d32ad"
+  },
+  "NEXT_WINDOWS_SCOPE.md": {
+    "bytes": 3206,
+    "sha256": "317a727326b29d2ca42c416faf79c435e77fcbe3694f700af65c42f2edcfa2fa"
+  },
+  "UI_DENSE_AFTER_1536.png": {
+    "bytes": 531223,
+    "sha256": "c9cfc549f0eaa731c7754f69b1398395256d4f5dcb6b73567cd9b19c32f44c80"
+  },
+  "harness/run_geometry.py": {
+    "bytes": 968,
+    "sha256": "10495fab5e5714945758d0ad785b1f6b8e0078b43c3a177feb15a3b7f91b4259"
+  },
+  "harness/r2_geometry.cjs": {
+    "bytes": 4177,
+    "sha256": "ac93d8b869c6a116de3722e46a8326e3d68f237ef9824abd202becca2d6cfd98"
+  }
+}

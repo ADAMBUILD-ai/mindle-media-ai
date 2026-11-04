@@ -1,0 +1,7 @@
+{
+  "status": "NOT_APPLIED",
+  "manifest_path": "ui/ssot_manifest.json",
+  "manifest_hash_left_unchanged": true,
+  "docs_ui_ssot_left_unchanged": true,
+  "reason": "The exact f27e source was not accessible, so canonical SSOT replacement and stale-source wording repair were not performed."
+}

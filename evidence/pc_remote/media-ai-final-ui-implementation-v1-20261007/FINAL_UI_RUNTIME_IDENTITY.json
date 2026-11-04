@@ -1,0 +1,19 @@
+{
+  "repo_root": "C:\\Users\\PC\\Documents\\Codex\\2026-09-30\\referenced-chatgpt-conversation-this-is-an-2\\work\\mindle-media-ai",
+  "branch": null,
+  "head": null,
+  "workspace_ui_fingerprint": "0f09002fd514c80dc93d59f8192046f0b545664a81d01d6c655a598b99ff4ea4",
+  "file_hashes": {
+    "ui/index.html": "150e040703e90fd805f53014a052af10b46177bdb313bdf3ea97c32a6aa838c8",
+    "ui/approved_visual.css": "91acbea5fffdebcf1b8452cfabe237d0b3db020da556673b8ee59a14cfb55cdd",
+    "ui/interaction.css": "0bc0ea4f5f8068af556cd3ddd3979ea0696087eb731c805890409160d2ea1128",
+    "ui/interaction.js": "51964f7e17643987de0137b0e436fb5a761e2784a49d039adf431167e0fb5d4b",
+    "ui/product_integration.js": "1eb7472d342b558772d772aec45b7cfbb2367dd5623ca783e73ba9b2f2f02d6e",
+    "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico": "9d6821014ee94d9c76db9b94f04ada6b3dcdd74d6f7c7d82670984caaf85e97e",
+    "ui/photo_workspace.js": "b747effba167a2c3e85854d88ede9b6964474bd02f0076bf17f229173f09bbe9",
+    "ui/video_workspace.js": "7726df7e4d30ec95dd36e16ef5c7562f097279de78cbd00170b3e1799543b55f"
+  },
+  "runtime_mode": "DEVELOPMENT_UI_WITH_PACKAGE_MODELS",
+  "model_root": "C:\\Users\\PC\\Documents\\Codex\\mindle-employee-e2e-20261006\\profile\\MINDLE\\MEDIA_AI",
+  "git_identity_status": "UNAVAILABLE"
+}

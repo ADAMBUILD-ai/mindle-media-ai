@@ -1,0 +1,114 @@
+{
+  "baseline_commit": "17ff980cbb9995590fe48eb47ffac22ab3e194c2",
+  "verified_source_commit": "1493cb5e6886dc2b6c35252fff246ad6eb48ebe9",
+  "protected_files": [
+    {
+      "path": "model_scout/run_verified_adapter_runtime.py",
+      "sha": "0fb52cca75e8073713a86dd90a591b164a321516"
+    },
+    {
+      "path": "src/media_ai/intel_sisr_verified_adapter.py",
+      "sha": "4f0e3e484517a901d9bbab409db8d5a3991923e4"
+    },
+    {
+      "path": "src/media_ai/realesrgan_verified_adapter.py",
+      "sha": "e62aa5619363b0abda6b36f93311eb79e058bb80"
+    },
+    {
+      "path": "src/media_ai/verified_model_adapters.py",
+      "sha": "9a56bfa18cd997e53f19ec284dfc43579a07c945"
+    },
+    {
+      "path": "ui/approved_visual.css",
+      "sha": "3e1334c14b84fcbd5845a7a7a693c3f6bfe5a5da"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.ico",
+      "sha": "c32a55a14aebaf0433ad323436b41a96dd5e5798"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON.svg",
+      "sha": "07b3099c9b5d810fcf4e36dc781c5c2b77699a2a"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_1024.png",
+      "sha": "f87d5f7fe5ae2dc84bee5a93cb91b32d28a860f6"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_128.png",
+      "sha": "37b856983d6fb6a0254b206c5c3db372d3a0ce87"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_16.png",
+      "sha": "e6675d42e9907d2960fbca45d9f8449428b30e02"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_256.png",
+      "sha": "15ee94b9a04eb31296c25104044d94589246895a"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_32.png",
+      "sha": "4a8b6b1341c8fc42db40f7aea2afcf2aafeaa5b9"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_48.png",
+      "sha": "c386c1befdf602e8fd00bffefafb199187ab6de5"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_512.png",
+      "sha": "57fe32731aae984e78a2431b2708e1ce974c96ec"
+    },
+    {
+      "path": "ui/assets/brand/MINDLE_MEDIA_AI_APP_ICON_64.png",
+      "sha": "5485a7255f1eee6297cc9b2908b7189871cf8675"
+    },
+    {
+      "path": "ui/assets/demo/photo-house.png",
+      "sha": "3d7f06736440aa16a2de428c0c185414c5a5efa0"
+    },
+    {
+      "path": "ui/assets/demo/photo-landscape.png",
+      "sha": "360190c59d5fa9e01fd2e968e5993d061687b5d7"
+    },
+    {
+      "path": "ui/assets/demo/photo-preview.png",
+      "sha": "5b0bf85382c8915c6dbf2ee6d3ad19d1bb3d0b89"
+    },
+    {
+      "path": "ui/assets/demo/video-beach.png",
+      "sha": "55cb0fc77ba002c68475d14e4e709d21a5d3a349"
+    },
+    {
+      "path": "ui/assets/demo/video-city.png",
+      "sha": "c27708c04bebf1c4faf07954df5f2f17f4a9405b"
+    },
+    {
+      "path": "ui/assets/demo/video-interior.png",
+      "sha": "7287d0e7fb6ae2231f3dde6629bb0cd31db6fc56"
+    },
+    {
+      "path": "ui/assets/demo/video-preview.png",
+      "sha": "c6d3416d44c19938e77802c89fbe2b9117274ecc"
+    },
+    {
+      "path": "ui/assets/ssot/MINDLE_MEDIA_AI_APPROVED_FINAL_20260913.png",
+      "sha": "74e0ffb6b2ac6fc49305906048346ca82e6574b0"
+    },
+    {
+      "path": "ui/assets/ssot/README.md",
+      "sha": "2c0e95c3961b4d129b5ac613c4d38a1ad8f4c439"
+    },
+    {
+      "path": "ui/index.html",
+      "sha": "fc841a9f644102594d2f3a1c705cec329848668b"
+    },
+    {
+      "path": "ui/interaction.css",
+      "sha": "0bcf600af93f58fc0abbc4d74c449ba72cac2363"
+    }
+  ],
+  "removed_files": 0,
+  "main_merge_performed": false,
+  "force_push": false,
+  "pr23": "HOLD / DO NOT MERGE"
+}

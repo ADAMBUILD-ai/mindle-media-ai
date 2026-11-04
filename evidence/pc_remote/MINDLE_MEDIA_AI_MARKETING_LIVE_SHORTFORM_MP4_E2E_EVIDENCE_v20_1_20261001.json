@@ -1,0 +1,11 @@
+{
+  "epoch": "MEDIA-AI-20261001-V20.1",
+  "result": "LIVE_E2E_PASS_VOICE_AUDIO_DEPENDENCY",
+  "review_path": "docs/commander/MINDLE_MEDIA_AI_MARKETING_LIVE_SHORTFORM_MP4_E2E_REVIEW_v20.1_20261001.md",
+  "detail_path": "evidence/pc_remote/media-ai-marketing-live-shortform-v20_1-20261001/",
+  "mp4": {"file":"SHORTFORM_FINAL_15S_9X16.mp4","bytes":172725,"sha256":"641fc1323667168eb293cac8b3ec1a5d07c4d3a8d4818fa363dcb537e0faece4","duration_sec":15,"resolution":"1080x1920","video_codec":"h264","audio_codec":"aac"},
+  "marketing": {"branch":"feature/shortform-bridge-p0-20260926","commit":"3921a4ac7f0ed13edcb1dcb4556286cbaa83c57a","health":"READY","approved_assets":"6/6"},
+  "media": {"branch":"feature/ad-shortform-bridge-p0-20260926","gateway":"bridge_contract_ready","pytest":"52 passed","ui_tests":"2 passed"},
+  "voiceover": {"status":"dependency","generated":false,"bgm_present":true},
+  "token": {"ephemeral":true,"bits":256,"persisted":false,"logged":false}
+}

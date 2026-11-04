@@ -1,0 +1,27 @@
+{
+  "scope": "SYNTHETIC_HTTP_CONTRACT_NOT_AI_INFERENCE",
+  "full_product_pass": false,
+  "first_process": {
+    "pid": 3678,
+    "job_id": "d7c9d812-b1fd-418f-ac40-c73816e4f47b",
+    "project_id": "316cab75-feee-4f90-9377-caec0af5ef62"
+  },
+  "second_process": {
+    "pid": 3737,
+    "job_id": "d7c9d812-b1fd-418f-ac40-c73816e4f47b",
+    "project_id": "316cab75-feee-4f90-9377-caec0af5ef62",
+    "export": {
+      "file_name": "316cab75-feee-4f90-9377-caec0af5ef62_export.zip",
+      "path": "/tmp/pytest-of-root/pytest-5/test_real_process_restart_reop0/cold-product/projects/316cab75-feee-4f90-9377-caec0af5ef62_export.zip",
+      "bytes": 8230,
+      "sha256": "296689bb24736b316cb516e810142f33f0dbbe5e7e32cbb19896d85404eaa83a"
+    }
+  },
+  "output": {
+    "bytes": 6564,
+    "path": "/tmp/pytest-of-root/pytest-5/test_real_process_restart_reop0/adapter/dd24ebbf-da22-49a7-b9bd-ad11c002b7da.mp4",
+    "sha256": "31d3bdd36f17c6011c1671805d977597062ffb177a6997535bdcb3c2eba9db24"
+  },
+  "provider_post_count": 1,
+  "model_inference_verified": false
+}

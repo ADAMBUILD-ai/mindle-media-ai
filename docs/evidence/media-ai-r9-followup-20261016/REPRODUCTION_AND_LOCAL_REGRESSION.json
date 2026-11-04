@@ -1,0 +1,36 @@
+{
+  "baseline_source": "38bed49a46d46788f53f664a0f41c28b47466530",
+  "baseline_export_write_failure": "REPRODUCED_PREVIOUS_VALID_ZIP_REPLACED",
+  "baseline_lock_acquisition_timeout": "REPRODUCED_HANDLE_NOT_CLOSED_FAULT_INJECTION",
+  "local_regression": {
+    "passed": 15,
+    "model_inference": false
+  },
+  "ui_node_regression": {
+    "passed": 5
+  },
+  "photo_initial_comparison": {
+    "run": 38789620357,
+    "baseline_failures": 4,
+    "proposal_failures": 0,
+    "scope": "LINUX_OFFICIAL_CHROME_SOURCE_ONLY"
+  },
+  "shipped_css_comparison": {
+    "run": 38790237971,
+    "baseline_failures": 4,
+    "shipped_failures": 0,
+    "job_overall": "FAILED_MISSING_FFMPEG_IN_SEPARATE_PERSISTENCE_STEP"
+  },
+  "native_windows_lock": {
+    "run": 38790237971,
+    "job": 116612612822,
+    "passed": 3,
+    "scope": "NATIVE_SOURCE_HELPER_NOT_PACKAGED_EXE"
+  },
+  "owner_pc_pass": false,
+  "full_product_pass": false,
+  "r9_originals_independently_read": false,
+  "approved_visual_css_sha256": "712cfaa77fe0b3936c48a65a3d0a781397d9014afa0b5e6fffdb938f3d46a488",
+  "models_or_photo_adapters_modified": false,
+  "package_rebuilt": false
+}
