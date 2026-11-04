@@ -29,7 +29,7 @@ def change(root,name,key,value):
 
 def test_hash_pinned_visual_quality_source_contract_is_exact(tree):
     baseline = status.runtime_baseline(tree)
-    assert baseline['status'] == 'PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE'
+    assert baseline['status'] == 'PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE', baseline
     assert baseline['changed_paths'] == []
 
 def test_current_status_separates_preparation_production_and_pc_observation(tree):
