@@ -3,9 +3,9 @@
   "work_id": "MEDIA-AI-CORE-E2E-R2-20261025",
   "current_directive": "docs/commander/MINDLE_MEDIA_AI_R2_CURRENT_WORK_20261025.md",
   "runtime_baseline": {
-    "status": "PASS_EXACT_RUNTIME_UI_BYTES",
+    "status": "PASS_REVIEWED_SOURCE_CONTRACT_BYTES_NOT_RUNTIME_ACCEPTANCE",
     "source": "903f892a5dcd79166cc2ffbaa70ddaabf293aaaa",
-    "file_count": 59,
+    "file_count": 60,
     "changed_paths": [],
     "acceptance_tool_patch": {
       "path": "src/media_ai/source_e2e.py",
@@ -14,9 +14,15 @@
       "scope": "SOURCE_AND_WINDOWS_ACCEPTANCE_AND_MEDIA_PRODUCTION_PACKAGE_ONLY",
       "evidence": "docs/evidence/media-real-30s-general-r3-20261026/RESULT_KO.md"
     },
-    "workspace_ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495"
+    "workspace_ui_fingerprint": "9eb8adf8283951a244e7a66721ac12ce2c576b17865f8344b0e3b2a21b11a495",
+    "reviewed_source_patches": {
+      "src/media_ai/product_runtime.py": "d180570127b10360308ec14aec6d041af4a483e19de5780baf2136761005e472",
+      "src/media_ai/continuous_tracking.py": "b53b7b10ad2b403a9b0180e219846e9b9e1502f07c85e9380311b6675bea070d",
+      "src/media_ai/browser_preview.py": "f157e5486844a91a2c2c7d25ab1d130380f360c247df4d6029b08248ba829996",
+      "src/media_ai/video_input_quality.py": "c92e9d740aa714d59e6995fe29747628a71d91eef9005609bdba7c5f1f04a432"
+    }
   },
-  "general_status": "R2_GENERAL_PREPARATION_COMPLETE",
+  "general_status": "R2_GENERAL_SOURCE_CONTRACT_REVALIDATED_PC_ENGINE_PENDING",
   "pc_status": "R2_BLOCKED_ASSET_INTAKE",
   "production_eligibility": "BLOCKED_ASSET_INTAKE",
   "input_manifest": "docs/handoff/media-ai-core-e2e-r2-20261025/INPUT_MANIFEST.json",
